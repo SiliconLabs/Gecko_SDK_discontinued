@@ -1,9 +1,17 @@
 ================ Revision history ============================================
+4.1.0:
+ - EZRADIODRV now supports the plugin system layer. Transmit, receive, CRC
+   error, auto acknowledge, PN9, direct receive, direct transmit and unmodulated
+   carrier plugins are added.
+ - EZRADIODRV now supports Si4461 radio based parts.
+ - EZRADIODRV radio API layer is reworked.
+ - Updated EZRADIODRV documentation and examples.
+
 4.0.0:
  - In GPIOINTERRUPT, fixed race condition in GPIOINT_IRQDispatcher.
 
 3.20.13:
- - Removed obsolete include statement in ezradiodrv.
+ - Removed obsolete include statement in EZRADIODRV.
 
 3.20.12:
  - Changes and bugfixes in all drivers.

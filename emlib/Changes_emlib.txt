@@ -1,4 +1,9 @@
 ================ Revision history ============================================
+4.1.0:
+ - The typedef EMU_EM23Init_TypeDef which is a parameter to EMU_EM23Init()
+   has got a new definition.
+ - Initial support _SILICON_LABS_32B_PLATFORM_2 devices added
+
 4.0.0:
  - Use ARM CMSIS version 4.2.0.
  - New style version macros in em_version.h.

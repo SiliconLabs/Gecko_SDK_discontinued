@@ -81,457 +81,48 @@ Include dependency graph for ezradio_comm.c:</div>
 <div class="dynsection">
 <div class="center"><img src="ezradio__comm_8c__incl.png" border="0" usemap="#ezradiodrv_2common_2src_2ezradio__comm_8c_map" alt=""/></div>
 <map name="ezradiodrv_2common_2src_2ezradio__comm_8c_map" id="ezradiodrv_2common_2src_2ezradio__comm_8c">
-<area shape="rect" id="node9" href="gpiointerrupt_8h.html" title="GPIOINT API definition." alt="" coords="224,80,331,107"/><area shape="rect" id="node12" href="ezradio__hal_8h.html" title="This file contains EZRadio HAL." alt="" coords="355,80,453,107"/><area shape="rect" id="node16" href="ezradio__comm_8h.html" title="This file contains the EZRadio communication layer." alt="" coords="477,80,595,107"/></map>
+<area shape="rect" id="node9" href="gpiointerrupt_8h.html" title="GPIOINT API definition." alt="" coords="224,80,331,107"/><area shape="rect" id="node12" href="ezradio__hal_8h.html" title="This file contains EZRadio HAL." alt="" coords="355,80,453,107"/><area shape="rect" id="node14" href="ezradio__comm_8h.html" title="This file contains the EZRadio communication layer." alt="" coords="477,80,595,107"/></map>
 </div>
 
 <p><a href="ezradio__comm_8c_source.html">Go to the source code of this file.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">uint8_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="ezradio__comm_8c.html#a45656b02cb2cf46e29c8f509203e08b4">ezradio_comm_GetResp</a> (uint8_t byteCount, uint8_t *pData)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="ezradio__comm_8c.html#a038a27f7a6883bc6640fe1187a98eed9">ezradio_comm_SendCmd</a> (uint8_t byteCount, uint8_t *pData)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="ezradio__comm_8c.html#afc9ec03055010c4c5cbfed6d8637de71">ezradio_comm_ReadData</a> (uint8_t cmd, uint8_t pollCts, uint8_t byteCount, uint8_t *pData)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="ezradio__comm_8c.html#a6316768a0f0661af747171605e86f401">ezradio_comm_WriteData</a> (uint8_t cmd, uint8_t pollCts, uint8_t byteCount, uint8_t *pData)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">uint8_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="ezradio__comm_8c.html#ac2d23214b75072bedd593da2815858d3">ezradio_comm_PollCTS</a> (void)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="ezradio__comm_8c.html#aacdbf2395a94100a8d43fea622a9d522">ezradio_comm_ClearCTS</a> ()</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Clears the CTS state variable.  <a href="#aacdbf2395a94100a8d43fea622a9d522"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">uint8_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="ezradio__comm_8c.html#a67ac511d7cfce9c8cb00cd31113ff9a4">ezradio_comm_SendCmdGetResp</a> (uint8_t cmdByteCount, uint8_t *pCmdData, uint8_t respByteCount, uint8_t *pRespData)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">uint8_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__COMM__Layer.html#ga45656b02cb2cf46e29c8f509203e08b4">ezradio_comm_GetResp</a> (uint8_t byteCount, uint8_t *pData)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets a command response from the radio chip.  <a href="group__COMM__Layer.html#ga45656b02cb2cf46e29c8f509203e08b4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__COMM__Layer.html#ga038a27f7a6883bc6640fe1187a98eed9">ezradio_comm_SendCmd</a> (uint8_t byteCount, uint8_t *pData)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sends a command to the radio chip.  <a href="group__COMM__Layer.html#ga038a27f7a6883bc6640fe1187a98eed9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__COMM__Layer.html#gafc9ec03055010c4c5cbfed6d8637de71">ezradio_comm_ReadData</a> (uint8_t cmd, uint8_t pollCts, uint8_t byteCount, uint8_t *pData)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets a command response from the radio chip.  <a href="group__COMM__Layer.html#gafc9ec03055010c4c5cbfed6d8637de71"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__COMM__Layer.html#ga6316768a0f0661af747171605e86f401">ezradio_comm_WriteData</a> (uint8_t cmd, uint8_t pollCts, uint8_t byteCount, uint8_t *pData)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Gets a command response from the radio chip.  <a href="group__COMM__Layer.html#ga6316768a0f0661af747171605e86f401"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">uint8_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__COMM__Layer.html#gac2d23214b75072bedd593da2815858d3">ezradio_comm_PollCTS</a> (void)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Waits for CTS to be high.  <a href="group__COMM__Layer.html#gac2d23214b75072bedd593da2815858d3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__COMM__Layer.html#ga26dddf452edc3e30c29cdab7d9fef1a7">ezradio_comm_ClearCTS</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Clears the CTS state variable.  <a href="group__COMM__Layer.html#ga26dddf452edc3e30c29cdab7d9fef1a7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">uint8_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__COMM__Layer.html#ga67ac511d7cfce9c8cb00cd31113ff9a4">ezradio_comm_SendCmdGetResp</a> (uint8_t cmdByteCount, uint8_t *pCmdData, uint8_t respByteCount, uint8_t *pRespData)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sends a command to the radio chip and gets a response.  <a href="group__COMM__Layer.html#ga67ac511d7cfce9c8cb00cd31113ff9a4"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Variables</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">uint8_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="ezradio__comm_8c.html#a3be6bf56cfb1e196af67cb55fe708643">ezradio_comm_CtsWentHigh</a> = 0</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Can be used to prevent CTS check before any communication command.  <a href="#a3be6bf56cfb1e196af67cb55fe708643"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">uint8_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__COMM__Layer.html#ga3be6bf56cfb1e196af67cb55fe708643">ezradio_comm_CtsWentHigh</a> = 0</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Can be used to prevent CTS check before any communication command.  <a href="group__COMM__Layer.html#ga3be6bf56cfb1e196af67cb55fe708643"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>This file contains the EZRadio communication layer. </p>
-<dl class="version"><dt><b>Version:</b></dt><dd>4.0.0</dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>4.1.0</dd></dl>
 <h2><a class="anchor" id="License">
 License</a></h2>
 <p><b>(C) Copyright 2015 Silicon Labs, <a href="http://www.silabs.com">http://www.silabs.com</a></b></p>
 <p>Permission is granted to anyone to use this software for any purpose, including commercial applications, and to alter it and redistribute it freely, subject to the following restrictions:</p>
-<p>1. The origin of this software must not be misrepresented; you must not claim that you wrote the original software. 2. Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software. 3. This notice may not be removed or altered from any source distribution.</p>
+<p>1. The origin of this software must not be misrepresented; you must not claim that you wrote the original software.<br/>
+ 2. Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.<br/>
+ 3. This notice may not be removed or altered from any source distribution.</p>
 <p>DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Silicon Labs has no obligation to support this Software. Silicon Labs is providing the Software "AS IS", with no express or implied warranties of any kind, including, but not limited to, any implied warranties of merchantability or fitness for any particular purpose or warranties against infringement of any proprietary rights of a third party.</p>
 <p>Silicon Labs will not be liable for any consequential, incidental, or special damages, or any other relief, or for any claim by any third party, arising from your use of this Software. </p>
 
 <p>Definition in file <a class="el" href="ezradio__comm_8c_source.html">ezradio_comm.c</a>.</p>
-<hr/><h2>Function Documentation</h2>
-<a class="anchor" id="aacdbf2395a94100a8d43fea622a9d522"></a><!-- doxytag: member="ezradio_comm.c::ezradio_comm_ClearCTS" ref="aacdbf2395a94100a8d43fea622a9d522" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ezradio_comm_ClearCTS </td>
-          <td>(</td>
-          <td class="paramtype">void&nbsp;</td>
-          <td class="paramname"></td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Clears the CTS state variable. </p>
-
-<p>Definition at line <a class="el" href="ezradio__comm_8c_source.html#l00183">183</a> of file <a class="el" href="ezradio__comm_8c_source.html">ezradio_comm.c</a>.</p>
-
-<p>References <a class="el" href="ezradio__comm_8c_source.html#l00042">ezradio_comm_CtsWentHigh</a>.</p>
-
-<p>Referenced by <a class="el" href="ezradio__api__lib_8c_source.html#l00059">ezradio_reset()</a>.</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="ezradio__comm_8c_aacdbf2395a94100a8d43fea622a9d522_icgraph.png" border="0" usemap="#ezradio__comm_8c_aacdbf2395a94100a8d43fea622a9d522_icgraph_map" alt=""></div>
-<map name="ezradio__comm_8c_aacdbf2395a94100a8d43fea622a9d522_icgraph_map" id="ezradio__comm_8c_aacdbf2395a94100a8d43fea622a9d522_icgraph">
-<area shape="rect" id="node3" href="ezradio__api__lib_8c.html#ad7a48081868b00a765b488f47909396c" title="ezradio_reset" alt="" coords="222,5,322,32"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a45656b02cb2cf46e29c8f509203e08b4"></a><!-- doxytag: member="ezradio_comm.c::ezradio_comm_GetResp" ref="a45656b02cb2cf46e29c8f509203e08b4" args="(uint8_t byteCount, uint8_t *pData)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t ezradio_comm_GetResp </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&nbsp;</td>
-          <td class="paramname"> <em>byteCount</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t *&nbsp;</td>
-          <td class="paramname"> <em>pData</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Gets a command response from the radio chip</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>byteCount</em>&nbsp;</td><td>Number of bytes to get from the radio chip </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>pData</em>&nbsp;</td><td>Pointer to where to put the data</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>CTS value </dd></dl>
-
-<p>Definition at line <a class="el" href="ezradio__comm_8c_source.html#l00052">52</a> of file <a class="el" href="ezradio__comm_8c_source.html">ezradio_comm.c</a>.</p>
-
-<p>References <a class="el" href="ezradio__comm_8c_source.html#l00042">ezradio_comm_CtsWentHigh</a>, <a class="el" href="ezradio__comm_8h_source.html#l00041">EZRADIO_CTS_TIMEOUT</a>, <a class="el" href="ezradio__hal_8c_source.html#l00143">ezradio_hal_ClearNsel()</a>, <a class="el" href="ezradio__hal_8c_source.html#l00151">ezradio_hal_SetNsel()</a>, <a class="el" href="ezradio__hal_8c_source.html#l00185">ezradio_hal_SpiReadByte()</a>, <a class="el" href="ezradio__hal_8c_source.html#l00221">ezradio_hal_SpiReadData()</a>, and <a class="el" href="ezradio__hal_8c_source.html#l00171">ezradio_hal_SpiWriteByte()</a>.</p>
-
-<p>Referenced by <a class="el" href="ezradio__comm_8c_source.html#l00166">ezradio_comm_PollCTS()</a>, and <a class="el" href="ezradio__comm_8c_source.html#l00198">ezradio_comm_SendCmdGetResp()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="ezradio__comm_8c_a45656b02cb2cf46e29c8f509203e08b4_cgraph.png" border="0" usemap="#ezradio__comm_8c_a45656b02cb2cf46e29c8f509203e08b4_cgraph_map" alt=""></div>
-<map name="ezradio__comm_8c_a45656b02cb2cf46e29c8f509203e08b4_cgraph_map" id="ezradio__comm_8c_a45656b02cb2cf46e29c8f509203e08b4_cgraph">
-<area shape="rect" id="node3" href="ezradio__hal_8h.html#a09c7ef4b4780a8089505f54ef1f26fd5" title="ezradio_hal_ClearNsel" alt="" coords="223,5,372,32"/><area shape="rect" id="node5" href="ezradio__hal_8h.html#ae80c58c4f19b8e2b56c033c94bcb0f10" title="ezradio_hal_SetNsel" alt="" coords="228,56,367,83"/><area shape="rect" id="node7" href="ezradio__hal_8h.html#a23ca775cc658644f29ceacbcc471606a" title="ezradio_hal_SpiReadByte" alt="" coords="214,107,381,133"/><area shape="rect" id="node11" href="ezradio__hal_8h.html#a9c4c63403aaa9f22f75391e4c767d298" title="ezradio_hal_SpiReadData" alt="" coords="213,157,381,184"/><area shape="rect" id="node14" href="ezradio__hal_8h.html#a52e4a984325c6446291b13b1a63e3dff" title="ezradio_hal_SpiWriteByte" alt="" coords="213,208,381,235"/><area shape="rect" id="node9" href="group__SPIDRV.html#gace57de2fe713e7eed216c8f4d00e19b8" title="Start a SPI master blocking receive transfer." alt="" coords="433,132,567,159"/><area shape="rect" id="node16" href="group__SPIDRV.html#gaf53f10ccb89d8ae2c5c397db7cb87a9e" title="Start a SPI master blocking transmit transfer." alt="" coords="430,208,570,235"/></map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="ezradio__comm_8c_a45656b02cb2cf46e29c8f509203e08b4_icgraph.png" border="0" usemap="#ezradio__comm_8c_a45656b02cb2cf46e29c8f509203e08b4_icgraph_map" alt=""></div>
-<map name="ezradio__comm_8c_a45656b02cb2cf46e29c8f509203e08b4_icgraph_map" id="ezradio__comm_8c_a45656b02cb2cf46e29c8f509203e08b4_icgraph">
-<area shape="rect" id="node3" href="ezradio__comm_8c.html#ac2d23214b75072bedd593da2815858d3" title="ezradio_comm_PollCTS" alt="" coords="213,183,371,209"/><area shape="rect" id="node11" href="ezradio__comm_8c.html#a67ac511d7cfce9c8cb00cd31113ff9a4" title="ezradio_comm_SendCmdGetResp" alt="" coords="638,259,853,285"/><area shape="rect" id="node5" href="ezradio__comm_8c.html#afc9ec03055010c4c5cbfed6d8637de71" title="ezradio_comm_ReadData" alt="" coords="420,107,588,133"/><area shape="rect" id="node7" href="ezradio__comm_8c.html#a038a27f7a6883bc6640fe1187a98eed9" title="ezradio_comm_SendCmd" alt="" coords="420,157,588,184"/><area shape="rect" id="node27" href="ezradio__comm_8c.html#a6316768a0f0661af747171605e86f401" title="ezradio_comm_WriteData" alt="" coords="419,208,589,235"/><area shape="rect" id="node9" href="ezradio__api__lib_8c.html#a235ff2f0e61232797b5d3930b9319c5f" title="ezradio_change_state" alt="" coords="672,5,819,32"/><area shape="rect" id="node19" href="ezradio__api__lib_8c.html#aaedde5a0144af3d029672a3d6c27210b" title="ezradio_power_up" alt="" coords="681,56,809,83"/><area shape="rect" id="node21" href="ezradio__api__lib_8c.html#a5f37f9c7237c880623753bbd9c772876" title="ezradio_set_property" alt="" coords="674,107,817,133"/><area shape="rect" id="node23" href="ezradio__api__lib_8c.html#a6bebb6e764046173bd4b58db3d5f30c2" title="ezradio_start_rx" alt="" coords="688,157,803,184"/><area shape="rect" id="node25" href="ezradio__api__lib_8c.html#a95ec30d47eea9860cccae2c5bb3fc878" title="ezradio_start_tx" alt="" coords="688,208,803,235"/><area shape="rect" id="node13" href="ezradio__api__lib_8c.html#a97e40cddb0d6defc5099ac8f5e6e6865" title="ezradio_get_int_status" alt="" coords="902,208,1053,235"/><area shape="rect" id="node15" href="ezradio__api__lib_8c.html#a1b0e62289a84c706cad4213dc93c64ef" title="ezradio_gpio_pin_cfg" alt="" coords="906,259,1049,285"/><area shape="rect" id="node17" href="ezradio__api__lib_8c.html#a9ff16a48a01b3b2a9384da0c5ef44f21" title="ezradio_part_info" alt="" coords="916,309,1039,336"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="ac2d23214b75072bedd593da2815858d3"></a><!-- doxytag: member="ezradio_comm.c::ezradio_comm_PollCTS" ref="ac2d23214b75072bedd593da2815858d3" args="(void)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t ezradio_comm_PollCTS </td>
-          <td>(</td>
-          <td class="paramtype">void&nbsp;</td>
-          <td class="paramname"></td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Waits for CTS to be high</p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>CTS value </dd></dl>
-
-<p>Definition at line <a class="el" href="ezradio__comm_8c_source.html#l00166">166</a> of file <a class="el" href="ezradio__comm_8c_source.html">ezradio_comm.c</a>.</p>
-
-<p>References <a class="el" href="ezradio__comm_8c_source.html#l00042">ezradio_comm_CtsWentHigh</a>, and <a class="el" href="ezradio__comm_8c_source.html#l00052">ezradio_comm_GetResp()</a>.</p>
-
-<p>Referenced by <a class="el" href="ezradio__comm_8c_source.html#l00120">ezradio_comm_ReadData()</a>, <a class="el" href="ezradio__comm_8c_source.html#l00100">ezradio_comm_SendCmd()</a>, and <a class="el" href="ezradio__comm_8c_source.html#l00145">ezradio_comm_WriteData()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="ezradio__comm_8c_ac2d23214b75072bedd593da2815858d3_cgraph.png" border="0" usemap="#ezradio__comm_8c_ac2d23214b75072bedd593da2815858d3_cgraph_map" alt=""></div>
-<map name="ezradio__comm_8c_ac2d23214b75072bedd593da2815858d3_cgraph_map" id="ezradio__comm_8c_ac2d23214b75072bedd593da2815858d3_cgraph">
-<area shape="rect" id="node3" href="ezradio__comm_8h.html#a45656b02cb2cf46e29c8f509203e08b4" title="ezradio_comm_GetResp" alt="" coords="211,107,371,133"/><area shape="rect" id="node5" href="ezradio__hal_8h.html#a09c7ef4b4780a8089505f54ef1f26fd5" title="ezradio_hal_ClearNsel" alt="" coords="428,5,577,32"/><area shape="rect" id="node7" href="ezradio__hal_8h.html#ae80c58c4f19b8e2b56c033c94bcb0f10" title="ezradio_hal_SetNsel" alt="" coords="433,56,572,83"/><area shape="rect" id="node9" href="ezradio__hal_8h.html#a23ca775cc658644f29ceacbcc471606a" title="ezradio_hal_SpiReadByte" alt="" coords="419,107,586,133"/><area shape="rect" id="node13" href="ezradio__hal_8h.html#a9c4c63403aaa9f22f75391e4c767d298" title="ezradio_hal_SpiReadData" alt="" coords="419,157,587,184"/><area shape="rect" id="node16" href="ezradio__hal_8h.html#a52e4a984325c6446291b13b1a63e3dff" title="ezradio_hal_SpiWriteByte" alt="" coords="419,208,587,235"/><area shape="rect" id="node11" href="group__SPIDRV.html#gace57de2fe713e7eed216c8f4d00e19b8" title="Start a SPI master blocking receive transfer." alt="" coords="639,132,772,159"/><area shape="rect" id="node18" href="group__SPIDRV.html#gaf53f10ccb89d8ae2c5c397db7cb87a9e" title="Start a SPI master blocking transmit transfer." alt="" coords="635,208,775,235"/></map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="ezradio__comm_8c_ac2d23214b75072bedd593da2815858d3_icgraph.png" border="0" usemap="#ezradio__comm_8c_ac2d23214b75072bedd593da2815858d3_icgraph_map" alt=""></div>
-<map name="ezradio__comm_8c_ac2d23214b75072bedd593da2815858d3_icgraph_map" id="ezradio__comm_8c_ac2d23214b75072bedd593da2815858d3_icgraph">
-<area shape="rect" id="node3" href="ezradio__comm_8c.html#afc9ec03055010c4c5cbfed6d8637de71" title="ezradio_comm_ReadData" alt="" coords="212,81,380,108"/><area shape="rect" id="node5" href="ezradio__comm_8c.html#a038a27f7a6883bc6640fe1187a98eed9" title="ezradio_comm_SendCmd" alt="" coords="212,132,380,159"/><area shape="rect" id="node25" href="ezradio__comm_8c.html#a6316768a0f0661af747171605e86f401" title="ezradio_comm_WriteData" alt="" coords="211,183,381,209"/><area shape="rect" id="node7" href="ezradio__api__lib_8c.html#a235ff2f0e61232797b5d3930b9319c5f" title="ezradio_change_state" alt="" coords="464,5,611,32"/><area shape="rect" id="node9" href="ezradio__comm_8c.html#a67ac511d7cfce9c8cb00cd31113ff9a4" title="ezradio_comm_SendCmdGetResp" alt="" coords="430,56,645,83"/><area shape="rect" id="node17" href="ezradio__api__lib_8c.html#aaedde5a0144af3d029672a3d6c27210b" title="ezradio_power_up" alt="" coords="473,107,601,133"/><area shape="rect" id="node19" href="ezradio__api__lib_8c.html#a5f37f9c7237c880623753bbd9c772876" title="ezradio_set_property" alt="" coords="466,157,609,184"/><area shape="rect" id="node21" href="ezradio__api__lib_8c.html#a6bebb6e764046173bd4b58db3d5f30c2" title="ezradio_start_rx" alt="" coords="480,208,595,235"/><area shape="rect" id="node23" href="ezradio__api__lib_8c.html#a95ec30d47eea9860cccae2c5bb3fc878" title="ezradio_start_tx" alt="" coords="480,259,595,285"/><area shape="rect" id="node11" href="ezradio__api__lib_8c.html#a97e40cddb0d6defc5099ac8f5e6e6865" title="ezradio_get_int_status" alt="" coords="694,5,845,32"/><area shape="rect" id="node13" href="ezradio__api__lib_8c.html#a1b0e62289a84c706cad4213dc93c64ef" title="ezradio_gpio_pin_cfg" alt="" coords="698,56,841,83"/><area shape="rect" id="node15" href="ezradio__api__lib_8c.html#a9ff16a48a01b3b2a9384da0c5ef44f21" title="ezradio_part_info" alt="" coords="708,107,831,133"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="afc9ec03055010c4c5cbfed6d8637de71"></a><!-- doxytag: member="ezradio_comm.c::ezradio_comm_ReadData" ref="afc9ec03055010c4c5cbfed6d8637de71" args="(uint8_t cmd, uint8_t pollCts, uint8_t byteCount, uint8_t *pData)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ezradio_comm_ReadData </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&nbsp;</td>
-          <td class="paramname"> <em>cmd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&nbsp;</td>
-          <td class="paramname"> <em>pollCts</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&nbsp;</td>
-          <td class="paramname"> <em>byteCount</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t *&nbsp;</td>
-          <td class="paramname"> <em>pData</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Gets a command response from the radio chip</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>cmd</em>&nbsp;</td><td>Command ID </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>pollCts</em>&nbsp;</td><td>Set to poll CTS </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>byteCount</em>&nbsp;</td><td>Number of bytes to get from the radio chip. </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>pData</em>&nbsp;</td><td>Pointer to where to put the data. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="ezradio__comm_8c_source.html#l00120">120</a> of file <a class="el" href="ezradio__comm_8c_source.html">ezradio_comm.c</a>.</p>
-
-<p>References <a class="el" href="ezradio__comm_8c_source.html#l00042">ezradio_comm_CtsWentHigh</a>, <a class="el" href="ezradio__comm_8c_source.html#l00166">ezradio_comm_PollCTS()</a>, <a class="el" href="ezradio__hal_8c_source.html#l00143">ezradio_hal_ClearNsel()</a>, <a class="el" href="ezradio__hal_8c_source.html#l00151">ezradio_hal_SetNsel()</a>, <a class="el" href="ezradio__hal_8c_source.html#l00221">ezradio_hal_SpiReadData()</a>, and <a class="el" href="ezradio__hal_8c_source.html#l00171">ezradio_hal_SpiWriteByte()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="ezradio__comm_8c_afc9ec03055010c4c5cbfed6d8637de71_cgraph.png" border="0" usemap="#ezradio__comm_8c_afc9ec03055010c4c5cbfed6d8637de71_cgraph_map" alt=""></div>
-<map name="ezradio__comm_8c_afc9ec03055010c4c5cbfed6d8637de71_cgraph_map" id="ezradio__comm_8c_afc9ec03055010c4c5cbfed6d8637de71_cgraph">
-<area shape="rect" id="node3" href="ezradio__comm_8h.html#ac2d23214b75072bedd593da2815858d3" title="ezradio_comm_PollCTS" alt="" coords="221,107,379,133"/><area shape="rect" id="node7" href="ezradio__hal_8h.html#a09c7ef4b4780a8089505f54ef1f26fd5" title="ezradio_hal_ClearNsel" alt="" coords="644,5,793,32"/><area shape="rect" id="node9" href="ezradio__hal_8h.html#ae80c58c4f19b8e2b56c033c94bcb0f10" title="ezradio_hal_SetNsel" alt="" coords="649,56,788,83"/><area shape="rect" id="node15" href="ezradio__hal_8h.html#a9c4c63403aaa9f22f75391e4c767d298" title="ezradio_hal_SpiReadData" alt="" coords="635,157,803,184"/><area shape="rect" id="node18" href="ezradio__hal_8h.html#a52e4a984325c6446291b13b1a63e3dff" title="ezradio_hal_SpiWriteByte" alt="" coords="635,208,803,235"/><area shape="rect" id="node5" href="ezradio__comm_8h.html#a45656b02cb2cf46e29c8f509203e08b4" title="ezradio_comm_GetResp" alt="" coords="427,107,587,133"/><area shape="rect" id="node11" href="ezradio__hal_8h.html#a23ca775cc658644f29ceacbcc471606a" title="ezradio_hal_SpiReadByte" alt="" coords="635,107,802,133"/><area shape="rect" id="node13" href="group__SPIDRV.html#gace57de2fe713e7eed216c8f4d00e19b8" title="Start a SPI master blocking receive transfer." alt="" coords="855,157,988,184"/><area shape="rect" id="node20" href="group__SPIDRV.html#gaf53f10ccb89d8ae2c5c397db7cb87a9e" title="Start a SPI master blocking transmit transfer." alt="" coords="851,208,991,235"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a038a27f7a6883bc6640fe1187a98eed9"></a><!-- doxytag: member="ezradio_comm.c::ezradio_comm_SendCmd" ref="a038a27f7a6883bc6640fe1187a98eed9" args="(uint8_t byteCount, uint8_t *pData)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ezradio_comm_SendCmd </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&nbsp;</td>
-          <td class="paramname"> <em>byteCount</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t *&nbsp;</td>
-          <td class="paramname"> <em>pData</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Sends a command to the radio chip</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>byteCount</em>&nbsp;</td><td>Number of bytes in the command to send to the radio device </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>pData</em>&nbsp;</td><td>Pointer to the command to send. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="ezradio__comm_8c_source.html#l00100">100</a> of file <a class="el" href="ezradio__comm_8c_source.html">ezradio_comm.c</a>.</p>
-
-<p>References <a class="el" href="ezradio__comm_8c_source.html#l00042">ezradio_comm_CtsWentHigh</a>, <a class="el" href="ezradio__comm_8c_source.html#l00166">ezradio_comm_PollCTS()</a>, <a class="el" href="ezradio__hal_8c_source.html#l00143">ezradio_hal_ClearNsel()</a>, <a class="el" href="ezradio__hal_8c_source.html#l00151">ezradio_hal_SetNsel()</a>, and <a class="el" href="ezradio__hal_8c_source.html#l00201">ezradio_hal_SpiWriteData()</a>.</p>
-
-<p>Referenced by <a class="el" href="ezradio__api__lib_8c_source.html#l00266">ezradio_change_state()</a>, <a class="el" href="ezradio__comm_8c_source.html#l00198">ezradio_comm_SendCmdGetResp()</a>, <a class="el" href="ezradio__api__lib_8c_source.html#l00081">ezradio_power_up()</a>, <a class="el" href="ezradio__api__lib_8c_source.html#l00239">ezradio_set_property()</a>, <a class="el" href="ezradio__api__lib_8c_source.html#l00148">ezradio_start_rx()</a>, and <a class="el" href="ezradio__api__lib_8c_source.html#l00122">ezradio_start_tx()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="ezradio__comm_8c_a038a27f7a6883bc6640fe1187a98eed9_cgraph.png" border="0" usemap="#ezradio__comm_8c_a038a27f7a6883bc6640fe1187a98eed9_cgraph_map" alt=""></div>
-<map name="ezradio__comm_8c_a038a27f7a6883bc6640fe1187a98eed9_cgraph_map" id="ezradio__comm_8c_a038a27f7a6883bc6640fe1187a98eed9_cgraph">
-<area shape="rect" id="node3" href="ezradio__comm_8h.html#ac2d23214b75072bedd593da2815858d3" title="ezradio_comm_PollCTS" alt="" coords="221,111,379,137"/><area shape="rect" id="node7" href="ezradio__hal_8h.html#a09c7ef4b4780a8089505f54ef1f26fd5" title="ezradio_hal_ClearNsel" alt="" coords="655,5,804,32"/><area shape="rect" id="node9" href="ezradio__hal_8h.html#ae80c58c4f19b8e2b56c033c94bcb0f10" title="ezradio_hal_SetNsel" alt="" coords="660,208,799,235"/><area shape="rect" id="node24" href="ezradio__hal_8h.html#a4121044d05b7372b071773d4582204f5" title="ezradio_hal_SpiWriteData" alt="" coords="427,256,597,283"/><area shape="rect" id="node5" href="ezradio__comm_8h.html#a45656b02cb2cf46e29c8f509203e08b4" title="ezradio_comm_GetResp" alt="" coords="432,109,592,136"/><area shape="rect" id="node11" href="ezradio__hal_8h.html#a23ca775cc658644f29ceacbcc471606a" title="ezradio_hal_SpiReadByte" alt="" coords="646,56,813,83"/><area shape="rect" id="node15" href="ezradio__hal_8h.html#a9c4c63403aaa9f22f75391e4c767d298" title="ezradio_hal_SpiReadData" alt="" coords="645,107,813,133"/><area shape="rect" id="node18" href="ezradio__hal_8h.html#a52e4a984325c6446291b13b1a63e3dff" title="ezradio_hal_SpiWriteByte" alt="" coords="645,157,813,184"/><area shape="rect" id="node13" href="group__SPIDRV.html#gace57de2fe713e7eed216c8f4d00e19b8" title="Start a SPI master blocking receive transfer." alt="" coords="865,81,999,108"/><area shape="rect" id="node20" href="group__SPIDRV.html#gaf53f10ccb89d8ae2c5c397db7cb87a9e" title="Start a SPI master blocking transmit transfer." alt="" coords="862,183,1002,209"/></map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="ezradio__comm_8c_a038a27f7a6883bc6640fe1187a98eed9_icgraph.png" border="0" usemap="#ezradio__comm_8c_a038a27f7a6883bc6640fe1187a98eed9_icgraph_map" alt=""></div>
-<map name="ezradio__comm_8c_a038a27f7a6883bc6640fe1187a98eed9_icgraph_map" id="ezradio__comm_8c_a038a27f7a6883bc6640fe1187a98eed9_icgraph">
-<area shape="rect" id="node3" href="ezradio__api__lib_8c.html#a235ff2f0e61232797b5d3930b9319c5f" title="ezradio_change_state" alt="" coords="256,5,403,32"/><area shape="rect" id="node5" href="ezradio__comm_8c.html#a67ac511d7cfce9c8cb00cd31113ff9a4" title="ezradio_comm_SendCmdGetResp" alt="" coords="222,56,437,83"/><area shape="rect" id="node13" href="ezradio__api__lib_8c.html#aaedde5a0144af3d029672a3d6c27210b" title="ezradio_power_up" alt="" coords="265,107,393,133"/><area shape="rect" id="node15" href="ezradio__api__lib_8c.html#a5f37f9c7237c880623753bbd9c772876" title="ezradio_set_property" alt="" coords="258,157,401,184"/><area shape="rect" id="node17" href="ezradio__api__lib_8c.html#a6bebb6e764046173bd4b58db3d5f30c2" title="ezradio_start_rx" alt="" coords="272,208,387,235"/><area shape="rect" id="node19" href="ezradio__api__lib_8c.html#a95ec30d47eea9860cccae2c5bb3fc878" title="ezradio_start_tx" alt="" coords="272,259,387,285"/><area shape="rect" id="node7" href="ezradio__api__lib_8c.html#a97e40cddb0d6defc5099ac8f5e6e6865" title="ezradio_get_int_status" alt="" coords="486,5,637,32"/><area shape="rect" id="node9" href="ezradio__api__lib_8c.html#a1b0e62289a84c706cad4213dc93c64ef" title="ezradio_gpio_pin_cfg" alt="" coords="490,56,633,83"/><area shape="rect" id="node11" href="ezradio__api__lib_8c.html#a9ff16a48a01b3b2a9384da0c5ef44f21" title="ezradio_part_info" alt="" coords="500,107,623,133"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a67ac511d7cfce9c8cb00cd31113ff9a4"></a><!-- doxytag: member="ezradio_comm.c::ezradio_comm_SendCmdGetResp" ref="a67ac511d7cfce9c8cb00cd31113ff9a4" args="(uint8_t cmdByteCount, uint8_t *pCmdData, uint8_t respByteCount, uint8_t *pRespData)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t ezradio_comm_SendCmdGetResp </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&nbsp;</td>
-          <td class="paramname"> <em>cmdByteCount</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t *&nbsp;</td>
-          <td class="paramname"> <em>pCmdData</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&nbsp;</td>
-          <td class="paramname"> <em>respByteCount</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t *&nbsp;</td>
-          <td class="paramname"> <em>pRespData</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Sends a command to the radio chip and gets a response</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>cmdByteCount</em>&nbsp;</td><td>Number of bytes in the command to send to the radio device </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>pCmdData</em>&nbsp;</td><td>Pointer to the command data </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>respByteCount</em>&nbsp;</td><td>Number of bytes in the response to fetch </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>pRespData</em>&nbsp;</td><td>Pointer to where to put the response data</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>CTS value </dd></dl>
-
-<p>Definition at line <a class="el" href="ezradio__comm_8c_source.html#l00198">198</a> of file <a class="el" href="ezradio__comm_8c_source.html">ezradio_comm.c</a>.</p>
-
-<p>References <a class="el" href="ezradio__comm_8c_source.html#l00052">ezradio_comm_GetResp()</a>, and <a class="el" href="ezradio__comm_8c_source.html#l00100">ezradio_comm_SendCmd()</a>.</p>
-
-<p>Referenced by <a class="el" href="ezradio__api__lib_8c_source.html#l00169">ezradio_get_int_status()</a>, <a class="el" href="ezradio__api__lib_8c_source.html#l00203">ezradio_gpio_pin_cfg()</a>, and <a class="el" href="ezradio__api__lib_8c_source.html#l00097">ezradio_part_info()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="ezradio__comm_8c_a67ac511d7cfce9c8cb00cd31113ff9a4_cgraph.png" border="0" usemap="#ezradio__comm_8c_a67ac511d7cfce9c8cb00cd31113ff9a4_cgraph_map" alt=""></div>
-<map name="ezradio__comm_8c_a67ac511d7cfce9c8cb00cd31113ff9a4_cgraph_map" id="ezradio__comm_8c_a67ac511d7cfce9c8cb00cd31113ff9a4_cgraph">
-<area shape="rect" id="node3" href="ezradio__comm_8h.html#a45656b02cb2cf46e29c8f509203e08b4" title="ezradio_comm_GetResp" alt="" coords="696,120,856,147"/><area shape="rect" id="node20" href="ezradio__comm_8h.html#a038a27f7a6883bc6640fe1187a98eed9" title="ezradio_comm_SendCmd" alt="" coords="269,120,437,147"/><area shape="rect" id="node5" href="ezradio__hal_8h.html#a09c7ef4b4780a8089505f54ef1f26fd5" title="ezradio_hal_ClearNsel" alt="" coords="919,208,1068,235"/><area shape="rect" id="node7" href="ezradio__hal_8h.html#ae80c58c4f19b8e2b56c033c94bcb0f10" title="ezradio_hal_SetNsel" alt="" coords="924,5,1063,32"/><area shape="rect" id="node9" href="ezradio__hal_8h.html#a23ca775cc658644f29ceacbcc471606a" title="ezradio_hal_SpiReadByte" alt="" coords="910,107,1077,133"/><area shape="rect" id="node13" href="ezradio__hal_8h.html#a9c4c63403aaa9f22f75391e4c767d298" title="ezradio_hal_SpiReadData" alt="" coords="909,56,1077,83"/><area shape="rect" id="node16" href="ezradio__hal_8h.html#a52e4a984325c6446291b13b1a63e3dff" title="ezradio_hal_SpiWriteByte" alt="" coords="909,157,1077,184"/><area shape="rect" id="node11" href="group__SPIDRV.html#gace57de2fe713e7eed216c8f4d00e19b8" title="Start a SPI master blocking receive transfer." alt="" coords="1129,81,1263,108"/><area shape="rect" id="node18" href="group__SPIDRV.html#gaf53f10ccb89d8ae2c5c397db7cb87a9e" title="Start a SPI master blocking transmit transfer." alt="" coords="1126,208,1266,235"/><area shape="rect" id="node22" href="ezradio__comm_8h.html#ac2d23214b75072bedd593da2815858d3" title="ezradio_comm_PollCTS" alt="" coords="485,120,643,147"/><area shape="rect" id="node27" href="ezradio__hal_8h.html#a4121044d05b7372b071773d4582204f5" title="ezradio_hal_SpiWriteData" alt="" coords="691,253,861,280"/></map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="ezradio__comm_8c_a67ac511d7cfce9c8cb00cd31113ff9a4_icgraph.png" border="0" usemap="#ezradio__comm_8c_a67ac511d7cfce9c8cb00cd31113ff9a4_icgraph_map" alt=""></div>
-<map name="ezradio__comm_8c_a67ac511d7cfce9c8cb00cd31113ff9a4_icgraph_map" id="ezradio__comm_8c_a67ac511d7cfce9c8cb00cd31113ff9a4_icgraph">
-<area shape="rect" id="node3" href="ezradio__api__lib_8c.html#a97e40cddb0d6defc5099ac8f5e6e6865" title="ezradio_get_int_status" alt="" coords="270,5,421,32"/><area shape="rect" id="node5" href="ezradio__api__lib_8c.html#a1b0e62289a84c706cad4213dc93c64ef" title="ezradio_gpio_pin_cfg" alt="" coords="274,56,417,83"/><area shape="rect" id="node7" href="ezradio__api__lib_8c.html#a9ff16a48a01b3b2a9384da0c5ef44f21" title="ezradio_part_info" alt="" coords="284,107,407,133"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a6316768a0f0661af747171605e86f401"></a><!-- doxytag: member="ezradio_comm.c::ezradio_comm_WriteData" ref="a6316768a0f0661af747171605e86f401" args="(uint8_t cmd, uint8_t pollCts, uint8_t byteCount, uint8_t *pData)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ezradio_comm_WriteData </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&nbsp;</td>
-          <td class="paramname"> <em>cmd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&nbsp;</td>
-          <td class="paramname"> <em>pollCts</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&nbsp;</td>
-          <td class="paramname"> <em>byteCount</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t *&nbsp;</td>
-          <td class="paramname"> <em>pData</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Gets a command response from the radio chip</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>cmd</em>&nbsp;</td><td>Command ID </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>pollCts</em>&nbsp;</td><td>Set to poll CTS </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>byteCount</em>&nbsp;</td><td>Number of bytes to get from the radio chip </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>pData</em>&nbsp;</td><td>Pointer to where to put the data </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="ezradio__comm_8c_source.html#l00145">145</a> of file <a class="el" href="ezradio__comm_8c_source.html">ezradio_comm.c</a>.</p>
-
-<p>References <a class="el" href="ezradio__comm_8c_source.html#l00042">ezradio_comm_CtsWentHigh</a>, <a class="el" href="ezradio__comm_8c_source.html#l00166">ezradio_comm_PollCTS()</a>, <a class="el" href="ezradio__hal_8c_source.html#l00143">ezradio_hal_ClearNsel()</a>, <a class="el" href="ezradio__hal_8c_source.html#l00151">ezradio_hal_SetNsel()</a>, <a class="el" href="ezradio__hal_8c_source.html#l00171">ezradio_hal_SpiWriteByte()</a>, and <a class="el" href="ezradio__hal_8c_source.html#l00201">ezradio_hal_SpiWriteData()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="ezradio__comm_8c_a6316768a0f0661af747171605e86f401_cgraph.png" border="0" usemap="#ezradio__comm_8c_a6316768a0f0661af747171605e86f401_cgraph_map" alt=""></div>
-<map name="ezradio__comm_8c_a6316768a0f0661af747171605e86f401_cgraph_map" id="ezradio__comm_8c_a6316768a0f0661af747171605e86f401_cgraph">
-<area shape="rect" id="node3" href="ezradio__comm_8h.html#ac2d23214b75072bedd593da2815858d3" title="ezradio_comm_PollCTS" alt="" coords="224,107,381,133"/><area shape="rect" id="node7" href="ezradio__hal_8h.html#a09c7ef4b4780a8089505f54ef1f26fd5" title="ezradio_hal_ClearNsel" alt="" coords="657,5,807,32"/><area shape="rect" id="node9" href="ezradio__hal_8h.html#ae80c58c4f19b8e2b56c033c94bcb0f10" title="ezradio_hal_SetNsel" alt="" coords="663,56,801,83"/><area shape="rect" id="node18" href="ezradio__hal_8h.html#a52e4a984325c6446291b13b1a63e3dff" title="ezradio_hal_SpiWriteByte" alt="" coords="648,208,816,235"/><area shape="rect" id="node25" href="ezradio__hal_8h.html#a4121044d05b7372b071773d4582204f5" title="ezradio_hal_SpiWriteData" alt="" coords="429,252,600,279"/><area shape="rect" id="node5" href="ezradio__comm_8h.html#a45656b02cb2cf46e29c8f509203e08b4" title="ezradio_comm_GetResp" alt="" coords="435,107,595,133"/><area shape="rect" id="node11" href="ezradio__hal_8h.html#a23ca775cc658644f29ceacbcc471606a" title="ezradio_hal_SpiReadByte" alt="" coords="649,107,815,133"/><area shape="rect" id="node15" href="ezradio__hal_8h.html#a9c4c63403aaa9f22f75391e4c767d298" title="ezradio_hal_SpiReadData" alt="" coords="648,157,816,184"/><area shape="rect" id="node13" href="group__SPIDRV.html#gace57de2fe713e7eed216c8f4d00e19b8" title="Start a SPI master blocking receive transfer." alt="" coords="868,145,1001,172"/><area shape="rect" id="node20" href="group__SPIDRV.html#gaf53f10ccb89d8ae2c5c397db7cb87a9e" title="Start a SPI master blocking transmit transfer." alt="" coords="865,221,1005,248"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<hr/><h2>Variable Documentation</h2>
-<a class="anchor" id="a3be6bf56cfb1e196af67cb55fe708643"></a><!-- doxytag: member="ezradio_comm.c::ezradio_comm_CtsWentHigh" ref="a3be6bf56cfb1e196af67cb55fe708643" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t <a class="el" href="ezradio__comm_8c.html#a3be6bf56cfb1e196af67cb55fe708643">ezradio_comm_CtsWentHigh</a> = 0</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Can be used to prevent CTS check before any communication command. </p>
-
-<p>Definition at line <a class="el" href="ezradio__comm_8c_source.html#l00042">42</a> of file <a class="el" href="ezradio__comm_8c_source.html">ezradio_comm.c</a>.</p>
-
-<p>Referenced by <a class="el" href="ezradio__comm_8c_source.html#l00183">ezradio_comm_ClearCTS()</a>, <a class="el" href="ezradio__comm_8c_source.html#l00052">ezradio_comm_GetResp()</a>, <a class="el" href="ezradio__comm_8c_source.html#l00166">ezradio_comm_PollCTS()</a>, <a class="el" href="ezradio__comm_8c_source.html#l00120">ezradio_comm_ReadData()</a>, <a class="el" href="ezradio__comm_8c_source.html#l00100">ezradio_comm_SendCmd()</a>, and <a class="el" href="ezradio__comm_8c_source.html#l00145">ezradio_comm_WriteData()</a>.</p>
-
-</div>
-</div>
 </div>
 <div id="footer">
 <hr size="1"><address style="text-align: right;"><small>
-Generated on Thu May 28 13:12:42 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
+Generated on Mon Sep 7 08:55:15 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a><small> 1.6.3 </small></address></div>
 </body>

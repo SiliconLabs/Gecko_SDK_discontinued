@@ -1,4 +1,7 @@
 ================ Revision history ============================================
+4.1.0:
+- No changes.
+
 4.0.0:
 - Increased robustness in MSC host driver.
 - Added driver for the ksz8851snl ethernet controller.

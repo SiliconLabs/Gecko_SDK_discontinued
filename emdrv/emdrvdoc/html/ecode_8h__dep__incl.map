@@ -1,19 +1,30 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$nvm_8h.html" title="NVM API definition." alt="" coords="196,155,303,181"/>
+<area shape="rect" id="node3" href="$nvm_8h.html" title="NVM API definition." alt="" coords="185,155,292,181"/>
 <area shape="rect" id="node6" href="$nvm__hal_8h.html" title="Non&#45;Volatile Memory HAL." alt="" coords="5,229,136,256"/>
 <area shape="rect" id="node13" href="$nvm__config_8c.html" title="NVM config implementation." alt="" coords="341,229,477,256"/>
-<area shape="rect" id="node17" href="$rtcdriver_8h.html" title="RTCDRV timer API definition." alt="" coords="877,80,1016,107"/>
-<area shape="rect" id="node21" href="$spidrv_8h.html" title="SPIDRV API definition." alt="" coords="1041,155,1167,181"/>
-<area shape="rect" id="node26" href="$uartdrv_8h.html" title="UARTDRV API definition." alt="" coords="1413,155,1555,181"/>
-<area shape="rect" id="node30" href="$ustimer_8h.html" title="Microsecond delay function API definition." alt="" coords="537,80,681,107"/>
-<area shape="rect" id="node36" href="$dmadrv_8h.html" title="DMADRV API definition." alt="" coords="1133,80,1277,107"/>
-<area shape="rect" id="node44" href="$nvm__config_8h.html" title="NVM config definition." alt="" coords="159,80,296,107"/>
-<area shape="rect" id="node8" href="$nvm__hal_8c.html" title="Non&#45;Volatile Memory HAL for EFM32 flash." alt="" coords="56,304,187,331"/>
-<area shape="rect" id="node10" href="$nvm_8c.html" title="NVM API implementation." alt="" coords="211,229,317,256"/>
-<area shape="rect" id="node19" href="$rtcdriver_8c.html" title="RTCDRV timer API implementation." alt="" coords="877,155,1016,181"/>
-<area shape="rect" id="node23" href="$spidrv_8c.html" title="SPIDRV API implementation." alt="" coords="1091,229,1217,256"/>
-<area shape="rect" id="node28" href="$uartdrv_8c.html" title="UARTDRV API implementation." alt="" coords="1413,229,1555,256"/>
-<area shape="rect" id="node32" href="$ustimer_8c.html" title="Microsecond delay functions." alt="" coords="423,155,568,181"/>
-<area shape="rect" id="node34" href="$ezradio__api__lib_8c.html" title="This file contains the common API library of the EZRadio and EZRadioPRO families..." alt="" coords="593,155,852,181"/>
-<area shape="rect" id="node42" href="$dmadrv_8c.html" title="DMADRV API implementation." alt="" coords="1243,155,1388,181"/>
+<area shape="rect" id="node17" href="$rtcdriver_8h.html" title="RTCDRV timer API definition." alt="" coords="482,80,621,107"/>
+<area shape="rect" id="node21" href="$spidrv_8h.html" title="SPIDRV API definition." alt="" coords="597,155,723,181"/>
+<area shape="rect" id="node28" href="$uartdrv_8h.html" title="UARTDRV API definition." alt="" coords="968,155,1109,181"/>
+<area shape="rect" id="node32" href="$ustimer_8h.html" title="Microsecond delay function API definition." alt="" coords="1303,80,1448,107"/>
+<area shape="rect" id="node40" href="$dmadrv_8h.html" title="DMADRV API definition." alt="" coords="747,80,892,107"/>
+<area shape="rect" id="node48" href="$ezradio__plugin__manager_8h.html" title="This file contains the plug&#45;in manager for the EZRadio and EZRadioPRO chip families..." alt="" coords="2735,80,3040,107"/>
+<area shape="rect" id="node68" href="$nvm__config_8h.html" title="NVM config definition." alt="" coords="219,80,356,107"/>
+<area shape="rect" id="node8" href="$nvm__hal_8c.html" title="Non&#45;Volatile Memory HAL for EFM32/EZR32/EFR32 flash." alt="" coords="121,304,252,331"/>
+<area shape="rect" id="node10" href="$nvm_8c.html" title="NVM API implementation." alt="" coords="160,229,267,256"/>
+<area shape="rect" id="node19" href="$rtcdriver_8c.html" title="RTCDRV timer API implementation." alt="" coords="433,155,572,181"/>
+<area shape="rect" id="node23" href="$spidrv_8c.html" title="SPIDRV API implementation." alt="" coords="810,229,936,256"/>
+<area shape="rect" id="node25" href="$ezradio__hal_8c.html" title="This file contains EZRadio HAL." alt="" coords="541,229,779,256"/>
+<area shape="rect" id="node30" href="$uartdrv_8c.html" title="UARTDRV API implementation." alt="" coords="968,229,1109,256"/>
+<area shape="rect" id="node34" href="$ustimer_8c.html" title="Microsecond delay functions." alt="" coords="1417,155,1561,181"/>
+<area shape="rect" id="node36" href="$ezradio__api__lib_8c.html" title="This file contains the common API library of the EZRadio and EZRadioPRO families..." alt="" coords="1133,155,1392,181"/>
+<area shape="rect" id="node38" href="$ezradio__plugin__manager_8c.html" title="This file contains the plug&#45;in manager for the EZRadio and EZRadioPRO chip families..." alt="" coords="1586,155,1891,181"/>
+<area shape="rect" id="node46" href="$dmadrv_8c.html" title="DMADRV API implementation." alt="" coords="747,155,892,181"/>
+<area shape="rect" id="node51" href="$ezradio__auto__ack__plugin_8c.html" title="EzRadio auto acknowledge plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="3587,155,3892,181"/>
+<area shape="rect" id="node53" href="$ezradio__crcerror__plugin_8c.html" title="EzRadio CRC error plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="3917,155,4216,181"/>
+<area shape="rect" id="node55" href="$ezradio__direct__receive__plugin_8c.html" title="EzRadio direct reception plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="4241,155,4575,181"/>
+<area shape="rect" id="node57" href="$ezradio__direct__transmit__plugin_8c.html" title="EzRadio direct transmission plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="1915,155,2255,181"/>
+<area shape="rect" id="node60" href="$ezradio__pn9__plugin_8c.html" title="EzRadio PN9 plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="2280,155,2555,181"/>
+<area shape="rect" id="node62" href="$ezradio__receive__plugin_8c.html" title="EzRadio receive plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="2579,155,2873,181"/>
+<area shape="rect" id="node64" href="$ezradio__transmit__plugin_8c.html" title="EzRadio transmit plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="2899,155,3200,181"/>
+<area shape="rect" id="node66" href="$ezradio__unmod__carrier__plugin_8c.html" title="EzRadio unmodulated carrier plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="3224,155,3563,181"/>
 </map>

@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file  msdscsi.h
  * @brief SCSI interface for Mass Storage Devices (MSD).
- * @version 4.0.0
+ * @version 4.1.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -44,6 +44,7 @@ extern "C" {
 #define SCSI_WRITE10_LEN             10U  /**< SCSI Write (10) CDB length.      */
 #define SCSI_VERIFY10_LEN            10U  /**< SCSI Verify (10) CDB length.     */
 #define SCSI_INQUIRYDATA_LEN         36U  /**< SCSI Inquiry response data length. */
+#define SCSI_STARTSTOPUNIT_LEN       6U   /**< SCSI Start Stop Unit CDB length. */
 #define SCSI_REQUESTSENSE_LEN        6U   /**< SCSI Request Sense CDB length.   */
 #define SCSI_REQUESTSENSEDATA_LEN    18U  /**< SCSI Request Sense response data length. */
 #define SCSI_READCAPACITY_LEN        10U  /**< SCSI Read Capacity CDB length.   */
@@ -296,6 +297,36 @@ typedef struct
   uint16_t Verification;          /**< Number of blocks (sectors) to verify  .*/
   uint8_t  Control;               /**< Control byte.                          */
 } __attribute__ ((packed)) MSDSCSI_Verify10_TypeDef;
+EFM32_PACK_END()
+
+/**************************************************************************//**
+ * @brief SCSI Start Stop Unit Command Descriptor Block (CDB) typedef.
+ *****************************************************************************/
+EFM32_PACK_START(1)
+typedef struct
+{
+  uint8_t  OpCode;                /**< Command opcode.                        */
+  struct
+  {
+    uint8_t Immed     : 1;        /**< Immediate bit.                         */
+    uint8_t Reserved1 : 7;        /**< Reserved, expect 0.                    */
+  };
+  uint8_t Reserved2;              /**< Reserved, expect 0.                    */
+  struct
+  {
+    uint8_t PowerConditionModifier : 4; /**< Additional power condition info. */
+    uint8_t Reserved3      : 4;   /**< Reserved, expect 0.                    */
+  };
+  struct
+  {
+    uint8_t Start          : 1;   /**< Start bit.                             */
+    uint8_t LoEj           : 1;   /**< Load Eject.                            */
+    uint8_t No_Flush       : 1;   /**< Dont flush cached data to the medium.  */
+    uint8_t Reserved4      : 1;   /**< Reserved, expect 0.                    */
+    uint8_t PowerCondition : 4;   /**< Power Condition field.                 */
+  };
+  uint8_t Control;                /**< Control byte.                          */
+} __attribute__ ((packed)) MSDSCSI_StartStopUnit_TypeDef;
 EFM32_PACK_END()
 
 /*** MSDSCSI Function prototypes ***/

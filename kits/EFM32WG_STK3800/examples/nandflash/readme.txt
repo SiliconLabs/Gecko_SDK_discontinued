@@ -20,5 +20,8 @@ Command "h" will print a help screen on the terminal :
         ecc <n>    : Check ECC algorithm, uses page <n> and <n+1>
         cp <m> <n> : Copy page <m> to page <n>
 
+Note that the nandflash device used on this kit has 32 pages per block, so
+pages 0-31 belongs to block 0.
+
 Board:  Silicon Labs EFM32WG-STK3800 Development Kit
 Device: EFM32WG990F256

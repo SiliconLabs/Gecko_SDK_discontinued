@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$group__EBI.html#gaf7fea7741967f124ac0a4021b48cc786" title="Configure EBI pin polarity." alt="" coords="168,5,283,32"/>
-<area shape="rect" id="node4" href="$group__EBI.html#gae4bb0491ae71ed303f803c6fe809268b" title="Configure frame buffer pointer." alt="" coords="144,56,307,83"/>
-<area shape="rect" id="node5" href="$group__EBI.html#ga9cc5e21f92d8794704250addd555f887" title="Configure and initialize Horizontal Porch Settings." alt="" coords="157,107,293,133"/>
-<area shape="rect" id="node6" href="$group__EBI.html#gaddde4b33a283d6ef4b22578d73f43f76" title="Configure and initialize TFT size settings." alt="" coords="166,157,285,184"/>
-<area shape="rect" id="node7" href="$group__EBI.html#ga3160653245c7fa8aa2c5d20f32f8fde0" title="Configure TFT Direct Drive Timing Settings." alt="" coords="158,208,293,235"/>
-<area shape="rect" id="node8" href="$group__EBI.html#ga4bd6c0b5a2274f9e381ed8ff78291b7b" title="Configure Vertical Porch Settings." alt="" coords="157,259,293,285"/>
-<area shape="rect" id="node3" href="$group__BITBAND.html#ga7df78ffd2c201e674a4444c42b6fcec3" title="Perform bit&#45;band operation on peripheral memory location." alt="" coords="355,5,501,32"/>
-</map>

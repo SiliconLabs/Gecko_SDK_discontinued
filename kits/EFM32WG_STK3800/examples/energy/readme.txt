@@ -1,10 +1,10 @@
-Board Support Package API for voltage and current.
+Board Support Package API demo for voltage and current readout.
 
 This example project uses the EFM32 CMSIS and demonstrates the use of
 the STK BSP.
 
-The BSP is used to read out the current uA measurement and VMCU
-voltage level from the board controller.
+The BSP is used to read out the current consumption and VMCU voltage level
+from the board controller. The readings are printed to the display.
 
 The BSP use a 115800-N-1 UART to communicate with the board controller,
 if you do not need the board support functions, there is no need to

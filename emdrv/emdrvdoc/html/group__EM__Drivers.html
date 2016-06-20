@@ -65,7 +65,7 @@ Collaboration diagram for EM_Drivers:</div>
 <div class="dynsection">
 <center><table><tr><td><img src="group__EM__Drivers.png" border="0" alt="" usemap="#group____EM____Drivers_map"/>
 <map name="group____EM____Drivers_map" id="group____EM____Drivers">
-<area shape="rect" id="node1" href="group__SLEEP.html" title="Energy Modes management driver." alt="" coords="153,5,210,32"/><area shape="rect" id="node2" href="group__NVM.html" title="NVM Non&#45;volatile Memory driver, see NVM Non&#45;volatile Memory driver page for detailed..." alt="" coords="157,56,205,83"/><area shape="rect" id="node4" href="group__USTIMER.html" title="USTIMER Microsecond delay timer module, see USTIMER Microsecond delay timer module..." alt="" coords="144,107,219,133"/><area shape="rect" id="node5" href="group__SPIDRV.html" title="SPIDRV Serial Peripheral Interface module, see SPIDRV Serial Peripheral Interface..." alt="" coords="149,157,214,184"/><area shape="rect" id="node6" href="group__RTCDRV.html" title="RTCDRV timer module, see RTCDRV Real Time Clock Timer driver page for detailed documentation..." alt="" coords="146,208,217,235"/><area shape="rect" id="node7" href="group__GPIOINT.html" title="GPIOINT General Purpose Input/Output Interrupt dispatcher, see GPIOINT General Purpose..." alt="" coords="146,259,217,285"/><area shape="rect" id="node8" href="group__UARTDRV.html" title="UARTDRV Universal asynchronous receiver/transmitter driver, see UARTDRV Universal..." alt="" coords="142,309,221,336"/><area shape="rect" id="node9" href="group__DMADRV.html" title="DMADRV Serial Peripheral Interface module, see DMADRV Direct Memory Access page for..." alt="" coords="145,360,217,387"/></map></td></tr></table></center>
+<area shape="rect" id="node1" href="group__SLEEP.html" title="Energy Modes management driver." alt="" coords="162,5,219,32"/><area shape="rect" id="node2" href="group__EZRADIODRV.html" title="EzRadio Peripheral Interface module, see EZRADIODRV EzRadio Peripheral Interface..." alt="" coords="142,56,239,83"/><area shape="rect" id="node3" href="group__NVM.html" title="NVM Non&#45;volatile Memory driver, see NVM Non&#45;volatile Memory driver page for detailed..." alt="" coords="167,107,215,133"/><area shape="rect" id="node5" href="group__USTIMER.html" title="USTIMER Microsecond delay timer module, see USTIMER Microsecond delay timer module..." alt="" coords="153,157,228,184"/><area shape="rect" id="node6" href="group__SPIDRV.html" title="SPIDRV Serial Peripheral Interface module, see SPIDRV Serial Peripheral Interface..." alt="" coords="158,208,223,235"/><area shape="rect" id="node7" href="group__RTCDRV.html" title="RTCDRV timer module, see RTCDRV Real Time Clock Timer driver page for detailed documentation..." alt="" coords="155,259,226,285"/><area shape="rect" id="node8" href="group__GPIOINT.html" title="GPIOINT General Purpose Input/Output Interrupt dispatcher, see GPIOINT General Purpose..." alt="" coords="155,309,226,336"/><area shape="rect" id="node9" href="group__UARTDRV.html" title="UARTDRV Universal asynchronous receiver/transmitter driver, see UARTDRV Universal..." alt="" coords="151,360,230,387"/><area shape="rect" id="node10" href="group__DMADRV.html" title="DMADRV Serial Peripheral Interface module, see DMADRV Direct Memory Access page for..." alt="" coords="155,411,227,437"/></map></td></tr></table></center>
 </div>
 </p>
 <table border="0" cellpadding="0" cellspacing="0">
@@ -110,6 +110,11 @@ Collaboration diagram for EM_Drivers:</div>
 <p><tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><p>DMADRV Serial Peripheral Interface module, see <a class="el" href="dmadrv__doc.html">DMADRV Direct Memory Access</a> page for detailed documentation. </p>
 <br/></td></tr>
 </p>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__EZRADIODRV.html">EZRADIODRV</a></td></tr>
+
+<p><tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><p>EzRadio Peripheral Interface module, see <a class="el" href="ezradiodrv__doc.html">EZRADIODRV EzRadio Peripheral Interface driver</a> page for detailed documentation. </p>
+<br/></td></tr>
+</p>
 <tr><td colspan="2"><h2>Defines</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__EM__Drivers.html#gab5c93ce8fa98b03d93fee45b2a04402e">ECODE_EMDRV_BASE</a>&nbsp;&nbsp;&nbsp;( 0xF0000000 )</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Base value for all EMDRV errorcodes.  <a href="#gab5c93ce8fa98b03d93fee45b2a04402e"></a><br/></td></tr>
@@ -131,6 +136,8 @@ Collaboration diagram for EM_Drivers:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Base value for UARTDRV error codes.  <a href="#ga7917a64f97194a1de1727f6b1d4c9a30"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__EM__Drivers.html#gaf42696e8f3ccd7165e59feea571189b4">ECODE_EMDRV_DMADRV_BASE</a>&nbsp;&nbsp;&nbsp;( ECODE_EMDRV_BASE | 0x00008000 )</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Base value for DMADRV error codes.  <a href="#gaf42696e8f3ccd7165e59feea571189b4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__EM__Drivers.html#ga65ca1edc324f83188bb304f3197e5935">ECODE_EMDRV_EZRADIODRV_BASE</a>&nbsp;&nbsp;&nbsp;( ECODE_EMDRV_BASE | 0x00009000 )</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Base value for EZRADIODRV error codes.  <a href="#ga65ca1edc324f83188bb304f3197e5935"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Typedefs</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef uint32_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__EM__Drivers.html#ga7bf5621660c5ba69ac4dd3044173d35c">Ecode_t</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Typedef for API function errorcode return values.  <a href="#ga7bf5621660c5ba69ac4dd3044173d35c"></a><br/></td></tr>
@@ -201,6 +208,23 @@ Collaboration diagram for EM_Drivers:</div>
 <p>Base value for ECC error codes. </p>
 
 <p>Definition at line <a class="el" href="ecode_8h_source.html#l00042">42</a> of file <a class="el" href="ecode_8h_source.html">ecode.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga65ca1edc324f83188bb304f3197e5935"></a><!-- doxytag: member="ecode.h::ECODE_EMDRV_EZRADIODRV_BASE" ref="ga65ca1edc324f83188bb304f3197e5935" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ECODE_EMDRV_EZRADIODRV_BASE&nbsp;&nbsp;&nbsp;( ECODE_EMDRV_BASE | 0x00009000 )</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Base value for EZRADIODRV error codes. </p>
+
+<p>Definition at line <a class="el" href="ecode_8h_source.html#l00045">45</a> of file <a class="el" href="ecode_8h_source.html">ecode.h</a>.</p>
 
 </div>
 </div>
@@ -330,7 +354,7 @@ Collaboration diagram for EM_Drivers:</div>
 </div>
 <div id="footer">
 <hr size="1"><address style="text-align: right;"><small>
-Generated on Thu May 28 13:12:48 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
+Generated on Mon Sep 7 08:55:22 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a><small> 1.6.3 </small></address></div>
 </body>

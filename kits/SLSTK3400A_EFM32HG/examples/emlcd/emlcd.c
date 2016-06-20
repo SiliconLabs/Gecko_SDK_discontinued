@@ -2,7 +2,7 @@
  * @file
  * @brief Energy Mode demo for SLSTK3400A_EFM32HG
  * @brief Demo for energy mode current consumption testing.
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>

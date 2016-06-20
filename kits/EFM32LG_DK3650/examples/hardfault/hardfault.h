@@ -1,8 +1,8 @@
 /**************************************************************************//**
  * @file
  * @brief Hardfault handler for Cortex-M3, prototypes and definitions
- * @author Joseph Yiu, Frank Van Hooft, Energy Micro AS
- * @version 4.0.0
+ * @author Joseph Yiu, Frank Van Hooft, Silicon Labs
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>

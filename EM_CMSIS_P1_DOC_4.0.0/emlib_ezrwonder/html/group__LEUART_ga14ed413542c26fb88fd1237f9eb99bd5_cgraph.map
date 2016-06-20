@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$group__LEUART.html#gac8d75da0027ebce98cf33ebcdfe9bdad" title="Configure baudrate (or as close as possible to specified baudrate)." alt="" coords="158,5,314,32"/>
-<area shape="rect" id="node4" href="$group__LEUART.html#ga997e11e29be1835b8a49b35b0a2e38a5" title="LEUART register synchronization freeze control." alt="" coords="153,56,319,83"/>
-<area shape="rect" id="node3" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point." alt="" coords="368,5,512,32"/>
-</map>

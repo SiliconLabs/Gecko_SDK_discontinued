@@ -85,11 +85,11 @@ window.onload = initDynSections;
 <a name="l00051"></a>00051 <span class="comment">/***************************************************************************/</span>
 <a name="l00054"></a><a class="code" href="structSI114X__CAL__S.html">00054</a> <span class="keyword">typedef</span> <span class="keyword">struct </span>
 <a name="l00055"></a>00055 {
-<a name="l00056"></a><a class="code" href="structSI114X__CAL__S.html#a92961490b1a4ae8a444b7de381528d92">00056</a>     uint32_t    <a class="code" href="si114x__functions_8c.html#ab4c6c95d4cfe808f6bae73c8f1d6e949" title="Returns the calibration ratio to be applied to VIS measurements.">vispd_correction</a>;  
-<a name="l00057"></a><a class="code" href="structSI114X__CAL__S.html#a8fa57797937808a3e7f73fff374ad5be">00057</a>     uint32_t    <a class="code" href="si114x__functions_8c.html#a61432bf1caf8279773cbd20cbff01762" title="Returns the calibration ratio to be applied to IR measurements.">irpd_correction</a>;   
-<a name="l00058"></a><a class="code" href="structSI114X__CAL__S.html#a6c7b2781ae204070f73e99ef683e75e6">00058</a>     uint32_t    <a class="code" href="si114x__functions_8c.html#a808f2899298260f393055312b4f80ac6" title="Returns the ratio to correlate between x_RANGE=0 and x_RANGE=1 It is typically 14...">adcrange_ratio</a>;    
-<a name="l00059"></a><a class="code" href="structSI114X__CAL__S.html#a8b5f4285e3eadbbf6f094910e8138533">00059</a>     uint32_t    <a class="code" href="si114x__functions_8c.html#af2b82da725b191c13d12b558513d16b7" title="Returns the ratio to correlate between measurements made from large PD to measurements...">irsize_ratio</a>;      
-<a name="l00060"></a><a class="code" href="structSI114X__CAL__S.html#a7f39e0d41093e11b7557c86903fe5093">00060</a>     uint32_t    <a class="code" href="si114x__functions_8c.html#af8fdd4e552ea67d71ca4f6efe98cde06" title="Returns the ratio to adjust for differences in IRLED drive strength.">ledi_ratio</a>;        
+<a name="l00056"></a><a class="code" href="structSI114X__CAL__S.html#a92961490b1a4ae8a444b7de381528d92">00056</a>     uint32_t    vispd_correction;  
+<a name="l00057"></a><a class="code" href="structSI114X__CAL__S.html#a8fa57797937808a3e7f73fff374ad5be">00057</a>     uint32_t    irpd_correction;   
+<a name="l00058"></a><a class="code" href="structSI114X__CAL__S.html#a6c7b2781ae204070f73e99ef683e75e6">00058</a>     uint32_t    adcrange_ratio;    
+<a name="l00059"></a><a class="code" href="structSI114X__CAL__S.html#a8b5f4285e3eadbbf6f094910e8138533">00059</a>     uint32_t    irsize_ratio;      
+<a name="l00060"></a><a class="code" href="structSI114X__CAL__S.html#a7f39e0d41093e11b7557c86903fe5093">00060</a>     uint32_t    ledi_ratio;        
 <a name="l00061"></a><a class="code" href="structSI114X__CAL__S.html#ad3c5fef67e3c3e2bf87be0ad1e43e325">00061</a>     uint8_t*    ucoef_p;           
 <a name="l00062"></a>00062 } <a class="code" href="structSI114X__CAL__S.html" title="SI114X_CAL_S Data Structure.">SI114X_CAL_S</a>;
 <a name="l00063"></a>00063 
@@ -503,7 +503,7 @@ window.onload = initDynSections;
 </pre></div></div>
 <div id="footer">
 <hr size="1"><address style="text-align: right;"><small>
-Generated on Fri May 29 11:29:21 2015</small> for Board Support Package by&nbsp;
+Generated on Mon Sep 7 09:26:01 2015</small> for Board Support Package by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a><small> 1.6.3 </small></address></div>
 </body>

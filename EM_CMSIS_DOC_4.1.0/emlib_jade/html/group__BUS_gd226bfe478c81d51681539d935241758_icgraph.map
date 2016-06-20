@@ -1,0 +1,17 @@
+base referer
+rect $group__BUS.html#g9e878ccba24fcbf97b5bcb8b53356e76 216,233 376,260
+rect $group__GPIO.html#g5fac00f6219c714bde007b67646248d1 225,284 367,311
+rect $group__LDMA.html#gf5c9ca9bae8e1bcf397bf53d6f3f79f5 223,335 369,361
+rect $group__LDMA.html#g94f7cafc791d8ddb5858dafee6a94ada 223,385 369,412
+rect $group__ACMP.html#g2c5edb834f314093c377e5c0673f7729 427,5 629,32
+rect $group__ACMP.html#g7a312099dc46377af2714277236716d3 462,56 594,83
+rect $group__ACMP.html#g28f99fa11de9914148cd580cb707488e 469,107 587,133
+rect $group__ACMP.html#g4f892474faf30a358160e06731485561 469,157 587,184
+rect $group__ADC.html#g3d5a968fbc40b29ebc05f17b311f2eb9 490,208 566,235
+rect $group__CMU.html#g97fc54dc73a1ead5a29fe538e538bd09 472,259 584,285
+rect $group__CMU.html#g188ca4e7b81ed62bf53ea15ea3ffbab6 473,309 583,336
+rect $group__EMU.html#g82fcb1a93c40723a2035975ec9d06265 684,385 799,412
+rect $group__EMU.html#g359bc69f17fcf9c47e03c8d62ed63d57 425,411 631,437
+rect $group__USART.html#g5b96146f7c05f78d31bd77aacd4a3b5f 437,461 619,488
+rect $group__USART.html#gab6053ba081f6fabce6762fb4563fb28 680,461 803,488
+rect $group__USART.html#ga3973304191a67c1b6e837d8b6cc2197 851,461 959,488

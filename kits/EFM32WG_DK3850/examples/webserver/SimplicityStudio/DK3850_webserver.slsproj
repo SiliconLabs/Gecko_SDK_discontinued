@@ -3,8 +3,8 @@
   <module id="com.silabs.ide.si32.sdk.efm32.v2.kit">
     <exclude pattern=".*" />
   </module>
-  <includePath uri="../../../../reptile/lwIP/lwip-1.4.1/src/netif" />
-  <includePath uri="../../../../reptile/lwIP/contrib-1.4.1/ports/efm32" />
+  <includePath uri="../../../../reptile/lwIP/lwip-contrib/ports/efm32" />
+  <includePath uri="../../../../reptile/lwIP/lwip/src/netif" />
   <module id="com.silabs.ide.si32.sdk.efm32.v2.common.CMSIS">
     <exclude pattern=".*" />
   </module>
@@ -49,63 +49,63 @@
   <macroDefinition name="__HEAP_SIZE" value="128" />
   <file name="readme.txt" uri="readme.txt" />
   <includePath uri="." />
-  <includePath uri="../../../../reptile/lwIP/lwip-1.4.1/src/" />
-  <includePath uri="../../../../reptile/lwIP/lwip-1.4.1/src/api" />
-  <includePath uri="../../../../reptile/lwIP/lwip-1.4.1/src/core" />
-  <includePath uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/ipv4" />
-  <includePath uri="../../../../reptile/lwIP/lwip-1.4.1/src/include" />
-  <includePath uri="../../../../reptile/lwIP/lwip-1.4.1/src/include/ipv4" />
-  <includePath uri="../../../../reptile/lwIP/lwip-1.4.1/src/include/ipv4/lwip" />
-  <includePath uri="../../../../reptile/lwIP/lwip-1.4.1/src/include/lwip" />
-  <includePath uri="../../../../reptile/lwIP/contrib-1.4.1/apps/ping" />
-  <includePath uri="../../../../reptile/lwIP/contrib-1.4.1/apps/tcpecho_raw" />
-  <includePath uri="../../../../reptile/lwIP/contrib-1.4.1/apps/httpserver_raw" />
-  <includePath uri="../../../../reptile/lwIP/contrib-1.4.1/ports/EFM32/" />
-  <includePath uri="../../../../reptile/lwIP/contrib-1.4.1/ports/EFM32/include/" />
+  <includePath uri="../../../../reptile/lwIP/lwip/src/" />
+  <includePath uri="../../../../reptile/lwIP/lwip/src/api" />
+  <includePath uri="../../../../reptile/lwIP/lwip/src/core" />
+  <includePath uri="../../../../reptile/lwIP/lwip/src/core/ipv4" />
+  <includePath uri="../../../../reptile/lwIP/lwip/src/include" />
+  <includePath uri="../../../../reptile/lwIP/lwip/src/include/ipv4" />
+  <includePath uri="../../../../reptile/lwIP/lwip/src/include/ipv4/lwip" />
+  <includePath uri="../../../../reptile/lwIP/lwip/src/include/lwip" />
+  <includePath uri="../../../../reptile/lwIP/lwip-contrib/apps/ping" />
+  <includePath uri="../../../../reptile/lwIP/lwip-contrib/apps/tcpecho_raw" />
+  <includePath uri="../../../../reptile/lwIP/lwip-contrib/apps/httpserver_raw" />
+  <includePath uri="../../../../reptile/lwIP/lwip-contrib/ports/EFM32/" />
+  <includePath uri="../../../../reptile/lwIP/lwip-contrib/ports/EFM32/include/" />
   <folder name="Drivers">
     <file name="tftconsole.c" uri="tftconsole.c" />
-    <file name="ksz8851snl_driver.c" uri="../../../../reptile/lwIP/contrib-1.4.1/ports/efm32/ksz8851snl_driver.c" />
   </folder>
-  <folder name="lwIP">
-    <file name="api_lib.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/api/api_lib.c" />
-    <file name="api_msg.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/api/api_msg.c" />
-    <file name="err.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/api/err.c" />
-    <file name="netbuf.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/api/netbuf.c" />
-    <file name="netdb.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/api/netdb.c" />
-    <file name="netifapi.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/api/netifapi.c" />
-    <file name="sockets.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/api/sockets.c" />
-    <file name="tcpip.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/api/tcpip.c" />
-    <file name="autoip.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/ipv4/autoip.c" />
-    <file name="icmp.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/ipv4/icmp.c" />
-    <file name="igmp.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/ipv4/igmp.c" />
-    <file name="inet.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/ipv4/inet.c" />
-    <file name="inet_chksum.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/ipv4/inet_chksum.c" />
-    <file name="ip.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/ipv4/ip.c" />
-    <file name="ip_addr.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/ipv4/ip_addr.c" />
-    <file name="ip_frag.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/ipv4/ip_frag.c" />
-    <file name="def.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/def.c" />
-    <file name="dhcp.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/dhcp.c" />
-    <file name="dns.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/dns.c" />
-    <file name="init.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/init.c" />
-    <file name="mem.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/mem.c" />
-    <file name="memp.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/memp.c" />
-    <file name="netif.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/netif.c" />
-    <file name="pbuf.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/pbuf.c" />
-    <file name="raw.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/raw.c" />
-    <file name="stats.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/stats.c" />
-    <file name="sys.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/sys.c" />
-    <file name="tcp.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/tcp.c" />
-    <file name="tcp_in.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/tcp_in.c" />
-    <file name="tcp_out.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/tcp_out.c" />
-    <file name="timers.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/timers.c" />
-    <file name="udp.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/core/udp.c" />
-    <file name="etharp.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/netif/etharp.c" />
-    <file name="ethernetif.c" uri="../../../../reptile/lwIP/lwip-1.4.1/src/netif/ethernetif.c" />
+  <folder name="lwip">
+    <file name="api_lib.c" uri="../../../../reptile/lwIP/lwip/src/api/api_lib.c" />
+    <file name="api_msg.c" uri="../../../../reptile/lwIP/lwip/src/api/api_msg.c" />
+    <file name="err.c" uri="../../../../reptile/lwIP/lwip/src/api/err.c" />
+    <file name="netbuf.c" uri="../../../../reptile/lwIP/lwip/src/api/netbuf.c" />
+    <file name="netdb.c" uri="../../../../reptile/lwIP/lwip/src/api/netdb.c" />
+    <file name="netifapi.c" uri="../../../../reptile/lwIP/lwip/src/api/netifapi.c" />
+    <file name="sockets.c" uri="../../../../reptile/lwIP/lwip/src/api/sockets.c" />
+    <file name="tcpip.c" uri="../../../../reptile/lwIP/lwip/src/api/tcpip.c" />
+    <file name="autoip.c" uri="../../../../reptile/lwIP/lwip/src/core/ipv4/autoip.c" />
+    <file name="icmp.c" uri="../../../../reptile/lwIP/lwip/src/core/ipv4/icmp.c" />
+    <file name="igmp.c" uri="../../../../reptile/lwIP/lwip/src/core/ipv4/igmp.c" />
+    <file name="inet.c" uri="../../../../reptile/lwIP/lwip/src/core/ipv4/inet.c" />
+    <file name="inet_chksum.c" uri="../../../../reptile/lwIP/lwip/src/core/ipv4/inet_chksum.c" />
+    <file name="ip.c" uri="../../../../reptile/lwIP/lwip/src/core/ipv4/ip.c" />
+    <file name="ip_addr.c" uri="../../../../reptile/lwIP/lwip/src/core/ipv4/ip_addr.c" />
+    <file name="ip_frag.c" uri="../../../../reptile/lwIP/lwip/src/core/ipv4/ip_frag.c" />
+    <file name="def.c" uri="../../../../reptile/lwIP/lwip/src/core/def.c" />
+    <file name="dhcp.c" uri="../../../../reptile/lwIP/lwip/src/core/dhcp.c" />
+    <file name="dns.c" uri="../../../../reptile/lwIP/lwip/src/core/dns.c" />
+    <file name="init.c" uri="../../../../reptile/lwIP/lwip/src/core/init.c" />
+    <file name="mem.c" uri="../../../../reptile/lwIP/lwip/src/core/mem.c" />
+    <file name="memp.c" uri="../../../../reptile/lwIP/lwip/src/core/memp.c" />
+    <file name="netif.c" uri="../../../../reptile/lwIP/lwip/src/core/netif.c" />
+    <file name="pbuf.c" uri="../../../../reptile/lwIP/lwip/src/core/pbuf.c" />
+    <file name="raw.c" uri="../../../../reptile/lwIP/lwip/src/core/raw.c" />
+    <file name="stats.c" uri="../../../../reptile/lwIP/lwip/src/core/stats.c" />
+    <file name="sys.c" uri="../../../../reptile/lwIP/lwip/src/core/sys.c" />
+    <file name="tcp.c" uri="../../../../reptile/lwIP/lwip/src/core/tcp.c" />
+    <file name="tcp_in.c" uri="../../../../reptile/lwIP/lwip/src/core/tcp_in.c" />
+    <file name="tcp_out.c" uri="../../../../reptile/lwIP/lwip/src/core/tcp_out.c" />
+    <file name="timers.c" uri="../../../../reptile/lwIP/lwip/src/core/timers.c" />
+    <file name="udp.c" uri="../../../../reptile/lwIP/lwip/src/core/udp.c" />
+    <file name="etharp.c" uri="../../../../reptile/lwIP/lwip/src/netif/etharp.c" />
+    <file name="ethernetif.c" uri="../../../../reptile/lwIP/lwip/src/netif/ethernetif.c" />
   </folder>
-  <folder name="lwIP_apps">
-    <file name="echo.c" uri="../../../../reptile/lwIP/contrib-1.4.1/apps/tcpecho_raw/echo.c" />
-    <file name="fs.c" uri="../../../../reptile/lwIP/contrib-1.4.1/apps/httpserver_raw/fs.c" />
-    <file name="httpd.c" uri="../../../../reptile/lwIP/contrib-1.4.1/apps/httpserver_raw/httpd.c" />
+  <folder name="lwip-contrib">
+    <file name="echo.c" uri="../../../../reptile/lwIP/lwip-contrib/apps/tcpecho_raw/echo.c" />
+    <file name="fs.c" uri="../../../../reptile/lwIP/lwip-contrib/apps/httpserver_raw/fs.c" />
+    <file name="httpd.c" uri="../../../../reptile/lwIP/lwip-contrib/apps/httpserver_raw/httpd.c" />
+    <file name="ksz8851snl_driver.c" uri="../../../../reptile/lwIP/lwip-contrib/ports/efm32/ksz8851snl_driver.c" />
   </folder>
   <folder name="src">
     <file name="webserver.c" uri="webserver.c" />

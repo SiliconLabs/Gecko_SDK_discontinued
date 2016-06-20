@@ -20,7 +20,7 @@
  *
  *******************************************************************************
  * Silicon Labs release version
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************/
 
   .syntax unified
@@ -129,11 +129,12 @@ InterruptVector:
   .word SysTick_Handler           /* 15 - Systick */
 
   /* External Interrupts */
+
   .word   DMA_IRQHandler      /* 0 - DMA */
   .word   GPIO_EVEN_IRQHandler      /* 1 - GPIO_EVEN */
   .word   TIMER0_IRQHandler      /* 2 - TIMER0 */
-  .word   USART0_RX_IRQHandler      /* 3 - USART0_RX */
-  .word   USART0_TX_IRQHandler      /* 4 - USART0_TX */
+  .word   USARTRF0_RX_IRQHandler      /* 3 - USARTRF0_RX */
+  .word   USARTRF0_TX_IRQHandler      /* 4 - USARTRF0_TX */
   .word   USB_IRQHandler      /* 5 - USB */
   .word   ACMP0_IRQHandler      /* 6 - ACMP0 */
   .word   ADC0_IRQHandler      /* 7 - ADC0 */
@@ -163,11 +164,12 @@ InterruptVector:
   .word   BURTC_IRQHandler      /* 31 - BURTC */
   .word   CMU_IRQHandler      /* 32 - CMU */
   .word   VCMP_IRQHandler      /* 33 - VCMP */
-  .word   LCD_IRQHandler      /* 34 - LCD */
+  .word   0                       /* 34 - Reserved */
   .word   MSC_IRQHandler      /* 35 - MSC */
   .word   AES_IRQHandler      /* 36 - AES */
-  .word   0      /* 37 - Reserved */
+  .word   0                       /* 37 - Reserved */
   .word   EMU_IRQHandler      /* 38 - EMU */
+  .word   0                       /* 39 - Reserved */
 
 
 
@@ -210,10 +212,10 @@ InterruptVector:
   .thumb_set  GPIO_EVEN_IRQHandler, Default_Handler
   .weak       TIMER0_IRQHandler
   .thumb_set  TIMER0_IRQHandler, Default_Handler
-  .weak       USART0_RX_IRQHandler
-  .thumb_set  USART0_RX_IRQHandler, Default_Handler
-  .weak       USART0_TX_IRQHandler
-  .thumb_set  USART0_TX_IRQHandler, Default_Handler
+  .weak       USARTRF0_RX_IRQHandler
+  .thumb_set  USARTRF0_RX_IRQHandler, Default_Handler
+  .weak       USARTRF0_TX_IRQHandler
+  .thumb_set  USARTRF0_TX_IRQHandler, Default_Handler
   .weak       USB_IRQHandler
   .thumb_set  USB_IRQHandler, Default_Handler
   .weak       ACMP0_IRQHandler
@@ -272,8 +274,6 @@ InterruptVector:
   .thumb_set  CMU_IRQHandler, Default_Handler
   .weak       VCMP_IRQHandler
   .thumb_set  VCMP_IRQHandler, Default_Handler
-  .weak       LCD_IRQHandler
-  .thumb_set  LCD_IRQHandler, Default_Handler
   .weak       MSC_IRQHandler
   .thumb_set  MSC_IRQHandler, Default_Handler
   .weak       AES_IRQHandler

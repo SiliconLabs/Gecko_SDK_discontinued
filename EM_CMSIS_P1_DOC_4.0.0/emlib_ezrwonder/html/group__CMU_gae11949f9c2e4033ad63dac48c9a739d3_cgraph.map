@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$group__BITBAND.html#ga7df78ffd2c201e674a4444c42b6fcec3" title="Perform bit&#45;band operation on peripheral memory location." alt="" coords="216,5,363,32"/>
-<area shape="rect" id="node3" href="$group__CMU.html#ga2cc0f1684fbc32976b82c6d93a51c7d9" title="Enable/disable oscillator." alt="" coords="209,56,370,83"/>
-<area shape="rect" id="node4" href="$group__EMU.html#ga3d442fa018de5138afb19a2b85797099" title="Update EMU module with CMU oscillator selection/enable status." alt="" coords="419,81,589,108"/>
-</map>

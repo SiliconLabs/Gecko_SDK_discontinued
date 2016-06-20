@@ -10,7 +10,7 @@
  * @par Usage
  * @li Joystick Push toggles Celsius/Fahrenheit display mode.
  *
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -239,7 +239,7 @@ int main(void)
     {
       /* Show Fahrenheit on alphanumeric part of display */
       i = (int)(convertToFahrenheit(temp) * 10);
-      snprintf(string, 8, "%2d,%1d%%F", (i/10), i%10);
+      snprintf(string, 8, "%2d,%1d%%F", (i/10), abs(i%10));
       /* Show Celsius on numeric part of display */
       i = (int)(convertToCelsius(temp) * 10);
       SegmentLCD_Number(i*10);
@@ -249,7 +249,7 @@ int main(void)
     {
       /* Show Celsius on alphanumeric part of display */
       i = (int)(convertToCelsius(temp) * 10);
-      snprintf(string, 8, "%2d,%1d%%C", (i/10), i%10);
+      snprintf(string, 8, "%2d,%1d%%C", (i/10), abs(i%10));
       /* Show Fahrenheit on numeric part of display */
       i = (int)(convertToFahrenheit(temp) * 10);
       SegmentLCD_Number(i*10);

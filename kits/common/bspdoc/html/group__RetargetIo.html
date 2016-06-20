@@ -188,7 +188,7 @@ Retarget TextDisplay Configuration.</a></h2>
 
 <p>Definition at line <a class="el" href="retargetserial_8c_source.html#l00038">38</a> of file <a class="el" href="retargetserial_8c_source.html">retargetserial.c</a>.</p>
 
-<p>Referenced by <a class="el" href="retargetserial_8c_source.html#l00049">RETARGET_IRQ_NAME()</a>, and <a class="el" href="retargetserial_8c_source.html#l00191">RETARGET_ReadChar()</a>.</p>
+<p>Referenced by <a class="el" href="retargetserial_8c_source.html#l00049">RETARGET_IRQ_NAME()</a>, and <a class="el" href="retargetserial_8c_source.html#l00197">RETARGET_ReadChar()</a>.</p>
 
 </div>
 </div>
@@ -468,7 +468,7 @@ Retarget TextDisplay Configuration.</a></h2>
 
 <p>Definition at line <a class="el" href="retargetio_8c_source.html#l00175">175</a> of file <a class="el" href="retargetio_8c_source.html">retargetio.c</a>.</p>
 
-<p>References <a class="el" href="retargetserial_8c_source.html#l00191">RETARGET_ReadChar()</a>, and <a class="el" href="retargetserial_8c_source.html#l00041">rxCount</a>.</p>
+<p>References <a class="el" href="retargetserial_8c_source.html#l00197">RETARGET_ReadChar()</a>, and <a class="el" href="retargetserial_8c_source.html#l00041">rxCount</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -565,7 +565,7 @@ Here is the call graph for this function:</div>
 
 <p>Definition at line <a class="el" href="retargetio_8c_source.html#l00250">250</a> of file <a class="el" href="retargetio_8c_source.html">retargetio.c</a>.</p>
 
-<p>References <a class="el" href="retargetserial_8c_source.html#l00221">RETARGET_WriteChar()</a>.</p>
+<p>References <a class="el" href="retargetserial_8c_source.html#l00227">RETARGET_WriteChar()</a>.</p>
 
 <p>Referenced by <a class="el" href="retargetio_8c_source.html#l00212">_sbrk()</a>.</p>
 
@@ -636,7 +636,7 @@ Here is the caller graph for this function:</div>
 <p>Receive a byte from USART/LEUART and put into global buffer.</p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>-1 on failure, or positive character integer on sucesss </dd></dl>
 
-<p>Definition at line <a class="el" href="retargetserial_8c_source.html#l00191">191</a> of file <a class="el" href="retargetserial_8c_source.html">retargetserial.c</a>.</p>
+<p>Definition at line <a class="el" href="retargetserial_8c_source.html#l00197">197</a> of file <a class="el" href="retargetserial_8c_source.html">retargetserial.c</a>.</p>
 
 <p>References <a class="el" href="retargetserial_8c_source.html#l00044">initialized</a>, <a class="el" href="retargetserial_8c_source.html#l00095">RETARGET_SerialInit()</a>, <a class="el" href="retargetserial_8c_source.html#l00042">rxBuffer</a>, <a class="el" href="retargetserial_8c_source.html#l00038">RXBUFSIZE</a>, <a class="el" href="retargetserial_8c_source.html#l00041">rxCount</a>, and <a class="el" href="retargetserial_8c_source.html#l00039">rxReadIndex</a>.</p>
 
@@ -714,7 +714,7 @@ Here is the caller graph for this function:</div>
 
 <p>References <a class="el" href="retargetserial_8c_source.html#l00044">initialized</a>.</p>
 
-<p>Referenced by <a class="el" href="retargetserial_8c_source.html#l00191">RETARGET_ReadChar()</a>, and <a class="el" href="retargetserial_8c_source.html#l00221">RETARGET_WriteChar()</a>.</p>
+<p>Referenced by <a class="el" href="retargetserial_8c_source.html#l00197">RETARGET_ReadChar()</a>, and <a class="el" href="retargetserial_8c_source.html#l00227">RETARGET_WriteChar()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -957,7 +957,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Transmitted character </dd></dl>
 
-<p>Definition at line <a class="el" href="retargetserial_8c_source.html#l00221">221</a> of file <a class="el" href="retargetserial_8c_source.html">retargetserial.c</a>.</p>
+<p>Definition at line <a class="el" href="retargetserial_8c_source.html#l00227">227</a> of file <a class="el" href="retargetserial_8c_source.html">retargetserial.c</a>.</p>
 
 <p>References <a class="el" href="bsp__dk__bcreg__3201_8h_source.html#l00172">BC_ARB_CTRL_EBI</a>, <a class="el" href="bsp__dk__bcreg__3201_8h_source.html#l00125">BC_REGISTER</a>, <a class="el" href="bsp__dk__bcreg__3201_8h_source.html#l00157">BC_UIF_AEM_EFM</a>, <a class="el" href="bsp__dk__3201_8c_source.html#l00687">BSP_RegisterRead()</a>, <a class="el" href="retargettft_8c_source.html#l00040">bufferReset</a>, <a class="el" href="retargettft_8c_source.html#l00039">fullUpdate</a>, <a class="el" href="retargetserial_8c_source.html#l00044">initialized</a>, <a class="el" href="retargetserial_8c_source.html#l00043">LFtoCRLF</a>, <a class="el" href="retargetserial_8c_source.html#l00095">RETARGET_SerialInit()</a>, <a class="el" href="retargettft_8c_source.html#l00168">RETARGET_TFTTX()</a>, <a class="el" href="retargettft_8c_source.html#l00230">RETARGET_TFTUpdate()</a>, <a class="el" href="textdisplay_8c_source.html#l00381">TEXTDISPLAY_WriteChar()</a>, <a class="el" href="retargettft_8c_source.html#l00041">tftReset</a>, and <a class="el" href="retargettft_8c_source.html#l00080">tftTextReset()</a>.</p>
 
@@ -1056,7 +1056,7 @@ Here is the call graph for this function:</div>
 
 <p>Definition at line <a class="el" href="retargetserial_8c_source.html#l00044">44</a> of file <a class="el" href="retargetserial_8c_source.html">retargetserial.c</a>.</p>
 
-<p>Referenced by <a class="el" href="retargetserial_8c_source.html#l00191">RETARGET_ReadChar()</a>, <a class="el" href="retargetserial_8c_source.html#l00095">RETARGET_SerialInit()</a>, <a class="el" href="retargetserial_8c_source.html#l00221">RETARGET_WriteChar()</a>, and <a class="el" href="textdisplay_8c_source.html#l00210">TEXTDISPLAY_New()</a>.</p>
+<p>Referenced by <a class="el" href="retargetserial_8c_source.html#l00197">RETARGET_ReadChar()</a>, <a class="el" href="retargetserial_8c_source.html#l00095">RETARGET_SerialInit()</a>, <a class="el" href="retargetserial_8c_source.html#l00227">RETARGET_WriteChar()</a>, and <a class="el" href="textdisplay_8c_source.html#l00210">TEXTDISPLAY_New()</a>.</p>
 
 </div>
 </div>
@@ -1075,7 +1075,7 @@ Here is the call graph for this function:</div>
 
 <p>Definition at line <a class="el" href="retargetserial_8c_source.html#l00043">43</a> of file <a class="el" href="retargetserial_8c_source.html">retargetserial.c</a>.</p>
 
-<p>Referenced by <a class="el" href="retargetserial_8c_source.html#l00083">RETARGET_SerialCrLf()</a>, and <a class="el" href="retargetserial_8c_source.html#l00221">RETARGET_WriteChar()</a>.</p>
+<p>Referenced by <a class="el" href="retargetserial_8c_source.html#l00083">RETARGET_SerialCrLf()</a>, and <a class="el" href="retargetserial_8c_source.html#l00227">RETARGET_WriteChar()</a>.</p>
 
 </div>
 </div>
@@ -1094,7 +1094,7 @@ Here is the call graph for this function:</div>
 
 <p>Definition at line <a class="el" href="retargetserial_8c_source.html#l00042">42</a> of file <a class="el" href="retargetserial_8c_source.html">retargetserial.c</a>.</p>
 
-<p>Referenced by <a class="el" href="ksz8851snl__spi_8c_source.html#l00167">KSZ8851SNL_SPI_ReadRegister()</a>, <a class="el" href="retargetserial_8c_source.html#l00049">RETARGET_IRQ_NAME()</a>, and <a class="el" href="retargetserial_8c_source.html#l00191">RETARGET_ReadChar()</a>.</p>
+<p>Referenced by <a class="el" href="ksz8851snl__spi_8c_source.html#l00167">KSZ8851SNL_SPI_ReadRegister()</a>, <a class="el" href="retargetserial_8c_source.html#l00049">RETARGET_IRQ_NAME()</a>, and <a class="el" href="retargetserial_8c_source.html#l00197">RETARGET_ReadChar()</a>.</p>
 
 </div>
 </div>
@@ -1113,7 +1113,7 @@ Here is the call graph for this function:</div>
 
 <p>Definition at line <a class="el" href="retargetserial_8c_source.html#l00041">41</a> of file <a class="el" href="retargetserial_8c_source.html">retargetserial.c</a>.</p>
 
-<p>Referenced by <a class="el" href="retargetio_8c_source.html#l00175">_read()</a>, <a class="el" href="retargetserial_8c_source.html#l00049">RETARGET_IRQ_NAME()</a>, and <a class="el" href="retargetserial_8c_source.html#l00191">RETARGET_ReadChar()</a>.</p>
+<p>Referenced by <a class="el" href="retargetio_8c_source.html#l00175">_read()</a>, <a class="el" href="retargetserial_8c_source.html#l00049">RETARGET_IRQ_NAME()</a>, and <a class="el" href="retargetserial_8c_source.html#l00197">RETARGET_ReadChar()</a>.</p>
 
 </div>
 </div>
@@ -1132,7 +1132,7 @@ Here is the call graph for this function:</div>
 
 <p>Definition at line <a class="el" href="retargetserial_8c_source.html#l00039">39</a> of file <a class="el" href="retargetserial_8c_source.html">retargetserial.c</a>.</p>
 
-<p>Referenced by <a class="el" href="retargetserial_8c_source.html#l00049">RETARGET_IRQ_NAME()</a>, and <a class="el" href="retargetserial_8c_source.html#l00191">RETARGET_ReadChar()</a>.</p>
+<p>Referenced by <a class="el" href="retargetserial_8c_source.html#l00049">RETARGET_IRQ_NAME()</a>, and <a class="el" href="retargetserial_8c_source.html#l00197">RETARGET_ReadChar()</a>.</p>
 
 </div>
 </div>
@@ -1158,7 +1158,7 @@ Here is the call graph for this function:</div>
 </div>
 <div id="footer">
 <hr size="1"><address style="text-align: right;"><small>
-Generated on Fri May 29 11:30:03 2015</small> for Board Support Package by&nbsp;
+Generated on Mon Sep 7 09:26:38 2015</small> for Board Support Package by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a><small> 1.6.3 </small></address></div>
 </body>

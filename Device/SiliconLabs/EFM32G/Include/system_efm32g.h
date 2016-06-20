@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file system_efm32g.h
  * @brief CMSIS Cortex-M3 System Layer for EFM32G devices.
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -50,7 +50,6 @@ extern uint32_t SystemCoreClock;    /**< System Clock Frequency (Core Clock) */
  ******************************************************************************/
 
 /* Interrupt routines - prototypes */
-#if defined(_EFM32_GECKO_FAMILY)
 void Reset_Handler(void);
 void NMI_Handler(void);
 void HardFault_Handler(void);
@@ -61,6 +60,7 @@ void SVC_Handler(void);
 void DebugMon_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
+
 void DMA_IRQHandler(void);
 void GPIO_EVEN_IRQHandler(void);
 void TIMER0_IRQHandler(void);
@@ -91,9 +91,9 @@ void VCMP_IRQHandler(void);
 void LCD_IRQHandler(void);
 void MSC_IRQHandler(void);
 void AES_IRQHandler(void);
-#endif
 
 uint32_t SystemCoreClockGet(void);
+uint32_t SystemMaxCoreClockGet(void);
 
 /**************************************************************************//**
  * @brief

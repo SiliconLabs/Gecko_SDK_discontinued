@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_usb.h
- * @brief USB protocol stack library API for EFM32.
- * @version 4.0.0
+ * @brief USB protocol stack library API for EFM32/EZR32.
+ * @version 4.1.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -235,7 +235,7 @@ extern "C" {
 #if defined( __CHAR16_TYPE__ )
 typedef __CHAR16_TYPE__ char16_t;
 #else
-typedef unsigned short char16_t;
+typedef unsigned short char16_t;          /**< Data type used for UTF-16LE formatted USB string descriptors. */
 #endif
 
 #elif defined( __ICCARM__ )               /* IAR compiler */

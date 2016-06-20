@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file
  * @brief Provide stdio retargeting to USART/UART or LEUART.
- * @version 4.0.0
+ * @version 4.1.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -94,6 +94,8 @@ void RETARGET_SerialCrLf(int on)
  *****************************************************************************/
 void RETARGET_SerialInit(void)
 {
+  /* Enable peripheral clocks */
+  CMU_ClockEnable(cmuClock_HFPER, true);
   /* Configure GPIO pins */
   CMU_ClockEnable(cmuClock_GPIO, true);
   /* To avoid false start, configure output as high */
@@ -104,13 +106,9 @@ void RETARGET_SerialInit(void)
   USART_TypeDef           *usart = RETARGET_UART;
   USART_InitAsync_TypeDef init   = USART_INITASYNC_DEFAULT;
 
-#if defined (RETARGET_PERIPHERAL_ENABLE)
   /* Enable DK RS232/UART switch */
   RETARGET_PERIPHERAL_ENABLE();
-#endif
 
-  /* Enable peripheral clocks */
-  CMU_ClockEnable(cmuClock_HFPER, true);
   CMU_ClockEnable(RETARGET_CLK, true);
 
   /* Configure USART for basic async operation */
@@ -150,8 +148,13 @@ void RETARGET_SerialInit(void)
   /* Enable CORE LE clock in order to access LE modules */
   CMU_ClockEnable(cmuClock_CORELE, true);
 
+#if defined(RETARGET_VCOM)
+  /* Select HFXO/2 for LEUARTs (and wait for it to stabilize) */
+  CMU_ClockSelectSet(cmuClock_LFB, cmuSelect_CORELEDIV2);
+#else
   /* Select LFXO for LEUARTs (and wait for it to stabilize) */
   CMU_ClockSelectSet(cmuClock_LFB, cmuSelect_LFXO);
+#endif
 
   CMU_ClockEnable(RETARGET_CLK, true);
 
@@ -160,6 +163,9 @@ void RETARGET_SerialInit(void)
 
   /* Configure LEUART */
   init.enable = leuartDisable;
+#if defined(RETARGET_VCOM)
+  init.baudrate = 115200;
+#endif
   LEUART_Init(leuart, &init);
   /* Enable pins at default location */
   leuart->ROUTE = LEUART_ROUTE_RXPEN | LEUART_ROUTE_TXPEN | RETARGET_LOCATION;

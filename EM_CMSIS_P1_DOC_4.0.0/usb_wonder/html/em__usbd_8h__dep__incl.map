@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$em__usbd_8c.html" title="USB protocol stack library, device API." alt="" coords="5,81,328,108"/>
-<area shape="rect" id="node3" href="$em__usbdch9_8c.html" title="USB protocol stack library, USB chapter 9 command handler." alt="" coords="353,81,700,108"/>
-<area shape="rect" id="node4" href="$em__usbdep_8c.html" title="USB protocol stack library, USB device endpoint handlers." alt="" coords="725,81,1064,108"/>
-<area shape="rect" id="node5" href="$em__usbdint_8c.html" title="USB protocol stack library, USB device peripheral interrupt handlers." alt="" coords="1089,81,1428,108"/>
-<area shape="rect" id="node6" href="$em__usbhal_8c.html" title="USB protocol stack library, low level USB peripheral access." alt="" coords="1453,81,1787,108"/>
-</map>

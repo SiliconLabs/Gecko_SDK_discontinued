@@ -1694,6 +1694,9 @@
       <name>$PROJ_DIR$\..\..\..\..\..\reptile\FreeRTOS\Source\croutine.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\FreeRTOS\Source\event_groups.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\..\..\..\..\reptile\FreeRTOS\Source\portable\MemMang\heap_1.c</name>
     </file>
     <file>

@@ -2,7 +2,7 @@
 ; * @file startup_ezr32wg.s
 ; * @brief    CMSIS Core Device Startup File
 ; *           Silicon Labs EZR32WG Device Series
-; * @version 4.0.0
+; * @version 4.1.0
 ; * @date     30. January 2012
 ; *
 ; * @note
@@ -78,11 +78,12 @@ __vector_table_0x1c
         DCD     SysTick_Handler
 
         ; External Interrupts
+
         DCD DMA_IRQHandler  ; 0: DMA Interrupt
         DCD GPIO_EVEN_IRQHandler  ; 1: GPIO_EVEN Interrupt
         DCD TIMER0_IRQHandler  ; 2: TIMER0 Interrupt
-        DCD USART0_RX_IRQHandler  ; 3: USART0_RX Interrupt
-        DCD USART0_TX_IRQHandler  ; 4: USART0_TX Interrupt
+        DCD USARTRF0_RX_IRQHandler  ; 3: USARTRF0_RX Interrupt
+        DCD USARTRF0_TX_IRQHandler  ; 4: USARTRF0_TX Interrupt
         DCD USB_IRQHandler  ; 5: USB Interrupt
         DCD ACMP0_IRQHandler  ; 6: ACMP0 Interrupt
         DCD ADC0_IRQHandler  ; 7: ADC0 Interrupt
@@ -112,10 +113,10 @@ __vector_table_0x1c
         DCD BURTC_IRQHandler  ; 31: BURTC Interrupt
         DCD CMU_IRQHandler  ; 32: CMU Interrupt
         DCD VCMP_IRQHandler  ; 33: VCMP Interrupt
-        DCD LCD_IRQHandler  ; 34: LCD Interrupt
+        DCD 0               ; 34: Reserved Interrupt
         DCD MSC_IRQHandler  ; 35: MSC Interrupt
         DCD AES_IRQHandler  ; 36: AES Interrupt
-        DCD 0  ; 37: Reserved Interrupt
+        DCD 0               ; 37: Reserved Interrupt
         DCD EMU_IRQHandler  ; 38: EMU Interrupt
         DCD FPUEH_IRQHandler  ; 39: FPUEH Interrupt
 
@@ -201,15 +202,15 @@ GPIO_EVEN_IRQHandler
 TIMER0_IRQHandler
         B TIMER0_IRQHandler
 
-        PUBWEAK USART0_RX_IRQHandler
+        PUBWEAK USARTRF0_RX_IRQHandler
         SECTION .text:CODE:REORDER:NOROOT(1)
-USART0_RX_IRQHandler
-        B USART0_RX_IRQHandler
+USARTRF0_RX_IRQHandler
+        B USARTRF0_RX_IRQHandler
 
-        PUBWEAK USART0_TX_IRQHandler
+        PUBWEAK USARTRF0_TX_IRQHandler
         SECTION .text:CODE:REORDER:NOROOT(1)
-USART0_TX_IRQHandler
-        B USART0_TX_IRQHandler
+USARTRF0_TX_IRQHandler
+        B USARTRF0_TX_IRQHandler
 
         PUBWEAK USB_IRQHandler
         SECTION .text:CODE:REORDER:NOROOT(1)
@@ -355,11 +356,6 @@ CMU_IRQHandler
         SECTION .text:CODE:REORDER:NOROOT(1)
 VCMP_IRQHandler
         B VCMP_IRQHandler
-
-        PUBWEAK LCD_IRQHandler
-        SECTION .text:CODE:REORDER:NOROOT(1)
-LCD_IRQHandler
-        B LCD_IRQHandler
 
         PUBWEAK MSC_IRQHandler
         SECTION .text:CODE:REORDER:NOROOT(1)

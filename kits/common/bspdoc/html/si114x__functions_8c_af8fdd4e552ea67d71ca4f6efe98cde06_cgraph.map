@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$si114x__functions_8c.html#a3ac697e3bdbd89a27b3c92771464d225" title="Due to small differences in factory test setup, the reference calibration values..." alt="" coords="129,5,231,32"/>
-<area shape="rect" id="node5" href="$si114x__functions_8c.html#ac9f9c30376cfa4e7d75d3df4aca0bd38" title="Returns a fixed&#45;point (20&#45;bit fraction) after dividing op1/op2." alt="" coords="137,56,223,83"/>
-<area shape="rect" id="node7" href="$si114x__functions_8c.html#a50d91593be08d65b013f22a42f0ddcb1" title="Aligns the value pointed by value_p to either the LEFT or RIGHT the number of shifted..." alt="" coords="417,56,466,83"/>
-<area shape="rect" id="node9" href="$si114x__functions_8c.html#afe977399de96463bb65a39f6f1093c64" title="This performs a shift_left function." alt="" coords="515,56,586,83"/>
-<area shape="rect" id="node11" href="$si114x__functions_8c.html#a3635be76445f56c810f15a35828d38ca" title="The fx20_round was designed to perform rounding to however many significant digits..." alt="" coords="281,107,367,133"/>
-</map>

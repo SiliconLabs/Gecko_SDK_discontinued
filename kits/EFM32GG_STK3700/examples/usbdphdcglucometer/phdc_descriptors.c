@@ -2,7 +2,7 @@
  * @file phdc_descriptors.c
  * @brief USB descriptor implementation for PHDC Continua Medical Device.
  *         This file was modified from the LED example code demo
- * @version 4.0.0
+ * @version 4.1.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>

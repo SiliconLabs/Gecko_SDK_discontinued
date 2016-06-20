@@ -1,8 +1,8 @@
 /**************************************************************************//**
  * @file
  * @brief Hardfault handler for Cortex-M3
- * @author Joseph Yiu, Frank Van Hooft, Energy Micro AS
- * @version 4.0.0
+ * @author Joseph Yiu, Frank Van Hooft, Silicon Labs
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -56,11 +56,11 @@ void HardFault_Handler(void)
    * and use it as the parameter to the C handler. This function
    * will never return
    */
-  __asm("TST   LR, #4");
-  __asm("ITE   EQ");
-  __asm("MRSEQ R0, MSP");
-  __asm("MRSNE R0, PSP");
-  __asm("B HardFault_HandlerC");
+  __asm("TST   LR, #4          \n"
+        "ITE   EQ              \n"
+        "MRSEQ R0, MSP         \n"
+        "MRSNE R0, PSP         \n"
+        "B HardFault_HandlerC  \n");
 }
 
 /**************************************************************************//**

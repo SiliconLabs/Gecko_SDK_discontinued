@@ -23,7 +23,7 @@
 *
 * @file   app_cfg.h
 * @brief
-* @version 4.0.0
+* @version 4.1.0
 ******************************************************************************
 * @section License
 * <b>(C) Copyright 2013 Energy Micro AS, http://www.energymicro.com</b>

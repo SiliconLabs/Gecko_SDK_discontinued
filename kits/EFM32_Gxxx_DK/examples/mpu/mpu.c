@@ -3,7 +3,7 @@
  * @brief MPU example for EFM32_G2xx_DK and EFM32_G8xx_DK.
  *        Connect a terminal application with baudrate 9600-8-N-1
  *        on serial port B of the kit to run the demo.
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -97,11 +97,11 @@ void MemManage_Handler( void )
    * Get the appropriate stack pointer, depending on our mode,
    * and use it as a parameter to a C handler.
    */
-  __asm("TST   LR, #4");
-  __asm("ITE   EQ");
-  __asm("MRSEQ R0, MSP");
-  __asm("MRSNE R0, PSP");
-  __asm("B MemManage_HandlerC");
+  __asm("TST   LR, #4         \n"
+        "ITE   EQ             \n"
+        "MRSEQ R0, MSP        \n"
+        "MRSNE R0, PSP        \n"
+        "B MemManage_HandlerC \n");
 }
 #endif
 

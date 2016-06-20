@@ -250,7 +250,7 @@ void vPortSuppressTicksAndSleep(portTickType xExpectedIdleTime)
   }
 
   /* Calculate the reload value required to wait xExpectedIdleTime
-   * tick periods.  
+   * tick periods.
   */
   ulReloadValue = (ulTimerReloadValueForOneTick * (xExpectedIdleTime ));
   if (ulReloadValue > ulStoppedTimerCompensation)
@@ -410,7 +410,7 @@ void vPortSetupTimerInterrupt(void)
   CMU_ClockEnable(cmuClock_CORELE, true);
 
   /* Enable access to BURTC registers */
-  RMU_ResetControl(rmuResetBU, false);
+  RMU_ResetControl(rmuResetBU, rmuResetModeClear);
 
   /* Configure BURTC as system tick source */
   BURTC_Init_TypeDef burtcInit = BURTC_INIT_DEFAULT;

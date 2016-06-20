@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file  msdd.c
  * @brief Mass Storage class Device (MSD) driver.
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -107,6 +107,7 @@ static MSDD_CmdStatus_TypeDef *pCmdStatus = &CmdStatus;
 static msdState_TypeDef       savedState; /* MSD state machine state. */
 static int ledPort;
 static unsigned int ledPin;
+static bool turResponse = true;         // Response on TEST UNIT READY command.
 
 /**************************************************************************//**
  * @brief Preformated SCSI INQUIRY response data structure.
@@ -209,7 +210,8 @@ void MSDD_Init(int activityLedPort, uint32_t activityLedPin)
        ( sizeof(NoSenseData)                      != SCSI_REQUESTSENSEDATA_LEN ) ||
        ( sizeof(IllegalSenseData)                 != SCSI_REQUESTSENSEDATA_LEN ) ||
        ( sizeof(MSDSCSI_ReadCapacity_TypeDef)     != SCSI_READCAPACITY_LEN     ) ||
-       ( sizeof(MSDSCSI_ReadCapacityData_TypeDef) != SCSI_READCAPACITYDATA_LEN )    )
+       ( sizeof(MSDSCSI_ReadCapacityData_TypeDef) != SCSI_READCAPACITYDATA_LEN ) ||
+       ( sizeof(MSDSCSI_StartStopUnit_TypeDef)    != SCSI_STARTSTOPUNIT_LEN    )    )
   {
     DEBUG_USB_API_PUTS("\nMSDD_Init(), typedef size error");
     EFM_ASSERT(false);
@@ -413,6 +415,7 @@ void MSDD_StateChangeEvent( USBD_State_TypeDef oldState,
     /* We have been configured, start MSD functionality ! */
     EnableNextCbw();
     msdState = MSDD_WAITFOR_CBW;
+    turResponse = true;           // Set TEST UNIT READY response value.
   }
 
   else if ((oldState == USBD_STATE_CONFIGURED) &&
@@ -652,12 +655,13 @@ __STATIC_INLINE void EnableNextCbw(void)
  *****************************************************************************/
 static void ProcessScsiCdb(void)
 {
-  MSDSCSI_Inquiry_TypeDef      *cbI;
-  MSDSCSI_RequestSense_TypeDef *cbRS;
-  MSDSCSI_ReadCapacity_TypeDef *cbRC;
-  MSDSCSI_Read10_TypeDef       *cbR10;
-  MSDSCSI_Write10_TypeDef      *cbW10;
-  MSDSCSI_Verify10_TypeDef     *cbV10;
+  MSDSCSI_Inquiry_TypeDef       *cbI;
+  MSDSCSI_RequestSense_TypeDef  *cbRS;
+  MSDSCSI_ReadCapacity_TypeDef  *cbRC;
+  MSDSCSI_Read10_TypeDef        *cbR10;
+  MSDSCSI_Write10_TypeDef       *cbW10;
+  MSDSCSI_Verify10_TypeDef      *cbV10;
+  MSDSCSI_StartStopUnit_TypeDef *cbSSU;
 
   EFM32_ALIGN(4)
   static MSDSCSI_ReadCapacityData_TypeDef ReadCapData __attribute__ ((aligned(4)));
@@ -745,12 +749,21 @@ static void ProcessScsiCdb(void)
     break;
 
   case SCSI_TESTUNIT_READY:
-    pCmdStatus->valid     = true;
+    pCmdStatus->valid     = turResponse;
     pCmdStatus->direction = pCbw->Direction;
     pCmdStatus->xferLen   = 0;
-    break;
+    return;
 
   case SCSI_STARTSTOP_UNIT:
+    cbSSU = (MSDSCSI_StartStopUnit_TypeDef*) &pCbw->CBWCB;
+    if ((cbSSU->Reserved1      == 0) && (cbSSU->Reserved2 == 0) &&
+        (cbSSU->Reserved3      == 0) && (cbSSU->Reserved4 == 0) &&
+        (cbSSU->PowerCondition == 0) && (cbSSU->LoEj      == 1) &&
+        (cbSSU->Start          == 0))
+    {
+      // Eject media.
+      turResponse = false;              // Set TEST UNIT READY response value.
+    }
     pCmdStatus->valid     = true;
     pCmdStatus->direction = pCbw->Direction;
     pCmdStatus->xferLen   = 0;

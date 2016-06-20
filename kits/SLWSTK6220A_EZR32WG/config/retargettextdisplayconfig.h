@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file retargettextdisplayconfig.h
  * @brief  Configuration file for stdio text display retarget module.
- * @version 4.0.0
+ * @version 4.1.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>

@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file
  * @brief SPI interface API for KSZ8851SNL Ethernet controller
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -137,7 +137,7 @@ static void KSZ8851SNL_SPI_Receive(int numBytes, uint8_t * buffer)
  *   Select/deselect the ksz8851snl chip. This will clear/set the chip select
  *   GPIO pin connected to the ksz8851snl. The chip has active low chip select.
  *
- * @param[in] value
+ * @param[in] enable
  *   true will select the ksz8851snl chip
  *   false will deselect the ksz8851snl chip.
  *****************************************************************************/

@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file uartdrv.c
  * @brief UARTDRV API implementation.
- * @version 4.0.0
+ * @version 4.1.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -452,6 +452,13 @@ static Ecode_t ConfigGPIO(UARTDRV_Handle_t handle, bool enable)
     handle->rxPort = (GPIO_Port_TypeDef)AF_USARTRF0_RX_PORT( initData->portLocationRx );
     handle->txPin  = AF_USARTRF0_TX_PIN( initData->portLocationTx );
     handle->rxPin  = AF_USARTRF0_RX_PIN( initData->portLocationRx );
+  #endif
+  #if defined(USARTRF1)
+  } else if (handle->initData.port == USARTRF1) {
+    handle->txPort = (GPIO_Port_TypeDef)AF_USARTRF1_TX_PORT( initData->portLocationTx );
+    handle->rxPort = (GPIO_Port_TypeDef)AF_USARTRF1_RX_PORT( initData->portLocationRx );
+    handle->txPin  = AF_USARTRF1_TX_PIN( initData->portLocationTx );
+    handle->rxPin  = AF_USARTRF1_RX_PIN( initData->portLocationRx );
   #endif
   #if defined(USART0)
   } else if (handle->initData.port == USART0) {

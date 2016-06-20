@@ -225,7 +225,7 @@ Collaboration diagram for Si7013:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>True if a Si7013 is detected, false otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="si7013_8c_source.html#l00401">401</a> of file <a class="el" href="si7013_8c_source.html">si7013.c</a>.</p>
+<p>Definition at line <a class="el" href="si7013_8c_source.html#l00407">407</a> of file <a class="el" href="si7013_8c_source.html">si7013.c</a>.</p>
 
 <p>References <a class="el" href="i2cspm_8c_source.html#l00124">I2CSPM_Transfer()</a>.</p>
 
@@ -282,7 +282,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Returns zero on OK, non-zero otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="si7013_8c_source.html#l00153">153</a> of file <a class="el" href="si7013_8c_source.html">si7013.c</a>.</p>
+<p>Definition at line <a class="el" href="si7013_8c_source.html#l00157">157</a> of file <a class="el" href="si7013_8c_source.html">si7013.c</a>.</p>
 
 <p>References <a class="el" href="i2cspm_8c_source.html#l00124">I2CSPM_Transfer()</a>.</p>
 
@@ -346,18 +346,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Returns zero on OK, non-zero otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="si7013_8c_source.html#l00298">298</a> of file <a class="el" href="si7013_8c_source.html">si7013.c</a>.</p>
-
-<p>References <a class="el" href="si7013_8c_source.html#l00068">Si7013_Measure()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="group__Si7013_gac98bb80b752e8d70e52fb58f4382237b_cgraph.png" border="0" usemap="#group__Si7013_gac98bb80b752e8d70e52fb58f4382237b_cgraph_map" alt=""></div>
-<map name="group__Si7013_gac98bb80b752e8d70e52fb58f4382237b_cgraph_map" id="group__Si7013_gac98bb80b752e8d70e52fb58f4382237b_cgraph">
-<area shape="rect" id="node3" href="si7013_8c.html#a51296512c4d2913a4d9cfe48031e0342" title="Reads data from the Si7013 sensor." alt="" coords="243,5,360,32"/><area shape="rect" id="node5" href="group__I2CSPM.html#ga076766b20012fb6a0cdaaf0f2c760795" title="Perform I2C transfer." alt="" coords="408,5,531,32"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="si7013_8c_source.html#l00304">304</a> of file <a class="el" href="si7013_8c_source.html">si7013.c</a>.</p>
 
 </div>
 </div>
@@ -397,25 +386,13 @@ Here is the call graph for this function:</div>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>i2c</em>&nbsp;</td><td>The I2C peripheral to use. </td></tr>
     <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>addr</em>&nbsp;</td><td>The I2C address of the sensor. </td></tr>
-    <tr><td valign="top"><tt>[out]</tt>&nbsp;</td><td valign="top"><em>rhData</em>&nbsp;</td><td>The relative humidity in percent (multiplied by 1000). </td></tr>
-    <tr><td valign="top"><tt>[out]</tt>&nbsp;</td><td valign="top"><em>tData</em>&nbsp;</td><td>The temperature in milli-Celsius. </td></tr>
+    <tr><td valign="top"><tt>[out]</tt>&nbsp;</td><td valign="top"><em>vData</em>&nbsp;</td><td>The data read from the sensor. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Returns zero on OK, non-zero otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="si7013_8c_source.html#l00370">370</a> of file <a class="el" href="si7013_8c_source.html">si7013.c</a>.</p>
-
-<p>References <a class="el" href="si7013_8c_source.html#l00068">Si7013_Measure()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="group__Si7013_ga4e0ff510d89029fafb509e8c0257e0b0_cgraph.png" border="0" usemap="#group__Si7013_ga4e0ff510d89029fafb509e8c0257e0b0_cgraph_map" alt=""></div>
-<map name="group__Si7013_ga4e0ff510d89029fafb509e8c0257e0b0_cgraph_map" id="group__Si7013_ga4e0ff510d89029fafb509e8c0257e0b0_cgraph">
-<area shape="rect" id="node3" href="si7013_8c.html#a51296512c4d2913a4d9cfe48031e0342" title="Reads data from the Si7013 sensor." alt="" coords="179,5,296,32"/><area shape="rect" id="node5" href="group__I2CSPM.html#ga076766b20012fb6a0cdaaf0f2c760795" title="Perform I2C transfer." alt="" coords="344,5,467,32"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="si7013_8c_source.html#l00376">376</a> of file <a class="el" href="si7013_8c_source.html">si7013.c</a>.</p>
 
 </div>
 </div>
@@ -468,18 +445,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Returns zero on OK, non-zero otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="si7013_8c_source.html#l00255">255</a> of file <a class="el" href="si7013_8c_source.html">si7013.c</a>.</p>
-
-<p>References <a class="el" href="si7013_8c_source.html#l00068">Si7013_Measure()</a>, and <a class="el" href="si7013_8c_source.html#l00213">Si7013_ReadNoHoldData()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="group__Si7013_ga3eff490673aecb28afaadd73b2a3712f_cgraph.png" border="0" usemap="#group__Si7013_ga3eff490673aecb28afaadd73b2a3712f_cgraph_map" alt=""></div>
-<map name="group__Si7013_ga3eff490673aecb28afaadd73b2a3712f_cgraph_map" id="group__Si7013_ga3eff490673aecb28afaadd73b2a3712f_cgraph">
-<area shape="rect" id="node3" href="si7013_8c.html#a51296512c4d2913a4d9cfe48031e0342" title="Reads data from the Si7013 sensor." alt="" coords="284,5,401,32"/><area shape="rect" id="node7" href="si7013_8c.html#aac982b24812984ce1a88c4db52eb1d23" title="Reads data from the Si7013 sensor." alt="" coords="261,56,424,83"/><area shape="rect" id="node5" href="group__I2CSPM.html#ga076766b20012fb6a0cdaaf0f2c760795" title="Perform I2C transfer." alt="" coords="472,31,595,57"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="si7013_8c_source.html#l00261">261</a> of file <a class="el" href="si7013_8c_source.html">si7013.c</a>.</p>
 
 </div>
 </div>
@@ -518,25 +484,14 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Returns zero on OK, non-zero otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="si7013_8c_source.html#l00193">193</a> of file <a class="el" href="si7013_8c_source.html">si7013.c</a>.</p>
-
-<p>References <a class="el" href="si7013_8c_source.html#l00112">Si7013_StartNoHoldMeasure()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="group__Si7013_ga3b89607cfc5570713fa1ec217d1dca2a_cgraph.png" border="0" usemap="#group__Si7013_ga3b89607cfc5570713fa1ec217d1dca2a_cgraph_map" alt=""></div>
-<map name="group__Si7013_ga3b89607cfc5570713fa1ec217d1dca2a_cgraph_map" id="group__Si7013_ga3b89607cfc5570713fa1ec217d1dca2a_cgraph">
-<area shape="rect" id="node3" href="si7013_8c.html#aa21ab038eb789adfeb374a0718666936" title="Starts a no hold measurement in the Si7013 sensor." alt="" coords="310,5,495,32"/><area shape="rect" id="node5" href="group__I2CSPM.html#ga076766b20012fb6a0cdaaf0f2c760795" title="Perform I2C transfer." alt="" coords="544,5,667,32"/></map>
-</div>
-</p>
+<p>Definition at line <a class="el" href="si7013_8c_source.html#l00197">197</a> of file <a class="el" href="si7013_8c_source.html">si7013.c</a>.</p>
 
 </div>
 </div>
 </div>
 <div id="footer">
 <hr size="1"><address style="text-align: right;"><small>
-Generated on Fri May 29 11:30:12 2015</small> for Board Support Package by&nbsp;
+Generated on Mon Sep 7 09:26:45 2015</small> for Board Support Package by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a><small> 1.6.3 </small></address></div>
 </body>

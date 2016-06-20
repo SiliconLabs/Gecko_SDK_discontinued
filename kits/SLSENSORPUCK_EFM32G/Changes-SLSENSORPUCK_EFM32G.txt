@@ -1,4 +1,7 @@
 ================ Revision history ============================================
+4.1.0:
+ - No changes.
+
 4.0.0:
  - Modified code to reflect latest factory loaded firmware which saves power.
  - Fixed dark calibration running continuously after HRM times out.

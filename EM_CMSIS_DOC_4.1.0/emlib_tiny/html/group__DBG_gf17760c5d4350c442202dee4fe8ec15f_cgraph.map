@@ -1,0 +1,11 @@
+base referer
+rect $group__CMU.html#g2cc0f1684fbc32976b82c6d93a51c7d9 195,56 363,83
+rect $group__GPIO.html#g2e5db302df7c3695b41b582094ca6c15 193,107 365,133
+rect $group__GPIO.html#g9c587570c6c2422eb46ac557d9d9e319 195,157 362,184
+rect $group__GPIO.html#gb6751992334a136efe8750a1d01a850d 207,208 351,235
+rect $group__BUS.html#gca6b55014161f4c51c9daf4f707eeb7c 433,5 569,32
+rect $group__BUS.html#gec23c86f9b844b9e0e102ebff0b96ff4 418,56 585,83
+rect $group__EMU.html#g3d442fa018de5138afb19a2b85797099 413,107 589,133
+rect $group__BUS.html#gf8574f14855448ecae32c5a9dd0c7164 637,208 776,235
+rect $group__GPIO.html#g607f3a5f3d881bb145101566f1664aba 429,208 573,235
+rect $group__GPIO.html#gb08f054efbb07aaff57d616974c9c536 435,259 568,285

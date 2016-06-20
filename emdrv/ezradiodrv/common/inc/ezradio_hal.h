@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file ezradio_hal.h
  * @brief This file contains EZRadio HAL.
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -12,9 +12,9 @@
  * freely, subject to the following restrictions:
  *
  * 1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
+ *    claim that you wrote the original software.@n
  * 2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
+ *    misrepresented as being the original software.@n
  * 3. This notice may not be removed or altered from any source distribution.
  *
  * DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Silicon Labs has no
@@ -33,22 +33,28 @@
 #ifndef _EZRADIO_HAL_H_
 #define _EZRADIO_HAL_H_
 
-#include "ezradiodrv_config.h"
-
 #ifdef __cplusplus
 extern "C" {
 #endif
 
+/***************************************************************************//**
+ * @addtogroup EM_Drivers
+ * @{
+ ******************************************************************************/
 
-#if (defined EZRADIODRV_USE_SPIDRV)
-#include "spidrv.h"
+/***************************************************************************//**
+ * @addtogroup EZRADIODRV
+ * @{
+ ******************************************************************************/
 
-extern SPIDRV_HandleData_t  ezradioSpiHandle;
-extern SPIDRV_Handle_t      ezradioSpiHandlePtr;
-extern SPIDRV_Init_t        ezradioSpiInitData;
-#endif
+/***************************************************************************//**
+ * @addtogroup HAL_Layer
+ * @brief EzRadio HAL Layer, see @ref ezradiodrv_hal on page
+ *        @ref ezradiodrv_doc for detailed documentation.
+ * @{
+ ******************************************************************************/
 
-void    ezradio_hal_GpioInit( GPIOINT_IrqCallbackPtr_t ezradioIrqCallback );
+void    ezradio_hal_GpioInit( GPIOINT_IrqCallbackPtr_t ezradioIrqCallback, bool enablePTI );
 void    ezradio_hal_SpiInit( void );
 
 void    ezradio_hal_AssertShutdown  (void);
@@ -62,6 +68,10 @@ void    ezradio_hal_SpiReadByte     (uint8_t* readByte);
 
 void    ezradio_hal_SpiWriteData    (uint8_t byteCount, uint8_t* pData);
 void    ezradio_hal_SpiReadData     (uint8_t byteCount, uint8_t* pData);
+
+/** @} (end addtogroup HAL_Layer) */
+/** @} (end addtogroup EZRADIODRV) */
+/** @} (end addtogroup EM_Drivers) */
 
 #ifdef __cplusplus
 }

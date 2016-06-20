@@ -1,4 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point." alt="" coords="224,5,368,32"/>
-<area shape="rect" id="node3" href="$group__LEUART.html#ga0ae6c4ba0d7b1aa02db2c475757b257d" title="Calculate baudrate for LEUART given reference frequency and clock division." alt="" coords="213,56,379,83"/>
-</map>

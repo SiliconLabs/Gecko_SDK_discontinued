@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file udelay.c
  * @brief Microsecond delay routine.
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -139,7 +139,6 @@ void UDELAY_Calibrate(void)
   /* Set up a reasonable prescaler. */
 #if defined( RTCC_PRESENT ) && ( RTCC_COUNT == 1 )
   rtcClkDiv = CMU_ClockDivGet(cmuClock_RTCC);
-  CMU_ClockDivSet(cmuClock_RTCC, cmuClkDiv_256);
   if ( !(CMU->LFECLKEN0 & CMU_LFECLKEN0_RTCC) )
   {
     /* Enable clock to RTCC module */
@@ -165,10 +164,6 @@ void UDELAY_Calibrate(void)
   {
     /* Stash away current RTC settings. */
     rtcCtrl   = RTCC->CTRL;
-#if 0
-    rtcComp0  = RTCC->COMP0;
-    rtcComp1  = RTCC->COMP1;
-#endif
     rtcIen    = RTCC->IEN;
 
     RTCC->CTRL = _RTCC_CTRL_RESETVALUE;
@@ -181,6 +176,7 @@ void UDELAY_Calibrate(void)
   }
   init.precntWrapOnCCV0 = false;  /* Count to max before wrapping */
   init.cntWrapOnCCV1 = false;  /* Count to max before wrapping */
+  init.presc = rtccCntPresc_256; /* Setup prescaler */
 
   RTCC_Init(&init);        /* Start RTC counter. */
 

@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file spidrv.c
  * @brief SPIDRV API implementation.
- * @version 4.0.0
+ * @version 4.1.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -138,6 +138,14 @@ Ecode_t SPIDRV_Init( SPIDRV_Handle_t handle, SPIDRV_Init_t *initData )
     handle->usartClock  = cmuClock_USARTRF0;
     handle->txDMASignal = dmadrvPeripheralSignal_USARTRF0_TXBL;
     handle->rxDMASignal = dmadrvPeripheralSignal_USARTRF0_RXDATAV;
+#endif
+#if defined( USARTRF1 )
+  }
+  else if ( initData->port == USARTRF1 )
+  {
+    handle->usartClock  = cmuClock_USARTRF1;
+    handle->txDMASignal = dmadrvPeripheralSignal_USARTRF1_TXBL;
+    handle->rxDMASignal = dmadrvPeripheralSignal_USARTRF1_RXDATAV;
 #endif
   }
   else
@@ -1377,6 +1385,19 @@ static Ecode_t ConfigGPIO( SPIDRV_Handle_t handle, bool enable )
     clkPin         = AF_USARTRF0_CLK_PIN(  initData->portLocationClk );
     handle->csPin  = AF_USARTRF0_CS_PIN(   initData->portLocationCs  );
 #endif
+#if defined( USARTRF1 )
+  }
+  else if ( handle->initData.port == USARTRF1 )
+  {
+    mosiPort       = AF_USARTRF1_TX_PORT(  initData->portLocationTx  );
+    misoPort       = AF_USARTRF1_RX_PORT(  initData->portLocationRx  );
+    clkPort        = AF_USARTRF1_CLK_PORT( initData->portLocationClk );
+    handle->csPort = AF_USARTRF1_CS_PORT(  initData->portLocationCs  );
+    mosiPin        = AF_USARTRF1_TX_PIN(   initData->portLocationTx  );
+    misoPin        = AF_USARTRF1_RX_PIN(   initData->portLocationRx  );
+    clkPin         = AF_USARTRF1_CLK_PIN(  initData->portLocationClk );
+    handle->csPin  = AF_USARTRF1_CS_PIN(   initData->portLocationCs  );
+#endif
   }
   else
   {
@@ -1439,6 +1460,19 @@ static Ecode_t ConfigGPIO( SPIDRV_Handle_t handle, bool enable )
     misoPin        = AF_USARTRF0_RX_PIN(   location );
     clkPin         = AF_USARTRF0_CLK_PIN(  location );
     handle->csPin  = AF_USARTRF0_CS_PIN(   location );
+#endif
+#if defined( USARTRF1 )
+  }
+  else if ( handle->initData.port == USARTRF1 )
+  {
+    mosiPort       = AF_USARTRF1_TX_PORT(  location );
+    misoPort       = AF_USARTRF1_RX_PORT(  location );
+    clkPort        = AF_USARTRF1_CLK_PORT( location );
+    handle->csPort = AF_USARTRF1_CS_PORT(  location );
+    mosiPin        = AF_USARTRF1_TX_PIN(   location );
+    misoPin        = AF_USARTRF1_RX_PIN(   location );
+    clkPin         = AF_USARTRF1_CLK_PIN(  location );
+    handle->csPin  = AF_USARTRF1_CS_PIN(   location );
 #endif
   }
   else
@@ -1904,10 +1938,10 @@ static Ecode_t WaitForIdleLine( SPIDRV_Handle_t handle )
   @li @ref spidrv_example
 
 @n @section spidrv_intro Introduction
-  The SPI driver support the SPI capabilities of EFM32 USARTs. The driver
-  is fully reentrant and several driver instances can coexist. The driver does
-  not buffer or queue data. The driver has SPI transfer functions for both
-  master and slave SPI mode. Both synchronous and asynchronous transfer
+  The SPI driver support the SPI capabilities of EFM32/EZR32/EFR32 USARTs.
+  The driver is fully reentrant and several driver instances can coexist. The
+  driver does not buffer or queue data. The driver has SPI transfer functions
+  for both master and slave SPI mode. Both synchronous and asynchronous transfer
   functions are present. Synchronous transfer functions are blocking and will
   not return to caller before the transfer has completed. Asynchronous transfer
   functions report transfer completion with callback functions. Transfers are

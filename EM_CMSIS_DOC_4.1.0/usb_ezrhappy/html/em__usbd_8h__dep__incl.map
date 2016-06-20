@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$em__usbd_8c.html" title="USB protocol stack library API for EFM32/EZR32." alt="" coords="5,81,341,108"/>
+<area shape="rect" id="node3" href="$em__usbdch9_8c.html" title="USB protocol stack library, USB chapter 9 command handler." alt="" coords="365,81,725,108"/>
+<area shape="rect" id="node4" href="$em__usbdep_8c.html" title="USB protocol stack library, USB device endpoint handlers." alt="" coords="750,81,1103,108"/>
+<area shape="rect" id="node5" href="$em__usbdint_8c.html" title="USB protocol stack library, USB device peripheral interrupt handlers." alt="" coords="1128,81,1483,108"/>
+<area shape="rect" id="node6" href="$em__usbhal_8c.html" title="USB protocol stack library, low level USB peripheral access." alt="" coords="1507,81,1853,108"/>
+</map>

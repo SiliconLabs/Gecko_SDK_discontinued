@@ -1,4 +1,8 @@
 ================ Revision history ============================================
+4.1.0:
+- Fixed media Eject operation in USB MSD examples (usbdmsd, usbdtouch and
+  usbdcomposite).
+
 4.0.0:
 - Added USB audio microphone device example.
 - Added USB audio headphone device example.

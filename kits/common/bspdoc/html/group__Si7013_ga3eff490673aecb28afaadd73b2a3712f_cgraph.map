@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$si7013_8c.html#a51296512c4d2913a4d9cfe48031e0342" title="Reads data from the Si7013 sensor." alt="" coords="284,5,401,32"/>
-<area shape="rect" id="node7" href="$si7013_8c.html#aac982b24812984ce1a88c4db52eb1d23" title="Reads data from the Si7013 sensor." alt="" coords="261,56,424,83"/>
-<area shape="rect" id="node5" href="$group__I2CSPM.html#ga076766b20012fb6a0cdaaf0f2c760795" title="Perform I2C transfer." alt="" coords="472,31,595,57"/>
-</map>

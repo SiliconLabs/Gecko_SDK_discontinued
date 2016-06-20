@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$em__emu_8h.html" title="Energy management unit (EMU) peripheral API." alt="" coords="277,80,368,107"/>
-<area shape="rect" id="node6" href="$em__cmu_8h.html" title="Clock management unit (CMU) API." alt="" coords="5,80,96,107"/>
-<area shape="rect" id="node7" href="$em__system_8h.html" title="System API." alt="" coords="144,80,253,107"/>
-<area shape="rect" id="node8" href="$em__assert_8h.html" title="EFM32 peripheral API &quot;assert&quot; implementation." alt="" coords="392,80,493,107"/>
-<area shape="rect" id="node5" href="$em__bitband_8h.html" title="Bitband Peripheral API." alt="" coords="293,155,403,181"/>
-</map>

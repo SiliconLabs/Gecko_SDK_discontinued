@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file displayconfigall.h
  * @brief Main configuration file for the DISPLAY driver software stack.
- * @version 4.0.0
+ * @version 4.1.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -27,10 +27,10 @@
 /* Then include the kit specific display configuration files which also includes
    the application specific configuration file and further selects which modules
    modules to include below. */
+#include "displaypalconfig.h"
 #include "displayconfig.h"
 
 #ifdef INCLUDE_DISPLAY_SHARP_LS013B7DH03
-#include "displaypalconfig.h"
 #include "displayls013b7dh03config.h"
 #endif
 

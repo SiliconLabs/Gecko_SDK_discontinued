@@ -53,19 +53,19 @@
 									<listOptionValue builtIn="false" value="../../../../../config"/>
 									<listOptionValue builtIn="false" value="../../../../../../../reptile/glib"/>
 									<listOptionValue builtIn="false" value="../../../../../../../reptile/glib/glib"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/api"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/core"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/core/ipv4"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/include"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/include/ipv4"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/include/ipv4/lwip"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/include/lwip"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/contrib-1.4.1/apps/ping"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/contrib-1.4.1/apps/tcpecho_raw"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/contrib-1.4.1/apps/httpserver_raw"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/contrib-1.4.1/ports/EFM32/"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/contrib-1.4.1/ports/EFM32/include/"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/api"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/core"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/core/ipv4"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/include"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/include/ipv4"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/include/ipv4/lwip"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/include/lwip"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-contrib/apps/ping"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-contrib/apps/tcpecho_raw"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-contrib/apps/httpserver_raw"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-contrib/ports/EFM32/"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-contrib/ports/EFM32/include/"/>
 								</option>
 								<option id="com.atollic.truestudio.common_options.target.endianess.736446150" name="Endianess" superClass="com.atollic.truestudio.common_options.target.endianess" value="com.atollic.truestudio.common_options.target.endianess.little" valueType="enumerated"/>
 								<option id="com.atollic.truestudio.common_options.target.mcpu.1007589283" name="Microcontroller" superClass="com.atollic.truestudio.common_options.target.mcpu" value="EFM32LG990F256" valueType="enumerated"/>
@@ -120,19 +120,19 @@
 									<listOptionValue builtIn="false" value="../../../../../config"/>
 									<listOptionValue builtIn="false" value="../../../../../../../reptile/glib"/>
 									<listOptionValue builtIn="false" value="../../../../../../../reptile/glib/glib"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/api"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/core"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/core/ipv4"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/include"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/include/ipv4"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/include/ipv4/lwip"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/include/lwip"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/contrib-1.4.1/apps/ping"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/contrib-1.4.1/apps/tcpecho_raw"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/contrib-1.4.1/apps/httpserver_raw"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/contrib-1.4.1/ports/EFM32/"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/contrib-1.4.1/ports/EFM32/include/"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/api"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/core"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/core/ipv4"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/include"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/include/ipv4"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/include/ipv4/lwip"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/include/lwip"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-contrib/apps/ping"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-contrib/apps/tcpecho_raw"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-contrib/apps/httpserver_raw"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-contrib/ports/EFM32/"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-contrib/ports/EFM32/include/"/>
 								</option>
 								<option id="com.atollic.truestudio.common_options.target.endianess.539549121" name="Endianess" superClass="com.atollic.truestudio.common_options.target.endianess" value="com.atollic.truestudio.common_options.target.endianess.little" valueType="enumerated"/>
 								<option id="com.atollic.truestudio.common_options.target.mcpu.72212996" name="Microcontroller" superClass="com.atollic.truestudio.common_options.target.mcpu" value="EFM32LG990F256" valueType="enumerated"/>
@@ -206,19 +206,19 @@
 									<listOptionValue builtIn="false" value="../../../../../config"/>
 									<listOptionValue builtIn="false" value="../../../../../../../reptile/glib"/>
 									<listOptionValue builtIn="false" value="../../../../../../../reptile/glib/glib"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/api"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/core"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/core/ipv4"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/include"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/include/ipv4"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/include/ipv4/lwip"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/include/lwip"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/contrib-1.4.1/apps/ping"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/contrib-1.4.1/apps/tcpecho_raw"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/contrib-1.4.1/apps/httpserver_raw"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/contrib-1.4.1/ports/EFM32/"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/contrib-1.4.1/ports/EFM32/include/"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/api"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/core"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/core/ipv4"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/include"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/include/ipv4"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/include/ipv4/lwip"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/include/lwip"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-contrib/apps/ping"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-contrib/apps/tcpecho_raw"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-contrib/apps/httpserver_raw"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-contrib/ports/EFM32/"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-contrib/ports/EFM32/include/"/>
 								</option>
 								<option id="com.atollic.truestudio.common_options.target.instr_set.970415489" superClass="com.atollic.truestudio.common_options.target.instr_set" value="com.atollic.truestudio.common_options.target.instr_set.thumb2" valueType="enumerated"/>
 								<option id="com.atollic.truestudio.common_options.target.fpu.773966043" superClass="com.atollic.truestudio.common_options.target.fpu" value="Software implementation" valueType="enumerated"/>
@@ -249,19 +249,19 @@
 									<listOptionValue builtIn="false" value="../../../../../config"/>
 									<listOptionValue builtIn="false" value="../../../../../../../reptile/glib"/>
 									<listOptionValue builtIn="false" value="../../../../../../../reptile/glib/glib"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/api"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/core"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/core/ipv4"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/include"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/include/ipv4"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/include/ipv4/lwip"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-1.4.1/src/include/lwip"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/contrib-1.4.1/apps/ping"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/contrib-1.4.1/apps/tcpecho_raw"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/contrib-1.4.1/apps/httpserver_raw"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/contrib-1.4.1/ports/EFM32/"/>
-									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/contrib-1.4.1/ports/EFM32/include/"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/api"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/core"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/core/ipv4"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/include"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/include/ipv4"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/include/ipv4/lwip"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip/src/include/lwip"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-contrib/apps/ping"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-contrib/apps/tcpecho_raw"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-contrib/apps/httpserver_raw"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-contrib/ports/EFM32/"/>
+									<listOptionValue builtIn="false" value="../../../../../../../reptile/lwIP/lwip-contrib/ports/EFM32/include/"/>
 								</option>
 								<option id="com.atollic.truestudio.common_options.target.instr_set.1216948468" superClass="com.atollic.truestudio.common_options.target.instr_set" value="com.atollic.truestudio.common_options.target.instr_set.thumb2" valueType="enumerated"/>
 								<option id="com.atollic.truestudio.exe.release.toolchain.gcc.debug.info.855561908" name="Debug Level" superClass="com.atollic.truestudio.exe.release.toolchain.gcc.debug.info" value="com.atollic.truestudio.gcc.debug.info.0" valueType="enumerated"/>

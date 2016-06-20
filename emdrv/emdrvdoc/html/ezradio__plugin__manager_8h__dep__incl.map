@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node4" href="$ezradio__auto__ack__plugin_8c.html" title="EzRadio auto acknowledge plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="5,81,309,108"/>
+<area shape="rect" id="node6" href="$ezradio__crcerror__plugin_8c.html" title="EzRadio CRC error plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="334,81,633,108"/>
+<area shape="rect" id="node8" href="$ezradio__direct__receive__plugin_8c.html" title="EzRadio direct reception plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="658,81,992,108"/>
+<area shape="rect" id="node10" href="$ezradio__direct__transmit__plugin_8c.html" title="EzRadio direct transmission plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="1017,81,1356,108"/>
+<area shape="rect" id="node12" href="$ezradio__plugin__manager_8c.html" title="This file contains the plug&#45;in manager for the EZRadio and EZRadioPRO chip families..." alt="" coords="1381,81,1685,108"/>
+<area shape="rect" id="node14" href="$ezradio__pn9__plugin_8c.html" title="EzRadio PN9 plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="1711,81,1985,108"/>
+<area shape="rect" id="node16" href="$ezradio__receive__plugin_8c.html" title="EzRadio receive plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="2010,81,2304,108"/>
+<area shape="rect" id="node18" href="$ezradio__transmit__plugin_8c.html" title="EzRadio transmit plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="2329,81,2631,108"/>
+<area shape="rect" id="node20" href="$ezradio__unmod__carrier__plugin_8c.html" title="EzRadio unmodulated carrier plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="2655,81,2993,108"/>
+</map>

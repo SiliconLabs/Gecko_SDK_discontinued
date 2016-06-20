@@ -1,0 +1,7 @@
+base referer
+rect $group__BUS.html#g9e878ccba24fcbf97b5bcb8b53356e76 200,31 360,57
+rect $group__GPIO.html#g39a52563da4bf3105f61a49dc77b79a1 217,81 343,108
+rect $group__ADC.html#g3d5a968fbc40b29ebc05f17b311f2eb9 461,5 537,32
+rect $group__USART.html#g5b96146f7c05f78d31bd77aacd4a3b5f 408,56 589,83
+rect $group__USART.html#gab6053ba081f6fabce6762fb4563fb28 637,56 760,83
+rect $group__USART.html#ga3973304191a67c1b6e837d8b6cc2197 809,56 917,83

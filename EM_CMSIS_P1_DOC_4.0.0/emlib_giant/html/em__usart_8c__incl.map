@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$em__usart_8h.html" title="Universal synchronous/asynchronous receiver/transmitter (USART/UART) peripheral API..." alt="" coords="9,80,103,107"/>
-<area shape="rect" id="node5" href="$em__cmu_8h.html" title="Clock management unit (CMU) API." alt="" coords="128,80,219,107"/>
-<area shape="rect" id="node7" href="$em__assert_8h.html" title="EFM32 peripheral API &quot;assert&quot; implementation." alt="" coords="243,80,344,107"/>
-<area shape="rect" id="node6" href="$em__bitband_8h.html" title="Bitband Peripheral API." alt="" coords="211,155,320,181"/>
-</map>

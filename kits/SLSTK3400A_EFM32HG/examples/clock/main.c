@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file main.c
  * @brief Clock example for SLSTK3400A-EFM32HG
- * @version 4.0.0
+ * @version 4.1.0
  *
  * This example shows how to optimize your code in order to drive
  * a graphical display in an energy friendly way.

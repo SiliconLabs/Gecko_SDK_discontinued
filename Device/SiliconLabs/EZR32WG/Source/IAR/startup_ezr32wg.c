@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file startup_ezr32wg.c
  * @brief CMSIS Compatible EZR32WG startup file in C for IAR EWARM
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -109,12 +109,12 @@ __weak void TIMER0_IRQHandler(void)
   while(1);
 }
 
-__weak void USART0_RX_IRQHandler(void)
+__weak void USARTRF0_RX_IRQHandler(void)
 {
   while(1);
 }
 
-__weak void USART0_TX_IRQHandler(void)
+__weak void USARTRF0_TX_IRQHandler(void)
 {
   while(1);
 }
@@ -264,11 +264,6 @@ __weak void VCMP_IRQHandler(void)
   while(1);
 }
 
-__weak void LCD_IRQHandler(void)
-{
-  while(1);
-}
-
 __weak void MSC_IRQHandler(void)
 {
   while(1);
@@ -310,11 +305,12 @@ const void * const __vector_table[]=  {
     (void *) 0,
     (void *) PendSV_Handler,
     (void *) SysTick_Handler,
+
     (void *) DMA_IRQHandler,  /* 0 - DMA */
     (void *) GPIO_EVEN_IRQHandler,  /* 1 - GPIO_EVEN */
     (void *) TIMER0_IRQHandler,  /* 2 - TIMER0 */
-    (void *) USART0_RX_IRQHandler,  /* 3 - USART0_RX */
-    (void *) USART0_TX_IRQHandler,  /* 4 - USART0_TX */
+    (void *) USARTRF0_RX_IRQHandler,  /* 3 - USARTRF0_RX */
+    (void *) USARTRF0_TX_IRQHandler,  /* 4 - USARTRF0_TX */
     (void *) USB_IRQHandler,  /* 5 - USB */
     (void *) ACMP0_IRQHandler,  /* 6 - ACMP0 */
     (void *) ADC0_IRQHandler,  /* 7 - ADC0 */
@@ -344,10 +340,11 @@ const void * const __vector_table[]=  {
     (void *) BURTC_IRQHandler,  /* 31 - BURTC */
     (void *) CMU_IRQHandler,  /* 32 - CMU */
     (void *) VCMP_IRQHandler,  /* 33 - VCMP */
-    (void *) LCD_IRQHandler,  /* 34 - LCD */
+    (void *) 0,                /* 34 - Reserved */
     (void *) MSC_IRQHandler,  /* 35 - MSC */
     (void *) AES_IRQHandler,  /* 36 - AES */
-    (void *) 0,  /* 37 - Reserved */
+    (void *) 0,                /* 37 - Reserved */
     (void *) EMU_IRQHandler,  /* 38 - EMU */
     (void *) FPUEH_IRQHandler,  /* 39 - FPUEH */
+
 };

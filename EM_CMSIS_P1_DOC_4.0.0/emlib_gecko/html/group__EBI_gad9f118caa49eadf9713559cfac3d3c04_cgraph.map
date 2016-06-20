@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$group__BITBAND.html#ga7df78ffd2c201e674a4444c42b6fcec3" title="Perform bit&#45;band operation on peripheral memory location." alt="" coords="331,88,477,115"/>
-<area shape="rect" id="node3" href="$group__EBI.html#gabef4d874ff17aa478fae71333a4c1ef5" title="Configure timing values of address latch bus accesses." alt="" coords="120,37,283,64"/>
-<area shape="rect" id="node4" href="$group__EBI.html#ga3ac877439175a25e03e658d247ae1615" title="Enable or disable EBI Chip Select." alt="" coords="122,88,281,115"/>
-<area shape="rect" id="node5" href="$group__EBI.html#gaf7fea7741967f124ac0a4021b48cc786" title="Configure EBI pin polarity." alt="" coords="144,139,259,165"/>
-<area shape="rect" id="node6" href="$group__EBI.html#gabd1af7612f8f14f7574df14547ce97e2" title="Configure timing values of read bus accesses." alt="" coords="129,189,273,216"/>
-<area shape="rect" id="node7" href="$group__EBI.html#gad9333cd6c2c48f2d831513b88f638429" title="Configure timing values of write bus accesses." alt="" coords="129,240,273,267"/>
-</map>

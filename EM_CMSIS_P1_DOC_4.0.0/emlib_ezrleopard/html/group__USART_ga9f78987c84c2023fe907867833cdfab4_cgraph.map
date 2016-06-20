@@ -1,4 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point." alt="" coords="213,5,357,32"/>
-<area shape="rect" id="node3" href="$group__USART.html#gac3af64b304f10a2ea679526f8fe3a9fb" title="Calculate baudrate for USART/UART given reference frequency, clock division and oversampling..." alt="" coords="206,56,365,83"/>
-</map>

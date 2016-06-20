@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file ezr32wg_rmu.h
  * @brief EZR32WG_RMU register and bit field definitions
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>

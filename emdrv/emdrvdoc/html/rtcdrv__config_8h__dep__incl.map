@@ -2,5 +2,6 @@
 <area shape="rect" id="node3" href="$rtcdriver_8h.html" title="RTCDRV timer API definition." alt="" coords="83,80,223,107"/>
 <area shape="rect" id="node5" href="$rtcdriver_8c.html" title="RTCDRV timer API implementation." alt="" coords="5,155,144,181"/>
 <area shape="rect" id="node7" href="$spidrv_8h.html" title="SPIDRV API definition." alt="" coords="169,155,295,181"/>
-<area shape="rect" id="node9" href="$spidrv_8c.html" title="SPIDRV API implementation." alt="" coords="169,229,295,256"/>
+<area shape="rect" id="node9" href="$spidrv_8c.html" title="SPIDRV API implementation." alt="" coords="65,229,191,256"/>
+<area shape="rect" id="node11" href="$ezradio__hal_8c.html" title="This file contains EZRadio HAL." alt="" coords="215,229,453,256"/>
 </map>

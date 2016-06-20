@@ -1,4 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$group__CMU.html#gaf6b90e2c10eca7c67fe3bc27d8081ae4" title="Lock the CMU in order to protect some of its registers against unintended modification..." alt="" coords="175,5,263,32"/>
-<area shape="rect" id="node3" href="$group__CMU.html#ga15ee8874bbe2c87a9b47aa81d3b76f51" title="Unlock the CMU so that writing to locked registers again is possible." alt="" coords="168,56,269,83"/>
-</map>

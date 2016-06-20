@@ -76,28 +76,28 @@ window.onload = initDynSections;
 <a name="l00038"></a>00038 <span class="preprocessor">#include &quot;<a class="code" href="ezradio__hal_8h.html" title="This file contains EZRadio HAL.">ezradio_hal.h</a>&quot;</span>
 <a name="l00039"></a>00039 <span class="preprocessor">#include &quot;<a class="code" href="ezradio__comm_8h.html" title="This file contains the EZRadio communication layer.">ezradio_comm.h</a>&quot;</span>
 <a name="l00040"></a>00040 
-<a name="l00042"></a><a class="code" href="ezradio__comm_8c.html#a3be6bf56cfb1e196af67cb55fe708643">00042</a> uint8_t <a class="code" href="ezradio__comm_8h.html#a3be6bf56cfb1e196af67cb55fe708643" title="Can be used to prevent CTS check before any communication command.">ezradio_comm_CtsWentHigh</a> = 0;
+<a name="l00042"></a><a class="code" href="group__COMM__Layer.html#ga3be6bf56cfb1e196af67cb55fe708643">00042</a> uint8_t <a class="code" href="group__COMM__Layer.html#ga3be6bf56cfb1e196af67cb55fe708643" title="Can be used to prevent CTS check before any communication command.">ezradio_comm_CtsWentHigh</a> = 0;
 <a name="l00043"></a>00043 
-<a name="l00052"></a><a class="code" href="ezradio__comm_8c.html#a45656b02cb2cf46e29c8f509203e08b4">00052</a> uint8_t <a class="code" href="ezradio__comm_8h.html#a45656b02cb2cf46e29c8f509203e08b4">ezradio_comm_GetResp</a>(uint8_t byteCount, uint8_t* pData)
+<a name="l00052"></a><a class="code" href="group__COMM__Layer.html#ga45656b02cb2cf46e29c8f509203e08b4">00052</a> uint8_t <a class="code" href="group__COMM__Layer.html#ga45656b02cb2cf46e29c8f509203e08b4" title="Gets a command response from the radio chip.">ezradio_comm_GetResp</a>(uint8_t byteCount, uint8_t* pData)
 <a name="l00053"></a>00053 {
 <a name="l00054"></a>00054   uint8_t ctsVal = 0;
-<a name="l00055"></a>00055   uint16_t errCnt = <a class="code" href="ezradio__comm_8h.html#a88cd1e0089ad376f7eef4916eedbd9d5" title="Radio CTS timeout.">EZRADIO_CTS_TIMEOUT</a>;
+<a name="l00055"></a>00055   uint16_t errCnt = <a class="code" href="group__COMM__Layer.html#ga88cd1e0089ad376f7eef4916eedbd9d5" title="Radio CTS timeout.">EZRADIO_CTS_TIMEOUT</a>;
 <a name="l00056"></a>00056 
 <a name="l00057"></a>00057   <span class="keywordflow">while</span> (errCnt != 0)      <span class="comment">//wait until radio IC is ready with the data</span>
 <a name="l00058"></a>00058   {
-<a name="l00059"></a>00059     <a class="code" href="ezradio__hal_8h.html#a09c7ef4b4780a8089505f54ef1f26fd5">ezradio_hal_ClearNsel</a>();
-<a name="l00060"></a>00060     <a class="code" href="ezradio__hal_8h.html#a52e4a984325c6446291b13b1a63e3dff">ezradio_hal_SpiWriteByte</a>(0x44);    <span class="comment">//read CMD buffer</span>
-<a name="l00061"></a>00061     <a class="code" href="ezradio__hal_8h.html#a23ca775cc658644f29ceacbcc471606a">ezradio_hal_SpiReadByte</a>(&amp;ctsVal);
+<a name="l00059"></a>00059     <a class="code" href="group__HAL__Layer.html#ga09c7ef4b4780a8089505f54ef1f26fd5" title="Clears nSEL pin of the EZRadio device.">ezradio_hal_ClearNsel</a>();
+<a name="l00060"></a>00060     <a class="code" href="group__HAL__Layer.html#ga52e4a984325c6446291b13b1a63e3dff" title="Writes a single byte to the EZRadio SPI port.">ezradio_hal_SpiWriteByte</a>(0x44);    <span class="comment">//read CMD buffer</span>
+<a name="l00061"></a>00061     <a class="code" href="group__HAL__Layer.html#ga23ca775cc658644f29ceacbcc471606a" title="Reads a single byte from the EZRadio SPI port.">ezradio_hal_SpiReadByte</a>(&amp;ctsVal);
 <a name="l00062"></a>00062     <span class="keywordflow">if</span> (ctsVal == 0xFF)
 <a name="l00063"></a>00063     {
 <a name="l00064"></a>00064       <span class="keywordflow">if</span> (byteCount)
 <a name="l00065"></a>00065       {
-<a name="l00066"></a>00066         <a class="code" href="ezradio__hal_8h.html#a9c4c63403aaa9f22f75391e4c767d298">ezradio_hal_SpiReadData</a>(byteCount, pData);
+<a name="l00066"></a>00066         <a class="code" href="group__HAL__Layer.html#ga9c4c63403aaa9f22f75391e4c767d298" title="Reads byteCount number of bytes from the EZRadio SPI port.">ezradio_hal_SpiReadData</a>(byteCount, pData);
 <a name="l00067"></a>00067       }
-<a name="l00068"></a>00068       <a class="code" href="ezradio__hal_8h.html#ae80c58c4f19b8e2b56c033c94bcb0f10">ezradio_hal_SetNsel</a>();
+<a name="l00068"></a>00068       <a class="code" href="group__HAL__Layer.html#gae80c58c4f19b8e2b56c033c94bcb0f10" title="Sets nSEL pin of the EZRadio device.">ezradio_hal_SetNsel</a>();
 <a name="l00069"></a>00069       <span class="keywordflow">break</span>;
 <a name="l00070"></a>00070     }
-<a name="l00071"></a>00071     <a class="code" href="ezradio__hal_8h.html#ae80c58c4f19b8e2b56c033c94bcb0f10">ezradio_hal_SetNsel</a>();
+<a name="l00071"></a>00071     <a class="code" href="group__HAL__Layer.html#gae80c58c4f19b8e2b56c033c94bcb0f10" title="Sets nSEL pin of the EZRadio device.">ezradio_hal_SetNsel</a>();
 <a name="l00072"></a>00072     errCnt--;
 <a name="l00073"></a>00073   }
 <a name="l00074"></a>00074 
@@ -114,86 +114,86 @@ window.onload = initDynSections;
 <a name="l00085"></a>00085 
 <a name="l00086"></a>00086   <span class="keywordflow">if</span> (ctsVal == 0xFF)
 <a name="l00087"></a>00087   {
-<a name="l00088"></a>00088     <a class="code" href="ezradio__comm_8h.html#a3be6bf56cfb1e196af67cb55fe708643" title="Can be used to prevent CTS check before any communication command.">ezradio_comm_CtsWentHigh</a> = 1;
+<a name="l00088"></a>00088     <a class="code" href="group__COMM__Layer.html#ga3be6bf56cfb1e196af67cb55fe708643" title="Can be used to prevent CTS check before any communication command.">ezradio_comm_CtsWentHigh</a> = 1;
 <a name="l00089"></a>00089   }
 <a name="l00090"></a>00090 
 <a name="l00091"></a>00091   <span class="keywordflow">return</span> ctsVal;
 <a name="l00092"></a>00092 }
 <a name="l00093"></a>00093 
-<a name="l00100"></a><a class="code" href="ezradio__comm_8c.html#a038a27f7a6883bc6640fe1187a98eed9">00100</a> <span class="keywordtype">void</span> <a class="code" href="ezradio__comm_8h.html#a038a27f7a6883bc6640fe1187a98eed9">ezradio_comm_SendCmd</a>(uint8_t byteCount, uint8_t* pData)
+<a name="l00100"></a><a class="code" href="group__COMM__Layer.html#ga038a27f7a6883bc6640fe1187a98eed9">00100</a> <span class="keywordtype">void</span> <a class="code" href="group__COMM__Layer.html#ga038a27f7a6883bc6640fe1187a98eed9" title="Sends a command to the radio chip.">ezradio_comm_SendCmd</a>(uint8_t byteCount, uint8_t* pData)
 <a name="l00101"></a>00101 {
-<a name="l00102"></a>00102     <span class="keywordflow">while</span> (!<a class="code" href="ezradio__comm_8h.html#a3be6bf56cfb1e196af67cb55fe708643" title="Can be used to prevent CTS check before any communication command.">ezradio_comm_CtsWentHigh</a>)
+<a name="l00102"></a>00102     <span class="keywordflow">while</span> (!<a class="code" href="group__COMM__Layer.html#ga3be6bf56cfb1e196af67cb55fe708643" title="Can be used to prevent CTS check before any communication command.">ezradio_comm_CtsWentHigh</a>)
 <a name="l00103"></a>00103     {
-<a name="l00104"></a>00104         <a class="code" href="ezradio__comm_8h.html#ac2d23214b75072bedd593da2815858d3">ezradio_comm_PollCTS</a>();
+<a name="l00104"></a>00104         <a class="code" href="group__COMM__Layer.html#gac2d23214b75072bedd593da2815858d3" title="Waits for CTS to be high.">ezradio_comm_PollCTS</a>();
 <a name="l00105"></a>00105     }
-<a name="l00106"></a>00106     <a class="code" href="ezradio__hal_8h.html#a09c7ef4b4780a8089505f54ef1f26fd5">ezradio_hal_ClearNsel</a>();
-<a name="l00107"></a>00107     <a class="code" href="ezradio__hal_8h.html#a4121044d05b7372b071773d4582204f5">ezradio_hal_SpiWriteData</a>(byteCount, pData);
-<a name="l00108"></a>00108     <a class="code" href="ezradio__hal_8h.html#ae80c58c4f19b8e2b56c033c94bcb0f10">ezradio_hal_SetNsel</a>();
-<a name="l00109"></a>00109     <a class="code" href="ezradio__comm_8h.html#a3be6bf56cfb1e196af67cb55fe708643" title="Can be used to prevent CTS check before any communication command.">ezradio_comm_CtsWentHigh</a> = 0;
+<a name="l00106"></a>00106     <a class="code" href="group__HAL__Layer.html#ga09c7ef4b4780a8089505f54ef1f26fd5" title="Clears nSEL pin of the EZRadio device.">ezradio_hal_ClearNsel</a>();
+<a name="l00107"></a>00107     <a class="code" href="group__HAL__Layer.html#ga4121044d05b7372b071773d4582204f5" title="Writes byteCount number of bytes to the EZRadio SPI port.">ezradio_hal_SpiWriteData</a>(byteCount, pData);
+<a name="l00108"></a>00108     <a class="code" href="group__HAL__Layer.html#gae80c58c4f19b8e2b56c033c94bcb0f10" title="Sets nSEL pin of the EZRadio device.">ezradio_hal_SetNsel</a>();
+<a name="l00109"></a>00109     <a class="code" href="group__COMM__Layer.html#ga3be6bf56cfb1e196af67cb55fe708643" title="Can be used to prevent CTS check before any communication command.">ezradio_comm_CtsWentHigh</a> = 0;
 <a name="l00110"></a>00110 }
 <a name="l00111"></a>00111 
-<a name="l00120"></a><a class="code" href="ezradio__comm_8c.html#afc9ec03055010c4c5cbfed6d8637de71">00120</a> <span class="keywordtype">void</span> <a class="code" href="ezradio__comm_8h.html#afc9ec03055010c4c5cbfed6d8637de71">ezradio_comm_ReadData</a>(uint8_t cmd, uint8_t pollCts, uint8_t byteCount, uint8_t* pData)
+<a name="l00120"></a><a class="code" href="group__COMM__Layer.html#gafc9ec03055010c4c5cbfed6d8637de71">00120</a> <span class="keywordtype">void</span> <a class="code" href="group__COMM__Layer.html#gafc9ec03055010c4c5cbfed6d8637de71" title="Gets a command response from the radio chip.">ezradio_comm_ReadData</a>(uint8_t cmd, uint8_t pollCts, uint8_t byteCount, uint8_t* pData)
 <a name="l00121"></a>00121 {
 <a name="l00122"></a>00122     <span class="keywordflow">if</span>(pollCts)
 <a name="l00123"></a>00123     {
-<a name="l00124"></a>00124         <span class="keywordflow">while</span>(!<a class="code" href="ezradio__comm_8h.html#a3be6bf56cfb1e196af67cb55fe708643" title="Can be used to prevent CTS check before any communication command.">ezradio_comm_CtsWentHigh</a>)
+<a name="l00124"></a>00124         <span class="keywordflow">while</span>(!<a class="code" href="group__COMM__Layer.html#ga3be6bf56cfb1e196af67cb55fe708643" title="Can be used to prevent CTS check before any communication command.">ezradio_comm_CtsWentHigh</a>)
 <a name="l00125"></a>00125         {
-<a name="l00126"></a>00126             <a class="code" href="ezradio__comm_8h.html#ac2d23214b75072bedd593da2815858d3">ezradio_comm_PollCTS</a>();
+<a name="l00126"></a>00126             <a class="code" href="group__COMM__Layer.html#gac2d23214b75072bedd593da2815858d3" title="Waits for CTS to be high.">ezradio_comm_PollCTS</a>();
 <a name="l00127"></a>00127         }
 <a name="l00128"></a>00128     }
-<a name="l00129"></a>00129     <a class="code" href="ezradio__hal_8h.html#a09c7ef4b4780a8089505f54ef1f26fd5">ezradio_hal_ClearNsel</a>();
-<a name="l00130"></a>00130     <a class="code" href="ezradio__hal_8h.html#a52e4a984325c6446291b13b1a63e3dff">ezradio_hal_SpiWriteByte</a>(cmd);
-<a name="l00131"></a>00131     <a class="code" href="ezradio__hal_8h.html#a9c4c63403aaa9f22f75391e4c767d298">ezradio_hal_SpiReadData</a>(byteCount, pData);
-<a name="l00132"></a>00132     <a class="code" href="ezradio__hal_8h.html#ae80c58c4f19b8e2b56c033c94bcb0f10">ezradio_hal_SetNsel</a>();
-<a name="l00133"></a>00133     <a class="code" href="ezradio__comm_8h.html#a3be6bf56cfb1e196af67cb55fe708643" title="Can be used to prevent CTS check before any communication command.">ezradio_comm_CtsWentHigh</a> = 0;
+<a name="l00129"></a>00129     <a class="code" href="group__HAL__Layer.html#ga09c7ef4b4780a8089505f54ef1f26fd5" title="Clears nSEL pin of the EZRadio device.">ezradio_hal_ClearNsel</a>();
+<a name="l00130"></a>00130     <a class="code" href="group__HAL__Layer.html#ga52e4a984325c6446291b13b1a63e3dff" title="Writes a single byte to the EZRadio SPI port.">ezradio_hal_SpiWriteByte</a>(cmd);
+<a name="l00131"></a>00131     <a class="code" href="group__HAL__Layer.html#ga9c4c63403aaa9f22f75391e4c767d298" title="Reads byteCount number of bytes from the EZRadio SPI port.">ezradio_hal_SpiReadData</a>(byteCount, pData);
+<a name="l00132"></a>00132     <a class="code" href="group__HAL__Layer.html#gae80c58c4f19b8e2b56c033c94bcb0f10" title="Sets nSEL pin of the EZRadio device.">ezradio_hal_SetNsel</a>();
+<a name="l00133"></a>00133     <a class="code" href="group__COMM__Layer.html#ga3be6bf56cfb1e196af67cb55fe708643" title="Can be used to prevent CTS check before any communication command.">ezradio_comm_CtsWentHigh</a> = 0;
 <a name="l00134"></a>00134 }
 <a name="l00135"></a>00135 
 <a name="l00136"></a>00136 
-<a name="l00145"></a><a class="code" href="ezradio__comm_8c.html#a6316768a0f0661af747171605e86f401">00145</a> <span class="keywordtype">void</span> <a class="code" href="ezradio__comm_8h.html#a6316768a0f0661af747171605e86f401">ezradio_comm_WriteData</a>(uint8_t cmd, uint8_t pollCts, uint8_t byteCount, uint8_t* pData)
+<a name="l00145"></a><a class="code" href="group__COMM__Layer.html#ga6316768a0f0661af747171605e86f401">00145</a> <span class="keywordtype">void</span> <a class="code" href="group__COMM__Layer.html#ga6316768a0f0661af747171605e86f401" title="Gets a command response from the radio chip.">ezradio_comm_WriteData</a>(uint8_t cmd, uint8_t pollCts, uint8_t byteCount, uint8_t* pData)
 <a name="l00146"></a>00146 {
 <a name="l00147"></a>00147     <span class="keywordflow">if</span>(pollCts)
 <a name="l00148"></a>00148     {
-<a name="l00149"></a>00149         <span class="keywordflow">while</span>(!<a class="code" href="ezradio__comm_8h.html#a3be6bf56cfb1e196af67cb55fe708643" title="Can be used to prevent CTS check before any communication command.">ezradio_comm_CtsWentHigh</a>)
+<a name="l00149"></a>00149         <span class="keywordflow">while</span>(!<a class="code" href="group__COMM__Layer.html#ga3be6bf56cfb1e196af67cb55fe708643" title="Can be used to prevent CTS check before any communication command.">ezradio_comm_CtsWentHigh</a>)
 <a name="l00150"></a>00150         {
-<a name="l00151"></a>00151             <a class="code" href="ezradio__comm_8h.html#ac2d23214b75072bedd593da2815858d3">ezradio_comm_PollCTS</a>();
+<a name="l00151"></a>00151             <a class="code" href="group__COMM__Layer.html#gac2d23214b75072bedd593da2815858d3" title="Waits for CTS to be high.">ezradio_comm_PollCTS</a>();
 <a name="l00152"></a>00152         }
 <a name="l00153"></a>00153     }
-<a name="l00154"></a>00154     <a class="code" href="ezradio__hal_8h.html#a09c7ef4b4780a8089505f54ef1f26fd5">ezradio_hal_ClearNsel</a>();
-<a name="l00155"></a>00155     <a class="code" href="ezradio__hal_8h.html#a52e4a984325c6446291b13b1a63e3dff">ezradio_hal_SpiWriteByte</a>(cmd);
-<a name="l00156"></a>00156     <a class="code" href="ezradio__hal_8h.html#a4121044d05b7372b071773d4582204f5">ezradio_hal_SpiWriteData</a>(byteCount, pData);
-<a name="l00157"></a>00157     <a class="code" href="ezradio__hal_8h.html#ae80c58c4f19b8e2b56c033c94bcb0f10">ezradio_hal_SetNsel</a>();
-<a name="l00158"></a>00158     <a class="code" href="ezradio__comm_8h.html#a3be6bf56cfb1e196af67cb55fe708643" title="Can be used to prevent CTS check before any communication command.">ezradio_comm_CtsWentHigh</a> = 0;
+<a name="l00154"></a>00154     <a class="code" href="group__HAL__Layer.html#ga09c7ef4b4780a8089505f54ef1f26fd5" title="Clears nSEL pin of the EZRadio device.">ezradio_hal_ClearNsel</a>();
+<a name="l00155"></a>00155     <a class="code" href="group__HAL__Layer.html#ga52e4a984325c6446291b13b1a63e3dff" title="Writes a single byte to the EZRadio SPI port.">ezradio_hal_SpiWriteByte</a>(cmd);
+<a name="l00156"></a>00156     <a class="code" href="group__HAL__Layer.html#ga4121044d05b7372b071773d4582204f5" title="Writes byteCount number of bytes to the EZRadio SPI port.">ezradio_hal_SpiWriteData</a>(byteCount, pData);
+<a name="l00157"></a>00157     <a class="code" href="group__HAL__Layer.html#gae80c58c4f19b8e2b56c033c94bcb0f10" title="Sets nSEL pin of the EZRadio device.">ezradio_hal_SetNsel</a>();
+<a name="l00158"></a>00158     <a class="code" href="group__COMM__Layer.html#ga3be6bf56cfb1e196af67cb55fe708643" title="Can be used to prevent CTS check before any communication command.">ezradio_comm_CtsWentHigh</a> = 0;
 <a name="l00159"></a>00159 }
 <a name="l00160"></a>00160 
-<a name="l00166"></a><a class="code" href="ezradio__comm_8c.html#ac2d23214b75072bedd593da2815858d3">00166</a> uint8_t <a class="code" href="ezradio__comm_8h.html#ac2d23214b75072bedd593da2815858d3">ezradio_comm_PollCTS</a>(<span class="keywordtype">void</span>)
+<a name="l00166"></a><a class="code" href="group__COMM__Layer.html#gac2d23214b75072bedd593da2815858d3">00166</a> uint8_t <a class="code" href="group__COMM__Layer.html#gac2d23214b75072bedd593da2815858d3" title="Waits for CTS to be high.">ezradio_comm_PollCTS</a>(<span class="keywordtype">void</span>)
 <a name="l00167"></a>00167 {
 <a name="l00168"></a>00168 <span class="preprocessor">#ifdef RADIO_USER_CFG_USE_GPIO1_FOR_CTS</span>
 <a name="l00169"></a>00169 <span class="preprocessor"></span>    <span class="keywordflow">while</span>(!ezradio_hal_Gpio1Level())
 <a name="l00170"></a>00170     {
 <a name="l00171"></a>00171         <span class="comment">/* Wait...*/</span>
 <a name="l00172"></a>00172     }
-<a name="l00173"></a>00173     <a class="code" href="ezradio__comm_8h.html#a3be6bf56cfb1e196af67cb55fe708643" title="Can be used to prevent CTS check before any communication command.">ezradio_comm_CtsWentHigh</a> = 1;
+<a name="l00173"></a>00173     <a class="code" href="group__COMM__Layer.html#ga3be6bf56cfb1e196af67cb55fe708643" title="Can be used to prevent CTS check before any communication command.">ezradio_comm_CtsWentHigh</a> = 1;
 <a name="l00174"></a>00174     <span class="keywordflow">return</span> 0xFF;
 <a name="l00175"></a>00175 <span class="preprocessor">#else</span>
-<a name="l00176"></a>00176 <span class="preprocessor"></span>    <span class="keywordflow">return</span> <a class="code" href="ezradio__comm_8h.html#a45656b02cb2cf46e29c8f509203e08b4">ezradio_comm_GetResp</a>(0, 0);
+<a name="l00176"></a>00176 <span class="preprocessor"></span>    <span class="keywordflow">return</span> <a class="code" href="group__COMM__Layer.html#ga45656b02cb2cf46e29c8f509203e08b4" title="Gets a command response from the radio chip.">ezradio_comm_GetResp</a>(0, 0);
 <a name="l00177"></a>00177 <span class="preprocessor">#endif</span>
 <a name="l00178"></a>00178 <span class="preprocessor"></span>}
 <a name="l00179"></a>00179 
-<a name="l00183"></a><a class="code" href="ezradio__comm_8c.html#aacdbf2395a94100a8d43fea622a9d522">00183</a> <span class="keywordtype">void</span> <a class="code" href="ezradio__comm_8h.html#a26dddf452edc3e30c29cdab7d9fef1a7" title="Clears the CTS state variable.">ezradio_comm_ClearCTS</a>()
+<a name="l00183"></a><a class="code" href="group__COMM__Layer.html#ga26dddf452edc3e30c29cdab7d9fef1a7">00183</a> <span class="keywordtype">void</span> <a class="code" href="group__COMM__Layer.html#ga26dddf452edc3e30c29cdab7d9fef1a7" title="Clears the CTS state variable.">ezradio_comm_ClearCTS</a>()
 <a name="l00184"></a>00184 {
-<a name="l00185"></a>00185   <a class="code" href="ezradio__comm_8h.html#a3be6bf56cfb1e196af67cb55fe708643" title="Can be used to prevent CTS check before any communication command.">ezradio_comm_CtsWentHigh</a> = 0;
+<a name="l00185"></a>00185   <a class="code" href="group__COMM__Layer.html#ga3be6bf56cfb1e196af67cb55fe708643" title="Can be used to prevent CTS check before any communication command.">ezradio_comm_CtsWentHigh</a> = 0;
 <a name="l00186"></a>00186 }
 <a name="l00187"></a>00187 
-<a name="l00198"></a><a class="code" href="ezradio__comm_8c.html#a67ac511d7cfce9c8cb00cd31113ff9a4">00198</a> uint8_t <a class="code" href="ezradio__comm_8h.html#a67ac511d7cfce9c8cb00cd31113ff9a4">ezradio_comm_SendCmdGetResp</a>(uint8_t cmdByteCount, uint8_t* pCmdData, uint8_t respByteCount, uint8_t* pRespData)
+<a name="l00198"></a><a class="code" href="group__COMM__Layer.html#ga67ac511d7cfce9c8cb00cd31113ff9a4">00198</a> uint8_t <a class="code" href="group__COMM__Layer.html#ga67ac511d7cfce9c8cb00cd31113ff9a4" title="Sends a command to the radio chip and gets a response.">ezradio_comm_SendCmdGetResp</a>(uint8_t cmdByteCount, uint8_t* pCmdData, uint8_t respByteCount, uint8_t* pRespData)
 <a name="l00199"></a>00199 {
-<a name="l00200"></a>00200     <a class="code" href="ezradio__comm_8h.html#a038a27f7a6883bc6640fe1187a98eed9">ezradio_comm_SendCmd</a>(cmdByteCount, pCmdData);
-<a name="l00201"></a>00201     <span class="keywordflow">return</span> <a class="code" href="ezradio__comm_8h.html#a45656b02cb2cf46e29c8f509203e08b4">ezradio_comm_GetResp</a>(respByteCount, pRespData);
+<a name="l00200"></a>00200     <a class="code" href="group__COMM__Layer.html#ga038a27f7a6883bc6640fe1187a98eed9" title="Sends a command to the radio chip.">ezradio_comm_SendCmd</a>(cmdByteCount, pCmdData);
+<a name="l00201"></a>00201     <span class="keywordflow">return</span> <a class="code" href="group__COMM__Layer.html#ga45656b02cb2cf46e29c8f509203e08b4" title="Gets a command response from the radio chip.">ezradio_comm_GetResp</a>(respByteCount, pRespData);
 <a name="l00202"></a>00202 }
 <a name="l00203"></a>00203 
 </pre></div></div>
 <div id="footer">
 <hr size="1"><address style="text-align: right;"><small>
-Generated on Thu May 28 13:12:34 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
+Generated on Mon Sep 7 08:55:11 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a><small> 1.6.3 </small></address></div>
 </body>

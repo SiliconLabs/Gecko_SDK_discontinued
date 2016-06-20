@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file descriptors.h
  * @brief USB descriptor prototypess for Vendor Unique Device example project.
- * @version 4.0.0
+ * @version 4.1.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>

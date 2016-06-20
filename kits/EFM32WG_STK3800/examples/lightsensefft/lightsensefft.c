@@ -20,7 +20,7 @@
  *   the LCD. The LCD also displays the number of cpu cycles used to do
  *   the FFT transform.
  *
- * @version 4.0.0
+ * @version 4.1.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>

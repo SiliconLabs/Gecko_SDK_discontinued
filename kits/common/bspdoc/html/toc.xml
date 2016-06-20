@@ -1,7 +1,7 @@
 <toc label="Board Support Package">
   <topic label="Modules">
     <topic label="BSP">
-      <topic label="API for STK&apos;s">
+      <topic label="API for STK&apos;s and WSTK&apos;s">
         <topic label="Defines">
           <topic label="BSP_BCP_ACK" href="group__BSP__STK.html#gae21507ce48192e3905ceba1334ee4362"/>
           <topic label="BSP_BCP_CURRENT_REPLY" href="group__BSP__STK.html#ga6445e79280ab84bbc90d9bfc8417be73"/>
@@ -63,6 +63,8 @@
           <topic label="BSP_LedToggle" href="group__BSPCOMMON.html#gaa1d7f74ca14b30270a60546fb8fe9083"/>
           <topic label="BSP_TraceEtmSetup" href="group__BSPCOMMON.html#gaaa6305dcd41033af3edd3d1bfa139d0f"/>
           <topic label="BSP_TraceProfilerEnable" href="group__BSPCOMMON.html#ga5061043f8bb64d1b0130fe4185916916"/>
+          <topic label="BSP_TraceProfilerSetup" href="group__BSPCOMMON.html#gaf0555d1bdffd706d2fd7e053ed5aea10"/>
+          <topic label="BSP_TraceSwoSetup" href="group__BSPCOMMON.html#ga4a6a024ad2590efc86f27e8d384d48e4"/>
         </topic>
       </topic>
       <topic label="API for DK&apos;s">
@@ -496,6 +498,7 @@
           <topic label="SCSI_REQUESTSENSE_LEN" href="group__Msd.html#gaabd4aaed3342eaa039c186b217f54340"/>
           <topic label="SCSI_REQUESTSENSEDATA_LEN" href="group__Msd.html#ga5981ba77043dd5be09ef0c563d5acac1"/>
           <topic label="SCSI_STARTSTOP_UNIT" href="group__Msd.html#ga732b33c6fded33c1e25db28a34f38315"/>
+          <topic label="SCSI_STARTSTOPUNIT_LEN" href="group__Msd.html#ga43e35f8b53e848752b68e1fd4dc51fea"/>
           <topic label="SCSI_TESTUNIT_READY" href="group__Msd.html#gac15197fa8bd507ec529006c64f8437eb"/>
           <topic label="SCSI_VERIFY10" href="group__Msd.html#ga4f799250b498efb9dc2378a7a1baa302"/>
           <topic label="SCSI_VERIFY10_LEN" href="group__Msd.html#ga334a21e13b25d306613eb4b2b2f46360"/>
@@ -539,6 +542,7 @@
           <topic label="MSDSCSI_Read10_TypeDef" href="structMSDSCSI__Read10__TypeDef.html"/>
           <topic label="MSDSCSI_Write10_TypeDef" href="structMSDSCSI__Write10__TypeDef.html"/>
           <topic label="MSDSCSI_Verify10_TypeDef" href="structMSDSCSI__Verify10__TypeDef.html"/>
+          <topic label="MSDSCSI_StartStopUnit_TypeDef" href="structMSDSCSI__StartStopUnit__TypeDef.html"/>
         </topic>
       </topic>
       <topic label="NandFlash">
@@ -826,6 +830,7 @@
     <topic label="MSDSCSI_ReadCapacityData_TypeDef" href="structMSDSCSI__ReadCapacityData__TypeDef.html"/>
     <topic label="MSDSCSI_RequestSense_TypeDef" href="structMSDSCSI__RequestSense__TypeDef.html"/>
     <topic label="MSDSCSI_RequestSenseData_TypeDef" href="structMSDSCSI__RequestSenseData__TypeDef.html"/>
+    <topic label="MSDSCSI_StartStopUnit_TypeDef" href="structMSDSCSI__StartStopUnit__TypeDef.html"/>
     <topic label="MSDSCSI_Verify10_TypeDef" href="structMSDSCSI__Verify10__TypeDef.html"/>
     <topic label="MSDSCSI_Write10_TypeDef" href="structMSDSCSI__Write10__TypeDef.html"/>
     <topic label="NANDFLASH_Info_TypeDef" href="structNANDFLASH__Info__TypeDef.html"/>
@@ -905,7 +910,7 @@
     <topic label="common/drivers/retargettextdisplay.c" href="retargettextdisplay_8c.html"/>
     <topic label="common/drivers/retargettextdisplay.h" href="retargettextdisplay_8h.html"/>
     <topic label="common/drivers/retargettft.c" href="retargettft_8c.html"/>
-    <topic label="common/drivers/retargettft.h" href="retargettft_8h.html"/>
+    <topic label="common/drivers/retargettft.h"/>
     <topic label="common/drivers/rtcdrv.c" href="rtcdrv_8c.html"/>
     <topic label="common/drivers/rtcdrv.h" href="rtcdrv_8h.html"/>
     <topic label="common/drivers/segmentlcd.c" href="segmentlcd_8c.html"/>

@@ -99,6 +99,8 @@ Collaboration diagram for Msd:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">SCSI Write 10 Command Descriptor Block (CDB) typedef.  <a href="structMSDSCSI__Write10__TypeDef.html#_details">More...</a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMSDSCSI__Verify10__TypeDef.html">MSDSCSI_Verify10_TypeDef</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">SCSI Verify 10 Command Descriptor Block (CDB) typedef.  <a href="structMSDSCSI__Verify10__TypeDef.html#_details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMSDSCSI__StartStopUnit__TypeDef.html">MSDSCSI_StartStopUnit_TypeDef</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">SCSI Start Stop Unit Command Descriptor Block (CDB) typedef.  <a href="structMSDSCSI__StartStopUnit__TypeDef.html#_details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2>Defines</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Msd.html#gae1bda16775ab83b9f08d2196aef40898">MEDIA_BUFSIZ</a>&nbsp;&nbsp;&nbsp;4096</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Intermediate media storage buffer size.  <a href="#gae1bda16775ab83b9f08d2196aef40898"></a><br/></td></tr>
@@ -126,6 +128,8 @@ Collaboration diagram for Msd:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">SCSI Verify (10) CDB length.  <a href="#ga334a21e13b25d306613eb4b2b2f46360"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Msd.html#ga59d92155a959caa17dee09196cf59e7c">SCSI_INQUIRYDATA_LEN</a>&nbsp;&nbsp;&nbsp;36U</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">SCSI Inquiry response data length.  <a href="#ga59d92155a959caa17dee09196cf59e7c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Msd.html#ga43e35f8b53e848752b68e1fd4dc51fea">SCSI_STARTSTOPUNIT_LEN</a>&nbsp;&nbsp;&nbsp;6U</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">SCSI Start Stop Unit CDB length.  <a href="#ga43e35f8b53e848752b68e1fd4dc51fea"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Msd.html#gaabd4aaed3342eaa039c186b217f54340">SCSI_REQUESTSENSE_LEN</a>&nbsp;&nbsp;&nbsp;6U</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">SCSI Request Sense CDB length.  <a href="#gaabd4aaed3342eaa039c186b217f54340"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Msd.html#ga5981ba77043dd5be09ef0c563d5acac1">SCSI_REQUESTSENSEDATA_LEN</a>&nbsp;&nbsp;&nbsp;18U</td></tr>
@@ -258,7 +262,7 @@ MSC device configuration options.</a></h2>
 
 <p>Definition at line <a class="el" href="msdscsi_8h_source.html#l00046">46</a> of file <a class="el" href="msdscsi_8h_source.html">msdscsi.h</a>.</p>
 
-<p>Referenced by <a class="el" href="msdd_8c_source.html#l00202">MSDD_Init()</a>, <a class="el" href="msdscsi_8c_source.html#l00157">MSDSCSI_Init()</a>, and <a class="el" href="msdscsi_8c_source.html#l00189">MSDSCSI_Inquiry()</a>.</p>
+<p>Referenced by <a class="el" href="msdd_8c_source.html#l00203">MSDD_Init()</a>, <a class="el" href="msdscsi_8c_source.html#l00157">MSDSCSI_Init()</a>, and <a class="el" href="msdscsi_8c_source.html#l00189">MSDSCSI_Inquiry()</a>.</p>
 
 </div>
 </div>
@@ -294,7 +298,7 @@ MSC device configuration options.</a></h2>
 
 <p>Definition at line <a class="el" href="msdscsi_8h_source.html#l00043">43</a> of file <a class="el" href="msdscsi_8h_source.html">msdscsi.h</a>.</p>
 
-<p>Referenced by <a class="el" href="msdd_8c_source.html#l00202">MSDD_Init()</a>, and <a class="el" href="msdscsi_8c_source.html#l00157">MSDSCSI_Init()</a>.</p>
+<p>Referenced by <a class="el" href="msdd_8c_source.html#l00203">MSDD_Init()</a>, and <a class="el" href="msdscsi_8c_source.html#l00157">MSDSCSI_Init()</a>.</p>
 
 </div>
 </div>
@@ -328,9 +332,9 @@ MSC device configuration options.</a></h2>
 
 <p>SCSI Read Capacity CDB length. </p>
 
-<p>Definition at line <a class="el" href="msdscsi_8h_source.html#l00049">49</a> of file <a class="el" href="msdscsi_8h_source.html">msdscsi.h</a>.</p>
+<p>Definition at line <a class="el" href="msdscsi_8h_source.html#l00050">50</a> of file <a class="el" href="msdscsi_8h_source.html">msdscsi.h</a>.</p>
 
-<p>Referenced by <a class="el" href="msdd_8c_source.html#l00202">MSDD_Init()</a>.</p>
+<p>Referenced by <a class="el" href="msdd_8c_source.html#l00203">MSDD_Init()</a>.</p>
 
 </div>
 </div>
@@ -347,9 +351,9 @@ MSC device configuration options.</a></h2>
 
 <p>SCSI Read Capacity response data length. </p>
 
-<p>Definition at line <a class="el" href="msdscsi_8h_source.html#l00050">50</a> of file <a class="el" href="msdscsi_8h_source.html">msdscsi.h</a>.</p>
+<p>Definition at line <a class="el" href="msdscsi_8h_source.html#l00051">51</a> of file <a class="el" href="msdscsi_8h_source.html">msdscsi.h</a>.</p>
 
-<p>Referenced by <a class="el" href="msdd_8c_source.html#l00202">MSDD_Init()</a>, <a class="el" href="msdscsi_8c_source.html#l00157">MSDSCSI_Init()</a>, and <a class="el" href="msdscsi_8c_source.html#l00240">MSDSCSI_ReadCapacity()</a>.</p>
+<p>Referenced by <a class="el" href="msdd_8c_source.html#l00203">MSDD_Init()</a>, <a class="el" href="msdscsi_8c_source.html#l00157">MSDSCSI_Init()</a>, and <a class="el" href="msdscsi_8c_source.html#l00240">MSDSCSI_ReadCapacity()</a>.</p>
 
 </div>
 </div>
@@ -383,9 +387,9 @@ MSC device configuration options.</a></h2>
 
 <p>SCSI Request Sense CDB length. </p>
 
-<p>Definition at line <a class="el" href="msdscsi_8h_source.html#l00047">47</a> of file <a class="el" href="msdscsi_8h_source.html">msdscsi.h</a>.</p>
+<p>Definition at line <a class="el" href="msdscsi_8h_source.html#l00048">48</a> of file <a class="el" href="msdscsi_8h_source.html">msdscsi.h</a>.</p>
 
-<p>Referenced by <a class="el" href="msdd_8c_source.html#l00202">MSDD_Init()</a>.</p>
+<p>Referenced by <a class="el" href="msdd_8c_source.html#l00203">MSDD_Init()</a>.</p>
 
 </div>
 </div>
@@ -402,9 +406,9 @@ MSC device configuration options.</a></h2>
 
 <p>SCSI Request Sense response data length. </p>
 
-<p>Definition at line <a class="el" href="msdscsi_8h_source.html#l00048">48</a> of file <a class="el" href="msdscsi_8h_source.html">msdscsi.h</a>.</p>
+<p>Definition at line <a class="el" href="msdscsi_8h_source.html#l00049">49</a> of file <a class="el" href="msdscsi_8h_source.html">msdscsi.h</a>.</p>
 
-<p>Referenced by <a class="el" href="msdd_8c_source.html#l00202">MSDD_Init()</a>, <a class="el" href="msdscsi_8c_source.html#l00157">MSDSCSI_Init()</a>, and <a class="el" href="msdscsi_8c_source.html#l00267">MSDSCSI_RequestSense()</a>.</p>
+<p>Referenced by <a class="el" href="msdd_8c_source.html#l00203">MSDD_Init()</a>, <a class="el" href="msdscsi_8c_source.html#l00157">MSDSCSI_Init()</a>, and <a class="el" href="msdscsi_8c_source.html#l00267">MSDSCSI_RequestSense()</a>.</p>
 
 </div>
 </div>
@@ -423,7 +427,26 @@ MSC device configuration options.</a></h2>
 
 <p>Definition at line <a class="el" href="msdscsi_8h_source.html#l00037">37</a> of file <a class="el" href="msdscsi_8h_source.html">msdscsi.h</a>.</p>
 
-<p>Referenced by <a class="el" href="msdd_8c_source.html#l00244">MSDD_Handler()</a>.</p>
+<p>Referenced by <a class="el" href="msdd_8c_source.html#l00246">MSDD_Handler()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga43e35f8b53e848752b68e1fd4dc51fea"></a><!-- doxytag: member="msdscsi.h::SCSI_STARTSTOPUNIT_LEN" ref="ga43e35f8b53e848752b68e1fd4dc51fea" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SCSI_STARTSTOPUNIT_LEN&nbsp;&nbsp;&nbsp;6U</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>SCSI Start Stop Unit CDB length. </p>
+
+<p>Definition at line <a class="el" href="msdscsi_8h_source.html#l00047">47</a> of file <a class="el" href="msdscsi_8h_source.html">msdscsi.h</a>.</p>
+
+<p>Referenced by <a class="el" href="msdd_8c_source.html#l00203">MSDD_Init()</a>.</p>
 
 </div>
 </div>
@@ -476,7 +499,7 @@ MSC device configuration options.</a></h2>
 
 <p>Definition at line <a class="el" href="msdscsi_8h_source.html#l00045">45</a> of file <a class="el" href="msdscsi_8h_source.html">msdscsi.h</a>.</p>
 
-<p>Referenced by <a class="el" href="msdd_8c_source.html#l00202">MSDD_Init()</a>.</p>
+<p>Referenced by <a class="el" href="msdd_8c_source.html#l00203">MSDD_Init()</a>.</p>
 
 </div>
 </div>
@@ -512,7 +535,7 @@ MSC device configuration options.</a></h2>
 
 <p>Definition at line <a class="el" href="msdscsi_8h_source.html#l00044">44</a> of file <a class="el" href="msdscsi_8h_source.html">msdscsi.h</a>.</p>
 
-<p>Referenced by <a class="el" href="msdd_8c_source.html#l00202">MSDD_Init()</a>, and <a class="el" href="msdscsi_8c_source.html#l00157">MSDSCSI_Init()</a>.</p>
+<p>Referenced by <a class="el" href="msdd_8c_source.html#l00203">MSDD_Init()</a>, and <a class="el" href="msdscsi_8c_source.html#l00157">MSDSCSI_Init()</a>.</p>
 
 </div>
 </div>
@@ -676,7 +699,7 @@ Here is the caller graph for this function:</div>
 <p>This function should be called on a regular basis from your main loop. It cannot be called from within an interrupt handler. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Returns true if there is no pending tasks to perform. This means that energymodes (sleep) functionality can be used. </dd></dl>
 
-<p>Definition at line <a class="el" href="msdd_8c_source.html#l00244">244</a> of file <a class="el" href="msdd_8c_source.html">msdd.c</a>.</p>
+<p>Definition at line <a class="el" href="msdd_8c_source.html#l00246">246</a> of file <a class="el" href="msdd_8c_source.html">msdd.c</a>.</p>
 
 <p>References <a class="el" href="msdbot_8h_source.html#l00085">MSDBOT_CBW_TypeDef::CBWCB</a>, and <a class="el" href="msdscsi_8h_source.html#l00037">SCSI_STARTSTOP_UNIT</a>.</p>
 
@@ -716,9 +739,9 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="msdd_8c_source.html#l00202">202</a> of file <a class="el" href="msdd_8c_source.html">msdd.c</a>.</p>
+<p>Definition at line <a class="el" href="msdd_8c_source.html#l00203">203</a> of file <a class="el" href="msdd_8c_source.html">msdd.c</a>.</p>
 
-<p>References <a class="el" href="msdscsi_8h_source.html#l00046">SCSI_INQUIRYDATA_LEN</a>, <a class="el" href="msdscsi_8h_source.html#l00043">SCSI_READ10_LEN</a>, <a class="el" href="msdscsi_8h_source.html#l00049">SCSI_READCAPACITY_LEN</a>, <a class="el" href="msdscsi_8h_source.html#l00050">SCSI_READCAPACITYDATA_LEN</a>, <a class="el" href="msdscsi_8h_source.html#l00047">SCSI_REQUESTSENSE_LEN</a>, <a class="el" href="msdscsi_8h_source.html#l00048">SCSI_REQUESTSENSEDATA_LEN</a>, <a class="el" href="msdscsi_8h_source.html#l00045">SCSI_VERIFY10_LEN</a>, and <a class="el" href="msdscsi_8h_source.html#l00044">SCSI_WRITE10_LEN</a>.</p>
+<p>References <a class="el" href="msdscsi_8h_source.html#l00046">SCSI_INQUIRYDATA_LEN</a>, <a class="el" href="msdscsi_8h_source.html#l00043">SCSI_READ10_LEN</a>, <a class="el" href="msdscsi_8h_source.html#l00050">SCSI_READCAPACITY_LEN</a>, <a class="el" href="msdscsi_8h_source.html#l00051">SCSI_READCAPACITYDATA_LEN</a>, <a class="el" href="msdscsi_8h_source.html#l00048">SCSI_REQUESTSENSE_LEN</a>, <a class="el" href="msdscsi_8h_source.html#l00049">SCSI_REQUESTSENSEDATA_LEN</a>, <a class="el" href="msdscsi_8h_source.html#l00047">SCSI_STARTSTOPUNIT_LEN</a>, <a class="el" href="msdscsi_8h_source.html#l00045">SCSI_VERIFY10_LEN</a>, and <a class="el" href="msdscsi_8h_source.html#l00044">SCSI_WRITE10_LEN</a>.</p>
 
 </div>
 </div>
@@ -748,7 +771,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>An appropriate status/error code. See USB_Status_TypeDef. </dd></dl>
 
-<p>Definition at line <a class="el" href="msdd_8c_source.html#l00317">317</a> of file <a class="el" href="msdd_8c_source.html">msdd.c</a>.</p>
+<p>Definition at line <a class="el" href="msdd_8c_source.html#l00319">319</a> of file <a class="el" href="msdd_8c_source.html">msdd.c</a>.</p>
 
 </div>
 </div>
@@ -786,7 +809,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="msdd_8c_source.html#l00408">408</a> of file <a class="el" href="msdd_8c_source.html">msdd.c</a>.</p>
+<p>Definition at line <a class="el" href="msdd_8c_source.html#l00410">410</a> of file <a class="el" href="msdd_8c_source.html">msdd.c</a>.</p>
 
 </div>
 </div>
@@ -1114,7 +1137,7 @@ Here is the call graph for this function:</div>
 
 <p>Definition at line <a class="el" href="msdscsi_8c_source.html#l00157">157</a> of file <a class="el" href="msdscsi_8c_source.html">msdscsi.c</a>.</p>
 
-<p>References <a class="el" href="msdbot_8c_source.html#l00058">MSDBOT_Init()</a>, <a class="el" href="msdbot_8h_source.html#l00105">MSDBOT_STATUS_OK</a>, <a class="el" href="msdscsi_8h_source.html#l00046">SCSI_INQUIRYDATA_LEN</a>, <a class="el" href="msdscsi_8h_source.html#l00043">SCSI_READ10_LEN</a>, <a class="el" href="msdscsi_8h_source.html#l00050">SCSI_READCAPACITYDATA_LEN</a>, <a class="el" href="msdscsi_8h_source.html#l00048">SCSI_REQUESTSENSEDATA_LEN</a>, and <a class="el" href="msdscsi_8h_source.html#l00044">SCSI_WRITE10_LEN</a>.</p>
+<p>References <a class="el" href="msdbot_8c_source.html#l00058">MSDBOT_Init()</a>, <a class="el" href="msdbot_8h_source.html#l00105">MSDBOT_STATUS_OK</a>, <a class="el" href="msdscsi_8h_source.html#l00046">SCSI_INQUIRYDATA_LEN</a>, <a class="el" href="msdscsi_8h_source.html#l00043">SCSI_READ10_LEN</a>, <a class="el" href="msdscsi_8h_source.html#l00051">SCSI_READCAPACITYDATA_LEN</a>, <a class="el" href="msdscsi_8h_source.html#l00049">SCSI_REQUESTSENSEDATA_LEN</a>, and <a class="el" href="msdscsi_8h_source.html#l00044">SCSI_WRITE10_LEN</a>.</p>
 
 <p>Referenced by <a class="el" href="msdh_8c_source.html#l00059">MSDH_Init()</a>.</p>
 
@@ -1233,7 +1256,7 @@ Here is the caller graph for this function:</div>
 
 <p>Definition at line <a class="el" href="msdscsi_8c_source.html#l00213">213</a> of file <a class="el" href="msdscsi_8c_source.html">msdscsi.c</a>.</p>
 
-<p>References <a class="el" href="msdscsi_8h_source.html#l00236">MSDSCSI_Read10_TypeDef::Lba</a>, <a class="el" href="msdbot_8c_source.html#l00098">MSDBOT_Xfer()</a>, and <a class="el" href="msdscsi_8h_source.html#l00242">MSDSCSI_Read10_TypeDef::TransferLength</a>.</p>
+<p>References <a class="el" href="msdscsi_8h_source.html#l00237">MSDSCSI_Read10_TypeDef::Lba</a>, <a class="el" href="msdbot_8c_source.html#l00098">MSDBOT_Xfer()</a>, and <a class="el" href="msdscsi_8h_source.html#l00243">MSDSCSI_Read10_TypeDef::TransferLength</a>.</p>
 
 <p>Referenced by <a class="el" href="msdh_8c_source.html#l00240">MSDH_ReadSectors()</a>.</p>
 
@@ -1284,7 +1307,7 @@ Here is the caller graph for this function:</div>
 
 <p>Definition at line <a class="el" href="msdscsi_8c_source.html#l00240">240</a> of file <a class="el" href="msdscsi_8c_source.html">msdscsi.c</a>.</p>
 
-<p>References <a class="el" href="msdscsi_8h_source.html#l00215">MSDSCSI_ReadCapacityData_TypeDef::LogicalBlockAddress</a>, <a class="el" href="msdscsi_8h_source.html#l00216">MSDSCSI_ReadCapacityData_TypeDef::LogicalBlockLength</a>, <a class="el" href="msdbot_8c_source.html#l00098">MSDBOT_Xfer()</a>, and <a class="el" href="msdscsi_8h_source.html#l00050">SCSI_READCAPACITYDATA_LEN</a>.</p>
+<p>References <a class="el" href="msdscsi_8h_source.html#l00216">MSDSCSI_ReadCapacityData_TypeDef::LogicalBlockAddress</a>, <a class="el" href="msdscsi_8h_source.html#l00217">MSDSCSI_ReadCapacityData_TypeDef::LogicalBlockLength</a>, <a class="el" href="msdbot_8c_source.html#l00098">MSDBOT_Xfer()</a>, and <a class="el" href="msdscsi_8h_source.html#l00051">SCSI_READCAPACITYDATA_LEN</a>.</p>
 
 <p>Referenced by <a class="el" href="msdh_8c_source.html#l00211">MSDH_GetBlockSize()</a>, <a class="el" href="msdh_8c_source.html#l00162">MSDH_GetSectorCount()</a>, <a class="el" href="msdh_8c_source.html#l00185">MSDH_GetSectorSize()</a>, and <a class="el" href="msdh_8c_source.html#l00059">MSDH_Init()</a>.</p>
 
@@ -1335,7 +1358,7 @@ Here is the caller graph for this function:</div>
 
 <p>Definition at line <a class="el" href="msdscsi_8c_source.html#l00267">267</a> of file <a class="el" href="msdscsi_8c_source.html">msdscsi.c</a>.</p>
 
-<p>References <a class="el" href="msdbot_8c_source.html#l00098">MSDBOT_Xfer()</a>, and <a class="el" href="msdscsi_8h_source.html#l00048">SCSI_REQUESTSENSEDATA_LEN</a>.</p>
+<p>References <a class="el" href="msdbot_8c_source.html#l00098">MSDBOT_Xfer()</a>, and <a class="el" href="msdscsi_8h_source.html#l00049">SCSI_REQUESTSENSEDATA_LEN</a>.</p>
 
 <p>Referenced by <a class="el" href="msdh_8c_source.html#l00059">MSDH_Init()</a>.</p>
 
@@ -1448,7 +1471,7 @@ Here is the caller graph for this function:</div>
 
 <p>Definition at line <a class="el" href="msdscsi_8c_source.html#l00307">307</a> of file <a class="el" href="msdscsi_8c_source.html">msdscsi.c</a>.</p>
 
-<p>References <a class="el" href="msdscsi_8h_source.html#l00263">MSDSCSI_Write10_TypeDef::Lba</a>, <a class="el" href="msdbot_8c_source.html#l00098">MSDBOT_Xfer()</a>, and <a class="el" href="msdscsi_8h_source.html#l00269">MSDSCSI_Write10_TypeDef::TransferLength</a>.</p>
+<p>References <a class="el" href="msdscsi_8h_source.html#l00264">MSDSCSI_Write10_TypeDef::Lba</a>, <a class="el" href="msdbot_8c_source.html#l00098">MSDBOT_Xfer()</a>, and <a class="el" href="msdscsi_8h_source.html#l00270">MSDSCSI_Write10_TypeDef::TransferLength</a>.</p>
 
 <p>Referenced by <a class="el" href="msdh_8c_source.html#l00261">MSDH_WriteSectors()</a>.</p>
 
@@ -1475,7 +1498,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div id="footer">
 <hr size="1"><address style="text-align: right;"><small>
-Generated on Fri May 29 11:29:59 2015</small> for Board Support Package by&nbsp;
+Generated on Mon Sep 7 09:26:34 2015</small> for Board Support Package by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a><small> 1.6.3 </small></address></div>
 </body>

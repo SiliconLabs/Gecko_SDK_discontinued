@@ -2,7 +2,7 @@
  * @file startup_efm32hg.c
  * @brief CMSIS Compatible EFM32HG startup file in C.
  *        Should be used with GCC 'GNU Tools ARM Embedded'
- * @version 4.0.0
+ * @version 4.1.0
  * Date:    12 June 2014
  *
  */
@@ -86,7 +86,7 @@ void Reset_Handler(void);                            /* Reset Handler */
 static uint8_t stack[__STACK_SIZE] __attribute__ ((aligned(8), used, section(".stack")));
 
 #ifndef __HEAP_SIZE
-#define __HEAP_SIZE   0x00000C00
+#define __HEAP_SIZE   0x00000400
 #endif
 #if __HEAP_SIZE > 0
 static uint8_t heap[__HEAP_SIZE]   __attribute__ ((aligned(8), used, section(".heap")));
@@ -151,6 +151,7 @@ const pFunc __Vectors[] __attribute__ ((section(".vectors"))) = {
   SysTick_Handler,                          /*      SysTick Handler           */
 
   /* External interrupts */
+
   DMA_IRQHandler,                       /*  0 - DMA       */
   GPIO_EVEN_IRQHandler,                       /*  1 - GPIO_EVEN       */
   TIMER0_IRQHandler,                       /*  2 - TIMER0       */

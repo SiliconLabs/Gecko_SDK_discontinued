@@ -4,7 +4,7 @@
  * @details
  *   On some DK main boards, you need to remove the prototype board for this
  *   example to run successfully.
- * @version 4.0.0
+ * @version 4.1.0
  * @note
  *   WARNING: Do not attach or use headphones with this example. Use small
  *   loadspeakers with built in amplification, ensuring volume is at an

@@ -5,7 +5,7 @@
  *        module will wake up whenever a metal object is passed above the LC
  *        sensor in the bottom right of the STK. In Mode 1, the EFM32 will only
  *        wake up every fifth time the metal object is passed over the sensor.
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>

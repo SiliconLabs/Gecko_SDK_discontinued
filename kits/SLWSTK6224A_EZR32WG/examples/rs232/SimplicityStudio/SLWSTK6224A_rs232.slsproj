@@ -34,4 +34,5 @@
   <folder name="src">
     <file name="main.c" uri="main.c" />
   </folder>
+<property key="category" value="MCU Examples"/>
 </project>

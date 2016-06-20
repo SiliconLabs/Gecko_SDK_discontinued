@@ -295,19 +295,19 @@
           <state>$PROJ_DIR$\..\..\..\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\reptile\glib</state>
           <state>$PROJ_DIR$\..\..\..\..\..\reptile\glib\glib</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\ipv4</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\ipv4\lwip</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\lwip</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\ping</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\tcpecho_raw</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\httpserver_raw</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\ports\EFM32\</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\ports\EFM32\include\</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\api</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\include\ipv4</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\include\ipv4\lwip</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\include\lwip</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\ping</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\tcpecho_raw</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\httpserver_raw</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\ports\EFM32\</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\ports\EFM32\include\</state>
 
         </option>
         <option>
@@ -523,19 +523,19 @@
           <state>$PROJ_DIR$\..\..\..\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\reptile\glib</state>
           <state>$PROJ_DIR$\..\..\..\..\..\reptile\glib\glib</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\ipv4</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\ipv4\lwip</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\lwip</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\ping</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\tcpecho_raw</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\httpserver_raw</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\ports\EFM32\</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\ports\EFM32\include\</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\api</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\include\ipv4</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\include\ipv4\lwip</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\include\lwip</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\ping</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\tcpecho_raw</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\httpserver_raw</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\ports\EFM32\</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\ports\EFM32\include\</state>
 
         </option>
         <option>
@@ -1140,19 +1140,19 @@
           <state>$PROJ_DIR$\..\..\..\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\reptile\glib</state>
           <state>$PROJ_DIR$\..\..\..\..\..\reptile\glib\glib</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\ipv4</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\ipv4\lwip</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\lwip</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\ping</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\tcpecho_raw</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\httpserver_raw</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\ports\EFM32\</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\ports\EFM32\include\</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\api</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\include\ipv4</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\include\ipv4\lwip</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\include\lwip</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\ping</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\tcpecho_raw</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\httpserver_raw</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\ports\EFM32\</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\ports\EFM32\include\</state>
 
         </option>
         <option>
@@ -1368,19 +1368,19 @@
           <state>$PROJ_DIR$\..\..\..\config</state>
           <state>$PROJ_DIR$\..\..\..\..\..\reptile\glib</state>
           <state>$PROJ_DIR$\..\..\..\..\..\reptile\glib\glib</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\ipv4</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\ipv4\lwip</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\lwip</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\ping</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\tcpecho_raw</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\httpserver_raw</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\ports\EFM32\</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\ports\EFM32\include\</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\api</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\include\ipv4</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\include\ipv4\lwip</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\include\lwip</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\ping</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\tcpecho_raw</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\httpserver_raw</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\ports\EFM32\</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\ports\EFM32\include\</state>
 
         </option>
         <option>
@@ -1777,9 +1777,6 @@
     <file>
       <name>$PROJ_DIR$\..\tftconsole.c</name>
     </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\ports\efm32\ksz8851snl_driver.c</name>
-    </file>
   </group>
   <group>
     <name>Graphics</name>
@@ -1791,120 +1788,123 @@
     </file>
   </group>
   <group>
-    <name>lwIP</name>
+    <name>lwip</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api\api_lib.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\api\api_lib.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api\api_msg.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\api\api_msg.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api\err.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\api\err.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api\netbuf.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\api\netbuf.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api\netdb.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\api\netdb.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api\netifapi.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\api\netifapi.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api\sockets.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\api\sockets.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api\tcpip.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\api\tcpip.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4\autoip.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4\autoip.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4\icmp.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4\icmp.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4\igmp.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4\igmp.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4\inet.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4\inet.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4\inet_chksum.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4\inet_chksum.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4\ip.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4\ip.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4\ip_addr.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4\ip_addr.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4\ip_frag.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4\ip_frag.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\def.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\def.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\dhcp.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\dhcp.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\dns.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\dns.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\init.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\init.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\mem.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\mem.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\memp.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\memp.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\netif.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\netif.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\pbuf.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\pbuf.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\raw.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\raw.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\stats.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\stats.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\sys.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\sys.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\tcp.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\tcp.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\tcp_in.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\tcp_in.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\tcp_out.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\tcp_out.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\timers.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\timers.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\udp.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\core\udp.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\netif\etharp.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\netif\etharp.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\netif\ethernetif.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip\src\netif\ethernetif.c</name>
     </file>
   </group>
   <group>
-    <name>lwIP_apps</name>
+    <name>lwip-contrib</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\tcpecho_raw\echo.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\tcpecho_raw\echo.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\httpserver_raw\fs.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\httpserver_raw\fs.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\httpserver_raw\httpd.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\httpserver_raw\httpd.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\lwIP\lwip-contrib\ports\efm32\ksz8851snl_driver.c</name>
     </file>
   </group>
   <group>

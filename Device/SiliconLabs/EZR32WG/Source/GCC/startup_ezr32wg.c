@@ -2,7 +2,7 @@
  * @file startup_ezr32wg.c
  * @brief CMSIS Compatible EZR32WG startup file in C.
  *        Should be used with GCC 'GNU Tools ARM Embedded'
- * @version 4.0.0
+ * @version 4.1.0
  * Date:    12 June 2014
  *
  */
@@ -111,8 +111,8 @@ void SysTick_Handler     (void) __attribute__ ((weak, alias("Default_Handler")))
 void DMA_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
 void GPIO_EVEN_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
 void TIMER0_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
-void USART0_RX_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
-void USART0_TX_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
+void USARTRF0_RX_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
+void USARTRF0_TX_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
 void USB_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
 void ACMP0_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
 void ADC0_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
@@ -142,7 +142,6 @@ void RTC_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
 void BURTC_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
 void CMU_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
 void VCMP_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
-void LCD_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
 void MSC_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
 void AES_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
 void EMU_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
@@ -173,11 +172,12 @@ const pFunc __Vectors[] __attribute__ ((section(".vectors"))) = {
   SysTick_Handler,                          /*      SysTick Handler           */
 
   /* External interrupts */
+
   DMA_IRQHandler,                       /*  0 - DMA       */
   GPIO_EVEN_IRQHandler,                       /*  1 - GPIO_EVEN       */
   TIMER0_IRQHandler,                       /*  2 - TIMER0       */
-  USART0_RX_IRQHandler,                       /*  3 - USART0_RX       */
-  USART0_TX_IRQHandler,                       /*  4 - USART0_TX       */
+  USARTRF0_RX_IRQHandler,                       /*  3 - USARTRF0_RX       */
+  USARTRF0_TX_IRQHandler,                       /*  4 - USARTRF0_TX       */
   USB_IRQHandler,                       /*  5 - USB       */
   ACMP0_IRQHandler,                       /*  6 - ACMP0       */
   ADC0_IRQHandler,                       /*  7 - ADC0       */
@@ -207,10 +207,10 @@ const pFunc __Vectors[] __attribute__ ((section(".vectors"))) = {
   BURTC_IRQHandler,                       /*  31 - BURTC       */
   CMU_IRQHandler,                       /*  32 - CMU       */
   VCMP_IRQHandler,                       /*  33 - VCMP       */
-  LCD_IRQHandler,                       /*  34 - LCD       */
+  Default_Handler,                          /*  34 - Reserved      */
   MSC_IRQHandler,                       /*  35 - MSC       */
   AES_IRQHandler,                       /*  36 - AES       */
-  Default_Handler,                       /*  37 - Reserved       */
+  Default_Handler,                          /*  37 - Reserved      */
   EMU_IRQHandler,                       /*  38 - EMU       */
   FPUEH_IRQHandler,                       /*  39 - FPUEH       */
 

@@ -72,7 +72,7 @@ window.onload = initDynSections;
  </p>
 <h2><a class="anchor" id="spidrv_intro">
 Introduction</a></h2>
-<p>The SPI driver support the SPI capabilities of EFM32 USARTs. The driver is fully reentrant and several driver instances can coexist. The driver does not buffer or queue data. The driver has SPI transfer functions for both master and slave SPI mode. Both synchronous and asynchronous transfer functions are present. Synchronous transfer functions are blocking and will not return to caller before the transfer has completed. Asynchronous transfer functions report transfer completion with callback functions. Transfers are done using DMA.</p>
+<p>The SPI driver support the SPI capabilities of EFM32/EZR32/EFR32 USARTs. The driver is fully reentrant and several driver instances can coexist. The driver does not buffer or queue data. The driver has SPI transfer functions for both master and slave SPI mode. Both synchronous and asynchronous transfer functions are present. Synchronous transfer functions are blocking and will not return to caller before the transfer has completed. Asynchronous transfer functions report transfer completion with callback functions. Transfers are done using DMA.</p>
 <dl class="note"><dt><b>Note:</b></dt><dd>Transfer completion callback functions are called from within the DMA interrupt handler with interrupts disabled.</dd></dl>
 <p><br/>
  </p>
@@ -156,7 +156,7 @@ int main( void )
   </pre></div> </div>
 <div id="footer">
 <hr size="1"><address style="text-align: right;"><small>
-Generated on Thu May 28 13:12:48 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
+Generated on Mon Sep 7 08:55:22 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a><small> 1.6.3 </small></address></div>
 </body>

@@ -7,9 +7,9 @@ the Sharp Memory LCD display on the SLWSTK6221A_EZR32WG kit.
 The user can switch between analog and digital clock modes by pushing
 the PB0 button.
 
-The user can increment the second count by pushing the PB1 button.
+The user can increment the minute count by pushing the PB1 button.
 The minute count can be incremented by pushing the PB1 button for more
-than 2 seconds.
+than 0.5 seconds.
 
 The analog clock mode demonstrates the use of GLIB to draw hour, minute
 and second pointers on the background which is a bitmap in flash memory.

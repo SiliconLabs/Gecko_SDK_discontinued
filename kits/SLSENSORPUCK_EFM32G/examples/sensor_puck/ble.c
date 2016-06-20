@@ -2,7 +2,7 @@
 * @file
 * @brief Bluetooth Low Energy driver
 
-* @version 4.0.0
+* @version 4.1.0
 
 ******************************************************************************
 * @section License

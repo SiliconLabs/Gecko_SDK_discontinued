@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_usbh.c
- * @brief USB protocol stack library API for EFM32.
- * @version 4.0.0
+ * @brief USB protocol stack library API for EFM32/EZR32.
+ * @version 4.1.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -81,7 +81,17 @@ static void Timeout( int hcnum )
   USBH_Hc_TypeDef *hc;
   USBH_Ep_TypeDef *ep;
 
+#if defined( __GNUC__ )
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Warray-bounds"
+#endif
+
   hc = &hcs[ hcnum ];
+
+#if defined( __GNUC__ )
+#pragma GCC diagnostic pop
+#endif
+
   hcchar = USBHHAL_GetHcChar( hcnum );
   ep = hc->ep;
 
@@ -1898,7 +1908,7 @@ int USBH_SetAltInterfaceB( USBH_Device_TypeDef *device,
 
   retVal = USBH_ControlMsgB(
                     &device->ep0,
-                    USB_SETUP_DIR_H2D | USB_SETUP_RECIPIENT_DEVICE |
+                    USB_SETUP_DIR_H2D | USB_SETUP_RECIPIENT_INTERFACE |
                     USB_SETUP_TYPE_STANDARD_MASK,         /* bmRequestType */
                     SET_INTERFACE,                        /* bRequest      */
                     alternateSetting,                     /* wValue        */

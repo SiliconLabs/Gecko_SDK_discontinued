@@ -1,0 +1,7 @@
+<map id="structs" name="structs">
+<area shape="rect" id="node2" href="$group__COMM__Layer.html" title="EzRadio Communication Layer, see Communication Layer on page EZRADIODRV EzRadio Peripheral..." alt="" coords="293,5,390,32"/>
+<area shape="rect" id="node3" href="$group__Plugin__System.html" title="EzRadio Plugin System Layer, see Plugin System Layer on page EZRADIODRV EzRadio Peripheral..." alt="" coords="289,56,394,83"/>
+<area shape="rect" id="node5" href="$group__API__Layer.html" title="EzRadio API Layer, see Radio API Layer on page EZRADIODRV EzRadio Peripheral Interface..." alt="" coords="302,107,381,133"/>
+<area shape="rect" id="node6" href="$group__HAL__Layer.html" title="EzRadio HAL Layer, see Radio HAL Layer on page EZRADIODRV EzRadio Peripheral Interface..." alt="" coords="300,157,383,184"/>
+<area shape="rect" id="node4" href="$group__EM__Drivers.html" title="EM_Drivers" alt="" coords="6,81,93,108"/>
+</map>

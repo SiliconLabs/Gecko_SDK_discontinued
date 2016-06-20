@@ -1,0 +1,6 @@
+base referer
+rect $group__BUS.html#gf8574f14855448ecae32c5a9dd0c7164 128,5 267,32
+rect $group__I2C.html#g2c0e3b79d2855fd85d4a29a469bbf2ff 133,56 262,83
+rect $group__CMU.html#gc9aa0ed17f83bd48abcf7b430843374a 315,56 466,83
+rect $group__CMU.html#g3ac649cb01dd184676c6bdea7ff3d768 515,31 643,57
+rect $group__CMU.html#g535e1e8fa3a9131d7151cc549bfb4f29 515,81 643,108

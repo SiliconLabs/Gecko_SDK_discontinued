@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file ezradio_comm.c
  * @brief This file contains the EZRadio communication layer.
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -12,9 +12,9 @@
  * freely, subject to the following restrictions:
  *
  * 1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
+ *    claim that you wrote the original software.@n
  * 2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
+ *    misrepresented as being the original software.@n
  * 3. This notice may not be removed or altered from any source distribution.
  *
  * DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Silicon Labs has no
@@ -41,7 +41,7 @@
 /** Can be used to prevent CTS check before any communication command. */
 uint8_t ezradio_comm_CtsWentHigh = 0;
 
-/*!
+/**
  * Gets a command response from the radio chip
  *
  * @param byteCount     Number of bytes to get from the radio chip
@@ -91,7 +91,7 @@ uint8_t ezradio_comm_GetResp(uint8_t byteCount, uint8_t* pData)
   return ctsVal;
 }
 
-/*!
+/**
  * Sends a command to the radio chip
  *
  * @param byteCount     Number of bytes in the command to send to the radio device
@@ -109,7 +109,7 @@ void ezradio_comm_SendCmd(uint8_t byteCount, uint8_t* pData)
     ezradio_comm_CtsWentHigh = 0;
 }
 
-/*!
+/**
  * Gets a command response from the radio chip
  *
  * @param cmd           Command ID
@@ -134,7 +134,7 @@ void ezradio_comm_ReadData(uint8_t cmd, uint8_t pollCts, uint8_t byteCount, uint
 }
 
 
-/*!
+/**
  * Gets a command response from the radio chip
  *
  * @param cmd           Command ID
@@ -158,7 +158,7 @@ void ezradio_comm_WriteData(uint8_t cmd, uint8_t pollCts, uint8_t byteCount, uin
     ezradio_comm_CtsWentHigh = 0;
 }
 
-/*!
+/**
  * Waits for CTS to be high
  *
  * @return CTS value
@@ -185,7 +185,7 @@ void ezradio_comm_ClearCTS()
   ezradio_comm_CtsWentHigh = 0;
 }
 
-/*!
+/**
  * Sends a command to the radio chip and gets a response
  *
  * @param cmdByteCount  Number of bytes in the command to send to the radio device

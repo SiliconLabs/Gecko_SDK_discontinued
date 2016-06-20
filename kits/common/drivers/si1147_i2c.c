@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file
  * @brief i2c driver for the Si1147
- * @version 4.0.0
+ * @version 4.1.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -193,7 +193,7 @@ uint32_t Si1147_Read_Block_Register(I2C_TypeDef *i2c,uint8_t addr, uint8_t reg, 
 
 /**************************************************************************//**
  * @brief  Writes to Si114x Register
- * @param[in] handle
+ * @param[in] si114x_handle
  *   The programmer toolkit handle.
  * @param[in] address
  *   The register address to write to.
@@ -209,7 +209,7 @@ int16_t Si114xWriteToRegister(HANDLE si114x_handle, uint8_t address, uint8_t dat
 
 /**************************************************************************//**
  * @brief  Reads from Si114x register
- * @param[in] handle
+ * @param[in] si114x_handle
  *   The programmer toolkit handle.
  * @param[in] address
  *   The register address to read from.
@@ -225,7 +225,7 @@ int16_t Si114xReadFromRegister(HANDLE si114x_handle, uint8_t address)
 
 /**************************************************************************//**
  * @brief  Writes block of Si114x registers
- * @param[in] handle
+ * @param[in] si114x_handle
  *   The programmer toolkit handle.
  * @param[in] address
  *   The register address to write to.
@@ -244,7 +244,7 @@ int16_t Si114xBlockWrite(HANDLE si114x_handle,
 
 /**************************************************************************//**
  * @brief  Reads block of Si114x registers
- * @param[in] handle
+ * @param[in] si114x_handle
  *   The programmer toolkit handle.
  * @param[in] address
  *   The register address to read from.
