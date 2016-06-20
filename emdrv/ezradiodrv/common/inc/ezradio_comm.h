@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file ezradio_comm.h
  * @brief This file contains the EZRadio communication layer.
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -12,9 +12,9 @@
  * freely, subject to the following restrictions:
  *
  * 1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
+ *    claim that you wrote the original software.@n
  * 2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
+ *    misrepresented as being the original software.@n
  * 3. This notice may not be removed or altered from any source distribution.
  *
  * DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Silicon Labs has no
@@ -37,6 +37,23 @@
 extern "C" {
 #endif
 
+/***************************************************************************//**
+ * @addtogroup EM_Drivers
+ * @{
+ ******************************************************************************/
+
+/***************************************************************************//**
+ * @addtogroup EZRADIODRV
+ * @{
+ ******************************************************************************/
+
+/***************************************************************************//**
+ * @addtogroup COMM_Layer
+ * @brief EzRadio Communication Layer, see @ref ezradiodrv_comm on page
+ *        @ref ezradiodrv_doc for detailed documentation.
+ * @{
+ ******************************************************************************/
+
 /** Radio CTS timeout */
 #define EZRADIO_CTS_TIMEOUT 10000
 
@@ -51,6 +68,10 @@ uint8_t ezradio_comm_PollCTS(void);
 uint8_t ezradio_comm_SendCmdGetResp(uint8_t cmdByteCount, uint8_t* pCmdData,
                                   uint8_t respByteCount, uint8_t* pRespData);
 void ezradio_comm_ClearCTS(void);
+
+/** @} (end addtogroup Comm_Layer) */
+/** @} (end addtogroup EZRADIODRV) */
+/** @} (end addtogroup EM_Drivers) */
 
 #ifdef __cplusplus
 }

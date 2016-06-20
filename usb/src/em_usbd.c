@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file em_usbd.c
- * @brief USB protocol stack library, device API.
- * @version 4.0.0
+ * @brief USB protocol stack library API for EFM32/EZR32.
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -353,7 +353,15 @@ int USBD_Init( const USBD_Init_TypeDef *p )
       numEps++;
       epd = (USB_EndpointDescriptor_TypeDef*)conf;
 
+#if defined( __GNUC__ )
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Warray-bounds"
+#endif
       ep                 = &dev->ep[ numEps ];
+#if defined( __GNUC__ )
+#pragma GCC diagnostic pop
+#endif
+
       ep->in             = ( epd->bEndpointAddress & USB_SETUP_DIR_MASK ) != 0;
       ep->buf            = NULL;
       ep->addr           = epd->bEndpointAddress;

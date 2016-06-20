@@ -1,11 +1,13 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$group__RTCDRV.html#ga4419076832c5b4958dea6f1eec0a9bdf" title="Initialize RTCDRV driver." alt="" coords="233,56,327,83"/>
-<area shape="rect" id="node7" href="$group__RTCDRV.html#gaeee47cebc2ca33e571c965b90e1386d9" title="Start a timer." alt="" coords="211,157,349,184"/>
+<area shape="rect" id="node11" href="$group__RTCDRV.html#gaeee47cebc2ca33e571c965b90e1386d9" title="Start a timer." alt="" coords="211,157,349,184"/>
 <area shape="rect" id="node5" href="$group__SPIDRV.html#gae1bf2b297eca13e7e46cbbcb66202239" title="Initialize a SPI driver instance." alt="" coords="421,5,512,32"/>
-<area shape="rect" id="node9" href="$group__SPIDRV.html#gaa4a1d07a7cfa1b461231b81ee9bd7208" title="Start a SPI slave receive transfer." alt="" coords="405,56,529,83"/>
-<area shape="rect" id="node11" href="$group__SPIDRV.html#gaacf21de6f56b73897137afe66c8a55fc" title="Start a SPI slave blocking receive transfer." alt="" coords="401,107,532,133"/>
-<area shape="rect" id="node13" href="$group__SPIDRV.html#ga3b0e6cefe8389131f8cda2d3422ca165" title="Start a SPI slave transfer." alt="" coords="402,157,531,184"/>
-<area shape="rect" id="node15" href="$group__SPIDRV.html#ga2117731649ff7375202f3db7c7eaea14" title="Start a SPI slave blocking transfer." alt="" coords="399,208,535,235"/>
-<area shape="rect" id="node17" href="$group__SPIDRV.html#gab17e267c072c9fa5424ac0dbb6d162b4" title="Start a SPI slave transmit transfer." alt="" coords="401,259,532,285"/>
-<area shape="rect" id="node19" href="$group__SPIDRV.html#ga950e481559e49f805c4c65701f272df5" title="Start a SPI slave blocking transmit transfer." alt="" coords="397,309,536,336"/>
+<area shape="rect" id="node7" href="$group__HAL__Layer.html#gae1cf166781ecf4a2317e0d9d4f504197" title="Initializes SPI driver for the EZRadio device." alt="" coords="584,5,715,32"/>
+<area shape="rect" id="node9" href="$group__Plugin__Manager.html#ga55ab56dfaa297c93024dc43239bc8592" title="Radio Initialization." alt="" coords="763,5,845,32"/>
+<area shape="rect" id="node13" href="$group__SPIDRV.html#gaa4a1d07a7cfa1b461231b81ee9bd7208" title="Start a SPI slave receive transfer." alt="" coords="405,56,529,83"/>
+<area shape="rect" id="node15" href="$group__SPIDRV.html#gaacf21de6f56b73897137afe66c8a55fc" title="Start a SPI slave blocking receive transfer." alt="" coords="401,107,532,133"/>
+<area shape="rect" id="node17" href="$group__SPIDRV.html#ga3b0e6cefe8389131f8cda2d3422ca165" title="Start a SPI slave transfer." alt="" coords="402,157,531,184"/>
+<area shape="rect" id="node19" href="$group__SPIDRV.html#ga2117731649ff7375202f3db7c7eaea14" title="Start a SPI slave blocking transfer." alt="" coords="399,208,535,235"/>
+<area shape="rect" id="node21" href="$group__SPIDRV.html#gab17e267c072c9fa5424ac0dbb6d162b4" title="Start a SPI slave transmit transfer." alt="" coords="401,259,532,285"/>
+<area shape="rect" id="node23" href="$group__SPIDRV.html#ga950e481559e49f805c4c65701f272df5" title="Start a SPI slave blocking transmit transfer." alt="" coords="397,309,536,336"/>
 </map>

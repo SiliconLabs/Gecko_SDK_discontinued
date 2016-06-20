@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$em__letimer_8h.html" title="Low Energy Timer (LETIMER) peripheral API." alt="" coords="5,80,109,107"/>
-<area shape="rect" id="node5" href="$em__cmu_8h.html" title="Clock management unit (CMU) API." alt="" coords="135,80,225,107"/>
-<area shape="rect" id="node7" href="$em__assert_8h.html" title="EFM32 peripheral API &quot;assert&quot; implementation." alt="" coords="249,80,351,107"/>
-<area shape="rect" id="node6" href="$em__bitband_8h.html" title="Bitband Peripheral API." alt="" coords="217,155,327,181"/>
-</map>

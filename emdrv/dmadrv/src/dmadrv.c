@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file dmadrv.c
  * @brief DMADRV API implementation.
- * @version 4.0.0
+ * @version 4.1.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -262,6 +262,7 @@ Ecode_t DMADRV_Init( void )
   DMA_Init_TypeDef dmaInit;
 #elif defined( EMDRV_DMADRV_LDMA )
   LDMA_Init_t dmaInit = LDMA_INIT_DEFAULT;
+  dmaInit.ldmaInitCtrlNumFixed = EMDRV_DMADRV_DMA_CH_PRIORITY;
 #endif
 
 
@@ -698,7 +699,7 @@ Ecode_t DMADRV_TransferActive( unsigned int channelId, bool *active )
 #if defined( EMDRV_DMADRV_UDMA )
   if ( DMA_ChannelEnabled( channelId ) )
 #elif defined( EMDRV_DMADRV_LDMA )
-  if ( LDMA->EN & ( 1 << channelId ) )
+  if ( LDMA->CHEN & ( 1 << channelId ) )
 #endif
   {
     *active = true;
@@ -1229,10 +1230,10 @@ static Ecode_t StartTransfer( DmaMode_t             mode,
     *desc = p2m;
     if ( !bufInc )
     {
-      desc->xfer.destInc = ldmaCtrlDstIncNone;
+      desc->xfer.dstInc = ldmaCtrlDstIncNone;
     }
   }
-  xfer.ldmaMuxsel    = peripheralSignal;
+  xfer.ldmaReqSel    = peripheralSignal;
   desc->xfer.xferCnt = len - 1;
   desc->xfer.dstAddr = (uint32_t)buf0;
   desc->xfer.srcAddr = (uint32_t)buf1;

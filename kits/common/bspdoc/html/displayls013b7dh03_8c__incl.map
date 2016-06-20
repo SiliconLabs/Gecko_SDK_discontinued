@@ -1,6 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node13" href="$displayconfigall_8h.html" title="Main configuration file for the DISPLAY driver software stack." alt="" coords="297,231,415,257"/>
-<area shape="rect" id="node18" href="$emstatus_8h.html" title="EMSTATUS definitions." alt="" coords="187,231,272,257"/>
-<area shape="rect" id="node23" href="$displaybackend_8h.html" title="Display device backend interface." alt="" coords="101,81,219,108"/>
-<area shape="rect" id="node25" href="$display_8h.html" title="Display device interface." alt="" coords="124,156,196,183"/>
+<area shape="rect" id="node15" href="$displayconfigall_8h.html" title="Main configuration file for the DISPLAY driver software stack." alt="" coords="298,231,416,257"/>
+<area shape="rect" id="node22" href="$emstatus_8h.html" title="EMSTATUS definitions." alt="" coords="187,231,272,257"/>
+<area shape="rect" id="node27" href="$displaybackend_8h.html" title="Display device backend interface." alt="" coords="101,81,219,108"/>
+<area shape="rect" id="node29" href="$display_8h.html" title="Display device interface." alt="" coords="124,156,196,183"/>
 </map>

@@ -1,11 +1,11 @@
 /***************************************************************************//**
  * @file gpiointerrupt.c
  * @brief GPIOINT API implementation
- * @version 4.0.0
+ * @version 4.1.0
  *
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -18,29 +18,11 @@
 #include "em_int.h"
 #include "gpiointerrupt.h"
 #include "em_assert.h"
+#include "em_common.h"
 
 /*******************************************************************************
  ********************************   MACROS   ***********************************
  ******************************************************************************/
-
-/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
-
-/* Macro return index of the LSB flag which is set. */
-#if ((__CORTEX_M == 3) || (__CORTEX_M == 4))
-#define GPIOINT_MASK2IDX(mask) (__CLZ(__RBIT(mask)))
-#elif __CORTEX_M == 0
-#define GPIOINT_MASK2IDX(mask) (countTrailingZeros(mask))
-__STATIC_INLINE uint32_t countTrailingZeros(uint32_t mask)
-{
-  uint32_t zeros;
-  for(zeros=0; (zeros<32) && (0 == (mask&0x1)); zeros++, mask>>=1);
-  return zeros;
-}
-#else
-#error Unsupported architecture.
-#endif
-
-/** @endcond */
 
 /*******************************************************************************
  *******************************   STRUCTS   ***********************************
@@ -139,7 +121,7 @@ static void GPIOINT_IRQDispatcher(uint32_t iflags)
   /* check for all flags set in IF register */
   while(iflags)
   {
-    irqIdx = GPIOINT_MASK2IDX(iflags);
+    irqIdx = EFM32_CTZ(iflags);
 
     /* clear flag*/
     iflags &= ~(1 << irqIdx);
@@ -211,12 +193,12 @@ void GPIO_ODD_IRQHandler(void)
   @li @ref gpioint_example
 
 @n @section gpioint_intro Introduction
- * EFM32 has two GPIO interrupts lines, Odd and Even. If more
+ * EFM32/EZR32/EFR32 has two GPIO interrupts lines, Odd and Even. If more
  * than two interrupts are used then interrupt routine must dispatch from a callback
  * register. This module provides small dispatcher for both GPIO interrupts enabling
  * handling of up to 16 GPIO pin interrupts.
  *
- * It is up to the user to configure and enable interrupt on given pin. This can be done 
+ * It is up to the user to configure and enable interrupt on given pin. This can be done
  * using the GPIO library (emlib). This module handles the dispatch register and clearing of
  * interrupt flags.
  *
@@ -226,7 +208,7 @@ void GPIO_ODD_IRQHandler(void)
 
 @n @section gpioint_api The API
   This section contain brief descriptions of the functions in the API. You will
-  find detailed information on parameters by clicking on the hyperlinked function names. 
+  find detailed information on parameters by clicking on the hyperlinked function names.
 
   Your application code must include one header file: @em gpiointerrupt.h.
 
@@ -265,5 +247,5 @@ int main(void)
 }
 
   @endverbatim
-    
+
  * @}**************************************************************************/

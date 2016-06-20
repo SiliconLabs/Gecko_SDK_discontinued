@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file system_efm32hg.h
  * @brief CMSIS Cortex-M System Layer for EFM32 devices.
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>

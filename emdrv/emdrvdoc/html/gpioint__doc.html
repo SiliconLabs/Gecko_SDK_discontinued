@@ -71,7 +71,7 @@ window.onload = initDynSections;
  </p>
 <h2><a class="anchor" id="gpioint_intro">
 Introduction</a></h2>
-<p>EFM32 has two GPIO interrupts lines, Odd and Even. If more than two interrupts are used then interrupt routine must dispatch from a callback register. This module provides small dispatcher for both GPIO interrupts enabling handling of up to 16 GPIO pin interrupts.</p>
+<p>EFM32/EZR32/EFR32 has two GPIO interrupts lines, Odd and Even. If more than two interrupts are used then interrupt routine must dispatch from a callback register. This module provides small dispatcher for both GPIO interrupts enabling handling of up to 16 GPIO pin interrupts.</p>
 <p>It is up to the user to configure and enable interrupt on given pin. This can be done using the GPIO library (emlib). This module handles the dispatch register and clearing of interrupt flags.</p>
 <p>In order to use this dispatcher, it has to be initialized first by calling <a class="el" href="group__GPIOINT.html#gac93e5702d7693ab3efbbccd9782b22e0" title="Initialization of GPIOINT module.">GPIOINT_Init()</a>. Then each pin must be configured by first registering the callback function for given pin and then configure and enabling the interrupt in GPIO module.</p>
 <p><br/>
@@ -116,7 +116,7 @@ int main(void)
   </pre></div> </div>
 <div id="footer">
 <hr size="1"><address style="text-align: right;"><small>
-Generated on Thu May 28 13:12:48 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
+Generated on Mon Sep 7 08:55:22 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a><small> 1.6.3 </small></address></div>
 </body>

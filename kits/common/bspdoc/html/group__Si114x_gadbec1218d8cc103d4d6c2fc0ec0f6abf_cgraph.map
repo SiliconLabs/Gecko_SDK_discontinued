@@ -1,20 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$si114x__functions_8c.html#ad3caa9be1c88c281a2b56d85874ce13e" title="Waits until the Si113x/4x is sleeping before proceeding." alt="" coords="721,119,831,145"/>
-<area shape="rect" id="node5" href="$group__Si114x.html#ga734e022c8fda86b69a353b1012c59231" title="Implements 1ms delay." alt="" coords="944,284,1027,311"/>
-<area shape="rect" id="node7" href="$group__Si114x.html#gaeae79629a9f5a41c75ba329fa056eeef" title="Reads from Si114x register." alt="" coords="902,81,1069,108"/>
-<area shape="rect" id="node9" href="$si114x__functions_8c.html#a808f2899298260f393055312b4f80ac6" title="Returns the ratio to correlate between x_RANGE=0 and x_RANGE=1 It is typically 14..." alt="" coords="221,549,329,576"/>
-<area shape="rect" id="node23" href="$si114x__functions_8c.html#a3ac697e3bdbd89a27b3c92771464d225" title="Due to small differences in factory test setup, the reference calibration values..." alt="" coords="403,676,506,703"/>
-<area shape="rect" id="node25" href="$si114x__functions_8c.html#a61432bf1caf8279773cbd20cbff01762" title="Returns the calibration ratio to be applied to IR measurements." alt="" coords="221,651,329,677"/>
-<area shape="rect" id="node29" href="$si114x__functions_8c.html#af2b82da725b191c13d12b558513d16b7" title="Returns the ratio to correlate between measurements made from large PD to measurements..." alt="" coords="232,499,317,525"/>
-<area shape="rect" id="node32" href="$si114x__functions_8c.html#af8fdd4e552ea67d71ca4f6efe98cde06" title="Returns the ratio to adjust for differences in IRLED drive strength." alt="" coords="237,701,312,728"/>
-<area shape="rect" id="node36" href="$si114x__functions_8c.html#a1f05335605433b4c715436f8c2750127" title="This is a helper function called from si114x_get_calibration() Writes 0x11 to the..." alt="" coords="203,245,346,272"/>
-<area shape="rect" id="node40" href="$group__Si114x.html#ga479ffe2c4fea4bf799a925d8e779400c" title="Reads block of Si114x registers." alt="" coords="395,347,514,373"/>
-<area shape="rect" id="node42" href="$group__Si114x.html#gad06dc467120c7e78af29a2959589a796" title="Sends a NOP command to the Si113x/4x." alt="" coords="413,144,496,171"/>
-<area shape="rect" id="node49" href="$group__Si114x.html#ga8d9e6e60e0ced326193208cdf976bbee" title="Writes to Si114x Register." alt="" coords="699,271,853,297"/>
-<area shape="rect" id="node57" href="$si114x__functions_8c.html#ab4c6c95d4cfe808f6bae73c8f1d6e949" title="Returns the calibration ratio to be applied to VIS measurements." alt="" coords="217,600,332,627"/>
-<area shape="rect" id="node11" href="$si114x__functions_8c.html#ac9f9c30376cfa4e7d75d3df4aca0bd38" title="Returns a fixed&#45;point (20&#45;bit fraction) after dividing op1/op2." alt="" coords="411,600,498,627"/>
-<area shape="rect" id="node13" href="$si114x__functions_8c.html#a50d91593be08d65b013f22a42f0ddcb1" title="Aligns the value pointed by value_p to either the LEFT or RIGHT the number of shifted..." alt="" coords="751,600,801,627"/>
-<area shape="rect" id="node15" href="$si114x__functions_8c.html#afe977399de96463bb65a39f6f1093c64" title="This performs a shift_left function." alt="" coords="950,600,1021,627"/>
-<area shape="rect" id="node17" href="$si114x__functions_8c.html#a3635be76445f56c810f15a35828d38ca" title="The fx20_round was designed to perform rounding to however many significant digits..." alt="" coords="563,549,650,576"/>
-<area shape="rect" id="node44" href="$si114x__functions_8c.html#abdc2cf05a4b2387da379ec970c73c205" title="Helper function to send a command to the Si113x/4x." alt="" coords="565,195,648,221"/>
+<area shape="rect" id="node3" href="$group__Si114x.html#ga734e022c8fda86b69a353b1012c59231" title="Implements 1ms delay." alt="" coords="245,5,328,32"/>
+<area shape="rect" id="node5" href="$group__Si114x.html#ga479ffe2c4fea4bf799a925d8e779400c" title="Reads block of Si114x registers." alt="" coords="227,56,346,83"/>
+<area shape="rect" id="node7" href="$group__Si114x.html#gad06dc467120c7e78af29a2959589a796" title="Sends a NOP command to the Si113x/4x." alt="" coords="245,107,328,133"/>
+<area shape="rect" id="node9" href="$group__Si114x.html#gaeae79629a9f5a41c75ba329fa056eeef" title="Reads from Si114x register." alt="" coords="203,157,370,184"/>
+<area shape="rect" id="node11" href="$group__Si114x.html#ga8d9e6e60e0ced326193208cdf976bbee" title="Writes to Si114x Register." alt="" coords="210,208,363,235"/>
 </map>

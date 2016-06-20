@@ -96,8 +96,8 @@ window.onload = initDynSections;
 <a name="l00045"></a>00045 <span class="preprocessor"></span>
 <a name="l00046"></a>00046 <span class="preprocessor">#define NVM_PAGES_PER_WEAR_HISTORY             0x8U</span>
 <a name="l00047"></a>00047 <span class="preprocessor"></span>
-<a name="l00048"></a>00048 <span class="comment">/* Macros for acquiring and releasing write lock. Currently empty but could be redefined </span>
-<a name="l00049"></a>00049 <span class="comment">   in RTOSes to add resources protection. It is not recommended to call the NVM module </span>
+<a name="l00048"></a>00048 <span class="comment">/* Macros for acquiring and releasing write lock. Currently empty but could be redefined</span>
+<a name="l00049"></a>00049 <span class="comment">   in RTOSes to add resources protection. It is not recommended to call the NVM module</span>
 <a name="l00050"></a>00050 <span class="comment">   from interrupts or other tasks without ensuring that it is not used by main thread.   */</span>
 <a name="l00051"></a>00051 <span class="preprocessor">#ifndef NVM_ACQUIRE_WRITE_LOCK</span>
 <a name="l00052"></a>00052 <span class="preprocessor"></span><span class="preprocessor">#define NVM_ACQUIRE_WRITE_LOCK</span>
@@ -213,12 +213,12 @@ window.onload = initDynSections;
 <a name="l00207"></a>00207     <span class="keywordflow">return</span> <a class="code" href="group__NVM.html#gad67929c11d6b7520bf992dc6dcfc4d2c" title="General error.">ECODE_EMDRV_NVM_ERROR</a>;
 <a name="l00208"></a>00208 
 <a name="l00209"></a>00209   <span class="comment">/* now check that page structures fits to physical page size */</span>
-<a name="l00210"></a>00210   { 
+<a name="l00210"></a>00210   {
 <a name="l00211"></a>00211     uint16_t pageIdx = 0, obj = 0, sum = 0;
 <a name="l00212"></a>00212     <span class="keyword">const</span> <a class="code" href="structNVM__Page__Descriptor__t.html" title="Describes the properties of a page.">NVM_Page_Descriptor_t</a> *currentPage;
-<a name="l00213"></a>00213     
+<a name="l00213"></a>00213 
 <a name="l00214"></a>00214     <span class="keywordflow">for</span>(pageIdx = 0; pageIdx &lt; config-&gt;<a class="code" href="structNVM__Config__t.html#a59511e0aadcd44292a5fc52c6020c391" title="Number of defined (used) pages.">userPages</a>; pageIdx++)
-<a name="l00215"></a>00215     { 
+<a name="l00215"></a>00215     {
 <a name="l00216"></a>00216       sum = 0;
 <a name="l00217"></a>00217       obj = 0;
 <a name="l00218"></a>00218       currentPage = &amp;((*(config-&gt;<a class="code" href="structNVM__Config__t.html#aa6a79150e4b1db9181a2f5fc2534038d" title="Pointer to table defining NVM pages.">nvmPages</a>))[pageIdx]);
@@ -232,7 +232,7 @@ window.onload = initDynSections;
 <a name="l00226"></a>00226         {
 <a name="l00227"></a>00227           <span class="keywordflow">return</span> <a class="code" href="group__NVM.html#gad67929c11d6b7520bf992dc6dcfc4d2c" title="General error.">ECODE_EMDRV_NVM_ERROR</a>; <span class="comment">/* objects bigger than page size */</span>
 <a name="l00228"></a>00228         }
-<a name="l00229"></a>00229       } 
+<a name="l00229"></a>00229       }
 <a name="l00230"></a>00230       <span class="keywordflow">else</span>
 <a name="l00231"></a>00231       {
 <a name="l00232"></a>00232         <span class="keywordflow">if</span>(currentPage-&gt;<a class="code" href="structNVM__Page__Descriptor__t.html#abc9be6e483194ebbb8846c864729b71c" title="The type of page, normal or wear.">pageType</a> == <a class="code" href="group__NVM.html#ggae2a292fc163eaa08574b4c061c0b1ecaa81f13288c7f3413c4dc96832d7c11117" title="Wear page.">nvmPageTypeWear</a>)
@@ -241,7 +241,7 @@ window.onload = initDynSections;
 <a name="l00235"></a>00235           {
 <a name="l00236"></a>00236             <span class="keywordflow">return</span> <a class="code" href="group__NVM.html#gad67929c11d6b7520bf992dc6dcfc4d2c" title="General error.">ECODE_EMDRV_NVM_ERROR</a>; <span class="comment">/* objects bigger than page size */</span>
 <a name="l00237"></a>00237           }
-<a name="l00238"></a>00238         } <span class="keywordflow">else</span> 
+<a name="l00238"></a>00238         } <span class="keywordflow">else</span>
 <a name="l00239"></a>00239           {
 <a name="l00240"></a>00240             <span class="keywordflow">return</span> <a class="code" href="group__NVM.html#gad67929c11d6b7520bf992dc6dcfc4d2c" title="General error.">ECODE_EMDRV_NVM_ERROR</a>; <span class="comment">/* unknown page type */</span>
 <a name="l00241"></a>00241           }
@@ -321,7 +321,7 @@ window.onload = initDynSections;
 <a name="l00315"></a>00315           }
 <a name="l00316"></a>00316 
 <a name="l00317"></a>00317           <span class="comment">/* Go to the next physical page. */</span>
-<a name="l00318"></a>00318           pDuplicatePhysicalAddress += <a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the EFM32 flash.">NVM_PAGE_SIZE</a>;
+<a name="l00318"></a>00318           pDuplicatePhysicalAddress += <a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the flash.">NVM_PAGE_SIZE</a>;
 <a name="l00319"></a>00319         } <span class="comment">/* End duplicate search loop. */</span>
 <a name="l00320"></a>00320 
 <a name="l00321"></a>00321         <span class="comment">/* If everything went OK and this is the first page we found, then</span>
@@ -339,7 +339,7 @@ window.onload = initDynSections;
 <a name="l00333"></a>00333     } <span class="comment">/* End - not empty if. */</span>
 <a name="l00334"></a>00334 
 <a name="l00335"></a>00335     <span class="comment">/* Go to the next physical page. */</span>
-<a name="l00336"></a>00336     pPhysicalAddress += <a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the EFM32 flash.">NVM_PAGE_SIZE</a>;
+<a name="l00336"></a>00336     pPhysicalAddress += <a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the flash.">NVM_PAGE_SIZE</a>;
 <a name="l00337"></a>00337   } <span class="comment">/* End pages loop. */</span>
 <a name="l00338"></a>00338 
 <a name="l00339"></a>00339   <span class="comment">/* If no pages was found, the system is not in use and should be reset. */</span>
@@ -393,7 +393,7 @@ window.onload = initDynSections;
 <a name="l00404"></a>00404     }
 <a name="l00405"></a>00405 
 <a name="l00406"></a>00406     <span class="comment">/* Go to the next physical page. */</span>
-<a name="l00407"></a>00407     pPhysicalAddress += <a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the EFM32 flash.">NVM_PAGE_SIZE</a>;
+<a name="l00407"></a>00407     pPhysicalAddress += <a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the flash.">NVM_PAGE_SIZE</a>;
 <a name="l00408"></a>00408   }
 <a name="l00409"></a>00409 
 <a name="l00410"></a>00410   <span class="comment">/* Give up write lock and open for other API operations. */</span>
@@ -692,9 +692,9 @@ window.onload = initDynSections;
 <a name="l00727"></a>00727 <span class="preprocessor"></span>  <span class="keywordflow">if</span> (<a class="code" href="group__NVM.html#gae332cf766a19b67f1ed35c9d9e95bd20" title="Return/error codes.">ECODE_EMDRV_NVM_OK</a> == result)
 <a name="l00728"></a>00728   {
 <a name="l00729"></a>00729     <span class="comment">/* write checksum at end of page */</span>
-<a name="l00730"></a>00730     result = <a class="code" href="nvm__hal_8h.html#a0800d58f7bb43d0462592d0062c5cef3" title="Write data to NVM.">NVMHAL_Write</a>(pNewPhysicalAddress + (<a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the EFM32 flash.">NVM_PAGE_SIZE</a> - NVM_FOOTER_SIZE), &amp;checksum, <span class="keyword">sizeof</span>(checksum));
+<a name="l00730"></a>00730     result = <a class="code" href="nvm__hal_8h.html#a0800d58f7bb43d0462592d0062c5cef3" title="Write data to NVM.">NVMHAL_Write</a>(pNewPhysicalAddress + (<a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the flash.">NVM_PAGE_SIZE</a> - NVM_FOOTER_SIZE), &amp;checksum, <span class="keyword">sizeof</span>(checksum));
 <a name="l00731"></a>00731     <span class="comment">/* write watermark just after checksum at end of page */</span>
-<a name="l00732"></a>00732     result = <a class="code" href="nvm__hal_8h.html#a0800d58f7bb43d0462592d0062c5cef3" title="Write data to NVM.">NVMHAL_Write</a>(pNewPhysicalAddress + (<a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the EFM32 flash.">NVM_PAGE_SIZE</a> + <span class="keyword">sizeof</span>(checksum) - NVM_FOOTER_SIZE), &amp;watermark, <span class="keyword">sizeof</span>(watermark));
+<a name="l00732"></a>00732     result = <a class="code" href="nvm__hal_8h.html#a0800d58f7bb43d0462592d0062c5cef3" title="Write data to NVM.">NVMHAL_Write</a>(pNewPhysicalAddress + (<a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the flash.">NVM_PAGE_SIZE</a> + <span class="keyword">sizeof</span>(checksum) - NVM_FOOTER_SIZE), &amp;watermark, <span class="keyword">sizeof</span>(watermark));
 <a name="l00733"></a>00733   }
 <a name="l00734"></a>00734 
 <a name="l00735"></a>00735 <span class="preprocessor">#if (NVM_FEATURE_WEAR_PAGES_ENABLED == true)</span>
@@ -854,7 +854,7 @@ window.onload = initDynSections;
 <a name="l00918"></a>00918     }
 <a name="l00919"></a>00919 
 <a name="l00920"></a>00920     <span class="comment">/* Go to the next physical page. */</span>
-<a name="l00921"></a>00921     pPhysicalAddress += <a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the EFM32 flash.">NVM_PAGE_SIZE</a>;
+<a name="l00921"></a>00921     pPhysicalAddress += <a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the flash.">NVM_PAGE_SIZE</a>;
 <a name="l00922"></a>00922   }
 <a name="l00923"></a>00923 
 <a name="l00924"></a>00924   <span class="keywordflow">return</span> worstUpdateId;
@@ -886,7 +886,7 @@ window.onload = initDynSections;
 <a name="l00966"></a>00966     }
 <a name="l00967"></a>00967 
 <a name="l00968"></a>00968     <span class="comment">/* Move lookup point to the next page. */</span>
-<a name="l00969"></a>00969     pPhysicalAddress += <a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the EFM32 flash.">NVM_PAGE_SIZE</a>;
+<a name="l00969"></a>00969     pPhysicalAddress += <a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the flash.">NVM_PAGE_SIZE</a>;
 <a name="l00970"></a>00970   }
 <a name="l00971"></a>00971 
 <a name="l00972"></a>00972   <span class="comment">/* No page found. */</span>
@@ -927,7 +927,7 @@ window.onload = initDynSections;
 <a name="l01018"></a>01018     }
 <a name="l01019"></a>01019 
 <a name="l01020"></a>01020     <span class="comment">/* Move lookup point to the next page. */</span>
-<a name="l01021"></a>01021     pPhysicalAddress += <a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the EFM32 flash.">NVM_PAGE_SIZE</a>;
+<a name="l01021"></a>01021     pPhysicalAddress += <a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the flash.">NVM_PAGE_SIZE</a>;
 <a name="l01022"></a>01022   }
 <a name="l01023"></a>01023 
 <a name="l01024"></a>01024   <span class="comment">/* Return a pointer to the best/least used page. */</span>
@@ -1056,8 +1056,8 @@ window.onload = initDynSections;
 <a name="l01198"></a>01198 <span class="preprocessor">#endif</span>
 <a name="l01199"></a>01199 <span class="preprocessor"></span>  {
 <a name="l01200"></a>01200     <span class="comment">/* Normal page. */</span>
-<a name="l01201"></a>01201     <a class="code" href="nvm__hal_8h.html#ae5903c7cb194ab35d7637879ca492479" title="Read data from NVM.">NVMHAL_Read</a>(pPhysicalAddress + (<a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the EFM32 flash.">NVM_PAGE_SIZE</a> - NVM_FOOTER_SIZE), &amp;footer.checksum, <span class="keyword">sizeof</span>(footer.checksum));
-<a name="l01202"></a>01202     <a class="code" href="nvm__hal_8h.html#ae5903c7cb194ab35d7637879ca492479" title="Read data from NVM.">NVMHAL_Read</a>(pPhysicalAddress + (<a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the EFM32 flash.">NVM_PAGE_SIZE</a> + <span class="keyword">sizeof</span>(checksum) - NVM_FOOTER_SIZE), &amp;footer.watermark, <span class="keyword">sizeof</span>(footer.watermark));
+<a name="l01201"></a>01201     <a class="code" href="nvm__hal_8h.html#ae5903c7cb194ab35d7637879ca492479" title="Read data from NVM.">NVMHAL_Read</a>(pPhysicalAddress + (<a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the flash.">NVM_PAGE_SIZE</a> - NVM_FOOTER_SIZE), &amp;footer.checksum, <span class="keyword">sizeof</span>(footer.checksum));
+<a name="l01202"></a>01202     <a class="code" href="nvm__hal_8h.html#ae5903c7cb194ab35d7637879ca492479" title="Read data from NVM.">NVMHAL_Read</a>(pPhysicalAddress + (<a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the flash.">NVM_PAGE_SIZE</a> + <span class="keyword">sizeof</span>(checksum) - NVM_FOOTER_SIZE), &amp;footer.watermark, <span class="keyword">sizeof</span>(footer.watermark));
 <a name="l01203"></a>01203     <span class="comment">/* Check if watermark or watermark with flipped write bit matches. */</span>
 <a name="l01204"></a>01204     <span class="keywordflow">if</span> (header.watermark == footer.watermark)
 <a name="l01205"></a>01205     {
@@ -1303,7 +1303,7 @@ window.onload = initDynSections;
 </pre></div></div>
 <div id="footer">
 <hr size="1"><address style="text-align: right;"><small>
-Generated on Thu May 28 13:12:34 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
+Generated on Mon Sep 7 08:55:12 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a><small> 1.6.3 </small></address></div>
 </body>

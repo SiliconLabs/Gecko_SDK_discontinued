@@ -1,11 +1,11 @@
 <map id="G" name="G">
 <area shape="rect" id="node9" href="$gpiointerrupt_8h.html" title="GPIOINT API definition." alt="" coords="230,80,337,107"/>
 <area shape="rect" id="node12" href="$ustimer_8h.html" title="Microsecond delay function API definition." alt="" coords="361,80,437,107"/>
-<area shape="rect" id="node19" href="$si4463_2inc_2ezradio__cmd_8h_source.html" title="ezradio_cmd.h" alt="" coords="462,80,569,107"/>
-<area shape="rect" id="node21" href="$si4463_2inc_2ezradio__prop_8h_source.html" title="ezradio_prop.h" alt="" coords="593,80,701,107"/>
+<area shape="rect" id="node19" href="$si4463_2inc_2ezradio__cmd_8h.html" title="EZRadio Command Header." alt="" coords="462,80,569,107"/>
+<area shape="rect" id="node21" href="$si4463_2inc_2ezradio__prop_8h.html" title="EZRadio Property Header." alt="" coords="593,80,701,107"/>
 <area shape="rect" id="node23" href="$ezradio__comm_8h.html" title="This file contains the EZRadio communication layer." alt="" coords="726,80,843,107"/>
 <area shape="rect" id="node25" href="$ezradio__hal_8h.html" title="This file contains EZRadio HAL." alt="" coords="867,80,966,107"/>
-<area shape="rect" id="node29" href="$ezradio__api__lib_8h.html" title="This file contains the common API library of the EZRadio and EZRadioPRO families..." alt="" coords="991,80,1109,107"/>
+<area shape="rect" id="node27" href="$ezradio__api__lib_8h.html" title="This file contains the common API library of the EZRadio and EZRadioPRO families..." alt="" coords="991,80,1109,107"/>
 <area shape="rect" id="node15" href="$ecode_8h.html" title="Energy Aware drivers error code definitions." alt="" coords="353,155,419,181"/>
 <area shape="rect" id="node17" href="$ustimer__config_8h.html" title="USTIMER configuration file." alt="" coords="443,155,561,181"/>
 </map>

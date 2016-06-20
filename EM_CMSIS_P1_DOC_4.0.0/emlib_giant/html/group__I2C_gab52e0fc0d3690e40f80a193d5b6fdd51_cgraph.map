@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$group__BITBAND.html#ga7df78ffd2c201e674a4444c42b6fcec3" title="Perform bit&#45;band operation on peripheral memory location." alt="" coords="123,5,269,32"/>
-<area shape="rect" id="node3" href="$group__I2C.html#ga2c0e3b79d2855fd85d4a29a469bbf2ff" title="Set I2C bus frequency." alt="" coords="135,56,257,83"/>
-<area shape="rect" id="node4" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point." alt="" coords="317,56,461,83"/>
-</map>

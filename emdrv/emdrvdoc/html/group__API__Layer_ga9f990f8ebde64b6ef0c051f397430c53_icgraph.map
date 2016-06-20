@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$group__Direct__Transmit__Plugin.html#gab765dcab5e4aab236830b5f2cd764f17" title="Starts direct transmission with the radio configurations from the radioHandle parameter..." alt="" coords="261,5,437,32"/>
+<area shape="rect" id="node5" href="$group__PN9__Plugin.html#ga6730098ec7ed97f93ad79079d6db3ab3" title="Starts PN9 transmission with the radio configurations from the radioHandle parameter..." alt="" coords="293,56,406,83"/>
+<area shape="rect" id="node7" href="$group__Unmod__Carrier__Plugin.html#ga52403c3b77b358386eb55a5bcdf8f3d8" title="Starts unmodulated carrier transmission with the radio configurations from the radioHandle..." alt="" coords="246,107,453,133"/>
+</map>

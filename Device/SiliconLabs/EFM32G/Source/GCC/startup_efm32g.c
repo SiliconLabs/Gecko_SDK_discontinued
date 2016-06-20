@@ -2,7 +2,7 @@
  * @file startup_efm32g.c
  * @brief CMSIS Compatible EFM32G startup file in C.
  *        Should be used with GCC 'GNU Tools ARM Embedded'
- * @version 4.0.0
+ * @version 4.1.0
  * Date:    12 June 2014
  *
  */
@@ -164,6 +164,7 @@ const pFunc __Vectors[] __attribute__ ((section(".vectors"))) = {
   SysTick_Handler,                          /*      SysTick Handler           */
 
   /* External interrupts */
+
   DMA_IRQHandler,                       /*  0 - DMA       */
   GPIO_EVEN_IRQHandler,                       /*  1 - GPIO_EVEN       */
   TIMER0_IRQHandler,                       /*  2 - TIMER0       */
@@ -194,6 +195,7 @@ const pFunc __Vectors[] __attribute__ ((section(".vectors"))) = {
   LCD_IRQHandler,                       /*  27 - LCD       */
   MSC_IRQHandler,                       /*  28 - MSC       */
   AES_IRQHandler,                       /*  29 - AES       */
+  Default_Handler,                          /*  30 - Reserved      */
 
 };
 

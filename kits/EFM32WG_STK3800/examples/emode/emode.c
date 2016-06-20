@@ -8,7 +8,7 @@
  * Note! For improved and accurate measurements, read the help section
  * of the energyAware Profiler
  *
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -213,7 +213,7 @@ int main(void)
   LESENSE->POWERDOWN = LESENSE_POWERDOWN_RAM;
 
   CMU_ClockEnable(cmuClock_CORELE, false);
-  RMU_ResetControl(rmuResetBU, false);
+  RMU_ResetControl(rmuResetBU, rmuResetModeClear);
 
   /* Configure push button interrupts */
   GpioSetup();

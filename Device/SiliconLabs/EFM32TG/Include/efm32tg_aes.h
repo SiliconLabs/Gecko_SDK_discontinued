@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efm32tg_aes.h
  * @brief EFM32TG_AES register and bit field definitions
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>

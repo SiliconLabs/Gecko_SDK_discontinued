@@ -13,6 +13,8 @@
   </topic>
   <topic label="DMADRV Direct Memory Access" href="dmadrv__doc.html">
   </topic>
+  <topic label="EZRADIODRV EzRadio Peripheral Interface driver" href="ezradiodrv__doc.html">
+  </topic>
   <topic label="Modules">
     <topic label="EM_Drivers">
       <topic label="NVM">
@@ -146,6 +148,7 @@
           <topic label="SPIDRV_MASTER_USART1" href="group__SPIDRV.html#ga8516f5e723dc93a6d2a392e37c25252b"/>
           <topic label="SPIDRV_MASTER_USART2" href="group__SPIDRV.html#ga7a8acfe9763b52fd70029ac0a6207123"/>
           <topic label="SPIDRV_MASTER_USARTRF0" href="group__SPIDRV.html#ga10d9b3df4bcb0f7e8a57f09fd0f9b74e"/>
+          <topic label="SPIDRV_MASTER_USARTRF1" href="group__SPIDRV.html#gabd30e94ab7c6a5f44c27d41f0ee761e4"/>
           <topic label="SPIDRV_SLAVE_USART0" href="group__SPIDRV.html#gaf0a5e7101c4df9d4d264f46227cdfa36"/>
           <topic label="SPIDRV_SLAVE_USART1" href="group__SPIDRV.html#ga2e19ab6c2117260945a111fc9f4cd4b9"/>
           <topic label="SPIDRV_SLAVE_USART2" href="group__SPIDRV.html#gac0f451db8f1d80cadb60d27738b44171"/>
@@ -274,6 +277,7 @@
           <topic label="ECODE_EMDRV_DMADRV_OK" href="group__DMADRV.html#gac20848ba30d8793ad1344fc442aae4c4"/>
           <topic label="ECODE_EMDRV_DMADRV_PARAM_ERROR" href="group__DMADRV.html#ga3b8e93e5fab3ce4f3f12f137c7b83410"/>
           <topic label="EMDRV_DMADRV_DMA_CH_COUNT" href="group__DMADRV.html#ga6f53d4015fbc79bce2e418aa7b4a09d4"/>
+          <topic label="EMDRV_DMADRV_DMA_CH_PRIORITY" href="group__DMADRV.html#ga07d3657f90a97cfe07c9890f54670d47"/>
           <topic label="EMDRV_DMADRV_USE_NATIVE_API" href="group__DMADRV.html#ga571ae25c6cd18c189db365f43e58fa17"/>
         </topic>
         <topic label="Typedefs">
@@ -302,11 +306,235 @@
           <topic label="DMADRV_TransferRemainingCount" href="group__DMADRV.html#ga9a253b47872d205a76b6f1b7b486194d"/>
         </topic>
       </topic>
+      <topic label="EZRADIODRV">
+        <topic label="API_Layer">
+          <topic label="Enumerations">
+            <topic label="EZRADIO_ConfigRet_t" href="group__API__Layer.html#ga0a0400f1e4c5eae1df893aec358d5b5c"/>
+          </topic>
+          <topic label="Functions">
+            <topic label="ezradio_change_state" href="group__API__Layer.html#ga235ff2f0e61232797b5d3930b9319c5f"/>
+            <topic label="ezradio_configuration_init" href="group__API__Layer.html#ga5e458f080841a7423743d53e2217d1e5"/>
+            <topic label="ezradio_ezconfig_check" href="group__API__Layer.html#ga34050d696c76dfc0e2f210ac3465cdf0"/>
+            <topic label="ezradio_fifo_info" href="group__API__Layer.html#gad7e9af6ef1205ffb877a3c869f5193ee"/>
+            <topic label="ezradio_fifo_info_fast_read" href="group__API__Layer.html#gaf761bc9fbc4e01da3b6fc09523da4260"/>
+            <topic label="ezradio_fifo_info_fast_reset" href="group__API__Layer.html#gab214bdcdc5818dff1a6714c2aa0f98e3"/>
+            <topic label="ezradio_frr_a_read" href="group__API__Layer.html#ga36440d6a56405dc92ec2b72e1e10292a"/>
+            <topic label="ezradio_frr_b_read" href="group__API__Layer.html#gaf0cda7a2e6b72419d9c11e2bbcbb652a"/>
+            <topic label="ezradio_frr_c_read" href="group__API__Layer.html#ga0ee2cc3558bc6e85aea2f4c74dd7023a"/>
+            <topic label="ezradio_frr_d_read" href="group__API__Layer.html#ga3c6aa8b9c6580a45e53cb4f473e11168"/>
+            <topic label="ezradio_func_info" href="group__API__Layer.html#ga6c5d8d1ef6ca843dfdbff5460e6dad2c"/>
+            <topic label="ezradio_get_adc_reading" href="group__API__Layer.html#gab50e698c116f28cdb80a64da04bb5dd2"/>
+            <topic label="ezradio_get_chip_status" href="group__API__Layer.html#gad5ef27035ca328bb2861b5126600a490"/>
+            <topic label="ezradio_get_chip_status_fast_clear" href="group__API__Layer.html#gad600f530d5f68c9a059f6bc661b38dbd"/>
+            <topic label="ezradio_get_chip_status_fast_clear_read" href="group__API__Layer.html#ga797cd338dde1db4e7a24a06a06802766"/>
+            <topic label="ezradio_get_int_status" href="group__API__Layer.html#ga2060b35450cc17415abf08a2f028b2b6"/>
+            <topic label="ezradio_get_int_status_fast_clear" href="group__API__Layer.html#ga7aa4d52445b45b05292f22c888d54456"/>
+            <topic label="ezradio_get_int_status_fast_clear_read" href="group__API__Layer.html#ga84c393b3068b4ae7366205b5be11b382"/>
+            <topic label="ezradio_get_modem_status" href="group__API__Layer.html#gad7269dfaf3135be3218c08494df40542"/>
+            <topic label="ezradio_get_modem_status_fast_clear" href="group__API__Layer.html#ga31fbcc3ddf36d660029f52c7590551bf"/>
+            <topic label="ezradio_get_modem_status_fast_clear_read" href="group__API__Layer.html#ga2539aeb090517be778e29b658c7197fb"/>
+            <topic label="ezradio_get_packet_info" href="group__API__Layer.html#gaa6777e927f0bd0c5368ec58d4d6d3bcb"/>
+            <topic label="ezradio_get_ph_status" href="group__API__Layer.html#gac4a541df5be98d23714c2409ed485a1b"/>
+            <topic label="ezradio_get_ph_status_fast_clear" href="group__API__Layer.html#gae79ddb973018cb991d0272414cd7a961"/>
+            <topic label="ezradio_get_ph_status_fast_clear_read" href="group__API__Layer.html#ga959a4025e03dbdcf89a195021400601d"/>
+            <topic label="ezradio_get_property" href="group__API__Layer.html#gad46745a62ae7ab1876792eac63216874"/>
+            <topic label="ezradio_gpio_pin_cfg" href="group__API__Layer.html#gada8c3e33f1cba006a91daba785d93298"/>
+            <topic label="ezradio_gpio_pin_cfg_fast" href="group__API__Layer.html#ga812515656b246c20cce34daa883151a6"/>
+            <topic label="ezradio_ircal" href="group__API__Layer.html#ga539bfe0739c7c40efd8b5ce2230ba2d8"/>
+            <topic label="ezradio_ircal_manual" href="group__API__Layer.html#ga50e5aeb4468316b1c8bd9005806b7f05"/>
+            <topic label="ezradio_nop" href="group__API__Layer.html#gadac39bea145c7690251ea39231b4595e"/>
+            <topic label="ezradio_part_info" href="group__API__Layer.html#ga90809bd86f07081e57bdb2127c29b19c"/>
+            <topic label="ezradio_power_up" href="group__API__Layer.html#gaaedde5a0144af3d029672a3d6c27210b"/>
+            <topic label="ezradio_read_cmd_buff" href="group__API__Layer.html#ga18c87c07ae75e6a7a378e2ebe9d618c1"/>
+            <topic label="ezradio_read_rx_fifo" href="group__API__Layer.html#ga329c4c3b314e2db479997a6b5bcf2ab0"/>
+            <topic label="ezradio_request_device_state" href="group__API__Layer.html#ga9f990f8ebde64b6ef0c051f397430c53"/>
+            <topic label="ezradio_reset" href="group__API__Layer.html#gad7a48081868b00a765b488f47909396c"/>
+            <topic label="ezradio_rx_hop" href="group__API__Layer.html#gacef1d81a9a5e390249154bbeed9b9df1"/>
+            <topic label="ezradio_set_property" href="group__API__Layer.html#ga5f37f9c7237c880623753bbd9c772876"/>
+            <topic label="ezradio_start_rx" href="group__API__Layer.html#ga6bebb6e764046173bd4b58db3d5f30c2"/>
+            <topic label="ezradio_start_rx_fast" href="group__API__Layer.html#ga2afe6af0c962076145f252f0e18d97ee"/>
+            <topic label="ezradio_start_tx" href="group__API__Layer.html#ga95ec30d47eea9860cccae2c5bb3fc878"/>
+            <topic label="ezradio_start_tx_fast" href="group__API__Layer.html#gae98048c6798c02b17ce19356390a265a"/>
+            <topic label="ezradio_tx_hop" href="group__API__Layer.html#ga3fc1fea6da81ea1d332f7ad430aa3be6"/>
+            <topic label="ezradio_write_ezconfig_array" href="group__API__Layer.html#ga48c934c7d9a3a297087572137693cdf7"/>
+            <topic label="ezradio_write_tx_fifo" href="group__API__Layer.html#ga352edd05911a66d9fe2b2e7c11d2df22"/>
+          </topic>
+        </topic>
+        <topic label="COMM_Layer">
+          <topic label="Defines">
+            <topic label="EZRADIO_CTS_TIMEOUT" href="group__COMM__Layer.html#ga88cd1e0089ad376f7eef4916eedbd9d5"/>
+          </topic>
+          <topic label="Functions">
+            <topic label="ezradio_comm_ClearCTS" href="group__COMM__Layer.html#ga26dddf452edc3e30c29cdab7d9fef1a7"/>
+            <topic label="ezradio_comm_GetResp" href="group__COMM__Layer.html#ga45656b02cb2cf46e29c8f509203e08b4"/>
+            <topic label="ezradio_comm_PollCTS" href="group__COMM__Layer.html#gac2d23214b75072bedd593da2815858d3"/>
+            <topic label="ezradio_comm_ReadData" href="group__COMM__Layer.html#gafc9ec03055010c4c5cbfed6d8637de71"/>
+            <topic label="ezradio_comm_SendCmd" href="group__COMM__Layer.html#ga038a27f7a6883bc6640fe1187a98eed9"/>
+            <topic label="ezradio_comm_SendCmdGetResp" href="group__COMM__Layer.html#ga67ac511d7cfce9c8cb00cd31113ff9a4"/>
+            <topic label="ezradio_comm_WriteData" href="group__COMM__Layer.html#ga6316768a0f0661af747171605e86f401"/>
+          </topic>
+          <topic label="Variables">
+            <topic label="ezradio_comm_CtsWentHigh" href="group__COMM__Layer.html#ga3be6bf56cfb1e196af67cb55fe708643"/>
+          </topic>
+        </topic>
+        <topic label="HAL_Layer">
+          <topic label="Functions">
+            <topic label="ezradio_hal_AssertShutdown" href="group__HAL__Layer.html#ga2ed0dd8b886f54f697fa930ce6706363"/>
+            <topic label="ezradio_hal_ClearNsel" href="group__HAL__Layer.html#ga09c7ef4b4780a8089505f54ef1f26fd5"/>
+            <topic label="ezradio_hal_DeassertShutdown" href="group__HAL__Layer.html#ga2806bc95f89976726016169ea2b3339c"/>
+            <topic label="ezradio_hal_GpioInit" href="group__HAL__Layer.html#gabf61af8f57a9c92ea50311df53a7d825"/>
+            <topic label="ezradio_hal_NirqLevel" href="group__HAL__Layer.html#gaabf77038901412b5b640149538ec5cbe"/>
+            <topic label="ezradio_hal_SetNsel" href="group__HAL__Layer.html#gae80c58c4f19b8e2b56c033c94bcb0f10"/>
+            <topic label="ezradio_hal_SpiInit" href="group__HAL__Layer.html#gae1cf166781ecf4a2317e0d9d4f504197"/>
+            <topic label="ezradio_hal_SpiReadByte" href="group__HAL__Layer.html#ga23ca775cc658644f29ceacbcc471606a"/>
+            <topic label="ezradio_hal_SpiReadData" href="group__HAL__Layer.html#ga9c4c63403aaa9f22f75391e4c767d298"/>
+            <topic label="ezradio_hal_SpiWriteByte" href="group__HAL__Layer.html#ga52e4a984325c6446291b13b1a63e3dff"/>
+            <topic label="ezradio_hal_SpiWriteData" href="group__HAL__Layer.html#ga4121044d05b7372b071773d4582204f5"/>
+          </topic>
+        </topic>
+        <topic label="Plugin_System">
+          <topic label="Auto_ACK_Plugin">
+            <topic label="Defines">
+              <topic label="EZRADIODRV_AUTO_ACK_PLUGIN_INIT_DEFAULT" href="group__Auto__ACK__Plugin.html#ga8ff58baf392b466a00c2a6e46c5c7986"/>
+            </topic>
+            <topic label="Enumerations">
+              <topic label="EZRADIODRV_AutoAckMode_t" href="group__Auto__ACK__Plugin.html#ga875a6c5622c39d95eaf99110dbc808b3"/>
+              <topic label="EZRADIODRV_AutoAckPacketMode_t" href="group__Auto__ACK__Plugin.html#ga8c8ea4203be96ccc4eb4db54d9121489"/>
+            </topic>
+            <topic label="Functions">
+              <topic label="ezradioDisableAutoAck" href="group__Auto__ACK__Plugin.html#ga3315ed2a380411a885d067d6edfd5ef1"/>
+              <topic label="ezradioEnableAutoAck" href="group__Auto__ACK__Plugin.html#ga7b688d87c592a1a68ed3f7f0378405d8"/>
+              <topic label="ezradioSkipAutoAck" href="group__Auto__ACK__Plugin.html#gaba316aaed73770198e15b3814fcfcce3"/>
+            </topic>
+            <topic label="Data Structures">
+              <topic label="EZRADIODRV_AutoAckHandle_t" href="structEZRADIODRV__AutoAckHandle__t.html"/>
+            </topic>
+          </topic>
+          <topic label="CRC_Error_Plugin">
+            <topic label="Defines">
+              <topic label="EZRADIODRV_CRC_ERROR_PLUGIN_INIT_DEFAULT" href="group__CRC__Error__Plugin.html#gac231d54570cfc639b9b0daa80669d35d"/>
+            </topic>
+            <topic label="Data Structures">
+              <topic label="EZRADIODRV_PacketCrcErrorHandle_t" href="structEZRADIODRV__PacketCrcErrorHandle__t.html"/>
+            </topic>
+          </topic>
+          <topic label="Direct_Receive_Plugin">
+            <topic label="Defines">
+              <topic label="EZRADIODRV_DIRECT_RECEIVE_PLUGIN_INIT_DEFAULT" href="group__Direct__Receive__Plugin.html#gab8fffbccf4f3bbe6d748fe34163c4c45"/>
+            </topic>
+            <topic label="Functions">
+              <topic label="ezradioStartDirectReceive" href="group__Direct__Receive__Plugin.html#ga9a1aa8ea909b1667cf73d2227773251f"/>
+              <topic label="ezradioStopDirectReceive" href="group__Direct__Receive__Plugin.html#ga110cc9713875e0e8ce1e87aa7a66b536"/>
+            </topic>
+            <topic label="Data Structures">
+              <topic label="EZRADIODRV_DirectRxHandle_t" href="structEZRADIODRV__DirectRxHandle__t.html"/>
+            </topic>
+          </topic>
+          <topic label="Direct_Transmit_Plugin">
+            <topic label="Defines">
+              <topic label="EZRADIODRV_DIRECT_TRANSMIT_PLUGIN_INIT_DEFAULT" href="group__Direct__Transmit__Plugin.html#ga08cdb54f504e1c6080cd52cd97d44191"/>
+            </topic>
+            <topic label="Functions">
+              <topic label="ezradioStartDirectTransmit" href="group__Direct__Transmit__Plugin.html#gab765dcab5e4aab236830b5f2cd764f17"/>
+              <topic label="ezradioStopDirectTransmit" href="group__Direct__Transmit__Plugin.html#gaaeb98ca48e265d89240b188fb685f02c"/>
+            </topic>
+            <topic label="Data Structures">
+              <topic label="EZRADIODRV_DirectTxHandle_t" href="structEZRADIODRV__DirectTxHandle__t.html"/>
+            </topic>
+          </topic>
+          <topic label="Plugin_Manager">
+            <topic label="Defines">
+              <topic label="ECODE_EMDRV_EZRADIODRV_AUTO_ACK_PLUGIN_BASE" href="group__Plugin__Manager.html#ga4d989b00776aee83ddb58dfbc232b8e1"/>
+              <topic label="ECODE_EMDRV_EZRADIODRV_CRC_ERROR_PLUGIN_BASE" href="group__Plugin__Manager.html#ga85c9a4ad611ad1c3ded66e18ab2d1b16"/>
+              <topic label="ECODE_EMDRV_EZRADIODRV_DIRECT_RECEIVE_PLUGIN_BASE" href="group__Plugin__Manager.html#ga34faa2e55e3e04b9e00260a0762da94b"/>
+              <topic label="ECODE_EMDRV_EZRADIODRV_DIRECT_TRANSMIT_PLUGIN_BASE" href="group__Plugin__Manager.html#gaeae1425c0b1d65d5012473e74999490f"/>
+              <topic label="ECODE_EMDRV_EZRADIODRV_ILLEGAL_HANDLE" href="group__Plugin__Manager.html#gad78c95fe2dec2f1bd1660544625ec77c"/>
+              <topic label="ECODE_EMDRV_EZRADIODRV_OK" href="group__Plugin__Manager.html#ga759250e9a6643d32417a6e8a55a55ffa"/>
+              <topic label="ECODE_EMDRV_EZRADIODRV_PN9_PLUGIN_BASE" href="group__Plugin__Manager.html#gae8b9f941d6b83cab57e92a91a38ac79a"/>
+              <topic label="ECODE_EMDRV_EZRADIODRV_RECEIVE_PLUGIN_BASE" href="group__Plugin__Manager.html#ga767f5e1b993607242dd96a3c1e8286db"/>
+              <topic label="ECODE_EMDRV_EZRADIODRV_TRANSMIT_PLUGIN_BASE" href="group__Plugin__Manager.html#ga30b7ef4cac2f8a090b94be201cccb394"/>
+              <topic label="ECODE_EMDRV_EZRADIODRV_UNMOD_CARRIER_PLUGIN_BASE" href="group__Plugin__Manager.html#ga5392c46247674afbde45e9384b393534"/>
+              <topic label="EZRADIODRV_INIT_DEFAULT" href="group__Plugin__Manager.html#ga083a90d118754ec652dd488de5263e4b"/>
+            </topic>
+            <topic label="Typedefs">
+              <topic label="EZRADIODRV_Callback_t" href="group__Plugin__Manager.html#ga5899a7db827636c69c168f17bc6d3726"/>
+              <topic label="EZRADIODRV_Handle_t" href="group__Plugin__Manager.html#gab85d488ff2d8f62d46adc449bb8a1737"/>
+              <topic label="EZRADIODRV_ReplyHandle_t" href="group__Plugin__Manager.html#gacdae8227af89ed0c8a6a0837332a5c3d"/>
+            </topic>
+            <topic label="Functions">
+              <topic label="ezradioInit" href="group__Plugin__Manager.html#ga55ab56dfaa297c93024dc43239bc8592"/>
+              <topic label="ezradioPluginManager" href="group__Plugin__Manager.html#ga32fa115744a93d5a0e56b5c33b8231bb"/>
+              <topic label="ezradioResetTRxFifo" href="group__Plugin__Manager.html#ga5a552425d8e40d1eefd78cc82b5dd7b5"/>
+            </topic>
+            <topic label="Data Structures">
+              <topic label="EZRADIODRV_HandleData_t" href="structEZRADIODRV__HandleData.html"/>
+            </topic>
+          </topic>
+          <topic label="PN9_Plugin">
+            <topic label="Defines">
+              <topic label="EZRADIODRV_PN9_PLUGIN_INIT_DEFAULT" href="group__PN9__Plugin.html#ga6548195efac7a59759afe057ef997516"/>
+            </topic>
+            <topic label="Functions">
+              <topic label="ezradioStartPn9" href="group__PN9__Plugin.html#ga6730098ec7ed97f93ad79079d6db3ab3"/>
+              <topic label="ezradioStopPn9" href="group__PN9__Plugin.html#ga721700326b2545601f947f24fed72676"/>
+            </topic>
+            <topic label="Data Structures">
+              <topic label="EZRADIODRV_Pn9Handle_t" href="structEZRADIODRV__Pn9Handle__t.html"/>
+            </topic>
+          </topic>
+          <topic label="Receive_Plugin">
+            <topic label="Defines">
+              <topic label="EZRADIODRV_RECEIVE_PLUGIN_INIT_DEFAULT" href="group__Receive__Plugin.html#gac8d289f95ae5bb7e819149afd34e16ff"/>
+            </topic>
+            <topic label="Functions">
+              <topic label="ezradioStartRx" href="group__Receive__Plugin.html#gae2761df30f35463d361937ddee63eed0"/>
+            </topic>
+            <topic label="Data Structures">
+              <topic label="EZRADIODRV_PacketRxHandle_t" href="structEZRADIODRV__PacketRxHandle__t.html"/>
+            </topic>
+          </topic>
+          <topic label="Transmit_Plugin">
+            <topic label="Defines">
+              <topic label="ECODE_EMDRV_EZRADIODRV_TRANSMIT_FAILED" href="group__Transmit__Plugin.html#ga0285b16b19fce9947c56e6a585728858"/>
+              <topic label="EZRADIODRV_TRANSMIT_PLUGIN_INIT_DEFAULT" href="group__Transmit__Plugin.html#ga91696148671f23cac099fc1fb0f8f4fe"/>
+            </topic>
+            <topic label="Enumerations">
+              <topic label="EZRADIODRV_TransmitLengthMode_t" href="group__Transmit__Plugin.html#gab4ca09475dbd18bf341c418875b29f21"/>
+              <topic label="EZRADIODRV_TransmitPacketType_t" href="group__Transmit__Plugin.html#ga0209ea2f2c45ad3ecef95661c0df7cdc"/>
+            </topic>
+            <topic label="Functions">
+              <topic label="ezradioStartTransmitBasic" href="group__Transmit__Plugin.html#gaf702a16bfb588bfed9cbc7c639ba650f"/>
+              <topic label="ezradioStartTransmitConfigured" href="group__Transmit__Plugin.html#ga62e3d76389ad50afc7f77002f8750cb8"/>
+              <topic label="ezradioStartTransmitCustom" href="group__Transmit__Plugin.html#ga348cad1485fa0c671d91af6751488ec1"/>
+              <topic label="ezradioStartTransmitDefault" href="group__Transmit__Plugin.html#gade85938593abc8d7c6246eeaa9536a61"/>
+              <topic label="ezradioStartTransmitSmart" href="group__Transmit__Plugin.html#gaf0c60b70ac28ad2c13779b041b923153"/>
+            </topic>
+            <topic label="Data Structures">
+              <topic label="EZRADIODRV_FieldLength_t" href="structEZRADIODRV__FieldLength__t.html"/>
+              <topic label="EZRADIODRV_PacketLengthConfig_t" href="structEZRADIODRV__PacketLengthConfig__t.html"/>
+              <topic label="EZRADIODRV_PacketTxHandle_t" href="structEZRADIODRV__PacketTxHandle__t.html"/>
+            </topic>
+          </topic>
+          <topic label="Unmod_Carrier_Plugin">
+            <topic label="Defines">
+              <topic label="EZRADIODRV_UNMOD_CARRIER_PLUGIN_INIT_DEFAULT" href="group__Unmod__Carrier__Plugin.html#ga35755a3ed0975824875d9bc25ad6eaa9"/>
+            </topic>
+            <topic label="Functions">
+              <topic label="ezradioStartUnmodulatedCarrier" href="group__Unmod__Carrier__Plugin.html#ga52403c3b77b358386eb55a5bcdf8f3d8"/>
+              <topic label="ezradioStopUnmodulatedCarrier" href="group__Unmod__Carrier__Plugin.html#ga597d48cd98b47dc8811996c67c475e91"/>
+            </topic>
+            <topic label="Data Structures">
+              <topic label="EZRADIODRV_UnmodCarrierHandle_t" href="structEZRADIODRV__UnmodCarrierHandle__t.html"/>
+            </topic>
+          </topic>
+        </topic>
+      </topic>
       <topic label="Defines">
         <topic label="ECODE_EMDRV_AESDRV_BASE" href="group__EM__Drivers.html#gacd2521efb3148322a620e06977a993a3"/>
         <topic label="ECODE_EMDRV_BASE" href="group__EM__Drivers.html#gab5c93ce8fa98b03d93fee45b2a04402e"/>
         <topic label="ECODE_EMDRV_DMADRV_BASE" href="group__EM__Drivers.html#gaf42696e8f3ccd7165e59feea571189b4"/>
         <topic label="ECODE_EMDRV_ECC_BASE" href="group__EM__Drivers.html#gaa25bc468d19800452fe7b00c8256281f"/>
+        <topic label="ECODE_EMDRV_EZRADIODRV_BASE" href="group__EM__Drivers.html#ga65ca1edc324f83188bb304f3197e5935"/>
         <topic label="ECODE_EMDRV_NVM_BASE" href="group__EM__Drivers.html#ga7a26d8fb5894576e86204682ee788728"/>
         <topic label="ECODE_EMDRV_RTCDRV_BASE" href="group__EM__Drivers.html#gae689e81bbb1b4e8a7c160677b039146e"/>
         <topic label="ECODE_EMDRV_SPIDRV_BASE" href="group__EM__Drivers.html#ga7e8592ecd56d0333b6e9904cc62909c6"/>
@@ -320,28 +548,17 @@
     </topic>
   </topic>
   <topic label="Data Structures">
-    <topic label="ezradio_cmd_reply_union" href="unionezradio__cmd__reply__union.html"/>
-    <topic label="ezradio_reply_EZCONFIG_CHECK_map" href="structezradio__reply__EZCONFIG__CHECK__map.html"/>
-    <topic label="ezradio_reply_FIFO_INFO_map" href="structezradio__reply__FIFO__INFO__map.html"/>
-    <topic label="ezradio_reply_FRR_A_READ_map" href="structezradio__reply__FRR__A__READ__map.html"/>
-    <topic label="ezradio_reply_FRR_B_READ_map" href="structezradio__reply__FRR__B__READ__map.html"/>
-    <topic label="ezradio_reply_FRR_C_READ_map" href="structezradio__reply__FRR__C__READ__map.html"/>
-    <topic label="ezradio_reply_FRR_D_READ_map" href="structezradio__reply__FRR__D__READ__map.html"/>
-    <topic label="ezradio_reply_FUNC_INFO_map" href="structezradio__reply__FUNC__INFO__map.html"/>
-    <topic label="ezradio_reply_GENERIC_map" href="structezradio__reply__GENERIC__map.html"/>
-    <topic label="ezradio_reply_GET_ADC_READING_map" href="structezradio__reply__GET__ADC__READING__map.html"/>
-    <topic label="ezradio_reply_GET_CHIP_STATUS_map" href="structezradio__reply__GET__CHIP__STATUS__map.html"/>
-    <topic label="ezradio_reply_GET_INT_STATUS_map" href="structezradio__reply__GET__INT__STATUS__map.html"/>
-    <topic label="ezradio_reply_GET_MODEM_STATUS_map" href="structezradio__reply__GET__MODEM__STATUS__map.html"/>
-    <topic label="ezradio_reply_GET_PH_STATUS_map" href="structezradio__reply__GET__PH__STATUS__map.html"/>
-    <topic label="ezradio_reply_GET_PROPERTY_map" href="structezradio__reply__GET__PROPERTY__map.html"/>
-    <topic label="ezradio_reply_GPIO_PIN_CFG_map" href="structezradio__reply__GPIO__PIN__CFG__map.html"/>
-    <topic label="ezradio_reply_IRCAL_MANUAL_map" href="structezradio__reply__IRCAL__MANUAL__map.html"/>
-    <topic label="ezradio_reply_PACKET_INFO_map" href="structezradio__reply__PACKET__INFO__map.html"/>
-    <topic label="ezradio_reply_PART_INFO_map" href="structezradio__reply__PART__INFO__map.html"/>
-    <topic label="ezradio_reply_READ_CMD_BUFF_map" href="structezradio__reply__READ__CMD__BUFF__map.html"/>
-    <topic label="ezradio_reply_READ_RX_FIFO_map" href="structezradio__reply__READ__RX__FIFO__map.html"/>
-    <topic label="ezradio_reply_REQUEST_DEVICE_STATE_map" href="structezradio__reply__REQUEST__DEVICE__STATE__map.html"/>
+    <topic label="EZRADIODRV_AutoAckHandle_t" href="structEZRADIODRV__AutoAckHandle__t.html"/>
+    <topic label="EZRADIODRV_DirectRxHandle_t" href="structEZRADIODRV__DirectRxHandle__t.html"/>
+    <topic label="EZRADIODRV_DirectTxHandle_t" href="structEZRADIODRV__DirectTxHandle__t.html"/>
+    <topic label="EZRADIODRV_FieldLength_t" href="structEZRADIODRV__FieldLength__t.html"/>
+    <topic label="EZRADIODRV_HandleData_t" href="structEZRADIODRV__HandleData.html"/>
+    <topic label="EZRADIODRV_PacketCrcErrorHandle_t" href="structEZRADIODRV__PacketCrcErrorHandle__t.html"/>
+    <topic label="EZRADIODRV_PacketLengthConfig_t" href="structEZRADIODRV__PacketLengthConfig__t.html"/>
+    <topic label="EZRADIODRV_PacketRxHandle_t" href="structEZRADIODRV__PacketRxHandle__t.html"/>
+    <topic label="EZRADIODRV_PacketTxHandle_t" href="structEZRADIODRV__PacketTxHandle__t.html"/>
+    <topic label="EZRADIODRV_Pn9Handle_t" href="structEZRADIODRV__Pn9Handle__t.html"/>
+    <topic label="EZRADIODRV_UnmodCarrierHandle_t" href="structEZRADIODRV__UnmodCarrierHandle__t.html"/>
     <topic label="NVM_Config_t" href="structNVM__Config__t.html"/>
     <topic label="NVM_Object_Descriptor_t" href="structNVM__Object__Descriptor__t.html"/>
     <topic label="NVM_Page_Descriptor_t" href="structNVM__Page__Descriptor__t.html"/>
@@ -367,19 +584,39 @@
     <topic label="ezradiodrv/common/inc/ezradio_api_lib.h" href="ezradio__api__lib_8h.html"/>
     <topic label="ezradiodrv/common/inc/ezradio_comm.h" href="ezradio__comm_8h.html"/>
     <topic label="ezradiodrv/common/inc/ezradio_hal.h" href="ezradio__hal_8h.html"/>
-    <topic label="ezradiodrv/common/inc/si4x55/ezradio_api_lib_add.h"/>
-    <topic label="ezradiodrv/common/inc/si4x6x/ezradio_api_lib_add.h"/>
+    <topic label="ezradiodrv/common/inc/si4x55/ezradio_api_lib_add.h" href="si4x55_2ezradio__api__lib__add_8h.html"/>
+    <topic label="ezradiodrv/common/inc/si4x6x/ezradio_api_lib_add.h" href="si4x6x_2ezradio__api__lib__add_8h.html"/>
     <topic label="ezradiodrv/common/src/ezradio_api_lib.c" href="ezradio__api__lib_8c.html"/>
     <topic label="ezradiodrv/common/src/ezradio_comm.c" href="ezradio__comm_8c.html"/>
     <topic label="ezradiodrv/common/src/ezradio_hal.c" href="ezradio__hal_8c.html"/>
-    <topic label="ezradiodrv/common/src/si4x55/ezradio_api_lib_add.c"/>
-    <topic label="ezradiodrv/common/src/si4x6x/ezradio_api_lib_add.c"/>
-    <topic label="ezradiodrv/si4455/inc/ezradio_cmd.h"/>
-    <topic label="ezradiodrv/si4455/inc/ezradio_prop.h"/>
-    <topic label="ezradiodrv/si4460/inc/ezradio_cmd.h"/>
-    <topic label="ezradiodrv/si4460/inc/ezradio_prop.h"/>
-    <topic label="ezradiodrv/si4463/inc/ezradio_cmd.h"/>
-    <topic label="ezradiodrv/si4463/inc/ezradio_prop.h"/>
+    <topic label="ezradiodrv/common/src/si4x55/ezradio_api_lib_add.c" href="si4x55_2ezradio__api__lib__add_8c.html"/>
+    <topic label="ezradiodrv/common/src/si4x6x/ezradio_api_lib_add.c" href="si4x6x_2ezradio__api__lib__add_8c.html"/>
+    <topic label="ezradiodrv/plugins/inc/ezradio_auto_ack_plugin.h" href="ezradio__auto__ack__plugin_8h.html"/>
+    <topic label="ezradiodrv/plugins/inc/ezradio_crcerror_plugin.h" href="ezradio__crcerror__plugin_8h.html"/>
+    <topic label="ezradiodrv/plugins/inc/ezradio_direct_receive_plugin.h" href="ezradio__direct__receive__plugin_8h.html"/>
+    <topic label="ezradiodrv/plugins/inc/ezradio_direct_transmit_plugin.h" href="ezradio__direct__transmit__plugin_8h.html"/>
+    <topic label="ezradiodrv/plugins/inc/ezradio_plugin_manager.h" href="ezradio__plugin__manager_8h.html"/>
+    <topic label="ezradiodrv/plugins/inc/ezradio_pn9_plugin.h" href="ezradio__pn9__plugin_8h.html"/>
+    <topic label="ezradiodrv/plugins/inc/ezradio_receive_plugin.h" href="ezradio__receive__plugin_8h.html"/>
+    <topic label="ezradiodrv/plugins/inc/ezradio_transmit_plugin.h" href="ezradio__transmit__plugin_8h.html"/>
+    <topic label="ezradiodrv/plugins/inc/ezradio_unmod_carrier_plugin.h" href="ezradio__unmod__carrier__plugin_8h.html"/>
+    <topic label="ezradiodrv/plugins/src/ezradio_auto_ack_plugin.c" href="ezradio__auto__ack__plugin_8c.html"/>
+    <topic label="ezradiodrv/plugins/src/ezradio_crcerror_plugin.c" href="ezradio__crcerror__plugin_8c.html"/>
+    <topic label="ezradiodrv/plugins/src/ezradio_direct_receive_plugin.c" href="ezradio__direct__receive__plugin_8c.html"/>
+    <topic label="ezradiodrv/plugins/src/ezradio_direct_transmit_plugin.c" href="ezradio__direct__transmit__plugin_8c.html"/>
+    <topic label="ezradiodrv/plugins/src/ezradio_plugin_manager.c" href="ezradio__plugin__manager_8c.html"/>
+    <topic label="ezradiodrv/plugins/src/ezradio_pn9_plugin.c" href="ezradio__pn9__plugin_8c.html"/>
+    <topic label="ezradiodrv/plugins/src/ezradio_receive_plugin.c" href="ezradio__receive__plugin_8c.html"/>
+    <topic label="ezradiodrv/plugins/src/ezradio_transmit_plugin.c" href="ezradio__transmit__plugin_8c.html"/>
+    <topic label="ezradiodrv/plugins/src/ezradio_unmod_carrier_plugin.c" href="ezradio__unmod__carrier__plugin_8c.html"/>
+    <topic label="ezradiodrv/si4455/inc/ezradio_cmd.h" href="si4455_2inc_2ezradio__cmd_8h.html"/>
+    <topic label="ezradiodrv/si4455/inc/ezradio_prop.h" href="si4455_2inc_2ezradio__prop_8h.html"/>
+    <topic label="ezradiodrv/si4460/inc/ezradio_cmd.h" href="si4460_2inc_2ezradio__cmd_8h.html"/>
+    <topic label="ezradiodrv/si4460/inc/ezradio_prop.h" href="si4460_2inc_2ezradio__prop_8h.html"/>
+    <topic label="ezradiodrv/si4461/inc/ezradio_cmd.h" href="si4461_2inc_2ezradio__cmd_8h.html"/>
+    <topic label="ezradiodrv/si4461/inc/ezradio_prop.h" href="si4461_2inc_2ezradio__prop_8h.html"/>
+    <topic label="ezradiodrv/si4463/inc/ezradio_cmd.h" href="si4463_2inc_2ezradio__cmd_8h.html"/>
+    <topic label="ezradiodrv/si4463/inc/ezradio_prop.h" href="si4463_2inc_2ezradio__prop_8h.html"/>
     <topic label="gpiointerrupt/inc/gpiointerrupt.h" href="gpiointerrupt_8h.html"/>
     <topic label="gpiointerrupt/src/gpiointerrupt.c" href="gpiointerrupt_8c.html"/>
     <topic label="nvm/inc/nvm.h" href="nvm_8h.html"/>
@@ -445,6 +682,30 @@
           <topic label="ezradio_hal.c" href="ezradio__hal_8c.html"/>
         </topic>
       </topic>
+      <topic label="plugins">
+        <topic label="inc">
+          <topic label="ezradio_auto_ack_plugin.h" href="ezradio__auto__ack__plugin_8h.html"/>
+          <topic label="ezradio_crcerror_plugin.h" href="ezradio__crcerror__plugin_8h.html"/>
+          <topic label="ezradio_direct_receive_plugin.h" href="ezradio__direct__receive__plugin_8h.html"/>
+          <topic label="ezradio_direct_transmit_plugin.h" href="ezradio__direct__transmit__plugin_8h.html"/>
+          <topic label="ezradio_plugin_manager.h" href="ezradio__plugin__manager_8h.html"/>
+          <topic label="ezradio_pn9_plugin.h" href="ezradio__pn9__plugin_8h.html"/>
+          <topic label="ezradio_receive_plugin.h" href="ezradio__receive__plugin_8h.html"/>
+          <topic label="ezradio_transmit_plugin.h" href="ezradio__transmit__plugin_8h.html"/>
+          <topic label="ezradio_unmod_carrier_plugin.h" href="ezradio__unmod__carrier__plugin_8h.html"/>
+        </topic>
+        <topic label="src">
+          <topic label="ezradio_auto_ack_plugin.c" href="ezradio__auto__ack__plugin_8c.html"/>
+          <topic label="ezradio_crcerror_plugin.c" href="ezradio__crcerror__plugin_8c.html"/>
+          <topic label="ezradio_direct_receive_plugin.c" href="ezradio__direct__receive__plugin_8c.html"/>
+          <topic label="ezradio_direct_transmit_plugin.c" href="ezradio__direct__transmit__plugin_8c.html"/>
+          <topic label="ezradio_plugin_manager.c" href="ezradio__plugin__manager_8c.html"/>
+          <topic label="ezradio_pn9_plugin.c" href="ezradio__pn9__plugin_8c.html"/>
+          <topic label="ezradio_receive_plugin.c" href="ezradio__receive__plugin_8c.html"/>
+          <topic label="ezradio_transmit_plugin.c" href="ezradio__transmit__plugin_8c.html"/>
+          <topic label="ezradio_unmod_carrier_plugin.c" href="ezradio__unmod__carrier__plugin_8c.html"/>
+        </topic>
+      </topic>
       <topic label="si4455">
         <topic label="inc">
           <topic label="ezradio_cmd.h" href="si4455_2inc_2ezradio__cmd_8h.html"/>
@@ -455,6 +716,12 @@
         <topic label="inc">
           <topic label="ezradio_cmd.h" href="si4460_2inc_2ezradio__cmd_8h.html"/>
           <topic label="ezradio_prop.h" href="si4460_2inc_2ezradio__prop_8h.html"/>
+        </topic>
+      </topic>
+      <topic label="si4461">
+        <topic label="inc">
+          <topic label="ezradio_cmd.h" href="si4461_2inc_2ezradio__cmd_8h.html"/>
+          <topic label="ezradio_prop.h" href="si4461_2inc_2ezradio__prop_8h.html"/>
         </topic>
       </topic>
       <topic label="si4463">

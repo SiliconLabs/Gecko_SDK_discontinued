@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file rtcdriver.c
  * @brief RTCDRV timer API implementation.
- * @version 4.0.0
+ * @version 4.1.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -177,7 +177,9 @@ static RTCC_Init_TypeDef initRTCC =
   false,                /* Counter counts until max. before wrap around. */
   rtccCntPresc_8,       /* Set RTCC prescaler to 8 */
   rtccCntTickPresc,     /* Count according to prescaler configuration */
+#if defined(_RTCC_CTRL_BUMODETSEN_MASK)
   false,                /* Disable storing RTCC counter value in RTCC_CCV2 upon backup mode entry. */
+#endif
   false,                /* LFXO fail detection disabled */
   rtccCntModeNormal,    /* Use RTCC in normal mode and not in calender mode */
   false                 /* No leap year correction. */
@@ -193,6 +195,13 @@ static RTCC_CCChConf_TypeDef initRTCCCompareChannel =
   0,                          /* Compare mask */
   rtccDayCompareModeMonth     /* Don't care */
 };
+#endif
+
+// default to LFXO unless specifically directed to use LFRCO
+#if defined(RTCDRV_USE_LFRCO)
+  #define RTCDRV_OSC cmuSelect_LFRCO
+#else
+  #define RTCDRV_OSC cmuSelect_LFXO
 #endif
 
 static void checkAllTimers( uint32_t timeElapsed );
@@ -322,10 +331,10 @@ Ecode_t RTCDRV_Init( void )
 
 #if defined( CMU_LFECLKEN0_RTCC )
   // Enable LFECLK in CMU (will also enable oscillator if not enabled).
-  CMU_ClockSelectSet( cmuClock_LFE, cmuSelect_LFXO );
+  CMU_ClockSelectSet( cmuClock_LFE, RTCDRV_OSC );
 #else
   // Enable LFACLK in CMU (will also enable oscillator if not enabled).
-  CMU_ClockSelectSet( cmuClock_LFA, cmuSelect_LFXO );
+  CMU_ClockSelectSet( cmuClock_LFA, RTCDRV_OSC );
 #endif
 
 #if defined( RTCDRV_USE_RTC )

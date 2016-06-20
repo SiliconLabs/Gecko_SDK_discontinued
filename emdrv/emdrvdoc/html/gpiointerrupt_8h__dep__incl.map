@@ -3,6 +3,7 @@
 <area shape="rect" id="node5" href="$ezradio__api__lib_8c.html" title="This file contains the common API library of the EZRadio and EZRadioPRO families..." alt="" coords="235,80,493,107"/>
 <area shape="rect" id="node7" href="$ezradio__comm_8c.html" title="This file contains the EZRadio communication layer." alt="" coords="518,80,775,107"/>
 <area shape="rect" id="node9" href="$ezradio__hal_8c.html" title="This file contains EZRadio HAL." alt="" coords="799,80,1037,107"/>
-<area shape="rect" id="node11" href="$si4x55_2ezradio__api__lib__add_8c_source.html" title="ezradiodrv/common/src/si4x55/ezradio_api_lib_add.c" alt="" coords="1063,80,1391,107"/>
-<area shape="rect" id="node13" href="$si4x6x_2ezradio__api__lib__add_8c_source.html" title="ezradiodrv/common/src/si4x6x/ezradio_api_lib_add.c" alt="" coords="1415,80,1741,107"/>
+<area shape="rect" id="node11" href="$si4x55_2ezradio__api__lib__add_8c.html" title="This file contains the additional API library for the listed members of the EZRadio..." alt="" coords="1063,80,1391,107"/>
+<area shape="rect" id="node13" href="$si4x6x_2ezradio__api__lib__add_8c.html" title="This file contains the additional API library for the listed members of the EZRadioPRO..." alt="" coords="1415,80,1741,107"/>
+<area shape="rect" id="node15" href="$ezradio__plugin__manager_8c.html" title="This file contains the plug&#45;in manager for the EZRadio and EZRadioPRO chip families..." alt="" coords="1766,80,2071,107"/>
 </map>

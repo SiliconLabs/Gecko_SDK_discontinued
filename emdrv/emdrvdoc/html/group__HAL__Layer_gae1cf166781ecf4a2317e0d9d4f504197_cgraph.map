@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$group__SPIDRV.html#gae1bf2b297eca13e7e46cbbcb66202239" title="Initialize a SPI driver instance." alt="" coords="184,81,275,108"/>
+<area shape="rect" id="node5" href="$group__DMADRV.html#gab503e066820cd13fd612f4365d4d07b2" title="Allocate (reserve) a DMA channel." alt="" coords="323,5,493,32"/>
+<area shape="rect" id="node7" href="$group__DMADRV.html#ga43d0052d81f16e72914f85248a8554b1" title="Initialize DMADRV." alt="" coords="359,56,457,83"/>
+<area shape="rect" id="node9" href="$group__RTCDRV.html#gaef2d97c6223617d158b05e03ee35950a" title="Allocate timer." alt="" coords="330,107,486,133"/>
+<area shape="rect" id="node11" href="$group__RTCDRV.html#ga4419076832c5b4958dea6f1eec0a9bdf" title="Initialize RTCDRV driver." alt="" coords="361,157,455,184"/>
+<area shape="rect" id="node13" href="$group__SLEEP.html#gac26ef85c0817797fb9ec823d38742af7" title="Begin sleep block in the requested energy mode." alt="" coords="542,157,698,184"/>
+</map>

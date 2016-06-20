@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file startup_efm32g.c
  * @brief CMSIS Compatible EFM32G startup file in C for IAR EWARM
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -265,6 +265,7 @@ const void * const __vector_table[]=  {
     (void *) 0,
     (void *) PendSV_Handler,
     (void *) SysTick_Handler,
+
     (void *) DMA_IRQHandler,  /* 0 - DMA */
     (void *) GPIO_EVEN_IRQHandler,  /* 1 - GPIO_EVEN */
     (void *) TIMER0_IRQHandler,  /* 2 - TIMER0 */
@@ -295,5 +296,6 @@ const void * const __vector_table[]=  {
     (void *) LCD_IRQHandler,  /* 27 - LCD */
     (void *) MSC_IRQHandler,  /* 28 - MSC */
     (void *) AES_IRQHandler,  /* 29 - AES */
+    (void *) 0,                /* 30 - Reserved */
 
 };

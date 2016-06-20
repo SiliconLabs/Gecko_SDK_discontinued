@@ -2,7 +2,7 @@
  * @file
  * @brief uC/OS-II example - Board Support Package (BSP) for
  * Energy Micro EFM32G890F128-STK Starter Kit
- * @version 4.0.0
+ * @version 4.1.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>

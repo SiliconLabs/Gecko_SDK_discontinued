@@ -1,4 +1,11 @@
 <map id="G" name="G">
-<area shape="rect" id="node15" href="$gpiointerrupt_8h.html" title="GPIOINT API definition." alt="" coords="92,80,199,107"/>
-<area shape="rect" id="node18" href="$ezradio__hal_8h.html" title="This file contains EZRadio HAL." alt="" coords="649,80,748,107"/>
+<area shape="rect" id="node11" href="$spidrv_8h.html" title="SPIDRV API definition." alt="" coords="360,80,427,107"/>
+<area shape="rect" id="node38" href="$gpiointerrupt_8h.html" title="GPIOINT API definition." alt="" coords="143,155,249,181"/>
+<area shape="rect" id="node41" href="$ezradio__hal_8h.html" title="This file contains EZRadio HAL." alt="" coords="659,80,757,107"/>
+<area shape="rect" id="node17" href="$ecode_8h.html" title="Energy Aware drivers error code definitions." alt="" coords="436,229,503,256"/>
+<area shape="rect" id="node19" href="$spidrv__config_8h.html" title="SPIDRV configuration file." alt="" coords="538,155,645,181"/>
+<area shape="rect" id="node21" href="$rtcdriver_8h.html" title="RTCDRV timer API definition." alt="" coords="274,155,355,181"/>
+<area shape="rect" id="node29" href="$dmadrv_8h.html" title="DMADRV API definition." alt="" coords="722,155,797,181"/>
+<area shape="rect" id="node27" href="$rtcdrv__config_8h.html" title="RTCDRV configuration file." alt="" coords="207,229,313,256"/>
+<area shape="rect" id="node35" href="$dmadrv__config_8h.html" title="DMADRV configuration file." alt="" coords="728,229,845,256"/>
 </map>

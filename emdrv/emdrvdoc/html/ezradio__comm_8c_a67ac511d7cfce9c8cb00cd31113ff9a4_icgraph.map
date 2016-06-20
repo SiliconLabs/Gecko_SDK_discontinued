@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$ezradio__api__lib_8c.html#a97e40cddb0d6defc5099ac8f5e6e6865" title="ezradio_get_int_status" alt="" coords="270,5,421,32"/>
-<area shape="rect" id="node5" href="$ezradio__api__lib_8c.html#a1b0e62289a84c706cad4213dc93c64ef" title="ezradio_gpio_pin_cfg" alt="" coords="274,56,417,83"/>
-<area shape="rect" id="node7" href="$ezradio__api__lib_8c.html#a9ff16a48a01b3b2a9384da0c5ef44f21" title="ezradio_part_info" alt="" coords="284,107,407,133"/>
-</map>

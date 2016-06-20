@@ -184,10 +184,10 @@ window.onload = initDynSections;
 <a name="l00152"></a>00152 
 <a name="l00153"></a>00153 <span class="preprocessor">#ifdef __ICCARM__</span>
 <a name="l00154"></a>00154 <span class="preprocessor"></span><span class="preprocessor">#pragma data_alignment = NVM_PAGE_SIZE</span>
-<a name="l00155"></a>00155 <span class="preprocessor"></span><span class="keyword">static</span> <span class="keyword">const</span> uint8_t <a class="code" href="nvm__config_8c.html#aa41eb474f91a0ccc0e89cd3550eea6f4" title="Set storage size and location.">nvmData</a>[<a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the EFM32 flash.">NVM_PAGE_SIZE</a> * NUMBER_OF_PAGES] @ <span class="stringliteral">&quot;.text&quot;</span>;   
+<a name="l00155"></a>00155 <span class="preprocessor"></span><span class="keyword">static</span> <span class="keyword">const</span> uint8_t <a class="code" href="nvm__config_8c.html#aa41eb474f91a0ccc0e89cd3550eea6f4" title="Set storage size and location.">nvmData</a>[<a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the flash.">NVM_PAGE_SIZE</a> * NUMBER_OF_PAGES] @ <span class="stringliteral">&quot;.text&quot;</span>;   
 <a name="l00156"></a>00156 <span class="preprocessor">#else</span>
-<a name="l00157"></a>00157 <span class="preprocessor"></span><span class="keyword">static</span> <span class="keyword">const</span> uint8_t nvmData[<a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the EFM32 flash.">NVM_PAGE_SIZE</a> * NUMBER_OF_PAGES] \
-<a name="l00158"></a><a class="code" href="nvm__config_8c.html#aa41eb474f91a0ccc0e89cd3550eea6f4">00158</a>   __attribute__ ((__aligned__(<a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the EFM32 flash.">NVM_PAGE_SIZE</a>))) = { 0xFF };                 
+<a name="l00157"></a>00157 <span class="preprocessor"></span><span class="keyword">static</span> <span class="keyword">const</span> uint8_t nvmData[<a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the flash.">NVM_PAGE_SIZE</a> * NUMBER_OF_PAGES] \
+<a name="l00158"></a><a class="code" href="nvm__config_8c.html#aa41eb474f91a0ccc0e89cd3550eea6f4">00158</a>   __attribute__ ((__aligned__(<a class="code" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6" title="Set the NVM driver page size to the size of the flash.">NVM_PAGE_SIZE</a>))) = { 0xFF };                 
 <a name="l00159"></a>00159 <span class="preprocessor">#endif</span>
 <a name="l00160"></a>00160 <span class="preprocessor"></span>
 <a name="l00161"></a>00161 
@@ -207,7 +207,7 @@ window.onload = initDynSections;
 </pre></div></div>
 <div id="footer">
 <hr size="1"><address style="text-align: right;"><small>
-Generated on Thu May 28 13:12:33 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
+Generated on Mon Sep 7 08:55:11 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a><small> 1.6.3 </small></address></div>
 </body>

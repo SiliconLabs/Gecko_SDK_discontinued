@@ -67,7 +67,7 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>ezradio_api_lib_add.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/***************************************************************************/</span>
+<h1>ezradio_api_lib_add.h</h1><a href="si4x6x_2ezradio__api__lib__add_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/***************************************************************************/</span>
 <a name="l00037"></a>00037 <span class="preprocessor">#ifndef _EZRADIO_API_LIB_ADD_H_</span>
 <a name="l00038"></a>00038 <span class="preprocessor"></span><span class="preprocessor">#define _EZRADIO_API_LIB_ADD_H_</span>
 <a name="l00039"></a>00039 <span class="preprocessor"></span>
@@ -77,36 +77,39 @@ window.onload = initDynSections;
 <a name="l00043"></a>00043 <span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {
 <a name="l00044"></a>00044 <span class="preprocessor">#endif</span>
 <a name="l00045"></a>00045 <span class="preprocessor"></span>
-<a name="l00046"></a>00046 <a class="code" href="ezradio__api__lib_8h.html#a0a0400f1e4c5eae1df893aec358d5b5c" title="EZRadio device configuration return values.">EZRADIO_ConfigRet_t</a> ezradio_configuration_init(<span class="keyword">const</span> uint8_t* pSetPropCmd);
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048 <span class="preprocessor">#ifdef EZRADIO_DRIVER_EXTENDED_SUPPORT</span>
-<a name="l00049"></a>00049 <span class="preprocessor"></span><span class="comment">/* Extended driver support functions */</span>
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051 <span class="preprocessor">#ifdef EZRADIO_DRIVER_FULL_SUPPORT</span>
-<a name="l00052"></a>00052 <span class="preprocessor"></span><span class="comment">/* Full driver support functions */</span>
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 <span class="keywordtype">void</span> ezradio_get_adc_reading( uint8_t adc_en, uint8_t adc_cfg );
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056 <span class="keywordtype">void</span> ezradio_ircal(uint8_t searching_step_size, uint8_t searching_rssi_avg, uint8_t rx_chain_setting1, uint8_t rx_chain_setting2);
-<a name="l00057"></a>00057 <span class="keywordtype">void</span> ezradio_ircal_manual(uint8_t ircal_amp, uint8_t ircal_ph);
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059 <span class="keywordtype">void</span> ezradio_tx_hop(uint8_t inte, uint8_t frac2, uint8_t frac1, uint8_t frac0, uint8_t vco_cnt1, uint8_t vco_cnt0, uint8_t pll_settle_time1, uint8_t pll_settle_time0);
-<a name="l00060"></a>00060 <span class="keywordtype">void</span> ezradio_rx_hop(uint8_t inte, uint8_t frac2, uint8_t frac1, uint8_t frac0, uint8_t vco_cnt1, uint8_t vco_cnt0);
-<a name="l00061"></a>00061 
-<a name="l00062"></a>00062 <span class="preprocessor">#endif </span><span class="comment">/* EZRADIO_DRIVER_FULL_SUPPORT */</span>
-<a name="l00063"></a>00063 <span class="preprocessor">#endif </span><span class="comment">/* EZRADIO_DRIVER_EXTENDED_SUPPORT */</span>
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065 <span class="preprocessor">#ifdef __cplusplus</span>
-<a name="l00066"></a>00066 <span class="preprocessor"></span>}
-<a name="l00067"></a>00067 <span class="preprocessor">#endif</span>
-<a name="l00068"></a>00068 <span class="preprocessor"></span>
-<a name="l00069"></a>00069 <span class="preprocessor">#else //_EZRADIO_API_LIB_ADD_H_</span>
-<a name="l00070"></a>00070 <span class="preprocessor"></span><span class="preprocessor">#error Additional EZRadio API library is already defined.</span>
-<a name="l00071"></a>00071 <span class="preprocessor"></span><span class="preprocessor">#endif //_EZRADIO_API_LIB_ADD_H_</span>
+<a name="l00046"></a>00046 <span class="comment">/***************************************************************************/</span>
+<a name="l00051"></a>00051 <span class="comment">/***************************************************************************/</span>
+<a name="l00056"></a>00056 <span class="comment">/***************************************************************************/</span>
+<a name="l00061"></a>00061 <a class="code" href="group__API__Layer.html#ga0a0400f1e4c5eae1df893aec358d5b5c" title="EZRadio device configuration return values.">EZRADIO_ConfigRet_t</a> <a class="code" href="group__API__Layer.html#ga5e458f080841a7423743d53e2217d1e5" title="This function is used to load all properties and commands with a list of NULL terminated...">ezradio_configuration_init</a>(<span class="keyword">const</span> uint8_t* pSetPropCmd);
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 <span class="preprocessor">#ifdef EZRADIO_DRIVER_EXTENDED_SUPPORT</span>
+<a name="l00064"></a>00064 <span class="preprocessor"></span><span class="comment">/* Extended driver support functions */</span>
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 <span class="preprocessor">#ifdef EZRADIO_DRIVER_FULL_SUPPORT</span>
+<a name="l00067"></a>00067 <span class="preprocessor"></span><span class="comment">/* Full driver support functions */</span>
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 <span class="keywordtype">void</span> <a class="code" href="group__API__Layer.html#gab50e698c116f28cdb80a64da04bb5dd2" title="Reads the ADC values from the radio into ezradioReply union.">ezradio_get_adc_reading</a>( uint8_t adc_en, uint8_t adc_cfg, ezradio_cmd_reply_t *ezradioReply );
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 <span class="keywordtype">void</span> <a class="code" href="group__API__Layer.html#ga539bfe0739c7c40efd8b5ce2230ba2d8" title="Performs image rejection calibration.">ezradio_ircal</a>(uint8_t searching_step_size, uint8_t searching_rssi_avg, uint8_t rx_chain_setting1, uint8_t rx_chain_setting2);
+<a name="l00072"></a>00072 <span class="keywordtype">void</span> <a class="code" href="group__API__Layer.html#ga50e5aeb4468316b1c8bd9005806b7f05" title="Image rejection calibration.">ezradio_ircal_manual</a>(uint8_t ircal_amp, uint8_t ircal_ph, ezradio_cmd_reply_t *ezradioReply );
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074 <span class="keywordtype">void</span> <a class="code" href="group__API__Layer.html#ga3fc1fea6da81ea1d332f7ad430aa3be6" title="While in TX state this will hop to the frequency specified by the parameters.">ezradio_tx_hop</a>(uint8_t inte, uint8_t frac2, uint8_t frac1, uint8_t frac0, uint8_t vco_cnt1, uint8_t vco_cnt0, uint8_t pll_settle_time1, uint8_t pll_settle_time0);
+<a name="l00075"></a>00075 <span class="keywordtype">void</span> <a class="code" href="group__API__Layer.html#gacef1d81a9a5e390249154bbeed9b9df1" title="While in RX state this will hop to the frequency specified by the parameters and...">ezradio_rx_hop</a>(uint8_t inte, uint8_t frac2, uint8_t frac1, uint8_t frac0, uint8_t vco_cnt1, uint8_t vco_cnt0);
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077 <span class="preprocessor">#endif </span><span class="comment">/* EZRADIO_DRIVER_FULL_SUPPORT */</span>
+<a name="l00078"></a>00078 <span class="preprocessor">#endif </span><span class="comment">/* EZRADIO_DRIVER_EXTENDED_SUPPORT */</span>
+<a name="l00079"></a>00079 
+<a name="l00084"></a>00084 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00085"></a>00085 <span class="preprocessor"></span>}
+<a name="l00086"></a>00086 <span class="preprocessor">#endif</span>
+<a name="l00087"></a>00087 <span class="preprocessor"></span>
+<a name="l00088"></a>00088 <span class="preprocessor">#else //_EZRADIO_API_LIB_ADD_H_</span>
+<a name="l00089"></a>00089 <span class="preprocessor"></span><span class="preprocessor">#error Additional EZRadio API library is already defined.</span>
+<a name="l00090"></a>00090 <span class="preprocessor"></span><span class="preprocessor">#endif //_EZRADIO_API_LIB_ADD_H_</span>
 </pre></div></div>
 <div id="footer">
 <hr size="1"><address style="text-align: right;"><small>
-Generated on Thu May 28 13:12:34 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
+Generated on Mon Sep 7 08:55:11 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a><small> 1.6.3 </small></address></div>
 </body>

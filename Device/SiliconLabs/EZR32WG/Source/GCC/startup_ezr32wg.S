@@ -1,7 +1,7 @@
 /* @file startup_ezr32wg.S
  * @brief startup file for Silicon Labs EZR32WG devices.
  *        For use with GCC for ARM Embedded Processors
- * @version 4.0.0
+ * @version 4.1.0
  * Date:    12 June 2014
  *
  */
@@ -88,11 +88,12 @@ __Vectors:
     .long       SysTick_Handler       /* SysTick Handler */
 
     /* External interrupts */
+
     .long       DMA_IRQHandler    /* 0 - DMA */
     .long       GPIO_EVEN_IRQHandler    /* 1 - GPIO_EVEN */
     .long       TIMER0_IRQHandler    /* 2 - TIMER0 */
-    .long       USART0_RX_IRQHandler    /* 3 - USART0_RX */
-    .long       USART0_TX_IRQHandler    /* 4 - USART0_TX */
+    .long       USARTRF0_RX_IRQHandler    /* 3 - USARTRF0_RX */
+    .long       USARTRF0_TX_IRQHandler    /* 4 - USARTRF0_TX */
     .long       USB_IRQHandler    /* 5 - USB */
     .long       ACMP0_IRQHandler    /* 6 - ACMP0 */
     .long       ADC0_IRQHandler    /* 7 - ADC0 */
@@ -122,7 +123,7 @@ __Vectors:
     .long       BURTC_IRQHandler    /* 31 - BURTC */
     .long       CMU_IRQHandler    /* 32 - CMU */
     .long       VCMP_IRQHandler    /* 33 - VCMP */
-    .long       LCD_IRQHandler    /* 34 - LCD */
+    .long       Default_Handler    /* 34 - Reserved */
     .long       MSC_IRQHandler    /* 35 - MSC */
     .long       AES_IRQHandler    /* 36 - AES */
     .long       Default_Handler    /* 37 - Reserved */
@@ -297,8 +298,8 @@ Default_Handler:
     def_irq_handler     DMA_IRQHandler
     def_irq_handler     GPIO_EVEN_IRQHandler
     def_irq_handler     TIMER0_IRQHandler
-    def_irq_handler     USART0_RX_IRQHandler
-    def_irq_handler     USART0_TX_IRQHandler
+    def_irq_handler     USARTRF0_RX_IRQHandler
+    def_irq_handler     USARTRF0_TX_IRQHandler
     def_irq_handler     USB_IRQHandler
     def_irq_handler     ACMP0_IRQHandler
     def_irq_handler     ADC0_IRQHandler
@@ -328,7 +329,6 @@ Default_Handler:
     def_irq_handler     BURTC_IRQHandler
     def_irq_handler     CMU_IRQHandler
     def_irq_handler     VCMP_IRQHandler
-    def_irq_handler     LCD_IRQHandler
     def_irq_handler     MSC_IRQHandler
     def_irq_handler     AES_IRQHandler
     def_irq_handler     EMU_IRQHandler

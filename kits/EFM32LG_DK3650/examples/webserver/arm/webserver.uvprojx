@@ -32,7 +32,7 @@
           <SFDFile></SFDFile>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
-          <IncludePath>..\;..;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32LG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\emdrv\spidrv\inc;..\..\..\..\..\emdrv\common\inc;..\..\..\..\..\emdrv\config;..\..\..\..\..\emdrv\rtcdrv\inc;..\..\..\..\..\emdrv\dmadrv\inc;..\..\..\..\common\drivers;..\..\..\..\common\bsp;..\..\..\config;..\..\..\..\..\reptile\glib;..\..\..\..\..\reptile\glib\glib;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\ipv4;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\ipv4\lwip;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\lwip;..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\ping;..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\tcpecho_raw;..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\httpserver_raw;..\..\..\..\..\reptile\lwIP\contrib-1.4.1\ports\EFM32\;..\..\..\..\..\reptile\lwIP\contrib-1.4.1\ports\EFM32\include\</IncludePath>
+          <IncludePath>..\;..;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32LG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\emdrv\spidrv\inc;..\..\..\..\..\emdrv\common\inc;..\..\..\..\..\emdrv\config;..\..\..\..\..\emdrv\rtcdrv\inc;..\..\..\..\..\emdrv\dmadrv\inc;..\..\..\..\common\drivers;..\..\..\..\common\bsp;..\..\..\config;..\..\..\..\..\reptile\glib;..\..\..\..\..\reptile\glib\glib;..\..\..\..\..\reptile\lwIP\lwip\src\;..\..\..\..\..\reptile\lwIP\lwip\src\api;..\..\..\..\..\reptile\lwIP\lwip\src\core;..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4;..\..\..\..\..\reptile\lwIP\lwip\src\include;..\..\..\..\..\reptile\lwIP\lwip\src\include\ipv4;..\..\..\..\..\reptile\lwIP\lwip\src\include\ipv4\lwip;..\..\..\..\..\reptile\lwIP\lwip\src\include\lwip;..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\ping;..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\tcpecho_raw;..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\httpserver_raw;..\..\..\..\..\reptile\lwIP\lwip-contrib\ports\EFM32\;..\..\..\..\..\reptile\lwIP\lwip-contrib\ports\EFM32\include\</IncludePath>
           <LibPath></LibPath>
           <RegisterFilePath></RegisterFilePath>
           <DBRegisterFilePath></DBRegisterFilePath>
@@ -346,7 +346,7 @@
               <MiscControls>--c99 --diag_suppress=C550,C1295</MiscControls>
               <Define>EFM32LG990F256 DEBUG_EFM __HEAP_SIZE=128</Define>
               <Undefine></Undefine>
-              <IncludePath>..\;..;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32LG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\emdrv\spidrv\inc;..\..\..\..\..\emdrv\common\inc;..\..\..\..\..\emdrv\config;..\..\..\..\..\emdrv\rtcdrv\inc;..\..\..\..\..\emdrv\dmadrv\inc;..\..\..\..\common\drivers;..\..\..\..\common\bsp;..\..\..\config;..\..\..\..\..\reptile\glib;..\..\..\..\..\reptile\glib\glib;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\ipv4;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\ipv4\lwip;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\lwip;..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\ping;..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\tcpecho_raw;..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\httpserver_raw;..\..\..\..\..\reptile\lwIP\contrib-1.4.1\ports\EFM32\;..\..\..\..\..\reptile\lwIP\contrib-1.4.1\ports\EFM32\include\</IncludePath>
+              <IncludePath>..\;..;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32LG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\emdrv\spidrv\inc;..\..\..\..\..\emdrv\common\inc;..\..\..\..\..\emdrv\config;..\..\..\..\..\emdrv\rtcdrv\inc;..\..\..\..\..\emdrv\dmadrv\inc;..\..\..\..\common\drivers;..\..\..\..\common\bsp;..\..\..\config;..\..\..\..\..\reptile\glib;..\..\..\..\..\reptile\glib\glib;..\..\..\..\..\reptile\lwIP\lwip\src\;..\..\..\..\..\reptile\lwIP\lwip\src\api;..\..\..\..\..\reptile\lwIP\lwip\src\core;..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4;..\..\..\..\..\reptile\lwIP\lwip\src\include;..\..\..\..\..\reptile\lwIP\lwip\src\include\ipv4;..\..\..\..\..\reptile\lwIP\lwip\src\include\ipv4\lwip;..\..\..\..\..\reptile\lwIP\lwip\src\include\lwip;..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\ping;..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\tcpecho_raw;..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\httpserver_raw;..\..\..\..\..\reptile\lwIP\lwip-contrib\ports\EFM32\;..\..\..\..\..\reptile\lwIP\lwip-contrib\ports\EFM32\include\</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -361,7 +361,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\;..;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32LG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\emdrv\spidrv\inc;..\..\..\..\..\emdrv\common\inc;..\..\..\..\..\emdrv\config;..\..\..\..\..\emdrv\rtcdrv\inc;..\..\..\..\..\emdrv\dmadrv\inc;..\..\..\..\common\drivers;..\..\..\..\common\bsp;..\..\..\config;..\..\..\..\..\reptile\glib;..\..\..\..\..\reptile\glib\glib;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\ipv4;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\ipv4\lwip;..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\include\lwip;..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\ping;..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\tcpecho_raw;..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\httpserver_raw;..\..\..\..\..\reptile\lwIP\contrib-1.4.1\ports\EFM32\;..\..\..\..\..\reptile\lwIP\contrib-1.4.1\ports\EFM32\include\</IncludePath>
+              <IncludePath>..\;..;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32LG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\emdrv\spidrv\inc;..\..\..\..\..\emdrv\common\inc;..\..\..\..\..\emdrv\config;..\..\..\..\..\emdrv\rtcdrv\inc;..\..\..\..\..\emdrv\dmadrv\inc;..\..\..\..\common\drivers;..\..\..\..\common\bsp;..\..\..\config;..\..\..\..\..\reptile\glib;..\..\..\..\..\reptile\glib\glib;..\..\..\..\..\reptile\lwIP\lwip\src\;..\..\..\..\..\reptile\lwIP\lwip\src\api;..\..\..\..\..\reptile\lwIP\lwip\src\core;..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4;..\..\..\..\..\reptile\lwIP\lwip\src\include;..\..\..\..\..\reptile\lwIP\lwip\src\include\ipv4;..\..\..\..\..\reptile\lwIP\lwip\src\include\ipv4\lwip;..\..\..\..\..\reptile\lwIP\lwip\src\include\lwip;..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\ping;..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\tcpecho_raw;..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\httpserver_raw;..\..\..\..\..\reptile\lwIP\lwip-contrib\ports\EFM32\;..\..\..\..\..\reptile\lwIP\lwip-contrib\ports\EFM32\include\</IncludePath>
             </VariousControls>
           </Aads>
           <LDads>
@@ -527,11 +527,6 @@
               <FileType>1</FileType>
               <FilePath>..\tftconsole.c</FilePath>
             </File>
-            <File>
-              <FileName>ksz8851snl_driver.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\contrib-1.4.1\ports\efm32\ksz8851snl_driver.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -550,197 +545,202 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>lwIP</GroupName>
+          <GroupName>lwip</GroupName>
           <Files>
             <File>
               <FileName>api_lib.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api\api_lib.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\api\api_lib.c</FilePath>
             </File>
             <File>
               <FileName>api_msg.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api\api_msg.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\api\api_msg.c</FilePath>
             </File>
             <File>
               <FileName>err.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api\err.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\api\err.c</FilePath>
             </File>
             <File>
               <FileName>netbuf.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api\netbuf.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\api\netbuf.c</FilePath>
             </File>
             <File>
               <FileName>netdb.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api\netdb.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\api\netdb.c</FilePath>
             </File>
             <File>
               <FileName>netifapi.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api\netifapi.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\api\netifapi.c</FilePath>
             </File>
             <File>
               <FileName>sockets.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api\sockets.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\api\sockets.c</FilePath>
             </File>
             <File>
               <FileName>tcpip.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\api\tcpip.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\api\tcpip.c</FilePath>
             </File>
             <File>
               <FileName>autoip.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4\autoip.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4\autoip.c</FilePath>
             </File>
             <File>
               <FileName>icmp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4\icmp.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4\icmp.c</FilePath>
             </File>
             <File>
               <FileName>igmp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4\igmp.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4\igmp.c</FilePath>
             </File>
             <File>
               <FileName>inet.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4\inet.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4\inet.c</FilePath>
             </File>
             <File>
               <FileName>inet_chksum.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4\inet_chksum.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4\inet_chksum.c</FilePath>
             </File>
             <File>
               <FileName>ip.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4\ip.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4\ip.c</FilePath>
             </File>
             <File>
               <FileName>ip_addr.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4\ip_addr.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4\ip_addr.c</FilePath>
             </File>
             <File>
               <FileName>ip_frag.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\ipv4\ip_frag.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\ipv4\ip_frag.c</FilePath>
             </File>
             <File>
               <FileName>def.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\def.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\def.c</FilePath>
             </File>
             <File>
               <FileName>dhcp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\dhcp.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\dhcp.c</FilePath>
             </File>
             <File>
               <FileName>dns.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\dns.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\dns.c</FilePath>
             </File>
             <File>
               <FileName>init.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\init.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\init.c</FilePath>
             </File>
             <File>
               <FileName>mem.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\mem.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\mem.c</FilePath>
             </File>
             <File>
               <FileName>memp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\memp.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\memp.c</FilePath>
             </File>
             <File>
               <FileName>netif.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\netif.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\netif.c</FilePath>
             </File>
             <File>
               <FileName>pbuf.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\pbuf.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\pbuf.c</FilePath>
             </File>
             <File>
               <FileName>raw.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\raw.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\raw.c</FilePath>
             </File>
             <File>
               <FileName>stats.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\stats.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\stats.c</FilePath>
             </File>
             <File>
               <FileName>sys.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\sys.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\sys.c</FilePath>
             </File>
             <File>
               <FileName>tcp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\tcp.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\tcp.c</FilePath>
             </File>
             <File>
               <FileName>tcp_in.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\tcp_in.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\tcp_in.c</FilePath>
             </File>
             <File>
               <FileName>tcp_out.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\tcp_out.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\tcp_out.c</FilePath>
             </File>
             <File>
               <FileName>timers.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\timers.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\timers.c</FilePath>
             </File>
             <File>
               <FileName>udp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\core\udp.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\core\udp.c</FilePath>
             </File>
             <File>
               <FileName>etharp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\netif\etharp.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\netif\etharp.c</FilePath>
             </File>
             <File>
               <FileName>ethernetif.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-1.4.1\src\netif\ethernetif.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip\src\netif\ethernetif.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>lwIP_apps</GroupName>
+          <GroupName>lwip-contrib</GroupName>
           <Files>
             <File>
               <FileName>echo.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\tcpecho_raw\echo.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\tcpecho_raw\echo.c</FilePath>
             </File>
             <File>
               <FileName>fs.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\httpserver_raw\fs.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\httpserver_raw\fs.c</FilePath>
             </File>
             <File>
               <FileName>httpd.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\reptile\lwIP\contrib-1.4.1\apps\httpserver_raw\httpd.c</FilePath>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-contrib\apps\httpserver_raw\httpd.c</FilePath>
+            </File>
+            <File>
+              <FileName>ksz8851snl_driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\reptile\lwIP\lwip-contrib\ports\efm32\ksz8851snl_driver.c</FilePath>
             </File>
           </Files>
         </Group>

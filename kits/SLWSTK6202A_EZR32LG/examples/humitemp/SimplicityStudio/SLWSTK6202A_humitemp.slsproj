@@ -55,5 +55,6 @@
     <file name="humitemp.c" uri="humitemp.c" />
     <file name="graphics.c" uri="graphics.c" />
   </folder>
+<property key="category" value="MCU Examples"/>
   <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.size"/>
 </project>

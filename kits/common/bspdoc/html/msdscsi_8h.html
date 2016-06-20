@@ -98,6 +98,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">SCSI Write 10 Command Descriptor Block (CDB) typedef.  <a href="structMSDSCSI__Write10__TypeDef.html#_details">More...</a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMSDSCSI__Verify10__TypeDef.html">MSDSCSI_Verify10_TypeDef</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">SCSI Verify 10 Command Descriptor Block (CDB) typedef.  <a href="structMSDSCSI__Verify10__TypeDef.html#_details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMSDSCSI__StartStopUnit__TypeDef.html">MSDSCSI_StartStopUnit_TypeDef</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">SCSI Start Stop Unit Command Descriptor Block (CDB) typedef.  <a href="structMSDSCSI__StartStopUnit__TypeDef.html#_details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2>Defines</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Msd.html#gac15197fa8bd507ec529006c64f8437eb">SCSI_TESTUNIT_READY</a>&nbsp;&nbsp;&nbsp;0x00</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">SCSI Test Unit Ready command opcode.  <a href="group__Msd.html#gac15197fa8bd507ec529006c64f8437eb"></a><br/></td></tr>
@@ -123,6 +125,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">SCSI Verify (10) CDB length.  <a href="group__Msd.html#ga334a21e13b25d306613eb4b2b2f46360"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Msd.html#ga59d92155a959caa17dee09196cf59e7c">SCSI_INQUIRYDATA_LEN</a>&nbsp;&nbsp;&nbsp;36U</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">SCSI Inquiry response data length.  <a href="group__Msd.html#ga59d92155a959caa17dee09196cf59e7c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Msd.html#ga43e35f8b53e848752b68e1fd4dc51fea">SCSI_STARTSTOPUNIT_LEN</a>&nbsp;&nbsp;&nbsp;6U</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">SCSI Start Stop Unit CDB length.  <a href="group__Msd.html#ga43e35f8b53e848752b68e1fd4dc51fea"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Msd.html#gaabd4aaed3342eaa039c186b217f54340">SCSI_REQUESTSENSE_LEN</a>&nbsp;&nbsp;&nbsp;6U</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">SCSI Request Sense CDB length.  <a href="group__Msd.html#gaabd4aaed3342eaa039c186b217f54340"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Msd.html#ga5981ba77043dd5be09ef0c563d5acac1">SCSI_REQUESTSENSEDATA_LEN</a>&nbsp;&nbsp;&nbsp;18U</td></tr>
@@ -149,7 +153,7 @@ This graph shows which files directly or indirectly include this file:</div>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>SCSI interface for Mass Storage Devices (MSD). </p>
-<dl class="version"><dt><b>Version:</b></dt><dd>4.0.0</dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>4.1.0</dd></dl>
 <h2><a class="anchor" id="License">
 License</a></h2>
 <p><b>(C) Copyright 2014 Silicon Labs, <a href="http://www.silabs.com">http://www.silabs.com</a></b></p>
@@ -159,7 +163,7 @@ License</a></h2>
 </div>
 <div id="footer">
 <hr size="1"><address style="text-align: right;"><small>
-Generated on Fri May 29 11:29:32 2015</small> for Board Support Package by&nbsp;
+Generated on Mon Sep 7 09:26:12 2015</small> for Board Support Package by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a><small> 1.6.3 </small></address></div>
 </body>

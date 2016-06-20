@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$si114x__functions_8c.html#a61432bf1caf8279773cbd20cbff01762" title="Returns the calibration ratio to be applied to IR measurements." alt="" coords="161,5,269,32"/>
-<area shape="rect" id="node5" href="$group__Si114x.html#gadbec1218d8cc103d4d6c2fc0ec0f6abf" title="Populates the SI114X_CAL_S structure." alt="" coords="320,81,469,108"/>
-<area shape="rect" id="node11" href="$si114x__functions_8c.html#af8fdd4e552ea67d71ca4f6efe98cde06" title="Returns the ratio to adjust for differences in IRLED drive strength." alt="" coords="177,107,252,133"/>
-<area shape="rect" id="node15" href="$si114x__functions_8c.html#ab4c6c95d4cfe808f6bae73c8f1d6e949" title="Returns the calibration ratio to be applied to VIS measurements." alt="" coords="157,157,272,184"/>
-<area shape="rect" id="node7" href="$group__Si114x.html#ga79b0443305d3a085028d1c197d398ede" title="Initializes and configures the Si1147 sensor." alt="" coords="517,56,693,83"/>
-<area shape="rect" id="node9" href="$si114x__uv__index_8h.html#aee56b411a2cb91ae85cae51c2d4039f7" title="Initializes and configures the Si1146 sensor for UV index measurements." alt="" coords="536,107,675,133"/>
-</map>

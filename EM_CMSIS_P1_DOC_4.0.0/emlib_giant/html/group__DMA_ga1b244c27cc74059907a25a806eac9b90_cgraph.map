@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$group__CMU.html#ga93913d50050d52b38b0a7c7c08ac81e8" title="Enable/disable a clock." alt="" coords="131,31,269,57"/>
-<area shape="rect" id="node5" href="$group__DMA.html#ga35a483de1c773d6cd958434372054b8b" title="Reset the DMA controller." alt="" coords="153,81,247,108"/>
-<area shape="rect" id="node3" href="$group__BITBAND.html#ga7df78ffd2c201e674a4444c42b6fcec3" title="Perform bit&#45;band operation on peripheral memory location." alt="" coords="317,5,464,32"/>
-<area shape="rect" id="node4" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point." alt="" coords="319,56,463,83"/>
-</map>

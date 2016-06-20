@@ -136,67 +136,67 @@
 <link>
   <name>Include_Dependencies/lwip_src_</name>
   <type>2</type>
-  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/</locationURI>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/</locationURI>
 </link>
 <link>
   <name>Include_Dependencies/lwip_src_api</name>
   <type>2</type>
-  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/api</locationURI>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/api</locationURI>
 </link>
 <link>
   <name>Include_Dependencies/lwip_src_core</name>
   <type>2</type>
-  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core</locationURI>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core</locationURI>
 </link>
 <link>
   <name>Include_Dependencies/lwip_src_core_ipv4</name>
   <type>2</type>
-  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/ipv4</locationURI>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/ipv4</locationURI>
 </link>
 <link>
   <name>Include_Dependencies/lwip_src_include</name>
   <type>2</type>
-  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/include</locationURI>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/include</locationURI>
 </link>
 <link>
   <name>Include_Dependencies/lwip_src_include_ipv4</name>
   <type>2</type>
-  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/include/ipv4</locationURI>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/include/ipv4</locationURI>
 </link>
 <link>
   <name>Include_Dependencies/lwip_src_include_ipv4_lwip</name>
   <type>2</type>
-  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/include/ipv4/lwip</locationURI>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/include/ipv4/lwip</locationURI>
 </link>
 <link>
   <name>Include_Dependencies/lwip_src_include_lwip</name>
   <type>2</type>
-  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/include/lwip</locationURI>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/include/lwip</locationURI>
 </link>
 <link>
   <name>Include_Dependencies/lwip_contrib_apps_ping</name>
   <type>2</type>
-  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/contrib-1.4.1/apps/ping</locationURI>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-contrib/apps/ping</locationURI>
 </link>
 <link>
   <name>Include_Dependencies/lwip_contrib_apps_tcpecho_raw</name>
   <type>2</type>
-  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/contrib-1.4.1/apps/tcpecho_raw</locationURI>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-contrib/apps/tcpecho_raw</locationURI>
 </link>
 <link>
   <name>Include_Dependencies/lwip_contrib_apps_httpserver_raw</name>
   <type>2</type>
-  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/contrib-1.4.1/apps/httpserver_raw</locationURI>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-contrib/apps/httpserver_raw</locationURI>
 </link>
 <link>
   <name>Include_Dependencies/lwip_contrib_ports_EFM32_</name>
   <type>2</type>
-  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/contrib-1.4.1/ports/EFM32/</locationURI>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-contrib/ports/EFM32/</locationURI>
 </link>
 <link>
   <name>Include_Dependencies/lwip_contrib_ports_EFM32_include_</name>
   <type>2</type>
-  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/contrib-1.4.1/ports/EFM32/include/</locationURI>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-contrib/ports/EFM32/include/</locationURI>
 </link>
 
 		<link>
@@ -325,11 +325,6 @@
 			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/tftconsole.c</locationURI>
 		</link>
 		<link>
-			<name>Drivers/ksz8851snl_driver.c</name>
-			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/contrib-1.4.1/ports/efm32/ksz8851snl_driver.c</locationURI>
-		</link>
-		<link>
 			<name>Graphics/dmd_ssd2119_16bit.c</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/glib/dmd/ssd2119/dmd_ssd2119_16bit.c</locationURI>
@@ -340,189 +335,194 @@
 			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/glib/dmd/ssd2119/dmdif_ssd2119_ebi16.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/api_lib.c</name>
+			<name>lwip/api_lib.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/api/api_lib.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/api/api_lib.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/api_msg.c</name>
+			<name>lwip/api_msg.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/api/api_msg.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/api/api_msg.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/err.c</name>
+			<name>lwip/err.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/api/err.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/api/err.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/netbuf.c</name>
+			<name>lwip/netbuf.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/api/netbuf.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/api/netbuf.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/netdb.c</name>
+			<name>lwip/netdb.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/api/netdb.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/api/netdb.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/netifapi.c</name>
+			<name>lwip/netifapi.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/api/netifapi.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/api/netifapi.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/sockets.c</name>
+			<name>lwip/sockets.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/api/sockets.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/api/sockets.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/tcpip.c</name>
+			<name>lwip/tcpip.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/api/tcpip.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/api/tcpip.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/autoip.c</name>
+			<name>lwip/autoip.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/ipv4/autoip.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/ipv4/autoip.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/icmp.c</name>
+			<name>lwip/icmp.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/ipv4/icmp.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/ipv4/icmp.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/igmp.c</name>
+			<name>lwip/igmp.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/ipv4/igmp.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/ipv4/igmp.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/inet.c</name>
+			<name>lwip/inet.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/ipv4/inet.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/ipv4/inet.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/inet_chksum.c</name>
+			<name>lwip/inet_chksum.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/ipv4/inet_chksum.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/ipv4/inet_chksum.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/ip.c</name>
+			<name>lwip/ip.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/ipv4/ip.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/ipv4/ip.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/ip_addr.c</name>
+			<name>lwip/ip_addr.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/ipv4/ip_addr.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/ipv4/ip_addr.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/ip_frag.c</name>
+			<name>lwip/ip_frag.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/ipv4/ip_frag.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/ipv4/ip_frag.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/def.c</name>
+			<name>lwip/def.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/def.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/def.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/dhcp.c</name>
+			<name>lwip/dhcp.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/dhcp.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/dhcp.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/dns.c</name>
+			<name>lwip/dns.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/dns.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/dns.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/init.c</name>
+			<name>lwip/init.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/init.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/init.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/mem.c</name>
+			<name>lwip/mem.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/mem.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/mem.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/memp.c</name>
+			<name>lwip/memp.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/memp.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/memp.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/netif.c</name>
+			<name>lwip/netif.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/netif.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/netif.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/pbuf.c</name>
+			<name>lwip/pbuf.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/pbuf.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/pbuf.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/raw.c</name>
+			<name>lwip/raw.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/raw.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/raw.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/stats.c</name>
+			<name>lwip/stats.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/stats.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/stats.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/sys.c</name>
+			<name>lwip/sys.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/sys.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/sys.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/tcp.c</name>
+			<name>lwip/tcp.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/tcp.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/tcp.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/tcp_in.c</name>
+			<name>lwip/tcp_in.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/tcp_in.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/tcp_in.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/tcp_out.c</name>
+			<name>lwip/tcp_out.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/tcp_out.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/tcp_out.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/timers.c</name>
+			<name>lwip/timers.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/timers.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/timers.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/udp.c</name>
+			<name>lwip/udp.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/core/udp.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/core/udp.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/etharp.c</name>
+			<name>lwip/etharp.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/netif/etharp.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/netif/etharp.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP/ethernetif.c</name>
+			<name>lwip/ethernetif.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-1.4.1/src/netif/ethernetif.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip/src/netif/ethernetif.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP_apps/echo.c</name>
+			<name>lwip-contrib/echo.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/contrib-1.4.1/apps/tcpecho_raw/echo.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-contrib/apps/tcpecho_raw/echo.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP_apps/fs.c</name>
+			<name>lwip-contrib/fs.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/contrib-1.4.1/apps/httpserver_raw/fs.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-contrib/apps/httpserver_raw/fs.c</locationURI>
 		</link>
 		<link>
-			<name>lwIP_apps/httpd.c</name>
+			<name>lwip-contrib/httpd.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/contrib-1.4.1/apps/httpserver_raw/httpd.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-contrib/apps/httpserver_raw/httpd.c</locationURI>
+		</link>
+		<link>
+			<name>lwip-contrib/ksz8851snl_driver.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/lwIP/lwip-contrib/ports/efm32/ksz8851snl_driver.c</locationURI>
 		</link>
 		<link>
 			<name>Source/webserver.c</name>

@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$group__USART.html#ga373a66831daf2d2fe59c04b327e0c9a1" title="Configure USART/UART operating in asynchronous mode to use a given baudrate (or as..." alt="" coords="184,5,373,32"/>
-<area shape="rect" id="node4" href="$group__USART.html#ga4769e1b5d573d6cecc95ca0c7d8e2da2" title="Reset USART/UART to same state as after a HW reset." alt="" coords="225,56,333,83"/>
-<area shape="rect" id="node3" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point." alt="" coords="421,5,565,32"/>
-</map>

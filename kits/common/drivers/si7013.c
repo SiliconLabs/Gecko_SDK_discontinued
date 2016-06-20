@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file
  * @brief Driver for the Si7013 Temperature / Humidity sensor
- * @version 4.0.0
+ * @version 4.1.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -50,6 +50,7 @@
  ******************************************************************************/
 
 
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 /**************************************************************************//**
  * @brief
  *  Reads data from the Si7013 sensor.
@@ -95,7 +96,9 @@ static int32_t Si7013_Measure(I2C_TypeDef *i2c, uint8_t addr, uint32_t *data,
 
   return((int) 2);
 }
+/** @endcond */
 
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 /**************************************************************************//**
  * @brief
  *  Starts a no hold measurement in the Si7013 sensor.
@@ -136,6 +139,7 @@ static int32_t Si7013_StartNoHoldMeasure(I2C_TypeDef *i2c, uint8_t addr, uint8_t
 
   return((int) 0);
 }
+/** @endcond */
 
 
 /**************************************************************************//**
@@ -197,6 +201,7 @@ int32_t Si7013_StartNoHoldMeasureRHAndTemp(I2C_TypeDef *i2c, uint8_t addr)
   return ret;
 }
 
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 /**************************************************************************//**
  * @brief
  *  Reads data from the Si7013 sensor.
@@ -237,6 +242,7 @@ static int32_t Si7013_ReadNoHoldData(I2C_TypeDef *i2c, uint8_t addr, uint32_t *d
 
   return((int) 2);
 }
+/** @endcond */
 
 /**************************************************************************//**
  * @brief
@@ -324,6 +330,7 @@ int32_t Si7013_MeasureRHAndTemp(I2C_TypeDef *i2c, uint8_t addr, uint32_t *rhData
   return 0;
 }
 
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 static int32_t Si7013_WriteUserReg2(I2C_TypeDef *i2c, uint8_t addr, int8_t data)
 {
   I2C_TransferSeq_TypeDef    seq;
@@ -351,6 +358,7 @@ static int32_t Si7013_WriteUserReg2(I2C_TypeDef *i2c, uint8_t addr, int8_t data)
 
   return((int) 0);
 }
+/** @endcond */
 
 
 /**************************************************************************//**
@@ -360,10 +368,8 @@ static int32_t Si7013_WriteUserReg2(I2C_TypeDef *i2c, uint8_t addr, int8_t data)
  *   The I2C peripheral to use.
  * @param[in] addr
  *   The I2C address of the sensor.
- * @param[out] rhData
- *   The relative humidity in percent (multiplied by 1000).
- * @param[out] tData
- *   The temperature in milli-Celsius.
+ * @param[out] vData
+ *   The data read from the sensor.
  * @return
  *   Returns zero on OK, non-zero otherwise.
  *****************************************************************************/

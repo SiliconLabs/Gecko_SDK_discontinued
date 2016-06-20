@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file displayls013b7dh03.c
  * @brief Display driver for the Sharp Memory LCD LS013B7DH03
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -21,6 +21,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "em_gpio.h"
+
 /* DISPLAY driver inclustions */
 #include "displayconfigall.h"
 #include "displaypal.h"
@@ -39,7 +41,7 @@
 
 /* Frequency of LCD polarity inversion. */
 #ifndef LS013B7DH03_POLARITY_INVERSION_FREQUENCY
-#define LS013B7DH03_POLARITY_INVERSION_FREQUENCY (64)
+#define LS013B7DH03_POLARITY_INVERSION_FREQUENCY (128)
 #endif
 
 #ifdef USE_CONTROL_BYTES
@@ -165,13 +167,17 @@ EMSTATUS DISPLAY_Ls013b7dh03Init(void)
   PAL_GpioPinModeSet(LCD_PORT_SCLK,    LCD_PIN_SCLK,    palGpioModePushPull,0);
   PAL_GpioPinModeSet(LCD_PORT_SI,      LCD_PIN_SI,      palGpioModePushPull,0);
   PAL_GpioPinModeSet(LCD_PORT_SCS,     LCD_PIN_SCS,     palGpioModePushPull,0);
+#if defined( LCD_PORT_DISP_SEL  )
   PAL_GpioPinModeSet(LCD_PORT_DISP_SEL,LCD_PIN_DISP_SEL,palGpioModePushPull,0);
-
+#endif
+  
 #if defined( LCD_PORT_DISP_PWR )
   PAL_GpioPinModeSet(LCD_PORT_DISP_PWR,LCD_PIN_DISP_PWR,palGpioModePushPull,0);
 #endif
 
+#if defined( LCD_PORT_EXTMODE )
   PAL_GpioPinModeSet(LCD_PORT_EXTMODE, LCD_PIN_EXTMODE, palGpioModePushPull,0);
+#endif
   PAL_GpioPinModeSet(LCD_PORT_EXTCOMIN,LCD_PIN_EXTCOMIN,palGpioModePushPull,0);
 
 #ifdef PAL_TIMER_REPEAT_FUNCTION
@@ -277,8 +283,10 @@ static EMSTATUS DisplayEnable(DISPLAY_Device_t* device,
 
   if (enable)
   {
+#if defined( LCD_PORT_DISP_SEL )
     /* Set EFM_DISP_SELECT pin. */
     PAL_GpioPinOutSet(LCD_PORT_DISP_SEL, LCD_PIN_DISP_SEL);
+#endif
 
 #if defined( LCD_PORT_DISP_PWR )
     /* Drive voltage on EFM_DISP_PWR_EN pin. */
@@ -292,8 +300,10 @@ static EMSTATUS DisplayEnable(DISPLAY_Device_t* device,
     PAL_GpioPinOutClear(LCD_PORT_DISP_PWR, LCD_PIN_DISP_PWR);
 #endif
 
+#if defined( LCD_PORT_DISP_SEL )
     /* Clear EFM_DISP_SELECT pin. */
     PAL_GpioPinOutClear(LCD_PORT_DISP_SEL, LCD_PIN_DISP_SEL);
+#endif
   }
 
   return DISPLAY_EMSTATUS_OK;

@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$em__pcnt_8h.html" title="Pulse Counter (PCNT) peripheral API." alt="" coords="139,80,229,107"/>
-<area shape="rect" id="node5" href="$em__cmu_8h.html" title="Clock management unit (CMU) API." alt="" coords="253,80,344,107"/>
-<area shape="rect" id="node6" href="$em__assert_8h.html" title="EFM32 peripheral API &quot;assert&quot; implementation." alt="" coords="392,80,493,107"/>
-<area shape="rect" id="node7" href="$em__bitband_8h.html" title="Bitband Peripheral API." alt="" coords="5,80,115,107"/>
-</map>

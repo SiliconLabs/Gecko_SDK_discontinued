@@ -1,8 +1,8 @@
 /***************************************************************************//**
- * @file ezradio_api_lib_add.c
+ * @file si4x55/ezradio_api_lib_add.c
  * @brief This file contains the additional API library for the listed members of
  * the EZRadio family: Si4055_revC2A, Si4355_revC2A, Si4455_revC2A.
- * @version 4.0.0
+ * @version 4.1.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -13,9 +13,9 @@
  * freely, subject to the following restrictions:
  *
  * 1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
+ *    claim that you wrote the original software.@n
  * 2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
+ *    misrepresented as being the original software.@n
  * 3. This notice may not be removed or altered from any source distribution.
  *
  * DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Silicon Labs has no
@@ -43,12 +43,18 @@
 #include "ezradio_api_lib.h"
 #include "ezradio_api_lib_add.h"
 
-/*!
+/**
  * This function is used to load all properties and commands with a list of NULL terminated commands.
- * Before this function @ezradio_reset should be called.
+ * Before this function ezradio_reset should be called.
+ * 
+ * @param[in] pSetPropCmd Pointer to the configuration array.
  */
 EZRADIO_ConfigRet_t ezradio_configuration_init(const uint8_t* pSetPropCmd)
 {
+  /* EZRadio command buffer */
+  uint8_t ezradioCmd[16u];
+  ezradio_cmd_reply_t ezradioReply;
+
   uint8_t col;
   uint8_t response;
   uint8_t numOfBytes;
@@ -120,7 +126,7 @@ EZRADIO_ConfigRet_t ezradio_configuration_init(const uint8_t* pSetPropCmd)
     if (ezradio_hal_NirqLevel() == 0)
     {
       /* Get and clear all interrupts.  An error has occured... */
-      ezradio_get_int_status(0, 0, 0);
+      ezradio_get_int_status(0, 0, 0, &ezradioReply);
       if (ezradioReply.GET_INT_STATUS.CHIP_PEND & EZRADIO_CMD_GET_CHIP_STATUS_REP_CHIP_PEND_CMD_ERROR_PEND_MASK)
       {
         return EZRADIO_CONFIG_COMMAND_ERROR;
@@ -132,38 +138,41 @@ EZRADIO_ConfigRet_t ezradio_configuration_init(const uint8_t* pSetPropCmd)
 }
 
 
-/*!
+/**
  * Writes data byte(s) to the EZConfig array.
  *
- * @param numBytes  number of bytes to send
- * @param pEzConfigArray pointer to the EZConfig configuration array
- *
+ * @param[in] numBytes  number of bytes to send
+ * @param[in] pEzConfigArray pointer to the EZConfig configuration array
  */
 void ezradio_write_ezconfig_array(uint8_t numBytes, uint8_t* pEzConfigArray)
 {
   ezradio_comm_WriteData(EZRADIO_CMD_ID_EZCONFIG_ARRAY_WRITE, 1, numBytes, pEzConfigArray);
 }
 
-/*!
+/**
  * Validates the EZConfig array was written correctly.
  *
- * @param CHECKSUM  Checksum value
+ * @param[in] checksum  Checksum value
+ * @param[out] ezradioReply   Reply structure of the command.
  */
-void ezradio_ezconfig_check(uint16_t checksum)
+void ezradio_ezconfig_check(uint16_t checksum, ezradio_cmd_reply_t *ezradioReply)
 {
+    /* EZRadio command buffer */
+    uint8_t ezradioCmd[3u];
+
     ezradioCmd[0] = EZRADIO_CMD_ID_EZCONFIG_CHECK;
-    ezradioCmd[1] = (uint16_t) checksum >> 8u;
-    ezradioCmd[1] = (uint16_t) checksum & 0x00FF;
+    ezradioCmd[1] = (uint8_t) (checksum >> 8u);
+    ezradioCmd[2] = (uint8_t) (checksum & 0x00FF);
 
     /* Do not check CTS after sending the ezconfig array */
     ezradio_comm_CtsWentHigh = true;
 
-    ezradio_comm_SendCmdGetResp( EZRADIO_CMD_ARG_COUNT_GET_ADC_READING,
+    ezradio_comm_SendCmdGetResp( EZRADIO_CMD_ARG_COUNT_EZCONFIG_CHECK,
                               ezradioCmd,
-                              EZRADIO_CMD_REPLY_COUNT_GET_ADC_READING,
+                              EZRADIO_CMD_REPLY_COUNT_EZCONFIG_CHECK,
                               ezradioCmd );
 
-    ezradioReply.EZCONFIG_CHECK.RESULT = ezradioCmd[0];
+    ezradioReply->EZCONFIG_CHECK.RESULT = ezradioCmd[0];
 
 }
 
@@ -173,26 +182,31 @@ void ezradio_ezconfig_check(uint16_t checksum)
 #ifdef EZRADIO_DRIVER_FULL_SUPPORT
 /* Full driver support functions */
 
-/*!
- * Reads the ADC values from the radio into @ezradioReply union.
+/**
+ * Reads the ADC values from the radio into ezradioReply union.
  *
- * @param ADC_EN  ADC enable parameter.
+ * @param[in] adc_en  ADC enable parameter.
+ * @param[in] adc_cfg  ADC configuration parameter.
+ * @param[out] ezradioReply   Reply structure of the command.
  */
-void ezradio_get_adc_reading( uint8_t adc_en, uint8_t adc_cfg)
+void ezradio_get_adc_reading( uint8_t adc_en, uint8_t adc_cfg, ezradio_cmd_reply_t *ezradioReply)
 {
+    /* EZRadio command buffer */
+    uint8_t ezradioCmd[EZRADIO_CMD_REPLY_COUNT_GET_ADC_READING];
+
     ezradioCmd[0] = EZRADIO_CMD_ID_GET_ADC_READING;
     ezradioCmd[1] = adc_en;
-    ezradioCmd[1] = adc_cfg;
+    ezradioCmd[2] = adc_cfg;
 
     ezradio_comm_SendCmdGetResp( EZRADIO_CMD_ARG_COUNT_GET_ADC_READING,
                               ezradioCmd,
                               EZRADIO_CMD_REPLY_COUNT_GET_ADC_READING,
                               ezradioCmd );
 
-    ezradioReply.GET_ADC_READING.GPIO_ADC         = ((uint16_t)ezradioCmd[0] << 8) & 0xFF00;
-    ezradioReply.GET_ADC_READING.GPIO_ADC        |=  (uint16_t)ezradioCmd[1] & 0x00FF;
-    ezradioReply.GET_ADC_READING.BATTERY_ADC      = ((uint16_t)ezradioCmd[2] << 8) & 0xFF00;
-    ezradioReply.GET_ADC_READING.BATTERY_ADC     |=  (uint16_t)ezradioCmd[3] & 0x00FF;
+    ezradioReply->GET_ADC_READING.GPIO_ADC         = ((uint16_t)ezradioCmd[0] << 8) & 0xFF00;
+    ezradioReply->GET_ADC_READING.GPIO_ADC        |=  (uint16_t)ezradioCmd[1] & 0x00FF;
+    ezradioReply->GET_ADC_READING.BATTERY_ADC      = ((uint16_t)ezradioCmd[2] << 8) & 0xFF00;
+    ezradioReply->GET_ADC_READING.BATTERY_ADC     |=  (uint16_t)ezradioCmd[3] & 0x00FF;
 }
 
 #endif /* EZRADIO_DRIVER_FULL_SUPPORT */

@@ -2,7 +2,7 @@
 * @file
 * @brief Si114x Environmental mode functions
 
-* @version 4.0.0
+* @version 4.1.0
 
 ******************************************************************************
 * @section License

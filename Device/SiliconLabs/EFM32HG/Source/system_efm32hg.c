@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file system_efm32hg.c
  * @brief CMSIS Cortex-M0+ System Layer for EFM32HG devices.
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -54,9 +54,11 @@
 /* SW footprint. */
 
 #ifndef EFM32_HFXO_FREQ
-#define EFM32_HFXO_FREQ         (24000000UL)
-#define EFM32_HFRCO_MAX_FREQ    (21000000UL)
+#define EFM32_HFXO_FREQ (24000000UL)
 #endif
+
+#define EFM32_HFRCO_MAX_FREQ (21000000UL)
+
 /* Do not define variable if HF crystal oscillator not present */
 #if (EFM32_HFXO_FREQ > 0)
 /** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
@@ -68,6 +70,7 @@ static uint32_t SystemHFXOClock = EFM32_HFXO_FREQ;
 #ifndef EFM32_LFXO_FREQ
 #define EFM32_LFXO_FREQ (EFM32_LFRCO_FREQ)
 #endif
+
 /* Do not define variable if LF crystal oscillator not present */
 #if (EFM32_LFXO_FREQ > 0)
 /** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */

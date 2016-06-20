@@ -103,7 +103,7 @@ Include dependency graph for sleep.c:</div>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Energy Modes management driver. </p>
-<dl class="version"><dt><b>Version:</b></dt><dd>4.0.0</dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>4.1.0</dd></dl>
 <p>This is a energy modes management module consisting of <a class="el" href="sleep_8c.html" title="Energy Modes management driver.">sleep.c</a> and <a class="el" href="sleep_8h.html" title="Energy Modes management driver.">sleep.h</a> source files. The main purpose of the module is to ease energy optimization with a simple API. The module allows the system to always sleep in the lowest possible energy mode. Users could set up callbacks that are being called before and after each and every sleep. A counting semaphore is available for each low energy mode (EM1/EM2/EM3) to protect certain system states from being corrupted. This semaphore has limit set to maximum 255 locks.</p>
 <p>The module provides the following public API to the users: <a class="el" href="group__SLEEP.html#ga01eb28531b3fc9a5c7880b86a98d4b1c" title="Initialize the Sleep module.">SLEEP_Init()</a> <a class="el" href="group__SLEEP.html#ga2845d5d6d00f408dda6894a654fd1adf" title="Sets the system to sleep into the lowest possible energy mode.">SLEEP_Sleep()</a> <a class="el" href="group__SLEEP.html#gac26ef85c0817797fb9ec823d38742af7" title="Begin sleep block in the requested energy mode.">SLEEP_SleepBlockBegin()</a> <a class="el" href="group__SLEEP.html#ga1dd174edab75f62e330d1fb10b902e2d" title="End sleep block in the requested energy mode.">SLEEP_SleepBlockEnd()</a> <a class="el" href="group__SLEEP.html#gaa5cc0b5f4087136c23fda12b840bab8e" title="Force the device to go to EM4 without doing any checks.">SLEEP_ForceSleepInEM4()</a></p>
 <h2><a class="anchor" id="License">
@@ -115,7 +115,7 @@ License</a></h2>
 </div>
 <div id="footer">
 <hr size="1"><address style="text-align: right;"><small>
-Generated on Thu May 28 13:12:47 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
+Generated on Mon Sep 7 08:55:21 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a><small> 1.6.3 </small></address></div>
 </body>

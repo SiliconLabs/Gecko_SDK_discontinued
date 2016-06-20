@@ -74,7 +74,7 @@ Introduction</a></h2>
 <p>This driver allows you to store application data in NVM. The driver supports wear leveling to maximize the lifetime of the underlying NVM system and data validation. The driver performs wear leveling by writing objects to the least used locations in the NVM system. The driver uses CCITT CRC16 for data validation.</p>
 <p>It is also possible for the user to specify certain pages as wear pages. These pages can only contain a single object, but they provide better performance and drastically increase the lifetime of the memory if the object is known to a low update frequency.</p>
 <p>The size and layout of the data objects to be managed by this driver must be known at compile-time.</p>
-<p>This driver consists of the files <a class="el" href="nvm_8c.html" title="NVM API implementation.">nvm.c</a>, <a class="el" href="nvm_8h.html" title="NVM API definition.">nvm.h</a> and <a class="el" href="nvm__hal_8h.html" title="Non-Volatile Memory HAL.">nvm_hal.h</a>. Additionally, a implementation of <a class="el" href="nvm__hal_8c.html" title="Non-Volatile Memory HAL for EFM32 flash.">nvm_hal.c</a> is required for the specific NVM system to be used. A implementation of <a class="el" href="nvm__hal_8c.html" title="Non-Volatile Memory HAL for EFM32 flash.">nvm_hal.c</a> for EFM32 Flash memory is included with this driver. Driver configuration parameters and specification of the data objects are located in <a class="el" href="nvm__config_8c.html" title="NVM config implementation.">nvm_config.c</a> and <a class="el" href="nvm__config_8h.html" title="NVM config definition.">nvm_config.h</a>.</p>
+<p>This driver consists of the files <a class="el" href="nvm_8c.html" title="NVM API implementation.">nvm.c</a>, <a class="el" href="nvm_8h.html" title="NVM API definition.">nvm.h</a> and <a class="el" href="nvm__hal_8h.html" title="Non-Volatile Memory HAL.">nvm_hal.h</a>. Additionally, a implementation of <a class="el" href="nvm__hal_8c.html" title="Non-Volatile Memory HAL for EFM32/EZR32/EFR32 flash.">nvm_hal.c</a> is required for the specific NVM system to be used. A implementation of <a class="el" href="nvm__hal_8c.html" title="Non-Volatile Memory HAL for EFM32/EZR32/EFR32 flash.">nvm_hal.c</a> for EFM32/EZR32/EFR32 Flash memory is included with this driver. Driver configuration parameters and specification of the data objects are located in <a class="el" href="nvm__config_8c.html" title="NVM config implementation.">nvm_config.c</a> and <a class="el" href="nvm__config_8h.html" title="NVM config definition.">nvm_config.h</a>.</p>
 <p><br/>
  </p>
 <h2><a class="anchor" id="nvm_conf">
@@ -85,14 +85,14 @@ Configuration Options</a></h2>
 <ul>
 <li>NVM_MAX_NUMBER_OF_PAGES: Maximum number of NVM pages allocated to the driver.</li>
 <li>NVM_PAGES_SCRATCH: Configure extra pages to allocate for data security and wear leveling.</li>
-<li>NVM_PAGE_SIZE: Page size for the NVM system. Default is the size of the EFM32 flash.</li>
+<li>NVM_PAGE_SIZE: Page size for the NVM system. Default is the size of the flash.</li>
 </ul>
 <p>Users have to be aware of the following limitations:</p>
 <ul>
 <li>Maximum 254 objects in a page.</li>
 <li>Maximum 256 pages allocated to the driver. The default is 32 pages.</li>
 </ul>
-<p>Note that the different EFM32 families have different page sizes. Please refer to the reference manual for details.</p>
+<p>Note that the different EFM32/EZR32/EFR32 families have different page sizes. Please refer to the reference manual for details.</p>
 <p><br/>
  </p>
 <h2><a class="anchor" id="nvm_api">
@@ -101,7 +101,7 @@ The API</a></h2>
 <p>Your application code must include one header file: <a class="el" href="nvm_8h.html" title="NVM API definition.">nvm.h</a>.</p>
 <p>The application may define the data objects allocated in RAM (and defined in <a class="el" href="nvm__config_8c.html" title="NVM config implementation.">nvm_config.c</a>) as extern if direct access to these objects is required, eg:</p>
 <div class="fragment"><pre class="fragment">
-  extern uint32_t colorTable[];     
+  extern uint32_t colorTable[];
   </pre></div><p>The driver requires that the NVM system is erased by calling <a class="el" href="group__NVM.html#gab056662c41fc69f6b1fe44ee5f94852b">NVM_Erase()</a> before the driver initialization function <a class="el" href="group__NVM.html#gaf74bb05f10ed4959e65e85fa438ead67">NVM_Init()</a> is called. <a class="el" href="group__NVM.html#gaf74bb05f10ed4959e65e85fa438ead67">NVM_Init()</a> requires a parameter to the configuration data. A pointer to the configuration data can be obtained by calling <a class="el" href="group__NVM.html#gaec2b85094eab4e1a9f94cd0cfa8ee71b">NVM_ConfigGet()</a>.</p>
 <p><a class="el" href="group__NVM.html#gad181be9b434658d3552fb311039ff691">NVM_Write()</a> takes two parameters, a page ID and a object ID. These two parameters must correspond to the definition of the user data in <a class="el" href="nvm__config_8c.html" title="NVM config implementation.">nvm_config.c</a>. For example, colorTable is assigned to page 1 in the example version of <a class="el" href="nvm__config_8c.html" title="NVM config implementation.">nvm_config.c</a>. To write the data in colorTable to NVM, call NVM_Write(MY_PAGE_1, COLOR_TABLE_ID).</p>
 <p><a class="el" href="group__NVM.html#ga34880829bee50bf0fde0f6c9695dca86">NVM_Read()</a> reads the a data object or an entire page in NVM back to the structures defined for the page in RAM.</p>
@@ -116,15 +116,15 @@ Example</a></h2>
   #include "nvm.h"
 
   // Data object extern declarations matching the example data defined in nvm_config.c
-  extern uint32_t colorTable[];        
+  extern uint32_t colorTable[];
   extern uint8_t coefficientTable[];
-  extern uint8_t primeNumberTable[];    
-  extern uint8_t bonusTable[];    
+  extern uint8_t primeNumberTable[];
+  extern uint8_t bonusTable[];
   extern uint8_t privateKeyTable[];
   extern uint8_t transformTable[];
-  extern int32_t safetyTable[];      
+  extern int32_t safetyTable[];
   extern uint8_t bigEmptyTable[450];
-  extern uint32_t singleVariable;    
+  extern uint32_t singleVariable;
 
   // Object and page IDs maching the data defined in nvm_config.c
   typedef enum
@@ -165,7 +165,7 @@ Example</a></h2>
   NVM_Write(MY_PAGE_3, NVM_WRITE_ALL_CMD));
   NVM_Write(MY_PAGE_4, NVM_WRITE_ALL_CMD));
 
-  // Set some data elements to 0  
+  // Set some data elements to 0
   for (i = 0; i &lt; 4; i++)
   {
     bonusTable[i] = 0;
@@ -185,13 +185,13 @@ Example</a></h2>
     if (primeNumberTable[i] == 0)
     {
       // Should not happen
-    }  
+    }
   }
 
   </pre></div> </div>
 <div id="footer">
 <hr size="1"><address style="text-align: right;"><small>
-Generated on Thu May 28 13:12:48 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
+Generated on Mon Sep 7 08:55:22 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a><small> 1.6.3 </small></address></div>
 </body>

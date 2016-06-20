@@ -1,4 +1,8 @@
 ================ Revision history ============================================
+4.1.0:
+ - Fixed bug in host stack, USBH_SetAltInterfaceB() specified device instead
+   of interface.
+
 4.0.0:
  - Added support for isochronous endpoint transfers.
 

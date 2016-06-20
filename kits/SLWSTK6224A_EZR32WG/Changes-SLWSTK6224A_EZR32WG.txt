@@ -1,6 +1,16 @@
 ================ Revision history ============================================
+4.1.0:
+ - Simple TRx example is renamed to EzRadio Simple TRx.
+ - EzRadio Simple TRx example now uses the plugin manger of the EzRadio driver.
+ - Ezradio Unmodulated Carrier example is added.
+ - Ezradio PN9 example is added.
+ - Ezradio Direct Tx example is added.
+ - Ezradio Direct Rx example is added.
+ - Ezradio TRx with ACK example is added.
+ - RangeTest example is added.
+
 4.0.0:
-- Maintenance release.
+ - Maintenance release.
 
 3.20.13:
  - Rs232 example use VCOM port.

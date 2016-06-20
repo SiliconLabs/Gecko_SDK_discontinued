@@ -90,22 +90,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <p><a href="si7013_8c_source.html">Go to the source code of this file.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static int32_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="si7013_8c.html#a51296512c4d2913a4d9cfe48031e0342">Si7013_Measure</a> (I2C_TypeDef *i2c, uint8_t addr, uint32_t *data, uint8_t command)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reads data from the Si7013 sensor.  <a href="#a51296512c4d2913a4d9cfe48031e0342"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static int32_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="si7013_8c.html#aa21ab038eb789adfeb374a0718666936">Si7013_StartNoHoldMeasure</a> (I2C_TypeDef *i2c, uint8_t addr, uint8_t command)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Starts a no hold measurement in the Si7013 sensor.  <a href="#aa21ab038eb789adfeb374a0718666936"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int32_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Si7013.html#gac595b86107a208280179a6f07c08bfa3">Si7013_GetFirmwareRevision</a> (I2C_TypeDef *i2c, uint8_t addr, uint8_t *fwRev)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reads Firmware Revision from a Si7013 sensor.  <a href="group__Si7013.html#gac595b86107a208280179a6f07c08bfa3"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int32_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Si7013.html#ga3b89607cfc5570713fa1ec217d1dca2a">Si7013_StartNoHoldMeasureRHAndTemp</a> (I2C_TypeDef *i2c, uint8_t addr)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Starts no hold measurement of relative humidity and temperature from a Si7013 sensor.  <a href="group__Si7013.html#ga3b89607cfc5570713fa1ec217d1dca2a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static int32_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="si7013_8c.html#aac982b24812984ce1a88c4db52eb1d23">Si7013_ReadNoHoldData</a> (I2C_TypeDef *i2c, uint8_t addr, uint32_t *data)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reads data from the Si7013 sensor.  <a href="#aac982b24812984ce1a88c4db52eb1d23"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int32_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Si7013.html#ga3eff490673aecb28afaadd73b2a3712f">Si7013_ReadNoHoldRHAndTemp</a> (I2C_TypeDef *i2c, uint8_t addr, uint32_t *rhData, int32_t *tData)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reads relative humidity and temperature from a Si7013 sensor.  <a href="group__Si7013.html#ga3eff490673aecb28afaadd73b2a3712f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int32_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Si7013.html#gac98bb80b752e8d70e52fb58f4382237b">Si7013_MeasureRHAndTemp</a> (I2C_TypeDef *i2c, uint8_t addr, uint32_t *rhData, int32_t *tData)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reads relative humidity and temperature from a Si7013 sensor.  <a href="group__Si7013.html#gac98bb80b752e8d70e52fb58f4382237b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a22de9e7f787f823b4d07197d42c5792c"></a><!-- doxytag: member="si7013.c::Si7013_WriteUserReg2" ref="a22de9e7f787f823b4d07197d42c5792c" args="(I2C_TypeDef *i2c, uint8_t addr, int8_t data)" -->
-static int32_t&nbsp;</td><td class="memItemRight" valign="bottom"><b>Si7013_WriteUserReg2</b> (I2C_TypeDef *i2c, uint8_t addr, int8_t data)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int32_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Si7013.html#ga4e0ff510d89029fafb509e8c0257e0b0">Si7013_MeasureV</a> (I2C_TypeDef *i2c, uint8_t addr, int32_t *vData)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reads relative humidity and temperature from a Si7013 sensor.  <a href="group__Si7013.html#ga4e0ff510d89029fafb509e8c0257e0b0"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Si7013.html#ga93b1a4e0a94737abd16ec547004c270f">Si7013_Detect</a> (I2C_TypeDef *i2c, uint8_t addr, uint8_t *deviceId)</td></tr>
@@ -113,229 +105,17 @@ static int32_t&nbsp;</td><td class="memItemRight" valign="bottom"><b>Si7013_Writ
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Driver for the Si7013 Temperature / Humidity sensor. </p>
-<dl class="version"><dt><b>Version:</b></dt><dd>4.0.0</dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>4.1.0</dd></dl>
 <h2><a class="anchor" id="License">
 License</a></h2>
 <p><b>(C) Copyright 2014 Silicon Labs, <a href="http://www.silabs.com">http://www.silabs.com</a></b></p>
 <p>This file is licensed under the Silabs License Agreement. See the file "Silabs_License_Agreement.txt" for details. Before using this software for any purpose, you must agree to the terms of that agreement. </p>
 
 <p>Definition in file <a class="el" href="si7013_8c_source.html">si7013.c</a>.</p>
-<hr/><h2>Function Documentation</h2>
-<a class="anchor" id="a51296512c4d2913a4d9cfe48031e0342"></a><!-- doxytag: member="si7013.c::Si7013_Measure" ref="a51296512c4d2913a4d9cfe48031e0342" args="(I2C_TypeDef *i2c, uint8_t addr, uint32_t *data, uint8_t command)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">static int32_t Si7013_Measure </td>
-          <td>(</td>
-          <td class="paramtype">I2C_TypeDef *&nbsp;</td>
-          <td class="paramname"> <em>i2c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&nbsp;</td>
-          <td class="paramname"> <em>addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t *&nbsp;</td>
-          <td class="paramname"> <em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&nbsp;</td>
-          <td class="paramname"> <em>command</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td><code> [static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Reads data from the Si7013 sensor. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>i2c</em>&nbsp;</td><td>The I2C peripheral to use (not used). </td></tr>
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>addr</em>&nbsp;</td><td>The I2C address of the sensor. </td></tr>
-    <tr><td valign="top"><tt>[out]</tt>&nbsp;</td><td valign="top"><em>data</em>&nbsp;</td><td>The data read from the sensor. </td></tr>
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>command</em>&nbsp;</td><td>The command to send to device. See the #define's for details. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>Returns number of bytes read on success. Otherwise returns error codes based on the I2CDRV. </dd></dl>
-
-<p>Definition at line <a class="el" href="si7013_8c_source.html#l00068">68</a> of file <a class="el" href="si7013_8c_source.html">si7013.c</a>.</p>
-
-<p>References <a class="el" href="i2cspm_8c_source.html#l00124">I2CSPM_Transfer()</a>.</p>
-
-<p>Referenced by <a class="el" href="si7013_8c_source.html#l00298">Si7013_MeasureRHAndTemp()</a>, <a class="el" href="si7013_8c_source.html#l00370">Si7013_MeasureV()</a>, and <a class="el" href="si7013_8c_source.html#l00255">Si7013_ReadNoHoldRHAndTemp()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="si7013_8c_a51296512c4d2913a4d9cfe48031e0342_cgraph.png" border="0" usemap="#si7013_8c_a51296512c4d2913a4d9cfe48031e0342_cgraph_map" alt=""></div>
-<map name="si7013_8c_a51296512c4d2913a4d9cfe48031e0342_cgraph_map" id="si7013_8c_a51296512c4d2913a4d9cfe48031e0342_cgraph">
-<area shape="rect" id="node3" href="group__I2CSPM.html#ga076766b20012fb6a0cdaaf0f2c760795" title="Perform I2C transfer." alt="" coords="171,5,293,32"/></map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="si7013_8c_a51296512c4d2913a4d9cfe48031e0342_icgraph.png" border="0" usemap="#si7013_8c_a51296512c4d2913a4d9cfe48031e0342_icgraph_map" alt=""></div>
-<map name="si7013_8c_a51296512c4d2913a4d9cfe48031e0342_icgraph_map" id="si7013_8c_a51296512c4d2913a4d9cfe48031e0342_icgraph">
-<area shape="rect" id="node3" href="group__Si7013.html#gac98bb80b752e8d70e52fb58f4382237b" title="Reads relative humidity and temperature from a Si7013 sensor." alt="" coords="181,5,369,32"/><area shape="rect" id="node5" href="group__Si7013.html#ga4e0ff510d89029fafb509e8c0257e0b0" title="Reads relative humidity and temperature from a Si7013 sensor." alt="" coords="212,56,337,83"/><area shape="rect" id="node7" href="group__Si7013.html#ga3eff490673aecb28afaadd73b2a3712f" title="Reads relative humidity and temperature from a Si7013 sensor." alt="" coords="171,107,379,133"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="aac982b24812984ce1a88c4db52eb1d23"></a><!-- doxytag: member="si7013.c::Si7013_ReadNoHoldData" ref="aac982b24812984ce1a88c4db52eb1d23" args="(I2C_TypeDef *i2c, uint8_t addr, uint32_t *data)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">static int32_t Si7013_ReadNoHoldData </td>
-          <td>(</td>
-          <td class="paramtype">I2C_TypeDef *&nbsp;</td>
-          <td class="paramname"> <em>i2c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&nbsp;</td>
-          <td class="paramname"> <em>addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t *&nbsp;</td>
-          <td class="paramname"> <em>data</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td><code> [static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Reads data from the Si7013 sensor. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>i2c</em>&nbsp;</td><td>The I2C peripheral to use (not used). </td></tr>
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>addr</em>&nbsp;</td><td>The I2C address of the sensor. </td></tr>
-    <tr><td valign="top"><tt>[out]</tt>&nbsp;</td><td valign="top"><em>data</em>&nbsp;</td><td>The data read from the sensor. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>Returns number of bytes read on success. Otherwise returns error codes based on the I2CDRV. </dd></dl>
-
-<p>Definition at line <a class="el" href="si7013_8c_source.html#l00213">213</a> of file <a class="el" href="si7013_8c_source.html">si7013.c</a>.</p>
-
-<p>References <a class="el" href="i2cspm_8c_source.html#l00124">I2CSPM_Transfer()</a>.</p>
-
-<p>Referenced by <a class="el" href="si7013_8c_source.html#l00255">Si7013_ReadNoHoldRHAndTemp()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="si7013_8c_aac982b24812984ce1a88c4db52eb1d23_cgraph.png" border="0" usemap="#si7013_8c_aac982b24812984ce1a88c4db52eb1d23_cgraph_map" alt=""></div>
-<map name="si7013_8c_aac982b24812984ce1a88c4db52eb1d23_cgraph_map" id="si7013_8c_aac982b24812984ce1a88c4db52eb1d23_cgraph">
-<area shape="rect" id="node3" href="group__I2CSPM.html#ga076766b20012fb6a0cdaaf0f2c760795" title="Perform I2C transfer." alt="" coords="216,5,339,32"/></map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="si7013_8c_aac982b24812984ce1a88c4db52eb1d23_icgraph.png" border="0" usemap="#si7013_8c_aac982b24812984ce1a88c4db52eb1d23_icgraph_map" alt=""></div>
-<map name="si7013_8c_aac982b24812984ce1a88c4db52eb1d23_icgraph_map" id="si7013_8c_aac982b24812984ce1a88c4db52eb1d23_icgraph">
-<area shape="rect" id="node3" href="group__Si7013.html#ga3eff490673aecb28afaadd73b2a3712f" title="Reads relative humidity and temperature from a Si7013 sensor." alt="" coords="216,5,424,32"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="aa21ab038eb789adfeb374a0718666936"></a><!-- doxytag: member="si7013.c::Si7013_StartNoHoldMeasure" ref="aa21ab038eb789adfeb374a0718666936" args="(I2C_TypeDef *i2c, uint8_t addr, uint8_t command)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">static int32_t Si7013_StartNoHoldMeasure </td>
-          <td>(</td>
-          <td class="paramtype">I2C_TypeDef *&nbsp;</td>
-          <td class="paramname"> <em>i2c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&nbsp;</td>
-          <td class="paramname"> <em>addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&nbsp;</td>
-          <td class="paramname"> <em>command</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td><code> [static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Starts a no hold measurement in the Si7013 sensor. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>i2c</em>&nbsp;</td><td>The I2C peripheral to use (not used). </td></tr>
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>addr</em>&nbsp;</td><td>The I2C address of the sensor. </td></tr>
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>command</em>&nbsp;</td><td>The command to send to device. See the #define's for details. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>Returns number of bytes read on success. Otherwise returns error codes based on the I2CDRV. </dd></dl>
-
-<p>Definition at line <a class="el" href="si7013_8c_source.html#l00112">112</a> of file <a class="el" href="si7013_8c_source.html">si7013.c</a>.</p>
-
-<p>References <a class="el" href="i2cspm_8c_source.html#l00124">I2CSPM_Transfer()</a>.</p>
-
-<p>Referenced by <a class="el" href="si7013_8c_source.html#l00193">Si7013_StartNoHoldMeasureRHAndTemp()</a>.</p>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="si7013_8c_aa21ab038eb789adfeb374a0718666936_cgraph.png" border="0" usemap="#si7013_8c_aa21ab038eb789adfeb374a0718666936_cgraph_map" alt=""></div>
-<map name="si7013_8c_aa21ab038eb789adfeb374a0718666936_cgraph_map" id="si7013_8c_aa21ab038eb789adfeb374a0718666936_cgraph">
-<area shape="rect" id="node3" href="group__I2CSPM.html#ga076766b20012fb6a0cdaaf0f2c760795" title="Perform I2C transfer." alt="" coords="240,5,363,32"/></map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dynsection">
-<div class="center"><img src="si7013_8c_aa21ab038eb789adfeb374a0718666936_icgraph.png" border="0" usemap="#si7013_8c_aa21ab038eb789adfeb374a0718666936_icgraph_map" alt=""></div>
-<map name="si7013_8c_aa21ab038eb789adfeb374a0718666936_icgraph_map" id="si7013_8c_aa21ab038eb789adfeb374a0718666936_icgraph">
-<area shape="rect" id="node3" href="group__Si7013.html#ga3b89607cfc5570713fa1ec217d1dca2a" title="Starts no hold measurement of relative humidity and temperature from a Si7013 sensor..." alt="" coords="240,5,496,32"/></map>
-</div>
-</p>
-
-</div>
-</div>
 </div>
 <div id="footer">
 <hr size="1"><address style="text-align: right;"><small>
-Generated on Fri May 29 11:29:42 2015</small> for Board Support Package by&nbsp;
+Generated on Mon Sep 7 09:26:17 2015</small> for Board Support Package by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a><small> 1.6.3 </small></address></div>
 </body>

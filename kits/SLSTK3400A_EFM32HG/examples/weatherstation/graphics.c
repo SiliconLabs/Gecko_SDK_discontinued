@@ -1,6 +1,6 @@
 /**************************************************************************//**
  * @brief Draws the graphics on the display
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -32,10 +32,10 @@ static void GRAPHICS_DrawUV(int xoffset, uint32_t uvData);
 static void findCoord (int rh, int *x, int *height);
 static void GRAPHICS_CreateString(char *string, int32_t value);
 
-/* Humidity sine lookup table for coordinates (1/4 sine wave, 50 points) */
-static const int8_t sinLUT [] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22
-, 23, 23, 24, 25, 26, 26, 27, 28, 28, 29, 30, 30, 31, 31, 32, 32, 32, 33, 33, 33
-, 34, 34, 34, 34, 34, 34, 34};
+/* Humidity sine lookup table for coordinates (1/4 sine wave, 51 points) */
+static const int8_t sinLUT [] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 15, 16, 17, 18, 19, 20, 21
+, 22, 23, 23, 24, 25, 25, 26, 26, 27, 28, 28, 29, 29, 29, 30, 30, 30, 31, 31, 31
+, 31, 32, 32, 32, 32, 32, 32, 32};
 
 /**************************************************************************//**
  * @brief Initializes the graphics stack.
@@ -91,7 +91,6 @@ static void GRAPHICS_DrawBackground(int xoffset)
     size = 128;
   }
 
-
   for (y = 0; y < 128; y++)
   {
     /* Write bitmap to display */
@@ -132,14 +131,11 @@ void GRAPHICS_ShowStatus(bool si114x_status, bool si7013_status, bool removeObje
 
   GLIB_clear(&glibContext);
 
-
   if (removeObject)
   {
-
     GLIB_drawString(&glibContext, "Please remove ", 15, 5, 40, 0);
     GLIB_drawString(&glibContext, "object in front", 15, 5, 50, 0);
     GLIB_drawString(&glibContext, "of sensor board", 15, 5, 60, 0);
-
   }
   else
   {
@@ -147,7 +143,6 @@ void GRAPHICS_ShowStatus(bool si114x_status, bool si7013_status, bool removeObje
     GLIB_drawString(&glibContext, "press PB1 or", 14, 5, 30, 0);
     GLIB_drawString(&glibContext, "hover hand over", 15, 5, 40, 0);
     GLIB_drawString(&glibContext, "sensor board.", 13, 5, 50, 0);
-
   }
 
   if (lowBat)
@@ -246,7 +241,6 @@ static void GRAPHICS_DrawTemperatureF(int xoffset, int yoffset, int32_t tempData
     height = 91 - (((tempData - 16) * 223) >> 8); /* *0.87 -> 223/256 */
   }
 
-
   if (yoffset != 16)
   {
     height = 91;
@@ -261,7 +255,6 @@ static void GRAPHICS_DrawTemperatureF(int xoffset, int yoffset, int32_t tempData
   GLIB_drawString(&glibContext, "20", 2, 72 - dx, 85 - dy, 0);
   GLIB_drawString(&glibContext, "100", 3, 64 - dx, 15 - dy, 0);
 }
-
 
 /**************************************************************************//**
  * @brief Helper function for drawing the temperature in Celsius.
@@ -317,8 +310,6 @@ static void GRAPHICS_DrawTemperatureC(int xoffset, int yoffset, int32_t tempData
   GLIB_drawString(&glibContext, "C", 1, 112 - dx, 42 - dy, 0);
 }
 
-
-
 /**************************************************************************//**
  * @brief Helper function for drawing the humidity part of the UI.
  * @param xoffset
@@ -342,7 +333,6 @@ static void GRAPHICS_DrawHumidity(int xoffset, uint32_t rhData)
   {
     GLIB_drawLine(&glibContext, 200 - dx, 105, 200 + x - dx, 105 - height);
   }
-
 }
 
 /**************************************************************************//**

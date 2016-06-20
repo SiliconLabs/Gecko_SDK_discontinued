@@ -51,5 +51,6 @@
     <file name="main.c" uri="main.c" />
     <file name="analog_clock.c" uri="analog_clock.c" />
   </folder>
+<property key="category" value="MCU Examples"/>
   <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.size"/>
 </project>

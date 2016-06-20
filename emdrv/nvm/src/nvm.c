@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file nvm.c
  * @brief NVM API implementation
- * @version 4.0.0
+ * @version 4.1.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -45,8 +45,8 @@
 
 #define NVM_PAGES_PER_WEAR_HISTORY             0x8U
 
-/* Macros for acquiring and releasing write lock. Currently empty but could be redefined 
-   in RTOSes to add resources protection. It is not recommended to call the NVM module 
+/* Macros for acquiring and releasing write lock. Currently empty but could be redefined
+   in RTOSes to add resources protection. It is not recommended to call the NVM module
    from interrupts or other tasks without ensuring that it is not used by main thread.   */
 #ifndef NVM_ACQUIRE_WRITE_LOCK
 #define NVM_ACQUIRE_WRITE_LOCK
@@ -165,7 +165,7 @@ static Ecode_t NVM_StaticWearCheck(void);
  *   Ecode_t.
  *
  *   If ECODE_EMDRV_NVM_OK is returned, everything went according to plan and you
- *   can use the API right away. If ECODE_EMDRV_NVM_NO_PAGES_AVAILABLE is returned this 
+ *   can use the API right away. If ECODE_EMDRV_NVM_NO_PAGES_AVAILABLE is returned this
  *   is a device that validates, but is empty. The proper way to handle this is to
  *   first reset the memory using NVM_Erase, and then write any initial
  *   data.
@@ -179,7 +179,7 @@ static Ecode_t NVM_StaticWearCheck(void);
  *   Pointer to structure defining NVM area.
  *
  * @return
- *   Returns the result of the initialization 
+ *   Returns the result of the initialization
  ******************************************************************************/
 Ecode_t NVM_Init(NVM_Config_t const *config)
 {
@@ -207,12 +207,12 @@ Ecode_t NVM_Init(NVM_Config_t const *config)
     return ECODE_EMDRV_NVM_ERROR;
 
   /* now check that page structures fits to physical page size */
-  { 
+  {
     uint16_t pageIdx = 0, obj = 0, sum = 0;
     const NVM_Page_Descriptor_t *currentPage;
-    
+
     for(pageIdx = 0; pageIdx < config->userPages; pageIdx++)
-    { 
+    {
       sum = 0;
       obj = 0;
       currentPage = &((*(config->nvmPages))[pageIdx]);
@@ -226,7 +226,7 @@ Ecode_t NVM_Init(NVM_Config_t const *config)
         {
           return ECODE_EMDRV_NVM_ERROR; /* objects bigger than page size */
         }
-      } 
+      }
       else
       {
         if(currentPage->pageType == nvmPageTypeWear)
@@ -235,7 +235,7 @@ Ecode_t NVM_Init(NVM_Config_t const *config)
           {
             return ECODE_EMDRV_NVM_ERROR; /* objects bigger than page size */
           }
-        } else 
+        } else
           {
             return ECODE_EMDRV_NVM_ERROR; /* unknown page type */
           }
@@ -423,8 +423,8 @@ Ecode_t NVM_Erase(uint32_t erasureCount)
  *   corresponding page entry. All the objects in a page can be written
  *   simultaneously by using NVM_WRITE_ALL instead of an object ID. For "normal"
  *   pages it simply finds not used page in flash (with lowest erase counter) and
- *   copies all objects belonging to this page updating objects defined by 
- *   objectId argument. For "wear" pages function tries to find spare place in 
+ *   copies all objects belonging to this page updating objects defined by
+ *   objectId argument. For "wear" pages function tries to find spare place in
  *   already used page and write object here - if there is no free space it uses
  *   new page invalidating previously used one.
  *
@@ -1537,74 +1537,74 @@ static Ecode_t NVM_StaticWearCheck(void)
 
 @n @section nvm_intro Introduction
 
-  This driver allows you to store application data in NVM. The driver 
+  This driver allows you to store application data in NVM. The driver
   supports wear leveling to maximize the lifetime of the underlying NVM system
-  and data validation. The driver performs wear leveling by writing objects to 
-  the least used locations in the NVM system. The driver uses CCITT CRC16 for 
+  and data validation. The driver performs wear leveling by writing objects to
+  the least used locations in the NVM system. The driver uses CCITT CRC16 for
   data validation.
 
-  It is also possible for the user to specify certain pages as wear pages. 
-  These pages can only contain a single object, but they provide better performance 
-  and drastically increase the lifetime of the memory if the object is known to 
+  It is also possible for the user to specify certain pages as wear pages.
+  These pages can only contain a single object, but they provide better performance
+  and drastically increase the lifetime of the memory if the object is known to
   a low update frequency.
 
-  The size and layout of the data objects to be managed by this driver must be known at 
+  The size and layout of the data objects to be managed by this driver must be known at
   compile-time.
 
   This driver consists of  the files nvm.c, nvm.h and nvm_hal.h. Additionally, a
   implementation of nvm_hal.c is required for the specific NVM system to be used.
-  A implementation of nvm_hal.c for EFM32 Flash memory is included with this 
+  A implementation of nvm_hal.c for EFM32/EZR32/EFR32 Flash memory is included with this
   driver. Driver configuration parameters and specification of the data objects
-  are located in nvm_config.c and nvm_config.h. 
+  are located in nvm_config.c and nvm_config.h.
 
 @n @section nvm_conf Configuration Options
 
-  The files nvm_config.c and nvm_config.h contains compile-time configuration 
-  parameters and a specification of the user data structure to be managed by the 
+  The files nvm_config.c and nvm_config.h contains compile-time configuration
+  parameters and a specification of the user data structure to be managed by the
   driver.
-	
-  nvm_config.c implements an user data example. The arrays colorTable, coefficientTable, 
-  etc are defined and assigned to NVM pages. A pointer to each page is assigned to the 
-  page table nvmPages. The page table also contain a page type specifier. A page can 
+
+  nvm_config.c implements an user data example. The arrays colorTable, coefficientTable,
+  etc are defined and assigned to NVM pages. A pointer to each page is assigned to the
+  page table nvmPages. The page table also contain a page type specifier. A page can
   either be of type nvmPageTypeNormal or nvmPageTypeWear. Pages of type nvmPageTypeNormal
-  are written to the unused page with the lowest erase count. For pages of type nvmPageTypeWear, 
-  the data is first attempted fitted in a already used page. If this fails, then a a new 
-  page is selected based on the lowest erase count. Pages of type nvmPageTypeWear can only 
+  are written to the unused page with the lowest erase count. For pages of type nvmPageTypeWear,
+  the data is first attempted fitted in a already used page. If this fails, then a a new
+  page is selected based on the lowest erase count. Pages of type nvmPageTypeWear can only
   contain one  data object.
-	
-  In nvm_config.h, driver features can be enabled or disabled. The following parameters may 
-  require special attention: 
-  
+
+  In nvm_config.h, driver features can be enabled or disabled. The following parameters may
+  require special attention:
+
   - NVM_MAX_NUMBER_OF_PAGES: Maximum number of NVM pages allocated to the driver.
   - NVM_PAGES_SCRATCH: Configure extra pages to allocate for data security and wear leveling.
-  - NVM_PAGE_SIZE: Page size for the NVM system. Default is the size of the EFM32 flash.
+  - NVM_PAGE_SIZE: Page size for the NVM system. Default is the size of the flash.
 
   Users have to be aware of the following limitations:
   - Maximum 254 objects in a page.
   - Maximum 256 pages allocated to the driver. The default is 32 pages.
 
-  Note that the different EFM32 families have different page sizes. Please 
+  Note that the different EFM32/EZR32/EFR32 families have different page sizes. Please
   refer to the reference manual for details.
 
 @n @section nvm_api The API
 
-  This section contain brief descriptions of the functions defined by the API. You will find 
-  detailed information on input and output parameters and return values by clicking on the 
-  hyperlinked function names. Most functions return an error code or ECODE_EMDRV_NVM_OK is 
+  This section contain brief descriptions of the functions defined by the API. You will find
+  detailed information on input and output parameters and return values by clicking on the
+  hyperlinked function names. Most functions return an error code or ECODE_EMDRV_NVM_OK is
   returned on success. See ecode.h and nvm.h for other error codes.
 
   Your application code must include one header file: nvm.h.
 
-  The application may define the data objects allocated in RAM (and defined in nvm_config.c)    
+  The application may define the data objects allocated in RAM (and defined in nvm_config.c)
   as extern if direct access to these objects is required, eg:
-  
+
   @verbatim
-  extern uint32_t colorTable[];     
+  extern uint32_t colorTable[];
   @endverbatim
 
-  The driver requires that the NVM system is erased by calling @ref NVM_Erase() before the 
-  driver initialization function @ref NVM_Init() is called. @ref NVM_Init() requires a 
-  parameter to the configuration data. A pointer to the configuration data can be 
+  The driver requires that the NVM system is erased by calling @ref NVM_Erase() before the
+  driver initialization function @ref NVM_Init() is called. @ref NVM_Init() requires a
+  parameter to the configuration data. A pointer to the configuration data can be
   obtained by calling @ref NVM_ConfigGet().
 
   @ref NVM_Write() takes two parameters, a page ID and a object ID. These two parameters
@@ -1612,8 +1612,8 @@ static Ecode_t NVM_StaticWearCheck(void)
   colorTable is assigned to page 1 in the example version of nvm_config.c. To write the data
   in colorTable to NVM, call NVM_Write(MY_PAGE_1, COLOR_TABLE_ID).
 
-  @ref NVM_Read() reads the a data object or an entire page in NVM back to the structures 
-  defined for the page in RAM.  
+  @ref NVM_Read() reads the a data object or an entire page in NVM back to the structures
+  defined for the page in RAM.
 
 
 @n @section nvm_example Example
@@ -1625,15 +1625,15 @@ static Ecode_t NVM_StaticWearCheck(void)
   #include "nvm.h"
 
   // Data object extern declarations matching the example data defined in nvm_config.c
-  extern uint32_t colorTable[];        
+  extern uint32_t colorTable[];
   extern uint8_t coefficientTable[];
-  extern uint8_t primeNumberTable[];    
-  extern uint8_t bonusTable[];    
+  extern uint8_t primeNumberTable[];
+  extern uint8_t bonusTable[];
   extern uint8_t privateKeyTable[];
   extern uint8_t transformTable[];
-  extern int32_t safetyTable[];      
+  extern int32_t safetyTable[];
   extern uint8_t bigEmptyTable[450];
-  extern uint32_t singleVariable;    
+  extern uint32_t singleVariable;
 
   // Object and page IDs maching the data defined in nvm_config.c
   typedef enum
@@ -1674,7 +1674,7 @@ static Ecode_t NVM_StaticWearCheck(void)
   NVM_Write(MY_PAGE_3, NVM_WRITE_ALL_CMD));
   NVM_Write(MY_PAGE_4, NVM_WRITE_ALL_CMD));
 
-  // Set some data elements to 0  
+  // Set some data elements to 0
   for (i = 0; i < 4; i++)
   {
     bonusTable[i] = 0;
@@ -1694,10 +1694,10 @@ static Ecode_t NVM_StaticWearCheck(void)
     if (primeNumberTable[i] == 0)
     {
       // Should not happen
-    }  
+    }
   }
 
   @endverbatim
 
  * @}**************************************************************************/
- 
+

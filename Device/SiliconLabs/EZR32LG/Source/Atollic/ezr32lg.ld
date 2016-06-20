@@ -10,7 +10,7 @@
 **
 **  Target      : Silicon Labs EZR32LG devices.
 **
-**  Version     : 4.0.0
+**  Version     : 4.1.0
 **
 **  Environment : Atollic TrueSTUDIO(R)
 **

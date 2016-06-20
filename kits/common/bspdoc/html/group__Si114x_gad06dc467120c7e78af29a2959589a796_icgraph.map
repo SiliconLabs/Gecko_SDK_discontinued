@@ -1,6 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$si114x__functions_8c.html#a1f05335605433b4c715436f8c2750127" title="This is a helper function called from si114x_get_calibration() Writes 0x11 to the..." alt="" coords="137,5,279,32"/>
-<area shape="rect" id="node5" href="$group__Si114x.html#gadbec1218d8cc103d4d6c2fc0ec0f6abf" title="Populates the SI114X_CAL_S structure." alt="" coords="328,31,477,57"/>
-<area shape="rect" id="node7" href="$group__Si114x.html#ga79b0443305d3a085028d1c197d398ede" title="Initializes and configures the Si1147 sensor." alt="" coords="525,5,701,32"/>
-<area shape="rect" id="node9" href="$si114x__uv__index_8h.html#aee56b411a2cb91ae85cae51c2d4039f7" title="Initializes and configures the Si1146 sensor for UV index measurements." alt="" coords="544,56,683,83"/>
+<area shape="rect" id="node3" href="$group__Si114x.html#gadbec1218d8cc103d4d6c2fc0ec0f6abf" title="Populates the SI114X_CAL_S structure." alt="" coords="136,31,285,57"/>
+<area shape="rect" id="node5" href="$group__Si114x.html#ga79b0443305d3a085028d1c197d398ede" title="Initializes and configures the Si1147 sensor." alt="" coords="333,5,509,32"/>
+<area shape="rect" id="node7" href="$si114x__uv__index_8h.html#aee56b411a2cb91ae85cae51c2d4039f7" title="Initializes and configures the Si1146 sensor for UV index measurements." alt="" coords="352,56,491,83"/>
 </map>

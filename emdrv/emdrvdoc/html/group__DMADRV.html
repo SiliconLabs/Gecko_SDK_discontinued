@@ -96,8 +96,10 @@ Collaboration diagram for DMADRV:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Maximum length of one DMA transfer.  <a href="#gaf9bcfe1e5a7ead155ba92b8132c5f17f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DMADRV.html#gaf9bcfe1e5a7ead155ba92b8132c5f17f">DMADRV_MAX_XFER_COUNT</a>&nbsp;&nbsp;&nbsp;((int)((_LDMA_CH_CTRL_XFERCNT_MASK &gt;&gt; _LDMA_CH_CTRL_XFERCNT_SHIFT) + 1))</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Maximum length of one DMA transfer.  <a href="#gaf9bcfe1e5a7ead155ba92b8132c5f17f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DMADRV.html#ga07d3657f90a97cfe07c9890f54670d47">EMDRV_DMADRV_DMA_CH_PRIORITY</a>&nbsp;&nbsp;&nbsp;0</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">DMADRV DMA interrupt priority configuration option.  <a href="#ga07d3657f90a97cfe07c9890f54670d47"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DMADRV.html#ga6f53d4015fbc79bce2e418aa7b4a09d4">EMDRV_DMADRV_DMA_CH_COUNT</a>&nbsp;&nbsp;&nbsp;4</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">DMADRV DMA interrupt priority configuration option.  <a href="#ga6f53d4015fbc79bce2e418aa7b4a09d4"></a><br/></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">DMADRV channel count configuration option.  <a href="#ga6f53d4015fbc79bce2e418aa7b4a09d4"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DMADRV.html#ga571ae25c6cd18c189db365f43e58fa17">EMDRV_DMADRV_USE_NATIVE_API</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">DMADRV native API configuration option.  <a href="#ga571ae25c6cd18c189db365f43e58fa17"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Typedefs</h2></td></tr>
@@ -107,9 +109,9 @@ Collaboration diagram for DMADRV:</div>
 <tr><td class="memItemLeft" align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DMADRV.html#ga9d887cd6a26d26ed74cb19d77b501a94">DMADRV_Peripheralsignal_t</a> { <br/>
 &nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba0296437c3f8ce2a2060669c7c43011d0">dmadrvPeripheralSignal_NONE</a> =  0, 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a2a1ef3bc3ad0e396240a05f9deebabbc">dmadrvPeripheralSignal_ADC0_SCAN</a> =  ((8 &lt;&lt; 16) + 1), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797baf8f4a6f2ce001021c19edc42bcad9a65">dmadrvPeripheralSignal_ADC0_SCAN</a> =  ((8 &lt;&lt; 16) + 1), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a730b62d75a9c375aa71c2e8059e49175">dmadrvPeripheralSignal_ADC0_SINGLE</a> =  ((8 &lt;&lt; 16) + 0), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba31c1917416fa2f0c1c2ea5953eecd089">dmadrvPeripheralSignal_ADC0_SINGLE</a> =  ((8 &lt;&lt; 16) + 0), 
 <br/>
 &nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a2537ae66fc6c3e22e0bfc151a50ba324">dmadrvPeripheralSignal_AES_DATARD</a> =  ((49 &lt;&lt; 16) + 2), 
 <br/>
@@ -131,9 +133,9 @@ Collaboration diagram for DMADRV:</div>
 <br/>
 &nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a9e6dc5e30c4cb26ec9c0bd9337b176c1">dmadrvPeripheralSignal_EBI_PXLFULL</a> =  ((51 &lt;&lt; 16) + 2), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a1d3289418c933a051e4deeb0b82ac2d3">dmadrvPeripheralSignal_I2C0_RXDATAV</a> =  ((20 &lt;&lt; 16) + 0), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba0802607c9126f10b390a51132cd662bd">dmadrvPeripheralSignal_I2C0_RXDATAV</a> =  ((20 &lt;&lt; 16) + 0), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a1fa59d5fd04b287aad5e3f3e64ad7bea">dmadrvPeripheralSignal_I2C0_TXBL</a> =  ((20 &lt;&lt; 16) + 1), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797baa6ec7231aa9ee7f6b6fd3fc3324822e9">dmadrvPeripheralSignal_I2C0_TXBL</a> =  ((20 &lt;&lt; 16) + 1), 
 <br/>
 &nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a69fa6ea90cdd0fbbfd880c4f91fdc029">dmadrvPeripheralSignal_I2C1_RXDATAV</a> =  ((21 &lt;&lt; 16) + 0), 
 <br/>
@@ -141,11 +143,11 @@ Collaboration diagram for DMADRV:</div>
 <br/>
 &nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a944bdb39e2d2b0f7d970c425d9c05014">dmadrvPeripheralSignal_LESENSE_BUFDATAV</a> =  ((50 &lt;&lt; 16) + 0), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94af811d74a1e48252bd51c3d7beeaf75bc">dmadrvPeripheralSignal_LEUART0_RXDATAV</a> =  ((16 &lt;&lt; 16) + 0), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba09532c3bb1e03fbf8493026f02c279ac">dmadrvPeripheralSignal_LEUART0_RXDATAV</a> =  ((16 &lt;&lt; 16) + 0), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94ad2a146e0731c8a3da96131d8b4ba72a4">dmadrvPeripheralSignal_LEUART0_TXBL</a> =  ((16 &lt;&lt; 16) + 1), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797baeec888c2204bf453e864524b338a9477">dmadrvPeripheralSignal_LEUART0_TXBL</a> =  ((16 &lt;&lt; 16) + 1), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a4d0cec365a1c08a19d4f804beff324c9">dmadrvPeripheralSignal_LEUART0_TXEMPTY</a> =  ((16 &lt;&lt; 16) + 2), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797baf322d2738cafd35708c2cc08b0d7688e">dmadrvPeripheralSignal_LEUART0_TXEMPTY</a> =  ((16 &lt;&lt; 16) + 2), 
 <br/>
 &nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94ad198d7fcb0287a43169f21a58360fab0">dmadrvPeripheralSignal_LEUART1_RXDATAV</a> =  ((17 &lt;&lt; 16) + 0), 
 <br/>
@@ -153,23 +155,23 @@ Collaboration diagram for DMADRV:</div>
 <br/>
 &nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a37541878bd2f68f706a9d744ab72a211">dmadrvPeripheralSignal_LEUART1_TXEMPTY</a> =  ((17 &lt;&lt; 16) + 2), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94ab28ac65c3e88f46e259e58c3865625b3">dmadrvPeripheralSignal_MSC_WDATA</a> =  ((48 &lt;&lt; 16) + 0), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba0742cb9efdb5973e8b69c4432b116733">dmadrvPeripheralSignal_MSC_WDATA</a> =  ((48 &lt;&lt; 16) + 0), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a79fcd973bfa770a5b43add1f775f9ea5">dmadrvPeripheralSignal_TIMER0_CC0</a> =  ((24 &lt;&lt; 16) + 1), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba71949439e5910cec59009d16dd267185">dmadrvPeripheralSignal_TIMER0_CC0</a> =  ((24 &lt;&lt; 16) + 1), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a0aca7c33d8f4e7d44b086cca56de5183">dmadrvPeripheralSignal_TIMER0_CC1</a> =  ((24 &lt;&lt; 16) + 2), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797baeb78479e92c2594ccb5059e414c6d18d">dmadrvPeripheralSignal_TIMER0_CC1</a> =  ((24 &lt;&lt; 16) + 2), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a42ba1c2958ab9d5259eaef7fc5bb7a65">dmadrvPeripheralSignal_TIMER0_CC2</a> =  ((24 &lt;&lt; 16) + 3), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba29cafae8694af7dcb2bf1be4d02af65a">dmadrvPeripheralSignal_TIMER0_CC2</a> =  ((24 &lt;&lt; 16) + 3), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a1acb7f6f87f384fcb8e6a79c47b189ca">dmadrvPeripheralSignal_TIMER0_UFOF</a> =  ((24 &lt;&lt; 16) + 0), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797bad8fb3e277745d9e036eb3ec32b85c6f6">dmadrvPeripheralSignal_TIMER0_UFOF</a> =  ((24 &lt;&lt; 16) + 0), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a4c485eccb40c1edf5c488a4d10d5ac80">dmadrvPeripheralSignal_TIMER1_CC0</a> =  ((25 &lt;&lt; 16) + 1), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797badd32cc452e64f1b161ed807263c17fe6">dmadrvPeripheralSignal_TIMER1_CC0</a> =  ((25 &lt;&lt; 16) + 1), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a440062c01235303fec3da3300513db08">dmadrvPeripheralSignal_TIMER1_CC1</a> =  ((25 &lt;&lt; 16) + 2), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba068fd07d4144662c2c7034896ddc9c40">dmadrvPeripheralSignal_TIMER1_CC1</a> =  ((25 &lt;&lt; 16) + 2), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a20b263f9c7065d4d53b8b395017495b7">dmadrvPeripheralSignal_TIMER1_CC2</a> =  ((25 &lt;&lt; 16) + 3), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba64ecc455c7e0e995c8c947a9f693e202">dmadrvPeripheralSignal_TIMER1_CC2</a> =  ((25 &lt;&lt; 16) + 3), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a306f1dbaa369b32c1331119712478f96">dmadrvPeripheralSignal_TIMER1_UFOF</a> =  ((25 &lt;&lt; 16) + 0), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797bab94e37a5d625e04fcecb923632549a5d">dmadrvPeripheralSignal_TIMER1_UFOF</a> =  ((25 &lt;&lt; 16) + 0), 
 <br/>
 &nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94aa7cd539cf5e373985e7c6e87cd3052a3">dmadrvPeripheralSignal_TIMER2_CC0</a> =  ((26 &lt;&lt; 16) + 1), 
 <br/>
@@ -199,21 +201,21 @@ Collaboration diagram for DMADRV:</div>
 <br/>
 &nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a6c3ca982b3356c01f063bfc50b2499c5">dmadrvPeripheralSignal_UART1_TXEMPTY</a> =  ((45 &lt;&lt; 16) + 2), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a0b032a3b56d071390c51157e5a30aca1">dmadrvPeripheralSignal_USART0_RXDATAV</a> =  ((12 &lt;&lt; 16) + 0), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba50a01bc196894fc0ba7e900554d124fb">dmadrvPeripheralSignal_USART0_RXDATAV</a> =  ((12 &lt;&lt; 16) + 0), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a494dacaab0d709d9733d8cd2b2686b68">dmadrvPeripheralSignal_USART0_TXBL</a> =  ((12 &lt;&lt; 16) + 1), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba6a128e5d6a5f1846b74d7b0576a00dbd">dmadrvPeripheralSignal_USART0_TXBL</a> =  ((12 &lt;&lt; 16) + 1), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94ae1d164a3d166ebe297f6d585c8e1037d">dmadrvPeripheralSignal_USART0_TXEMPTY</a> =  ((12 &lt;&lt; 16) + 2), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797bac587f4472d74600239f2a60fe51cf4a2">dmadrvPeripheralSignal_USART0_TXEMPTY</a> =  ((12 &lt;&lt; 16) + 2), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94ad9c9e0c14c22649844a82149c4f1bf72">dmadrvPeripheralSignal_USART1_RXDATAV</a> =  ((13 &lt;&lt; 16) + 0), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797bae846c0d095c59094b9cc2864e861d36b">dmadrvPeripheralSignal_USART1_RXDATAV</a> =  ((13 &lt;&lt; 16) + 0), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a593b2e490b7bd250787514f141b8c932">dmadrvPeripheralSignal_USART1_RXDATAVRIGHT</a> =  ((13 &lt;&lt; 16) + 3), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797bae9e28d2e7205e396aae6fe51e8c9eedc">dmadrvPeripheralSignal_USART1_RXDATAVRIGHT</a> =  ((13 &lt;&lt; 16) + 3), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a14d938537b90719aca30a7a47f82dbcf">dmadrvPeripheralSignal_USART1_TXBL</a> =  ((13 &lt;&lt; 16) + 1), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797baaa80b02111eaa3c5c5b52381af26c6ba">dmadrvPeripheralSignal_USART1_TXBL</a> =  ((13 &lt;&lt; 16) + 1), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a4b91cf73315390a52120bb8abdb12f39">dmadrvPeripheralSignal_USART1_TXBLRIGHT</a> =  ((13 &lt;&lt; 16) + 4), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba142fe01bf31cd1ef51cc69ab631e3722">dmadrvPeripheralSignal_USART1_TXBLRIGHT</a> =  ((13 &lt;&lt; 16) + 4), 
 <br/>
-&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a23e8ff7996b0985ba39e32585c97f276">dmadrvPeripheralSignal_USART1_TXEMPTY</a> =  ((13 &lt;&lt; 16) + 2), 
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797bab0f62eb7088acb101e6b92b0fe30ea2a">dmadrvPeripheralSignal_USART1_TXEMPTY</a> =  ((13 &lt;&lt; 16) + 2), 
 <br/>
 &nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga9d887cd6a26d26ed74cb19d77b501a94a149e7c19ba737648e73eda0b65e21ca4">dmadrvPeripheralSignal_USART2_RXDATAV</a> =  ((14 &lt;&lt; 16) + 0), 
 <br/>
@@ -238,7 +240,63 @@ Collaboration diagram for DMADRV:</div>
  }</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><p>Data size of one UDMA transfer item. </p>
  <a href="group__DMADRV.html#ga5c64472ab957fa92a8b5099895591a8e">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DMADRV.html#ga12209f50fd4ec4e4b50f7c5217e8797b">DMADRV_PeripheralSignal_t</a> { <a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba0296437c3f8ce2a2060669c7c43011d0">dmadrvPeripheralSignal_NONE</a> =  0
+<tr><td class="memItemLeft" align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DMADRV.html#ga12209f50fd4ec4e4b50f7c5217e8797b">DMADRV_PeripheralSignal_t</a> { <br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba0296437c3f8ce2a2060669c7c43011d0">dmadrvPeripheralSignal_NONE</a> =  0, 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797baf8f4a6f2ce001021c19edc42bcad9a65">dmadrvPeripheralSignal_ADC0_SCAN</a> =  ((8 &lt;&lt; 16) + 1), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba31c1917416fa2f0c1c2ea5953eecd089">dmadrvPeripheralSignal_ADC0_SINGLE</a> =  ((8 &lt;&lt; 16) + 0), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba0802607c9126f10b390a51132cd662bd">dmadrvPeripheralSignal_I2C0_RXDATAV</a> =  ((20 &lt;&lt; 16) + 0), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797baa6ec7231aa9ee7f6b6fd3fc3324822e9">dmadrvPeripheralSignal_I2C0_TXBL</a> =  ((20 &lt;&lt; 16) + 1), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba09532c3bb1e03fbf8493026f02c279ac">dmadrvPeripheralSignal_LEUART0_RXDATAV</a> =  ((16 &lt;&lt; 16) + 0), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797baeec888c2204bf453e864524b338a9477">dmadrvPeripheralSignal_LEUART0_TXBL</a> =  ((16 &lt;&lt; 16) + 1), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797baf322d2738cafd35708c2cc08b0d7688e">dmadrvPeripheralSignal_LEUART0_TXEMPTY</a> =  ((16 &lt;&lt; 16) + 2), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba0742cb9efdb5973e8b69c4432b116733">dmadrvPeripheralSignal_MSC_WDATA</a> =  ((48 &lt;&lt; 16) + 0), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797bae15ace04beb1aa5e611b0b229132a9d0">dmadrvPeripheralSignal_PRS_REQ0</a> =  ( 0x00000000UL &lt;&lt; 0) | ( 0x00000001UL &lt;&lt; 16), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797babedb249e7335c7df0cf7eccae9dbb622">dmadrvPeripheralSignal_PRS_REQ1</a> =  ( 0x00000001UL &lt;&lt; 0) | ( 0x00000001UL &lt;&lt; 16), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba71949439e5910cec59009d16dd267185">dmadrvPeripheralSignal_TIMER0_CC0</a> =  ((24 &lt;&lt; 16) + 1), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797baeb78479e92c2594ccb5059e414c6d18d">dmadrvPeripheralSignal_TIMER0_CC1</a> =  ((24 &lt;&lt; 16) + 2), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba29cafae8694af7dcb2bf1be4d02af65a">dmadrvPeripheralSignal_TIMER0_CC2</a> =  ((24 &lt;&lt; 16) + 3), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797bad8fb3e277745d9e036eb3ec32b85c6f6">dmadrvPeripheralSignal_TIMER0_UFOF</a> =  ((24 &lt;&lt; 16) + 0), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797badd32cc452e64f1b161ed807263c17fe6">dmadrvPeripheralSignal_TIMER1_CC0</a> =  ((25 &lt;&lt; 16) + 1), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba068fd07d4144662c2c7034896ddc9c40">dmadrvPeripheralSignal_TIMER1_CC1</a> =  ((25 &lt;&lt; 16) + 2), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba64ecc455c7e0e995c8c947a9f693e202">dmadrvPeripheralSignal_TIMER1_CC2</a> =  ((25 &lt;&lt; 16) + 3), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba3c506ad541603205199f272275fc77fd">dmadrvPeripheralSignal_TIMER1_CC3</a> =  ( 0x00000004UL &lt;&lt; 0) | ( 0x00000019UL &lt;&lt; 16), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797bab94e37a5d625e04fcecb923632549a5d">dmadrvPeripheralSignal_TIMER1_UFOF</a> =  ((25 &lt;&lt; 16) + 0), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba50a01bc196894fc0ba7e900554d124fb">dmadrvPeripheralSignal_USART0_RXDATAV</a> =  ((12 &lt;&lt; 16) + 0), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba6a128e5d6a5f1846b74d7b0576a00dbd">dmadrvPeripheralSignal_USART0_TXBL</a> =  ((12 &lt;&lt; 16) + 1), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797bac587f4472d74600239f2a60fe51cf4a2">dmadrvPeripheralSignal_USART0_TXEMPTY</a> =  ((12 &lt;&lt; 16) + 2), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797bae846c0d095c59094b9cc2864e861d36b">dmadrvPeripheralSignal_USART1_RXDATAV</a> =  ((13 &lt;&lt; 16) + 0), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797bae9e28d2e7205e396aae6fe51e8c9eedc">dmadrvPeripheralSignal_USART1_RXDATAVRIGHT</a> =  ((13 &lt;&lt; 16) + 3), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797baaa80b02111eaa3c5c5b52381af26c6ba">dmadrvPeripheralSignal_USART1_TXBL</a> =  ((13 &lt;&lt; 16) + 1), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797ba142fe01bf31cd1ef51cc69ab631e3722">dmadrvPeripheralSignal_USART1_TXBLRIGHT</a> =  ((13 &lt;&lt; 16) + 4), 
+<br/>
+&nbsp;&nbsp;<a class="el" href="group__DMADRV.html#gga12209f50fd4ec4e4b50f7c5217e8797bab0f62eb7088acb101e6b92b0fe30ea2a">dmadrvPeripheralSignal_USART1_TXEMPTY</a> =  ((13 &lt;&lt; 16) + 2)
+<br/>
  }</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><p>Peripherals that can trigger LDMA transfers. </p>
  <a href="group__DMADRV.html#ga12209f50fd4ec4e4b50f7c5217e8797b">More...</a><br/></td></tr>
@@ -298,7 +356,7 @@ Collaboration diagram for DMADRV:</div>
 
 <p>Maximum length of one DMA transfer. </p>
 
-<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00309">309</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00320">320</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
 
 </div>
 </div>
@@ -315,7 +373,7 @@ Collaboration diagram for DMADRV:</div>
 
 <p>Maximum length of one DMA transfer. </p>
 
-<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00309">309</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00320">320</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
 
 </div>
 </div>
@@ -332,7 +390,7 @@ Collaboration diagram for DMADRV:</div>
 
 <p>DMA channel was free. </p>
 
-<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00059">59</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00061">61</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
 
 <p>Referenced by <a class="el" href="dmadrv_8c_source.html#l00223">DMADRV_FreeChannel()</a>.</p>
 
@@ -351,7 +409,7 @@ Collaboration diagram for DMADRV:</div>
 
 <p>DMA has already been initialized. </p>
 
-<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00056">56</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00058">58</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
 
 <p>Referenced by <a class="el" href="dmadrv_8c_source.html#l00258">DMADRV_Init()</a>.</p>
 
@@ -370,9 +428,9 @@ Collaboration diagram for DMADRV:</div>
 
 <p>The channel is not reserved. </p>
 
-<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00060">60</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00062">62</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
 
-<p>Referenced by <a class="el" href="dmadrv_8c_source.html#l00330">DMADRV_LdmaStartTransfer()</a>, <a class="el" href="dmadrv_8c_source.html#l00640">DMADRV_StopTransfer()</a>, <a class="el" href="dmadrv_8c_source.html#l00680">DMADRV_TransferActive()</a>, <a class="el" href="dmadrv_8c_source.html#l00732">DMADRV_TransferCompletePending()</a>, <a class="el" href="dmadrv_8c_source.html#l00785">DMADRV_TransferDone()</a>, and <a class="el" href="dmadrv_8c_source.html#l00851">DMADRV_TransferRemainingCount()</a>.</p>
+<p>Referenced by <a class="el" href="dmadrv_8c_source.html#l00331">DMADRV_LdmaStartTransfer()</a>, <a class="el" href="dmadrv_8c_source.html#l00641">DMADRV_StopTransfer()</a>, <a class="el" href="dmadrv_8c_source.html#l00681">DMADRV_TransferActive()</a>, <a class="el" href="dmadrv_8c_source.html#l00733">DMADRV_TransferCompletePending()</a>, <a class="el" href="dmadrv_8c_source.html#l00786">DMADRV_TransferDone()</a>, and <a class="el" href="dmadrv_8c_source.html#l00852">DMADRV_TransferRemainingCount()</a>.</p>
 
 </div>
 </div>
@@ -389,7 +447,7 @@ Collaboration diagram for DMADRV:</div>
 
 <p>No DMA channels available. </p>
 
-<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00057">57</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00059">59</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
 
 <p>Referenced by <a class="el" href="dmadrv_8c_source.html#l00131">DMADRV_AllocateChannel()</a>.</p>
 
@@ -408,7 +466,7 @@ Collaboration diagram for DMADRV:</div>
 
 <p>DMA is in use. </p>
 
-<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00058">58</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00060">60</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
 
 <p>Referenced by <a class="el" href="dmadrv_8c_source.html#l00176">DMADRV_DeInit()</a>.</p>
 
@@ -427,9 +485,9 @@ Collaboration diagram for DMADRV:</div>
 
 <p>DMA is not initialized. </p>
 
-<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00055">55</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00057">57</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
 
-<p>Referenced by <a class="el" href="dmadrv_8c_source.html#l00131">DMADRV_AllocateChannel()</a>, <a class="el" href="dmadrv_8c_source.html#l00223">DMADRV_FreeChannel()</a>, <a class="el" href="dmadrv_8c_source.html#l00330">DMADRV_LdmaStartTransfer()</a>, <a class="el" href="dmadrv_8c_source.html#l00640">DMADRV_StopTransfer()</a>, <a class="el" href="dmadrv_8c_source.html#l00680">DMADRV_TransferActive()</a>, <a class="el" href="dmadrv_8c_source.html#l00732">DMADRV_TransferCompletePending()</a>, <a class="el" href="dmadrv_8c_source.html#l00785">DMADRV_TransferDone()</a>, and <a class="el" href="dmadrv_8c_source.html#l00851">DMADRV_TransferRemainingCount()</a>.</p>
+<p>Referenced by <a class="el" href="dmadrv_8c_source.html#l00131">DMADRV_AllocateChannel()</a>, <a class="el" href="dmadrv_8c_source.html#l00223">DMADRV_FreeChannel()</a>, <a class="el" href="dmadrv_8c_source.html#l00331">DMADRV_LdmaStartTransfer()</a>, <a class="el" href="dmadrv_8c_source.html#l00641">DMADRV_StopTransfer()</a>, <a class="el" href="dmadrv_8c_source.html#l00681">DMADRV_TransferActive()</a>, <a class="el" href="dmadrv_8c_source.html#l00733">DMADRV_TransferCompletePending()</a>, <a class="el" href="dmadrv_8c_source.html#l00786">DMADRV_TransferDone()</a>, and <a class="el" href="dmadrv_8c_source.html#l00852">DMADRV_TransferRemainingCount()</a>.</p>
 
 </div>
 </div>
@@ -446,9 +504,9 @@ Collaboration diagram for DMADRV:</div>
 
 <p>Success return value. </p>
 
-<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00053">53</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00055">55</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
 
-<p>Referenced by <a class="el" href="dmadrv_8c_source.html#l00131">DMADRV_AllocateChannel()</a>, <a class="el" href="dmadrv_8c_source.html#l00176">DMADRV_DeInit()</a>, <a class="el" href="dmadrv_8c_source.html#l00223">DMADRV_FreeChannel()</a>, <a class="el" href="dmadrv_8c_source.html#l00258">DMADRV_Init()</a>, <a class="el" href="dmadrv_8c_source.html#l00330">DMADRV_LdmaStartTransfer()</a>, <a class="el" href="dmadrv_8c_source.html#l00640">DMADRV_StopTransfer()</a>, <a class="el" href="dmadrv_8c_source.html#l00680">DMADRV_TransferActive()</a>, <a class="el" href="dmadrv_8c_source.html#l00732">DMADRV_TransferCompletePending()</a>, <a class="el" href="dmadrv_8c_source.html#l00785">DMADRV_TransferDone()</a>, <a class="el" href="dmadrv_8c_source.html#l00851">DMADRV_TransferRemainingCount()</a>, <a class="el" href="spidrv_8c_source.html#l00091">SPIDRV_Init()</a>, and <a class="el" href="uartdrv_8c_source.html#l00584">UARTDRV_Init()</a>.</p>
+<p>Referenced by <a class="el" href="dmadrv_8c_source.html#l00131">DMADRV_AllocateChannel()</a>, <a class="el" href="dmadrv_8c_source.html#l00176">DMADRV_DeInit()</a>, <a class="el" href="dmadrv_8c_source.html#l00223">DMADRV_FreeChannel()</a>, <a class="el" href="dmadrv_8c_source.html#l00258">DMADRV_Init()</a>, <a class="el" href="dmadrv_8c_source.html#l00331">DMADRV_LdmaStartTransfer()</a>, <a class="el" href="dmadrv_8c_source.html#l00641">DMADRV_StopTransfer()</a>, <a class="el" href="dmadrv_8c_source.html#l00681">DMADRV_TransferActive()</a>, <a class="el" href="dmadrv_8c_source.html#l00733">DMADRV_TransferCompletePending()</a>, <a class="el" href="dmadrv_8c_source.html#l00786">DMADRV_TransferDone()</a>, <a class="el" href="dmadrv_8c_source.html#l00852">DMADRV_TransferRemainingCount()</a>, <a class="el" href="spidrv_8c_source.html#l00091">SPIDRV_Init()</a>, and <a class="el" href="uartdrv_8c_source.html#l00591">UARTDRV_Init()</a>.</p>
 
 </div>
 </div>
@@ -465,9 +523,9 @@ Collaboration diagram for DMADRV:</div>
 
 <p>Illegal input parameter. </p>
 
-<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00054">54</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00056">56</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
 
-<p>Referenced by <a class="el" href="dmadrv_8c_source.html#l00131">DMADRV_AllocateChannel()</a>, <a class="el" href="dmadrv_8c_source.html#l00223">DMADRV_FreeChannel()</a>, <a class="el" href="dmadrv_8c_source.html#l00258">DMADRV_Init()</a>, <a class="el" href="dmadrv_8c_source.html#l00330">DMADRV_LdmaStartTransfer()</a>, <a class="el" href="dmadrv_8c_source.html#l00640">DMADRV_StopTransfer()</a>, <a class="el" href="dmadrv_8c_source.html#l00680">DMADRV_TransferActive()</a>, <a class="el" href="dmadrv_8c_source.html#l00732">DMADRV_TransferCompletePending()</a>, <a class="el" href="dmadrv_8c_source.html#l00785">DMADRV_TransferDone()</a>, and <a class="el" href="dmadrv_8c_source.html#l00851">DMADRV_TransferRemainingCount()</a>.</p>
+<p>Referenced by <a class="el" href="dmadrv_8c_source.html#l00131">DMADRV_AllocateChannel()</a>, <a class="el" href="dmadrv_8c_source.html#l00223">DMADRV_FreeChannel()</a>, <a class="el" href="dmadrv_8c_source.html#l00258">DMADRV_Init()</a>, <a class="el" href="dmadrv_8c_source.html#l00331">DMADRV_LdmaStartTransfer()</a>, <a class="el" href="dmadrv_8c_source.html#l00641">DMADRV_StopTransfer()</a>, <a class="el" href="dmadrv_8c_source.html#l00681">DMADRV_TransferActive()</a>, <a class="el" href="dmadrv_8c_source.html#l00733">DMADRV_TransferCompletePending()</a>, <a class="el" href="dmadrv_8c_source.html#l00786">DMADRV_TransferDone()</a>, and <a class="el" href="dmadrv_8c_source.html#l00852">DMADRV_TransferRemainingCount()</a>.</p>
 
 </div>
 </div>
@@ -482,12 +540,32 @@ Collaboration diagram for DMADRV:</div>
 </div>
 <div class="memdoc">
 
+<p>DMADRV channel count configuration option. </p>
+<p>Number of DMA channels to support. A lower DMA channel count will reduce ram memory footprint. </p>
+
+<p>Definition at line <a class="el" href="dmadrv__config_8h_source.html#l00047">47</a> of file <a class="el" href="dmadrv__config_8h_source.html">dmadrv_config.h</a>.</p>
+
+<p>Referenced by <a class="el" href="dmadrv_8c_source.html#l00131">DMADRV_AllocateChannel()</a>, <a class="el" href="dmadrv_8c_source.html#l00176">DMADRV_DeInit()</a>, <a class="el" href="dmadrv_8c_source.html#l00223">DMADRV_FreeChannel()</a>, <a class="el" href="dmadrv_8c_source.html#l00258">DMADRV_Init()</a>, <a class="el" href="dmadrv_8c_source.html#l00331">DMADRV_LdmaStartTransfer()</a>, <a class="el" href="dmadrv_8c_source.html#l00641">DMADRV_StopTransfer()</a>, <a class="el" href="dmadrv_8c_source.html#l00681">DMADRV_TransferActive()</a>, <a class="el" href="dmadrv_8c_source.html#l00733">DMADRV_TransferCompletePending()</a>, <a class="el" href="dmadrv_8c_source.html#l00786">DMADRV_TransferDone()</a>, and <a class="el" href="dmadrv_8c_source.html#l00852">DMADRV_TransferRemainingCount()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga07d3657f90a97cfe07c9890f54670d47"></a><!-- doxytag: member="dmadrv_config.h::EMDRV_DMADRV_DMA_CH_PRIORITY" ref="ga07d3657f90a97cfe07c9890f54670d47" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EMDRV_DMADRV_DMA_CH_PRIORITY&nbsp;&nbsp;&nbsp;0</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
 <p>DMADRV DMA interrupt priority configuration option. </p>
-<p>Set DMA interrupt priority. Range is 0..7, 0 is highest priority. DMADRV channel count configuration option. Number of DMA channels to support. A lower DMA channel count will reduce ram memory footprint. </p>
+<p>Set DMA interrupt priority. Range is 0..7, 0 is highest priority. DMADRV DMA channel priority configuration option. Set DMA channel priority. Range 0..EMDRV_DMADRV_DMA_CH_COUNT. On LDMA, this will configure channel 0 to CH_PRIORITY - 1 as fixed priority, and CH_PRIORITY to CH_COUNT as round-robin. On DMA, this will have no impact, since high priority is unuseable with peripherals. </p>
 
-<p>Definition at line <a class="el" href="dmadrv__config_8h_source.html#l00037">37</a> of file <a class="el" href="dmadrv__config_8h_source.html">dmadrv_config.h</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv__config_8h_source.html#l00041">41</a> of file <a class="el" href="dmadrv__config_8h_source.html">dmadrv_config.h</a>.</p>
 
-<p>Referenced by <a class="el" href="dmadrv_8c_source.html#l00131">DMADRV_AllocateChannel()</a>, <a class="el" href="dmadrv_8c_source.html#l00176">DMADRV_DeInit()</a>, <a class="el" href="dmadrv_8c_source.html#l00223">DMADRV_FreeChannel()</a>, <a class="el" href="dmadrv_8c_source.html#l00258">DMADRV_Init()</a>, <a class="el" href="dmadrv_8c_source.html#l00330">DMADRV_LdmaStartTransfer()</a>, <a class="el" href="dmadrv_8c_source.html#l00640">DMADRV_StopTransfer()</a>, <a class="el" href="dmadrv_8c_source.html#l00680">DMADRV_TransferActive()</a>, <a class="el" href="dmadrv_8c_source.html#l00732">DMADRV_TransferCompletePending()</a>, <a class="el" href="dmadrv_8c_source.html#l00785">DMADRV_TransferDone()</a>, and <a class="el" href="dmadrv_8c_source.html#l00851">DMADRV_TransferRemainingCount()</a>.</p>
+<p>Referenced by <a class="el" href="dmadrv_8c_source.html#l00258">DMADRV_Init()</a>.</p>
 
 </div>
 </div>
@@ -505,7 +583,7 @@ Collaboration diagram for DMADRV:</div>
 <p>DMADRV native API configuration option. </p>
 <p>Use the native emlib api of the DMA controller, but still use DMADRV housekeeping functions as AllocateChannel/FreeChannel etc. </p>
 
-<p>Definition at line <a class="el" href="dmadrv__config_8h_source.html#l00043">43</a> of file <a class="el" href="dmadrv__config_8h_source.html">dmadrv_config.h</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv__config_8h_source.html#l00053">53</a> of file <a class="el" href="dmadrv__config_8h_source.html">dmadrv_config.h</a>.</p>
 
 </div>
 </div>
@@ -533,7 +611,7 @@ Collaboration diagram for DMADRV:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>When doing ping-pong transfers, return true to continue or false to stop transfers. </dd></dl>
 
-<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00083">83</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00085">85</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
 
 </div>
 </div>
@@ -564,7 +642,7 @@ Collaboration diagram for DMADRV:</div>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00448">448</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00459">459</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
 
 </div>
 </div>
@@ -594,7 +672,7 @@ Collaboration diagram for DMADRV:</div>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00293">293</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00304">304</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
 
 </div>
 </div>
@@ -614,11 +692,92 @@ Collaboration diagram for DMADRV:</div>
 <tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba0296437c3f8ce2a2060669c7c43011d0"></a><!-- doxytag: member="dmadrvPeripheralSignal_NONE" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba0296437c3f8ce2a2060669c7c43011d0" args="" -->dmadrvPeripheralSignal_NONE</em>&nbsp;</td><td>
 <p>No peripheral selected for DMA triggering. </p>
 </td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797baf8f4a6f2ce001021c19edc42bcad9a65"></a><!-- doxytag: member="dmadrvPeripheralSignal_ADC0_SCAN" ref="gga12209f50fd4ec4e4b50f7c5217e8797baf8f4a6f2ce001021c19edc42bcad9a65" args="" -->dmadrvPeripheralSignal_ADC0_SCAN</em>&nbsp;</td><td>
+<p>Trig on ADC0_SCAN. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba31c1917416fa2f0c1c2ea5953eecd089"></a><!-- doxytag: member="dmadrvPeripheralSignal_ADC0_SINGLE" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba31c1917416fa2f0c1c2ea5953eecd089" args="" -->dmadrvPeripheralSignal_ADC0_SINGLE</em>&nbsp;</td><td>
+<p>Trig on ADC0_SINGLE. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba0802607c9126f10b390a51132cd662bd"></a><!-- doxytag: member="dmadrvPeripheralSignal_I2C0_RXDATAV" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba0802607c9126f10b390a51132cd662bd" args="" -->dmadrvPeripheralSignal_I2C0_RXDATAV</em>&nbsp;</td><td>
+<p>Trig on I2C0_RXDATAV. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797baa6ec7231aa9ee7f6b6fd3fc3324822e9"></a><!-- doxytag: member="dmadrvPeripheralSignal_I2C0_TXBL" ref="gga12209f50fd4ec4e4b50f7c5217e8797baa6ec7231aa9ee7f6b6fd3fc3324822e9" args="" -->dmadrvPeripheralSignal_I2C0_TXBL</em>&nbsp;</td><td>
+<p>Trig on I2C0_TXBL. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba09532c3bb1e03fbf8493026f02c279ac"></a><!-- doxytag: member="dmadrvPeripheralSignal_LEUART0_RXDATAV" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba09532c3bb1e03fbf8493026f02c279ac" args="" -->dmadrvPeripheralSignal_LEUART0_RXDATAV</em>&nbsp;</td><td>
+<p>Trig on LEUART0_RXDATAV. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797baeec888c2204bf453e864524b338a9477"></a><!-- doxytag: member="dmadrvPeripheralSignal_LEUART0_TXBL" ref="gga12209f50fd4ec4e4b50f7c5217e8797baeec888c2204bf453e864524b338a9477" args="" -->dmadrvPeripheralSignal_LEUART0_TXBL</em>&nbsp;</td><td>
+<p>Trig on LEUART0_TXBL. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797baf322d2738cafd35708c2cc08b0d7688e"></a><!-- doxytag: member="dmadrvPeripheralSignal_LEUART0_TXEMPTY" ref="gga12209f50fd4ec4e4b50f7c5217e8797baf322d2738cafd35708c2cc08b0d7688e" args="" -->dmadrvPeripheralSignal_LEUART0_TXEMPTY</em>&nbsp;</td><td>
+<p>Trig on LEUART0_TXEMPTY. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba0742cb9efdb5973e8b69c4432b116733"></a><!-- doxytag: member="dmadrvPeripheralSignal_MSC_WDATA" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba0742cb9efdb5973e8b69c4432b116733" args="" -->dmadrvPeripheralSignal_MSC_WDATA</em>&nbsp;</td><td>
+<p>Trig on MSC_WDATA. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797bae15ace04beb1aa5e611b0b229132a9d0"></a><!-- doxytag: member="dmadrvPeripheralSignal_PRS_REQ0" ref="gga12209f50fd4ec4e4b50f7c5217e8797bae15ace04beb1aa5e611b0b229132a9d0" args="" -->dmadrvPeripheralSignal_PRS_REQ0</em>&nbsp;</td><td>
+<p>Trig on PRS_REQ0. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797babedb249e7335c7df0cf7eccae9dbb622"></a><!-- doxytag: member="dmadrvPeripheralSignal_PRS_REQ1" ref="gga12209f50fd4ec4e4b50f7c5217e8797babedb249e7335c7df0cf7eccae9dbb622" args="" -->dmadrvPeripheralSignal_PRS_REQ1</em>&nbsp;</td><td>
+<p>Trig on PRS_REQ1. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba71949439e5910cec59009d16dd267185"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER0_CC0" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba71949439e5910cec59009d16dd267185" args="" -->dmadrvPeripheralSignal_TIMER0_CC0</em>&nbsp;</td><td>
+<p>Trig on TIMER0_CC0. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797baeb78479e92c2594ccb5059e414c6d18d"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER0_CC1" ref="gga12209f50fd4ec4e4b50f7c5217e8797baeb78479e92c2594ccb5059e414c6d18d" args="" -->dmadrvPeripheralSignal_TIMER0_CC1</em>&nbsp;</td><td>
+<p>Trig on TIMER0_CC1. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba29cafae8694af7dcb2bf1be4d02af65a"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER0_CC2" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba29cafae8694af7dcb2bf1be4d02af65a" args="" -->dmadrvPeripheralSignal_TIMER0_CC2</em>&nbsp;</td><td>
+<p>Trig on TIMER0_CC2. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797bad8fb3e277745d9e036eb3ec32b85c6f6"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER0_UFOF" ref="gga12209f50fd4ec4e4b50f7c5217e8797bad8fb3e277745d9e036eb3ec32b85c6f6" args="" -->dmadrvPeripheralSignal_TIMER0_UFOF</em>&nbsp;</td><td>
+<p>Trig on TIMER0_UFOF. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797badd32cc452e64f1b161ed807263c17fe6"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER1_CC0" ref="gga12209f50fd4ec4e4b50f7c5217e8797badd32cc452e64f1b161ed807263c17fe6" args="" -->dmadrvPeripheralSignal_TIMER1_CC0</em>&nbsp;</td><td>
+<p>Trig on TIMER1_CC0. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba068fd07d4144662c2c7034896ddc9c40"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER1_CC1" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba068fd07d4144662c2c7034896ddc9c40" args="" -->dmadrvPeripheralSignal_TIMER1_CC1</em>&nbsp;</td><td>
+<p>Trig on TIMER1_CC1. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba64ecc455c7e0e995c8c947a9f693e202"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER1_CC2" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba64ecc455c7e0e995c8c947a9f693e202" args="" -->dmadrvPeripheralSignal_TIMER1_CC2</em>&nbsp;</td><td>
+<p>Trig on TIMER1_CC2. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba3c506ad541603205199f272275fc77fd"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER1_CC3" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba3c506ad541603205199f272275fc77fd" args="" -->dmadrvPeripheralSignal_TIMER1_CC3</em>&nbsp;</td><td>
+<p>Trig on TIMER1_CC3. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797bab94e37a5d625e04fcecb923632549a5d"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER1_UFOF" ref="gga12209f50fd4ec4e4b50f7c5217e8797bab94e37a5d625e04fcecb923632549a5d" args="" -->dmadrvPeripheralSignal_TIMER1_UFOF</em>&nbsp;</td><td>
+<p>Trig on TIMER1_UFOF. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba50a01bc196894fc0ba7e900554d124fb"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART0_RXDATAV" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba50a01bc196894fc0ba7e900554d124fb" args="" -->dmadrvPeripheralSignal_USART0_RXDATAV</em>&nbsp;</td><td>
+<p>Trig on USART0_RXDATAV. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba6a128e5d6a5f1846b74d7b0576a00dbd"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART0_TXBL" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba6a128e5d6a5f1846b74d7b0576a00dbd" args="" -->dmadrvPeripheralSignal_USART0_TXBL</em>&nbsp;</td><td>
+<p>Trig on USART0_TXBL. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797bac587f4472d74600239f2a60fe51cf4a2"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART0_TXEMPTY" ref="gga12209f50fd4ec4e4b50f7c5217e8797bac587f4472d74600239f2a60fe51cf4a2" args="" -->dmadrvPeripheralSignal_USART0_TXEMPTY</em>&nbsp;</td><td>
+<p>Trig on USART0_TXEMPTY. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797bae846c0d095c59094b9cc2864e861d36b"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART1_RXDATAV" ref="gga12209f50fd4ec4e4b50f7c5217e8797bae846c0d095c59094b9cc2864e861d36b" args="" -->dmadrvPeripheralSignal_USART1_RXDATAV</em>&nbsp;</td><td>
+<p>Trig on USART1_RXDATAV. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797bae9e28d2e7205e396aae6fe51e8c9eedc"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART1_RXDATAVRIGHT" ref="gga12209f50fd4ec4e4b50f7c5217e8797bae9e28d2e7205e396aae6fe51e8c9eedc" args="" -->dmadrvPeripheralSignal_USART1_RXDATAVRIGHT</em>&nbsp;</td><td>
+<p>Trig on USART1_RXDATAVRIGHT. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797baaa80b02111eaa3c5c5b52381af26c6ba"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART1_TXBL" ref="gga12209f50fd4ec4e4b50f7c5217e8797baaa80b02111eaa3c5c5b52381af26c6ba" args="" -->dmadrvPeripheralSignal_USART1_TXBL</em>&nbsp;</td><td>
+<p>Trig on USART1_TXBL. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba142fe01bf31cd1ef51cc69ab631e3722"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART1_TXBLRIGHT" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba142fe01bf31cd1ef51cc69ab631e3722" args="" -->dmadrvPeripheralSignal_USART1_TXBLRIGHT</em>&nbsp;</td><td>
+<p>Trig on USART1_TXBLRIGHT. </p>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797bab0f62eb7088acb101e6b92b0fe30ea2a"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART1_TXEMPTY" ref="gga12209f50fd4ec4e4b50f7c5217e8797bab0f62eb7088acb101e6b92b0fe30ea2a" args="" -->dmadrvPeripheralSignal_USART1_TXEMPTY</em>&nbsp;</td><td>
+<p>Trig on USART1_TXEMPTY. </p>
+</td></tr>
 </table>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00316">316</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00327">327</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
 
 </div>
 </div>
@@ -638,10 +797,10 @@ Collaboration diagram for DMADRV:</div>
 <tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba0296437c3f8ce2a2060669c7c43011d0"></a><!-- doxytag: member="dmadrvPeripheralSignal_NONE" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba0296437c3f8ce2a2060669c7c43011d0" args="" -->dmadrvPeripheralSignal_NONE</em>&nbsp;</td><td>
 <p>No peripheral selected for DMA triggering. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a2a1ef3bc3ad0e396240a05f9deebabbc"></a><!-- doxytag: member="dmadrvPeripheralSignal_ADC0_SCAN" ref="gga9d887cd6a26d26ed74cb19d77b501a94a2a1ef3bc3ad0e396240a05f9deebabbc" args="" -->dmadrvPeripheralSignal_ADC0_SCAN</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797baf8f4a6f2ce001021c19edc42bcad9a65"></a><!-- doxytag: member="dmadrvPeripheralSignal_ADC0_SCAN" ref="gga12209f50fd4ec4e4b50f7c5217e8797baf8f4a6f2ce001021c19edc42bcad9a65" args="" -->dmadrvPeripheralSignal_ADC0_SCAN</em>&nbsp;</td><td>
 <p>Trig on ADC0_SCAN. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a730b62d75a9c375aa71c2e8059e49175"></a><!-- doxytag: member="dmadrvPeripheralSignal_ADC0_SINGLE" ref="gga9d887cd6a26d26ed74cb19d77b501a94a730b62d75a9c375aa71c2e8059e49175" args="" -->dmadrvPeripheralSignal_ADC0_SINGLE</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba31c1917416fa2f0c1c2ea5953eecd089"></a><!-- doxytag: member="dmadrvPeripheralSignal_ADC0_SINGLE" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba31c1917416fa2f0c1c2ea5953eecd089" args="" -->dmadrvPeripheralSignal_ADC0_SINGLE</em>&nbsp;</td><td>
 <p>Trig on ADC0_SINGLE. </p>
 </td></tr>
 <tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a2537ae66fc6c3e22e0bfc151a50ba324"></a><!-- doxytag: member="dmadrvPeripheralSignal_AES_DATARD" ref="gga9d887cd6a26d26ed74cb19d77b501a94a2537ae66fc6c3e22e0bfc151a50ba324" args="" -->dmadrvPeripheralSignal_AES_DATARD</em>&nbsp;</td><td>
@@ -674,10 +833,10 @@ Collaboration diagram for DMADRV:</div>
 <tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a9e6dc5e30c4cb26ec9c0bd9337b176c1"></a><!-- doxytag: member="dmadrvPeripheralSignal_EBI_PXLFULL" ref="gga9d887cd6a26d26ed74cb19d77b501a94a9e6dc5e30c4cb26ec9c0bd9337b176c1" args="" -->dmadrvPeripheralSignal_EBI_PXLFULL</em>&nbsp;</td><td>
 <p>Trig on EBI_PXLFULL. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a1d3289418c933a051e4deeb0b82ac2d3"></a><!-- doxytag: member="dmadrvPeripheralSignal_I2C0_RXDATAV" ref="gga9d887cd6a26d26ed74cb19d77b501a94a1d3289418c933a051e4deeb0b82ac2d3" args="" -->dmadrvPeripheralSignal_I2C0_RXDATAV</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba0802607c9126f10b390a51132cd662bd"></a><!-- doxytag: member="dmadrvPeripheralSignal_I2C0_RXDATAV" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba0802607c9126f10b390a51132cd662bd" args="" -->dmadrvPeripheralSignal_I2C0_RXDATAV</em>&nbsp;</td><td>
 <p>Trig on I2C0_RXDATAV. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a1fa59d5fd04b287aad5e3f3e64ad7bea"></a><!-- doxytag: member="dmadrvPeripheralSignal_I2C0_TXBL" ref="gga9d887cd6a26d26ed74cb19d77b501a94a1fa59d5fd04b287aad5e3f3e64ad7bea" args="" -->dmadrvPeripheralSignal_I2C0_TXBL</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797baa6ec7231aa9ee7f6b6fd3fc3324822e9"></a><!-- doxytag: member="dmadrvPeripheralSignal_I2C0_TXBL" ref="gga12209f50fd4ec4e4b50f7c5217e8797baa6ec7231aa9ee7f6b6fd3fc3324822e9" args="" -->dmadrvPeripheralSignal_I2C0_TXBL</em>&nbsp;</td><td>
 <p>Trig on I2C0_TXBL. </p>
 </td></tr>
 <tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a69fa6ea90cdd0fbbfd880c4f91fdc029"></a><!-- doxytag: member="dmadrvPeripheralSignal_I2C1_RXDATAV" ref="gga9d887cd6a26d26ed74cb19d77b501a94a69fa6ea90cdd0fbbfd880c4f91fdc029" args="" -->dmadrvPeripheralSignal_I2C1_RXDATAV</em>&nbsp;</td><td>
@@ -689,13 +848,13 @@ Collaboration diagram for DMADRV:</div>
 <tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a944bdb39e2d2b0f7d970c425d9c05014"></a><!-- doxytag: member="dmadrvPeripheralSignal_LESENSE_BUFDATAV" ref="gga9d887cd6a26d26ed74cb19d77b501a94a944bdb39e2d2b0f7d970c425d9c05014" args="" -->dmadrvPeripheralSignal_LESENSE_BUFDATAV</em>&nbsp;</td><td>
 <p>Trig on LESENSE_BUFDATAV. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94af811d74a1e48252bd51c3d7beeaf75bc"></a><!-- doxytag: member="dmadrvPeripheralSignal_LEUART0_RXDATAV" ref="gga9d887cd6a26d26ed74cb19d77b501a94af811d74a1e48252bd51c3d7beeaf75bc" args="" -->dmadrvPeripheralSignal_LEUART0_RXDATAV</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba09532c3bb1e03fbf8493026f02c279ac"></a><!-- doxytag: member="dmadrvPeripheralSignal_LEUART0_RXDATAV" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba09532c3bb1e03fbf8493026f02c279ac" args="" -->dmadrvPeripheralSignal_LEUART0_RXDATAV</em>&nbsp;</td><td>
 <p>Trig on LEUART0_RXDATAV. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94ad2a146e0731c8a3da96131d8b4ba72a4"></a><!-- doxytag: member="dmadrvPeripheralSignal_LEUART0_TXBL" ref="gga9d887cd6a26d26ed74cb19d77b501a94ad2a146e0731c8a3da96131d8b4ba72a4" args="" -->dmadrvPeripheralSignal_LEUART0_TXBL</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797baeec888c2204bf453e864524b338a9477"></a><!-- doxytag: member="dmadrvPeripheralSignal_LEUART0_TXBL" ref="gga12209f50fd4ec4e4b50f7c5217e8797baeec888c2204bf453e864524b338a9477" args="" -->dmadrvPeripheralSignal_LEUART0_TXBL</em>&nbsp;</td><td>
 <p>Trig on LEUART0_TXBL. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a4d0cec365a1c08a19d4f804beff324c9"></a><!-- doxytag: member="dmadrvPeripheralSignal_LEUART0_TXEMPTY" ref="gga9d887cd6a26d26ed74cb19d77b501a94a4d0cec365a1c08a19d4f804beff324c9" args="" -->dmadrvPeripheralSignal_LEUART0_TXEMPTY</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797baf322d2738cafd35708c2cc08b0d7688e"></a><!-- doxytag: member="dmadrvPeripheralSignal_LEUART0_TXEMPTY" ref="gga12209f50fd4ec4e4b50f7c5217e8797baf322d2738cafd35708c2cc08b0d7688e" args="" -->dmadrvPeripheralSignal_LEUART0_TXEMPTY</em>&nbsp;</td><td>
 <p>Trig on LEUART0_TXEMPTY. </p>
 </td></tr>
 <tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94ad198d7fcb0287a43169f21a58360fab0"></a><!-- doxytag: member="dmadrvPeripheralSignal_LEUART1_RXDATAV" ref="gga9d887cd6a26d26ed74cb19d77b501a94ad198d7fcb0287a43169f21a58360fab0" args="" -->dmadrvPeripheralSignal_LEUART1_RXDATAV</em>&nbsp;</td><td>
@@ -707,31 +866,31 @@ Collaboration diagram for DMADRV:</div>
 <tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a37541878bd2f68f706a9d744ab72a211"></a><!-- doxytag: member="dmadrvPeripheralSignal_LEUART1_TXEMPTY" ref="gga9d887cd6a26d26ed74cb19d77b501a94a37541878bd2f68f706a9d744ab72a211" args="" -->dmadrvPeripheralSignal_LEUART1_TXEMPTY</em>&nbsp;</td><td>
 <p>Trig on LEUART1_TXEMPTY. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94ab28ac65c3e88f46e259e58c3865625b3"></a><!-- doxytag: member="dmadrvPeripheralSignal_MSC_WDATA" ref="gga9d887cd6a26d26ed74cb19d77b501a94ab28ac65c3e88f46e259e58c3865625b3" args="" -->dmadrvPeripheralSignal_MSC_WDATA</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba0742cb9efdb5973e8b69c4432b116733"></a><!-- doxytag: member="dmadrvPeripheralSignal_MSC_WDATA" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba0742cb9efdb5973e8b69c4432b116733" args="" -->dmadrvPeripheralSignal_MSC_WDATA</em>&nbsp;</td><td>
 <p>Trig on MSC_WDATA. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a79fcd973bfa770a5b43add1f775f9ea5"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER0_CC0" ref="gga9d887cd6a26d26ed74cb19d77b501a94a79fcd973bfa770a5b43add1f775f9ea5" args="" -->dmadrvPeripheralSignal_TIMER0_CC0</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba71949439e5910cec59009d16dd267185"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER0_CC0" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba71949439e5910cec59009d16dd267185" args="" -->dmadrvPeripheralSignal_TIMER0_CC0</em>&nbsp;</td><td>
 <p>Trig on TIMER0_CC0. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a0aca7c33d8f4e7d44b086cca56de5183"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER0_CC1" ref="gga9d887cd6a26d26ed74cb19d77b501a94a0aca7c33d8f4e7d44b086cca56de5183" args="" -->dmadrvPeripheralSignal_TIMER0_CC1</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797baeb78479e92c2594ccb5059e414c6d18d"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER0_CC1" ref="gga12209f50fd4ec4e4b50f7c5217e8797baeb78479e92c2594ccb5059e414c6d18d" args="" -->dmadrvPeripheralSignal_TIMER0_CC1</em>&nbsp;</td><td>
 <p>Trig on TIMER0_CC1. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a42ba1c2958ab9d5259eaef7fc5bb7a65"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER0_CC2" ref="gga9d887cd6a26d26ed74cb19d77b501a94a42ba1c2958ab9d5259eaef7fc5bb7a65" args="" -->dmadrvPeripheralSignal_TIMER0_CC2</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba29cafae8694af7dcb2bf1be4d02af65a"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER0_CC2" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba29cafae8694af7dcb2bf1be4d02af65a" args="" -->dmadrvPeripheralSignal_TIMER0_CC2</em>&nbsp;</td><td>
 <p>Trig on TIMER0_CC2. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a1acb7f6f87f384fcb8e6a79c47b189ca"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER0_UFOF" ref="gga9d887cd6a26d26ed74cb19d77b501a94a1acb7f6f87f384fcb8e6a79c47b189ca" args="" -->dmadrvPeripheralSignal_TIMER0_UFOF</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797bad8fb3e277745d9e036eb3ec32b85c6f6"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER0_UFOF" ref="gga12209f50fd4ec4e4b50f7c5217e8797bad8fb3e277745d9e036eb3ec32b85c6f6" args="" -->dmadrvPeripheralSignal_TIMER0_UFOF</em>&nbsp;</td><td>
 <p>Trig on TIMER0_UFOF. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a4c485eccb40c1edf5c488a4d10d5ac80"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER1_CC0" ref="gga9d887cd6a26d26ed74cb19d77b501a94a4c485eccb40c1edf5c488a4d10d5ac80" args="" -->dmadrvPeripheralSignal_TIMER1_CC0</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797badd32cc452e64f1b161ed807263c17fe6"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER1_CC0" ref="gga12209f50fd4ec4e4b50f7c5217e8797badd32cc452e64f1b161ed807263c17fe6" args="" -->dmadrvPeripheralSignal_TIMER1_CC0</em>&nbsp;</td><td>
 <p>Trig on TIMER1_CC0. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a440062c01235303fec3da3300513db08"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER1_CC1" ref="gga9d887cd6a26d26ed74cb19d77b501a94a440062c01235303fec3da3300513db08" args="" -->dmadrvPeripheralSignal_TIMER1_CC1</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba068fd07d4144662c2c7034896ddc9c40"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER1_CC1" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba068fd07d4144662c2c7034896ddc9c40" args="" -->dmadrvPeripheralSignal_TIMER1_CC1</em>&nbsp;</td><td>
 <p>Trig on TIMER1_CC1. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a20b263f9c7065d4d53b8b395017495b7"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER1_CC2" ref="gga9d887cd6a26d26ed74cb19d77b501a94a20b263f9c7065d4d53b8b395017495b7" args="" -->dmadrvPeripheralSignal_TIMER1_CC2</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba64ecc455c7e0e995c8c947a9f693e202"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER1_CC2" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba64ecc455c7e0e995c8c947a9f693e202" args="" -->dmadrvPeripheralSignal_TIMER1_CC2</em>&nbsp;</td><td>
 <p>Trig on TIMER1_CC2. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a306f1dbaa369b32c1331119712478f96"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER1_UFOF" ref="gga9d887cd6a26d26ed74cb19d77b501a94a306f1dbaa369b32c1331119712478f96" args="" -->dmadrvPeripheralSignal_TIMER1_UFOF</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797bab94e37a5d625e04fcecb923632549a5d"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER1_UFOF" ref="gga12209f50fd4ec4e4b50f7c5217e8797bab94e37a5d625e04fcecb923632549a5d" args="" -->dmadrvPeripheralSignal_TIMER1_UFOF</em>&nbsp;</td><td>
 <p>Trig on TIMER1_UFOF. </p>
 </td></tr>
 <tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94aa7cd539cf5e373985e7c6e87cd3052a3"></a><!-- doxytag: member="dmadrvPeripheralSignal_TIMER2_CC0" ref="gga9d887cd6a26d26ed74cb19d77b501a94aa7cd539cf5e373985e7c6e87cd3052a3" args="" -->dmadrvPeripheralSignal_TIMER2_CC0</em>&nbsp;</td><td>
@@ -776,28 +935,28 @@ Collaboration diagram for DMADRV:</div>
 <tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a6c3ca982b3356c01f063bfc50b2499c5"></a><!-- doxytag: member="dmadrvPeripheralSignal_UART1_TXEMPTY" ref="gga9d887cd6a26d26ed74cb19d77b501a94a6c3ca982b3356c01f063bfc50b2499c5" args="" -->dmadrvPeripheralSignal_UART1_TXEMPTY</em>&nbsp;</td><td>
 <p>Trig on UART1_TXEMPTY. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a0b032a3b56d071390c51157e5a30aca1"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART0_RXDATAV" ref="gga9d887cd6a26d26ed74cb19d77b501a94a0b032a3b56d071390c51157e5a30aca1" args="" -->dmadrvPeripheralSignal_USART0_RXDATAV</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba50a01bc196894fc0ba7e900554d124fb"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART0_RXDATAV" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba50a01bc196894fc0ba7e900554d124fb" args="" -->dmadrvPeripheralSignal_USART0_RXDATAV</em>&nbsp;</td><td>
 <p>Trig on USART0_RXDATAV. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a494dacaab0d709d9733d8cd2b2686b68"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART0_TXBL" ref="gga9d887cd6a26d26ed74cb19d77b501a94a494dacaab0d709d9733d8cd2b2686b68" args="" -->dmadrvPeripheralSignal_USART0_TXBL</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba6a128e5d6a5f1846b74d7b0576a00dbd"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART0_TXBL" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba6a128e5d6a5f1846b74d7b0576a00dbd" args="" -->dmadrvPeripheralSignal_USART0_TXBL</em>&nbsp;</td><td>
 <p>Trig on USART0_TXBL. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94ae1d164a3d166ebe297f6d585c8e1037d"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART0_TXEMPTY" ref="gga9d887cd6a26d26ed74cb19d77b501a94ae1d164a3d166ebe297f6d585c8e1037d" args="" -->dmadrvPeripheralSignal_USART0_TXEMPTY</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797bac587f4472d74600239f2a60fe51cf4a2"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART0_TXEMPTY" ref="gga12209f50fd4ec4e4b50f7c5217e8797bac587f4472d74600239f2a60fe51cf4a2" args="" -->dmadrvPeripheralSignal_USART0_TXEMPTY</em>&nbsp;</td><td>
 <p>Trig on USART0_TXEMPTY. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94ad9c9e0c14c22649844a82149c4f1bf72"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART1_RXDATAV" ref="gga9d887cd6a26d26ed74cb19d77b501a94ad9c9e0c14c22649844a82149c4f1bf72" args="" -->dmadrvPeripheralSignal_USART1_RXDATAV</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797bae846c0d095c59094b9cc2864e861d36b"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART1_RXDATAV" ref="gga12209f50fd4ec4e4b50f7c5217e8797bae846c0d095c59094b9cc2864e861d36b" args="" -->dmadrvPeripheralSignal_USART1_RXDATAV</em>&nbsp;</td><td>
 <p>Trig on USART1_RXDATAV. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a593b2e490b7bd250787514f141b8c932"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART1_RXDATAVRIGHT" ref="gga9d887cd6a26d26ed74cb19d77b501a94a593b2e490b7bd250787514f141b8c932" args="" -->dmadrvPeripheralSignal_USART1_RXDATAVRIGHT</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797bae9e28d2e7205e396aae6fe51e8c9eedc"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART1_RXDATAVRIGHT" ref="gga12209f50fd4ec4e4b50f7c5217e8797bae9e28d2e7205e396aae6fe51e8c9eedc" args="" -->dmadrvPeripheralSignal_USART1_RXDATAVRIGHT</em>&nbsp;</td><td>
 <p>Trig on USART1_RXDATAVRIGHT. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a14d938537b90719aca30a7a47f82dbcf"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART1_TXBL" ref="gga9d887cd6a26d26ed74cb19d77b501a94a14d938537b90719aca30a7a47f82dbcf" args="" -->dmadrvPeripheralSignal_USART1_TXBL</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797baaa80b02111eaa3c5c5b52381af26c6ba"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART1_TXBL" ref="gga12209f50fd4ec4e4b50f7c5217e8797baaa80b02111eaa3c5c5b52381af26c6ba" args="" -->dmadrvPeripheralSignal_USART1_TXBL</em>&nbsp;</td><td>
 <p>Trig on USART1_TXBL. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a4b91cf73315390a52120bb8abdb12f39"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART1_TXBLRIGHT" ref="gga9d887cd6a26d26ed74cb19d77b501a94a4b91cf73315390a52120bb8abdb12f39" args="" -->dmadrvPeripheralSignal_USART1_TXBLRIGHT</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797ba142fe01bf31cd1ef51cc69ab631e3722"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART1_TXBLRIGHT" ref="gga12209f50fd4ec4e4b50f7c5217e8797ba142fe01bf31cd1ef51cc69ab631e3722" args="" -->dmadrvPeripheralSignal_USART1_TXBLRIGHT</em>&nbsp;</td><td>
 <p>Trig on USART1_TXBLRIGHT. </p>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a23e8ff7996b0985ba39e32585c97f276"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART1_TXEMPTY" ref="gga9d887cd6a26d26ed74cb19d77b501a94a23e8ff7996b0985ba39e32585c97f276" args="" -->dmadrvPeripheralSignal_USART1_TXEMPTY</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="gga12209f50fd4ec4e4b50f7c5217e8797bab0f62eb7088acb101e6b92b0fe30ea2a"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART1_TXEMPTY" ref="gga12209f50fd4ec4e4b50f7c5217e8797bab0f62eb7088acb101e6b92b0fe30ea2a" args="" -->dmadrvPeripheralSignal_USART1_TXEMPTY</em>&nbsp;</td><td>
 <p>Trig on USART1_TXEMPTY. </p>
 </td></tr>
 <tr><td valign="top"><em><a class="anchor" id="gga9d887cd6a26d26ed74cb19d77b501a94a149e7c19ba737648e73eda0b65e21ca4"></a><!-- doxytag: member="dmadrvPeripheralSignal_USART2_RXDATAV" ref="gga9d887cd6a26d26ed74cb19d77b501a94a149e7c19ba737648e73eda0b65e21ca4" args="" -->dmadrvPeripheralSignal_USART2_RXDATAV</em>&nbsp;</td><td>
@@ -819,7 +978,7 @@ Collaboration diagram for DMADRV:</div>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00097">97</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8h_source.html#l00099">99</a> of file <a class="el" href="dmadrv_8h_source.html">dmadrv.h</a>.</p>
 
 </div>
 </div>
@@ -861,16 +1020,16 @@ Collaboration diagram for DMADRV:</div>
 
 <p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00131">131</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
 
-<p>References <a class="el" href="dmadrv_8h_source.html#l00057">ECODE_EMDRV_DMADRV_CHANNELS_EXHAUSTED</a>, <a class="el" href="dmadrv_8h_source.html#l00055">ECODE_EMDRV_DMADRV_NOT_INITIALIZED</a>, <a class="el" href="dmadrv_8h_source.html#l00053">ECODE_EMDRV_DMADRV_OK</a>, <a class="el" href="dmadrv_8h_source.html#l00054">ECODE_EMDRV_DMADRV_PARAM_ERROR</a>, and <a class="el" href="dmadrv__config_8h_source.html#l00037">EMDRV_DMADRV_DMA_CH_COUNT</a>.</p>
+<p>References <a class="el" href="dmadrv_8h_source.html#l00059">ECODE_EMDRV_DMADRV_CHANNELS_EXHAUSTED</a>, <a class="el" href="dmadrv_8h_source.html#l00057">ECODE_EMDRV_DMADRV_NOT_INITIALIZED</a>, <a class="el" href="dmadrv_8h_source.html#l00055">ECODE_EMDRV_DMADRV_OK</a>, <a class="el" href="dmadrv_8h_source.html#l00056">ECODE_EMDRV_DMADRV_PARAM_ERROR</a>, and <a class="el" href="dmadrv__config_8h_source.html#l00047">EMDRV_DMADRV_DMA_CH_COUNT</a>.</p>
 
-<p>Referenced by <a class="el" href="spidrv_8c_source.html#l00091">SPIDRV_Init()</a>, and <a class="el" href="uartdrv_8c_source.html#l00584">UARTDRV_Init()</a>.</p>
+<p>Referenced by <a class="el" href="spidrv_8c_source.html#l00091">SPIDRV_Init()</a>, and <a class="el" href="uartdrv_8c_source.html#l00591">UARTDRV_Init()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dynsection">
 <div class="center"><img src="group__DMADRV_gab503e066820cd13fd612f4365d4d07b2_icgraph.png" border="0" usemap="#group__DMADRV_gab503e066820cd13fd612f4365d4d07b2_icgraph_map" alt=""></div>
 <map name="group__DMADRV_gab503e066820cd13fd612f4365d4d07b2_icgraph_map" id="group__DMADRV_gab503e066820cd13fd612f4365d4d07b2_icgraph">
-<area shape="rect" id="node3" href="group__SPIDRV.html#gae1bf2b297eca13e7e46cbbcb66202239" title="Initialize a SPI driver instance." alt="" coords="231,5,321,32"/><area shape="rect" id="node5" href="group__UARTDRV.html#ga2aa9f087a06d6bf96933d657ac4e55d6" title="Initialize a UART driver instance." alt="" coords="225,56,327,83"/></map>
+<area shape="rect" id="node3" href="group__SPIDRV.html#gae1bf2b297eca13e7e46cbbcb66202239" title="Initialize a SPI driver instance." alt="" coords="231,5,321,32"/><area shape="rect" id="node9" href="group__UARTDRV.html#ga2aa9f087a06d6bf96933d657ac4e55d6" title="Initialize a UART driver instance." alt="" coords="225,56,327,83"/><area shape="rect" id="node5" href="group__HAL__Layer.html#gae1cf166781ecf4a2317e0d9d4f504197" title="Initializes SPI driver for the EZRadio device." alt="" coords="376,5,507,32"/><area shape="rect" id="node7" href="group__Plugin__Manager.html#ga55ab56dfaa297c93024dc43239bc8592" title="Radio Initialization." alt="" coords="555,5,637,32"/></map>
 </div>
 </p>
 
@@ -898,9 +1057,9 @@ Here is the caller graph for this function:</div>
 
 <p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00176">176</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
 
-<p>References <a class="el" href="dmadrv_8h_source.html#l00058">ECODE_EMDRV_DMADRV_IN_USE</a>, <a class="el" href="dmadrv_8h_source.html#l00053">ECODE_EMDRV_DMADRV_OK</a>, and <a class="el" href="dmadrv__config_8h_source.html#l00037">EMDRV_DMADRV_DMA_CH_COUNT</a>.</p>
+<p>References <a class="el" href="dmadrv_8h_source.html#l00060">ECODE_EMDRV_DMADRV_IN_USE</a>, <a class="el" href="dmadrv_8h_source.html#l00055">ECODE_EMDRV_DMADRV_OK</a>, and <a class="el" href="dmadrv__config_8h_source.html#l00047">EMDRV_DMADRV_DMA_CH_COUNT</a>.</p>
 
-<p>Referenced by <a class="el" href="spidrv_8c_source.html#l00304">SPIDRV_DeInit()</a>, and <a class="el" href="uartdrv_8c_source.html#l00802">UARTDRV_DeInit()</a>.</p>
+<p>Referenced by <a class="el" href="spidrv_8c_source.html#l00312">SPIDRV_DeInit()</a>, and <a class="el" href="uartdrv_8c_source.html#l00809">UARTDRV_DeInit()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -940,9 +1099,9 @@ Here is the caller graph for this function:</div>
 
 <p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00223">223</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
 
-<p>References <a class="el" href="dmadrv_8h_source.html#l00059">ECODE_EMDRV_DMADRV_ALREADY_FREED</a>, <a class="el" href="dmadrv_8h_source.html#l00055">ECODE_EMDRV_DMADRV_NOT_INITIALIZED</a>, <a class="el" href="dmadrv_8h_source.html#l00053">ECODE_EMDRV_DMADRV_OK</a>, <a class="el" href="dmadrv_8h_source.html#l00054">ECODE_EMDRV_DMADRV_PARAM_ERROR</a>, and <a class="el" href="dmadrv__config_8h_source.html#l00037">EMDRV_DMADRV_DMA_CH_COUNT</a>.</p>
+<p>References <a class="el" href="dmadrv_8h_source.html#l00061">ECODE_EMDRV_DMADRV_ALREADY_FREED</a>, <a class="el" href="dmadrv_8h_source.html#l00057">ECODE_EMDRV_DMADRV_NOT_INITIALIZED</a>, <a class="el" href="dmadrv_8h_source.html#l00055">ECODE_EMDRV_DMADRV_OK</a>, <a class="el" href="dmadrv_8h_source.html#l00056">ECODE_EMDRV_DMADRV_PARAM_ERROR</a>, and <a class="el" href="dmadrv__config_8h_source.html#l00047">EMDRV_DMADRV_DMA_CH_COUNT</a>.</p>
 
-<p>Referenced by <a class="el" href="spidrv_8c_source.html#l00304">SPIDRV_DeInit()</a>, and <a class="el" href="uartdrv_8c_source.html#l00802">UARTDRV_DeInit()</a>.</p>
+<p>Referenced by <a class="el" href="spidrv_8c_source.html#l00312">SPIDRV_DeInit()</a>, and <a class="el" href="uartdrv_8c_source.html#l00809">UARTDRV_DeInit()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -977,16 +1136,16 @@ Here is the caller graph for this function:</div>
 
 <p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00258">258</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
 
-<p>References <a class="el" href="dmadrv_8h_source.html#l00056">ECODE_EMDRV_DMADRV_ALREADY_INITIALIZED</a>, <a class="el" href="dmadrv_8h_source.html#l00053">ECODE_EMDRV_DMADRV_OK</a>, <a class="el" href="dmadrv_8h_source.html#l00054">ECODE_EMDRV_DMADRV_PARAM_ERROR</a>, and <a class="el" href="dmadrv__config_8h_source.html#l00037">EMDRV_DMADRV_DMA_CH_COUNT</a>.</p>
+<p>References <a class="el" href="dmadrv_8h_source.html#l00058">ECODE_EMDRV_DMADRV_ALREADY_INITIALIZED</a>, <a class="el" href="dmadrv_8h_source.html#l00055">ECODE_EMDRV_DMADRV_OK</a>, <a class="el" href="dmadrv_8h_source.html#l00056">ECODE_EMDRV_DMADRV_PARAM_ERROR</a>, <a class="el" href="dmadrv__config_8h_source.html#l00047">EMDRV_DMADRV_DMA_CH_COUNT</a>, and <a class="el" href="dmadrv__config_8h_source.html#l00041">EMDRV_DMADRV_DMA_CH_PRIORITY</a>.</p>
 
-<p>Referenced by <a class="el" href="spidrv_8c_source.html#l00091">SPIDRV_Init()</a>, and <a class="el" href="uartdrv_8c_source.html#l00584">UARTDRV_Init()</a>.</p>
+<p>Referenced by <a class="el" href="spidrv_8c_source.html#l00091">SPIDRV_Init()</a>, and <a class="el" href="uartdrv_8c_source.html#l00591">UARTDRV_Init()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dynsection">
 <div class="center"><img src="group__DMADRV_ga43d0052d81f16e72914f85248a8554b1_icgraph.png" border="0" usemap="#group__DMADRV_ga43d0052d81f16e72914f85248a8554b1_icgraph_map" alt=""></div>
 <map name="group__DMADRV_ga43d0052d81f16e72914f85248a8554b1_icgraph_map" id="group__DMADRV_ga43d0052d81f16e72914f85248a8554b1_icgraph">
-<area shape="rect" id="node3" href="group__SPIDRV.html#gae1bf2b297eca13e7e46cbbcb66202239" title="Initialize a SPI driver instance." alt="" coords="159,5,249,32"/><area shape="rect" id="node5" href="group__UARTDRV.html#ga2aa9f087a06d6bf96933d657ac4e55d6" title="Initialize a UART driver instance." alt="" coords="153,56,255,83"/></map>
+<area shape="rect" id="node3" href="group__SPIDRV.html#gae1bf2b297eca13e7e46cbbcb66202239" title="Initialize a SPI driver instance." alt="" coords="159,5,249,32"/><area shape="rect" id="node9" href="group__UARTDRV.html#ga2aa9f087a06d6bf96933d657ac4e55d6" title="Initialize a UART driver instance." alt="" coords="153,56,255,83"/><area shape="rect" id="node5" href="group__HAL__Layer.html#gae1cf166781ecf4a2317e0d9d4f504197" title="Initializes SPI driver for the EZRadio device." alt="" coords="304,5,435,32"/><area shape="rect" id="node7" href="group__Plugin__Manager.html#ga55ab56dfaa297c93024dc43239bc8592" title="Radio Initialization." alt="" coords="483,5,565,32"/></map>
 </div>
 </p>
 
@@ -1049,9 +1208,9 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="group__DMADRV.html#gac20848ba30d8793ad1344fc442aae4c4">ECODE_EMDRV_DMADRV_OK</a> on success. On failure an appropriate DMADRV <a class="el" href="group__EM__Drivers.html#ga7bf5621660c5ba69ac4dd3044173d35c">Ecode_t</a> is returned. </dd></dl>
 
-<p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00330">330</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00331">331</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
 
-<p>References <a class="el" href="dmadrv_8h_source.html#l00060">ECODE_EMDRV_DMADRV_CH_NOT_ALLOCATED</a>, <a class="el" href="dmadrv_8h_source.html#l00055">ECODE_EMDRV_DMADRV_NOT_INITIALIZED</a>, <a class="el" href="dmadrv_8h_source.html#l00053">ECODE_EMDRV_DMADRV_OK</a>, <a class="el" href="dmadrv_8h_source.html#l00054">ECODE_EMDRV_DMADRV_PARAM_ERROR</a>, and <a class="el" href="dmadrv__config_8h_source.html#l00037">EMDRV_DMADRV_DMA_CH_COUNT</a>.</p>
+<p>References <a class="el" href="dmadrv_8h_source.html#l00062">ECODE_EMDRV_DMADRV_CH_NOT_ALLOCATED</a>, <a class="el" href="dmadrv_8h_source.html#l00057">ECODE_EMDRV_DMADRV_NOT_INITIALIZED</a>, <a class="el" href="dmadrv_8h_source.html#l00055">ECODE_EMDRV_DMADRV_OK</a>, <a class="el" href="dmadrv_8h_source.html#l00056">ECODE_EMDRV_DMADRV_PARAM_ERROR</a>, and <a class="el" href="dmadrv__config_8h_source.html#l00047">EMDRV_DMADRV_DMA_CH_COUNT</a>.</p>
 
 </div>
 </div>
@@ -1139,7 +1298,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="group__DMADRV.html#gac20848ba30d8793ad1344fc442aae4c4">ECODE_EMDRV_DMADRV_OK</a> on success. On failure an appropriate DMADRV <a class="el" href="group__EM__Drivers.html#ga7bf5621660c5ba69ac4dd3044173d35c">Ecode_t</a> is returned. </dd></dl>
 
-<p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00401">401</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00402">402</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
 
 </div>
 </div>
@@ -1234,7 +1393,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="group__DMADRV.html#gac20848ba30d8793ad1344fc442aae4c4">ECODE_EMDRV_DMADRV_OK</a> on success. On failure an appropriate DMADRV <a class="el" href="group__EM__Drivers.html#ga7bf5621660c5ba69ac4dd3044173d35c">Ecode_t</a> is returned. </dd></dl>
 
-<p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00468">468</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00469">469</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
 
 </div>
 </div>
@@ -1322,7 +1481,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="group__DMADRV.html#gac20848ba30d8793ad1344fc442aae4c4">ECODE_EMDRV_DMADRV_OK</a> on success. On failure an appropriate DMADRV <a class="el" href="group__EM__Drivers.html#ga7bf5621660c5ba69ac4dd3044173d35c">Ecode_t</a> is returned. </dd></dl>
 
-<p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00534">534</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00535">535</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
 
 </div>
 </div>
@@ -1417,7 +1576,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="group__DMADRV.html#gac20848ba30d8793ad1344fc442aae4c4">ECODE_EMDRV_DMADRV_OK</a> on success. On failure an appropriate DMADRV <a class="el" href="group__EM__Drivers.html#ga7bf5621660c5ba69ac4dd3044173d35c">Ecode_t</a> is returned. </dd></dl>
 
-<p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00601">601</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00602">602</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
 
 </div>
 </div>
@@ -1446,11 +1605,11 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="group__DMADRV.html#gac20848ba30d8793ad1344fc442aae4c4">ECODE_EMDRV_DMADRV_OK</a> on success. On failure an appropriate DMADRV <a class="el" href="group__EM__Drivers.html#ga7bf5621660c5ba69ac4dd3044173d35c">Ecode_t</a> is returned. </dd></dl>
 
-<p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00640">640</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00641">641</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
 
-<p>References <a class="el" href="dmadrv_8h_source.html#l00060">ECODE_EMDRV_DMADRV_CH_NOT_ALLOCATED</a>, <a class="el" href="dmadrv_8h_source.html#l00055">ECODE_EMDRV_DMADRV_NOT_INITIALIZED</a>, <a class="el" href="dmadrv_8h_source.html#l00053">ECODE_EMDRV_DMADRV_OK</a>, <a class="el" href="dmadrv_8h_source.html#l00054">ECODE_EMDRV_DMADRV_PARAM_ERROR</a>, and <a class="el" href="dmadrv__config_8h_source.html#l00037">EMDRV_DMADRV_DMA_CH_COUNT</a>.</p>
+<p>References <a class="el" href="dmadrv_8h_source.html#l00062">ECODE_EMDRV_DMADRV_CH_NOT_ALLOCATED</a>, <a class="el" href="dmadrv_8h_source.html#l00057">ECODE_EMDRV_DMADRV_NOT_INITIALIZED</a>, <a class="el" href="dmadrv_8h_source.html#l00055">ECODE_EMDRV_DMADRV_OK</a>, <a class="el" href="dmadrv_8h_source.html#l00056">ECODE_EMDRV_DMADRV_PARAM_ERROR</a>, and <a class="el" href="dmadrv__config_8h_source.html#l00047">EMDRV_DMADRV_DMA_CH_COUNT</a>.</p>
 
-<p>Referenced by <a class="el" href="spidrv_8c_source.html#l00345">SPIDRV_AbortTransfer()</a>, <a class="el" href="spidrv_8c_source.html#l00304">SPIDRV_DeInit()</a>, <a class="el" href="uartdrv_8c_source.html#l00855">UARTDRV_Abort()</a>, and <a class="el" href="uartdrv_8c_source.html#l00802">UARTDRV_DeInit()</a>.</p>
+<p>Referenced by <a class="el" href="spidrv_8c_source.html#l00353">SPIDRV_AbortTransfer()</a>, <a class="el" href="spidrv_8c_source.html#l00312">SPIDRV_DeInit()</a>, <a class="el" href="uartdrv_8c_source.html#l00862">UARTDRV_Abort()</a>, and <a class="el" href="uartdrv_8c_source.html#l00809">UARTDRV_DeInit()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1498,9 +1657,9 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="group__DMADRV.html#gac20848ba30d8793ad1344fc442aae4c4">ECODE_EMDRV_DMADRV_OK</a> on success. On failure an appropriate DMADRV <a class="el" href="group__EM__Drivers.html#ga7bf5621660c5ba69ac4dd3044173d35c">Ecode_t</a> is returned. </dd></dl>
 
-<p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00680">680</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00681">681</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
 
-<p>References <a class="el" href="dmadrv_8h_source.html#l00060">ECODE_EMDRV_DMADRV_CH_NOT_ALLOCATED</a>, <a class="el" href="dmadrv_8h_source.html#l00055">ECODE_EMDRV_DMADRV_NOT_INITIALIZED</a>, <a class="el" href="dmadrv_8h_source.html#l00053">ECODE_EMDRV_DMADRV_OK</a>, <a class="el" href="dmadrv_8h_source.html#l00054">ECODE_EMDRV_DMADRV_PARAM_ERROR</a>, and <a class="el" href="dmadrv__config_8h_source.html#l00037">EMDRV_DMADRV_DMA_CH_COUNT</a>.</p>
+<p>References <a class="el" href="dmadrv_8h_source.html#l00062">ECODE_EMDRV_DMADRV_CH_NOT_ALLOCATED</a>, <a class="el" href="dmadrv_8h_source.html#l00057">ECODE_EMDRV_DMADRV_NOT_INITIALIZED</a>, <a class="el" href="dmadrv_8h_source.html#l00055">ECODE_EMDRV_DMADRV_OK</a>, <a class="el" href="dmadrv_8h_source.html#l00056">ECODE_EMDRV_DMADRV_PARAM_ERROR</a>, and <a class="el" href="dmadrv__config_8h_source.html#l00047">EMDRV_DMADRV_DMA_CH_COUNT</a>.</p>
 
 </div>
 </div>
@@ -1540,9 +1699,9 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="group__DMADRV.html#gac20848ba30d8793ad1344fc442aae4c4">ECODE_EMDRV_DMADRV_OK</a> on success. On failure an appropriate DMADRV <a class="el" href="group__EM__Drivers.html#ga7bf5621660c5ba69ac4dd3044173d35c">Ecode_t</a> is returned. </dd></dl>
 
-<p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00732">732</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00733">733</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
 
-<p>References <a class="el" href="dmadrv_8h_source.html#l00060">ECODE_EMDRV_DMADRV_CH_NOT_ALLOCATED</a>, <a class="el" href="dmadrv_8h_source.html#l00055">ECODE_EMDRV_DMADRV_NOT_INITIALIZED</a>, <a class="el" href="dmadrv_8h_source.html#l00053">ECODE_EMDRV_DMADRV_OK</a>, <a class="el" href="dmadrv_8h_source.html#l00054">ECODE_EMDRV_DMADRV_PARAM_ERROR</a>, and <a class="el" href="dmadrv__config_8h_source.html#l00037">EMDRV_DMADRV_DMA_CH_COUNT</a>.</p>
+<p>References <a class="el" href="dmadrv_8h_source.html#l00062">ECODE_EMDRV_DMADRV_CH_NOT_ALLOCATED</a>, <a class="el" href="dmadrv_8h_source.html#l00057">ECODE_EMDRV_DMADRV_NOT_INITIALIZED</a>, <a class="el" href="dmadrv_8h_source.html#l00055">ECODE_EMDRV_DMADRV_OK</a>, <a class="el" href="dmadrv_8h_source.html#l00056">ECODE_EMDRV_DMADRV_PARAM_ERROR</a>, and <a class="el" href="dmadrv__config_8h_source.html#l00047">EMDRV_DMADRV_DMA_CH_COUNT</a>.</p>
 
 </div>
 </div>
@@ -1582,9 +1741,9 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="group__DMADRV.html#gac20848ba30d8793ad1344fc442aae4c4">ECODE_EMDRV_DMADRV_OK</a> on success. On failure an appropriate DMADRV <a class="el" href="group__EM__Drivers.html#ga7bf5621660c5ba69ac4dd3044173d35c">Ecode_t</a> is returned. </dd></dl>
 
-<p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00785">785</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00786">786</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
 
-<p>References <a class="el" href="dmadrv_8h_source.html#l00060">ECODE_EMDRV_DMADRV_CH_NOT_ALLOCATED</a>, <a class="el" href="dmadrv_8h_source.html#l00055">ECODE_EMDRV_DMADRV_NOT_INITIALIZED</a>, <a class="el" href="dmadrv_8h_source.html#l00053">ECODE_EMDRV_DMADRV_OK</a>, <a class="el" href="dmadrv_8h_source.html#l00054">ECODE_EMDRV_DMADRV_PARAM_ERROR</a>, and <a class="el" href="dmadrv__config_8h_source.html#l00037">EMDRV_DMADRV_DMA_CH_COUNT</a>.</p>
+<p>References <a class="el" href="dmadrv_8h_source.html#l00062">ECODE_EMDRV_DMADRV_CH_NOT_ALLOCATED</a>, <a class="el" href="dmadrv_8h_source.html#l00057">ECODE_EMDRV_DMADRV_NOT_INITIALIZED</a>, <a class="el" href="dmadrv_8h_source.html#l00055">ECODE_EMDRV_DMADRV_OK</a>, <a class="el" href="dmadrv_8h_source.html#l00056">ECODE_EMDRV_DMADRV_PARAM_ERROR</a>, and <a class="el" href="dmadrv__config_8h_source.html#l00047">EMDRV_DMADRV_DMA_CH_COUNT</a>.</p>
 
 </div>
 </div>
@@ -1624,11 +1783,11 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd><a class="el" href="group__DMADRV.html#gac20848ba30d8793ad1344fc442aae4c4">ECODE_EMDRV_DMADRV_OK</a> on success. On failure an appropriate DMADRV <a class="el" href="group__EM__Drivers.html#ga7bf5621660c5ba69ac4dd3044173d35c">Ecode_t</a> is returned. </dd></dl>
 
-<p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00851">851</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
+<p>Definition at line <a class="el" href="dmadrv_8c_source.html#l00852">852</a> of file <a class="el" href="dmadrv_8c_source.html">dmadrv.c</a>.</p>
 
-<p>References <a class="el" href="dmadrv_8h_source.html#l00060">ECODE_EMDRV_DMADRV_CH_NOT_ALLOCATED</a>, <a class="el" href="dmadrv_8h_source.html#l00055">ECODE_EMDRV_DMADRV_NOT_INITIALIZED</a>, <a class="el" href="dmadrv_8h_source.html#l00053">ECODE_EMDRV_DMADRV_OK</a>, <a class="el" href="dmadrv_8h_source.html#l00054">ECODE_EMDRV_DMADRV_PARAM_ERROR</a>, and <a class="el" href="dmadrv__config_8h_source.html#l00037">EMDRV_DMADRV_DMA_CH_COUNT</a>.</p>
+<p>References <a class="el" href="dmadrv_8h_source.html#l00062">ECODE_EMDRV_DMADRV_CH_NOT_ALLOCATED</a>, <a class="el" href="dmadrv_8h_source.html#l00057">ECODE_EMDRV_DMADRV_NOT_INITIALIZED</a>, <a class="el" href="dmadrv_8h_source.html#l00055">ECODE_EMDRV_DMADRV_OK</a>, <a class="el" href="dmadrv_8h_source.html#l00056">ECODE_EMDRV_DMADRV_PARAM_ERROR</a>, and <a class="el" href="dmadrv__config_8h_source.html#l00047">EMDRV_DMADRV_DMA_CH_COUNT</a>.</p>
 
-<p>Referenced by <a class="el" href="spidrv_8c_source.html#l00345">SPIDRV_AbortTransfer()</a>, <a class="el" href="spidrv_8c_source.html#l00462">SPIDRV_GetTransferStatus()</a>, <a class="el" href="uartdrv_8c_source.html#l00855">UARTDRV_Abort()</a>, <a class="el" href="uartdrv_8c_source.html#l00949">UARTDRV_GetReceiveStatus()</a>, and <a class="el" href="uartdrv_8c_source.html#l01008">UARTDRV_GetTransmitStatus()</a>.</p>
+<p>Referenced by <a class="el" href="spidrv_8c_source.html#l00353">SPIDRV_AbortTransfer()</a>, <a class="el" href="spidrv_8c_source.html#l00470">SPIDRV_GetTransferStatus()</a>, <a class="el" href="uartdrv_8c_source.html#l00862">UARTDRV_Abort()</a>, <a class="el" href="uartdrv_8c_source.html#l00956">UARTDRV_GetReceiveStatus()</a>, and <a class="el" href="uartdrv_8c_source.html#l01015">UARTDRV_GetTransmitStatus()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1644,7 +1803,7 @@ Here is the caller graph for this function:</div>
 </div>
 <div id="footer">
 <hr size="1"><address style="text-align: right;"><small>
-Generated on Thu May 28 13:12:55 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
+Generated on Mon Sep 7 08:55:29 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a><small> 1.6.3 </small></address></div>
 </body>

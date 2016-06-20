@@ -1,9 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$group__Si114x.html#ga75ef8acc675ca1a1bf14acda4f3c6686" title="Get the enable status of the Si1147 interrupt pin." alt="" coords="459,5,672,32"/>
-<area shape="rect" id="node5" href="$group__Si114x.html#gaeae79629a9f5a41c75ba329fa056eeef" title="Reads from Si114x register." alt="" coords="923,81,1090,108"/>
-<area shape="rect" id="node7" href="$group__Si114x.html#gac4487c27a69c68ce91b6f193fc35fd3f" title="Sends a PSALSFORCE command to the Si113x/4x." alt="" coords="288,132,411,159"/>
-<area shape="rect" id="node18" href="$group__Si114x.html#ga8d9e6e60e0ced326193208cdf976bbee" title="Writes to Si114x Register." alt="" coords="721,259,874,285"/>
-<area shape="rect" id="node9" href="$si114x__functions_8c.html#abdc2cf05a4b2387da379ec970c73c205" title="Helper function to send a command to the Si113x/4x." alt="" coords="524,157,607,184"/>
-<area shape="rect" id="node11" href="$si114x__functions_8c.html#ad3caa9be1c88c281a2b56d85874ce13e" title="Waits until the Si113x/4x is sleeping before proceeding." alt="" coords="742,157,853,184"/>
-<area shape="rect" id="node13" href="$group__Si114x.html#ga734e022c8fda86b69a353b1012c59231" title="Implements 1ms delay." alt="" coords="965,183,1048,209"/>
+<area shape="rect" id="node3" href="$group__Si114x.html#ga75ef8acc675ca1a1bf14acda4f3c6686" title="Get the enable status of the Si1147 interrupt pin." alt="" coords="288,5,501,32"/>
+<area shape="rect" id="node5" href="$group__Si114x.html#gaeae79629a9f5a41c75ba329fa056eeef" title="Reads from Si114x register." alt="" coords="550,31,717,57"/>
+<area shape="rect" id="node7" href="$group__Si114x.html#gac4487c27a69c68ce91b6f193fc35fd3f" title="Sends a PSALSFORCE command to the Si113x/4x." alt="" coords="333,107,456,133"/>
+<area shape="rect" id="node10" href="$group__Si114x.html#ga8d9e6e60e0ced326193208cdf976bbee" title="Writes to Si114x Register." alt="" coords="318,157,471,184"/>
 </map>

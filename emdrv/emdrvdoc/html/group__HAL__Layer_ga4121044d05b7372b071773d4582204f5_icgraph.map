@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$group__COMM__Layer.html#ga038a27f7a6883bc6640fe1187a98eed9" title="Sends a command to the radio chip." alt="" coords="225,1019,393,1045"/>
+<area shape="rect" id="node97" href="$group__COMM__Layer.html#ga6316768a0f0661af747171605e86f401" title="Gets a command response from the radio chip." alt="" coords="224,56,395,83"/>
+<area shape="rect" id="node5" href="$group__API__Layer.html#ga235ff2f0e61232797b5d3930b9319c5f" title="Issue a change state command to the radio." alt="" coords="491,284,637,311"/>
+<area shape="rect" id="node15" href="$group__COMM__Layer.html#ga67ac511d7cfce9c8cb00cd31113ff9a4" title="Sends a command to the radio chip and gets a response." alt="" coords="457,791,671,817"/>
+<area shape="rect" id="node64" href="$group__API__Layer.html#gab214bdcdc5818dff1a6714c2aa0f98e3" title="Resets the RX/TX FIFO." alt="" coords="473,1095,655,1121"/>
+<area shape="rect" id="node66" href="$group__API__Layer.html#gad600f530d5f68c9a059f6bc661b38dbd" title="Clear all Chip status flags." alt="" coords="453,1145,675,1172"/>
+<area shape="rect" id="node68" href="$group__API__Layer.html#ga7aa4d52445b45b05292f22c888d54456" title="Clear all Interrupt status/pending flags." alt="" coords="457,1196,671,1223"/>
+<area shape="rect" id="node70" href="$group__API__Layer.html#ga31fbcc3ddf36d660029f52c7590551bf" title="Clear all Modem status flags." alt="" coords="443,1247,685,1273"/>
+<area shape="rect" id="node72" href="$group__API__Layer.html#gae79ddb973018cb991d0272414cd7a961" title="Clear all Packet Handler status flags." alt="" coords="457,1297,671,1324"/>
+<area shape="rect" id="node74" href="$group__API__Layer.html#ga539bfe0739c7c40efd8b5ce2230ba2d8" title="Performs image rejection calibration." alt="" coords="517,1348,611,1375"/>
+<area shape="rect" id="node76" href="$group__API__Layer.html#gadac39bea145c7690251ea39231b4595e" title="Sends NOP command to the radio." alt="" coords="518,1399,610,1425"/>
+<area shape="rect" id="node78" href="$group__API__Layer.html#gaaedde5a0144af3d029672a3d6c27210b" title="This function is used to initialize after power&#45;up the radio chip." alt="" coords="500,1449,628,1476"/>
+<area shape="rect" id="node80" href="$group__API__Layer.html#gacef1d81a9a5e390249154bbeed9b9df1" title="While in RX state this will hop to the frequency specified by the parameters and..." alt="" coords="509,233,619,260"/>
+<area shape="rect" id="node82" href="$group__API__Layer.html#ga5f37f9c7237c880623753bbd9c772876" title="Send SET_PROPERTY command to the radio." alt="" coords="493,841,635,868"/>
+<area shape="rect" id="node84" href="$group__API__Layer.html#ga6bebb6e764046173bd4b58db3d5f30c2" title="Sends START_RX command to the radio." alt="" coords="507,107,621,133"/>
+<area shape="rect" id="node89" href="$group__API__Layer.html#ga2afe6af0c962076145f252f0e18d97ee" title="Sends START_RX command ID to the radio with no input parameters." alt="" coords="493,892,635,919"/>
+<area shape="rect" id="node91" href="$group__API__Layer.html#ga95ec30d47eea9860cccae2c5bb3fc878" title="Sends START_TX command to the radio." alt="" coords="507,943,621,969"/>
+<area shape="rect" id="node93" href="$group__API__Layer.html#gae98048c6798c02b17ce19356390a265a" title="Sends START_TX command ID to the radio with no input parameters." alt="" coords="493,993,635,1020"/>
+<area shape="rect" id="node95" href="$group__API__Layer.html#ga3fc1fea6da81ea1d332f7ad430aa3be6" title="While in TX state this will hop to the frequency specified by the parameters." alt="" coords="509,1044,619,1071"/>
+<area shape="rect" id="node7" href="$group__Direct__Receive__Plugin.html#ga110cc9713875e0e8ce1e87aa7a66b536" title="Stops direct reception." alt="" coords="789,208,955,235"/>
+<area shape="rect" id="node9" href="$group__Direct__Transmit__Plugin.html#gaaeb98ca48e265d89240b188fb685f02c" title="Stops direct transmission." alt="" coords="785,259,959,285"/>
+<area shape="rect" id="node11" href="$group__PN9__Plugin.html#ga721700326b2545601f947f24fed72676" title="Stops PN9 carrier transmission." alt="" coords="817,309,927,336"/>
+<area shape="rect" id="node13" href="$group__Unmod__Carrier__Plugin.html#ga597d48cd98b47dc8811996c67c475e91" title="Stops unmodulated carrier transmission." alt="" coords="769,157,975,184"/>
+<area shape="rect" id="node17" href="$group__API__Layer.html#ga5e458f080841a7423743d53e2217d1e5" title="This function is used to load all properties and commands with a list of NULL terminated..." alt="" coords="1059,360,1229,387"/>
+<area shape="rect" id="node19" href="$group__API__Layer.html#ga34050d696c76dfc0e2f210ac3465cdf0" title="Validates the EZConfig array was written correctly." alt="" coords="793,461,951,488"/>
+<area shape="rect" id="node21" href="$group__API__Layer.html#gad7e9af6ef1205ffb877a3c869f5193ee" title="Send the FIFO_INFO command to the radio." alt="" coords="813,512,931,539"/>
+<area shape="rect" id="node23" href="$group__API__Layer.html#gaf761bc9fbc4e01da3b6fc09523da4260" title="Reads RX/TX FIFO count space." alt="" coords="783,563,961,589"/>
+<area shape="rect" id="node25" href="$group__API__Layer.html#ga6c5d8d1ef6ca843dfdbff5460e6dad2c" title="Sends the FUNC_INFO command to the radio, then reads the resonse into ezradioReply..." alt="" coords="811,613,933,640"/>
+<area shape="rect" id="node27" href="$group__API__Layer.html#gab50e698c116f28cdb80a64da04bb5dd2" title="Reads the ADC values from the radio into ezradioReply union." alt="" coords="789,664,955,691"/>
+<area shape="rect" id="node29" href="$group__API__Layer.html#gad5ef27035ca328bb2861b5126600a490" title="Gets the Chip status flags." alt="" coords="792,715,952,741"/>
+<area shape="rect" id="node31" href="$group__API__Layer.html#ga797cd338dde1db4e7a24a06a06802766" title="Clear and read all Chip status flags." alt="" coords="744,816,1000,843"/>
+<area shape="rect" id="node33" href="$group__API__Layer.html#ga2060b35450cc17415abf08a2f028b2b6" title="Get the Interrupt status/pending flags form the radio and clear flags if requested..." alt="" coords="797,360,947,387"/>
+<area shape="rect" id="node38" href="$group__API__Layer.html#ga84c393b3068b4ae7366205b5be11b382" title="Clear and read all Interrupt status/pending flags." alt="" coords="749,867,995,893"/>
+<area shape="rect" id="node40" href="$group__API__Layer.html#gad7269dfaf3135be3218c08494df40542" title="Gets the Modem status flags." alt="" coords="782,917,962,944"/>
+<area shape="rect" id="node42" href="$group__API__Layer.html#ga2539aeb090517be778e29b658c7197fb" title="Clear and read all Modem status flags." alt="" coords="734,968,1010,995"/>
+<area shape="rect" id="node44" href="$group__API__Layer.html#gaa6777e927f0bd0c5368ec58d4d6d3bcb" title="Receives information from the radio of the current packet." alt="" coords="791,1019,953,1045"/>
+<area shape="rect" id="node46" href="$group__API__Layer.html#gac4a541df5be98d23714c2409ed485a1b" title="Gets the Packet Handler status flags." alt="" coords="797,1069,947,1096"/>
+<area shape="rect" id="node48" href="$group__API__Layer.html#ga959a4025e03dbdcf89a195021400601d" title="Clear and read all Packet Handler status flags." alt="" coords="749,1120,995,1147"/>
+<area shape="rect" id="node50" href="$group__API__Layer.html#gad46745a62ae7ab1876792eac63216874" title="Get property values from the radio." alt="" coords="800,1171,944,1197"/>
+<area shape="rect" id="node52" href="$group__API__Layer.html#gada8c3e33f1cba006a91daba785d93298" title="Send GPIO pin config command to the radio and reads the answer into ezradioReply..." alt="" coords="801,1221,943,1248"/>
+<area shape="rect" id="node54" href="$group__API__Layer.html#ga812515656b246c20cce34daa883151a6" title="Reads back current GPIO pin configuration." alt="" coords="787,1272,957,1299"/>
+<area shape="rect" id="node56" href="$group__API__Layer.html#ga50e5aeb4468316b1c8bd9005806b7f05" title="Image rejection calibration." alt="" coords="800,1323,944,1349"/>
+<area shape="rect" id="node58" href="$group__API__Layer.html#ga90809bd86f07081e57bdb2127c29b19c" title="This function sends the PART_INFO command to the radio and receives the answer into..." alt="" coords="811,1373,933,1400"/>
+<area shape="rect" id="node60" href="$group__API__Layer.html#ga18c87c07ae75e6a7a378e2ebe9d618c1" title="Reads the command buffer." alt="" coords="793,1424,951,1451"/>
+<area shape="rect" id="node62" href="$group__API__Layer.html#ga9f990f8ebde64b6ef0c051f397430c53" title="Requests the current state of the device and lists pending TX and RX requests." alt="" coords="776,411,968,437"/>
+<area shape="rect" id="node36" href="$group__Direct__Receive__Plugin.html#ga9a1aa8ea909b1667cf73d2227773251f" title="Starts direct reception with the radio configurations from the radioHandle parameter..." alt="" coords="1059,157,1229,184"/>
+<area shape="rect" id="node87" href="$group__Receive__Plugin.html#gae2761df30f35463d361937ddee63eed0" title="Set Radio to RX mode, packet length is always coming from the radio configuration..." alt="" coords="819,107,925,133"/>
+<area shape="rect" id="node99" href="$group__API__Layer.html#ga48c934c7d9a3a297087572137693cdf7" title="Writes data byte(s) to the EZConfig array." alt="" coords="469,56,659,83"/>
+<area shape="rect" id="node102" href="$group__API__Layer.html#ga352edd05911a66d9fe2b2e7c11d2df22" title="The function can be used to load data into TX FIFO." alt="" coords="493,5,635,32"/>
+</map>

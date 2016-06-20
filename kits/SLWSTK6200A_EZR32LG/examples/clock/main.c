@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file main.c
  * @brief Clock example
- * @version 4.0.0
+ * @version 4.1.0
  *
  * This example shows how to optimize your code in order to drive
  * a graphical display in an energy friendly way.
@@ -30,11 +30,7 @@
 #include "display.h"
 #include "textdisplay.h"
 #include "retargettextdisplay.h"
-
-/* Button assignments. */
-#define UIF_BUTTON_PORT gpioPortE
-#define UIF_BUTTON_PB0_PIN 3
-#define UIF_BUTTON_PB1_PIN 2
+#include "bspconfig.h"
 
 /* Frequency of RTC clock. */
 #define RTC_FREQUENCY    (64)
@@ -73,6 +69,9 @@ void ANALOG_ForceRedraw(void);
 #define snprintf    sniprintf
 #endif
 
+/* Holds pushbutton number of even/odd pins. */
+static uint32_t evenPin;
+static uint32_t oddPin;
 
 /**************************************************************************//**
  * @brief Setup GPIO interrupt for pushbuttons.
@@ -82,58 +81,69 @@ static void GpioSetup(void)
   /* Enable GPIO clock */
   CMU_ClockEnable(cmuClock_GPIO, true);
 
-  /* Configure pushbutton gpio as input and enable interrupt  */
-  GPIO_PinModeSet(UIF_BUTTON_PORT, UIF_BUTTON_PB1_PIN, gpioModeInputPull, 1);
-  GPIO_IntConfig(UIF_BUTTON_PORT, UIF_BUTTON_PB1_PIN, false, true, true);
+  /* Configure pushbutton gpio's as input and enable interrupt  */
+  GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeInputPull, 1);
+  GPIO_IntConfig( BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, false, true, true);
+  GPIO_PinModeSet(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN, gpioModeInputPull, 1);
+  GPIO_IntConfig( BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN, false, true, true);
 
   NVIC_ClearPendingIRQ(GPIO_EVEN_IRQn);
-  NVIC_EnableIRQ(GPIO_EVEN_IRQn);
-
-  /* Configure PC13 as input and enable interrupt */
-  GPIO_PinModeSet(UIF_BUTTON_PORT, UIF_BUTTON_PB0_PIN, gpioModeInputPull, 1);
-  GPIO_IntConfig(UIF_BUTTON_PORT, UIF_BUTTON_PB0_PIN, false, true, true);
-
   NVIC_ClearPendingIRQ(GPIO_ODD_IRQn);
+  NVIC_EnableIRQ(GPIO_EVEN_IRQn);
   NVIC_EnableIRQ(GPIO_ODD_IRQn);
+
+  evenPin = BSP_GPIO_PB0_PIN & 1 ? BSP_GPIO_PB1_PIN : BSP_GPIO_PB0_PIN;
+  oddPin  = BSP_GPIO_PB0_PIN & 1 ? BSP_GPIO_PB0_PIN : BSP_GPIO_PB1_PIN;
 }
 
 /**************************************************************************//**
- * @brief GPIO Interrupt handler (PB1)
- *        Switches between analog and digital clock modes.
+ * @brief Take action in GPIO pin interrupts.
+ *        Switches between analog and digital clock modes,
+ *        or increments the time by one minute.
  *****************************************************************************/
-void GPIO_EVEN_IRQHandler(void)
+static void pinIrq(uint32_t pin)
 {
   /* Acknowledge interrupt */
-  GPIO_IntClear(1 << UIF_BUTTON_PB1_PIN);
+  GPIO_IntClear(1 << pin);
 
-  /* Toggle clock mode (analog/digital) */
-  if (clockMode == CLOCK_MODE_ANALOG)
+  if (pin == BSP_GPIO_PB0_PIN)
   {
-    clockMode = CLOCK_MODE_DIGITAL;
+    /* Toggle clock face (analog/digital). */
+    if (clockMode == CLOCK_MODE_ANALOG)
+    {
+      clockMode = CLOCK_MODE_DIGITAL;
+    }
+    else
+    {
+      ANALOG_ForceRedraw();
+      clockMode = CLOCK_MODE_ANALOG;
+    }
   }
   else
   {
-    ANALOG_ForceRedraw();
-    clockMode = CLOCK_MODE_ANALOG;
+    /* Increase time by 1 minute (60 seconds). */
+    curTime += 60;
+    isAdjustingTime = true;
   }
 
   updateDisplay = true;
 }
 
 /**************************************************************************//**
- * @brief GPIO Interrupt handler (PB0)
+ * @brief GPIO EVEN Interrupt handler.
+ *****************************************************************************/
+void GPIO_EVEN_IRQHandler(void)
+{
+  pinIrq(evenPin);
+}
+
+/**************************************************************************//**
+ * @brief GPIO ODD Interrupt handler.
  *        Increments the time by one minute.
  *****************************************************************************/
 void GPIO_ODD_IRQHandler(void)
 {
-  /* Acknowledge interrupt */
-  GPIO_IntClear(1 << UIF_BUTTON_PB0_PIN);
-
-  /* Increase time by 1 minute (60 seconds). */
-  curTime += 60;
-
-  isAdjustingTime = true;
-  updateDisplay   = true;
+  pinIrq(oddPin);
 }
 
 /**************************************************************************//**
@@ -163,7 +173,6 @@ int RtcIntCallbackRegister(void (*pFunction)(void*),
 
 /**************************************************************************//**
  * @brief   Set up RTC to generate an interrupt every second.
- *
  *****************************************************************************/
 void RtcInit(void)
 {
@@ -198,7 +207,6 @@ void RtcInit(void)
 
 /**************************************************************************//**
  * @brief   This interrupt is triggered every second by the RTC.
- *
  *****************************************************************************/
 void RTC_IRQHandler(void)
 {
@@ -224,7 +232,6 @@ void RTC_IRQHandler(void)
 /**************************************************************************//**
  * @brief  Increments the clock quickly while PB1 is pressed.
  *         A callback is used to update either the analog or the digital clock.
- *
  *****************************************************************************/
 void AdjustTime(void (*drawClock)(struct tm*))
 {
@@ -238,7 +245,7 @@ void AdjustTime(void (*drawClock)(struct tm*))
   while (rtcIrqCount != waitForRtcIrqCount)
   {
     /* Return if the button is released */
-    if (GPIO_PinInGet(UIF_BUTTON_PORT, UIF_BUTTON_PB0_PIN) == 1)
+    if (GPIO_PinInGet(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN) == 1)
       return;
 
     /* Keep updating the second counter while waiting */
@@ -252,7 +259,7 @@ void AdjustTime(void (*drawClock)(struct tm*))
   }
 
   /* Keep incrementing the time while the button is pressed */
-  while (GPIO_PinInGet(UIF_BUTTON_PORT, UIF_BUTTON_PB0_PIN) == 0)
+  while (GPIO_PinInGet(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN) == 0)
   {
     if (i % 1000 == 0)
     {
@@ -269,7 +276,6 @@ void AdjustTime(void (*drawClock)(struct tm*))
 
 /**************************************************************************//**
  * @brief  Shows an analog clock on the display.
- *
  *****************************************************************************/
 void AnalogClockShow(void)
 {
@@ -304,7 +310,6 @@ void AnalogClockShow(void)
 
 /**************************************************************************//**
  * @brief  Updates the digital clock.
- *
  *****************************************************************************/
 void UpdateDigitalClock(struct tm *time)
 {
@@ -335,7 +340,6 @@ void UpdateDigitalClock(struct tm *time)
 
 /**************************************************************************//**
  * @brief  Shows an digital clock on the display.
- *
  *****************************************************************************/
 void DigitalClockShow(void)
 {
@@ -378,7 +382,6 @@ void DigitalClockShow(void)
 
 /**************************************************************************//**
  * @brief  Main function of clock example.
- *
  *****************************************************************************/
 int main(void)
 {

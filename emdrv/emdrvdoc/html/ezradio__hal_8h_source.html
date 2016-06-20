@@ -71,45 +71,37 @@ window.onload = initDynSections;
 <a name="l00033"></a>00033 <span class="preprocessor">#ifndef _EZRADIO_HAL_H_</span>
 <a name="l00034"></a>00034 <span class="preprocessor"></span><span class="preprocessor">#define _EZRADIO_HAL_H_</span>
 <a name="l00035"></a>00035 <span class="preprocessor"></span>
-<a name="l00036"></a>00036 <span class="preprocessor">#include &quot;ezradiodrv_config.h&quot;</span>
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038 <span class="preprocessor">#ifdef __cplusplus</span>
-<a name="l00039"></a>00039 <span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {
-<a name="l00040"></a>00040 <span class="preprocessor">#endif</span>
-<a name="l00041"></a>00041 <span class="preprocessor"></span>
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043 <span class="preprocessor">#if (defined EZRADIODRV_USE_SPIDRV)</span>
-<a name="l00044"></a>00044 <span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="spidrv_8h.html" title="SPIDRV API definition.">spidrv.h</a>&quot;</span>
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046 <span class="keyword">extern</span> <a class="code" href="structSPIDRV__HandleData__t.html" title="SPI driver instance handle data structure.">SPIDRV_HandleData_t</a>  ezradioSpiHandle;
-<a name="l00047"></a>00047 <span class="keyword">extern</span> <a class="code" href="structSPIDRV__HandleData__t.html" title="SPI driver instance handle data structure.">SPIDRV_Handle_t</a>      ezradioSpiHandlePtr;
-<a name="l00048"></a>00048 <span class="keyword">extern</span> <a class="code" href="structSPIDRV__Init__t.html" title="SPI driver instance initialization structure.">SPIDRV_Init_t</a>        ezradioSpiInitData;
-<a name="l00049"></a>00049 <span class="preprocessor">#endif</span>
-<a name="l00050"></a>00050 <span class="preprocessor"></span>
-<a name="l00051"></a>00051 <span class="keywordtype">void</span>    <a class="code" href="ezradio__hal_8h.html#a7f93451e6b7dea9826173416f4880612">ezradio_hal_GpioInit</a>( <a class="code" href="group__GPIOINT.html#ga546f0de2f88be238b5a5340428e85d52" title="GPIO interrupt callback function pointer.">GPIOINT_IrqCallbackPtr_t</a> ezradioIrqCallback );
-<a name="l00052"></a>00052 <span class="keywordtype">void</span>    ezradio_hal_SpiInit( <span class="keywordtype">void</span> );
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 <span class="keywordtype">void</span>    <a class="code" href="ezradio__hal_8h.html#a2ed0dd8b886f54f697fa930ce6706363">ezradio_hal_AssertShutdown</a>  (<span class="keywordtype">void</span>);
-<a name="l00055"></a>00055 <span class="keywordtype">void</span>    <a class="code" href="ezradio__hal_8h.html#a2806bc95f89976726016169ea2b3339c">ezradio_hal_DeassertShutdown</a>(<span class="keywordtype">void</span>);
-<a name="l00056"></a>00056 <span class="keywordtype">void</span>    <a class="code" href="ezradio__hal_8h.html#a09c7ef4b4780a8089505f54ef1f26fd5">ezradio_hal_ClearNsel</a>       (<span class="keywordtype">void</span>);
-<a name="l00057"></a>00057 <span class="keywordtype">void</span>    <a class="code" href="ezradio__hal_8h.html#ae80c58c4f19b8e2b56c033c94bcb0f10">ezradio_hal_SetNsel</a>         (<span class="keywordtype">void</span>);
-<a name="l00058"></a>00058 uint8_t <a class="code" href="ezradio__hal_8h.html#aabf77038901412b5b640149538ec5cbe">ezradio_hal_NirqLevel</a>       (<span class="keywordtype">void</span>);
+<a name="l00036"></a>00036 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00037"></a>00037 <span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {
+<a name="l00038"></a>00038 <span class="preprocessor">#endif</span>
+<a name="l00039"></a>00039 <span class="preprocessor"></span>
+<a name="l00040"></a>00040 <span class="comment">/***************************************************************************/</span>
+<a name="l00045"></a>00045 <span class="comment">/***************************************************************************/</span>
+<a name="l00050"></a>00050 <span class="comment">/***************************************************************************/</span>
+<a name="l00057"></a>00057 <span class="keywordtype">void</span>    <a class="code" href="group__HAL__Layer.html#gabf61af8f57a9c92ea50311df53a7d825" title="Configures the EZRadio GPIO port and pins.">ezradio_hal_GpioInit</a>( <a class="code" href="group__GPIOINT.html#ga546f0de2f88be238b5a5340428e85d52" title="GPIO interrupt callback function pointer.">GPIOINT_IrqCallbackPtr_t</a> ezradioIrqCallback, <span class="keywordtype">bool</span> enablePTI );
+<a name="l00058"></a>00058 <span class="keywordtype">void</span>    <a class="code" href="group__HAL__Layer.html#gae1cf166781ecf4a2317e0d9d4f504197" title="Initializes SPI driver for the EZRadio device.">ezradio_hal_SpiInit</a>( <span class="keywordtype">void</span> );
 <a name="l00059"></a>00059 
-<a name="l00060"></a>00060 <span class="keywordtype">void</span>    <a class="code" href="ezradio__hal_8h.html#a52e4a984325c6446291b13b1a63e3dff">ezradio_hal_SpiWriteByte</a>    (uint8_t byteToWrite);
-<a name="l00061"></a>00061 <span class="keywordtype">void</span>    <a class="code" href="ezradio__hal_8h.html#a23ca775cc658644f29ceacbcc471606a">ezradio_hal_SpiReadByte</a>     (uint8_t* readByte);
-<a name="l00062"></a>00062 
-<a name="l00063"></a>00063 <span class="keywordtype">void</span>    <a class="code" href="ezradio__hal_8h.html#a4121044d05b7372b071773d4582204f5">ezradio_hal_SpiWriteData</a>    (uint8_t byteCount, uint8_t* pData);
-<a name="l00064"></a>00064 <span class="keywordtype">void</span>    <a class="code" href="ezradio__hal_8h.html#a9c4c63403aaa9f22f75391e4c767d298">ezradio_hal_SpiReadData</a>     (uint8_t byteCount, uint8_t* pData);
+<a name="l00060"></a>00060 <span class="keywordtype">void</span>    <a class="code" href="group__HAL__Layer.html#ga2ed0dd8b886f54f697fa930ce6706363" title="Asserts SDN pin of the EZRadio device.">ezradio_hal_AssertShutdown</a>  (<span class="keywordtype">void</span>);
+<a name="l00061"></a>00061 <span class="keywordtype">void</span>    <a class="code" href="group__HAL__Layer.html#ga2806bc95f89976726016169ea2b3339c" title="Deasserts SDN pin of the EZRadio device.">ezradio_hal_DeassertShutdown</a>(<span class="keywordtype">void</span>);
+<a name="l00062"></a>00062 <span class="keywordtype">void</span>    <a class="code" href="group__HAL__Layer.html#ga09c7ef4b4780a8089505f54ef1f26fd5" title="Clears nSEL pin of the EZRadio device.">ezradio_hal_ClearNsel</a>       (<span class="keywordtype">void</span>);
+<a name="l00063"></a>00063 <span class="keywordtype">void</span>    <a class="code" href="group__HAL__Layer.html#gae80c58c4f19b8e2b56c033c94bcb0f10" title="Sets nSEL pin of the EZRadio device.">ezradio_hal_SetNsel</a>         (<span class="keywordtype">void</span>);
+<a name="l00064"></a>00064 uint8_t <a class="code" href="group__HAL__Layer.html#gaabf77038901412b5b640149538ec5cbe" title="Reads nIRQ pin of the EZRadio device.">ezradio_hal_NirqLevel</a>       (<span class="keywordtype">void</span>);
 <a name="l00065"></a>00065 
-<a name="l00066"></a>00066 <span class="preprocessor">#ifdef __cplusplus</span>
-<a name="l00067"></a>00067 <span class="preprocessor"></span>}
-<a name="l00068"></a>00068 <span class="preprocessor">#endif</span>
-<a name="l00069"></a>00069 <span class="preprocessor"></span>
-<a name="l00070"></a>00070 <span class="preprocessor">#endif //_EZRADIO_HAL_H_</span>
+<a name="l00066"></a>00066 <span class="keywordtype">void</span>    <a class="code" href="group__HAL__Layer.html#ga52e4a984325c6446291b13b1a63e3dff" title="Writes a single byte to the EZRadio SPI port.">ezradio_hal_SpiWriteByte</a>    (uint8_t byteToWrite);
+<a name="l00067"></a>00067 <span class="keywordtype">void</span>    <a class="code" href="group__HAL__Layer.html#ga23ca775cc658644f29ceacbcc471606a" title="Reads a single byte from the EZRadio SPI port.">ezradio_hal_SpiReadByte</a>     (uint8_t* readByte);
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 <span class="keywordtype">void</span>    <a class="code" href="group__HAL__Layer.html#ga4121044d05b7372b071773d4582204f5" title="Writes byteCount number of bytes to the EZRadio SPI port.">ezradio_hal_SpiWriteData</a>    (uint8_t byteCount, uint8_t* pData);
+<a name="l00070"></a>00070 <span class="keywordtype">void</span>    <a class="code" href="group__HAL__Layer.html#ga9c4c63403aaa9f22f75391e4c767d298" title="Reads byteCount number of bytes from the EZRadio SPI port.">ezradio_hal_SpiReadData</a>     (uint8_t byteCount, uint8_t* pData);
+<a name="l00071"></a>00071 
+<a name="l00076"></a>00076 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00077"></a>00077 <span class="preprocessor"></span>}
+<a name="l00078"></a>00078 <span class="preprocessor">#endif</span>
+<a name="l00079"></a>00079 <span class="preprocessor"></span>
+<a name="l00080"></a>00080 <span class="preprocessor">#endif //_EZRADIO_HAL_H_</span>
 </pre></div></div>
 <div id="footer">
 <hr size="1"><address style="text-align: right;"><small>
-Generated on Thu May 28 13:12:34 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
+Generated on Mon Sep 7 08:55:11 2015</small> for Silicon Labs Energy Aware Drivers by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a><small> 1.6.3 </small></address></div>
 </body>

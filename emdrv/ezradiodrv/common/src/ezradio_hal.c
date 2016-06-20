@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file ezradio_hal.c
  * @brief This file contains EZRadio HAL.
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -12,9 +12,9 @@
  * freely, subject to the following restrictions:
  *
  * 1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
+ *    claim that you wrote the original software.@n
  * 2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
+ *    misrepresented as being the original software.@n
  * 3. This notice may not be removed or altered from any source distribution.
  *
  * DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Silicon Labs has no
@@ -32,49 +32,74 @@
 
 #include <stdlib.h>
 #include <stdint.h>
-#include "ezradiodrv_config.h"
 
 #include "em_gpio.h"
+#include "em_prs.h"
 
-#if (defined EZRADIODRV_USE_SPIDRV)
 #include "spidrv.h"
-#else //EZRADIO_USE_SPIDRV
-#include "em_cmu.h"
-#include "em_usart.h"
-#endif //EZRADIO_USE_SPIDRV
 
 #include "gpiointerrupt.h"
 #include "ezradio_hal.h"
 
-#if (defined EZRADIODRV_USE_SPIDRV)
-SPIDRV_HandleData_t  ezradioSpiHandle;
-SPIDRV_Handle_t      ezradioSpiHandlePtr = &ezradioSpiHandle;
-SPIDRV_Init_t        ezradioSpiInitData = SPIDRV_MASTER_USART1;
-#endif //EZRADIO_USE_SPIDRV
+/// @cond DO_NOT_INCLUDE_WITH_DOXYGEN
 
-/*!
+static SPIDRV_HandleData_t  ezradioSpiHandle;
+static SPIDRV_Handle_t      ezradioSpiHandlePtr = &ezradioSpiHandle;
+
+#if (defined _EZR32_HAPPY_FAMILY)
+static SPIDRV_Init_t        ezradioSpiInitData = SPIDRV_MASTER_USARTRF1;
+#else
+static SPIDRV_Init_t        ezradioSpiInitData = SPIDRV_MASTER_USARTRF0;
+#endif
+
+/// @endcond
+
+/**
  * Configures the EZRadio GPIO port and pins
  *
- * @param radioIrqCallback EZRadio interrupt callback configuration
+ * @param[in] ezradioIrqCallback EZRadio interrupt callback configuration
+ * @param[in] enablePTI If true enables the radio PTI bridge in the controller.
  */
-void ezradio_hal_GpioInit( GPIOINT_IrqCallbackPtr_t ezradioIrqCallback )
+void ezradio_hal_GpioInit( GPIOINT_IrqCallbackPtr_t ezradioIrqCallback, bool enablePTI )
 {
+#if (defined _EZR32_HAPPY_FAMILY)
+  (void)enablePTI;
+#endif
 
-#if !(defined EZRADIODRV_USE_SPIDRV)
-   /* Ensure gpio clock is set up */
-   CMU_ClockEnable( cmuClock_GPIO, true );
-
-   /* Setup pins used for SPI communication to radio */
-   GPIO_PinModeSet( (GPIO_Port_TypeDef) RF_USARTRF_MOSI_PORT, RF_USARTRF_MOSI_PIN, gpioModePushPull, 0 );
-   GPIO_PinModeSet( (GPIO_Port_TypeDef) RF_USARTRF_MISO_PORT, RF_USARTRF_MISO_PIN, gpioModeInput,    0 );
-   GPIO_PinModeSet( (GPIO_Port_TypeDef) RF_USARTRF_CLK_PORT,  RF_USARTRF_CLK_PIN,  gpioModePushPull, 0 );
-#endif // !EZRADIO_USE_SPIDRV
-
-   GPIO_PinModeSet( (GPIO_Port_TypeDef) RF_USARTRF_CS_PORT,   RF_USARTRF_CS_PIN,   gpioModePushPull, 1 );
+   GPIO_PinModeSet( (GPIO_Port_TypeDef) RF_USARTRF_CS_PORT, RF_USARTRF_CS_PIN, gpioModePushPull, 1 );
 
    /* Setup enable and interrupt pins to radio */
-   GPIO_PinModeSet( (GPIO_Port_TypeDef) RF_SDN_PORT,  RF_SDN_PIN,   gpioModePushPull, 0 );
+   GPIO_PinModeSet( (GPIO_Port_TypeDef) RF_SDN_PORT, RF_SDN_PIN, gpioModePushPull,  0 );
    GPIO_PinModeSet( (GPIO_Port_TypeDef) RF_INT_PORT, RF_INT_PIN, gpioModeInputPull, 1 );
+
+   /* EZR32HG family uses hard wired PTI interface from the radio to the board controler */
+#if !(defined _EZR32_HAPPY_FAMILY)
+   if (enablePTI)
+   {
+     /* Setup PRS for PTI pins */
+     CMU_ClockEnable(cmuClock_PRS, true);
+
+     /* Configure RF_GPIO0 and RF_GPIO1 to inputs. */
+     GPIO_PinModeSet((GPIO_Port_TypeDef)RF_GPIO0_PORT, RF_GPIO0_PIN, gpioModeInput, 0);
+     GPIO_PinModeSet((GPIO_Port_TypeDef)RF_GPIO1_PORT, RF_GPIO1_PIN, gpioModeInput, 0);
+
+     /* Pin PA0 and PA1 output the GPIO0 and GPIO1 via PRS to PTI */
+     GPIO_PinModeSet(gpioPortA, 0, gpioModePushPull, 0);
+     GPIO_PinModeSet(gpioPortA, 1, gpioModePushPull, 0);
+
+     /* Disable INT for PRS channels */
+     GPIO_IntConfig((GPIO_Port_TypeDef)RF_GPIO0_PORT, RF_GPIO0_PIN, false, false, false);
+     GPIO_IntConfig((GPIO_Port_TypeDef)RF_GPIO1_PORT, RF_GPIO1_PIN, false, false, false);
+
+     /* Setup PRS for RF GPIO pins  */
+     PRS_SourceAsyncSignalSet(0, PRS_CH_CTRL_SOURCESEL_GPIOH, PRS_CH_CTRL_SIGSEL_GPIOPIN15);
+     PRS_SourceAsyncSignalSet(1, PRS_CH_CTRL_SOURCESEL_GPIOH, PRS_CH_CTRL_SIGSEL_GPIOPIN14);
+     PRS->ROUTE = (PRS_ROUTE_CH0PEN | PRS_ROUTE_CH1PEN);
+
+     /* Make sure PRS sensing is enabled (should be by default) */
+     GPIO_InputSenseSet(GPIO_INSENSE_PRS, GPIO_INSENSE_PRS);
+   }
+#endif //#if !(defined _EZR32_HAPPY_FAMILY)
 
    if (NULL != ezradioIrqCallback)
    {
@@ -86,42 +111,20 @@ void ezradio_hal_GpioInit( GPIOINT_IrqCallbackPtr_t ezradioIrqCallback )
    return;
 }
 
+/**
+ * Initializes SPI driver for the EZRadio device.
+ */
 void ezradio_hal_SpiInit( void )
 {
+   ezradioSpiInitData.bitRate   = 8E6;
+   ezradioSpiInitData.csControl = spidrvCsControlApplication;
 
-#if !(defined EZRADIODRV_USE_SPIDRV)
-   USART_InitSync_TypeDef init = USART_INITSYNC_DEFAULT;
-
-
-   /* Enable USART clock */
-   CMU_ClockEnable( cmuClock_USARTRF0, true );
-
-   init.baudrate     = 1000000;
-   init.databits     = usartDatabits8;
-   init.msbf         = 1;
-   init.master       = 1;
-   init.clockMode    = usartClockMode0;
-   init.prsRxEnable  = 0;
-   init.autoTx       = 0;
-
-   USART_InitSync(USARTRF0, &init);
-
-   /* Enable output pins and set location */
-   USARTRF0->ROUTE = USART_ROUTE_TXPEN | USART_ROUTE_RXPEN | USART_ROUTE_CLKPEN;
-
-   ezradio_hal_SetNsel();
-#else // !EZRADIO_USE_SPIDRV
-   ezradioSpiInitData.port         = USARTRF0;
-   ezradioSpiInitData.portLocation = RF_USARTRF_CLK_PORT;
-   ezradioSpiInitData.csControl    = spidrvCsControlApplication;
    SPIDRV_Init( ezradioSpiHandlePtr, &ezradioSpiInitData );
-
-#endif // !EZRADIO_USE_SPIDRV
 
    return;
 }
 
-/*!
+/**
  * Asserts SDN pin of the EZRadio device.
  */
 void ezradio_hal_AssertShutdown(void)
@@ -129,7 +132,7 @@ void ezradio_hal_AssertShutdown(void)
   GPIO_PinOutSet( (GPIO_Port_TypeDef) RF_SDN_PORT, RF_SDN_PIN);
 }
 
-/*!
+/**
  * Deasserts SDN pin of the EZRadio device.
  */
 void ezradio_hal_DeassertShutdown(void)
@@ -137,7 +140,7 @@ void ezradio_hal_DeassertShutdown(void)
   GPIO_PinOutClear( (GPIO_Port_TypeDef) RF_SDN_PORT, RF_SDN_PIN);
 }
 
-/*!
+/**
  * Clears nSEL pin of the EZRadio device.
  */
 void ezradio_hal_ClearNsel(void)
@@ -145,7 +148,7 @@ void ezradio_hal_ClearNsel(void)
   GPIO_PinOutClear( (GPIO_Port_TypeDef) RF_USARTRF_CS_PORT, RF_USARTRF_CS_PIN);
 }
 
-/*!
+/**
  * Sets nSEL pin of the EZRadio device.
  */
 void ezradio_hal_SetNsel(void)
@@ -153,7 +156,7 @@ void ezradio_hal_SetNsel(void)
   GPIO_PinOutSet( (GPIO_Port_TypeDef) RF_USARTRF_CS_PORT, RF_USARTRF_CS_PIN);
 }
 
-/*!
+/**
  * Reads nIRQ pin of the EZRadio device.
  *
  * @return Value of nIRQ pin.
@@ -163,36 +166,27 @@ uint8_t ezradio_hal_NirqLevel(void)
   return GPIO_PinInGet( (GPIO_Port_TypeDef) RF_INT_PORT, RF_INT_PIN);
 }
 
-/*!
+/**
  * Writes a single byte to the EZRadio SPI port.
  *
  * @param byteToWrite Byte to write.
  */
 void ezradio_hal_SpiWriteByte(uint8_t byteToWrite)
 {
-#if (defined EZRADIODRV_USE_SPIDRV)
   SPIDRV_MTransmitB(ezradioSpiHandlePtr, &byteToWrite, 1);
-#else //EZRADIO_USE_SPIDRV
-  USART_SpiTransfer(USARTRF0, byteToWrite);
-#endif //EZRADIO_USE_SPIDRV
 }
 
-/*!
+/**
  * Reads a single byte from the EZRadio SPI port.
  *
  * @param readByte Read byte.
  */
 void ezradio_hal_SpiReadByte(uint8_t* readByte)
 {
-
-#if (defined EZRADIODRV_USE_SPIDRV)
   SPIDRV_MReceiveB(ezradioSpiHandlePtr, readByte, 1);
-#else  //EZRADIO_USE_SPIDRV
-  *readByte = USART_SpiTransfer(USARTRF0, 0xFF);
-#endif //EZRADIO_USE_SPIDRV
 }
 
-/*!
+/**
  * Writes byteCount number of bytes to the EZRadio SPI port.
  *
  * @param byteCount Number of bytes to write.
@@ -200,19 +194,10 @@ void ezradio_hal_SpiReadByte(uint8_t* readByte)
  */
 void ezradio_hal_SpiWriteData(uint8_t byteCount, uint8_t* pData)
 {
-
-#if (defined EZRADIODRV_USE_SPIDRV)
   SPIDRV_MTransmitB(ezradioSpiHandlePtr, pData, byteCount);
-#else //EZRADIO_USE_SPIDRV
-  for (; byteCount; byteCount--)
-  {
-    USART_SpiTransfer(USARTRF0, *pData);
-    pData++;
-  }
-#endif //EZRADIO_USE_SPIDRV
 }
 
-/*!
+/**
  * Reads byteCount number of bytes from the EZRadio SPI port.
  *
  * @param byteCount Number of bytes to write.
@@ -221,14 +206,5 @@ void ezradio_hal_SpiWriteData(uint8_t byteCount, uint8_t* pData)
 void ezradio_hal_SpiReadData(uint8_t byteCount, uint8_t* pData)
 {
 
-#if (defined EZRADIODRV_USE_SPIDRV)
   SPIDRV_MReceiveB(ezradioSpiHandlePtr, pData, byteCount);
-#else //EZRADIO_USE_SPIDRV
-  for (; byteCount; byteCount--)
-  {
-    *pData = USART_SpiTransfer(USARTRF0, 0xFF);
-    pData++;
-  }
-#endif //EZRADIO_USE_SPIDRV
-
 }

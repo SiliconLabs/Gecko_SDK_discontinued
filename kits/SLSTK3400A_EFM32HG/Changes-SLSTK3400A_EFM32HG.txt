@@ -1,6 +1,9 @@
 ================ Revision history ============================================
+4.1.0:
+ - No changes.
+
 4.0.0:
-- Maintenance release.
+ - Maintenance release.
 
 3.20.13:
  - Updated Simplicity Studio project files.

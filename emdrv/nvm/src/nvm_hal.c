@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file nvm_hal.c
- * @brief Non-Volatile Memory HAL for EFM32 flash.
- * @version 4.0.0
+ * @brief Non-Volatile Memory HAL for EFM32/EZR32/EFR32 flash.
+ * @version 4.1.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file

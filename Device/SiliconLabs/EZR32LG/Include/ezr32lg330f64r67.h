@@ -2,7 +2,7 @@
  * @file ezr32lg330f64r67.h
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EZR32LG330F64R67
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>

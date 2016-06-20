@@ -1,10 +1,7 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$group__Si114x.html#ga68d719ca4b817a58e8014c9e826b390a" title="Implements 10ms delay." alt="" coords="156,5,247,32"/>
-<area shape="rect" id="node5" href="$group__Si114x.html#ga85dcc599c9e3df8a22002f7ef5a3e5d8" title="Pauses autonomous measurements." alt="" coords="147,157,255,184"/>
-<area shape="rect" id="node19" href="$group__Si114x.html#ga8d9e6e60e0ced326193208cdf976bbee" title="Writes to Si114x Register." alt="" coords="577,157,730,184"/>
-<area shape="rect" id="node7" href="$si114x__functions_8c.html#a33af8952f62e2826a91b1306145dd9fd" title="Pause measurement helper function." alt="" coords="304,208,397,235"/>
-<area shape="rect" id="node13" href="$group__Si114x.html#ga734e022c8fda86b69a353b1012c59231" title="Implements 1ms delay." alt="" coords="821,208,904,235"/>
-<area shape="rect" id="node15" href="$group__Si114x.html#gaeae79629a9f5a41c75ba329fa056eeef" title="Reads from Si114x register." alt="" coords="779,309,946,336"/>
-<area shape="rect" id="node9" href="$si114x__functions_8c.html#abdc2cf05a4b2387da379ec970c73c205" title="Helper function to send a command to the Si113x/4x." alt="" coords="445,208,528,235"/>
-<area shape="rect" id="node11" href="$si114x__functions_8c.html#ad3caa9be1c88c281a2b56d85874ce13e" title="Waits until the Si113x/4x is sleeping before proceeding." alt="" coords="598,259,709,285"/>
+<area shape="rect" id="node5" href="$group__Si114x.html#ga85dcc599c9e3df8a22002f7ef5a3e5d8" title="Pauses autonomous measurements." alt="" coords="147,56,255,83"/>
+<area shape="rect" id="node11" href="$group__Si114x.html#ga8d9e6e60e0ced326193208cdf976bbee" title="Writes to Si114x Register." alt="" coords="311,107,465,133"/>
+<area shape="rect" id="node7" href="$group__Si114x.html#ga734e022c8fda86b69a353b1012c59231" title="Implements 1ms delay." alt="" coords="347,5,429,32"/>
+<area shape="rect" id="node9" href="$group__Si114x.html#gaeae79629a9f5a41c75ba329fa056eeef" title="Reads from Si114x register." alt="" coords="305,56,471,83"/>
 </map>

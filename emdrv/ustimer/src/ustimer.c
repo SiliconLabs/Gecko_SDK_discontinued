@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file  ustimer.c
  * @brief Microsecond delay functions.
- * @version 4.0.0
+ * @version 4.1.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -24,6 +24,11 @@
 #include "ustimer.h"
 
 /** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
+
+#define USTIMER_TIMER0 0
+#define USTIMER_TIMER1 1
+#define USTIMER_TIMER2 2
+#define USTIMER_TIMER3 3
 
 #ifndef USTIMER_TIMER
 #define USTIMER_TIMER USTIMER_TIMER0

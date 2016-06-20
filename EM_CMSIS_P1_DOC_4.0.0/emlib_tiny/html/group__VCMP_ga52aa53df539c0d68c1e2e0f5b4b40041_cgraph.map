@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$group__VCMP.html#ga90c047e9c776cad27065458add1486fd" title="Clear one or more pending VCMP interrupts." alt="" coords="165,5,280,32"/>
-<area shape="rect" id="node3" href="$group__VCMP.html#gab87bb21a4afe57c7721d424e2f8e99c5" title="Enable or disable Low Power Reference setting." alt="" coords="137,56,309,83"/>
-<area shape="rect" id="node4" href="$group__VCMP.html#ga8ded00997c333fd43ebb3c5ad888bac7" title="VCMP output is ready." alt="" coords="169,107,276,133"/>
-<area shape="rect" id="node5" href="$group__VCMP.html#ga185203f0a0c2e0343cca51d82b2b21ef" title="Configure trigger level of voltage comparator." alt="" coords="158,157,287,184"/>
-</map>

@@ -1,7 +1,7 @@
 /* @file startup_efm32zg.S
  * @brief startup file for Silicon Labs EFM32ZG devices.
  *        For use with GCC for ARM Embedded Processors
- * @version 4.0.0
+ * @version 4.1.0
  * Date:    12 June 2014
  *
  */
@@ -89,6 +89,7 @@ __Vectors:
     .long       SysTick_Handler       /* SysTick Handler */
 
     /* External interrupts */
+
     .long       DMA_IRQHandler    /* 0 - DMA */
     .long       GPIO_EVEN_IRQHandler    /* 1 - GPIO_EVEN */
     .long       TIMER0_IRQHandler    /* 2 - TIMER0 */
@@ -106,6 +107,8 @@ __Vectors:
     .long       VCMP_IRQHandler    /* 14 - VCMP */
     .long       MSC_IRQHandler    /* 15 - MSC */
     .long       AES_IRQHandler    /* 16 - AES */
+    .long       Default_Handler    /* 17 - Reserved */
+    .long       Default_Handler    /* 18 - Reserved */
 
 
     .size       __Vectors, . - __Vectors

@@ -7,7 +7,7 @@ The Gecko SDK is also part of the [Simplicity Studio](http://www.silabs.com/simp
 Documentation
 -------------
 
-Full API documentation is available hosted on [GitHub pages](http://siliconlabs.github.io/Gecko_SDK/EM_CMSIS_P1_DOC_4.0.0/), in the [EM_CMSIS_P1_DOC_4.0.0](EM_CMSIS_P1_DOC_4.0.0) folder and within Simplicity Studio by clicking the *Software Documentation* tile.
+Full API documentation is available hosted on [GitHub pages](http://siliconlabs.github.io/Gecko_SDK/EM_CMSIS_DOC_4.1.0/), in the [EM_CMSIS_DOC_4.1.0](EM_CMSIS_DOC_4.1.0) folder and within Simplicity Studio by clicking the *Software Documentation* tile.
 For datasheets, reference manuals and other documentation items, download [Simplicity Studio](http://www.silabs.com/simplicity) or head over to the [document library](http://www.silabs.com/support/pages/document-library.aspx?p=MCUs--32-bit).
 
 About the folders

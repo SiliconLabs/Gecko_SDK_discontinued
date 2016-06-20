@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_usbh.h
- * @brief USB protocol stack library API for EFM32.
- * @version 4.0.0
+ * @brief USB protocol stack library API for EFM32/EZR32.
+ * @version 4.1.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>

@@ -2,7 +2,7 @@
 ; * @file startup_efm32zg.s
 ; * @brief    CMSIS Core Device Startup File for
 ; *           Silicon Labs EFM32ZG Device Series
-; * @version 4.0.0
+; * @version 4.1.0
 ; * @date     03. February 2012
 ; *
 ; * @note
@@ -95,6 +95,8 @@ __Vectors       DCD     __initial_sp              ; Top of Stack
                 DCD     VCMP_IRQHandler        ; 14: VCMP Interrupt
                 DCD     MSC_IRQHandler        ; 15: MSC Interrupt
                 DCD     AES_IRQHandler        ; 16: AES Interrupt
+                DCD     0                         ; 17: Reserved
+                DCD     0                         ; 18: Reserved
 
 __Vectors_End
 __Vectors_Size  EQU     __Vectors_End - __Vectors

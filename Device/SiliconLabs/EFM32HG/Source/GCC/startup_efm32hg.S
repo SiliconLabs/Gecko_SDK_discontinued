@@ -1,7 +1,7 @@
 /* @file startup_efm32hg.S
  * @brief startup file for Silicon Labs EFM32HG devices.
  *        For use with GCC for ARM Embedded Processors
- * @version 4.0.0
+ * @version 4.1.0
  * Date:    12 June 2014
  *
  */
@@ -55,7 +55,7 @@ __StackTop:
 #ifdef __HEAP_SIZE
     .equ        Heap_Size, __HEAP_SIZE
 #else
-    .equ        Heap_Size, 0x00000C00
+    .equ        Heap_Size, 0x00000400
 #endif
     .globl      __HeapBase
     .globl      __HeapLimit
@@ -89,6 +89,7 @@ __Vectors:
     .long       SysTick_Handler       /* SysTick Handler */
 
     /* External interrupts */
+
     .long       DMA_IRQHandler    /* 0 - DMA */
     .long       GPIO_EVEN_IRQHandler    /* 1 - GPIO_EVEN */
     .long       TIMER0_IRQHandler    /* 2 - TIMER0 */

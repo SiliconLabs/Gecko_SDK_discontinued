@@ -2,7 +2,7 @@
 ; * @file startup_efm32tg.s
 ; * @brief    CMSIS Core Device Startup File
 ; *           Silicon Labs EFM32TG Device Series
-; * @version 4.0.0
+; * @version 4.1.0
 ; * @date     30. January 2012
 ; *
 ; * @note
@@ -78,6 +78,7 @@ __vector_table_0x1c
         DCD     SysTick_Handler
 
         ; External Interrupts
+
         DCD DMA_IRQHandler  ; 0: DMA Interrupt
         DCD GPIO_EVEN_IRQHandler  ; 1: GPIO_EVEN Interrupt
         DCD TIMER0_IRQHandler  ; 2: TIMER0 Interrupt

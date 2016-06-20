@@ -1,4 +1,7 @@
 ================ Revision history ============================================
+4.1.0:
+- Fixed media Eject operation in USB MSD examples (usbdmsd and usbdcomposite).
+
 4.0.0:
 - Maintenance release.
 

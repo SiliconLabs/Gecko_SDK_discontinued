@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ecode.h
  * @brief Energy Aware drivers error code definitions.
- * @version 4.0.0
+ * @version 4.1.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -34,14 +34,15 @@ typedef uint32_t Ecode_t;
 
 #define ECODE_OK          ( 0 )           ///< Generic success return value.
 
-#define ECODE_EMDRV_RTCDRV_BASE    ( ECODE_EMDRV_BASE | 0x00001000 ) ///< Base value for RTCDRV error codes.
-#define ECODE_EMDRV_SPIDRV_BASE    ( ECODE_EMDRV_BASE | 0x00002000 ) ///< Base value for SPIDRV error codes.
-#define ECODE_EMDRV_NVM_BASE       ( ECODE_EMDRV_BASE | 0x00003000 ) ///< Base value for NVM error codes.
-#define ECODE_EMDRV_USTIMER_BASE   ( ECODE_EMDRV_BASE | 0x00004000 ) ///< Base value for USTIMER error codes.
-#define ECODE_EMDRV_AESDRV_BASE    ( ECODE_EMDRV_BASE | 0x00005000 ) ///< Base value for AESDRV error codes.
-#define ECODE_EMDRV_ECC_BASE       ( ECODE_EMDRV_BASE | 0x00006000 ) ///< Base value for ECC error codes.
-#define ECODE_EMDRV_UARTDRV_BASE   ( ECODE_EMDRV_BASE | 0x00007000 ) ///< Base value for UARTDRV error codes.
-#define ECODE_EMDRV_DMADRV_BASE    ( ECODE_EMDRV_BASE | 0x00008000 ) ///< Base value for DMADRV error codes.
+#define ECODE_EMDRV_RTCDRV_BASE     ( ECODE_EMDRV_BASE | 0x00001000 ) ///< Base value for RTCDRV error codes.
+#define ECODE_EMDRV_SPIDRV_BASE     ( ECODE_EMDRV_BASE | 0x00002000 ) ///< Base value for SPIDRV error codes.
+#define ECODE_EMDRV_NVM_BASE        ( ECODE_EMDRV_BASE | 0x00003000 ) ///< Base value for NVM error codes.
+#define ECODE_EMDRV_USTIMER_BASE    ( ECODE_EMDRV_BASE | 0x00004000 ) ///< Base value for USTIMER error codes.
+#define ECODE_EMDRV_AESDRV_BASE     ( ECODE_EMDRV_BASE | 0x00005000 ) ///< Base value for AESDRV error codes.
+#define ECODE_EMDRV_ECC_BASE        ( ECODE_EMDRV_BASE | 0x00006000 ) ///< Base value for ECC error codes.
+#define ECODE_EMDRV_UARTDRV_BASE    ( ECODE_EMDRV_BASE | 0x00007000 ) ///< Base value for UARTDRV error codes.
+#define ECODE_EMDRV_DMADRV_BASE     ( ECODE_EMDRV_BASE | 0x00008000 ) ///< Base value for DMADRV error codes.
+#define ECODE_EMDRV_EZRADIODRV_BASE ( ECODE_EMDRV_BASE | 0x00009000 ) ///< Base value for EZRADIODRV error codes.
 
 /** @} (end addtogroup EM_Drivers) */
 

@@ -1,0 +1,5 @@
+base referer
+rect $structLESENSE__TimeCtrlDesc__TypeDef.html 6,5 253,32
+rect $structLESENSE__PerCtrlDesc__TypeDef.html 11,56 247,83
+rect $structLESENSE__CoreCtrlDesc__TypeDef.html 7,107 252,133
+rect $structLESENSE__DecCtrlDesc__TypeDef.html 9,157 250,184

@@ -2,7 +2,7 @@
 ; * @file startup_ezr32lg.s
 ; * @brief    CMSIS Core Device Startup File for
 ; *           Silicon Labs EZR32LG Device Series
-; * @version 4.0.0
+; * @version 4.1.0
 ; * @date     03. February 2012
 ; *
 ; * @note
@@ -81,8 +81,8 @@ __Vectors       DCD     __initial_sp              ; Top of Stack
                 DCD     DMA_IRQHandler        ; 0: DMA Interrupt
                 DCD     GPIO_EVEN_IRQHandler        ; 1: GPIO_EVEN Interrupt
                 DCD     TIMER0_IRQHandler        ; 2: TIMER0 Interrupt
-                DCD     USART0_RX_IRQHandler        ; 3: USART0_RX Interrupt
-                DCD     USART0_TX_IRQHandler        ; 4: USART0_TX Interrupt
+                DCD     USARTRF0_RX_IRQHandler        ; 3: USARTRF0_RX Interrupt
+                DCD     USARTRF0_TX_IRQHandler        ; 4: USARTRF0_TX Interrupt
                 DCD     USB_IRQHandler        ; 5: USB Interrupt
                 DCD     ACMP0_IRQHandler        ; 6: ACMP0 Interrupt
                 DCD     ADC0_IRQHandler        ; 7: ADC0 Interrupt
@@ -112,11 +112,12 @@ __Vectors       DCD     __initial_sp              ; Top of Stack
                 DCD     BURTC_IRQHandler        ; 31: BURTC Interrupt
                 DCD     CMU_IRQHandler        ; 32: CMU Interrupt
                 DCD     VCMP_IRQHandler        ; 33: VCMP Interrupt
-                DCD     LCD_IRQHandler        ; 34: LCD Interrupt
+                DCD     0                         ; 34: Reserved
                 DCD     MSC_IRQHandler        ; 35: MSC Interrupt
                 DCD     AES_IRQHandler        ; 36: AES Interrupt
-                DCD     0        ; 37: Reserved Interrupt
+                DCD     0                         ; 37: Reserved
                 DCD     EMU_IRQHandler        ; 38: EMU Interrupt
+                DCD     0                         ; 39: Reserved
 
 __Vectors_End
 __Vectors_Size  EQU     __Vectors_End - __Vectors
@@ -185,8 +186,8 @@ Default_Handler PROC
                 EXPORT  DMA_IRQHandler        [WEAK]
                 EXPORT  GPIO_EVEN_IRQHandler        [WEAK]
                 EXPORT  TIMER0_IRQHandler        [WEAK]
-                EXPORT  USART0_RX_IRQHandler        [WEAK]
-                EXPORT  USART0_TX_IRQHandler        [WEAK]
+                EXPORT  USARTRF0_RX_IRQHandler        [WEAK]
+                EXPORT  USARTRF0_TX_IRQHandler        [WEAK]
                 EXPORT  USB_IRQHandler        [WEAK]
                 EXPORT  ACMP0_IRQHandler        [WEAK]
                 EXPORT  ADC0_IRQHandler        [WEAK]
@@ -216,7 +217,6 @@ Default_Handler PROC
                 EXPORT  BURTC_IRQHandler        [WEAK]
                 EXPORT  CMU_IRQHandler        [WEAK]
                 EXPORT  VCMP_IRQHandler        [WEAK]
-                EXPORT  LCD_IRQHandler        [WEAK]
                 EXPORT  MSC_IRQHandler        [WEAK]
                 EXPORT  AES_IRQHandler        [WEAK]
                 EXPORT  EMU_IRQHandler        [WEAK]
@@ -225,8 +225,8 @@ Default_Handler PROC
 DMA_IRQHandler
 GPIO_EVEN_IRQHandler
 TIMER0_IRQHandler
-USART0_RX_IRQHandler
-USART0_TX_IRQHandler
+USARTRF0_RX_IRQHandler
+USARTRF0_TX_IRQHandler
 USB_IRQHandler
 ACMP0_IRQHandler
 ADC0_IRQHandler
@@ -256,7 +256,6 @@ RTC_IRQHandler
 BURTC_IRQHandler
 CMU_IRQHandler
 VCMP_IRQHandler
-LCD_IRQHandler
 MSC_IRQHandler
 AES_IRQHandler
 EMU_IRQHandler

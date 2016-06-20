@@ -1,0 +1,12 @@
+<map id="structs" name="structs">
+<area shape="rect" id="node1" href="$group__Direct__Receive__Plugin.html" title="Direct receive plugin, see Plugin System Layer on page EZRADIODRV EzRadio Peripheral..." alt="" coords="311,5,457,32"/>
+<area shape="rect" id="node2" href="$group__Receive__Plugin.html" title="Receive plugin, see Plugin System Layer on page EZRADIODRV EzRadio Peripheral Interface..." alt="" coords="331,56,437,83"/>
+<area shape="rect" id="node3" href="$group__EZRADIODRV.html" title="EzRadio Peripheral Interface module, see EZRADIODRV EzRadio Peripheral Interface..." alt="" coords="6,208,103,235"/>
+<area shape="rect" id="node4" href="$group__Auto__ACK__Plugin.html" title="Auto acknowledge plugin, see Plugin System Layer on page EZRADIODRV EzRadio Peripheral..." alt="" coords="325,107,443,133"/>
+<area shape="rect" id="node6" href="$group__PN9__Plugin.html" title="Pseudo random transmit plugin, see Plugin System Layer on page EZRADIODRV EzRadio..." alt="" coords="341,157,427,184"/>
+<area shape="rect" id="node7" href="$group__Plugin__Manager.html" title="Plugin manager, see Plugin System Layer on page EZRADIODRV EzRadio Peripheral Interface..." alt="" coords="327,208,441,235"/>
+<area shape="rect" id="node8" href="$group__CRC__Error__Plugin.html" title="CRC error plugin, see Plugin System Layer on page EZRADIODRV EzRadio Peripheral Interface..." alt="" coords="323,259,445,285"/>
+<area shape="rect" id="node9" href="$group__Transmit__Plugin.html" title="Transmit plugin, see Plugin System Layer on page EZRADIODRV EzRadio Peripheral Interface..." alt="" coords="327,309,441,336"/>
+<area shape="rect" id="node10" href="$group__Direct__Transmit__Plugin.html" title="Direct transmit plugin, see Plugin System Layer on page EZRADIODRV EzRadio Peripheral..." alt="" coords="307,360,461,387"/>
+<area shape="rect" id="node11" href="$group__Unmod__Carrier__Plugin.html" title="Unmodulated Carrier plugin, see Plugin System Layer on page EZRADIODRV EzRadio Peripheral..." alt="" coords="309,411,459,437"/>
+</map>

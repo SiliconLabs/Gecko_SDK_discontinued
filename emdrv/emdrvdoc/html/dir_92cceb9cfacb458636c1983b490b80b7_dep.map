@@ -1,11 +1,15 @@
 <map id="G" name="G">
 <area shape="rect" id="node4" href="dir_49818fa643b5f5fd46462035477be5b9.html" title="inc" alt="" coords="37,159,109,207"/>
 <area shape="rect" id="node5" href="dir_568d7a7d2975af5fb9796dc6bd5a49a1.html" title="src" alt="" coords="37,63,109,111"/>
-<area shape="rect" id="edge6-headlabel" href="dir_000011_000008.html" title="12" alt="" coords="74,133,89,148"/>
+<area shape="rect" id="edge8-headlabel" href="dir_000011_000008.html" title="14" alt="" coords="74,133,89,148"/>
 <area shape="rect" id="node6" href="dir_2f257c5e0e84778c8a7c84f99f55fe4d.html" title="gpiointerrupt" alt="" coords="238,159,332,207"/>
-<area shape="rect" id="edge4-headlabel" href="dir_000011_000020.html" title="5" alt="" coords="221,139,229,154"/>
-<area shape="rect" id="node7" href="dir_440c9d1165c546bdbc4e755ddbb3a555.html" title="ustimer" alt="" coords="357,159,429,207"/>
-<area shape="rect" id="edge8-headlabel" href="dir_000011_000038.html" title="1" alt="" coords="339,142,347,157"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000011_000025.html" title="5" alt="" coords="221,139,229,154"/>
+<area shape="rect" id="node7" href="dir_fa9af3289cbffc0a8d686a0903fc5bc8.html" title="si4463" alt="" coords="357,159,429,207"/>
+<area shape="rect" id="edge6-headlabel" href="dir_000011_000023.html" title="6" alt="" coords="339,142,347,157"/>
+<area shape="rect" id="node8" href="dir_222c85164e789b785ccff45034d9bafe.html" title="spidrv" alt="" coords="453,159,525,207"/>
+<area shape="rect" id="edge10-headlabel" href="dir_000011_000037.html" title="1" alt="" coords="434,142,442,157"/>
+<area shape="rect" id="node9" href="dir_440c9d1165c546bdbc4e755ddbb3a555.html" title="ustimer" alt="" coords="549,159,621,207"/>
+<area shape="rect" id="edge12-headlabel" href="dir_000011_000043.html" title="1" alt="" coords="530,142,538,157"/>
 <area shape="rect" id="graph3" href="dir_92cceb9cfacb458636c1983b490b80b7.html" alt="" coords="27,52,216,217"/>
 <area shape="rect" id="graph2" href="dir_efc6e738bf7bfc7d8514c122a6e813ab.html" title="ezradiodrv" alt="" coords="16,16,227,228"/>
 </map>

@@ -66,36 +66,49 @@ window.onload = initDynSections;
   </div>
 </div>
 <div class="contents">
-<h1>retargettft.h</h1><a href="retargettft_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/**************************************************************************/</span>
-<a name="l00034"></a>00034 <span class="preprocessor">#ifndef __RETARGETTFT_H</span>
-<a name="l00035"></a>00035 <span class="preprocessor"></span><span class="preprocessor">#define __RETARGETTFT_H</span>
-<a name="l00036"></a>00036 <span class="preprocessor"></span>
-<a name="l00037"></a>00037 <span class="comment">/***************************************************************************/</span>
-<a name="l00042"></a>00042 <span class="comment">/***************************************************************************/</span>
-<a name="l00047"></a>00047 <span class="preprocessor">#ifdef __cplusplus</span>
-<a name="l00048"></a>00048 <span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {
-<a name="l00049"></a>00049 <span class="preprocessor">#endif</span>
-<a name="l00050"></a>00050 <span class="preprocessor"></span>
-<a name="l00051"></a>00051 <span class="keywordtype">void</span> <a class="code" href="group__RetargetIo.html#gad444352f46f856ffcb6cb255e3ef5d7b" title="Intializes TFT text display.">RETARGET_TftInit</a>(<span class="keywordtype">void</span>);
-<a name="l00052"></a>00052 <span class="keywordtype">void</span> <a class="code" href="group__RetargetIo.html#ga72e624a3e4aaef1e0376eb96404c8b6f" title="Toggle LF to CRLF conversion.">RETARGET_TftCrLf</a>(<span class="keywordtype">int</span> on);
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 <span class="keywordtype">int</span>  <a class="code" href="group__RetargetIo.html#ga5af724185f484056b02b42f4ab184bfb" title="Receive a byte from USART/LEUART and put into global buffer.">RETARGET_ReadChar</a>(<span class="keywordtype">void</span>);
-<a name="l00055"></a>00055 <span class="keywordtype">int</span>  <a class="code" href="group__RetargetIo.html#ga856ae0b788dccadc2c83a6e67409be5f" title="Transmit single byte to USART/LEUART.">RETARGET_WriteChar</a>(<span class="keywordtype">char</span> c);
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057 <span class="preprocessor">#if defined(__CROSSWORKS_ARM)</span>
-<a name="l00058"></a>00058 <span class="preprocessor"></span><span class="keywordtype">int</span> __putchar(<span class="keywordtype">int</span> ch);
-<a name="l00059"></a>00059 <span class="keywordtype">int</span> __getchar(<span class="keywordtype">void</span>);
-<a name="l00060"></a>00060 <span class="preprocessor">#endif</span>
-<a name="l00061"></a>00061 <span class="preprocessor"></span>
-<a name="l00062"></a>00062 <span class="preprocessor">#ifdef __cplusplus</span>
-<a name="l00063"></a>00063 <span class="preprocessor"></span>}
-<a name="l00064"></a>00064 <span class="preprocessor">#endif</span>
-<a name="l00065"></a>00065 <span class="preprocessor"></span>
-<a name="l00069"></a>00069 <span class="preprocessor">#endif</span>
+<h1>retargettft.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/**************************************************************************/</span><span class="comment">/***</span>
+<a name="l00002"></a>00002 <span class="comment"> * @file</span>
+<a name="l00003"></a>00003 <span class="comment"> * @brief Retarget stdout to TFT</span>
+<a name="l00004"></a>00004 <span class="comment"> * @version 4.1.0</span>
+<a name="l00005"></a>00005 <span class="comment"> *******************************************************************************</span>
+<a name="l00006"></a>00006 <span class="comment"> * @section License</span>
+<a name="l00007"></a>00007 <span class="comment"> * &lt;b&gt;(C) Copyright 2014 Silicon Labs, http://www.silabs.com&lt;/b&gt;</span>
+<a name="l00008"></a>00008 <span class="comment"> *******************************************************************************</span>
+<a name="l00009"></a>00009 <span class="comment"> *</span>
+<a name="l00010"></a>00010 <span class="comment"> * This file is licensed under the Silabs License Agreement. See the file</span>
+<a name="l00011"></a>00011 <span class="comment"> * &quot;Silabs_License_Agreement.txt&quot; for details. Before using this software for</span>
+<a name="l00012"></a>00012 <span class="comment"> * any purpose, you must agree to the terms of that agreement.</span>
+<a name="l00013"></a>00013 <span class="comment"> *</span>
+<a name="l00014"></a>00014 <span class="comment"> ******************************************************************************/</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#ifndef __RETARGETTFT_H</span>
+<a name="l00016"></a>00016 <span class="preprocessor"></span><span class="preprocessor">#define __RETARGETTFT_H</span>
+<a name="l00017"></a>00017 <span class="preprocessor"></span>
+<a name="l00018"></a>00018 <span class="comment">/***************************************************************************/</span>
+<a name="l00023"></a>00023 <span class="comment">/***************************************************************************/</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00029"></a>00029 <span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {
+<a name="l00030"></a>00030 <span class="preprocessor">#endif</span>
+<a name="l00031"></a>00031 <span class="preprocessor"></span>
+<a name="l00032"></a>00032 <span class="keywordtype">void</span> <a class="code" href="group__RetargetIo.html#gad444352f46f856ffcb6cb255e3ef5d7b" title="Intializes TFT text display.">RETARGET_TftInit</a>(<span class="keywordtype">void</span>);
+<a name="l00033"></a>00033 <span class="keywordtype">void</span> <a class="code" href="group__RetargetIo.html#ga72e624a3e4aaef1e0376eb96404c8b6f" title="Toggle LF to CRLF conversion.">RETARGET_TftCrLf</a>(<span class="keywordtype">int</span> on);
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 <span class="keywordtype">int</span>  <a class="code" href="group__RetargetIo.html#ga5af724185f484056b02b42f4ab184bfb" title="Receive a byte from USART/LEUART and put into global buffer.">RETARGET_ReadChar</a>(<span class="keywordtype">void</span>);
+<a name="l00036"></a>00036 <span class="keywordtype">int</span>  <a class="code" href="group__RetargetIo.html#ga856ae0b788dccadc2c83a6e67409be5f" title="Transmit single byte to USART/LEUART.">RETARGET_WriteChar</a>(<span class="keywordtype">char</span> c);
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 <span class="preprocessor">#if defined(__CROSSWORKS_ARM)</span>
+<a name="l00039"></a>00039 <span class="preprocessor"></span><span class="keywordtype">int</span> __putchar(<span class="keywordtype">int</span> ch);
+<a name="l00040"></a>00040 <span class="keywordtype">int</span> __getchar(<span class="keywordtype">void</span>);
+<a name="l00041"></a>00041 <span class="preprocessor">#endif</span>
+<a name="l00042"></a>00042 <span class="preprocessor"></span>
+<a name="l00043"></a>00043 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00044"></a>00044 <span class="preprocessor"></span>}
+<a name="l00045"></a>00045 <span class="preprocessor">#endif</span>
+<a name="l00046"></a>00046 <span class="preprocessor"></span>
+<a name="l00050"></a>00050 <span class="preprocessor">#endif</span>
 </pre></div></div>
 <div id="footer">
 <hr size="1"><address style="text-align: right;"><small>
-Generated on Fri May 29 11:29:21 2015</small> for Board Support Package by&nbsp;
+Generated on Mon Sep 7 09:26:01 2015</small> for Board Support Package by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a><small> 1.6.3 </small></address></div>
 </body>
