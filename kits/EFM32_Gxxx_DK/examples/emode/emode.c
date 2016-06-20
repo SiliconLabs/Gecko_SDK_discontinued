@@ -4,7 +4,7 @@
  *
  * @note  This uses onbard segment LCD controller, and will not work on
  *        EFM32_G2xx_DK (EFM32G290F128)
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>

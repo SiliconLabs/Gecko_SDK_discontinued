@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file
  * @brief Board support package API implementation for BRD3201.
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -23,7 +23,7 @@
 #include "bsp_dk_bcreg_3201.h"
 #include "bsp.h"
 
-#if defined( BSP_DK_3201 )
+#if defined( BSP_DK_BRD3201 )
 /** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 
 /* USART used for SPI access */
@@ -151,7 +151,7 @@ int BSP_Init(uint32_t flags)
 
   /* Inform AEM application that we are in Energy Mode 0 by default */
   BSP_RegisterWrite(&BC_REGISTER->EM, 0);
-  
+
   /* Read out BC firmware version */
   bcFwVersion = BSP_RegisterRead(&BC_REGISTER->FW_VERSION);
 
@@ -392,18 +392,18 @@ int BSP_InterruptEnable(uint16_t flags)
  * @return @ref BSP_STATUS_OK
  *****************************************************************************/
 int BSP_InterruptFlagsClear(uint16_t flags)
-{ 
+{
   uint16_t intFlags;
-  
+
   /* Board control firmware version 257 and higher has a new interrupt architecture */
   if (bcFwVersion < 257)
-  {      
+  {
     intFlags  = BSP_RegisterRead(&BC_REGISTER->INTFLAG);
     intFlags &= ~(flags);
-    BSP_RegisterWrite(&BC_REGISTER->INTFLAG, intFlags);    
+    BSP_RegisterWrite(&BC_REGISTER->INTFLAG, intFlags);
   }
   else
-  {  
+  {
     BSP_RegisterWrite(&BC_REGISTER->INTCLEAR, flags);
   }
   return BSP_STATUS_OK;
@@ -418,8 +418,8 @@ int BSP_InterruptFlagsClear(uint16_t flags)
  *****************************************************************************/
 int BSP_InterruptFlagsSet(uint16_t flags)
 {
-  BSP_RegisterWrite(&BC_REGISTER->INTSET, flags);  
-  return BSP_STATUS_OK;  
+  BSP_RegisterWrite(&BC_REGISTER->INTSET, flags);
+  return BSP_STATUS_OK;
 }
 
 /**************************************************************************//**
@@ -1267,4 +1267,4 @@ static void SpiRegisterWrite(volatile uint16_t *addr, uint16_t data)
 }
 
 /** @endcond */
-#endif  /* BSP_DK_3201 */
+#endif  /* BSP_DK_BRD3201 */

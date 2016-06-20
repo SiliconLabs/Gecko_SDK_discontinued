@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file  msdh.c
  * @brief Host side implementation of Mass Storage class Device (MSD) interface.
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -73,7 +73,10 @@ bool MSDH_Init(uint8_t *usbDeviceInfo, int usbDeviceInfoSize)
   /* Read all device descriptors. */
   if (USBH_QueryDeviceB(usbDeviceInfo, usbDeviceInfoSize, USBH_GetPortSpeed())
       != USB_STATUS_OK)
+  {
+    USB_PRINTF("\nUSB descriptor retrieval failed.");
     return false;
+  }
 
   /* Check if a valid MSD device (will activate device if OK). */
   if (!QualifyDevice(usbDeviceInfo))
@@ -81,14 +84,20 @@ bool MSDH_Init(uint8_t *usbDeviceInfo, int usbDeviceInfoSize)
 
   /* Initialize MSD SCSI module. */
   if (!MSDSCSI_Init(BULK_OUT, BULK_IN))
+  {
+    USB_PRINTF("\nMSD BOT initialization failed.");
     return false;
+  }
 
   /* Do a SCSI Inquiry to get some info from the device. */
   if (!MSDSCSI_Inquiry(&inquiryData))
   {
     /* Do one retry. */
     if (!MSDSCSI_Inquiry(&inquiryData))
+    {
+      USB_PRINTF("\nMSD SCSI Inquiry failed.");
       return false;
+    }
   }
 
   memcpy(usbDeviceInfo, &inquiryData.T10VendorId, sizeof(inquiryData.T10VendorId));

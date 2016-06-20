@@ -1,0 +1,5 @@
+<map id="LDMA_DeInit" name="LDMA_DeInit">
+<area shape="rect" id="node3" href="$group__DMADRV.html#ga73633db63cfd99ba01a68b05c24094ec" title="Deinitialize DMADRV. " alt="" coords="149,31,261,57"/>
+<area shape="rect" id="node5" href="$group__SPIDRV.html#ga1bebced0f8f5b3a3ac582916e4b13460" title="Deinitialize a SPI driver instance. " alt="" coords="317,5,422,32"/>
+<area shape="rect" id="node7" href="$group__UARTDRV.html#ga3b4222031534ab6d54ca068b5fa6e596" title="Deinitialize a UART driver instance. " alt="" coords="310,56,429,83"/>
+</map>

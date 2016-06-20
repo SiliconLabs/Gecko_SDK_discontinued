@@ -1,0 +1,4 @@
+<map id="MSDBOT_Init" name="MSDBOT_Init">
+<area shape="rect" id="node3" href="$msdscsi_8c.html#a20d1e1bc8c9f66d3bbf9f7ec45a8afeb" title="MSDSCSI module initialization. " alt="" coords="152,5,253,32"/>
+<area shape="rect" id="node5" href="$group__Msd.html#gaeb31e6900faf7971679af16d079f6c14" title="Initialize an USB connected Mass Storage Device. Checks if the device is a valid MSD device..." alt="" coords="302,5,383,32"/>
+</map>

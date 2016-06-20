@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file displayconfigapp.h
  * @brief Display application specific configuration file.
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -13,8 +13,8 @@
  *
  ******************************************************************************/
 
-#ifndef _DISPLAY_CONFIG_APP_H_
-#define _DISPLAY_CONFIG_APP_H_
+#ifndef DISPLAY_CONFIG_APP_H
+#define DISPLAY_CONFIG_APP_H
 
 /* Include TEXTDISPLAY support because this example prints text to the
    display. */
@@ -36,4 +36,4 @@
    on the text display. */
 #define RETARGETTEXTDISPLAY_LINE_FEED_MODE  (true)
 
-#endif /* _DISPLAY_CONFIG_APP_H_ */
+#endif /* DISPLAY_CONFIG_APP_H */

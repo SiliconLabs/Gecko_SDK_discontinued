@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file spidrv.c
  * @brief SPIDRV API implementation.
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -1925,6 +1925,7 @@ static Ecode_t WaitForIdleLine( SPIDRV_Handle_t handle )
 /// @endcond
 
 /******** THE REST OF THE FILE IS DOCUMENTATION ONLY !**********************//**
+ * @addtogroup SPIDRV
  * @{
 
 @page spidrv_doc SPIDRV Serial Peripheral Interface driver

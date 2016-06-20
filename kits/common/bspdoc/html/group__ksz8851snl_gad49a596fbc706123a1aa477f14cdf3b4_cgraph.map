@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$group__ksz8851snl.html#ga3eda0b4b00ab2ec0a7c265329587cc88" title="Read data from the ethernet controller RX FIFO." alt="" coords="427,5,605,32"/>
-<area shape="rect" id="node11" href="$group__ksz8851snl.html#gaef8e79d738a8e792ea8335a14e4d80c5" title="Read ethernet controller register." alt="" coords="415,107,617,133"/>
-<area shape="rect" id="node14" href="$group__ksz8851snl.html#ga194769a82e5a1c0ab03ea0923b7da2d0" title="Write ethernet controller register." alt="" coords="413,56,619,83"/>
-<area shape="rect" id="node18" href="$ksz8851snl_8c.html#a1893ae2fdc832fc747a3f297c6b17d5c" title="Release the current frame if it is inconsistent." alt="" coords="200,107,365,133"/>
-<area shape="rect" id="node5" href="$ksz8851snl__spi_8c.html#a947af8a0b941a0ac77fbdaaec0c7a587" title="Receive a series of bytes over the spi link." alt="" coords="685,5,856,32"/>
-<area shape="rect" id="node7" href="$ksz8851snl__spi_8c.html#ab3cd4983675d048afb998f29244de6c0" title="Select/deselect the ksz8851snl chip." alt="" coords="667,107,874,133"/>
-<area shape="rect" id="node9" href="$ksz8851snl__spi_8c.html#aa7973e5c903af7ba709937e516393a30" title="Transmits a series of bytes over the spi link." alt="" coords="681,56,860,83"/>
-</map>

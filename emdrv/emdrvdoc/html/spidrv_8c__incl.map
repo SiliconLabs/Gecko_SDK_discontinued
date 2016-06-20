@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node13" href="$dmadrv_8h.html" title="DMADRV API definition." alt="" coords="197,155,272,181"/>
-<area shape="rect" id="node23" href="$spidrv_8h.html" title="SPIDRV API definition." alt="" coords="272,80,339,107"/>
-<area shape="rect" id="node16" href="$ecode_8h.html" title="Energy Aware drivers error code definitions." alt="" coords="424,229,491,256"/>
-<area shape="rect" id="node20" href="$dmadrv__config_8h.html" title="DMADRV configuration file." alt="" coords="176,229,293,256"/>
-<area shape="rect" id="node29" href="$spidrv__config_8h.html" title="SPIDRV configuration file." alt="" coords="321,155,428,181"/>
-<area shape="rect" id="node31" href="$rtcdriver_8h.html" title="RTCDRV timer API definition." alt="" coords="505,155,585,181"/>
-<area shape="rect" id="node38" href="$rtcdrv__config_8h.html" title="RTCDRV configuration file." alt="" coords="701,229,808,256"/>
-</map>

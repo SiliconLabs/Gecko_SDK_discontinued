@@ -1,0 +1,7 @@
+<map id="MSDD_SetupCmd" name="MSDD_SetupCmd">
+<area shape="rect" id="node3" href="$group__USB__DEVICE.html#gacb0ed1c21fd4aecfe96060ea87a617a8" title="Reset stall state on a stalled (halted) endpoint. " alt="" coords="176,5,291,32"/>
+<area shape="rect" id="node9" href="$group__USB__DEVICE.html#ga656c8d2935af97156bc0babdc43c32ee" title="Start a write (IN) transfer on an endpoint. " alt="" coords="188,56,279,83"/>
+<area shape="rect" id="node5" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="359,56,449,83"/>
+<area shape="rect" id="node7" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="361,5,447,32"/>
+<area shape="rect" id="node13" href="$group__USB__DEVICE.html#gab4e55bb0aacaa90aab28a79e9b131b0f" title="Get current USB device state. " alt="" coords="339,107,469,133"/>
+</map>

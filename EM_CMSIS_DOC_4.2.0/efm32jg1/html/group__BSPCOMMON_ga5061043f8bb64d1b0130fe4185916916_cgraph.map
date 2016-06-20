@@ -1,0 +1,10 @@
+<map id="BSP_TraceProfilerEnable" name="BSP_TraceProfilerEnable">
+<area shape="rect" id="node3" href="$group__MSC.html#ga25bb7197232a0fa92f3fc22d3a128161" title="Erases a page in flash memory. " alt="" coords="217,81,332,108"/>
+<area shape="rect" id="node5" href="$group__MSC.html#gaa02df815c14caedbc2fd0a8910d2e055" title="Enables the flash controller for writing. " alt="" coords="238,132,311,159"/>
+<area shape="rect" id="node19" href="$group__MSC.html#ga76309e04e090815bd80e7e5da3ee6ff6" title="Writes data to flash memory. This function is interrupt safe, but slower than MSC_WriteWordFast(), which writes to flash with interrupts disabled. Write data must be aligned to words and contain a number of bytes that is divisable by four. " alt="" coords="216,183,333,209"/>
+<area shape="rect" id="node7" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="381,107,512,133"/>
+<area shape="rect" id="node13" href="$system__efm32jg1b_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="561,157,701,184"/>
+<area shape="rect" id="node9" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="573,5,688,32"/>
+<area shape="rect" id="node11" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="573,56,688,83"/>
+<area shape="rect" id="node15" href="$system__efm32jg1b_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="749,132,877,159"/>
+</map>

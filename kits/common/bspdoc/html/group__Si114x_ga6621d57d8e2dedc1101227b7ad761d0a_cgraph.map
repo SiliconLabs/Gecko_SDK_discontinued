@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$group__Si114x.html#ga75ef8acc675ca1a1bf14acda4f3c6686" title="Get the enable status of the Si1147 interrupt pin." alt="" coords="288,5,501,32"/>
-<area shape="rect" id="node5" href="$group__Si114x.html#gaeae79629a9f5a41c75ba329fa056eeef" title="Reads from Si114x register." alt="" coords="550,31,717,57"/>
-<area shape="rect" id="node7" href="$group__Si114x.html#gac4487c27a69c68ce91b6f193fc35fd3f" title="Sends a PSALSFORCE command to the Si113x/4x." alt="" coords="333,107,456,133"/>
-<area shape="rect" id="node10" href="$group__Si114x.html#ga8d9e6e60e0ced326193208cdf976bbee" title="Writes to Si114x Register." alt="" coords="318,157,471,184"/>
-</map>

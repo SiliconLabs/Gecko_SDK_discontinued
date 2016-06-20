@@ -1,0 +1,4 @@
+<map id="ezradioStartTransmitConfigured" name="ezradioStartTransmitConfigured">
+<area shape="rect" id="node3" href="$group__Transmit__Plugin.html#gaf0c60b70ac28ad2c13779b041b923153" title="Start a smart transmission. Depending on the information in the pktLengthConf parameter the function ..." alt="" coords="259,5,437,32"/>
+<area shape="rect" id="node5" href="$group__Transmit__Plugin.html#gade85938593abc8d7c6246eeaa9536a61" title="Start a default transmission using the packet information previously set to radioHandle. Depending on the information in the radioHandle parameter the function decides which transmission function has to be called. " alt="" coords="486,5,669,32"/>
+</map>

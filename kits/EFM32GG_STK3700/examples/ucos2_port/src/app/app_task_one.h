@@ -23,7 +23,7 @@
 *
 * @file   app_task_one.h
 * @brief
-* @version 4.1.0
+* @version 4.2.0
 ******************************************************************************
 * @section License
 * <b>(C) Copyright 2013 Energy Micro AS, http://www.energymicro.com</b>

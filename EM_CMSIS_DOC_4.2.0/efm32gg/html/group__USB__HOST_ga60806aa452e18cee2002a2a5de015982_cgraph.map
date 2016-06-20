@@ -1,0 +1,4 @@
+<map id="USBH_PrintString" name="USBH_PrintString">
+<area shape="rect" id="node3" href="$group__USB__COMMON.html#gac49ccf1d69a08567d1a5911b0312e735" title="Transmit a single char on the debug serial port. " alt="" coords="173,5,280,32"/>
+<area shape="rect" id="node5" href="$group__USB__COMMON.html#ga7276e056a2f6aeb99240f72529f41f8f" title="Transmit a zero terminated string on the debug serial port. " alt="" coords="185,56,268,83"/>
+</map>

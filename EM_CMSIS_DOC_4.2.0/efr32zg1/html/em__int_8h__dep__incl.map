@@ -1,0 +1,15 @@
+<map id="C:/work/s025_sw/emlib/inc/em_int.h" name="C:/work/s025_sw/emlib/inc/em_int.h">
+<area shape="rect" id="node3" href="$em__int_8c.html" title="Interrupt enable/disable unit API. " alt="" coords="5,97,163,138"/>
+<area shape="rect" id="node5" href="$em__ldma_8c.html" title="Direct memory access (LDMA) module peripheral API. " alt="" coords="187,97,345,138"/>
+<area shape="rect" id="node7" href="$em__msc_8c.html" title="Flash controller (MSC) Peripheral API. " alt="" coords="370,97,528,138"/>
+<area shape="rect" id="node9" href="$ustimer_8c.html" title="Microsecond delay functions. " alt="" coords="553,97,716,138"/>
+<area shape="rect" id="node11" href="$spidrv_8c.html" title="SPIDRV API implementation. " alt="" coords="741,97,904,138"/>
+<area shape="rect" id="node13" href="$uartdrv_8c.html" title="UARTDRV API implementation. " alt="" coords="929,97,1092,138"/>
+<area shape="rect" id="node15" href="$rtcdriver_8c.html" title="RTCDRV timer API implementation. " alt="" coords="1117,97,1280,138"/>
+<area shape="rect" id="node17" href="$dmadrv_8c.html" title="DMADRV API implementation. " alt="" coords="1305,97,1468,138"/>
+<area shape="rect" id="node19" href="$sleep_8c.html" title="Energy Modes management driver. " alt="" coords="1493,97,1656,138"/>
+<area shape="rect" id="node21" href="$gpiointerrupt_8c.html" title="GPIOINT API implementation. " alt="" coords="1681,97,1892,138"/>
+<area shape="rect" id="node23" href="$caplesense_8c.html" title="Capacitive sense driver. " alt="" coords="1917,97,2115,138"/>
+<area shape="rect" id="node25" href="$retargetserial_8c.html" title="Provide stdio retargeting to USART/UART or LEUART. " alt="" coords="2139,97,2351,138"/>
+<area shape="rect" id="node27" href="$udelay_8c.html" title="Microsecond delay routine. " alt="" coords="2375,97,2547,138"/>
+</map>

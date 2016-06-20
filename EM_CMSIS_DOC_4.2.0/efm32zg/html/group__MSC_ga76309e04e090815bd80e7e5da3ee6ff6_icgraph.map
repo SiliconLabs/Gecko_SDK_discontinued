@@ -1,0 +1,5 @@
+<map id="MSC_WriteWord" name="MSC_WriteWord">
+<area shape="rect" id="node3" href="$nvm__hal_8c.html#a0800d58f7bb43d0462592d0062c5cef3" title="Write data to NVM. " alt="" coords="171,31,279,57"/>
+<area shape="rect" id="node5" href="$group__NVM.html#ga6cad1505838978506c7d94f9a1472595" title="Erase the entire allocated NVM area. " alt="" coords="329,5,415,32"/>
+<area shape="rect" id="node7" href="$group__NVM.html#gad181be9b434658d3552fb311039ff691" title="Write an object or a page. " alt="" coords="329,56,415,83"/>
+</map>

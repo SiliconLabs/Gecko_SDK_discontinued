@@ -1,0 +1,9 @@
+<map id="DMA_Init" name="DMA_Init">
+<area shape="rect" id="node3" href="$group__DMADRV.html#ga43d0052d81f16e72914f85248a8554b1" title="Initialize DMADRV. " alt="" coords="138,56,235,83"/>
+<area shape="rect" id="node15" href="$group__NandFlash.html#ga77237e34d1ad7e9ea927c64f77ec6e24" title="Initialize the NANDFLASH module. " alt="" coords="129,107,245,133"/>
+<area shape="rect" id="node5" href="$group__SPIDRV.html#gae1bf2b297eca13e7e46cbbcb66202239" title="Initialize a SPI driver instance. " alt="" coords="300,31,391,57"/>
+<area shape="rect" id="node13" href="$group__UARTDRV.html#ga2aa9f087a06d6bf96933d657ac4e55d6" title="Initialize a UART driver instance. " alt="" coords="294,81,397,108"/>
+<area shape="rect" id="node7" href="$group__HAL__Layer.html#gae1cf166781ecf4a2317e0d9d4f504197" title="ezradio_hal_SpiInit" alt="" coords="453,5,584,32"/>
+<area shape="rect" id="node11" href="$group__ksz8851snl.html#ga12cf356cb196dbc44230f7ad5aa16742" title="KSZ8851SNL_SPI_Init Initialize SPI interface to Ethernet controller. " alt="" coords="446,56,591,83"/>
+<area shape="rect" id="node9" href="$group__Plugin__Manager.html#ga55ab56dfaa297c93024dc43239bc8592" title="Radio Initialization. " alt="" coords="640,5,723,32"/>
+</map>

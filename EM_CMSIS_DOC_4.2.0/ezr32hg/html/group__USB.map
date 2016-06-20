@@ -1,0 +1,4 @@
+<map id="USB" name="USB">
+<area shape="rect" id="node1" href="$group__USB__DEVICE.html" title="USB DEVICE protocol stack, see USB device stack library page for detailed documentation. . " alt="" coords="105,5,199,32"/>
+<area shape="rect" id="node2" href="$group__USB__COMMON.html" title="Common parts for both HOST and DEVICE USB stacks, see USB device stack library and usb_host pages for..." alt="" coords="99,56,205,83"/>
+</map>

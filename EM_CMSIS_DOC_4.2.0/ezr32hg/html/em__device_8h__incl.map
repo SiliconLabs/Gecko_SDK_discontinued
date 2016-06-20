@@ -1,0 +1,40 @@
+<map id="C:/work/s025_sw/Device/SiliconLabs/EZR32HG/Include/em_device.h" name="C:/work/s025_sw/Device/SiliconLabs/EZR32HG/Include/em_device.h">
+<area shape="rect" id="node3" href="$ezr32hg320f64r69_8h.html" title="CMSIS Cortex&#45;M Peripheral Access Layer Header File for EZR32HG320F64R69. " alt="" coords="2669,109,2805,136"/>
+<area shape="rect" id="node9" href="$system__ezr32hg_8h.html" title="CMSIS Cortex&#45;M System Layer for EZR32HG devices. " alt="" coords="258,184,384,211"/>
+<area shape="rect" id="node13" href="$ezr32hg__aes_8h.html" title="EZR32HG_AES register and bit field definitions. " alt="" coords="409,184,516,211"/>
+<area shape="rect" id="node15" href="$ezr32hg__dma__ch_8h.html" title="EZR32HG_DMA_CH register and bit field definitions. " alt="" coords="540,184,671,211"/>
+<area shape="rect" id="node17" href="$ezr32hg__dma_8h.html" title="EZR32HG_DMA register and bit field definitions. " alt="" coords="695,184,805,211"/>
+<area shape="rect" id="node19" href="$ezr32hg__usb__diep_8h.html" title="EZR32HG_USB_DIEP register and bit field definitions. " alt="" coords="830,184,967,211"/>
+<area shape="rect" id="node21" href="$ezr32hg__usb__doep_8h.html" title="EZR32HG_USB_DOEP register and bit field definitions. " alt="" coords="992,184,1133,211"/>
+<area shape="rect" id="node23" href="$ezr32hg__usb_8h.html" title="EZR32HG_USB register and bit field definitions. " alt="" coords="1157,184,1264,211"/>
+<area shape="rect" id="node25" href="$ezr32hg__msc_8h.html" title="EZR32HG_MSC register and bit field definitions. " alt="" coords="1288,184,1397,211"/>
+<area shape="rect" id="node27" href="$ezr32hg__emu_8h.html" title="EZR32HG_EMU register and bit field definitions. " alt="" coords="1422,184,1532,211"/>
+<area shape="rect" id="node29" href="$ezr32hg__rmu_8h.html" title="EZR32HG_RMU register and bit field definitions. " alt="" coords="1557,184,1667,211"/>
+<area shape="rect" id="node31" href="$ezr32hg__cmu_8h.html" title="EZR32HG_CMU register and bit field definitions. " alt="" coords="1691,184,1801,211"/>
+<area shape="rect" id="node33" href="$ezr32hg__timer__cc_8h.html" title="EZR32HG_TIMER_CC register and bit field definitions. " alt="" coords="1826,184,1960,211"/>
+<area shape="rect" id="node35" href="$ezr32hg__timer_8h.html" title="EZR32HG_TIMER register and bit field definitions. " alt="" coords="1985,184,2100,211"/>
+<area shape="rect" id="node37" href="$ezr32hg__usart_8h.html" title="EZR32HG_USART register and bit field definitions. " alt="" coords="2125,184,2240,211"/>
+<area shape="rect" id="node39" href="$ezr32hg__prs__ch_8h.html" title="EZR32HG_PRS_CH register and bit field definitions. " alt="" coords="2265,184,2388,211"/>
+<area shape="rect" id="node41" href="$ezr32hg__prs_8h.html" title="EZR32HG_PRS register and bit field definitions. " alt="" coords="2413,184,2517,211"/>
+<area shape="rect" id="node43" href="$ezr32hg__idac_8h.html" title="EZR32HG_IDAC register and bit field definitions. " alt="" coords="2541,184,2651,211"/>
+<area shape="rect" id="node45" href="$ezr32hg__gpio__p_8h.html" title="EZR32HG_GPIO_P register and bit field definitions. " alt="" coords="2675,184,2799,211"/>
+<area shape="rect" id="node47" href="$ezr32hg__gpio_8h.html" title="EZR32HG_GPIO register and bit field definitions. " alt="" coords="2823,184,2933,211"/>
+<area shape="rect" id="node49" href="$ezr32hg__vcmp_8h.html" title="EZR32HG_VCMP register and bit field definitions. " alt="" coords="2958,184,3073,211"/>
+<area shape="rect" id="node51" href="$ezr32hg__adc_8h.html" title="EZR32HG_ADC register and bit field definitions. " alt="" coords="3099,184,3205,211"/>
+<area shape="rect" id="node53" href="$ezr32hg__leuart_8h.html" title="EZR32HG_LEUART register and bit field definitions. " alt="" coords="3230,184,3348,211"/>
+<area shape="rect" id="node55" href="$ezr32hg__pcnt_8h.html" title="EZR32HG_PCNT register and bit field definitions. " alt="" coords="3373,184,3483,211"/>
+<area shape="rect" id="node57" href="$ezr32hg__i2c_8h.html" title="EZR32HG_I2C register and bit field definitions. " alt="" coords="3507,184,3609,211"/>
+<area shape="rect" id="node59" href="$ezr32hg__rtc_8h.html" title="EZR32HG_RTC register and bit field definitions. " alt="" coords="3635,184,3736,211"/>
+<area shape="rect" id="node61" href="$ezr32hg__wdog_8h.html" title="EZR32HG_WDOG register and bit field definitions. " alt="" coords="3760,184,3877,211"/>
+<area shape="rect" id="node63" href="$ezr32hg__mtb_8h.html" title="EZR32HG_MTB register and bit field definitions. " alt="" coords="3902,184,4009,211"/>
+<area shape="rect" id="node65" href="$ezr32hg__dma__descriptor_8h.html" title="EZR32HG_DMA_DESCRIPTOR register and bit field definitions. " alt="" coords="4034,184,4208,211"/>
+<area shape="rect" id="node67" href="$ezr32hg__devinfo_8h.html" title="EZR32HG_DEVINFO register and bit field definitions. " alt="" coords="4233,184,4359,211"/>
+<area shape="rect" id="node69" href="$ezr32hg__romtable_8h.html" title="EZR32HG_ROMTABLE register and bit field definitions. " alt="" coords="4383,184,4520,211"/>
+<area shape="rect" id="node71" href="$ezr32hg__calibrate_8h.html" title="EZR32HG_CALIBRATE register and bit field definitions. " alt="" coords="4545,184,4679,211"/>
+<area shape="rect" id="node73" href="$ezr32hg__prs__signals_8h.html" title="EZR32HG_PRS_SIGNALS register and bit field definitions. " alt="" coords="4703,184,4853,211"/>
+<area shape="rect" id="node75" href="$ezr32hg__dmareq_8h.html" title="EZR32HG_DMAREQ register and bit field definitions. " alt="" coords="4879,184,5009,211"/>
+<area shape="rect" id="node77" href="$ezr32hg__dmactrl_8h.html" title="EZR32HG_DMACTRL register and bit field definitions. " alt="" coords="5034,184,5163,211"/>
+<area shape="rect" id="node79" href="$ezr32hg__usartrf_8h.html" title="EZR32HG_USARTRF register and bit field definitions. " alt="" coords="5187,184,5311,211"/>
+<area shape="rect" id="node81" href="$ezr32hg__af__ports_8h.html" title="EZR32HG_AF_PORTS register and bit field definitions. " alt="" coords="5336,184,5469,211"/>
+<area shape="rect" id="node83" href="$ezr32hg__af__pins_8h.html" title="EZR32HG_AF_PINS register and bit field definitions. " alt="" coords="5494,184,5620,211"/>
+</map>

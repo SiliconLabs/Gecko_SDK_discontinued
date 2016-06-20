@@ -1,0 +1,6 @@
+<map id="Si114xBlockRead" name="Si114xBlockRead">
+<area shape="rect" id="node3" href="$group__Si114x.html#ga1ba38d5d8eefcaf2c7b1e5fcb0bec0f7" title="Reads a block of data from the Si1147 sensor. " alt="" coords="173,31,360,57"/>
+<area shape="rect" id="node5" href="$group__I2CSPM.html#ga076766b20012fb6a0cdaaf0f2c760795" title="Perform I2C transfer. " alt="" coords="408,31,531,57"/>
+<area shape="rect" id="node7" href="$group__I2C.html#gae2bf2ecc3d0c4f55e3511d4871b64b16" title="Prepare and start an I2C transfer (single master mode only). " alt="" coords="579,5,693,32"/>
+<area shape="rect" id="node9" href="$group__I2C.html#ga67983b3dbe7f028a97f765e421b3df56" title="Continue an initiated I2C transfer (single master mode only). " alt="" coords="742,31,839,57"/>
+</map>

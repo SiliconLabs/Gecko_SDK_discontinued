@@ -1,0 +1,4 @@
+<map id="CMU_AUXHFRCOFreqSet" name="CMU_AUXHFRCOFreqSet">
+<area shape="rect" id="node3" href="$group__BUS.html#gaca6b55014161f4c51c9daf4f707eeb7c" title="Perform a single&#45;bit read operation on a peripheral register. " alt="" coords="251,5,368,32"/>
+<area shape="rect" id="node5" href="$group__CMU.html#ga5cb6e086e42cc246028b557514a1556c" title="Get a pointer to the AUXHFRCO frequency calibration word in DEVINFO. " alt="" coords="219,56,399,83"/>
+</map>

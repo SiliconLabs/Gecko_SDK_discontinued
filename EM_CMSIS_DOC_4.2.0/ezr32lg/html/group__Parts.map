@@ -1,0 +1,64 @@
+<map id="Parts" name="Parts">
+<area shape="rect" id="node1" href="$group__EZR32LG__USB.html" title="EZR32LG_USB Register Declaration. " alt="" coords="151,5,254,32"/>
+<area shape="rect" id="node2" href="$group__EZR32LG__WDOG.html" title="EZR32LG_WDOG Register Declaration. " alt="" coords="145,56,261,83"/>
+<area shape="rect" id="node3" href="$group__EZR32LG__LETIMER.html" title="EZR32LG_LETIMER Register Declaration. " alt="" coords="138,107,267,133"/>
+<area shape="rect" id="node4" href="$group__EZR32LG__WDOG__BitFields.html" title="EZR32LG_WDOG_BitFields" alt="" coords="117,157,288,184"/>
+<area shape="rect" id="node5" href="$group__EZR32LG__DMACTRL__BitFields.html" title="EZR32LG_DMACTRL_BitFields" alt="" coords="108,208,297,235"/>
+<area shape="rect" id="node6" href="$group__EZR32LG__PCNT__BitFields.html" title="EZR32LG_PCNT_BitFields" alt="" coords="121,259,285,285"/>
+<area shape="rect" id="node7" href="$group__EZR32LG__USART.html" title="EZR32LG_USART Register Declaration. " alt="" coords="143,309,262,336"/>
+<area shape="rect" id="node8" href="$group__EZR32LG__ETM__BitFields.html" title="EZR32LG_ETM_BitFields" alt="" coords="123,360,282,387"/>
+<area shape="rect" id="node9" href="$group__EZR32LG__CMU.html" title="EZR32LG_CMU Register Declaration. " alt="" coords="150,411,255,437"/>
+<area shape="rect" id="node10" href="$group__EZR32LG__TIMER__BitFields.html" title="EZR32LG_TIMER_BitFields" alt="" coords="117,461,288,488"/>
+<area shape="rect" id="node11" href="$group__EZR32LG__DMA__BitFields.html" title="EZR32LG_DMA_BitFields" alt="" coords="123,512,282,539"/>
+<area shape="rect" id="node12" href="$group__EZR32LG__MSC.html" title="EZR32LG_MSC Register Declaration. " alt="" coords="150,563,255,589"/>
+<area shape="rect" id="node13" href="$group__EZR32LG__PRS.html" title="EZR32LG_PRS Register Declaration. " alt="" coords="151,613,254,640"/>
+<area shape="rect" id="node14" href="$group__EZR32LG__TIMER.html" title="EZR32LG_TIMER Register Declaration. " alt="" coords="145,664,261,691"/>
+<area shape="rect" id="node15" href="$group__EZR32LG__LEUART.html" title="EZR32LG_LEUART Register Declaration. " alt="" coords="141,715,265,741"/>
+<area shape="rect" id="node16" href="$group__EZR32LG__RMU.html" title="EZR32LG_RMU Register Declaration. " alt="" coords="150,765,255,792"/>
+<area shape="rect" id="node17" href="$group__EZR32LG__ETM.html" title="EZR32LG_ETM Register Declaration. " alt="" coords="151,816,255,843"/>
+<area shape="rect" id="node18" href="$group__EZR32LG__RMU__BitFields.html" title="EZR32LG_RMU_BitFields" alt="" coords="123,867,282,893"/>
+<area shape="rect" id="node19" href="$group__EZR32LG__GPIO__BitFields.html" title="EZR32LG_GPIO_BitFields" alt="" coords="122,917,283,944"/>
+<area shape="rect" id="node20" href="$group__EZR32LG__ADC__BitFields.html" title="EZR32LG_ADC_BitFields" alt="" coords="124,968,281,995"/>
+<area shape="rect" id="node21" href="$group__EZR32LG__RTC__BitFields.html" title="EZR32LG_RTC_BitFields" alt="" coords="124,1019,281,1045"/>
+<area shape="rect" id="node22" href="$group__EZR32LG__USART__BitFields.html" title="EZR32LG_USART_BitFields" alt="" coords="116,1069,289,1096"/>
+<area shape="rect" id="node23" href="$group__EZR32LG__DEVINFO.html" title="EZR32LG_DEVINFO" alt="" coords="137,1120,268,1147"/>
+<area shape="rect" id="node24" href="$group__EZR32LG__EMU__BitFields.html" title="EZR32LG_EMU_BitFields" alt="" coords="123,1171,282,1197"/>
+<area shape="rect" id="node25" href="$group__EZR32LG__AES.html" title="EZR32LG_AES Register Declaration. " alt="" coords="151,1221,254,1248"/>
+<area shape="rect" id="node26" href="$group__EZR32LG__BURTC.html" title="EZR32LG_BURTC Register Declaration. " alt="" coords="143,1272,262,1299"/>
+<area shape="rect" id="node27" href="$group__EZR32LG__GPIO.html" title="EZR32LG_GPIO Register Declaration. " alt="" coords="149,1323,256,1349"/>
+<area shape="rect" id="node28" href="$group__EZR32LG__ADC.html" title="EZR32LG_ADC Register Declaration. " alt="" coords="151,1373,254,1400"/>
+<area shape="rect" id="node29" href="$group__EZR32LG__AF__Pins.html" title="EZR32LG_AF_Pins" alt="" coords="141,1424,265,1451"/>
+<area shape="rect" id="node30" href="$group__EZR32LG__LESENSE.html" title="EZR32LG_LESENSE Register Declaration. " alt="" coords="137,1475,268,1501"/>
+<area shape="rect" id="node31" href="$group__EZR32LG__I2C.html" title="EZR32LG_I2C Register Declaration. " alt="" coords="153,1525,252,1552"/>
+<area shape="rect" id="node32" href="$group__EZR32LG__LEUART__BitFields.html" title="EZR32LG_LEUART_BitFields" alt="" coords="113,1576,292,1603"/>
+<area shape="rect" id="node33" href="$group__EZR32LG__DMA__DESCRIPTOR.html" title="EZR32LG_DMA_DESCRIPTOR" alt="" coords="109,1627,296,1653"/>
+<area shape="rect" id="node34" href="$group__EZR32LG__DAC.html" title="EZR32LG_DAC Register Declaration. " alt="" coords="151,1677,254,1704"/>
+<area shape="rect" id="node35" href="$group__EZR32LG__VCMP__BitFields.html" title="EZR32LG_VCMP_BitFields" alt="" coords="119,1728,286,1755"/>
+<area shape="rect" id="node36" href="$group__EZR32LG__I2C__BitFields.html" title="EZR32LG_I2C_BitFields" alt="" coords="127,1779,279,1805"/>
+<area shape="rect" id="node37" href="$group__EZR32LG__PRS__Signals.html" title="PRS Signal names. " alt="" coords="127,1829,278,1856"/>
+<area shape="rect" id="node38" href="$group__EZR32LG__EMU.html" title="EZR32LG_EMU Register Declaration. " alt="" coords="151,1880,255,1907"/>
+<area shape="rect" id="node39" href="$group__EZR32LG330F256R69.html" title="EZR32LG330F256R69" alt="" coords="131,1931,274,1957"/>
+<area shape="rect" id="node40" href="$group__EZR32LG__LETIMER__BitFields.html" title="EZR32LG_LETIMER_BitFields" alt="" coords="111,1981,294,2008"/>
+<area shape="rect" id="node41" href="$group__EZR32LG__ROMTABLE.html" title="Chip Information, Revision numbers. " alt="" coords="131,2032,274,2059"/>
+<area shape="rect" id="node42" href="$group__EZR32LG__PRS__BitFields.html" title="EZR32LG_PRS_BitFields" alt="" coords="125,2083,281,2109"/>
+<area shape="rect" id="node43" href="$group__EZR32LG__BURTC__BitFields.html" title="EZR32LG_BURTC_BitFields" alt="" coords="117,2133,289,2160"/>
+<area shape="rect" id="node44" href="$group__EZR32LG__DMAREQ__BitFields.html" title="EZR32LG_DMAREQ_BitFields" alt="" coords="111,2184,294,2211"/>
+<area shape="rect" id="node45" href="$group__EZR32LG__DAC__BitFields.html" title="EZR32LG_DAC_BitFields" alt="" coords="124,2235,281,2261"/>
+<area shape="rect" id="node46" href="$group__EZR32LG__MSC__BitFields.html" title="EZR32LG_MSC_BitFields" alt="" coords="123,2285,282,2312"/>
+<area shape="rect" id="node47" href="$group__EZR32LG__UART__BitFields.html" title="EZR32LG_UART_BitFields" alt="" coords="120,2336,285,2363"/>
+<area shape="rect" id="node49" href="$group__EZR32LG__VCMP.html" title="EZR32LG_VCMP Register Declaration. " alt="" coords="147,2387,259,2413"/>
+<area shape="rect" id="node50" href="$group__EZR32LG__CALIBRATE.html" title="EZR32LG_CALIBRATE" alt="" coords="131,2437,274,2464"/>
+<area shape="rect" id="node51" href="$group__EZR32LG__LESENSE__BitFields.html" title="EZR32LG_LESENSE_BitFields" alt="" coords="111,2488,295,2515"/>
+<area shape="rect" id="node52" href="$group__EZR32LG__ACMP.html" title="EZR32LG_ACMP Register Declaration. " alt="" coords="147,2539,259,2565"/>
+<area shape="rect" id="node53" href="$group__EZR32LG__CMU__BitFields.html" title="EZR32LG_CMU_BitFields" alt="" coords="123,2589,282,2616"/>
+<area shape="rect" id="node54" href="$group__EZR32LG__ROMTABLE__BitFields.html" title="EZR32LG_ROMTABLE_BitFields" alt="" coords="105,2640,301,2667"/>
+<area shape="rect" id="node55" href="$group__EZR32LG__AES__BitFields.html" title="EZR32LG_AES_BitFields" alt="" coords="125,2691,281,2717"/>
+<area shape="rect" id="node56" href="$group__EZR32LG__USARTRF__BitFields.html" title="EZR32LG_USARTRF_BitFields" alt="" coords="109,2741,297,2768"/>
+<area shape="rect" id="node57" href="$group__EZR32LG__DMA.html" title="EZR32LG_DMA Register Declaration. " alt="" coords="150,2792,255,2819"/>
+<area shape="rect" id="node58" href="$group__EZR32LG__RTC.html" title="EZR32LG_RTC Register Declaration. " alt="" coords="151,2843,254,2869"/>
+<area shape="rect" id="node59" href="$group__EZR32LG__DEVINFO__BitFields.html" title="EZR32LG_DEVINFO_BitFields" alt="" coords="111,2893,295,2920"/>
+<area shape="rect" id="node60" href="$group__EZR32LG__PCNT.html" title="EZR32LG_PCNT Register Declaration. " alt="" coords="147,2944,258,2971"/>
+<area shape="rect" id="node61" href="$group__EZR32LG__USB__BitFields.html" title="EZR32LG_USB_BitFields" alt="" coords="125,2995,281,3021"/>
+<area shape="rect" id="node62" href="$group__EZR32LG__ACMP__BitFields.html" title="EZR32LG_ACMP_BitFields" alt="" coords="119,3045,286,3072"/>
+<area shape="rect" id="node63" href="$group__EZR32LG__AF__Ports.html" title="EZR32LG_AF_Ports" alt="" coords="137,3096,268,3123"/>
+</map>

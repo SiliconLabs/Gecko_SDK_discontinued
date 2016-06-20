@@ -1,0 +1,5 @@
+<map id="EMU_EnterEM2" name="EMU_EnterEM2">
+<area shape="rect" id="node3" href="$system__efm32zg_8h.html#acd24e7ebfd616c851c240233da5d2bba" title="Update CMSIS SystemCoreClock variable. " alt="" coords="163,5,325,32"/>
+<area shape="rect" id="node5" href="$system__efm32zg_8h.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="374,5,514,32"/>
+<area shape="rect" id="node7" href="$system__efm32zg_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="563,5,691,32"/>
+</map>

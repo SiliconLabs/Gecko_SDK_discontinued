@@ -1,0 +1,16 @@
+<map id="USBH_QueryDeviceB" name="USBH_QueryDeviceB">
+<area shape="rect" id="node3" href="$group__USB__HOST.html#gad09af4f14c4b205a9e159cb4c5fa7b8f" title="Read a configuration descriptor from a device. " alt="" coords="193,233,413,259"/>
+<area shape="rect" id="node25" href="$group__USB__HOST.html#ga2656404a391e6894b03dde7d42d11f4f" title="Read a device descriptor from a device. " alt="" coords="212,182,393,209"/>
+<area shape="rect" id="node28" href="$group__USB__HOST.html#ga50dc10ac598c6c8479319ff58c186266" title="Populate device and endpoint data structures with data retrieved during device enumeration. " alt="" coords="232,309,373,335"/>
+<area shape="rect" id="node5" href="$group__USB__HOST.html#gad94fe14defe6b7e33472364c65f07f17" title="Send a SETUP command to a device, blocking version. " alt="" coords="493,182,624,209"/>
+<area shape="rect" id="node7" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="1453,233,1544,259"/>
+<area shape="rect" id="node9" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="1455,81,1542,107"/>
+<area shape="rect" id="node11" href="$group__USB__HOST.html#ga0b43c59fc9d3c91d0039f761ef4d6333" title="Send a SETUP command to a device, non&#45;blocking version. " alt="" coords="741,157,865,183"/>
+<area shape="rect" id="node13" href="$group__USB__HOST.html#gaf791f134a36bb5376abaf59c45b84e84" title="Check if a device is connected. " alt="" coords="983,30,1140,57"/>
+<area shape="rect" id="node17" href="$group__USB__COMMON.html#gac2a406f16d989b04c4fc5b37d5c10b45" title="Start a timer. " alt="" coords="1003,157,1120,183"/>
+<area shape="rect" id="node21" href="$group__USB__COMMON.html#gab73c922427cf0d509788a8063451703f" title="Stop a timer. " alt="" coords="1256,157,1371,183"/>
+<area shape="rect" id="node30" href="$group__USB__HOST.html#gabd04b4b1ea26459d6db42aa77b6d592d" title="Return a pointer to an interface descriptor. " alt="" coords="704,359,901,386"/>
+<area shape="rect" id="node36" href="$group__USB__HOST.html#ga10e6eb1a2e9802af4ec16254e3d44783" title="Return a pointer to an endpoint descriptor. " alt="" coords="461,359,656,386"/>
+<area shape="rect" id="node32" href="$group__USB__HOST.html#ga2ac91d938f8553e31913afdb8d8d80dc" title="Return a pointer to a configuration descriptor. " alt="" coords="950,359,1173,386"/>
+<area shape="rect" id="node34" href="$group__USB__HOST.html#ga4d6a8d78ebde4e394bb25aa62a871b30" title="Return a pointer to the device descriptor. " alt="" coords="1222,359,1405,386"/>
+</map>

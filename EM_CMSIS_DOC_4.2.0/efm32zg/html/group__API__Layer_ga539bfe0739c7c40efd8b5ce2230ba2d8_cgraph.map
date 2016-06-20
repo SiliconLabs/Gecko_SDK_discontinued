@@ -1,0 +1,16 @@
+<map id="ezradio_ircal" name="ezradio_ircal">
+<area shape="rect" id="node3" href="$group__COMM__Layer.html#ga038a27f7a6883bc6640fe1187a98eed9" title="ezradio_comm_SendCmd" alt="" coords="149,168,317,195"/>
+<area shape="rect" id="node5" href="$group__COMM__Layer.html#gac2d23214b75072bedd593da2815858d3" title="ezradio_comm_PollCTS" alt="" coords="365,136,523,163"/>
+<area shape="rect" id="node9" href="$group__HAL__Layer.html#ga09c7ef4b4780a8089505f54ef1f26fd5" title="ezradio_hal_ClearNsel" alt="" coords="799,5,948,32"/>
+<area shape="rect" id="node26" href="$group__HAL__Layer.html#gae80c58c4f19b8e2b56c033c94bcb0f10" title="ezradio_hal_SetNsel" alt="" coords="804,259,943,285"/>
+<area shape="rect" id="node32" href="$group__HAL__Layer.html#ga4121044d05b7372b071773d4582204f5" title="ezradio_hal_SpiWriteData" alt="" coords="571,203,741,229"/>
+<area shape="rect" id="node7" href="$group__COMM__Layer.html#ga45656b02cb2cf46e29c8f509203e08b4" title="ezradio_comm_GetResp" alt="" coords="576,111,736,137"/>
+<area shape="rect" id="node15" href="$group__HAL__Layer.html#ga52e4a984325c6446291b13b1a63e3dff" title="ezradio_hal_SpiWriteByte" alt="" coords="789,157,957,184"/>
+<area shape="rect" id="node19" href="$group__HAL__Layer.html#ga23ca775cc658644f29ceacbcc471606a" title="ezradio_hal_SpiReadByte" alt="" coords="790,56,957,83"/>
+<area shape="rect" id="node23" href="$group__HAL__Layer.html#ga9c4c63403aaa9f22f75391e4c767d298" title="ezradio_hal_SpiReadData" alt="" coords="789,107,957,133"/>
+<area shape="rect" id="node11" href="$group__GPIO.html#ga607f3a5f3d881bb145101566f1664aba" title="Set a single pin in GPIO data out port register to 0. " alt="" coords="1014,19,1138,45"/>
+<area shape="rect" id="node13" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="1195,127,1314,153"/>
+<area shape="rect" id="node17" href="$group__SPIDRV.html#gaf53f10ccb89d8ae2c5c397db7cb87a9e" title="Start a SPI master blocking transmit transfer. " alt="" coords="1006,171,1146,197"/>
+<area shape="rect" id="node21" href="$group__SPIDRV.html#gace57de2fe713e7eed216c8f4d00e19b8" title="Start a SPI master blocking receive transfer. " alt="" coords="1009,81,1143,108"/>
+<area shape="rect" id="node28" href="$group__GPIO.html#gab08f054efbb07aaff57d616974c9c536" title="Set a single pin in GPIO data out register to 1. " alt="" coords="1019,247,1133,273"/>
+</map>

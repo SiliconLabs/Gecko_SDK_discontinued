@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file main.c
  * @brief Clock example for SLWSTK6240A_EZR32HG.
- * @version 4.1.0
+ * @version 4.2.0
  *
  * This example shows how to optimize your code in order to drive
  * a graphical display in an energy friendly way.

@@ -1,0 +1,6 @@
+<map id="BURTC_Init" name="BURTC_Init">
+<area shape="rect" id="node3" href="$group__BURTC.html#ga366ffff57aa50af096dbaab5a0b626f4" title="Enable or Disable BURTC peripheral reset and start counter. " alt="" coords="161,5,268,32"/>
+<area shape="rect" id="node7" href="$group__BURTC.html#ga6a7ad38c493ca909c77e0e752df6f7e9" title="Freeze register updates until enabled. " alt="" coords="142,56,287,83"/>
+<area shape="rect" id="node10" href="$group__BURTC.html#ga5f02d4a1b39760a358b66f133f0bd463" title="Clear one or more pending BURTC interrupts. " alt="" coords="158,107,271,133"/>
+<area shape="rect" id="node5" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="337,31,455,57"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="UARTDRV_GetReceiveStatus" name="UARTDRV_GetReceiveStatus">
+<area shape="rect" id="node3" href="$group__DMADRV.html#ga9a253b47872d205a76b6f1b7b486194d" title="Get number of items remaining in a transfer. " alt="" coords="238,23,426,65"/>
+<area shape="rect" id="node5" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="725,5,816,32"/>
+<area shape="rect" id="node7" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="727,68,814,95"/>
+<area shape="rect" id="node9" href="$group__LDMA.html#gabfd6f1003414438b5c234f2bec304511" title="Get number of items remaining in a transfer. " alt="" coords="475,31,677,57"/>
+</map>

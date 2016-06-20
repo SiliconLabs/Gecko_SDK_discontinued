@@ -1,0 +1,4 @@
+<map id="TOUCH_GetPos" name="TOUCH_GetPos">
+<area shape="rect" id="node3" href="$group__ADC.html#ga4e7612b7ab98ff06627cd121d51da1dc" title="Disable one or more ADC interrupts. " alt="" coords="163,5,272,32"/>
+<area shape="rect" id="node5" href="$group__ADC.html#ga98bf6f1584f8879dd9d0118afd78e240" title="Enable one or more ADC interrupts. " alt="" coords="164,56,271,83"/>
+</map>

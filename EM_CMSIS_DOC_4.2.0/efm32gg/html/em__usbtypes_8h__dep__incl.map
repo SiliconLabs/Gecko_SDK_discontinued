@@ -1,0 +1,11 @@
+<map id="C:/work/s025_sw/usb/inc/em_usbtypes.h" name="C:/work/s025_sw/usb/inc/em_usbtypes.h">
+<area shape="rect" id="node3" href="$em__usbd_8c.html" title="USB protocol stack library API for EFM32/EZR32. " alt="" coords="5,97,152,138"/>
+<area shape="rect" id="node5" href="$em__usbdch9_8c.html" title="USB protocol stack library, USB chapter 9 command handler. " alt="" coords="177,97,324,138"/>
+<area shape="rect" id="node7" href="$em__usbdep_8c.html" title="USB protocol stack library, USB device endpoint handlers. " alt="" coords="349,97,496,138"/>
+<area shape="rect" id="node9" href="$em__usbdint_8c.html" title="USB protocol stack library, USB device peripheral interrupt handlers. " alt="" coords="521,97,668,138"/>
+<area shape="rect" id="node11" href="$em__usbh_8c.html" title="USB protocol stack library API for EFM32/EZR32. " alt="" coords="693,97,840,138"/>
+<area shape="rect" id="node13" href="$em__usbhal_8c.html" title="USB protocol stack library, low level USB peripheral access. " alt="" coords="865,97,1012,138"/>
+<area shape="rect" id="node15" href="$em__usbhep_8c.html" title="USB protocol stack library, USB host endpoint handlers. " alt="" coords="1037,97,1184,138"/>
+<area shape="rect" id="node17" href="$em__usbhint_8c.html" title="USB protocol stack library, USB host peripheral interrupt handlers. " alt="" coords="1209,97,1356,138"/>
+<area shape="rect" id="node19" href="$em__usbtimer_8c.html" title="USB protocol stack library, timer API. " alt="" coords="1381,97,1528,138"/>
+</map>

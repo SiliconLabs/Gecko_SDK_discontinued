@@ -1,0 +1,7 @@
+<map id="SystemCoreClockUpdate" name="SystemCoreClockUpdate">
+<area shape="rect" id="node3" href="$caplesense_8c.html#a2e4ba8079a4db025c71de23fd97211cc" title="Setup the CMU. " alt="" coords="216,5,376,32"/>
+<area shape="rect" id="node7" href="$group__EMU.html#gacadc56c5e2a8fb2890edd139b694b25b" title="Enter energy mode 2 (EM2). " alt="" coords="242,56,350,83"/>
+<area shape="rect" id="node11" href="$group__EMU.html#ga9e98f9066d91dbd64c3e73254336218f" title="Enter energy mode 3 (EM3). " alt="" coords="242,107,350,133"/>
+<area shape="rect" id="node5" href="$group__CapSense.html#ga4a9a1233a70703ca91a6bc9fcf05ec19" title="Initializes the capacative sense system without LESENSE. " alt="" coords="431,5,553,32"/>
+<area shape="rect" id="node9" href="$group__CapSense.html#gadbafc1379b79f5eb37389529afb74a1b" title="Send the capacative sense system to sleep mode. " alt="" coords="425,56,559,83"/>
+</map>

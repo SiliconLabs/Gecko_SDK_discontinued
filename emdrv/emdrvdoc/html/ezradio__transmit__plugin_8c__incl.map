@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node9" href="$si4463_2inc_2ezradio__cmd_8h.html" title="EZRadio Command Header." alt="" coords="316,80,423,107"/>
-<area shape="rect" id="node11" href="$si4463_2inc_2ezradio__prop_8h.html" title="EZRadio Property Header." alt="" coords="447,80,555,107"/>
-<area shape="rect" id="node13" href="$ezradio__api__lib_8h.html" title="This file contains the common API library of the EZRadio and EZRadioPRO families..." alt="" coords="589,155,707,181"/>
-<area shape="rect" id="node15" href="$si4x6x_2ezradio__api__lib__add_8h.html" title="This file contains the additional API library for the listed members of the EZRadioPRO..." alt="" coords="631,80,777,107"/>
-<area shape="rect" id="node18" href="$ezradio__plugin__manager_8h.html" title="This file contains the plug&#45;in manager for the EZRadio and EZRadioPRO chip families..." alt="" coords="802,80,976,107"/>
-<area shape="rect" id="node25" href="$ezradio__transmit__plugin_8h.html" title="EzRadio transmit plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="1025,80,1196,107"/>
-<area shape="rect" id="node20" href="$ecode_8h.html" title="Energy Aware drivers error code definitions." alt="" coords="804,155,871,181"/>
-</map>

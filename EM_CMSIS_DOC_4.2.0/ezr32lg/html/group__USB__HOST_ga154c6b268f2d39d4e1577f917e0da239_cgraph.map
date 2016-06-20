@@ -1,0 +1,5 @@
+<map id="USBH_Stop" name="USBH_Stop">
+<area shape="rect" id="node3" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="304,5,395,32"/>
+<area shape="rect" id="node5" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="306,68,393,95"/>
+<area shape="rect" id="node7" href="$group__USB__COMMON.html#gab73c922427cf0d509788a8063451703f" title="Stop a timer. " alt="" coords="141,31,256,57"/>
+</map>

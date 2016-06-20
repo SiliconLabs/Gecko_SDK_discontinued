@@ -1,0 +1,8 @@
+<map id="HIDKBD_SetupCmd" name="HIDKBD_SetupCmd">
+<area shape="rect" id="node3" href="$group__USB__DEVICE.html#ga9e0a1cf705301d9e035feff27ea41cda" title="Start a read (OUT) transfer on an endpoint. " alt="" coords="197,107,286,133"/>
+<area shape="rect" id="node11" href="$group__USB__DEVICE.html#ga656c8d2935af97156bc0babdc43c32ee" title="Start a write (IN) transfer on an endpoint. " alt="" coords="196,56,287,83"/>
+<area shape="rect" id="node16" href="$group__USB__COMMON.html#gab73c922427cf0d509788a8063451703f" title="Stop a timer. " alt="" coords="184,5,299,32"/>
+<area shape="rect" id="node5" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="367,56,457,83"/>
+<area shape="rect" id="node7" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="369,5,455,32"/>
+<area shape="rect" id="node9" href="$group__USB__DEVICE.html#gab4e55bb0aacaa90aab28a79e9b131b0f" title="Get current USB device state. " alt="" coords="347,107,477,133"/>
+</map>

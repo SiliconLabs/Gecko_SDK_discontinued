@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file main.c
  * @brief GLIB example for SLSTK3401A
- * @version 4.1.0
+ * @version 4.2.0
  *
  * This example shows how to optimize your code in order to drive
  * a graphical display in an energy friendly way.

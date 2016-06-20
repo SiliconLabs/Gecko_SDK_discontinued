@@ -1,0 +1,15 @@
+<map id="CMU_ClockPrescSet" name="CMU_ClockPrescSet">
+<area shape="rect" id="node3" href="$group__CMU.html#ga7cc316a8dca5436fcc39d57f5e6c412d" title="Set clock divisor/prescaler. " alt="" coords="190,144,311,171"/>
+<area shape="rect" id="node5" href="$caplesense_8c.html#a2e4ba8079a4db025c71de23fd97211cc" title="Setup the CMU. " alt="" coords="360,31,520,57"/>
+<area shape="rect" id="node9" href="$group__RetargetIo.html#gab455176edfa0f3414d104e5d6d64cc50" title="Intializes UART/LEUART. " alt="" coords="369,93,511,120"/>
+<area shape="rect" id="node15" href="$group__RTCDRV.html#ga4419076832c5b4958dea6f1eec0a9bdf" title="Initialize RTCDRV driver. " alt="" coords="393,144,487,171"/>
+<area shape="rect" id="node25" href="$group__SegmentLcd.html#ga0818c866cead74ab3902753a770eb4c4" title="Segment LCD Initialization routine for EFM32 STK display. " alt="" coords="380,195,500,221"/>
+<area shape="rect" id="node27" href="$group__Udelay.html#ga523f858d15b74728046ceca9796f3046" title="Calibrates the microsecond delay loop. " alt="" coords="378,245,502,272"/>
+<area shape="rect" id="node7" href="$group__CapSense.html#ga4a9a1233a70703ca91a6bc9fcf05ec19" title="Initializes the capacative sense system without LESENSE. " alt="" coords="582,5,703,32"/>
+<area shape="rect" id="node11" href="$group__RetargetIo.html#ga5af724185f484056b02b42f4ab184bfb" title="Receive a byte from USART/LEUART and put into global buffer. " alt="" coords="569,56,716,83"/>
+<area shape="rect" id="node13" href="$group__RetargetIo.html#ga856ae0b788dccadc2c83a6e67409be5f" title="Transmit single byte to USART/LEUART. " alt="" coords="568,107,717,133"/>
+<area shape="rect" id="node17" href="$group__SPIDRV.html#gae1bf2b297eca13e7e46cbbcb66202239" title="Initialize a SPI driver instance. " alt="" coords="597,157,688,184"/>
+<area shape="rect" id="node19" href="$group__HAL__Layer.html#gae1cf166781ecf4a2317e0d9d4f504197" title="ezradio_hal_SpiInit" alt="" coords="773,132,904,159"/>
+<area shape="rect" id="node23" href="$group__ksz8851snl.html#ga12cf356cb196dbc44230f7ad5aa16742" title="KSZ8851SNL_SPI_Init Initialize SPI interface to Ethernet controller. " alt="" coords="766,183,911,209"/>
+<area shape="rect" id="node21" href="$group__Plugin__Manager.html#ga55ab56dfaa297c93024dc43239bc8592" title="Radio Initialization. " alt="" coords="960,132,1043,159"/>
+</map>

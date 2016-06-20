@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file
  * @brief Board Controller Communications Protocol (BCP) definitions
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -25,6 +25,10 @@
 extern "C" {
 #endif
 
+/***************************************************************************//**
+ * @addtogroup BSP
+ * @{
+ ******************************************************************************/
 /***************************************************************************//**
  * @addtogroup BSP_STK API for STK's and WSTK's
  * @{
@@ -119,6 +123,7 @@ typedef struct
 #endif
 
 /** @} (end group BSP_STK) */
+/** @} (end group BSP) */
 
 #ifdef __cplusplus
 }

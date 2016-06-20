@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node4" href="$nvm__hal_8h.html" title="Non&#45;Volatile Memory HAL." alt="" coords="5,81,136,108"/>
-<area shape="rect" id="node6" href="$nvm__hal_8c.html" title="Non&#45;Volatile Memory HAL for EFM32/EZR32/EFR32 flash." alt="" coords="56,156,187,182"/>
-<area shape="rect" id="node8" href="$nvm_8c.html" title="NVM API implementation." alt="" coords="211,81,317,108"/>
-<area shape="rect" id="node11" href="$nvm__config_8c.html" title="NVM config implementation." alt="" coords="341,81,477,108"/>
-</map>

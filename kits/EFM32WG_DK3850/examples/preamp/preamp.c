@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file  preamp.c
  * @brief Preamp example project.
- * @version 4.1.0
+ * @version 4.2.0
  * @note
  *   WARNING: Do not attach or use headphones with this example. Use small
  *   loadspeakers with built in amplification, ensuring volume is at an

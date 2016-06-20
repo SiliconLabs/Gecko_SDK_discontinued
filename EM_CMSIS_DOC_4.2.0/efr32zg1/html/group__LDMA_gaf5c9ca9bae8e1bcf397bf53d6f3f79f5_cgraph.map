@@ -1,0 +1,6 @@
+<map id="LDMA_StartTransfer" name="LDMA_StartTransfer">
+<area shape="rect" id="node3" href="$group__BUS.html#gad226bfe478c81d51681539d935241758" title="Perform a masked clear operation on peripheral register address. " alt="" coords="192,5,339,32"/>
+<area shape="rect" id="node5" href="$group__BUS.html#ga8225a5d4acac280abb182dc118e8df77" title="Perform a masked set operation on peripheral register address. " alt="" coords="197,56,333,83"/>
+<area shape="rect" id="node7" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="220,107,311,133"/>
+<area shape="rect" id="node9" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="222,157,309,184"/>
+</map>

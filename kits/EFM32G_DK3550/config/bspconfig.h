@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file
  * @brief Provide BSP (board support package) configuration parameters.
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -17,8 +17,8 @@
 #define __BSPCONFIG_H
 
 #define BSP_DK
-#define BSP_DK_3201
-#define BSP_MCUBOARD_3302
+#define BSP_DK_BRD3201
+#define BSP_MCUBOARD_BRD3302
 
 #include "bsp_dk_bcreg_3201.h"
 

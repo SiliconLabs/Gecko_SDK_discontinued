@@ -1,0 +1,50 @@
+<map id="C:/work/s025_sw/emlib/inc/em_bus.h" name="C:/work/s025_sw/emlib/inc/em_bus.h">
+<area shape="rect" id="node3" href="$em__device_8h.html" title="CMSIS Cortex&#45;M Peripheral Access Layer for Silicon Laboratories microcontroller devices. " alt="" coords="3293,96,3387,123"/>
+<area shape="rect" id="node5" href="$ezr32lg330f256r69_8h.html" title="CMSIS Cortex&#45;M Peripheral Access Layer Header File for EZR32LG330F256R69. " alt="" coords="3270,171,3409,197"/>
+<area shape="rect" id="node9" href="$system__ezr32lg_8h.html" title="CMSIS Cortex&#45;M3 System Layer for EZR32LG devices. " alt="" coords="119,245,241,272"/>
+<area shape="rect" id="node11" href="$ezr32lg__dma__ch_8h.html" title="EZR32LG_DMA_CH register and bit field definitions. " alt="" coords="266,245,392,272"/>
+<area shape="rect" id="node13" href="$ezr32lg__dma_8h.html" title="EZR32LG_DMA register and bit field definitions. " alt="" coords="417,245,524,272"/>
+<area shape="rect" id="node15" href="$ezr32lg__aes_8h.html" title="EZR32LG_AES register and bit field definitions. " alt="" coords="549,245,651,272"/>
+<area shape="rect" id="node17" href="$ezr32lg__usb__hc_8h.html" title="EZR32LG_USB_HC register and bit field definitions. " alt="" coords="676,245,799,272"/>
+<area shape="rect" id="node19" href="$ezr32lg__usb__diep_8h.html" title="EZR32LG_USB_DIEP register and bit field definitions. " alt="" coords="823,245,956,272"/>
+<area shape="rect" id="node21" href="$ezr32lg__usb__doep_8h.html" title="EZR32LG_USB_DOEP register and bit field definitions. " alt="" coords="981,245,1117,272"/>
+<area shape="rect" id="node23" href="$ezr32lg__usb_8h.html" title="EZR32LG_USB register and bit field definitions. " alt="" coords="1142,245,1244,272"/>
+<area shape="rect" id="node25" href="$ezr32lg__msc_8h.html" title="EZR32LG_MSC register and bit field definitions. " alt="" coords="1269,245,1373,272"/>
+<area shape="rect" id="node27" href="$ezr32lg__emu_8h.html" title="EZR32LG_EMU register and bit field definitions. " alt="" coords="1399,245,1505,272"/>
+<area shape="rect" id="node29" href="$ezr32lg__rmu_8h.html" title="EZR32LG_RMU register and bit field definitions. " alt="" coords="1530,245,1635,272"/>
+<area shape="rect" id="node31" href="$ezr32lg__cmu_8h.html" title="EZR32LG_CMU register and bit field definitions. " alt="" coords="1660,245,1767,272"/>
+<area shape="rect" id="node33" href="$ezr32lg__lesense__st_8h.html" title="EZR32LG_LESENSE_ST register and bit field definitions. " alt="" coords="1791,245,1933,272"/>
+<area shape="rect" id="node35" href="$ezr32lg__lesense__buf_8h.html" title="EZR32LG_LESENSE_BUF register and bit field definitions. " alt="" coords="1958,245,2108,272"/>
+<area shape="rect" id="node37" href="$ezr32lg__lesense__ch_8h.html" title="EZR32LG_LESENSE_CH register and bit field definitions. " alt="" coords="2133,245,2277,272"/>
+<area shape="rect" id="node39" href="$ezr32lg__lesense_8h.html" title="EZR32LG_LESENSE register and bit field definitions. " alt="" coords="2303,245,2428,272"/>
+<area shape="rect" id="node41" href="$ezr32lg__usart_8h.html" title="EZR32LG_USART register and bit field definitions. " alt="" coords="2453,245,2563,272"/>
+<area shape="rect" id="node43" href="$ezr32lg__timer__cc_8h.html" title="EZR32LG_TIMER_CC register and bit field definitions. " alt="" coords="2588,245,2719,272"/>
+<area shape="rect" id="node45" href="$ezr32lg__timer_8h.html" title="EZR32LG_TIMER register and bit field definitions. " alt="" coords="2743,245,2855,272"/>
+<area shape="rect" id="node47" href="$ezr32lg__acmp_8h.html" title="EZR32LG_ACMP register and bit field definitions. " alt="" coords="2879,245,2992,272"/>
+<area shape="rect" id="node49" href="$ezr32lg__leuart_8h.html" title="EZR32LG_LEUART register and bit field definitions. " alt="" coords="3017,245,3132,272"/>
+<area shape="rect" id="node51" href="$ezr32lg__rtc_8h.html" title="EZR32LG_RTC register and bit field definitions. " alt="" coords="3157,245,3253,272"/>
+<area shape="rect" id="node53" href="$ezr32lg__letimer_8h.html" title="EZR32LG_LETIMER register and bit field definitions. " alt="" coords="3279,245,3401,272"/>
+<area shape="rect" id="node55" href="$ezr32lg__pcnt_8h.html" title="EZR32LG_PCNT register and bit field definitions. " alt="" coords="3425,245,3532,272"/>
+<area shape="rect" id="node57" href="$ezr32lg__i2c_8h.html" title="EZR32LG_I2C register and bit field definitions. " alt="" coords="3556,245,3655,272"/>
+<area shape="rect" id="node59" href="$ezr32lg__gpio__p_8h.html" title="EZR32LG_GPIO_P register and bit field definitions. " alt="" coords="3679,245,3799,272"/>
+<area shape="rect" id="node61" href="$ezr32lg__gpio_8h.html" title="EZR32LG_GPIO register and bit field definitions. " alt="" coords="3823,245,3929,272"/>
+<area shape="rect" id="node63" href="$ezr32lg__vcmp_8h.html" title="EZR32LG_VCMP register and bit field definitions. " alt="" coords="3953,245,4065,272"/>
+<area shape="rect" id="node65" href="$ezr32lg__prs__ch_8h.html" title="EZR32LG_PRS_CH register and bit field definitions. " alt="" coords="4089,245,4209,272"/>
+<area shape="rect" id="node67" href="$ezr32lg__prs_8h.html" title="EZR32LG_PRS register and bit field definitions. " alt="" coords="4234,245,4333,272"/>
+<area shape="rect" id="node69" href="$ezr32lg__adc_8h.html" title="EZR32LG_ADC register and bit field definitions. " alt="" coords="4358,245,4460,272"/>
+<area shape="rect" id="node71" href="$ezr32lg__dac_8h.html" title="EZR32LG_DAC register and bit field definitions. " alt="" coords="4485,245,4587,272"/>
+<area shape="rect" id="node73" href="$ezr32lg__burtc__ret_8h.html" title="EZR32LG_BURTC_RET register and bit field definitions. " alt="" coords="4611,245,4745,272"/>
+<area shape="rect" id="node75" href="$ezr32lg__burtc_8h.html" title="EZR32LG_BURTC register and bit field definitions. " alt="" coords="4770,245,4880,272"/>
+<area shape="rect" id="node77" href="$ezr32lg__wdog_8h.html" title="EZR32LG_WDOG register and bit field definitions. " alt="" coords="4905,245,5017,272"/>
+<area shape="rect" id="node79" href="$ezr32lg__etm_8h.html" title="EZR32LG_ETM register and bit field definitions. " alt="" coords="5043,245,5147,272"/>
+<area shape="rect" id="node81" href="$ezr32lg__dma__descriptor_8h.html" title="EZR32LG_DMA_DESCRIPTOR register and bit field definitions. " alt="" coords="5171,245,5341,272"/>
+<area shape="rect" id="node83" href="$ezr32lg__devinfo_8h.html" title="EZR32LG_DEVINFO register and bit field definitions. " alt="" coords="5365,245,5488,272"/>
+<area shape="rect" id="node85" href="$ezr32lg__romtable_8h.html" title="EZR32LG_ROMTABLE register and bit field definitions. " alt="" coords="5512,245,5645,272"/>
+<area shape="rect" id="node87" href="$ezr32lg__calibrate_8h.html" title="EZR32LG_CALIBRATE register and bit field definitions. " alt="" coords="5669,245,5800,272"/>
+<area shape="rect" id="node89" href="$ezr32lg__prs__signals_8h.html" title="EZR32LG_PRS_SIGNALS register and bit field definitions. " alt="" coords="5824,245,5971,272"/>
+<area shape="rect" id="node91" href="$ezr32lg__dmareq_8h.html" title="EZR32LG_DMAREQ register and bit field definitions. " alt="" coords="5995,245,6121,272"/>
+<area shape="rect" id="node93" href="$ezr32lg__dmactrl_8h.html" title="EZR32LG_DMACTRL register and bit field definitions. " alt="" coords="6147,245,6272,272"/>
+<area shape="rect" id="node95" href="$ezr32lg__usartrf_8h.html" title="EZR32LG_USARTRF register and bit field definitions. " alt="" coords="6296,245,6416,272"/>
+<area shape="rect" id="node97" href="$ezr32lg__uart_8h.html" title="EZR32LG_UART register and bit field definitions. " alt="" coords="6441,245,6545,272"/>
+<area shape="rect" id="node99" href="$ezr32lg__af__ports_8h.html" title="EZR32LG_AF_PORTS register and bit field definitions. " alt="" coords="6570,245,6699,272"/>
+</map>

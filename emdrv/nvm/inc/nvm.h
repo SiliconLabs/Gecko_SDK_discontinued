@@ -1,6 +1,7 @@
 /***************************************************************************//**
  * @file nvm.h
- * @brief NVM API definition
+ * @brief Non-Volatile Memory Wear-Leveling driver API
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -33,7 +34,7 @@ extern "C" {
 
 /***************************************************************************//**
  * @addtogroup NVM
- * @brief NVM Non-volatile Memory driver, see
+ * @brief NVM Non-volatile Memory Wear-Leveling driver, see
  *        @ref nvm_doc page for detailed
  *        documentation.
  * @{
@@ -43,7 +44,7 @@ extern "C" {
  *******************************   DEFINES   ***********************************
  ******************************************************************************/
 
-/** Return/error codes */ 
+/** Return/error codes */
 #define ECODE_EMDRV_NVM_OK                      ( ECODE_OK )                                    ///< Success return value
 #define ECODE_EMDRV_NVM_ADDR_INVALID            ( ECODE_EMDRV_SPIDRV_BASE | 0x00000001 )        ///< Invalid address
 #define ECODE_EMDRV_NVM_ALIGNMENT_INVALID       ( ECODE_EMDRV_SPIDRV_BASE | 0x00000002 )        ///< Invalid data alignment
@@ -52,7 +53,7 @@ extern "C" {
 #define ECODE_EMDRV_NVM_NO_PAGES_AVAILABLE      ( ECODE_EMDRV_SPIDRV_BASE | 0x00000005 )        ///< Initialization didn't find any pages available to allocate
 #define ECODE_EMDRV_NVM_PAGE_INVALID            ( ECODE_EMDRV_SPIDRV_BASE | 0x00000006 )        ///< Could not find the page specified
 #define ECODE_EMDRV_NVM_ERROR                   ( ECODE_EMDRV_SPIDRV_BASE | 0x00000007 )        ///< General error
-   
+
 /** All objects are written from RAM. */
 #define NVM_WRITE_ALL_CMD         0xff
 /** All objects are copied from the old page. */
@@ -72,7 +73,7 @@ extern "C" {
  ******************************************************************************/
 
 Ecode_t NVM_Init(NVM_Config_t const *nvmConfig);
-Ecode_t NVM_Erase(uint32_t erasureCount);
+Ecode_t NVM_Erase(uint32_t eraseCount);
 Ecode_t NVM_Write(uint16_t pageId, uint8_t objectId);
 Ecode_t NVM_Read(uint16_t pageId, uint8_t objectId);
 
@@ -81,7 +82,7 @@ Ecode_t NVM_Read(uint16_t pageId, uint8_t objectId);
 #define NVM_FEATURE_WEARLEVELGET_ENABLED    true
 #endif
 /** @endcond */
-#if (NVM_FEATURE_WEARLEVELGET_ENABLED == true)
+#if (NVM_FEATURE_WEARLEVELGET_ENABLED)
 uint32_t NVM_WearLevelGet(void);
 #endif
 

@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$group__SPIDRV.html#gaa4a1d07a7cfa1b461231b81ee9bd7208" title="Start a SPI slave receive transfer." alt="" coords="199,5,323,32"/>
-<area shape="rect" id="node5" href="$group__SPIDRV.html#gaacf21de6f56b73897137afe66c8a55fc" title="Start a SPI slave blocking receive transfer." alt="" coords="196,56,327,83"/>
-<area shape="rect" id="node7" href="$group__SPIDRV.html#ga3b0e6cefe8389131f8cda2d3422ca165" title="Start a SPI slave transfer." alt="" coords="197,107,326,133"/>
-<area shape="rect" id="node9" href="$group__SPIDRV.html#ga2117731649ff7375202f3db7c7eaea14" title="Start a SPI slave blocking transfer." alt="" coords="193,157,329,184"/>
-<area shape="rect" id="node11" href="$group__SPIDRV.html#gab17e267c072c9fa5424ac0dbb6d162b4" title="Start a SPI slave transmit transfer." alt="" coords="196,208,327,235"/>
-<area shape="rect" id="node13" href="$group__SPIDRV.html#ga950e481559e49f805c4c65701f272df5" title="Start a SPI slave blocking transmit transfer." alt="" coords="192,259,331,285"/>
-</map>

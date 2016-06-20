@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ezradio_direct_receive_plugin.h
  * @brief EzRadio direct reception plug-in managed by the plug-in manager if enabled.
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>

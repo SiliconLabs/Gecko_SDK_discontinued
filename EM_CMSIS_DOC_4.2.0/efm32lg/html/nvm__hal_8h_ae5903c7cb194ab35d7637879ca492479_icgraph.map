@@ -1,0 +1,6 @@
+<map id="NVMHAL_Read" name="NVMHAL_Read">
+<area shape="rect" id="node3" href="$group__NVM.html#ga6cad1505838978506c7d94f9a1472595" title="Erase the entire allocated NVM area. " alt="" coords="161,5,247,32"/>
+<area shape="rect" id="node5" href="$group__NVM.html#gaf74bb05f10ed4959e65e85fa438ead67" title="Initialize the NVM manager. " alt="" coords="167,56,241,83"/>
+<area shape="rect" id="node7" href="$group__NVM.html#ga34880829bee50bf0fde0f6c9695dca86" title="Read an object or an entire page. " alt="" coords="162,107,246,133"/>
+<area shape="rect" id="node9" href="$group__NVM.html#gad181be9b434658d3552fb311039ff691" title="Write an object or a page. " alt="" coords="161,157,247,184"/>
+</map>

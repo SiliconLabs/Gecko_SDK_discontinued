@@ -5,7 +5,7 @@
  * This example shows how to easily implement a trx code with auto acknowledge 
  * option for your controller using EZRadio or EZRadioPRO devices.
  *
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -410,7 +410,8 @@ int main(void)
           appTxActive = true;
 
           /* Add data cntr as the data to be sent to the packet */
-          *(uint16_t *)(radioTxPkt + APP_PKT_DATA_START) = appDataCntr;
+          radioTxPkt[APP_PKT_DATA_START]   = (uint8_t)( ((uint16_t)appDataCntr) >> 8 );
+          radioTxPkt[APP_PKT_DATA_START+1] = (uint8_t)( ((uint16_t)appDataCntr) & 0x00FF );
           
           /* Note: The following line issues the auto acknowledge feature to skip
            *       one session.
@@ -495,7 +496,11 @@ static void appPacketReceivedCallback ( EZRADIODRV_Handle_t handle, Ecode_t stat
     }
     else
     {
-      uint16_t rxData = *(uint16_t *)(radioRxPkt + APP_PKT_DATA_START);
+      uint16_t rxData;
+      
+      rxData =  (uint16_t)(radioRxPkt[APP_PKT_DATA_START]) << 8;
+      rxData += (uint16_t)(radioRxPkt[APP_PKT_DATA_START+1]);
+
       printf("-->Data RX: %05d\n", rxData);
     }
   }

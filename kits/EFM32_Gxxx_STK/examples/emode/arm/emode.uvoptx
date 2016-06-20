@@ -187,16 +187,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>BSP</GroupName>
-          <Files>
-            <File>
-              <FileName>bsp_trace.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\common\bsp\bsp_trace.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>Drivers</GroupName>
           <Files>
             <File>
@@ -262,12 +252,32 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>BSP</GroupName>
+          <Files>
+            <File>
+              <FileName>bsp_trace.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\common\bsp\bsp_trace.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>Source</GroupName>
           <Files>
             <File>
-              <FileName>emode.c</FileName>
+              <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\emode.c</FilePath>
+              <FilePath>..\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>lcd_setup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lcd_setup.c</FilePath>
+            </File>
+            <File>
+              <FileName>g_emodes.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\g_emodes.c</FilePath>
             </File>
           </Files>
         </Group>

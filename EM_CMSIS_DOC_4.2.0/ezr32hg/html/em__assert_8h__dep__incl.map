@@ -1,0 +1,51 @@
+<map id="C:/work/s025_sw/emlib/inc/em_assert.h" name="C:/work/s025_sw/emlib/inc/em_assert.h">
+<area shape="rect" id="node3" href="$em__cmu_8h.html" title="Clock management unit (CMU) API. " alt="" coords="3015,97,3173,138"/>
+<area shape="rect" id="node5" href="$em__adc_8c.html" title="Analog to Digital Converter (ADC) Peripheral API. " alt="" coords="5,187,163,229"/>
+<area shape="rect" id="node7" href="$em__cmu_8c.html" title="Clock management unit (CMU) Peripheral API. " alt="" coords="187,187,345,229"/>
+<area shape="rect" id="node9" href="$em__dma_8c.html" title="Direct memory access (DMA) module peripheral API. " alt="" coords="370,187,528,229"/>
+<area shape="rect" id="node11" href="$em__emu_8c.html" title="Energy Management Unit (EMU) Peripheral API. " alt="" coords="553,187,711,229"/>
+<area shape="rect" id="node13" href="$em__i2c_8c.html" title="Inter&#45;integrated Circuit (I2C) Peripheral API. " alt="" coords="735,187,893,229"/>
+<area shape="rect" id="node15" href="$em__idac_8c.html" title="Current Digital to Analog Converter (IDAC) peripheral API. " alt="" coords="918,187,1076,229"/>
+<area shape="rect" id="node17" href="$em__leuart_8c.html" title="Low Energy Universal Asynchronous Receiver/Transmitter (LEUART) Peripheral API. " alt="" coords="1101,187,1259,229"/>
+<area shape="rect" id="node19" href="$em__msc_8c.html" title="Flash controller (MSC) Peripheral API. " alt="" coords="1283,187,1441,229"/>
+<area shape="rect" id="node21" href="$em__pcnt_8c.html" title="Pulse Counter (PCNT) peripheral API. " alt="" coords="1466,187,1624,229"/>
+<area shape="rect" id="node23" href="$em__usart_8c.html" title="Universal synchronous/asynchronous receiver/transmitter (USART/UART) Peripheral API. " alt="" coords="1649,187,1807,229"/>
+<area shape="rect" id="node29" href="$ksz8851snl__spi_8c.html" title="SPI interface API for KSZ8851SNL Ethernet controller. " alt="" coords="5026,278,5245,319"/>
+<area shape="rect" id="node59" href="$caplesense_8c.html" title="Capacitive sense driver. " alt="" coords="4899,187,5097,229"/>
+<area shape="rect" id="node67" href="$i2cspm_8c.html" title="I2C simple poll&#45;based master mode driver for the DK/STK. " alt="" coords="4701,187,4875,229"/>
+<area shape="rect" id="node71" href="$em__gpio_8h.html" title="General Purpose IO (GPIO) peripheral API. " alt="" coords="4502,97,4660,138"/>
+<area shape="rect" id="node73" href="$gpiointerrupt_8c.html" title="GPIOINT API implementation. " alt="" coords="6229,187,6440,229"/>
+<area shape="rect" id="node88" href="$em__rmu_8h.html" title="Reset Management Unit (RMU) peripheral API. " alt="" coords="6978,97,7136,138"/>
+<area shape="rect" id="node90" href="$sleep_8c.html" title="Energy Modes management driver. " alt="" coords="6819,187,6983,229"/>
+<area shape="rect" id="node92" href="$em__timer_8h.html" title="Timer/counter (TIMER) peripheral API. " alt="" coords="5313,97,5471,138"/>
+<area shape="rect" id="node94" href="$em__timer_8c.html" title="Timer/counter (TIMER) Peripheral API. " alt="" coords="6465,187,6623,229"/>
+<area shape="rect" id="node99" href="$em__aes_8c.html" title="Advanced Encryption Standard (AES) accelerator peripheral API. " alt="" coords="5699,97,5857,138"/>
+<area shape="rect" id="node101" href="$em__assert_8c.html" title="Assert API. " alt="" coords="5882,97,6040,138"/>
+<area shape="rect" id="node104" href="$em__crc_8c.html" title="Cyclic Redundancy Check (CRC) API. " alt="" coords="6065,97,6223,138"/>
+<area shape="rect" id="node113" href="$em__prs_8c.html" title="Peripheral Reflex System (PRS) Peripheral API. " alt="" coords="6247,97,6405,138"/>
+<area shape="rect" id="node115" href="$em__rtc_8c.html" title="Real Time Counter (RTC) Peripheral API. " alt="" coords="6430,97,6588,138"/>
+<area shape="rect" id="node117" href="$em__system_8c.html" title="System Peripheral API. " alt="" coords="6613,97,6771,138"/>
+<area shape="rect" id="node121" href="$em__vcmp_8c.html" title="Voltage Comparator (VCMP) peripheral API. " alt="" coords="6795,97,6953,138"/>
+<area shape="rect" id="node125" href="$em__usb_8h.html" title="USB protocol stack library API for EFM32/EZR32. " alt="" coords="5141,97,5288,138"/>
+<area shape="rect" id="node134" href="$ksz8851snl_8c.html" title="Driver for Micrel KSZ8851SNL Ethernet controller. " alt="" coords="7161,97,7359,138"/>
+<area shape="rect" id="node25" href="$ustimer_8c.html" title="Microsecond delay functions. " alt="" coords="5869,187,6032,229"/>
+<area shape="rect" id="node27" href="$spidrv_8h.html" title="SPIDRV API definition. " alt="" coords="2811,187,2975,229"/>
+<area shape="rect" id="node31" href="$uartdrv_8h.html" title="UARTDRV API definition. " alt="" coords="2435,187,2599,229"/>
+<area shape="rect" id="node33" href="$rtcdriver_8c.html" title="RTCDRV timer API implementation. " alt="" coords="2623,187,2787,229"/>
+<area shape="rect" id="node35" href="$dmadrv_8c.html" title="DMADRV API implementation. " alt="" coords="1831,187,1995,229"/>
+<area shape="rect" id="node37" href="$em__usbd_8c.html" title="USB protocol stack library API for EFM32/EZR32. " alt="" coords="5525,187,5672,229"/>
+<area shape="rect" id="node39" href="$em__usbdint_8c.html" title="USB protocol stack library, USB device peripheral interrupt handlers. " alt="" coords="5353,187,5500,229"/>
+<area shape="rect" id="node41" href="$em__usbhal_8c.html" title="USB protocol stack library, low level USB peripheral access. " alt="" coords="5697,187,5844,229"/>
+<area shape="rect" id="node43" href="$em__usbtimer_8c.html" title="USB protocol stack library, timer API. " alt="" coords="6057,187,6204,229"/>
+<area shape="rect" id="node45" href="$bsp__bcc_8c.html" title="Board Controller Communications (BCC) definitions. " alt="" coords="4299,187,4461,229"/>
+<area shape="rect" id="node47" href="$bsp__dk__3200_8c.html" title="Board support package API implementation for BRD3200. " alt="" coords="4486,187,4676,229"/>
+<area shape="rect" id="node49" href="$bsp__dk__3201_8c.html" title="Board support package API implementation for BRD3201. " alt="" coords="2999,187,3189,229"/>
+<area shape="rect" id="node51" href="$bsp__dk__mcuboard_8c.html" title="Board support package API for functions on MCU plugin boards. " alt="" coords="3214,187,3433,229"/>
+<area shape="rect" id="node53" href="$bsp__stk_8c.html" title="Board support package API implementation STK&#39;s. " alt="" coords="3458,187,3616,229"/>
+<area shape="rect" id="node55" href="$bsp__stk__leds_8c.html" title="Board support package API for GPIO leds on STK&#39;s. " alt="" coords="3641,187,3831,229"/>
+<area shape="rect" id="node57" href="$bsp__trace_8c.html" title="API for enabling SWO and ETM trace. " alt="" coords="3855,187,4027,229"/>
+<area shape="rect" id="node61" href="$capsense_8c.html" title="Capacitive sense driver. " alt="" coords="2019,187,2207,229"/>
+<area shape="rect" id="node63" href="$cdc_8c.html" title="USB Communication Device Class (CDC) driver. " alt="" coords="5173,187,5328,229"/>
+<area shape="rect" id="node65" href="$displaypalemlib_8c.html" title="Platform Abstraction Layer (PAL) for DISPLAY driver on EMLIB based platforms. " alt="" coords="4051,187,4273,229"/>
+<area shape="rect" id="node69" href="$microsd_8c.html" title="Micro SD card driver for the EFM32GG_DK3750 development kit. This file provides the interface layer b..." alt="" coords="2231,187,2411,229"/>
+</map>

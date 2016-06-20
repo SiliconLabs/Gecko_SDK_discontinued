@@ -1,0 +1,11 @@
+<map id="EM_Drivers" name="EM_Drivers">
+<area shape="rect" id="node1" href="$group__SLEEP.html" title="Energy Modes management driver. " alt="" coords="162,5,219,32"/>
+<area shape="rect" id="node2" href="$group__EZRADIODRV.html" title="EzRadio Peripheral Interface module, see EZRADIODRV EzRadio Peripheral Interface driver page for deta..." alt="" coords="142,56,239,83"/>
+<area shape="rect" id="node3" href="$group__NVM.html" title="NVM Non&#45;volatile Memory Wear&#45;Leveling driver, see NVM Non&#45;volatile Memory Wear&#45;Leveling driver page f..." alt="" coords="167,107,215,133"/>
+<area shape="rect" id="node5" href="$group__USTIMER.html" title="USTIMER Microsecond delay timer module, see USTIMER Microsecond delay timer module page for detailed ..." alt="" coords="153,157,228,184"/>
+<area shape="rect" id="node6" href="$group__SPIDRV.html" title="SPIDRV Serial Peripheral Interface module, see SPIDRV Serial Peripheral Interface driver page for det..." alt="" coords="158,208,223,235"/>
+<area shape="rect" id="node7" href="$group__RTCDRV.html" title="RTCDRV timer module, see RTCDRV Real Time Clock Timer driver page for detailed documentation. . " alt="" coords="155,259,226,285"/>
+<area shape="rect" id="node8" href="$group__GPIOINT.html" title="GPIOINT General Purpose Input/Output Interrupt dispatcher, see GPIOINT General Purpose Input/Output I..." alt="" coords="155,309,226,336"/>
+<area shape="rect" id="node9" href="$group__UARTDRV.html" title="UARTDRV Universal asynchronous receiver/transmitter driver, see UARTDRV Universal asynchronous receiv..." alt="" coords="151,360,230,387"/>
+<area shape="rect" id="node10" href="$group__DMADRV.html" title="DMADRV Direct Memory Access Driver. . " alt="" coords="155,411,227,437"/>
+</map>

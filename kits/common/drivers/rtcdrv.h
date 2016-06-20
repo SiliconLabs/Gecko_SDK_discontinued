@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file
  * @brief Real Time Counter (RTC) driver prototypes and definitions
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -13,6 +13,7 @@
  *
  ******************************************************************************/
 
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 
 #ifndef __RTCDRV_H
 #define __RTCDRV_H
@@ -46,3 +47,5 @@ void RTCDRV_Setup(CMU_Select_TypeDef lfaClockSrc, CMU_ClkDiv_TypeDef rtcPrescale
 /** @} (end group Drivers) */
 
 #endif
+
+/** @endcond */

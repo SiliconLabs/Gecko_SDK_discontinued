@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$touch_8c.html#acfb04f99b85cf8e9f5ad80dfb27df268" title="Function that calls registered upcall." alt="" coords="205,5,331,32"/>
-<area shape="rect" id="node5" href="$touch_8c.html#a30a86d0450dd72a40b234efc1ff8d3e4" title="Convert ADC readings into XY position." alt="" coords="179,56,357,83"/>
-<area shape="rect" id="node7" href="$touch_8c.html#a8c55fa17e3875d085723400d8bce6279" title="Check if cursor state changed (down or move)." alt="" coords="193,107,343,133"/>
-</map>

@@ -1,0 +1,11 @@
+<map id="C:/work/s025_sw/emlib/inc/em_ldma.h" name="C:/work/s025_sw/emlib/inc/em_ldma.h">
+<area shape="rect" id="node3" href="$em__ldma_8c.html" title="Direct memory access (LDMA) module peripheral API. " alt="" coords="314,97,472,138"/>
+<area shape="rect" id="node5" href="$dmadrv_8h.html" title="DMADRV API definition. " alt="" coords="497,97,660,138"/>
+<area shape="rect" id="node7" href="$spidrv_8h.html" title="SPIDRV API definition. " alt="" coords="269,187,432,229"/>
+<area shape="rect" id="node11" href="$spidrv_8c.html" title="SPIDRV API implementation. " alt="" coords="437,285,600,326"/>
+<area shape="rect" id="node16" href="$uartdrv_8h.html" title="UARTDRV API definition. " alt="" coords="557,187,720,229"/>
+<area shape="rect" id="node20" href="$dmadrv_8c.html" title="DMADRV API implementation. " alt="" coords="745,187,908,229"/>
+<area shape="rect" id="node9" href="$ezradio__hal_8c.html" title="This file contains EZRadio HAL. " alt="" coords="5,277,168,333"/>
+<area shape="rect" id="node13" href="$ksz8851snl__spi_8c.html" title="SPI interface API for KSZ8851SNL Ethernet controller. " alt="" coords="193,285,412,326"/>
+<area shape="rect" id="node18" href="$uartdrv_8c.html" title="UARTDRV API implementation. " alt="" coords="625,285,788,326"/>
+</map>

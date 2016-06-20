@@ -1,0 +1,43 @@
+<map id="CMU_ClockEnable" name="CMU_ClockEnable">
+<area shape="rect" id="node3" href="$group__BSP__STK.html#gac3192060c8ac4b2c6f4293aed6b2747a" title="Deinitialize board controller communication support (BCC) functionality. Reverse actions performed by..." alt="" coords="205,5,307,32"/>
+<area shape="rect" id="node5" href="$group__BSP__STK.html#gaba9ce74ca657de9f9f903e062cc654ef" title="Initialize board controller communication support (BCC) functionality. " alt="" coords="212,56,300,83"/>
+<area shape="rect" id="node7" href="$group__BSP__STK.html#ga03b1ff40234468f05b725c7997d8bd84" title="Initialize the EBI interface for accessing the onboard nandflash. " alt="" coords="213,107,299,133"/>
+<area shape="rect" id="node9" href="$group__BSP__DK.html#gafcfe834e0ea4a7780cd2dafda28a4aac" title="Enable MCU plugin board peripherals. " alt="" coords="190,157,322,184"/>
+<area shape="rect" id="node11" href="$caplesense_8c.html#a2e4ba8079a4db025c71de23fd97211cc" title="Setup the CMU. " alt="" coords="176,208,336,235"/>
+<area shape="rect" id="node15" href="$group__CapSense.html#ga9cc00a748bf5cab4ca2e987e07b17566" title="Initializes the capacitive sense system. " alt="" coords="202,259,310,285"/>
+<area shape="rect" id="node17" href="$group__DMA.html#ga1b244c27cc74059907a25a806eac9b90" title="Initializes DMA controller. " alt="" coords="219,411,293,437"/>
+<area shape="rect" id="node21" href="$group__SPIDRV.html#gae1bf2b297eca13e7e46cbbcb66202239" title="Initialize a SPI driver instance. " alt="" coords="605,500,696,527"/>
+<area shape="rect" id="node29" href="$group__UARTDRV.html#ga2aa9f087a06d6bf96933d657ac4e55d6" title="Initialize a UART driver instance. " alt="" coords="599,373,702,400"/>
+<area shape="rect" id="node33" href="$group__DMADRV.html#ga73633db63cfd99ba01a68b05c24094ec" title="Deinitialize DMADRV. " alt="" coords="200,613,312,640"/>
+<area shape="rect" id="node35" href="$group__SPIDRV.html#ga1bebced0f8f5b3a3ac582916e4b13460" title="Deinitialize a SPI driver instance. " alt="" coords="406,613,511,640"/>
+<area shape="rect" id="node37" href="$group__UARTDRV.html#ga3b4222031534ab6d54ca068b5fa6e596" title="Deinitialize a UART driver instance. " alt="" coords="399,664,518,691"/>
+<area shape="rect" id="node39" href="$group__HAL__Layer.html#gabf61af8f57a9c92ea50311df53a7d825" title="ezradio_hal_GpioInit" alt="" coords="581,323,720,349"/>
+<area shape="rect" id="node42" href="$group__I2CSPM.html#ga65556785bb5d714b23e1149d8ed742e5" title="Initalize I2C peripheral. " alt="" coords="211,715,301,741"/>
+<area shape="rect" id="node44" href="$group__MicroSd.html#ga3e6c324243ac41ecf09bd04a746b0cd5" title="Initialize the SPI peripheral for microSD card usage. SPI pins and speed etc. is defined in microsdco..." alt="" coords="205,765,307,792"/>
+<area shape="rect" id="node46" href="$group__MicroSd.html#ga543e44b6288de777f5e2d140b7f2763b" title="Turn off micro SD card power. DK doesn&#39;t support socket power control, only disable the SPI clock..." alt="" coords="187,816,325,843"/>
+<area shape="rect" id="node48" href="$group__MicroSd.html#ga153193396f6e208fbdbad1ee1d62c1df" title="Turn on micro SD card power. DK doesn&#39;t support socket power control, only enable the SPI clock..." alt="" coords="188,867,324,893"/>
+<area shape="rect" id="node50" href="$group__Msd.html#ga6bab19f6afa0c63c3c735c9bea3b8242" title="Initialize MSD device. " alt="" coords="215,917,297,944"/>
+<area shape="rect" id="node52" href="$group__RetargetIo.html#gab455176edfa0f3414d104e5d6d64cc50" title="Intializes UART/LEUART. " alt="" coords="185,968,327,995"/>
+<area shape="rect" id="node58" href="$group__RTCDRV.html#gae82ea6fa74f6bbc161b86a34385d63bf" title="Deinitialize RTCDRV driver. " alt="" coords="201,1019,311,1045"/>
+<area shape="rect" id="node60" href="$group__RTCDRV.html#ga4419076832c5b4958dea6f1eec0a9bdf" title="Initialize RTCDRV driver. " alt="" coords="411,563,506,589"/>
+<area shape="rect" id="node63" href="$group__SegmentLcd.html#gaa6396568a708435511368037db1a39a5" title="Disables LCD controller. " alt="" coords="185,1069,327,1096"/>
+<area shape="rect" id="node65" href="$group__SegmentLcd.html#ga0818c866cead74ab3902753a770eb4c4" title="Segment LCD Initialization routine for EFM32 STK display. " alt="" coords="196,1120,316,1147"/>
+<area shape="rect" id="node67" href="$group__Tft.html#ga2466fe58c7700827edd224e2ab84f3ea" title="SPI_TFT_Init Initialize SPI interface to TFT&#45;LCD SSD2119 controller. " alt="" coords="208,1171,304,1197"/>
+<area shape="rect" id="node71" href="$group__Touch.html#ga7998398248274366ad0d8cc3abc63f35" title="Initialize touch panel driver. " alt="" coords="212,1221,300,1248"/>
+<area shape="rect" id="node75" href="$group__Udelay.html#ga523f858d15b74728046ceca9796f3046" title="Calibrates the microsecond delay loop. " alt="" coords="194,1272,318,1299"/>
+<area shape="rect" id="node77" href="$group__USB__DEVICE.html#ga0e5f5bd847e7cc1c4c384bb6b7f0ce77" title="Initializes USB device hardware and internal protocol stack data structures, then connects the data&#45;l..." alt="" coords="419,1361,498,1388"/>
+<area shape="rect" id="node79" href="$group__USB__COMMON.html#ga21c87b800d87fd731173dd4f48f23c28" title="Activate the hardware timer used to pace the 1 millisecond timer system. " alt="" coords="203,1373,309,1400"/>
+<area shape="rect" id="node82" href="$group__USTIMER.html#gae0ab9e930ee6cbd71061142c4ad4e298" title="Deinitialize USTIMER driver. " alt="" coords="199,1424,313,1451"/>
+<area shape="rect" id="node86" href="$group__USTIMER.html#ga5c7fa9c799b61638907d4f832a45e58b" title="Activate and initialize the hardware timer used to pace the 1 microsecond delay functions. " alt="" coords="206,1475,306,1501"/>
+<area shape="rect" id="node89" href="$group__VddCheck.html#ga5d3a935fd8adf0a30a519e70e790ebb1" title="VCMP deinitialization routine. " alt="" coords="190,1525,322,1552"/>
+<area shape="rect" id="node91" href="$group__VddCheck.html#gab3b6f35557b826311fc4de286db457fb" title="VCMP initialization routine. " alt="" coords="201,1576,311,1603"/>
+<area shape="rect" id="node13" href="$group__CapSense.html#ga4a9a1233a70703ca91a6bc9fcf05ec19" title="Initializes the capacative sense system without LESENSE. " alt="" coords="398,208,519,235"/>
+<area shape="rect" id="node19" href="$group__DMADRV.html#ga43d0052d81f16e72914f85248a8554b1" title="Initialize DMADRV. " alt="" coords="410,461,507,488"/>
+<area shape="rect" id="node31" href="$group__NandFlash.html#ga77237e34d1ad7e9ea927c64f77ec6e24" title="Initialize the NANDFLASH module. " alt="" coords="401,411,517,437"/>
+<area shape="rect" id="node23" href="$group__HAL__Layer.html#gae1cf166781ecf4a2317e0d9d4f504197" title="ezradio_hal_SpiInit" alt="" coords="776,500,907,527"/>
+<area shape="rect" id="node27" href="$group__ksz8851snl.html#ga12cf356cb196dbc44230f7ad5aa16742" title="KSZ8851SNL_SPI_Init Initialize SPI interface to Ethernet controller. " alt="" coords="769,449,914,476"/>
+<area shape="rect" id="node25" href="$group__Plugin__Manager.html#ga55ab56dfaa297c93024dc43239bc8592" title="Radio Initialization. " alt="" coords="963,437,1045,464"/>
+<area shape="rect" id="node54" href="$group__RetargetIo.html#ga5af724185f484056b02b42f4ab184bfb" title="Receive a byte from USART/LEUART and put into global buffer. " alt="" coords="385,993,532,1020"/>
+<area shape="rect" id="node56" href="$group__RetargetIo.html#ga856ae0b788dccadc2c83a6e67409be5f" title="Transmit single byte to USART/LEUART. " alt="" coords="384,943,533,969"/>
+<area shape="rect" id="node84" href="$group__API__Layer.html#gad7a48081868b00a765b488f47909396c" title="ezradio_reset" alt="" coords="409,1437,509,1464"/>
+</map>

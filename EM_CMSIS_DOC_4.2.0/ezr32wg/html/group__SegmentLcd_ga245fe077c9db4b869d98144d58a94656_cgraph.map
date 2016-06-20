@@ -1,0 +1,5 @@
+<map id="SegmentLCD_LowerHex" name="SegmentLCD_LowerHex">
+<area shape="rect" id="node3" href="$group__SegmentLcd.html#ga9c02dec45dfa5339da028c046b7e1a36" title="Light up or shut off various symbols on Segment LCD. " alt="" coords="213,5,357,32"/>
+<area shape="rect" id="node5" href="$group__SegmentLcd.html#ga40ac47768020f1b4e87463b0d91194d4" title="Write text on LCD display. " alt="" coords="219,56,352,83"/>
+<area shape="rect" id="node7" href="$group__SegmentLcd.html#ga19fe655661c0ffdba952864c9e28cb0c" title="Turn all segments on alpha characters in display off. " alt="" coords="406,56,602,83"/>
+</map>

@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file ezr32hg_msc.h
  * @brief EZR32HG_MSC register and bit field definitions
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -29,6 +29,10 @@
  * any third party, arising from your use of this Software.
  *
  *****************************************************************************/
+/**************************************************************************//**
+* @addtogroup Parts
+* @{
+******************************************************************************/
 /**************************************************************************//**
  * @defgroup EZR32HG_MSC
  * @{
@@ -408,5 +412,5 @@ typedef struct
 #define MSC_IRQLATENCY_IRQLATENCY_DEFAULT       (_MSC_IRQLATENCY_IRQLATENCY_DEFAULT << 0) /**< Shifted mode DEFAULT for MSC_IRQLATENCY */
 
 /** @} End of group EZR32HG_MSC */
-
+/** @} End of group Parts */
 

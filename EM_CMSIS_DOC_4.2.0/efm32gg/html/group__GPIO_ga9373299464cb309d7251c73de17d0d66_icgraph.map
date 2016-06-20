@@ -1,0 +1,3 @@
+<map id="GPIO_EM4SetPinRetention" name="GPIO_EM4SetPinRetention">
+<area shape="rect" id="node3" href="$group__GPIO.html#gad65109dacead0351fa390749d8682137" title="Enable GPIO pin wake&#45;up from EM4. When the function exits, EM4 mode can be safely entered..." alt="" coords="225,5,407,32"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="USBTIMER_Stop" name="USBTIMER_Stop">
+<area shape="rect" id="node3" href="$group__Cdc.html#gaab8bd37b2a51931c429dbec05e92c11f" title="Callback function called each time the USB device state is changed. Starts CDC operation when device ..." alt="" coords="356,52,513,78"/>
+<area shape="rect" id="node5" href="$group__HidKeyboard.html#gaa6482849b2bbbb6c800516059ad17453" title="Handle USB setup commands. Implements HID class specific commands. This function must be called each ..." alt="" coords="168,26,299,53"/>
+<area shape="rect" id="node7" href="$group__HidKeyboard.html#ga978af2049c35ad48a8b0668a04146cf1" title="Handle USB state change events, this function must be called each time the USB device state is change..." alt="" coords="347,114,522,141"/>
+<area shape="rect" id="node9" href="$group__USB__COMMON.html#gac2a406f16d989b04c4fc5b37d5c10b45" title="Start a timer. " alt="" coords="175,77,292,104"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="C:/work/s025_sw/emlib/inc/em_rtc.h" name="C:/work/s025_sw/emlib/inc/em_rtc.h">
+<area shape="rect" id="node3" href="$em__rtc_8c.html" title="Real Time Counter (RTC) Peripheral API. " alt="" coords="5,97,163,138"/>
+<area shape="rect" id="node5" href="$rtcdriver_8c.html" title="RTCDRV timer API implementation. " alt="" coords="187,97,351,138"/>
+<area shape="rect" id="node7" href="$displaypalemlib_8c.html" title="Platform Abstraction Layer (PAL) for DISPLAY driver on EMLIB based platforms. " alt="" coords="375,97,597,138"/>
+<area shape="rect" id="node9" href="$udelay_8c.html" title="Microsecond delay routine. " alt="" coords="622,97,793,138"/>
+</map>

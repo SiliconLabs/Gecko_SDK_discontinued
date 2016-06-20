@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$group__DMADRV.html#gab503e066820cd13fd612f4365d4d07b2" title="Allocate (reserve) a DMA channel." alt="" coords="144,5,315,32"/>
-<area shape="rect" id="node5" href="$group__DMADRV.html#ga43d0052d81f16e72914f85248a8554b1" title="Initialize DMADRV." alt="" coords="181,56,278,83"/>
-<area shape="rect" id="node7" href="$group__RTCDRV.html#gaef2d97c6223617d158b05e03ee35950a" title="Allocate timer." alt="" coords="151,107,307,133"/>
-<area shape="rect" id="node9" href="$group__RTCDRV.html#ga4419076832c5b4958dea6f1eec0a9bdf" title="Initialize RTCDRV driver." alt="" coords="182,157,277,184"/>
-<area shape="rect" id="node11" href="$group__SLEEP.html#gac26ef85c0817797fb9ec823d38742af7" title="Begin sleep block in the requested energy mode." alt="" coords="363,157,519,184"/>
-</map>

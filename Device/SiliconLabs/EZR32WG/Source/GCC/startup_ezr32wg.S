@@ -1,7 +1,7 @@
 /* @file startup_ezr32wg.S
  * @brief startup file for Silicon Labs EZR32WG devices.
  *        For use with GCC for ARM Embedded Processors
- * @version 4.1.0
+ * @version 4.2.0
  * Date:    12 June 2014
  *
  */

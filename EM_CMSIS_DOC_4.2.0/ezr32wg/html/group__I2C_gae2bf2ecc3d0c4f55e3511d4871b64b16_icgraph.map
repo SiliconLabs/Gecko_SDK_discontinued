@@ -1,0 +1,34 @@
+<map id="I2C_TransferInit" name="I2C_TransferInit">
+<area shape="rect" id="node3" href="$group__I2CSPM.html#ga076766b20012fb6a0cdaaf0f2c760795" title="Perform I2C transfer. " alt="" coords="168,527,291,553"/>
+<area shape="rect" id="node5" href="$eeprom_8c.html#aef96dc2e7cad63b532565057c7f0467c" title="Do acknowledge polling on EEPROM device. " alt="" coords="375,273,492,300"/>
+<area shape="rect" id="node7" href="$group__Eeprom.html#ga1b92635b3e255f10731494e833654895" title="Write data to EEPROM. " alt="" coords="615,273,723,300"/>
+<area shape="rect" id="node9" href="$group__Eeprom.html#gafffd2286594ec8e01dc16f8725626c04" title="Read data from EEPROM. " alt="" coords="380,375,487,401"/>
+<area shape="rect" id="node12" href="$group__Si114x.html#ga8066eedd4bbac304e733a89e09cd6786" title="Reads register from the Si1147 sensor. " alt="" coords="358,425,509,452"/>
+<area shape="rect" id="node51" href="$group__Si114x.html#gad2464ccbbf4938c5550702011d6dd5a4" title="Writes register in the Si1147 sensor. " alt="" coords="357,527,510,553"/>
+<area shape="rect" id="node65" href="$group__Si114x.html#gaec6f34819894c8d7b2f86fb574da203e" title="Writes a block of data to the Si1147 sensor. " alt="" coords="602,469,737,510"/>
+<area shape="rect" id="node71" href="$group__Si114x.html#ga1ba38d5d8eefcaf2c7b1e5fcb0bec0f7" title="Reads a block of data from the Si1147 sensor. " alt="" coords="340,577,527,604"/>
+<area shape="rect" id="node76" href="$group__Si7013.html#gac595b86107a208280179a6f07c08bfa3" title="Reads Firmware Revision from a Si7013 sensor. " alt="" coords="339,628,528,655"/>
+<area shape="rect" id="node78" href="$group__Si7013.html#ga93b1a4e0a94737abd16ec547004c270f" title="Checks if a Si7013 is present on the I2C bus or not. " alt="" coords="381,679,485,705"/>
+<area shape="rect" id="node80" href="$group__TempSensor.html#gae77973607cb0dc33faaed18274885717" title="Read sensor register content. " alt="" coords="354,729,513,756"/>
+<area shape="rect" id="node84" href="$group__TempSensor.html#gafeb45237c0a6989bc2e3bdbc564d90bd" title="Write to sensor register. " alt="" coords="354,780,513,807"/>
+<area shape="rect" id="node14" href="$group__Si114x.html#gaeae79629a9f5a41c75ba329fa056eeef" title="Reads from Si114x register. " alt="" coords="586,324,753,351"/>
+<area shape="rect" id="node16" href="$group__Si114x.html#ga05334a8a81ac4224f3fcbb68bd2e0fbe" title="Detects whether Si1147 is on the i2c bus. " alt="" coords="825,172,973,199"/>
+<area shape="rect" id="node18" href="$group__Si114x.html#ga75ef8acc675ca1a1bf14acda4f3c6686" title="Get the enable status of the Si1147 interrupt pin. " alt="" coords="811,5,986,46"/>
+<area shape="rect" id="node20" href="$group__Si114x.html#ga6621d57d8e2dedc1101227b7ad761d0a" title="Reads the UV measurement data and checks for object in proximity to the Si1147. " alt="" coords="1035,63,1227,105"/>
+<area shape="rect" id="node23" href="$group__Si114x.html#ga350c8e857065a5061a49cd66a1a4b2a4" title="Reads new measurement data and processes a new sample. This function should be called every time an i..." alt="" coords="831,375,967,401"/>
+<area shape="rect" id="node25" href="$group__Si114x.html#ga81f826b515433015f7096e7b90e2d3b6" title="Reads a Parameter from the Si113x/4x. " alt="" coords="835,121,962,148"/>
+<area shape="rect" id="node27" href="$group__Si114x.html#gafee1fd953ec8559b0b2c53b4d3a7d442" title="Writes a byte to an Si113x/4x Parameter. " alt="" coords="1073,476,1189,503"/>
+<area shape="rect" id="node35" href="$group__Si114x.html#ga85dcc599c9e3df8a22002f7ef5a3e5d8" title="Pauses autonomous measurements. " alt="" coords="845,527,953,553"/>
+<area shape="rect" id="node41" href="$group__Si114x.html#gadbec1218d8cc103d4d6c2fc0ec0f6abf" title="Populates the SI114X_CAL_S structure. " alt="" coords="824,745,973,772"/>
+<area shape="rect" id="node45" href="$group__Si114x.html#ga9966ab23359f5ae0c7e5b8d79a4ef59a" title="Initializes the Si113x/46/47/48 UCOEF Registers. " alt="" coords="1071,527,1191,553"/>
+<area shape="rect" id="node49" href="$si114x__uv__index_8h.html#a92a1b86e34e4ed9dd68f51ba170c8e5f" title="Reads the UV index measurement data from the Si114x. " alt="" coords="817,324,980,351"/>
+<area shape="rect" id="node29" href="$group__Si114x.html#ga79b0443305d3a085028d1c197d398ede" title="Initializes and configures the Si1147 sensor. " alt="" coords="1275,628,1451,655"/>
+<area shape="rect" id="node31" href="$si114x__uv__index_8h.html#a5636599ea7d573fcee234cc8bf4de655" title="Set the VIS_RANGE bit of the optical sensor Si114x. " alt="" coords="1283,476,1442,503"/>
+<area shape="rect" id="node33" href="$si114x__uv__index_8h.html#aee56b411a2cb91ae85cae51c2d4039f7" title="Initializes and configures the Si1146 sensor for UV index measurements. " alt="" coords="1293,577,1432,604"/>
+<area shape="rect" id="node37" href="$group__Si114x.html#ga88b866258cb278b01da1bcf766cfab57" title="Resets the Si113x/4x, clears any interrupts and initializes the HW_KEY register. " alt="" coords="1085,628,1177,655"/>
+<area shape="rect" id="node53" href="$group__Si114x.html#ga8d9e6e60e0ced326193208cdf976bbee" title="Writes to Si114x Register. " alt="" coords="593,556,746,583"/>
+<area shape="rect" id="node55" href="$group__Si114x.html#ga8f8ed0bfd8af165742a3169f87c1b32a" title="Enables or disables the Si1147 interrupt pin. " alt="" coords="811,629,986,670"/>
+<area shape="rect" id="node67" href="$group__Si114x.html#ga15059dd986a51d8188b5c93aa70681b6" title="Writes block of Si114x registers. " alt="" coords="839,476,959,503"/>
+<area shape="rect" id="node73" href="$group__Si114x.html#ga479ffe2c4fea4bf799a925d8e779400c" title="Reads block of Si114x registers. " alt="" coords="610,653,729,680"/>
+<area shape="rect" id="node82" href="$group__TempSensor.html#gad39f162cc62b2eaeeaf8a0ebb2d0bdaa" title="Fetch current temperature from temperature sensor (in Celsius). " alt="" coords="576,729,763,756"/>
+</map>

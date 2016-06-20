@@ -1,0 +1,6 @@
+<map id="CRYPTO_SHA_1" name="CRYPTO_SHA_1">
+<area shape="rect" id="node3" href="$group__CRYPTO.html#gabe780f35a77400c0caa255a2b09d6042" title="Write 256 bits of data to a DDATAX register in the CRYPTO module. " alt="" coords="179,5,320,32"/>
+<area shape="rect" id="node7" href="$group__CRYPTO.html#ga973e1734cde5f97d4dd19e35b83e4583" title="Write 512 bits of data to a QDATAX register in the CRYPTO module. " alt="" coords="178,56,321,83"/>
+<area shape="rect" id="node10" href="$group__CRYPTO.html#gaa665a0c288fc7c12131940f720126e45" title="Set the width of the results of the non&#45;modulus instructions. " alt="" coords="168,107,331,133"/>
+<area shape="rect" id="node5" href="$group__CRYPTO.html#gaca41b63a70f98785f4ee47f5a7f2c8d4" title="Write a 128 bit value into a crypto register. " alt="" coords="379,31,536,57"/>
+</map>

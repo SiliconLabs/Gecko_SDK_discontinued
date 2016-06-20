@@ -1,0 +1,4 @@
+<map id="USBH_PrintConfigurationDescriptor" name="USBH_PrintConfigurationDescriptor">
+<area shape="rect" id="node3" href="$group__USB__COMMON.html#ga43cf32af5653cb2cd27fb6729be245fb" title="Transmit &quot;printf&quot; formated data on the debug serial port. " alt="" coords="281,5,375,32"/>
+<area shape="rect" id="node5" href="$group__USB__COMMON.html#gac49ccf1d69a08567d1a5911b0312e735" title="Transmit a single char on the debug serial port. " alt="" coords="275,56,381,83"/>
+</map>

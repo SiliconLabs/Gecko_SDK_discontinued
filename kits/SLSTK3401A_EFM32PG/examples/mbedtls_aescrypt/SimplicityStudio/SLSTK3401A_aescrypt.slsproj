@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SLSTK3401A_aescrypt" kitCompatibility="com.silabs.kit.si32.efm32.efm32pg.slstk3401a" partCompatibility="com.silabs.mcu.si32.efm32.efm32pg1b.efm32pg1b200f256gm48" toolchainCompatibility="" sdkCompatibility="com.silabs.sdk.si32.efm32.sls:[2.0.0-3.0.0)" contentRoot="../">
+  <module id="com.silabs.ide.si32.sdk.efm32.v2.kit">
+    <exclude pattern=".*" />
+  </module>
+  <includePath uri="../../../../reptile/mbedtls/library" />
+  <includePath uri="../../../../Device/SiliconLabs/EFM32PG1B/Source" />
+  <includePath uri="../../../../Device/SiliconLabs/EFM32PG1B/Source/gcc" />
+  <module id="com.silabs.ide.si32.sdk.efm32.v2.common.emlib">
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_int.c" />
+    <include pattern="emlib/em_usart.c" />
+  </module>
+  <module id="com.silabs.ide.si32.sdk.efm32.v2.common.bsp">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.ide.si32.sdk.efm32.v2.common.drivers">
+    <include pattern="Drivers/retargetio.c" />
+    <include pattern="Drivers/retargetserial.c" />
+  </module>
+  <module id="com.silabs.ide.si32.sdk.efm32.v2.part">
+    <exclude pattern=".*" />
+  </module>
+  <macroDefinition name="DEBUG_EFM" languageCompatibility="c cpp" />
+  <macroDefinition name="MBEDTLS_CONFIG_FILE" value='"config-aescrypt.h"' />
+  <macroDefinition name="RETARGET_VCOM" />
+  <file name="readme.txt" uri="readme.txt" />
+  <includePath uri="../../../../CMSIS/Include" />
+  <includePath uri="../../../../Device/SiliconLabs/EFM32PG1B/Include" />
+  <includePath uri="../../../../reptile/mbedtls/include" />
+  <includePath uri="../../../../reptile/mbedtls/include/mbedtls" />
+  <includePath uri="../../../../reptile/mbedtls/sl_crypto" />
+  <includePath uri="." />
+  <folder name="cmsis">
+    <file name="startup_efm32pg1b.s" uri="../../../../Device/SiliconLabs/EFM32PG1B/Source/gcc/startup_efm32pg1b.s" />
+    <file name="system_efm32pg1b.c" uri="../../../../Device/SiliconLabs/EFM32PG1B/Source/system_efm32pg1b.c" />
+  </folder>
+  <folder name="mbedtls">
+    <file name="aes.c" uri="../../../../reptile/mbedtls/library/aes.c" />
+    <file name="arc4.c" uri="../../../../reptile/mbedtls/library/arc4.c" />
+    <file name="asn1parse.c" uri="../../../../reptile/mbedtls/library/asn1parse.c" />
+    <file name="asn1write.c" uri="../../../../reptile/mbedtls/library/asn1write.c" />
+    <file name="base64.c" uri="../../../../reptile/mbedtls/library/base64.c" />
+    <file name="bignum.c" uri="../../../../reptile/mbedtls/library/bignum.c" />
+    <file name="blowfish.c" uri="../../../../reptile/mbedtls/library/blowfish.c" />
+    <file name="camellia.c" uri="../../../../reptile/mbedtls/library/camellia.c" />
+    <file name="ccm.c" uri="../../../../reptile/mbedtls/library/ccm.c" />
+    <file name="cipher.c" uri="../../../../reptile/mbedtls/library/cipher.c" />
+    <file name="cipher_wrap.c" uri="../../../../reptile/mbedtls/library/cipher_wrap.c" />
+    <file name="ctr_drbg.c" uri="../../../../reptile/mbedtls/library/ctr_drbg.c" />
+    <file name="des.c" uri="../../../../reptile/mbedtls/library/des.c" />
+    <file name="dhm.c" uri="../../../../reptile/mbedtls/library/dhm.c" />
+    <file name="ecdh.c" uri="../../../../reptile/mbedtls/library/ecdh.c" />
+    <file name="ecdsa.c" uri="../../../../reptile/mbedtls/library/ecdsa.c" />
+    <file name="ecp.c" uri="../../../../reptile/mbedtls/library/ecp.c" />
+    <file name="ecp_curves.c" uri="../../../../reptile/mbedtls/library/ecp_curves.c" />
+    <file name="entropy.c" uri="../../../../reptile/mbedtls/library/entropy.c" />
+    <file name="entropy_poll.c" uri="../../../../reptile/mbedtls/library/entropy_poll.c" />
+    <file name="error.c" uri="../../../../reptile/mbedtls/library/error.c" />
+    <file name="gcm.c" uri="../../../../reptile/mbedtls/library/gcm.c" />
+    <file name="havege.c" uri="../../../../reptile/mbedtls/library/havege.c" />
+    <file name="hmac_drbg.c" uri="../../../../reptile/mbedtls/library/hmac_drbg.c" />
+    <file name="md.c" uri="../../../../reptile/mbedtls/library/md.c" />
+    <file name="md2.c" uri="../../../../reptile/mbedtls/library/md2.c" />
+    <file name="md4.c" uri="../../../../reptile/mbedtls/library/md4.c" />
+    <file name="md5.c" uri="../../../../reptile/mbedtls/library/md5.c" />
+    <file name="md_wrap.c" uri="../../../../reptile/mbedtls/library/md_wrap.c" />
+    <file name="memory_buffer_alloc.c" uri="../../../../reptile/mbedtls/library/memory_buffer_alloc.c" />
+    <file name="oid.c" uri="../../../../reptile/mbedtls/library/oid.c" />
+    <file name="pem.c" uri="../../../../reptile/mbedtls/library/pem.c" />
+    <file name="pk.c" uri="../../../../reptile/mbedtls/library/pk.c" />
+    <file name="pk_wrap.c" uri="../../../../reptile/mbedtls/library/pk_wrap.c" />
+    <file name="pkcs12.c" uri="../../../../reptile/mbedtls/library/pkcs12.c" />
+    <file name="pkcs5.c" uri="../../../../reptile/mbedtls/library/pkcs5.c" />
+    <file name="pkparse.c" uri="../../../../reptile/mbedtls/library/pkparse.c" />
+    <file name="pkwrite.c" uri="../../../../reptile/mbedtls/library/pkwrite.c" />
+    <file name="platform.c" uri="../../../../reptile/mbedtls/library/platform.c" />
+    <file name="ripemd160.c" uri="../../../../reptile/mbedtls/library/ripemd160.c" />
+    <file name="rsa.c" uri="../../../../reptile/mbedtls/library/rsa.c" />
+    <file name="sha1.c" uri="../../../../reptile/mbedtls/library/sha1.c" />
+    <file name="sha256.c" uri="../../../../reptile/mbedtls/library/sha256.c" />
+    <file name="sha512.c" uri="../../../../reptile/mbedtls/library/sha512.c" />
+    <file name="threading.c" uri="../../../../reptile/mbedtls/library/threading.c" />
+    <file name="timing.c" uri="../../../../reptile/mbedtls/library/timing.c" />
+    <file name="version.c" uri="../../../../reptile/mbedtls/library/version.c" />
+    <file name="version_features.c" uri="../../../../reptile/mbedtls/library/version_features.c" />
+    <file name="xtea.c" uri="../../../../reptile/mbedtls/library/xtea.c" />
+  </folder>
+  <folder name="sl_crypto">
+    <file name="sl_aes.c" uri="../../../../reptile/mbedtls/sl_crypto/sl_aes.c" />
+    <file name="sl_ecp.c" uri="../../../../reptile/mbedtls/sl_crypto/sl_ecp.c" />
+    <file name="sl_sha1.c" uri="../../../../reptile/mbedtls/sl_crypto/sl_sha1.c" />
+    <file name="sl_sha256.c" uri="../../../../reptile/mbedtls/sl_crypto/sl_sha256.c" />
+  </folder>
+  <folder name="test">
+    <file name="main.c" uri="main.c" />
+  </folder>
+</project>

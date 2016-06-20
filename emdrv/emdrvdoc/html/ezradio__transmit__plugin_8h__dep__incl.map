@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$ezradio__direct__receive__plugin_8c.html" title="EzRadio direct reception plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="5,80,339,107"/>
-<area shape="rect" id="node5" href="$ezradio__direct__transmit__plugin_8c.html" title="EzRadio direct transmission plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="363,80,703,107"/>
-<area shape="rect" id="node7" href="$ezradio__pn9__plugin_8c.html" title="EzRadio PN9 plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="728,80,1003,107"/>
-<area shape="rect" id="node9" href="$ezradio__transmit__plugin_8c.html" title="EzRadio transmit plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="1027,80,1328,107"/>
-<area shape="rect" id="node11" href="$ezradio__unmod__carrier__plugin_8c.html" title="EzRadio unmodulated carrier plug&#45;in managed by the plug&#45;in manager if enabled." alt="" coords="1352,80,1691,107"/>
-</map>

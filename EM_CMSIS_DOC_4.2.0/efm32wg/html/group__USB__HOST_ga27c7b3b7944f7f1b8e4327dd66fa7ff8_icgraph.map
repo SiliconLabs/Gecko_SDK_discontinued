@@ -1,0 +1,15 @@
+<map id="USBH_WriteB" name="USBH_WriteB">
+<area shape="rect" id="node3" href="$group__Msd.html#ga924b6ac8bbbb582c299825f371813067" title="Perform an MSD Bulk Only Transfer (BOT). " alt="" coords="153,132,255,159"/>
+<area shape="rect" id="node5" href="$group__Msd.html#ga8618b70076ea29385d60c816791d253c" title="Issue a SCSI Inquiry command. " alt="" coords="325,5,448,32"/>
+<area shape="rect" id="node9" href="$group__Msd.html#ga316bfe2e0c761d50dcaed004a8034bbe" title="Issue a SCSI Read(10) command. " alt="" coords="323,220,450,247"/>
+<area shape="rect" id="node13" href="$group__Msd.html#gaabf14b7316a5270391c8961f7b7bd1e9" title="Issue a SCSI Read Capacity command. " alt="" coords="307,157,467,184"/>
+<area shape="rect" id="node22" href="$group__Msd.html#gaa04e858f68c0729af7d749a9bbbd64fb" title="Issue a SCSI Request Sense command. " alt="" coords="305,56,469,83"/>
+<area shape="rect" id="node25" href="$group__Msd.html#ga28044689db0ce7f73fe0eb209e01c68e" title="Issue a SCSI Test Unit Ready command. " alt="" coords="304,107,469,133"/>
+<area shape="rect" id="node28" href="$group__Msd.html#gaf01dd388f44692d483d2d83decf804c2" title="Perform a SCSI Write(10) command. " alt="" coords="323,296,451,323"/>
+<area shape="rect" id="node7" href="$group__Msd.html#gaeb31e6900faf7971679af16d079f6c14" title="Initialize an USB connected Mass Storage Device. Checks if the device is a valid MSD device..." alt="" coords="553,56,634,83"/>
+<area shape="rect" id="node11" href="$group__Msd.html#ga8697013d00236b3c6dc0ded028f02c3d" title="Read sectors from device. " alt="" coords="526,259,661,285"/>
+<area shape="rect" id="node16" href="$group__Msd.html#gaef64501159db49dd5e00287a2487ce68" title="Get sectorcount from the device. " alt="" coords="517,107,669,133"/>
+<area shape="rect" id="node18" href="$group__Msd.html#ga14bdf90c68d29571164a39c8f22f8f73" title="Get sectorsize from the device. " alt="" coords="522,157,665,184"/>
+<area shape="rect" id="node20" href="$group__Msd.html#gae8f9b12aff7da92b795ef4c64a5bd242" title="Get blocksize from the device. " alt="" coords="526,208,661,235"/>
+<area shape="rect" id="node30" href="$group__Msd.html#ga364dc7de14926e4b9716addb8cca99d2" title="Write sectors to device. " alt="" coords="525,309,662,336"/>
+</map>

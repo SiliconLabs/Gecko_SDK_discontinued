@@ -1,0 +1,22 @@
+<map id="RTCDRV_Init" name="RTCDRV_Init">
+<area shape="rect" id="node3" href="$group__CMU.html#ga7cc316a8dca5436fcc39d57f5e6c412d" title="Set clock divisor/prescaler. " alt="" coords="167,183,289,209"/>
+<area shape="rect" id="node9" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="557,5,672,32"/>
+<area shape="rect" id="node26" href="$group__CMU.html#ga93913d50050d52b38b0a7c7c08ac81e8" title="Enable/disable a clock. " alt="" coords="167,271,289,297"/>
+<area shape="rect" id="node30" href="$group__CMU.html#gae11949f9c2e4033ad63dac48c9a739d3" title="Select reference clock/oscillator used for a clock branch. " alt="" coords="355,411,493,437"/>
+<area shape="rect" id="node46" href="$group__RTCC.html#gab7534987a5b7ef7a3616d334f6944278" title="Configure the selected capture/compare channel of the RTCC. " alt="" coords="165,423,291,449"/>
+<area shape="rect" id="node48" href="$group__RTCC.html#ga1e57f6a383c72e7af046dc7e0d8012ec" title="Initialize RTCC. " alt="" coords="189,473,267,500"/>
+<area shape="rect" id="node50" href="$group__SLEEP.html#gac26ef85c0817797fb9ec823d38742af7" title="Begin sleep block in the requested energy mode. " alt="" coords="150,321,306,348"/>
+<area shape="rect" id="node5" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="555,309,674,336"/>
+<area shape="rect" id="node7" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="359,107,489,133"/>
+<area shape="rect" id="node13" href="$system__efm32jg1b_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="545,208,685,235"/>
+<area shape="rect" id="node18" href="$group__CMU.html#gaaa24f7c1a4197491c08b1978a09c535c" title="Set clock prescaler. " alt="" coords="357,157,491,184"/>
+<area shape="rect" id="node11" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="755,81,869,108"/>
+<area shape="rect" id="node15" href="$system__efm32jg1b_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="748,183,876,209"/>
+<area shape="rect" id="node20" href="$group__CMU.html#ga84f0496ce9567252a9cb63da230647a0" title="Convert prescaler dividend to logarithmic value. Only works for even numbers equal to 2^n..." alt="" coords="551,157,679,184"/>
+<area shape="rect" id="node33" href="$group__CMU.html#ga2cc0f1684fbc32976b82c6d93a51c7d9" title="Enable/disable oscillator. " alt="" coords="541,360,688,387"/>
+<area shape="rect" id="node39" href="$group__EMU.html#ga3d442fa018de5138afb19a2b85797099" title="Update EMU module with CMU oscillator selection/enable status. " alt="" coords="737,411,887,437"/>
+<area shape="rect" id="node43" href="$system__efm32jg1b_8c.html#aef32887eb9b08a5dd7db73c35ca7c747" title="Get high frequency crystal oscillator clock frequency for target system. " alt="" coords="542,461,687,488"/>
+<area shape="rect" id="node35" href="$group__BUS.html#gaca6b55014161f4c51c9daf4f707eeb7c" title="Perform a single&#45;bit read operation on a peripheral register. " alt="" coords="753,360,871,387"/>
+<area shape="rect" id="node37" href="$group__BUS.html#gaec23c86f9b844b9e0e102ebff0b96ff4" title="Perform a peripheral register masked read. " alt="" coords="739,309,885,336"/>
+<area shape="rect" id="node52" href="$group__EMU.html#ga72910c09de24f4e2f8f170dc06bd8c07" title="Block entering EM2 or higher number energy modes. " alt="" coords="371,360,477,387"/>
+</map>

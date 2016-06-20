@@ -1674,7 +1674,13 @@
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\emode.c</name>
+      <name>$PROJ_DIR$\..\main.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\lcd_setup.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\tg_emodes.c</name>
     </file>
   </group>
 

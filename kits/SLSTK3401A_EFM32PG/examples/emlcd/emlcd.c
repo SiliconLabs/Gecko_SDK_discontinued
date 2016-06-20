@@ -2,7 +2,7 @@
  * @file
  * @brief Energy Mode demo for SLSTK3401A
  * @brief Demo for energy mode current consumption testing.
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014-2015 Silicon Labs, http://www.silabs.com</b>
@@ -50,6 +50,7 @@ int main(void)
 {
   EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_STK_DEFAULT;
   CMU_HFXOInit_TypeDef hfxoInit = CMU_HFXOINIT_STK_DEFAULT;
+  EMU_EM4Init_TypeDef em4init = EMU_EM4INIT_DEFAULT;
 
   /* Chip errata */
   CHIP_Init();
@@ -57,6 +58,7 @@ int main(void)
   /* Init DCDC regulator and HFXO with kit specific parameters */
   EMU_DCDCInit(&dcdcInit);
   CMU_HFXOInit(&hfxoInit);
+  EMU_EM4Init(&em4init);
 
   /* Select ULFRCO as clock source for LFA */
   CMU_ClockSelectSet(cmuClock_LFA, cmuSelect_ULFRCO);

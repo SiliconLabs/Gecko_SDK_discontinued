@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file dmadrv_config.h
  * @brief DMADRV configuration file.
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -44,7 +44,7 @@
 /// DMADRV channel count configuration option.
 /// Number of DMA channels to support. A lower DMA channel count will reduce
 /// ram memory footprint.
-#define EMDRV_DMADRV_DMA_CH_COUNT 4
+#define EMDRV_DMADRV_DMA_CH_COUNT 8
 
 /// DMADRV native API configuration option.
 /// Use the native emlib api of the DMA controller, but still use DMADRV

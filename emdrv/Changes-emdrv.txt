@@ -1,4 +1,16 @@
 ================ Revision history ============================================
+4.2.0:
+ - Added TEMPDRV, a temperature sensor driver.
+
+4.1.1:
+ - NVM Wear-Leveling driver page headers re-organized to have natural alignment.
+   Reads are therefore done as as aligned accesses only. The offset of the version member in the
+   header is maintained.
+ - NVM driver is updated to work with SCB_CCR_UNALIGN_TRP enabled.
+ - NVM driver version (in headers) incremented from 2 to 3.
+ - NVMHAL code disabled by default (in #if blocks) is removed.
+ - NVM driver code and documentation is updated.
+
 4.1.0:
  - EZRADIODRV now supports the plugin system layer. Transmit, receive, CRC
    error, auto acknowledge, PN9, direct receive, direct transmit and unmodulated

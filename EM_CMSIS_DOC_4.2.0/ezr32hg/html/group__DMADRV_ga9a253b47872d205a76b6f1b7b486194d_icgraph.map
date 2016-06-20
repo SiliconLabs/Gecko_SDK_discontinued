@@ -1,0 +1,7 @@
+<map id="DMADRV_TransferRemainingCount" name="DMADRV_TransferRemainingCount">
+<area shape="rect" id="node3" href="$group__SPIDRV.html#ga071d128b28b8acff08396fb090b8025a" title="Abort an ongoing SPI transfer. " alt="" coords="263,5,415,32"/>
+<area shape="rect" id="node5" href="$group__SPIDRV.html#ga7d440db45246649580c6c5b08eb332da" title="Get the status of a SPI transfer. " alt="" coords="251,56,427,83"/>
+<area shape="rect" id="node7" href="$group__UARTDRV.html#ga0abd859c2a17dafe03abceeb4c96a12a" title="Abort an ongoing UART transfer. " alt="" coords="281,107,397,133"/>
+<area shape="rect" id="node9" href="$group__UARTDRV.html#ga34806bf9fc4d876aa6ae725ce060541b" title="Check the status of the UART and gather information about any ongoing receive operations. " alt="" coords="247,157,431,184"/>
+<area shape="rect" id="node11" href="$group__UARTDRV.html#gae5387109fb659840fa822aa6ae08b81f" title="Check the status of the UART and gather information about any ongoing transmit operations. " alt="" coords="243,208,434,235"/>
+</map>

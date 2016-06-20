@@ -34,6 +34,7 @@
 							<tool id="com.atollic.truestudio.exe.debug.toolchain.gcc.1027935924" name="C Compiler" superClass="com.atollic.truestudio.exe.debug.toolchain.gcc">
 								<option id="com.atollic.truestudio.gcc.symbols.defined.1334387948" name="Defined symbols" superClass="com.atollic.truestudio.gcc.symbols.defined" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="EFM32G890F128"/>
+									<listOptionValue builtIn="false" value="DEBUG_EFM"/>
 								</option>
 								<option id="com.atollic.truestudio.gcc.directories.select.584705502" name="Include path" superClass="com.atollic.truestudio.gcc.directories.select" valueType="includePath">
 									<listOptionValue builtIn="false" value="../../.."/>
@@ -81,6 +82,7 @@
 							<tool id="com.atollic.truestudio.exe.debug.toolchain.gpp.502910225" name="C++ Compiler" superClass="com.atollic.truestudio.exe.debug.toolchain.gpp">
 								<option id="com.atollic.truestudio.gpp.symbols.defined.1086526468" name="Defined symbols" superClass="com.atollic.truestudio.gpp.symbols.defined" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="EFM32G890F128"/>
+									<listOptionValue builtIn="false" value="DEBUG_EFM"/>
 								</option>
 								<option id="com.atollic.truestudio.gpp.directories.select.1844534111" name="Include path" superClass="com.atollic.truestudio.gpp.directories.select" valueType="includePath">
 									<listOptionValue builtIn="false" value="../../.."/>
@@ -172,6 +174,7 @@
 								<option id="com.atollic.truestudio.common_options.target.instr_set.778669666" name="Instruction set" superClass="com.atollic.truestudio.common_options.target.instr_set" value="com.atollic.truestudio.common_options.target.instr_set.thumb2" valueType="enumerated"/>
 								<option id="com.atollic.truestudio.gcc.symbols.defined.1096778882" superClass="com.atollic.truestudio.gcc.symbols.defined" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="EFM32G890F128"/>
+									<listOptionValue builtIn="false" value="DEBUG_EFM"/>
 								</option>
 								<option id="com.atollic.truestudio.gcc.directories.select.262883779" superClass="com.atollic.truestudio.gcc.directories.select" valueType="includePath">
 									<listOptionValue builtIn="false" value="../../.."/>

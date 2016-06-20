@@ -1,0 +1,4 @@
+<map id="I2C_BusFreqSet" name="I2C_BusFreqSet">
+<area shape="rect" id="node3" href="$group__I2C.html#gab52e0fc0d3690e40f80a193d5b6fdd51" title="Initialize I2C. " alt="" coords="168,5,235,32"/>
+<area shape="rect" id="node5" href="$group__I2CSPM.html#ga65556785bb5d714b23e1149d8ed742e5" title="Initalize I2C peripheral. " alt="" coords="283,5,373,32"/>
+</map>

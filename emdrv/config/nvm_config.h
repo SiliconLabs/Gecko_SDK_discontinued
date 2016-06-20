@@ -1,6 +1,7 @@
 /***************************************************************************//**
  * @file nvm_config.h
- * @brief NVM config definition
+ * @brief NVM driver configuration
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -81,7 +82,7 @@ typedef enum
 /** Describes the properties of an object in a page. */
 typedef struct
 {
-  uint8_t  * location; /**< A pointer to the location of the object in RAM. */
+  uint8_t  *location;  /**< A pointer to the location of the object in RAM. */
   uint16_t size;       /**< The size of the object in bytes. */
   uint8_t  objectId;   /**< An object ID used to reference the object. Must be unique in the page. */
 } NVM_Object_Descriptor_t;

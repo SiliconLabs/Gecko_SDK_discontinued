@@ -1,0 +1,5 @@
+<map id="SYSTEM_GetProdRev" name="SYSTEM_GetProdRev">
+<area shape="rect" id="node3" href="$group__SYSTEM.html#ga9708a581c8fe3a02fc6ac92175a3860a" title="Get the flash page size in bytes. " alt="" coords="197,5,376,32"/>
+<area shape="rect" id="node5" href="$group__SYSTEM.html#gacf4974847994d28b5e03e1cb6d76f5c0" title="Get the flash size (in KB). " alt="" coords="211,56,362,83"/>
+<area shape="rect" id="node7" href="$group__SYSTEM.html#ga1e9f2935e6ccee880c25605351770560" title="Get the SRAM size (in KB). " alt="" coords="209,107,364,133"/>
+</map>

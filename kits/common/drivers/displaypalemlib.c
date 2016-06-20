@@ -2,7 +2,7 @@
  * @file displaypalemlib.c
  * @brief Platform Abstraction Layer (PAL) for DISPLAY driver on EMLIB based
  *        platforms.
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -307,6 +307,8 @@ EMSTATUS PAL_GpioShutdown (void)
  *   For EFM32:
  *   Value to set for pin in DOUT register. The DOUT setting is important for
  *   even some input mode configurations, determining pull-up/down direction.
+ *
+ * @return  EMSTATUS code of the operation.
  ******************************************************************************/
 EMSTATUS PAL_GpioPinModeSet(unsigned int   port,
                             unsigned int   pin,
@@ -346,6 +348,8 @@ EMSTATUS PAL_GpioPinModeSet(unsigned int   port,
  *
  * @param[in] pin
  *   The pin to set.
+ *
+ * @return  EMSTATUS code of the operation.
  ******************************************************************************/
 EMSTATUS PAL_GpioPinOutSet(unsigned int port, unsigned int pin)
 {
@@ -371,6 +375,8 @@ EMSTATUS PAL_GpioPinOutSet(unsigned int port, unsigned int pin)
  *
  * @param[in] pin
  *   The pin to set.
+ *
+ * @return  EMSTATUS code of the operation.
  ******************************************************************************/
 EMSTATUS PAL_GpioPinOutClear(unsigned int port, unsigned int pin)
 {
@@ -396,6 +402,8 @@ EMSTATUS PAL_GpioPinOutClear(unsigned int port, unsigned int pin)
  *
  * @param[in] pin
  *   The pin to toggle.
+ *
+ * @return  EMSTATUS code of the operation.
  ******************************************************************************/
 EMSTATUS PAL_GpioPinOutToggle(unsigned int port, unsigned int pin)
 {
@@ -424,72 +432,49 @@ EMSTATUS PAL_GpioPinAutoToggle (unsigned int gpioPort,
 
 #ifdef INCLUDE_PAL_GPIO_PIN_AUTO_TOGGLE_HW_ONLY
 
-#if defined( BSP_STK_2010 )
-  /* We only support auto HW toggling on GPIO port E pin 10 on Zero STK.  */
-  if ( (gpioPortE != gpioPort) || (10 != gpioPin) )
-
-#elif defined( BSP_STK_2011 )
-  /* We only support auto HW toggling on GPIO port F pin 3 on Happy STK.  */
-  if ( (gpioPortF != gpioPort) || (3 != gpioPin) )
-
-#elif defined( BSP_STK_2500 )
-  /* We only support auto HW toggling on GPIO port D pin 13 on Pearl STK.  */
-  if ( (gpioPortD != gpioPort) || (13 != gpioPin) )
-
-#else
-#error "Illegal display auto-toggle setup."
-#endif
-  {
-    status = PAL_EMSTATUS_INVALID_PARAM;
-  }
-  else
-  {
-    /* Setup PRS to drive the GPIO pin which is connected to the
-       display com inversion pin (EXTCOMIN) using the RTC COMP0 signal or
-       RTCC CCV1 signal as source. */
+  /* Setup PRS to drive the GPIO pin which is connected to the
+     display com inversion pin (EXTCOMIN) using the RTC COMP0 signal or
+     RTCC CCV1 signal as source. */
 #if defined(PAL_CLOCK_RTCC)
-    uint32_t     source  = PRS_CH_CTRL_SOURCESEL_RTCC;
-    uint32_t     signal  = PRS_CH_CTRL_SIGSEL_RTCCCCV1;
+  uint32_t  source  = PRS_CH_CTRL_SOURCESEL_RTCC;
+  uint32_t  signal  = PRS_CH_CTRL_SIGSEL_RTCCCCV1;
 #else
-    uint32_t     source  = PRS_CH_CTRL_SOURCESEL_RTC;
-    uint32_t     signal  = PRS_CH_CTRL_SIGSEL_RTCCOMP0;
+  uint32_t  source  = PRS_CH_CTRL_SOURCESEL_RTC;
+  uint32_t  signal  = PRS_CH_CTRL_SIGSEL_RTCCOMP0;
 #endif
 
-    /* Enable PRS clock */
-    CMU_ClockEnable(cmuClock_PRS, true);
+  /* Enable PRS clock */
+  CMU_ClockEnable(cmuClock_PRS, true);
 
-    /* Set up PRS to trigger from an RTC compare match */
-    PRS_SourceAsyncSignalSet(LCD_AUTO_TOGGLE_PRS_CH, source, signal);
+  /* Set up PRS to trigger from an RTC compare match */
+  PRS_SourceAsyncSignalSet(LCD_AUTO_TOGGLE_PRS_CH, source, signal);
 
-    /* This outputs the PRS pulse on the EXTCOMIN pin */
+  /* This outputs the PRS pulse on the EXTCOMIN pin */
 #if defined(_SILICON_LABS_32B_PLATFORM_2)
-    LCD_AUTO_TOGGLE_PRS_ROUTELOC();
-    PRS->ROUTEPEN |= LCD_AUTO_TOGGLE_PRS_ROUTEPEN;
+  LCD_AUTO_TOGGLE_PRS_ROUTELOC();
+  PRS->ROUTEPEN |= LCD_AUTO_TOGGLE_PRS_ROUTEPEN;
 #else
-    PRS->ROUTE = ( PRS->ROUTE & ~_PRS_ROUTE_LOCATION_MASK )
-                 | LCD_AUTO_TOGGLE_PRS_ROUTE_LOC;
-    PRS->ROUTE |= LCD_AUTO_TOGGLE_PRS_ROUTE_PEN;
+  PRS->ROUTE = ( PRS->ROUTE & ~_PRS_ROUTE_LOCATION_MASK )
+               | LCD_AUTO_TOGGLE_PRS_ROUTE_LOC;
+  PRS->ROUTE |= LCD_AUTO_TOGGLE_PRS_ROUTE_PEN;
 #endif
-  }
+
 #else
   /* Store GPIO pin data. */
   gpioPortNo = gpioPort;
   gpioPinNo  = gpioPin;
 #endif
 
-  if (EMSTATUS_OK == status)
-  {
-    /* Setup GPIO pin. */
-    GPIO_PinModeSet((GPIO_Port_TypeDef)gpioPort, gpioPin, gpioModePushPull, 0 );
+  /* Setup GPIO pin. */
+  GPIO_PinModeSet((GPIO_Port_TypeDef)gpioPort, gpioPin, gpioModePushPull, 0 );
 
 #if defined(PAL_CLOCK_RTCC)
-    /* Setup RTCC to to toggle PRS or generate interrupts at given frequency. */
-    rtccSetup(frequency);
+  /* Setup RTCC to to toggle PRS or generate interrupts at given frequency. */
+  rtccSetup(frequency);
 #else
-    /* Setup RTC to to toggle PRS or generate interrupts at given frequency. */
-    rtcSetup(frequency);
+  /* Setup RTC to to toggle PRS or generate interrupts at given frequency. */
+  rtcSetup(frequency);
 #endif
-  }
 
   return status;
 }
@@ -579,7 +564,7 @@ static void rtcSetup(unsigned int frequency)
 
   /* Set the prescaler. */
   CMU_ClockDivSet( cmuClock_RTC, cmuClkDiv_2 );
-  
+
   /* Enable RTC clock */
   CMU_ClockEnable(cmuClock_RTC, true);
 

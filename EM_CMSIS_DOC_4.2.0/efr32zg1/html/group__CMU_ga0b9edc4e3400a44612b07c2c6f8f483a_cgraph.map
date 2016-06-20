@@ -1,0 +1,5 @@
+<map id="CMU_HFRCOFreqSet" name="CMU_HFRCOFreqSet">
+<area shape="rect" id="node3" href="$group__BUS.html#gaca6b55014161f4c51c9daf4f707eeb7c" title="Perform a single&#45;bit read operation on a peripheral register. " alt="" coords="215,5,332,32"/>
+<area shape="rect" id="node5" href="$group__CMU.html#ga924a9c8dbde9e529e684f0c8e7dfdaa2" title="Get currently selected reference clock used for a clock branch. " alt="" coords="204,56,343,83"/>
+<area shape="rect" id="node7" href="$group__CMU.html#gac0a818d0ac189b4c802ad83b3dc720ba" title="Get a pointer to the HFRCO frequency calibration word in DEVINFO. " alt="" coords="195,107,351,133"/>
+</map>

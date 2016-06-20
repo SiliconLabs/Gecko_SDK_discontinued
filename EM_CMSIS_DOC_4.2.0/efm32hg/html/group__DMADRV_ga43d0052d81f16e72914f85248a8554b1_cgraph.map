@@ -1,0 +1,13 @@
+<map id="DMADRV_Init" name="DMADRV_Init">
+<area shape="rect" id="node3" href="$group__DMA.html#ga1b244c27cc74059907a25a806eac9b90" title="Initializes DMA controller. " alt="" coords="161,81,234,108"/>
+<area shape="rect" id="node22" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="152,132,243,159"/>
+<area shape="rect" id="node24" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="154,183,241,209"/>
+<area shape="rect" id="node5" href="$group__CMU.html#ga93913d50050d52b38b0a7c7c08ac81e8" title="Enable/disable a clock. " alt="" coords="291,56,413,83"/>
+<area shape="rect" id="node20" href="$group__DMA.html#ga35a483de1c773d6cd958434372054b8b" title="Reset the DMA controller. " alt="" coords="309,107,395,133"/>
+<area shape="rect" id="node7" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="467,31,586,57"/>
+<area shape="rect" id="node9" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="461,81,592,108"/>
+<area shape="rect" id="node11" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="653,5,768,32"/>
+<area shape="rect" id="node13" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="653,56,768,83"/>
+<area shape="rect" id="node15" href="$system__efm32hg_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="641,107,781,133"/>
+<area shape="rect" id="node17" href="$system__efm32hg_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="829,132,957,159"/>
+</map>

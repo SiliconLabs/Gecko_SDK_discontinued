@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file
  * @brief UART example for EFM32_G2xx_DK and EFM32_G8xx_DK
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>

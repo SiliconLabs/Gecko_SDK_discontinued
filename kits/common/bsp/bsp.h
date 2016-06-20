@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file
  * @brief Board support package API definitions.
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -28,7 +28,14 @@
 extern "C" {
 #endif
 
-/** @addtogroup BSPCOMMON API common for all kits */ /** @{ */
+/***************************************************************************//**
+ * @addtogroup BSP
+ * @{
+ ******************************************************************************/
+/***************************************************************************//**
+ * @addtogroup BSPCOMMON Common BSP for all kits
+ * @{
+ ******************************************************************************/
 
 #define BSP_STATUS_OK                 0     /**< BSP API return code, no errors. */
 #define BSP_STATUS_ILLEGAL_PARAM      (-1)  /**< BSP API return code, illegal input parameter. */
@@ -40,7 +47,7 @@ extern "C" {
 #define BSP_INIT_DK_EBI     0x02  /**< Mode flag for @ref BSP_Init(), init DK in EBI mode (DK3x50 only). */
 #define BSP_INIT_BCC        0x04  /**< Mode flag for @ref BSP_Init(), init board controller communication. */
 
-/** @} */
+/** @} (end BSPCOMMON) */
 
 #if defined( BSP_DK )
 /** @addtogroup BSP_DK API for DK's */ /** @{ */
@@ -69,7 +76,7 @@ typedef enum
   BSP_BusControl_EBI,         /**< Configure Board controller for EBI mode */
 } BSP_BusControl_TypeDef;
 
-#if defined( BSP_DK_3200 )                        /* Gxxx_DK */
+#if defined( BSP_DK_BRD3200 )                        /* Gxxx_DK */
 
 /** Peripherals control structure for Gxxx_DK's. */
 typedef enum
@@ -95,9 +102,9 @@ typedef enum
 #else
 } BSP_Peripheral_TypeDef;
 #endif
-#endif /* BSP_DK_3200 */
+#endif /* BSP_DK_BRD3200 */
 
-#if defined( BSP_DK_3201 )                        /* DK3x50 DK's */
+#if defined( BSP_DK_BRD3201 )                        /* DK3x50 DK's */
 
 /** Peripherals control structure for DK3x50 DK's. */
 typedef enum
@@ -117,12 +124,16 @@ typedef enum
   BSP_MICROSD,        /**< MicroSD SPI interace */
   BSP_TFT,            /**< SSD2119 TFT controller */
 } BSP_Peripheral_TypeDef;
-#endif  /* BSP_DK_3201 */
+#endif  /* BSP_DK_BRD3201 */
 
 /** @} */
 #endif  /* BSP_DK */
 
 /************************** The BSP API *******************************/
+/***************************************************************************//**
+ * @addtogroup BSPCOMMON Common BSP for all kits
+ * @{
+ ******************************************************************************/
 
 int             BSP_Disable                 ( void );
 int             BSP_Init                    ( uint32_t flags );
@@ -133,9 +144,14 @@ uint32_t        BSP_LedsGet                 ( void );
 int             BSP_LedsInit                ( void );
 int             BSP_LedsSet                 ( uint32_t leds );
 int             BSP_LedToggle               ( int ledNo );
+/** @} */ /* endgroup BSPCOMMON */
 
 
 #if defined( BSP_DK )
+/***************************************************************************//**
+ * @addtogroup BSP_DK
+ * @{
+ ******************************************************************************/
 BSP_BusControl_TypeDef BSP_BusControlModeGet( void );
 int             BSP_BusControlModeSet       ( BSP_BusControl_TypeDef mode );
 uint32_t        BSP_DipSwitchGet            ( void );
@@ -157,9 +173,14 @@ int             BSP_PeripheralAccess        ( BSP_Peripheral_TypeDef perf, bool 
 uint16_t        BSP_PushButtonsGet          ( void );
 uint16_t        BSP_RegisterRead            ( volatile uint16_t *addr );
 int             BSP_RegisterWrite           ( volatile uint16_t *addr, uint16_t data );
+/** @} */ /* endgroup BSP_DK */
 #endif
 
 #if defined( BSP_STK ) || defined( BSP_WSTK )
+/***************************************************************************//**
+ * @addtogroup BSP_STK
+ * @{
+ ******************************************************************************/
 int             BSP_BccDeInit               ( void );
 int             BSP_BccInit                 ( void );
 bool            BSP_BccPacketReceive        ( BCP_Packet *pkt );
@@ -169,7 +190,10 @@ float           BSP_CurrentGet              ( void );
 int             BSP_EbiDeInit               ( void );
 int             BSP_EbiInit                 ( void );
 float           BSP_VoltageGet              ( void );
+/** @} */ /* endgroup BSP_STK */
 #endif
+
+/** @} */ /* endgroup BSP */
 
 #ifdef __cplusplus
 }

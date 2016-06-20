@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file uartdrv.c
  * @brief UARTDRV API implementation.
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -1432,6 +1432,7 @@ Ecode_t UARTDRV_TransmitB(UARTDRV_Handle_t handle,
 
 
 /******** THE REST OF THE FILE IS DOCUMENTATION ONLY !**********************//**
+ * @addtogroup UARTDRV
  * @{
 
 @page uartdrv_doc UARTDRV Universal asynchronous receiver/transmitter driver

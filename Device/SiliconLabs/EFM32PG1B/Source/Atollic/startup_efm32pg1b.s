@@ -20,7 +20,7 @@
  *
  *******************************************************************************
  * Silicon Labs release version
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************/
   .syntax unified
   .thumb
@@ -154,7 +154,7 @@ InterruptVector:
   .word   PCNT0_IRQHandler      /* 22 - PCNT0 */
   .word   CMU_IRQHandler      /* 23 - CMU */
   .word   MSC_IRQHandler      /* 24 - MSC */
-  .word   0                       /* 25 - Reserved */
+  .word   CRYPTO_IRQHandler      /* 25 - CRYPTO */
   .word   LETIMER0_IRQHandler      /* 26 - LETIMER0 */
   .word   0                       /* 27 - Reserved */
   .word   0                       /* 28 - Reserved */
@@ -255,6 +255,9 @@ InterruptVector:
 
   .weak       MSC_IRQHandler
   .thumb_set  MSC_IRQHandler, Default_Handler
+
+  .weak       CRYPTO_IRQHandler
+  .thumb_set  CRYPTO_IRQHandler, Default_Handler
 
   .weak       LETIMER0_IRQHandler
   .thumb_set  LETIMER0_IRQHandler, Default_Handler

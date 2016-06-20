@@ -33,6 +33,8 @@
   <file name="readme.txt" uri="readme.txt" />
   <includePath uri="." />
   <folder name="src">
-    <file name="emode.c" uri="emode.c" />
+    <file name="main.c" uri="main.c" />
+    <file name="lcd_setup.c" uri="lcd_setup.c" />
+    <file name="tg_emodes.c" uri="tg_emodes.c" />
   </folder>
 </project>

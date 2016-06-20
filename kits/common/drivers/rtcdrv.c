@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file
  * @brief Real Time Counter (RTC) driver, implements simple trigger functionality
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -13,7 +13,7 @@
  *
  ******************************************************************************/
 
-
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 
 #include <stddef.h>
 #include "em_device.h"
@@ -150,3 +150,5 @@ void RTCDRV_Trigger(uint32_t msec, void (*cb)(void))
   /* Enable interrupt on COMP0 */
   RTC_IntEnable(RTC_IF_COMP0);
 }
+
+/** @endcond */

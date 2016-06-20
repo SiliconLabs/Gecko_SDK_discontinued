@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file
  * @brief Provide stdio retargeting to USART/UART or LEUART.
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -150,7 +150,11 @@ void RETARGET_SerialInit(void)
 
 #if defined(RETARGET_VCOM)
   /* Select HFXO/2 for LEUARTs (and wait for it to stabilize) */
+#if defined(_CMU_LFCLKSEL_LFB_HFCORECLKLEDIV2)
   CMU_ClockSelectSet(cmuClock_LFB, cmuSelect_CORELEDIV2);
+#else
+  CMU_ClockSelectSet(cmuClock_LFB, cmuSelect_HFCLKLE);
+#endif
 #else
   /* Select LFXO for LEUARTs (and wait for it to stabilize) */
   CMU_ClockSelectSet(cmuClock_LFB, cmuSelect_LFXO);
@@ -168,7 +172,16 @@ void RETARGET_SerialInit(void)
 #endif
   LEUART_Init(leuart, &init);
   /* Enable pins at default location */
+  #if defined( LEUART_ROUTEPEN_RXPEN )
+  leuart->ROUTEPEN = USART_ROUTEPEN_RXPEN | USART_ROUTEPEN_TXPEN;
+  leuart->ROUTELOC0 = ( leuart->ROUTELOC0 &
+                       ~( _LEUART_ROUTELOC0_TXLOC_MASK
+                          | _LEUART_ROUTELOC0_RXLOC_MASK ) )
+                     | ( RETARGET_TX_LOCATION << _LEUART_ROUTELOC0_TXLOC_SHIFT )
+                     | ( RETARGET_RX_LOCATION << _LEUART_ROUTELOC0_RXLOC_SHIFT );
+  #else
   leuart->ROUTE = LEUART_ROUTE_RXPEN | LEUART_ROUTE_TXPEN | RETARGET_LOCATION;
+  #endif
 
   /* Clear previous RX interrupts */
   LEUART_IntClear(RETARGET_UART, LEUART_IF_RXDATAV);

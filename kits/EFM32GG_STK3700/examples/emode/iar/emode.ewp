@@ -286,6 +286,9 @@
           <state>$PROJ_DIR$\..\..\..\..\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\..\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\common\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\rtcdrv\inc</state>
+          <state>$PROJ_DIR$\..</state>
 
         </option>
         <option>
@@ -493,6 +496,9 @@
           <state>$PROJ_DIR$\..\..\..\..\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\..\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\common\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\rtcdrv\inc</state>
+          <state>$PROJ_DIR$\..</state>
 
         </option>
         <option>
@@ -1088,6 +1094,9 @@
           <state>$PROJ_DIR$\..\..\..\..\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\..\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\common\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\rtcdrv\inc</state>
+          <state>$PROJ_DIR$\..</state>
 
         </option>
         <option>
@@ -1295,6 +1304,9 @@
           <state>$PROJ_DIR$\..\..\..\..\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\..\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\common\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\rtcdrv\inc</state>
+          <state>$PROJ_DIR$\..</state>
 
         </option>
         <option>
@@ -1615,12 +1627,6 @@
     </file>
   </group>
   <group>
-    <name>bsp</name>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\common\bsp\bsp_trace.c</name>
-    </file>
-  </group>
-  <group>
     <name>Drivers</name>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\common\drivers\segmentlcd.c</name>
@@ -1632,9 +1638,6 @@
       <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_assert.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_burtc.c</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_cmu.c</name>
     </file>
     <file>
@@ -1644,7 +1647,7 @@
       <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_gpio.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_rmu.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_rtc.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_system.c</name>
@@ -1652,11 +1655,32 @@
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_lcd.c</name>
     </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_int.c</name>
+    </file>
+  </group>
+  <group>
+    <name>emdrv</name>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\emdrv\rtcdrv\src\rtcdriver.c</name>
+    </file>
+  </group>
+  <group>
+    <name>BSP</name>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\common\bsp\bsp_trace.c</name>
+    </file>
   </group>
   <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\emode.c</name>
+      <name>$PROJ_DIR$\..\main.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\lcd_setup.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\emodes.c</name>
     </file>
   </group>
 

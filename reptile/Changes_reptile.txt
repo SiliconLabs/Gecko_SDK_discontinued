@@ -1,3 +1,10 @@
 ================ Revision history ============================================
+4.2.0:
+ - Added mbedtls-2.1.0 (https://tls.mbed.org/) including CRYPTO acceleration
+   plugins for Pearl Gecko.
+
+4.1.1:
+ - Fixed NULL pointer dereference problem in fatcon.
+
 4.1.0:
- - Fixed bug lwIP for toolchains other than GNU gcc.
+ - Fixed bug in lwIP for toolchains other than GNU gcc.

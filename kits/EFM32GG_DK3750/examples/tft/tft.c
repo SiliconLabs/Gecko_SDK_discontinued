@@ -2,7 +2,7 @@
  * @file
  * @brief TFT example for EFM32GG990F1024 using EBI addressed map access
  *        See other example for direct drive operation
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>

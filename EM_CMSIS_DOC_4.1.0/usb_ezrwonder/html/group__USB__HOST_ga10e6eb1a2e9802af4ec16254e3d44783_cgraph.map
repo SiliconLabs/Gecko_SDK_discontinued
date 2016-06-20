@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$group__USB__HOST.html#gabd04b4b1ea26459d6db42aa77b6d592d" title="Return a pointer to an interface descriptor." alt="" coords="272,5,491,32"/>
-<area shape="rect" id="node3" href="$group__USB__HOST.html#ga2ac91d938f8553e31913afdb8d8d80dc" title="Return a pointer to a configuration descriptor." alt="" coords="539,5,787,32"/>
-<area shape="rect" id="node4" href="$group__USB__HOST.html#ga4d6a8d78ebde4e394bb25aa62a871b30" title="Return a pointer to the device descriptor." alt="" coords="835,5,1042,32"/>
-</map>

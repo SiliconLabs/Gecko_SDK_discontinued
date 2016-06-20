@@ -1,0 +1,5 @@
+<map id="SLEEP_Sleep" name="SLEEP_Sleep">
+<area shape="rect" id="node3" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="201,5,292,32"/>
+<area shape="rect" id="node5" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="203,56,290,83"/>
+<area shape="rect" id="node7" href="$group__SLEEP.html#gaeb054dce581519f0f29d46d372a7abb2" title="Gets the lowest energy mode that the system is allowed to be set to. " alt="" coords="150,107,343,133"/>
+</map>

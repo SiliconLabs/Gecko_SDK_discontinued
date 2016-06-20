@@ -2,7 +2,7 @@
  * @file app-config_R60-868MHz-13dBm.h
  * @brief Range Test application configuration for SLWSTK6220A kit.
  *
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>

@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$group__USB__COMMON.html#ga543c505ec86acb344f7f0c00c55fc266" title="Format and print a text string given an error code, prepends an optional user supplied..." alt="" coords="187,5,360,32"/>
-<area shape="rect" id="node3" href="$group__USB__HOST.html#gab7a5bb1a4f4cae3b9cc0556b98d3a4d9" title="Pretty print a configuration descriptor on the debug serial port." alt="" coords="152,56,395,83"/>
-<area shape="rect" id="node4" href="$group__USB__HOST.html#ga465475632c744fb3fae7a73e09606fb3" title="Pretty print a device descriptor on the debug serial port." alt="" coords="173,107,374,133"/>
-<area shape="rect" id="node5" href="$group__USB__HOST.html#gabe253e3e072d805774b8714aacf9182c" title="Pretty print an endpoint descriptor on the debug serial port." alt="" coords="168,157,379,184"/>
-<area shape="rect" id="node6" href="$group__USB__HOST.html#ga7a4aa696c25dfd0b99a2cda6e02d7a36" title="Pretty print an interface descriptor on the debug serial port." alt="" coords="167,208,380,235"/>
-</map>

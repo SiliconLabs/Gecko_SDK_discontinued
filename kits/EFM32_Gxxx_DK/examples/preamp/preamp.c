@@ -22,7 +22,7 @@
  *   indicated by the leftmost user LED. Reduce volume level or audio input
  *   level to avoid.
  *
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>

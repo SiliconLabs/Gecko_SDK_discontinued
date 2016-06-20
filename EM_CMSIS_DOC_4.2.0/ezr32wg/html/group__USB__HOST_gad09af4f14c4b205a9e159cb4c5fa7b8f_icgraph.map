@@ -1,0 +1,4 @@
+<map id="USBH_GetConfigurationDescriptorB" name="USBH_GetConfigurationDescriptorB">
+<area shape="rect" id="node3" href="$group__USB__HOST.html#gae9ef72709bb00accb740a0350f79fe35" title="Will request both the device descriptor and the entire configuration descriptor from the device at US..." alt="" coords="275,5,413,32"/>
+<area shape="rect" id="node5" href="$group__Msd.html#gaeb31e6900faf7971679af16d079f6c14" title="Initialize an USB connected Mass Storage Device. Checks if the device is a valid MSD device..." alt="" coords="462,5,543,32"/>
+</map>

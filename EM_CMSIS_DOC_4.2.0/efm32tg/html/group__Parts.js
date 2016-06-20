@@ -1,0 +1,95 @@
+var group__Parts =
+[
+    [ "EFM32TG842F32", "group__EFM32TG842F32.html", "group__EFM32TG842F32" ],
+    [ "EFM32TG_ACMP", "group__EFM32TG__ACMP.html", "group__EFM32TG__ACMP" ],
+    [ "EFM32TG_ACMP_BitFields", "group__EFM32TG__ACMP__BitFields.html", "group__EFM32TG__ACMP__BitFields" ],
+    [ "EFM32TG_ADC", "group__EFM32TG__ADC.html", "group__EFM32TG__ADC" ],
+    [ "EFM32TG_ADC_BitFields", "group__EFM32TG__ADC__BitFields.html", "group__EFM32TG__ADC__BitFields" ],
+    [ "EFM32TG_AES", "group__EFM32TG__AES.html", "group__EFM32TG__AES" ],
+    [ "EFM32TG_AES_BitFields", "group__EFM32TG__AES__BitFields.html", "group__EFM32TG__AES__BitFields" ],
+    [ "EFM32TG_AF_Pins", "group__EFM32TG__AF__Pins.html", "group__EFM32TG__AF__Pins" ],
+    [ "EFM32TG_AF_Ports", "group__EFM32TG__AF__Ports.html", "group__EFM32TG__AF__Ports" ],
+    [ "EFM32TG_CALIBRATE", "group__EFM32TG__CALIBRATE.html", "group__EFM32TG__CALIBRATE" ],
+    [ "EFM32TG_CMU", "group__EFM32TG__CMU.html", "group__EFM32TG__CMU" ],
+    [ "EFM32TG_CMU_BitFields", "group__EFM32TG__CMU__BitFields.html", "group__EFM32TG__CMU__BitFields" ],
+    [ "EFM32TG_DAC", "group__EFM32TG__DAC.html", "group__EFM32TG__DAC" ],
+    [ "EFM32TG_DAC_BitFields", "group__EFM32TG__DAC__BitFields.html", "group__EFM32TG__DAC__BitFields" ],
+    [ "EFM32TG_DEVINFO", "group__EFM32TG__DEVINFO.html", "group__EFM32TG__DEVINFO" ],
+    [ "EFM32TG_DEVINFO_BitFields", "group__EFM32TG__DEVINFO__BitFields.html", "group__EFM32TG__DEVINFO__BitFields" ],
+    [ "EFM32TG_DMA", "group__EFM32TG__DMA.html", "group__EFM32TG__DMA" ],
+    [ "EFM32TG_DMA_BitFields", "group__EFM32TG__DMA__BitFields.html", "group__EFM32TG__DMA__BitFields" ],
+    [ "EFM32TG_DMACTRL_BitFields", "group__EFM32TG__DMACTRL__BitFields.html", "group__EFM32TG__DMACTRL__BitFields" ],
+    [ "EFM32TG_DMAREQ_BitFields", "group__EFM32TG__DMAREQ__BitFields.html", "group__EFM32TG__DMAREQ__BitFields" ],
+    [ "EFM32TG_DMA_DESCRIPTOR", "group__EFM32TG__DMA__DESCRIPTOR.html", "group__EFM32TG__DMA__DESCRIPTOR" ],
+    [ "EFM32TG_EMU", "group__EFM32TG__EMU.html", "group__EFM32TG__EMU" ],
+    [ "EFM32TG_EMU_BitFields", "group__EFM32TG__EMU__BitFields.html", "group__EFM32TG__EMU__BitFields" ],
+    [ "EFM32TG_GPIO", "group__EFM32TG__GPIO.html", "group__EFM32TG__GPIO" ],
+    [ "EFM32TG_GPIO_BitFields", "group__EFM32TG__GPIO__BitFields.html", "group__EFM32TG__GPIO__BitFields" ],
+    [ "EFM32TG_I2C", "group__EFM32TG__I2C.html", "group__EFM32TG__I2C" ],
+    [ "EFM32TG_I2C_BitFields", "group__EFM32TG__I2C__BitFields.html", "group__EFM32TG__I2C__BitFields" ],
+    [ "EFM32TG_LCD", "group__EFM32TG__LCD.html", "group__EFM32TG__LCD" ],
+    [ "EFM32TG_LCD_BitFields", "group__EFM32TG__LCD__BitFields.html", "group__EFM32TG__LCD__BitFields" ],
+    [ "EFM32TG_LESENSE", "group__EFM32TG__LESENSE.html", "group__EFM32TG__LESENSE" ],
+    [ "EFM32TG_LESENSE_BitFields", "group__EFM32TG__LESENSE__BitFields.html", "group__EFM32TG__LESENSE__BitFields" ],
+    [ "EFM32TG_LETIMER", "group__EFM32TG__LETIMER.html", "group__EFM32TG__LETIMER" ],
+    [ "EFM32TG_LETIMER_BitFields", "group__EFM32TG__LETIMER__BitFields.html", "group__EFM32TG__LETIMER__BitFields" ],
+    [ "EFM32TG_LEUART", "group__EFM32TG__LEUART.html", "group__EFM32TG__LEUART" ],
+    [ "EFM32TG_LEUART_BitFields", "group__EFM32TG__LEUART__BitFields.html", "group__EFM32TG__LEUART__BitFields" ],
+    [ "EFM32TG_MSC", "group__EFM32TG__MSC.html", "group__EFM32TG__MSC" ],
+    [ "EFM32TG_MSC_BitFields", "group__EFM32TG__MSC__BitFields.html", "group__EFM32TG__MSC__BitFields" ],
+    [ "EFM32TG_PCNT", "group__EFM32TG__PCNT.html", "group__EFM32TG__PCNT" ],
+    [ "EFM32TG_PCNT_BitFields", "group__EFM32TG__PCNT__BitFields.html", "group__EFM32TG__PCNT__BitFields" ],
+    [ "EFM32TG_PRS", "group__EFM32TG__PRS.html", "group__EFM32TG__PRS" ],
+    [ "EFM32TG_PRS_BitFields", "group__EFM32TG__PRS__BitFields.html", "group__EFM32TG__PRS__BitFields" ],
+    [ "EFM32TG_RMU", "group__EFM32TG__RMU.html", "group__EFM32TG__RMU" ],
+    [ "EFM32TG_RMU_BitFields", "group__EFM32TG__RMU__BitFields.html", "group__EFM32TG__RMU__BitFields" ],
+    [ "EFM32TG_ROMTABLE", "group__EFM32TG__ROMTABLE.html", "group__EFM32TG__ROMTABLE" ],
+    [ "EFM32TG_ROMTABLE_BitFields", "group__EFM32TG__ROMTABLE__BitFields.html", "group__EFM32TG__ROMTABLE__BitFields" ],
+    [ "EFM32TG_RTC", "group__EFM32TG__RTC.html", "group__EFM32TG__RTC" ],
+    [ "EFM32TG_RTC_BitFields", "group__EFM32TG__RTC__BitFields.html", "group__EFM32TG__RTC__BitFields" ],
+    [ "EFM32TG_TIMER", "group__EFM32TG__TIMER.html", "group__EFM32TG__TIMER" ],
+    [ "EFM32TG_TIMER_BitFields", "group__EFM32TG__TIMER__BitFields.html", "group__EFM32TG__TIMER__BitFields" ],
+    [ "EFM32TG_USART", "group__EFM32TG__USART.html", "group__EFM32TG__USART" ],
+    [ "EFM32TG_USART_BitFields", "group__EFM32TG__USART__BitFields.html", "group__EFM32TG__USART__BitFields" ],
+    [ "EFM32TG_VCMP", "group__EFM32TG__VCMP.html", "group__EFM32TG__VCMP" ],
+    [ "EFM32TG_VCMP_BitFields", "group__EFM32TG__VCMP__BitFields.html", "group__EFM32TG__VCMP__BitFields" ],
+    [ "EFM32TG_WDOG", "group__EFM32TG__WDOG.html", "group__EFM32TG__WDOG" ],
+    [ "EFM32TG_WDOG_BitFields", "group__EFM32TG__WDOG__BitFields.html", "group__EFM32TG__WDOG__BitFields" ],
+    [ "EFM32TG_PRS_Signals", "group__EFM32TG__PRS__Signals.html", "group__EFM32TG__PRS__Signals" ],
+    [ "DMA_CH_TypeDef", "structDMA__CH__TypeDef.html", [
+      [ "CTRL", "structDMA__CH__TypeDef.html#a266a6da8822d29e619c942e30f217de7", null ]
+    ] ],
+    [ "GPIO_P_TypeDef", "structGPIO__P__TypeDef.html", [
+      [ "CTRL", "structGPIO__P__TypeDef.html#a5b0ed681dcf52fefe424c3145cd5025f", null ],
+      [ "MODEL", "structGPIO__P__TypeDef.html#ad28242da58dcd7bf160cfdee1abe70d2", null ],
+      [ "MODEH", "structGPIO__P__TypeDef.html#aa8a7ce592d8fa594a61cf37d62c1d7d4", null ],
+      [ "DOUT", "structGPIO__P__TypeDef.html#a042c3a572e749f67f63d9a094e96d567", null ],
+      [ "DOUTSET", "structGPIO__P__TypeDef.html#a0d8f76be5706698e8e3fee8438c90b6a", null ],
+      [ "DOUTCLR", "structGPIO__P__TypeDef.html#aa4fc7332bb9352c0cbe1f05b64ca370a", null ],
+      [ "DOUTTGL", "structGPIO__P__TypeDef.html#a576341b58cbf31bfc9552f29c0276bca", null ],
+      [ "DIN", "structGPIO__P__TypeDef.html#a32cb3813b6bf7534d6e640528741a82e", null ],
+      [ "PINLOCKN", "structGPIO__P__TypeDef.html#a8858ff71b6607d96c82d221841686d0d", null ]
+    ] ],
+    [ "LESENSE_BUF_TypeDef", "structLESENSE__BUF__TypeDef.html", [
+      [ "DATA", "structLESENSE__BUF__TypeDef.html#af50dc63a54b7ba512b9520fd49a81f92", null ]
+    ] ],
+    [ "LESENSE_CH_TypeDef", "structLESENSE__CH__TypeDef.html", [
+      [ "TIMING", "structLESENSE__CH__TypeDef.html#a4a0f8abb7c6496436a4fcd1ad7201ffc", null ],
+      [ "INTERACT", "structLESENSE__CH__TypeDef.html#abe0b6c577b5a20078618e5987c6f9bd1", null ],
+      [ "EVAL", "structLESENSE__CH__TypeDef.html#adea024e1676c3ddb1f84c050054bca8f", null ],
+      [ "RESERVED0", "structLESENSE__CH__TypeDef.html#a0768d9423e8ff88ad6847b71a40357bd", null ]
+    ] ],
+    [ "LESENSE_ST_TypeDef", "structLESENSE__ST__TypeDef.html", [
+      [ "TCONFA", "structLESENSE__ST__TypeDef.html#adf47148abdb3a7e9216d2c82fd3f9237", null ],
+      [ "TCONFB", "structLESENSE__ST__TypeDef.html#a543c657b4d1b4316a608991d35ed7b9f", null ]
+    ] ],
+    [ "PRS_CH_TypeDef", "structPRS__CH__TypeDef.html", [
+      [ "CTRL", "structPRS__CH__TypeDef.html#a44f30addd8273511c81d535fef2414b2", null ]
+    ] ],
+    [ "TIMER_CC_TypeDef", "structTIMER__CC__TypeDef.html", [
+      [ "CTRL", "structTIMER__CC__TypeDef.html#af3a7a604528309ce227e5a048f61e770", null ],
+      [ "CCV", "structTIMER__CC__TypeDef.html#acc9438c0f8107f2ad9e358c8afb73bf2", null ],
+      [ "CCVP", "structTIMER__CC__TypeDef.html#a1673fb669a6ae2f7081d9a5f3f294785", null ],
+      [ "CCVB", "structTIMER__CC__TypeDef.html#aa3eff4dcde68225978411d7419aa81a9", null ]
+    ] ]
+];

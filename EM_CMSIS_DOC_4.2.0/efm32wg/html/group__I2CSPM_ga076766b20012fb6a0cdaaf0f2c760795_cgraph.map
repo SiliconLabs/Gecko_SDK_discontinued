@@ -1,0 +1,4 @@
+<map id="I2CSPM_Transfer" name="I2CSPM_Transfer">
+<area shape="rect" id="node3" href="$group__I2C.html#ga67983b3dbe7f028a97f765e421b3df56" title="Continue an initiated I2C transfer (single master mode only). " alt="" coords="339,5,437,32"/>
+<area shape="rect" id="node5" href="$group__I2C.html#gae2bf2ecc3d0c4f55e3511d4871b64b16" title="Prepare and start an I2C transfer (single master mode only). " alt="" coords="176,31,291,57"/>
+</map>

@@ -1,0 +1,69 @@
+<map id="Parts" name="Parts">
+<area shape="rect" id="node1" href="$group__EFM32WG__ROMTABLE.html" title="Chip Information, Revision numbers. " alt="" coords="131,5,282,32"/>
+<area shape="rect" id="node2" href="$group__EFM32WG__MSC.html" title="EFM32WG_MSC Register Declaration. " alt="" coords="150,56,263,83"/>
+<area shape="rect" id="node3" href="$group__EFM32WG__BURTC__BitFields.html" title="EFM32WG_BURTC_BitFields" alt="" coords="117,107,297,133"/>
+<area shape="rect" id="node4" href="$group__EFM32WG__RMU__BitFields.html" title="EFM32WG_RMU_BitFields" alt="" coords="123,157,290,184"/>
+<area shape="rect" id="node5" href="$group__EFM32WG__AF__Pins.html" title="EFM32WG_AF_Pins" alt="" coords="141,208,273,235"/>
+<area shape="rect" id="node6" href="$group__EFM32WG__EMU.html" title="EFM32WG_EMU Register Declaration. " alt="" coords="151,259,263,285"/>
+<area shape="rect" id="node7" href="$group__EFM32WG__ADC__BitFields.html" title="EFM32WG_ADC_BitFields" alt="" coords="124,309,289,336"/>
+<area shape="rect" id="node8" href="$group__EFM32WG__LEUART__BitFields.html" title="EFM32WG_LEUART_BitFields" alt="" coords="113,360,300,387"/>
+<area shape="rect" id="node9" href="$group__EFM32WG__ETM__BitFields.html" title="EFM32WG_ETM_BitFields" alt="" coords="123,411,290,437"/>
+<area shape="rect" id="node10" href="$group__EFM32WG__USB__BitFields.html" title="EFM32WG_USB_BitFields" alt="" coords="125,461,289,488"/>
+<area shape="rect" id="node11" href="$group__EFM32WG__FPUEH__BitFields.html" title="EFM32WG_FPUEH_BitFields" alt="" coords="117,512,296,539"/>
+<area shape="rect" id="node12" href="$group__EFM32WG__PRS.html" title="EFM32WG_PRS Register Declaration. " alt="" coords="151,563,262,589"/>
+<area shape="rect" id="node13" href="$group__EFM32WG__DMA__BitFields.html" title="EFM32WG_DMA_BitFields" alt="" coords="123,613,290,640"/>
+<area shape="rect" id="node14" href="$group__EFM32WG__LCD__BitFields.html" title="EFM32WG_LCD_BitFields" alt="" coords="125,664,288,691"/>
+<area shape="rect" id="node15" href="$group__EFM32WG__I2C__BitFields.html" title="EFM32WG_I2C_BitFields" alt="" coords="127,715,287,741"/>
+<area shape="rect" id="node16" href="$group__EFM32WG__ETM.html" title="EFM32WG_ETM Register Declaration. " alt="" coords="151,765,263,792"/>
+<area shape="rect" id="node17" href="$group__EFM32WG__UART__BitFields.html" title="EFM32WG_UART_BitFields" alt="" coords="120,816,293,843"/>
+<area shape="rect" id="node18" href="$group__EFM32WG__DMAREQ__BitFields.html" title="EFM32WG_DMAREQ_BitFields" alt="" coords="111,867,302,893"/>
+<area shape="rect" id="node19" href="$group__EFM32WG__RTC__BitFields.html" title="EFM32WG_RTC_BitFields" alt="" coords="124,917,289,944"/>
+<area shape="rect" id="node20" href="$group__EFM32WG__VCMP.html" title="EFM32WG_VCMP Register Declaration. " alt="" coords="147,968,267,995"/>
+<area shape="rect" id="node21" href="$group__EFM32WG__ACMP.html" title="EFM32WG_ACMP Register Declaration. " alt="" coords="147,1019,267,1045"/>
+<area shape="rect" id="node22" href="$group__EFM32WG__ACMP__BitFields.html" title="EFM32WG_ACMP_BitFields" alt="" coords="119,1069,294,1096"/>
+<area shape="rect" id="node23" href="$group__EFM32WG__USART__BitFields.html" title="EFM32WG_USART_BitFields" alt="" coords="116,1120,297,1147"/>
+<area shape="rect" id="node24" href="$group__EFM32WG995F256.html" title="EFM32WG995F256" alt="" coords="142,1171,271,1197"/>
+<area shape="rect" id="node25" href="$group__EFM32WG__USB.html" title="EFM32WG_USB Register Declaration. " alt="" coords="151,1221,262,1248"/>
+<area shape="rect" id="node26" href="$group__EFM32WG__LETIMER__BitFields.html" title="EFM32WG_LETIMER_BitFields" alt="" coords="111,1272,302,1299"/>
+<area shape="rect" id="node27" href="$group__EFM32WG__FPUEH.html" title="EFM32WG_FPUEH Register Declaration. " alt="" coords="145,1323,269,1349"/>
+<area shape="rect" id="node28" href="$group__EFM32WG__DEVINFO__BitFields.html" title="EFM32WG_DEVINFO_BitFields" alt="" coords="111,1373,303,1400"/>
+<area shape="rect" id="node29" href="$group__EFM32WG__I2C.html" title="EFM32WG_I2C Register Declaration. " alt="" coords="153,1424,260,1451"/>
+<area shape="rect" id="node30" href="$group__EFM32WG__CMU__BitFields.html" title="EFM32WG_CMU_BitFields" alt="" coords="123,1475,290,1501"/>
+<area shape="rect" id="node31" href="$group__EFM32WG__LCD.html" title="EFM32WG_LCD Register Declaration. " alt="" coords="152,1525,261,1552"/>
+<area shape="rect" id="node32" href="$group__EFM32WG__DAC.html" title="EFM32WG_DAC Register Declaration. " alt="" coords="151,1576,262,1603"/>
+<area shape="rect" id="node33" href="$group__EFM32WG__LESENSE.html" title="EFM32WG_LESENSE Register Declaration. " alt="" coords="137,1627,276,1653"/>
+<area shape="rect" id="node34" href="$group__EFM32WG__PRS__Signals.html" title="PRS Signal names. " alt="" coords="127,1677,286,1704"/>
+<area shape="rect" id="node35" href="$group__EFM32WG__CMU.html" title="EFM32WG_CMU Register Declaration. " alt="" coords="150,1728,263,1755"/>
+<area shape="rect" id="node36" href="$group__EFM32WG__AF__Ports.html" title="EFM32WG_AF_Ports" alt="" coords="137,1779,276,1805"/>
+<area shape="rect" id="node37" href="$group__EFM32WG__PRS__BitFields.html" title="EFM32WG_PRS_BitFields" alt="" coords="125,1829,289,1856"/>
+<area shape="rect" id="node38" href="$group__EFM32WG__CALIBRATE.html" title="EFM32WG_CALIBRATE" alt="" coords="131,1880,282,1907"/>
+<area shape="rect" id="node39" href="$group__EFM32WG__WDOG__BitFields.html" title="EFM32WG_WDOG_BitFields" alt="" coords="117,1931,296,1957"/>
+<area shape="rect" id="node40" href="$group__EFM32WG__WDOG.html" title="EFM32WG_WDOG Register Declaration. " alt="" coords="145,1981,269,2008"/>
+<area shape="rect" id="node41" href="$group__EFM32WG__LEUART.html" title="EFM32WG_LEUART Register Declaration. " alt="" coords="141,2032,273,2059"/>
+<area shape="rect" id="node42" href="$group__EFM32WG__TIMER__BitFields.html" title="EFM32WG_TIMER_BitFields" alt="" coords="117,2083,296,2109"/>
+<area shape="rect" id="node43" href="$group__EFM32WG__BURTC.html" title="EFM32WG_BURTC Register Declaration. " alt="" coords="143,2133,270,2160"/>
+<area shape="rect" id="node44" href="$group__EFM32WG__TIMER.html" title="EFM32WG_TIMER Register Declaration. " alt="" coords="145,2184,269,2211"/>
+<area shape="rect" id="node45" href="$group__EFM32WG__EMU__BitFields.html" title="EFM32WG_EMU_BitFields" alt="" coords="123,2235,290,2261"/>
+<area shape="rect" id="node46" href="$group__EFM32WG__AES__BitFields.html" title="EFM32WG_AES_BitFields" alt="" coords="125,2285,289,2312"/>
+<area shape="rect" id="node47" href="$group__EFM32WG__USART.html" title="EFM32WG_USART Register Declaration. " alt="" coords="143,2336,270,2363"/>
+<area shape="rect" id="node48" href="$group__EFM32WG__PCNT__BitFields.html" title="EFM32WG_PCNT_BitFields" alt="" coords="121,2387,293,2413"/>
+<area shape="rect" id="node50" href="$group__EFM32WG__RMU.html" title="EFM32WG_RMU Register Declaration. " alt="" coords="150,2437,263,2464"/>
+<area shape="rect" id="node51" href="$group__EFM32WG__DMACTRL__BitFields.html" title="EFM32WG_DMACTRL_BitFields" alt="" coords="108,2488,305,2515"/>
+<area shape="rect" id="node52" href="$group__EFM32WG__EBI.html" title="EFM32WG_EBI Register Declaration. " alt="" coords="154,2539,259,2565"/>
+<area shape="rect" id="node53" href="$group__EFM32WG__EBI__BitFields.html" title="EFM32WG_EBI_BitFields" alt="" coords="127,2589,286,2616"/>
+<area shape="rect" id="node54" href="$group__EFM32WG__DEVINFO.html" title="EFM32WG_DEVINFO" alt="" coords="137,2640,276,2667"/>
+<area shape="rect" id="node55" href="$group__EFM32WG__GPIO__BitFields.html" title="EFM32WG_GPIO_BitFields" alt="" coords="122,2691,291,2717"/>
+<area shape="rect" id="node56" href="$group__EFM32WG__GPIO.html" title="EFM32WG_GPIO Register Declaration. " alt="" coords="149,2741,264,2768"/>
+<area shape="rect" id="node57" href="$group__EFM32WG__DAC__BitFields.html" title="EFM32WG_DAC_BitFields" alt="" coords="124,2792,289,2819"/>
+<area shape="rect" id="node58" href="$group__EFM32WG__MSC__BitFields.html" title="EFM32WG_MSC_BitFields" alt="" coords="123,2843,290,2869"/>
+<area shape="rect" id="node59" href="$group__EFM32WG__DMA.html" title="EFM32WG_DMA Register Declaration. " alt="" coords="150,2893,263,2920"/>
+<area shape="rect" id="node60" href="$group__EFM32WG__ROMTABLE__BitFields.html" title="EFM32WG_ROMTABLE_BitFields" alt="" coords="105,2944,309,2971"/>
+<area shape="rect" id="node61" href="$group__EFM32WG__LESENSE__BitFields.html" title="EFM32WG_LESENSE_BitFields" alt="" coords="111,2995,303,3021"/>
+<area shape="rect" id="node62" href="$group__EFM32WG__DMA__DESCRIPTOR.html" title="EFM32WG_DMA_DESCRIPTOR" alt="" coords="109,3045,304,3072"/>
+<area shape="rect" id="node63" href="$group__EFM32WG__RTC.html" title="EFM32WG_RTC Register Declaration. " alt="" coords="151,3096,262,3123"/>
+<area shape="rect" id="node64" href="$group__EFM32WG__VCMP__BitFields.html" title="EFM32WG_VCMP_BitFields" alt="" coords="119,3147,294,3173"/>
+<area shape="rect" id="node65" href="$group__EFM32WG__PCNT.html" title="EFM32WG_PCNT Register Declaration. " alt="" coords="147,3197,266,3224"/>
+<area shape="rect" id="node66" href="$group__EFM32WG__LETIMER.html" title="EFM32WG_LETIMER Register Declaration. " alt="" coords="138,3248,275,3275"/>
+<area shape="rect" id="node67" href="$group__EFM32WG__AES.html" title="EFM32WG_AES Register Declaration. " alt="" coords="151,3299,262,3325"/>
+<area shape="rect" id="node68" href="$group__EFM32WG__ADC.html" title="EFM32WG_ADC Register Declaration. " alt="" coords="151,3349,262,3376"/>
+</map>

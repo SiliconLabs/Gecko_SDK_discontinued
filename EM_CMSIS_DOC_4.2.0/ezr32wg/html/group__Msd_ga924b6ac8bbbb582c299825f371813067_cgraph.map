@@ -1,0 +1,14 @@
+<map id="MSDBOT_Xfer" name="MSDBOT_Xfer">
+<area shape="rect" id="node3" href="$group__USB__HOST.html#gab5829c1ebeed8cfd36317dd57c6584c9" title="Read data from device endpoint, blocking version. " alt="" coords="345,350,441,377"/>
+<area shape="rect" id="node23" href="$group__USB__HOST.html#gabf8fcc4a69080f3d1005d1bc21d44218" title="Reset stall state on a stalled (halted) endpoint. " alt="" coords="158,401,279,427"/>
+<area shape="rect" id="node35" href="$group__USB__HOST.html#ga27c7b3b7944f7f1b8e4327dd66fa7ff8" title="Write data to device endpoint, blocking version. " alt="" coords="344,603,443,630"/>
+<area shape="rect" id="node5" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="1048,223,1139,250"/>
+<area shape="rect" id="node7" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="1050,578,1137,605"/>
+<area shape="rect" id="node9" href="$group__USB__HOST.html#ga3514adea6bc6da41b8a083153e3f9365" title="Read data from device endpoint, non&#45;blocking version. " alt="" coords="525,350,614,377"/>
+<area shape="rect" id="node11" href="$group__USB__HOST.html#gaf791f134a36bb5376abaf59c45b84e84" title="Check if a device is connected. " alt="" coords="680,451,837,478"/>
+<area shape="rect" id="node15" href="$group__USB__COMMON.html#gac2a406f16d989b04c4fc5b37d5c10b45" title="Start a timer. " alt="" coords="700,350,817,377"/>
+<area shape="rect" id="node19" href="$group__USB__COMMON.html#gab73c922427cf0d509788a8063451703f" title="Stop a timer. " alt="" coords="885,350,1000,377"/>
+<area shape="rect" id="node25" href="$group__USB__HOST.html#gad94fe14defe6b7e33472364c65f07f17" title="Send a SETUP command to a device, blocking version. " alt="" coords="328,401,459,427"/>
+<area shape="rect" id="node29" href="$group__USB__HOST.html#ga0b43c59fc9d3c91d0039f761ef4d6333" title="Send a SETUP command to a device, non&#45;blocking version. " alt="" coords="507,401,631,427"/>
+<area shape="rect" id="node39" href="$group__USB__HOST.html#ga0c9fcc6a9f2db01206c010330b6e41f6" title="Write data to device endpoint, non&#45;blocking version. " alt="" coords="524,502,615,529"/>
+</map>

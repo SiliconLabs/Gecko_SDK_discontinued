@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$group__USB__DEVICE.html#ga9fb12718f509c578656e4fc08bc40f69" title="Perform a remote wakeup signalling sequence." alt="" coords="235,5,402,32"/>
-<area shape="rect" id="node3" href="$group__USB__HOST.html#gac57479eb6271bc262a6652b50fd122ce" title="Drive reset signalling on the USB port." alt="" coords="257,56,380,83"/>
-<area shape="rect" id="node4" href="$group__USB__HOST.html#gaa2cb3b486c0d628c23cce6a26984580b" title="Drive resume signalling on the USB port." alt="" coords="249,107,389,133"/>
-<area shape="rect" id="node5" href="$group__USB__HOST.html#ga62f99f2ed786c98d00935fc2fd140aaf" title="Wait for device connection." alt="" coords="200,157,437,184"/>
-</map>

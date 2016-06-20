@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$display_8c.html" title="Display interface." alt="" coords="25,155,194,181"/>
-<area shape="rect" id="node6" href="$display_8h.html" title="Display device interface." alt="" coords="330,80,501,107"/>
-<area shape="rect" id="node11" href="$displayls013b7dh03_8c.html" title="Display driver for the Sharp Memory LCD LS013B7DH03." alt="" coords="48,229,289,256"/>
-<area shape="rect" id="node14" href="$retargettextdisplay_8c.html" title="Provide stdio retargeting to text display interface." alt="" coords="484,155,719,181"/>
-<area shape="rect" id="node17" href="$textdisplay_8c.html" title="Provide stdio retargeting to the text display interface." alt="" coords="768,155,958,181"/>
-<area shape="rect" id="node20" href="$displaypalemlib_8c.html" title="Platform Abstraction Layer (PAL) for DISPLAY driver on EMLIB based platforms." alt="" coords="627,80,843,107"/>
-<area shape="rect" id="node9" href="$displaybackend_8h.html" title="Display device backend interface." alt="" coords="243,155,459,181"/>
-</map>

@@ -1,0 +1,38 @@
+var group__EFM32JG1B__ADC =
+[
+    [ "ADC_TypeDef", "structADC__TypeDef.html", [
+      [ "CTRL", "structADC__TypeDef.html#ab4d1f93bdafe7669212ded76243bb7d7", null ],
+      [ "RESERVED0", "structADC__TypeDef.html#a4c092a4bc6cdb755ffee28ae01483bb4", null ],
+      [ "CMD", "structADC__TypeDef.html#a2723a9e936500899aa1eeb07f2486d2f", null ],
+      [ "STATUS", "structADC__TypeDef.html#a48cdef058741bcf443d7c36fe7fdf186", null ],
+      [ "SINGLECTRL", "structADC__TypeDef.html#a8c2115647a07691bfa1ab63c64dd5353", null ],
+      [ "SINGLECTRLX", "structADC__TypeDef.html#a3d3ac53f7bd381206d49e84497c38d80", null ],
+      [ "SCANCTRL", "structADC__TypeDef.html#a2e3ee12b5dd89c904116e74ca0e26d76", null ],
+      [ "SCANCTRLX", "structADC__TypeDef.html#a88a5cb267a409341c3b59ce4cc2c0afe", null ],
+      [ "SCANMASK", "structADC__TypeDef.html#a33a29e0dfbc22a194a3f52b8dddfdec5", null ],
+      [ "SCANINPUTSEL", "structADC__TypeDef.html#a6adef94318863b89ad5872b5c9738837", null ],
+      [ "SCANNEGSEL", "structADC__TypeDef.html#a58103b90fb7d5e2ace5c6293ef71df0f", null ],
+      [ "CMPTHR", "structADC__TypeDef.html#a47c349dab687ebbefa41d230e1219a72", null ],
+      [ "BIASPROG", "structADC__TypeDef.html#a671981aa74db23e9b4d94a3e8391dce3", null ],
+      [ "CAL", "structADC__TypeDef.html#a607f6c577a28392d2da363e1a64886f3", null ],
+      [ "IF", "structADC__TypeDef.html#aafd5aefddba1fd40cf8c1acbfd2ac159", null ],
+      [ "IFS", "structADC__TypeDef.html#a85c18563bb7bc7451aab4b0d2a3d7b71", null ],
+      [ "IFC", "structADC__TypeDef.html#aaab065dd3acdf1c8cd031dc70e3af72f", null ],
+      [ "IEN", "structADC__TypeDef.html#abf96119a91d66e04ea3bcdf5d9ab23d6", null ],
+      [ "SINGLEDATA", "structADC__TypeDef.html#ae9ce94dd939b06105735a9013e247508", null ],
+      [ "SCANDATA", "structADC__TypeDef.html#a4ecb9f146ba5421917928ef7ed2caf2c", null ],
+      [ "SINGLEDATAP", "structADC__TypeDef.html#abf3ae21b40b6a230d2e85fbdf5d49121", null ],
+      [ "SCANDATAP", "structADC__TypeDef.html#a58296297e53f2721d0f8922e6d0166ce", null ],
+      [ "RESERVED1", "structADC__TypeDef.html#ac79d9f875fca628a78432079a616506b", null ],
+      [ "SCANDATAX", "structADC__TypeDef.html#a6231005fe71264befb12851029de151f", null ],
+      [ "SCANDATAXP", "structADC__TypeDef.html#a0dd59748bbe50c87939621fb47bb5768", null ],
+      [ "RESERVED2", "structADC__TypeDef.html#a7492d6891044b2c9902b80dec6253886", null ],
+      [ "APORTREQ", "structADC__TypeDef.html#ab312cec8392c5da876f64b2da2c84c54", null ],
+      [ "APORTCONFLICT", "structADC__TypeDef.html#ac0d7b3cffc590e5b6e742523b7d7b5bf", null ],
+      [ "SINGLEFIFOCOUNT", "structADC__TypeDef.html#a4138e387be28ef890472f4511fbdb00a", null ],
+      [ "SCANFIFOCOUNT", "structADC__TypeDef.html#a7cbedb523f52973567f35d5c7c7c75fb", null ],
+      [ "SINGLEFIFOCLEAR", "structADC__TypeDef.html#a39a0b97081f7b7db53b9f18c240d5661", null ],
+      [ "SCANFIFOCLEAR", "structADC__TypeDef.html#a93ba11ea799031d74f4ab9b3fd984a19", null ],
+      [ "APORTMASTERDIS", "structADC__TypeDef.html#a4a75e9c3c844b71bd916ad1de74f5104", null ]
+    ] ]
+];

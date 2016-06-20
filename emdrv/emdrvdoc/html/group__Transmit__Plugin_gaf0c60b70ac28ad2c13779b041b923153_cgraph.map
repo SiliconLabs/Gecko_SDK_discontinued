@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$group__Transmit__Plugin.html#gaf702a16bfb588bfed9cbc7c639ba650f" title="Start basic transmission." alt="" coords="249,5,421,32"/>
-<area shape="rect" id="node5" href="$group__Transmit__Plugin.html#ga62e3d76389ad50afc7f77002f8750cb8" title="Start transmission using the packet parameters from the generated configuration header..." alt="" coords="232,56,437,83"/>
-<area shape="rect" id="node7" href="$group__Transmit__Plugin.html#ga348cad1485fa0c671d91af6751488ec1" title="Start transmission using the packet parameters from pktLengthConf." alt="" coords="241,107,428,133"/>
-</map>

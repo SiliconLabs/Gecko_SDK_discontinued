@@ -1,0 +1,56 @@
+<map id="Parts" name="Parts">
+<area shape="rect" id="node1" href="$group__EFR32ZG1P__DEVINFO__BitFields.html" title="EFR32ZG1P_DEVINFO_BitFields" alt="" coords="106,5,305,32"/>
+<area shape="rect" id="node2" href="$group__EFR32ZG1P__ACMP.html" title="EFR32ZG1P_ACMP Register Declaration. " alt="" coords="142,56,269,83"/>
+<area shape="rect" id="node3" href="$group__EFR32ZG1P__MSC__BitFields.html" title="EFR32ZG1P_MSC_BitFields" alt="" coords="118,107,293,133"/>
+<area shape="rect" id="node4" href="$group__EFR32ZG1P__RTCC__BitFields.html" title="EFR32ZG1P_RTCC_BitFields" alt="" coords="115,157,295,184"/>
+<area shape="rect" id="node5" href="$group__EFR32ZG1P__RTCC.html" title="EFR32ZG1P_RTCC Register Declaration. " alt="" coords="142,208,269,235"/>
+<area shape="rect" id="node6" href="$group__EFR32ZG1P__LETIMER__BitFields.html" title="EFR32ZG1P_LETIMER_BitFields" alt="" coords="106,259,305,285"/>
+<area shape="rect" id="node7" href="$group__EFR32ZG1P__IDAC__BitFields.html" title="EFR32ZG1P_IDAC_BitFields" alt="" coords="117,309,293,336"/>
+<area shape="rect" id="node8" href="$group__EFR32ZG1P__DEVINFO.html" title="EFR32ZG1P_DEVINFO" alt="" coords="133,360,278,387"/>
+<area shape="rect" id="node9" href="$group__EFR32ZG1P__I2C__BitFields.html" title="EFR32ZG1P_I2C_BitFields" alt="" coords="122,411,289,437"/>
+<area shape="rect" id="node10" href="$group__EFR32ZG1P__LEUART__BitFields.html" title="EFR32ZG1P_LEUART_BitFields" alt="" coords="109,461,302,488"/>
+<area shape="rect" id="node11" href="$group__EFR32ZG1P__USART__BitFields.html" title="EFR32ZG1P_USART_BitFields" alt="" coords="111,512,299,539"/>
+<area shape="rect" id="node12" href="$group__EFR32ZG1P__ROMTABLE.html" title="Chip Information, Revision numbers. " alt="" coords="127,563,284,589"/>
+<area shape="rect" id="node13" href="$group__EFR32ZG1P__EMU__BitFields.html" title="EFR32ZG1P_EMU_BitFields" alt="" coords="119,613,292,640"/>
+<area shape="rect" id="node14" href="$group__EFR32ZG1P__CMU.html" title="EFR32ZG1P_CMU Register Declaration. " alt="" coords="145,664,265,691"/>
+<area shape="rect" id="node15" href="$group__EFR32ZG1P__PCNT.html" title="EFR32ZG1P_PCNT Register Declaration. " alt="" coords="143,715,268,741"/>
+<area shape="rect" id="node16" href="$group__EFR32ZG1P__ADC__BitFields.html" title="EFR32ZG1P_ADC_BitFields" alt="" coords="119,765,291,792"/>
+<area shape="rect" id="node17" href="$group__EFR32ZG1P__WDOG__BitFields.html" title="EFR32ZG1P_WDOG_BitFields" alt="" coords="113,816,298,843"/>
+<area shape="rect" id="node18" href="$group__EFR32ZG1P__PRS__BitFields.html" title="EFR32ZG1P_PRS_BitFields" alt="" coords="120,867,291,893"/>
+<area shape="rect" id="node19" href="$group__EFR32ZG1P__CRYOTIMER.html" title="EFR32ZG1P_CRYOTIMER Register Declaration. " alt="" coords="124,917,287,944"/>
+<area shape="rect" id="node20" href="$group__EFR32ZG1P__CRYPTO__BitFields.html" title="EFR32ZG1P_CRYPTO_BitFields" alt="" coords="108,968,303,995"/>
+<area shape="rect" id="node21" href="$group__EFR32ZG1P__LDMA__BitFields.html" title="EFR32ZG1P_LDMA_BitFields" alt="" coords="115,1019,295,1045"/>
+<area shape="rect" id="node22" href="$group__EFR32ZG1P__RMU.html" title="EFR32ZG1P_RMU Register Declaration. " alt="" coords="145,1069,265,1096"/>
+<area shape="rect" id="node23" href="$group__EFR32ZG1P__CMU__BitFields.html" title="EFR32ZG1P_CMU_BitFields" alt="" coords="118,1120,293,1147"/>
+<area shape="rect" id="node24" href="$group__EFR32ZG1P__TIMER.html" title="EFR32ZG1P_TIMER Register Declaration. " alt="" coords="140,1171,271,1197"/>
+<area shape="rect" id="node25" href="$group__EFR32ZG1P__MSC.html" title="EFR32ZG1P_MSC Register Declaration. " alt="" coords="145,1221,265,1248"/>
+<area shape="rect" id="node26" href="$group__EFR32ZG1P__PRS.html" title="EFR32ZG1P_PRS Register Declaration. " alt="" coords="147,1272,264,1299"/>
+<area shape="rect" id="node27" href="$group__EFR32ZG1P__ADC.html" title="EFR32ZG1P_ADC Register Declaration. " alt="" coords="146,1323,265,1349"/>
+<area shape="rect" id="node28" href="$group__EFR32ZG1P__PRS__Signals.html" title="PRS Signal names. " alt="" coords="123,1373,288,1400"/>
+<area shape="rect" id="node29" href="$group__EFR32ZG1P133F256GM48.html" title="EFR32ZG1P133F256GM48" alt="" coords="121,1424,289,1451"/>
+<area shape="rect" id="node30" href="$group__EFR32ZG1P__LEUART.html" title="EFR32ZG1P_LEUART Register Declaration. " alt="" coords="136,1475,275,1501"/>
+<area shape="rect" id="node31" href="$group__EFR32ZG1P__GPCRC__BitFields.html" title="EFR32ZG1P_GPCRC_BitFields" alt="" coords="112,1525,299,1552"/>
+<area shape="rect" id="node32" href="$group__EFR32ZG1P__GPIO__BitFields.html" title="EFR32ZG1P_GPIO_BitFields" alt="" coords="117,1576,293,1603"/>
+<area shape="rect" id="node33" href="$group__EFR32ZG1P__FPUEH__BitFields.html" title="EFR32ZG1P_FPUEH_BitFields" alt="" coords="113,1627,298,1653"/>
+<area shape="rect" id="node34" href="$group__EFR32ZG1P__CRYPTO.html" title="EFR32ZG1P_CRYPTO Register Declaration. " alt="" coords="135,1677,276,1704"/>
+<area shape="rect" id="node35" href="$group__EFR32ZG1P__LDMA.html" title="EFR32ZG1P_LDMA Register Declaration. " alt="" coords="142,1728,269,1755"/>
+<area shape="rect" id="node36" href="$group__EFR32ZG1P__IDAC.html" title="EFR32ZG1P_IDAC Register Declaration. " alt="" coords="144,1779,267,1805"/>
+<area shape="rect" id="node37" href="$group__EFR32ZG1P__USART.html" title="EFR32ZG1P_USART Register Declaration. " alt="" coords="138,1829,273,1856"/>
+<area shape="rect" id="node38" href="$group__EFR32ZG1P__FPUEH.html" title="EFR32ZG1P_FPUEH Register Declaration. " alt="" coords="140,1880,271,1907"/>
+<area shape="rect" id="node39" href="$group__EFR32ZG1P__PCNT__BitFields.html" title="EFR32ZG1P_PCNT_BitFields" alt="" coords="116,1931,295,1957"/>
+<area shape="rect" id="node40" href="$group__EFR32ZG1P__LETIMER.html" title="EFR32ZG1P_LETIMER Register Declaration. " alt="" coords="133,1981,277,2008"/>
+<area shape="rect" id="node41" href="$group__EFR32ZG1P__ROMTABLE__BitFields.html" title="EFR32ZG1P_ROMTABLE\l_BitFields" alt="" coords="127,2033,284,2074"/>
+<area shape="rect" id="node42" href="$group__EFR32ZG1P__AF__Pins.html" title="EFR32ZG1P_AF_Pins" alt="" coords="136,2099,275,2125"/>
+<area shape="rect" id="node43" href="$group__EFR32ZG1P__AF__Ports.html" title="EFR32ZG1P_AF_Ports" alt="" coords="133,2149,278,2176"/>
+<area shape="rect" id="node44" href="$group__EFR32ZG1P__CRYOTIMER__BitFields.html" title="EFR32ZG1P_CRYOTIMER\l_BitFields" alt="" coords="124,2201,287,2242"/>
+<area shape="rect" id="node45" href="$group__EFR32ZG1P__DMA__DESCRIPTOR.html" title="EFR32ZG1P_DMA_DESCRIPTOR" alt="" coords="104,2267,307,2293"/>
+<area shape="rect" id="node47" href="$group__EFR32ZG1P__EMU.html" title="EFR32ZG1P_EMU Register Declaration. " alt="" coords="146,2317,265,2344"/>
+<area shape="rect" id="node48" href="$group__EFR32ZG1P__ACMP__BitFields.html" title="EFR32ZG1P_ACMP_BitFields" alt="" coords="115,2368,296,2395"/>
+<area shape="rect" id="node49" href="$group__EFR32ZG1P__GPIO.html" title="EFR32ZG1P_GPIO Register Declaration. " alt="" coords="144,2419,267,2445"/>
+<area shape="rect" id="node50" href="$group__EFR32ZG1P__I2C.html" title="EFR32ZG1P_I2C Register Declaration. " alt="" coords="149,2469,262,2496"/>
+<area shape="rect" id="node51" href="$group__EFR32ZG1P__RMU__BitFields.html" title="EFR32ZG1P_RMU_BitFields" alt="" coords="118,2520,293,2547"/>
+<area shape="rect" id="node52" href="$group__EFR32ZG1P__DMAREQ__BitFields.html" title="EFR32ZG1P_DMAREQ_BitFields" alt="" coords="106,2571,305,2597"/>
+<area shape="rect" id="node53" href="$group__EFR32ZG1P__GPCRC.html" title="EFR32ZG1P_GPCRC Register Declaration. " alt="" coords="139,2621,272,2648"/>
+<area shape="rect" id="node54" href="$group__EFR32ZG1P__TIMER__BitFields.html" title="EFR32ZG1P_TIMER_BitFields" alt="" coords="113,2672,298,2699"/>
+<area shape="rect" id="node55" href="$group__EFR32ZG1P__WDOG.html" title="EFR32ZG1P_WDOG Register Declaration. " alt="" coords="140,2723,271,2749"/>
+</map>

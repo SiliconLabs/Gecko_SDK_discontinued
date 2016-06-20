@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file
  * @brief EFM32G_DK3550 TFT address mapped example, drawing random rectangles
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>

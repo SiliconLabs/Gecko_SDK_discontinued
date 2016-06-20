@@ -1,0 +1,4 @@
+<map id="RMU_ResetControl" name="RMU_ResetControl">
+<area shape="rect" id="node3" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="182,5,301,32"/>
+<area shape="rect" id="node5" href="$group__COMMON.html#ga360287cd806ff1d1520498417c41bb6c" title="Count trailing number of zero&#39;s. " alt="" coords="196,56,287,83"/>
+</map>

@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$group__USB__HOST.html#gad94fe14defe6b7e33472364c65f07f17" title="Send a SETUP command to a device, blocking version." alt="" coords="233,31,375,57"/>
-<area shape="rect" id="node3" href="$group__USB__HOST.html#ga0b43c59fc9d3c91d0039f761ef4d6333" title="Send a SETUP command to a device, non&#45;blocking version." alt="" coords="425,31,559,57"/>
-<area shape="rect" id="node4" href="$group__USB__HOST.html#gaf791f134a36bb5376abaf59c45b84e84" title="Check if a device is connected." alt="" coords="608,5,787,32"/>
-<area shape="rect" id="node5" href="$group__USB__COMMON.html#gac2a406f16d989b04c4fc5b37d5c10b45" title="Start a timer." alt="" coords="637,56,758,83"/>
-<area shape="rect" id="node6" href="$group__USB__COMMON.html#gab73c922427cf0d509788a8063451703f" title="Stop a timer." alt="" coords="835,56,955,83"/>
-</map>

@@ -1,0 +1,10 @@
+<map id="EFM32HG322F64" name="EFM32HG322F64">
+<area shape="rect" id="node2" href="$group__EFM32HG322F64__BitFields.html" title="EFM32HG322F64 Bit Fields" alt="" coords="276,5,449,32"/>
+<area shape="rect" id="node3" href="$group__EFM32HG322F64__Peripheral__Base.html" title="EFM32HG322F64 Peripheral\l Memory Map" alt="" coords="273,57,453,98"/>
+<area shape="rect" id="node4" href="$group__EFM32HG322F64__Core.html" title="Processor and Core Peripheral Section. " alt="" coords="288,123,437,149"/>
+<area shape="rect" id="node6" href="$group__EFM32HG322F64__Alternate__Function.html" title="EFM32HG322F64 Alternate\l Function" alt="" coords="275,174,450,215"/>
+<area shape="rect" id="node7" href="$group__EFM32HG322F64__Part.html" title="EFM32HG322F64 Part" alt="" coords="290,240,435,267"/>
+<area shape="rect" id="node8" href="$group__EFM32HG322F64__Peripheral__TypeDefs.html" title="Device Specific Peripheral Register Structures. " alt="" coords="273,291,453,333"/>
+<area shape="rect" id="node9" href="$group__EFM32HG322F64__Peripheral__Declaration.html" title="EFM32HG322F64 Peripheral\l Declarations" alt="" coords="273,357,453,398"/>
+<area shape="rect" id="node5" href="$group__Parts.html" title="Parts" alt="" coords="5,181,56,208"/>
+</map>

@@ -16,6 +16,7 @@
     <include pattern="emlib/em_prs.c" />
     <include pattern="emlib/em_rtcc.c" />
     <include pattern="emlib/em_usart.c" />
+    <include pattern="emlib/em_msc.c" />
   </module>
   <module id="com.silabs.ide.si32.sdk.efm32.v2.common.bsp">
     <exclude pattern=".*" />

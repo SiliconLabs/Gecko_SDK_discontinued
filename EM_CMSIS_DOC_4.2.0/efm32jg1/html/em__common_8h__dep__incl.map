@@ -1,0 +1,10 @@
+<map id="C:/work/s025_sw/emlib/inc/em_common.h" name="C:/work/s025_sw/emlib/inc/em_common.h">
+<area shape="rect" id="node3" href="$em__rmu_8c.html" title="Reset Management Unit (RMU) peripheral module peripheral API. " alt="" coords="5,97,163,138"/>
+<area shape="rect" id="node5" href="$ustimer_8c.html" title="Microsecond delay functions. " alt="" coords="187,97,351,138"/>
+<area shape="rect" id="node7" href="$rtcdriver_8c.html" title="RTCDRV timer API implementation. " alt="" coords="375,97,539,138"/>
+<area shape="rect" id="node9" href="$gpiointerrupt_8c.html" title="GPIOINT API implementation. " alt="" coords="564,97,775,138"/>
+<area shape="rect" id="node11" href="$cdc_8c.html" title="USB Communication Device Class (CDC) driver. " alt="" coords="799,97,953,138"/>
+<area shape="rect" id="node13" href="$hidkbd_8c.html" title="USB Human Interface Devices (HID) class keyboard driver. " alt="" coords="978,97,1149,138"/>
+<area shape="rect" id="node15" href="$ksz8851snl__spi_8c.html" title="SPI interface API for KSZ8851SNL Ethernet controller. " alt="" coords="1174,97,1393,138"/>
+<area shape="rect" id="node17" href="$norflash_8c.html" title="Implements the NORFLASH driver for Spansion S29GL128P90FFIR13. Spansion S29GL128P90FFIR13 is a 16MByt..." alt="" coords="1419,97,1600,138"/>
+</map>

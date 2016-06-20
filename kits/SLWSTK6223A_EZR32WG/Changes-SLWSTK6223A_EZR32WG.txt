@@ -1,4 +1,10 @@
 ================ Revision history ============================================
+4.2.0:
+ - No changes.
+
+4.1.1:
+ - Fixed bug in ezradio_simple_trx and ezradio_trx_ack examples.
+
 4.1.0:
  - Simple TRx example is renamed to EzRadio Simple TRx.
  - EzRadio Simple TRx example now uses the plugin manger of the EzRadio driver.

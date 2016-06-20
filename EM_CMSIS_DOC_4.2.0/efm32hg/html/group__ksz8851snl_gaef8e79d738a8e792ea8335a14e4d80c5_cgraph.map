@@ -1,0 +1,7 @@
+<map id="KSZ8851SNL_SPI_ReadRegister" name="KSZ8851SNL_SPI_ReadRegister">
+<area shape="rect" id="node3" href="$ksz8851snl__spi_8c.html#ab3cd4983675d048afb998f29244de6c0" title="Select/deselect the ksz8851snl chip. This will clear/set the chip select GPIO pin connected to the ks..." alt="" coords="257,31,463,57"/>
+<area shape="rect" id="node12" href="$group__SPIDRV.html#gac897032e6a00ff40e476f1f3dadc55ba" title="Start a SPI master blocking transfer. " alt="" coords="291,81,429,108"/>
+<area shape="rect" id="node5" href="$group__GPIO.html#ga607f3a5f3d881bb145101566f1664aba" title="Set a single pin in GPIO data out port register to 0. " alt="" coords="513,5,637,32"/>
+<area shape="rect" id="node9" href="$group__GPIO.html#gab08f054efbb07aaff57d616974c9c536" title="Set a single pin in GPIO data out register to 1. " alt="" coords="518,56,631,83"/>
+<area shape="rect" id="node7" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="686,31,805,57"/>
+</map>

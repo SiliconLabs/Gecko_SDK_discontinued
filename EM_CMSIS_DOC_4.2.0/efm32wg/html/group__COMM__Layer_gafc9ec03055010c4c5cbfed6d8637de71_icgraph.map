@@ -1,0 +1,7 @@
+<map id="ezradio_comm_ReadData" name="ezradio_comm_ReadData">
+<area shape="rect" id="node3" href="$group__API__Layer.html#ga36440d6a56405dc92ec2b72e1e10292a" title="ezradio_frr_a_read" alt="" coords="226,5,358,32"/>
+<area shape="rect" id="node5" href="$group__API__Layer.html#gaf0cda7a2e6b72419d9c11e2bbcbb652a" title="ezradio_frr_b_read" alt="" coords="226,56,358,83"/>
+<area shape="rect" id="node7" href="$group__API__Layer.html#ga0ee2cc3558bc6e85aea2f4c74dd7023a" title="ezradio_frr_c_read" alt="" coords="227,107,357,133"/>
+<area shape="rect" id="node9" href="$group__API__Layer.html#ga3c6aa8b9c6580a45e53cb4f473e11168" title="ezradio_frr_d_read" alt="" coords="226,157,358,184"/>
+<area shape="rect" id="node11" href="$group__API__Layer.html#ga329c4c3b314e2db479997a6b5bcf2ab0" title="ezradio_read_rx_fifo" alt="" coords="222,208,362,235"/>
+</map>

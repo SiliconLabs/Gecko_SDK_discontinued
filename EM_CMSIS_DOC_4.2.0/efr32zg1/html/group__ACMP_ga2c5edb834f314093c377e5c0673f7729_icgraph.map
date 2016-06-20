@@ -1,0 +1,4 @@
+<map id="ACMP_CapsenseChannelSet" name="ACMP_CapsenseChannelSet">
+<area shape="rect" id="node3" href="$capsense_8c.html#a39680c5b208b4c50c0b00834dddae3c0" title="Start a capsense measurement of a specific channel and waits for it to complete. " alt="" coords="237,5,376,32"/>
+<area shape="rect" id="node5" href="$group__CapSense.html#ga053d58010d19241662916216a0327ad6" title="This function iterates through all the capsensors and reads and initiates a reading. Uses EM1 while waiting for the result from each sensor. " alt="" coords="424,5,549,32"/>
+</map>

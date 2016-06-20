@@ -1,0 +1,51 @@
+<map id="BUS_RegBitWrite" name="BUS_RegBitWrite">
+<area shape="rect" id="node3" href="$group__ACMP.html#gab99c16a966bfa66c081160ec51e0a039" title="Sets up the ACMP for use in capacative sense applications. " alt="" coords="198,107,333,133"/>
+<area shape="rect" id="node9" href="$group__ACMP.html#gad04e5819cd2d6ca5a275e8cc047f9ecf" title="Initialize ACMP. " alt="" coords="225,461,305,488"/>
+<area shape="rect" id="node11" href="$group__ADC.html#ga41207273ca90e4173084233060e0edbb" title="Initialize ADC scan sequence. " alt="" coords="216,512,315,539"/>
+<area shape="rect" id="node13" href="$group__ADC.html#ga76aa8949d51eb1027906f68b0952ea0e" title="Initialize single ADC sample conversion. " alt="" coords="212,157,319,184"/>
+<area shape="rect" id="node19" href="$group__CMU.html#gab0bbce1edee26bdd70234b1017cb1362" title="Configures continuous calibration mode. " alt="" coords="199,563,331,589"/>
+<area shape="rect" id="node21" href="$group__CMU.html#ga7cc316a8dca5436fcc39d57f5e6c412d" title="Set clock divisor/prescaler. " alt="" coords="205,360,326,387"/>
+<area shape="rect" id="node33" href="$group__CMU.html#ga93913d50050d52b38b0a7c7c08ac81e8" title="Enable/disable a clock. " alt="" coords="204,259,327,285"/>
+<area shape="rect" id="node44" href="$group__CMU.html#gae11949f9c2e4033ad63dac48c9a739d3" title="Select reference clock/oscillator used for a clock branch. " alt="" coords="196,309,335,336"/>
+<area shape="rect" id="node51" href="$group__CMU.html#gac0fede38cfa32965cc8ace2b51a14d5b" title="Select PCNTn clock. " alt="" coords="175,664,356,691"/>
+<area shape="rect" id="node53" href="$group__PCNT.html#ga726934d28be99230a6025503fdbaf86d" title="Init pulse counter. " alt="" coords="450,639,529,665"/>
+<area shape="rect" id="node55" href="$group__PCNT.html#gadf14f80981badc92e7a30a43caae130b" title="Reset PCNT to same state as after a HW reset. " alt="" coords="443,703,535,729"/>
+<area shape="rect" id="node57" href="$group__DAC.html#ga3efabd2832fe5862fefd86e02accf2b8" title="Enable/disable DAC channel. " alt="" coords="220,765,311,792"/>
+<area shape="rect" id="node59" href="$group__DAC.html#gae8fd0951c9fd781d120c8d5e4ce7745d" title="Initialize DAC. " alt="" coords="230,816,301,843"/>
+<area shape="rect" id="node61" href="$group__DMA.html#gab119fe5869e7ebcfd29542d05dae2d29" title="Configure a DMA channel. " alt="" coords="205,867,325,893"/>
+<area shape="rect" id="node63" href="$group__EMU.html#ga72910c09de24f4e2f8f170dc06bd8c07" title="Block entering EM2 or higher number energy modes. " alt="" coords="212,917,319,944"/>
+<area shape="rect" id="node65" href="$group__EMU.html#ga9e959a9fd56ac4a2e18877b9b839d795" title="Unblock entering EM2 or higher number energy modes. " alt="" coords="204,968,327,995"/>
+<area shape="rect" id="node67" href="$group__GPIO.html#ga7aa21d660197b3e2f67589db89686bbf" title="Enable/disable serial wire clock pin. " alt="" coords="184,1019,347,1045"/>
+<area shape="rect" id="node69" href="$group__GPIO.html#gaceecf411d11a30e7fa10fc42dd4f612d" title="Enable/disable serial wire data I/O pin. " alt="" coords="186,1069,345,1096"/>
+<area shape="rect" id="node71" href="$group__GPIO.html#ga9c587570c6c2422eb46ac557d9d9e319" title="Enable/Disable serial wire output pin. " alt="" coords="192,1120,339,1147"/>
+<area shape="rect" id="node73" href="$group__GPIO.html#ga42f6d22ce3a60ac994a5f663c18c0785" title="Configure GPIO interrupt. " alt="" coords="211,1171,319,1197"/>
+<area shape="rect" id="node75" href="$group__GPIO.html#ga607f3a5f3d881bb145101566f1664aba" title="Set a single pin in GPIO data out port register to 0. " alt="" coords="203,1221,327,1248"/>
+<area shape="rect" id="node77" href="$group__GPIO.html#gab08f054efbb07aaff57d616974c9c536" title="Set a single pin in GPIO data out register to 1. " alt="" coords="209,1272,322,1299"/>
+<area shape="rect" id="node79" href="$group__I2C.html#gaca1c9ca46d6945a4696f8a34ab8c2ddf" title="Enable/disable I2C. " alt="" coords="222,1323,309,1349"/>
+<area shape="rect" id="node81" href="$group__I2C.html#gab52e0fc0d3690e40f80a193d5b6fdd51" title="Initialize I2C. " alt="" coords="232,1373,299,1400"/>
+<area shape="rect" id="node83" href="$group__LCD.html#ga5c176631920506966de2bd727ef9e944" title="Turn on or clear a segment. " alt="" coords="205,1424,326,1451"/>
+<area shape="rect" id="node85" href="$group__LESENSE.html#ga5e74a058bf6cb6a84b1b207ad7d0abcd" title="Configure the LESENSE alternate excitation modes. " alt="" coords="193,1475,337,1501"/>
+<area shape="rect" id="node87" href="$group__LESENSE.html#ga6aa126a4b073bd48954c8903da1bf47f" title="Configure a single LESENSE sensor channel. " alt="" coords="184,1525,347,1552"/>
+<area shape="rect" id="node89" href="$group__LESENSE.html#ga611f48ec1dcb0e3f6007a5245fcbac7f" title="Enable/disable LESENSE scan channel and the pin assigned to it. " alt="" coords="183,1576,347,1603"/>
+<area shape="rect" id="node91" href="$group__MSC.html#ga5245d3b0940fea9a9c812e95476e9aa1" title="Enable or disable instruction cache flushing when writing to flash. " alt="" coords="173,1627,357,1653"/>
+<area shape="rect" id="node93" href="$group__MSC.html#gae1220a12c62b8709ae553b0a155c0d18" title="Enable or disable instruction cache functionality. " alt="" coords="201,1677,329,1704"/>
+<area shape="rect" id="node95" href="$group__MSC.html#ga474b3f23a041eea03a7f600727d2e41f" title="Enable or disable instruction cache functionality in IRQs. " alt="" coords="188,1728,343,1755"/>
+<area shape="rect" id="node97" href="$group__PCNT.html#gacb21126956add214b4af318f61fd17cd" title="Reset PCNT counters and TOP register. " alt="" coords="197,1779,334,1805"/>
+<area shape="rect" id="node100" href="$group__PCNT.html#ga3398bc56f58cfc86afeedcd4febc5753" title="Enable/disable the selected PRS input of PCNT. " alt="" coords="190,1829,341,1856"/>
+<area shape="rect" id="node103" href="$group__RMU.html#ga1ebc1af03f738faa79b3e87d60a96ff1" title="Clear the reset cause register. " alt="" coords="189,1880,341,1907"/>
+<area shape="rect" id="node105" href="$group__RMU.html#gafad06e5ac32430ed4182d4306d684eb7" title="Disable/enable reset for various peripherals and signal sources. " alt="" coords="201,1931,329,1957"/>
+<area shape="rect" id="node107" href="$group__RTC.html#ga19213bbf2d6cb73d55cec086a98493e6" title="Enable/disable RTC. " alt="" coords="220,411,311,437"/>
+<area shape="rect" id="node110" href="$group__WDOG.html#ga662ed794f642aac8293b7cae09c4b223" title="Enable/disable the watchdog timer. " alt="" coords="213,1981,317,2008"/>
+<area shape="rect" id="node112" href="$group__WDOG.html#ga227aa37d1eab4e7748ecc801c386c7a7" title="Initialize watchdog (assuming the watchdog configuration has not been locked). " alt="" coords="447,2057,531,2084"/>
+<area shape="rect" id="node114" href="$group__WDOG.html#ga26823031e069f4133964156550b64097" title="Lock the watchdog configuration. " alt="" coords="220,2032,311,2059"/>
+<area shape="rect" id="node5" href="$caplesense_8c.html#a78388fdc0a453879163ff3de37c6a6ec" title="Setup the ACMP. " alt="" coords="406,5,573,32"/>
+<area shape="rect" id="node7" href="$group__CapSense.html#ga9cc00a748bf5cab4ca2e987e07b17566" title="Initializes the capacitive sense system. " alt="" coords="435,107,543,133"/>
+<area shape="rect" id="node15" href="$touch_8c.html#a3611206d185a38b740457a748712c457" title="Interrupt handler is executed with frequency ~28Hz when panel is not pressed and with frequency ~140H..." alt="" coords="427,56,552,83"/>
+<area shape="rect" id="node17" href="$group__Touch.html#ga7998398248274366ad0d8cc3abc63f35" title="Initialize touch panel driver. " alt="" coords="445,157,533,184"/>
+<area shape="rect" id="node23" href="$group__RTCDRV.html#ga4419076832c5b4958dea6f1eec0a9bdf" title="Initialize RTCDRV driver. " alt="" coords="442,309,537,336"/>
+<area shape="rect" id="node25" href="$caplesense_8c.html#a2e4ba8079a4db025c71de23fd97211cc" title="Setup the CMU. " alt="" coords="409,360,569,387"/>
+<area shape="rect" id="node27" href="$group__RetargetIo.html#gab455176edfa0f3414d104e5d6d64cc50" title="Intializes UART/LEUART. " alt="" coords="418,411,561,437"/>
+<area shape="rect" id="node29" href="$group__SegmentLcd.html#ga0818c866cead74ab3902753a770eb4c4" title="Segment LCD Initialization routine for EFM32 STK display. " alt="" coords="429,259,549,285"/>
+<area shape="rect" id="node31" href="$group__Udelay.html#ga523f858d15b74728046ceca9796f3046" title="Calibrates the microsecond delay loop. " alt="" coords="427,461,551,488"/>
+<area shape="rect" id="node35" href="$group__DMADRV.html#ga73633db63cfd99ba01a68b05c24094ec" title="Deinitialize DMADRV. " alt="" coords="433,208,545,235"/>
+</map>

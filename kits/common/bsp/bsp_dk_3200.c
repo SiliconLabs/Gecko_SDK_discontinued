@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file
  * @brief Board support package API implementation for BRD3200.
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -24,7 +24,7 @@
 #include "bsp_dk_bcreg_3200.h"
 #include "bsp.h"
 
-#if defined( BSP_DK_3200 )
+#if defined( BSP_DK_BRD3200 )
 /** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 
 /* USART used for SPI access */
@@ -589,4 +589,4 @@ static void SpiRegisterWrite(volatile uint16_t *addr, uint16_t data)
 }
 
 /** @endcond */
-#endif  /* BSP_DK_3200 */
+#endif  /* BSP_DK_BRD3200 */

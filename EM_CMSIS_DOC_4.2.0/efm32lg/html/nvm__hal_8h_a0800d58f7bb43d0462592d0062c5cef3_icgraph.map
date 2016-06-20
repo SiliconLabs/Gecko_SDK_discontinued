@@ -1,0 +1,4 @@
+<map id="NVMHAL_Write" name="NVMHAL_Write">
+<area shape="rect" id="node3" href="$group__NVM.html#ga6cad1505838978506c7d94f9a1472595" title="Erase the entire allocated NVM area. " alt="" coords="163,5,250,32"/>
+<area shape="rect" id="node5" href="$group__NVM.html#gad181be9b434658d3552fb311039ff691" title="Write an object or a page. " alt="" coords="163,56,250,83"/>
+</map>

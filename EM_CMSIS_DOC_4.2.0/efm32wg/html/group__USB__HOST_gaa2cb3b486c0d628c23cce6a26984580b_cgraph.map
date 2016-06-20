@@ -1,0 +1,5 @@
+<map id="USBH_PortResume" name="USBH_PortResume">
+<area shape="rect" id="node3" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="207,5,297,32"/>
+<area shape="rect" id="node5" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="209,56,295,83"/>
+<area shape="rect" id="node7" href="$group__USB__COMMON.html#gabb1c11cad365c7c3b99a3e7826035951" title="Active wait millisecond delay function. Can also be used inside interrupt handlers. " alt="" coords="184,107,320,133"/>
+</map>

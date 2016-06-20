@@ -1,0 +1,4 @@
+<map id="EBI_StopNandEccGen" name="EBI_StopNandEccGen">
+<area shape="rect" id="node3" href="$group__NandFlash.html#gac7c2bddd174fa07c8140b38c7584cc59" title="Read a page from nand device. Ecc errors will be detected and corrected if possible. NANDFLASH_Info_TypeDef::ecc will be set to the ecc generated while reading the page data. NANDFLASH_Info_TypeDef::spare will be set to the content of the page spare area. " alt="" coords="199,5,353,32"/>
+<area shape="rect" id="node5" href="$group__NandFlash.html#ga1414ac5f995f6e37bef82297ff2f51a5" title="Write a page in nand device. The ECC generated while writing the page data is written in the spare ar..." alt="" coords="197,56,355,83"/>
+</map>

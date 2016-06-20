@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$group__NorFlash.html#ga87d58fd1506fb4f2608c640792793ca0" title="Erase a sector in the flash device." alt="" coords="232,5,392,32"/>
-<area shape="rect" id="node5" href="$group__NorFlash.html#ga0598fe2d45292a3c2a78b3d7e80eda96" title="Program the flash device." alt="" coords="689,107,829,133"/>
-<area shape="rect" id="node7" href="$group__NorFlash.html#gaa2c31f523a01ad46e7a4e2ab330fd345" title="Program a word (16bit) in the flash device." alt="" coords="219,132,405,159"/>
-<area shape="rect" id="node10" href="$group__NorFlash.html#gaa0a43df437ca71899ffe7b009d7669c4" title="Program a single byte in the flash device." alt="" coords="465,157,629,184"/>
-<area shape="rect" id="node13" href="$group__NorFlash.html#ga221592efbe3deead0ddf678fff051a52" title="Program a word (32bit) in the flash device." alt="" coords="454,208,639,235"/>
-</map>

@@ -7,9 +7,6 @@
     <folder Name="CMSIS">
       <file file_name="../../../../../Device/SiliconLabs/EFM32G/Source/system_efm32g.c"/>
     </folder>
-    <folder Name="BSP">
-      <file file_name="../../../../common/bsp/bsp_trace.c"/>
-    </folder>
     <folder Name="Drivers">
       <file file_name="../../../../common/drivers/segmentlcd.c"/>
     </folder>
@@ -26,8 +23,13 @@
     <folder Name="emdrv">
       <file file_name="../../../../../emdrv/rtcdrv/src/rtcdriver.c"/>
     </folder>
+    <folder Name="BSP">
+      <file file_name="../../../../common/bsp/bsp_trace.c"/>
+    </folder>
     <folder Name="Source">
-      <file file_name="../emode.c"/>
+      <file file_name="../main.c"/>
+      <file file_name="../lcd_setup.c"/>
+      <file file_name="../g_emodes.c"/>
     </folder>
 
     <folder Name="System Files">
@@ -42,7 +44,7 @@
   <configuration Name="THUMB Flash Release" inherited_configurations="THUMB;Flash;Release"/>
   <configuration Name="THUMB" Platform="ARM" arm_instruction_set="THUMB" arm_library_instruction_set="THUMB" c_preprocessor_definitions="__THUMB" hidden="Yes"/>
   <configuration Name="Flash" c_preprocessor_definitions="__FLASH_BUILD" hidden="Yes"/>
-  <configuration Name="Debug" build_debug_information="Yes" c_additional_options="-Wall;-Wextra;" c_preprocessor_definitions="DEBUG;" gcc_optimization_level="None" hidden="Yes" link_include_startup_code="No"/>
-  <configuration Name="Release" build_debug_information="No" c_additional_options="-Wall;-Wextra;" c_preprocessor_definitions="" gcc_optimization_level="Level 3" hidden="Yes" link_include_startup_code="No"/>
+  <configuration Name="Debug" build_debug_information="Yes" c_additional_options="-Wall;-Wextra;" c_preprocessor_definitions="DEBUG;DEBUG_EFM" gcc_optimization_level="None" hidden="Yes" link_include_startup_code="No"/>
+  <configuration Name="Release" build_debug_information="No" c_additional_options="-Wall;-Wextra;" c_preprocessor_definitions="DEBUG_EFM" gcc_optimization_level="Level 3" hidden="Yes" link_include_startup_code="No"/>
   <configuration Name="Common" linker_printf_enabled="Yes"/>
 </solution>

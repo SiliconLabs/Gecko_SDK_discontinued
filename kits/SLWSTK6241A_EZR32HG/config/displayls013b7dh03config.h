@@ -2,7 +2,7 @@
  * @file displayls013b7dh03config.h
  * @brief SLWSTK6240A_EZR32HG specific configuration for the display driver for
  *        the Sharp Memory LCD model LS013B7DH03.
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>

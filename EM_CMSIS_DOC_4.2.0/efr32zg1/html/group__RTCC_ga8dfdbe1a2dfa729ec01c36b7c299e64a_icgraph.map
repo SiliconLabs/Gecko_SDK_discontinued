@@ -1,0 +1,4 @@
+<map id="RTCC_Enable" name="RTCC_Enable">
+<area shape="rect" id="node3" href="$group__RTCDRV.html#gae82ea6fa74f6bbc161b86a34385d63bf" title="Deinitialize RTCDRV driver. " alt="" coords="159,5,270,32"/>
+<area shape="rect" id="node5" href="$group__Udelay.html#ga523f858d15b74728046ceca9796f3046" title="Calibrates the microsecond delay loop. " alt="" coords="153,56,277,83"/>
+</map>

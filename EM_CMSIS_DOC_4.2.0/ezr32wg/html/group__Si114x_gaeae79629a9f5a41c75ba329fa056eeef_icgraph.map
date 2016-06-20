@@ -1,0 +1,16 @@
+<map id="Si114xReadFromRegister" name="Si114xReadFromRegister">
+<area shape="rect" id="node3" href="$group__Si114x.html#ga05334a8a81ac4224f3fcbb68bd2e0fbe" title="Detects whether Si1147 is on the i2c bus. " alt="" coords="235,5,383,32"/>
+<area shape="rect" id="node5" href="$group__Si114x.html#ga75ef8acc675ca1a1bf14acda4f3c6686" title="Get the enable status of the Si1147 interrupt pin. " alt="" coords="222,107,397,149"/>
+<area shape="rect" id="node7" href="$group__Si114x.html#ga6621d57d8e2dedc1101227b7ad761d0a" title="Reads the UV measurement data and checks for object in proximity to the Si1147. " alt="" coords="445,78,637,119"/>
+<area shape="rect" id="node10" href="$group__Si114x.html#ga350c8e857065a5061a49cd66a1a4b2a4" title="Reads new measurement data and processes a new sample. This function should be called every time an i..." alt="" coords="241,173,377,200"/>
+<area shape="rect" id="node12" href="$group__Si114x.html#gadbec1218d8cc103d4d6c2fc0ec0f6abf" title="Populates the SI114X_CAL_S structure. " alt="" coords="467,224,616,251"/>
+<area shape="rect" id="node18" href="$si114x__uv__index_8h.html#a92a1b86e34e4ed9dd68f51ba170c8e5f" title="Reads the UV index measurement data from the Si114x. " alt="" coords="228,427,391,453"/>
+<area shape="rect" id="node20" href="$group__Si114x.html#ga9966ab23359f5ae0c7e5b8d79a4ef59a" title="Initializes the Si113x/46/47/48 UCOEF Registers. " alt="" coords="481,275,601,301"/>
+<area shape="rect" id="node24" href="$group__Si114x.html#ga81f826b515433015f7096e7b90e2d3b6" title="Reads a Parameter from the Si113x/4x. " alt="" coords="246,477,373,504"/>
+<area shape="rect" id="node26" href="$group__Si114x.html#gafee1fd953ec8559b0b2c53b4d3a7d442" title="Writes a byte to an Si113x/4x Parameter. " alt="" coords="483,376,599,403"/>
+<area shape="rect" id="node32" href="$group__Si114x.html#ga85dcc599c9e3df8a22002f7ef5a3e5d8" title="Pauses autonomous measurements. " alt="" coords="255,325,363,352"/>
+<area shape="rect" id="node14" href="$group__Si114x.html#ga79b0443305d3a085028d1c197d398ede" title="Initializes and configures the Si1147 sensor. " alt="" coords="685,325,861,352"/>
+<area shape="rect" id="node16" href="$si114x__uv__index_8h.html#aee56b411a2cb91ae85cae51c2d4039f7" title="Initializes and configures the Si1146 sensor for UV index measurements. " alt="" coords="704,275,843,301"/>
+<area shape="rect" id="node29" href="$si114x__uv__index_8h.html#a5636599ea7d573fcee234cc8bf4de655" title="Set the VIS_RANGE bit of the optical sensor Si114x. " alt="" coords="694,376,853,403"/>
+<area shape="rect" id="node34" href="$group__Si114x.html#ga88b866258cb278b01da1bcf766cfab57" title="Resets the Si113x/4x, clears any interrupts and initializes the HW_KEY register. " alt="" coords="495,325,587,352"/>
+</map>

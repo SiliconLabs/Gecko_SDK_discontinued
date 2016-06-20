@@ -1,8 +1,0 @@
-base referer
-rect $group__BUS.html#g9e878ccba24fcbf97b5bcb8b53356e76 211,81 381,108
-rect $group__GPIO.html#g39a52563da4bf3105f61a49dc77b79a1 225,132 367,159
-rect $group__ACMP.html#g2c5edb834f314093c377e5c0673f7729 429,5 643,32
-rect $group__ACMP.html#g7a312099dc46377af2714277236716d3 465,56 607,83
-rect $group__ADC.html#g3d5a968fbc40b29ebc05f17b311f2eb9 495,107 577,133
-rect $group__USART.html#g5b96146f7c05f78d31bd77aacd4a3b5f 441,157 631,184
-rect $group__USART.html#gab6053ba081f6fabce6762fb4563fb28 691,157 818,184

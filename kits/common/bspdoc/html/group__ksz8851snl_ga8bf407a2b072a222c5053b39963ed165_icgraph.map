@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$group__ksz8851snl.html#ga62488dd5f992f4a6965e0fb0a0cf1134" title="Transmit a chunk of data to the ethernet controller." alt="" coords="248,5,400,32"/>
-<area shape="rect" id="node5" href="$group__ksz8851snl.html#ga31c3be356bee9c4f14f9e5255c87c21c" title="Prepares for a transmission of an ethernet frame over the network." alt="" coords="233,56,415,83"/>
-<area shape="rect" id="node7" href="$group__ksz8851snl.html#ga4e4ea2904a2346dbe35d1ecffb3aa8ca" title="Ends a transmission of an ethernet frame to the ethernet controller." alt="" coords="237,107,411,133"/>
-</map>

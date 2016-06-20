@@ -1,4 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$group__TempSensor.html#gae77973607cb0dc33faaed18274885717" title="Read sensor register content." alt="" coords="241,5,399,32"/>
-<area shape="rect" id="node5" href="$group__I2CSPM.html#ga076766b20012fb6a0cdaaf0f2c760795" title="Perform I2C transfer." alt="" coords="448,5,571,32"/>
-</map>

@@ -1,0 +1,4 @@
+<map id="EBI_TFTSizeSet" name="EBI_TFTSizeSet">
+<area shape="rect" id="node3" href="$group__EBI.html#ga897172023b4e5acc58c3bb5afb9e4195" title="Configure and initialize TFT Direct Drive. " alt="" coords="168,5,256,32"/>
+<area shape="rect" id="node5" href="$group__Tft.html#gafae3e95323a15ac1b4b6ed6fa3c13e9b" title="TFT initialize or reinitialize Assumes EBI has been configured correctly in BSP_Init(BSP_INIT_DK_EBI)..." alt="" coords="305,5,407,32"/>
+</map>

@@ -44,6 +44,9 @@
 									<listOptionValue builtIn="false" value="../../../../../../common/drivers"/>
 									<listOptionValue builtIn="false" value="../../../../../../common/bsp"/>
 									<listOptionValue builtIn="false" value="../../../../../config"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/common/inc"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/rtcdrv/inc"/>
+									<listOptionValue builtIn="false" value="../../.."/>
 								</option>
 								<option id="com.atollic.truestudio.common_options.target.endianess.736446150" name="Endianess" superClass="com.atollic.truestudio.common_options.target.endianess" value="com.atollic.truestudio.common_options.target.endianess.little" valueType="enumerated"/>
 								<option id="com.atollic.truestudio.common_options.target.mcpu.1007589283" name="Microcontroller" superClass="com.atollic.truestudio.common_options.target.mcpu" value="EFM32WG990F256" valueType="enumerated"/>
@@ -89,6 +92,9 @@
 									<listOptionValue builtIn="false" value="../../../../../../common/drivers"/>
 									<listOptionValue builtIn="false" value="../../../../../../common/bsp"/>
 									<listOptionValue builtIn="false" value="../../../../../config"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/common/inc"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/rtcdrv/inc"/>
+									<listOptionValue builtIn="false" value="../../.."/>
 								</option>
 								<option id="com.atollic.truestudio.common_options.target.endianess.539549121" name="Endianess" superClass="com.atollic.truestudio.common_options.target.endianess" value="com.atollic.truestudio.common_options.target.endianess.little" valueType="enumerated"/>
 								<option id="com.atollic.truestudio.common_options.target.mcpu.72212996" name="Microcontroller" superClass="com.atollic.truestudio.common_options.target.mcpu" value="EFM32WG990F256" valueType="enumerated"/>
@@ -154,6 +160,9 @@
 									<listOptionValue builtIn="false" value="../../../../../../common/drivers"/>
 									<listOptionValue builtIn="false" value="../../../../../../common/bsp"/>
 									<listOptionValue builtIn="false" value="../../../../../config"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/common/inc"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/rtcdrv/inc"/>
+									<listOptionValue builtIn="false" value="../../.."/>
 								</option>
 								<option id="com.atollic.truestudio.common_options.target.instr_set.970415489" superClass="com.atollic.truestudio.common_options.target.instr_set" value="com.atollic.truestudio.common_options.target.instr_set.thumb2" valueType="enumerated"/>
 								<option id="com.atollic.truestudio.common_options.target.fpu.773966043" superClass="com.atollic.truestudio.common_options.target.fpu" value="com.atollic.truestudio.common_options.target.fpu.softfp" valueType="enumerated"/>
@@ -175,6 +184,9 @@
 									<listOptionValue builtIn="false" value="../../../../../../common/drivers"/>
 									<listOptionValue builtIn="false" value="../../../../../../common/bsp"/>
 									<listOptionValue builtIn="false" value="../../../../../config"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/common/inc"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/rtcdrv/inc"/>
+									<listOptionValue builtIn="false" value="../../.."/>
 								</option>
 								<option id="com.atollic.truestudio.common_options.target.instr_set.1216948468" superClass="com.atollic.truestudio.common_options.target.instr_set" value="com.atollic.truestudio.common_options.target.instr_set.thumb2" valueType="enumerated"/>
 								<option id="com.atollic.truestudio.exe.release.toolchain.gcc.debug.info.855561908" name="Debug Level" superClass="com.atollic.truestudio.exe.release.toolchain.gcc.debug.info" value="com.atollic.truestudio.gcc.debug.info.0" valueType="enumerated"/>

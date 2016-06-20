@@ -1,0 +1,20 @@
+<map id="USBH_WaitForDeviceConnectionB" name="USBH_WaitForDeviceConnectionB">
+<area shape="rect" id="node3" href="$group__GPIO.html#gac1050d30b940c30899c63aa060fa4dba" title="Read the pad value for a single pin in a GPIO port. " alt="" coords="305,5,409,32"/>
+<area shape="rect" id="node7" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="1488,487,1579,513"/>
+<area shape="rect" id="node9" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="1490,233,1577,260"/>
+<area shape="rect" id="node11" href="$group__USB__HOST.html#gaf791f134a36bb5376abaf59c45b84e84" title="Check if a device is connected. " alt="" coords="1017,107,1175,133"/>
+<area shape="rect" id="node13" href="$group__USB__HOST.html#ga2656404a391e6894b03dde7d42d11f4f" title="Read a device descriptor from a device. " alt="" coords="267,347,448,373"/>
+<area shape="rect" id="node28" href="$group__USB__COMMON.html#gab73c922427cf0d509788a8063451703f" title="Stop a timer. " alt="" coords="1291,360,1405,387"/>
+<area shape="rect" id="node32" href="$group__USB__HOST.html#gad011363a4aa7f78c702a361bcebe67fb" title="Get the bus speed of the device attached to the USB port. " alt="" coords="288,512,427,539"/>
+<area shape="rect" id="node34" href="$group__USB__HOST.html#ga50dc10ac598c6c8479319ff58c186266" title="Populate device and endpoint data structures with data retrieved during device enumeration. " alt="" coords="287,664,428,691"/>
+<area shape="rect" id="node45" href="$group__USB__HOST.html#ga154c6b268f2d39d4e1577f917e0da239" title="Stop USB host operation. " alt="" coords="1053,461,1139,488"/>
+<area shape="rect" id="node50" href="$group__USB__COMMON.html#gabb1c11cad365c7c3b99a3e7826035951" title="Active wait millisecond delay function. Can also be used inside interrupt handlers. " alt="" coords="289,715,425,741"/>
+<area shape="rect" id="node5" href="$group__BUS.html#gaca6b55014161f4c51c9daf4f707eeb7c" title="Perform a single&#45;bit read operation on a peripheral register. " alt="" coords="535,5,652,32"/>
+<area shape="rect" id="node15" href="$group__USB__HOST.html#gad94fe14defe6b7e33472364c65f07f17" title="Send a SETUP command to a device, blocking version. " alt="" coords="528,335,659,361"/>
+<area shape="rect" id="node19" href="$group__USB__HOST.html#ga0b43c59fc9d3c91d0039f761ef4d6333" title="Send a SETUP command to a device, non&#45;blocking version. " alt="" coords="775,309,899,336"/>
+<area shape="rect" id="node24" href="$group__USB__COMMON.html#gac2a406f16d989b04c4fc5b37d5c10b45" title="Start a timer. " alt="" coords="1037,309,1155,336"/>
+<area shape="rect" id="node36" href="$group__USB__HOST.html#gabd04b4b1ea26459d6db42aa77b6d592d" title="Return a pointer to an interface descriptor. " alt="" coords="739,689,936,716"/>
+<area shape="rect" id="node42" href="$group__USB__HOST.html#ga10e6eb1a2e9802af4ec16254e3d44783" title="Return a pointer to an endpoint descriptor. " alt="" coords="496,664,691,691"/>
+<area shape="rect" id="node38" href="$group__USB__HOST.html#ga2ac91d938f8553e31913afdb8d8d80dc" title="Return a pointer to a configuration descriptor. " alt="" coords="985,689,1207,716"/>
+<area shape="rect" id="node40" href="$group__USB__HOST.html#ga4d6a8d78ebde4e394bb25aa62a871b30" title="Return a pointer to the device descriptor. " alt="" coords="1257,689,1439,716"/>
+</map>

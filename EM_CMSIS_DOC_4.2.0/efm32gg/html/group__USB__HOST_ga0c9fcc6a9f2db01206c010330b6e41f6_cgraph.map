@@ -1,0 +1,7 @@
+<map id="USBH_Write" name="USBH_Write">
+<area shape="rect" id="node3" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="512,5,603,32"/>
+<area shape="rect" id="node5" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="514,107,601,133"/>
+<area shape="rect" id="node7" href="$group__USB__HOST.html#gaf791f134a36bb5376abaf59c45b84e84" title="Check if a device is connected. " alt="" coords="144,107,301,133"/>
+<area shape="rect" id="node9" href="$group__USB__COMMON.html#gac2a406f16d989b04c4fc5b37d5c10b45" title="Start a timer. " alt="" coords="164,56,281,83"/>
+<area shape="rect" id="node13" href="$group__USB__COMMON.html#gab73c922427cf0d509788a8063451703f" title="Stop a timer. " alt="" coords="349,56,464,83"/>
+</map>

@@ -18,4 +18,4 @@ for the latest releases. If you download and install the
 Simplicity Studio application, you will be notified about updates when
 available.
 
-(C) Copyright Silicon Labs, 2015
+Copyright 2015 Silicon Laboratories, Inc.

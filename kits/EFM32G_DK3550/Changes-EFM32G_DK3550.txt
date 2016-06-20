@@ -1,4 +1,11 @@
 ================ Revision history ============================================
+4.2.0:
+- No changes.
+
+4.1.1:
+- Fixed bug in fatcon example, avoid endless console printf output on
+  NULL string.
+
 4.1.0:
 - No changes.
 

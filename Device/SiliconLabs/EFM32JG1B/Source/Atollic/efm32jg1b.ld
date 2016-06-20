@@ -10,7 +10,7 @@
 **
 **  Target      : Silicon Labs EFM32JG1B devices.
 **
-**  Version     : 4.1.0
+**  Version     : 4.2.0
 **
 **  Environment : Atollic TrueSTUDIO(R)
 **

@@ -1,0 +1,19 @@
+<map id="SPI_TFT_Init" name="SPI_TFT_Init">
+<area shape="rect" id="node3" href="$group__CMU.html#ga93913d50050d52b38b0a7c7c08ac81e8" title="Enable/disable a clock. " alt="" coords="345,157,468,184"/>
+<area shape="rect" id="node20" href="$group__GPIO.html#gab6751992334a136efe8750a1d01a850d" title="Set the mode for a GPIO pin. " alt="" coords="150,81,274,108"/>
+<area shape="rect" id="node34" href="$group__USART.html#gaab6053ba081f6fabce6762fb4563fb28" title="Init USART for synchronous mode. " alt="" coords="155,208,269,235"/>
+<area shape="rect" id="node40" href="$group__USART.html#ga4769e1b5d573d6cecc95ca0c7d8e2da2" title="Reset USART/UART to same state as after a HW reset. " alt="" coords="356,259,457,285"/>
+<area shape="rect" id="node5" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="554,56,673,83"/>
+<area shape="rect" id="node7" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="548,208,679,235"/>
+<area shape="rect" id="node9" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="752,259,867,285"/>
+<area shape="rect" id="node11" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="752,309,867,336"/>
+<area shape="rect" id="node13" href="$system__efm32gg_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="739,208,879,235"/>
+<area shape="rect" id="node15" href="$system__efm32gg_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="931,183,1059,209"/>
+<area shape="rect" id="node17" href="$system__efm32gg_8c.html#a442d0fcb831f601f02d643a64ab80f4c" title="GetProdRev" alt="" coords="1107,183,1195,209"/>
+<area shape="rect" id="node22" href="$group__BUS.html#ga9e878ccba24fcbf97b5bcb8b53356e76" title="Perform peripheral register masked clear and value write. " alt="" coords="539,107,687,133"/>
+<area shape="rect" id="node28" href="$group__GPIO.html#ga607f3a5f3d881bb145101566f1664aba" title="Set a single pin in GPIO data out port register to 0. " alt="" coords="345,5,469,32"/>
+<area shape="rect" id="node31" href="$group__GPIO.html#gab08f054efbb07aaff57d616974c9c536" title="Set a single pin in GPIO data out register to 1. " alt="" coords="350,56,463,83"/>
+<area shape="rect" id="node24" href="$group__BUS.html#gad226bfe478c81d51681539d935241758" title="Perform a masked clear operation on peripheral register address. " alt="" coords="736,56,883,83"/>
+<area shape="rect" id="node26" href="$group__BUS.html#ga8225a5d4acac280abb182dc118e8df77" title="Perform a masked set operation on peripheral register address. " alt="" coords="741,107,877,133"/>
+<area shape="rect" id="node36" href="$group__USART.html#ga5b96146f7c05f78d31bd77aacd4a3b5f" title="Configure USART operating in synchronous mode to use a given baudrate (or as close as possible to spe..." alt="" coords="323,208,490,235"/>
+</map>

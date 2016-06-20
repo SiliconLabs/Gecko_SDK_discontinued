@@ -1,0 +1,51 @@
+<map id="C:/work/s025_sw/Device/SiliconLabs/EFM32WG/Include/efm32wg995f256.h" name="C:/work/s025_sw/Device/SiliconLabs/EFM32WG/Include/efm32wg995f256.h">
+<area shape="rect" id="node3" href="$em__device_8h.html" title="CMSIS Cortex&#45;M Peripheral Access Layer for Silicon Laboratories microcontroller devices. " alt="" coords="2474,109,2672,165"/>
+<area shape="rect" id="node5" href="$system__efm32wg_8c.html" title="CMSIS Cortex&#45;M4 System Layer for EFM32WG devices. " alt="" coords="5,221,203,277"/>
+<area shape="rect" id="node7" href="$em__acmp_8h.html" title="Analog Comparator (ACMP) peripheral API. " alt="" coords="227,229,385,270"/>
+<area shape="rect" id="node9" href="$em__adc_8h.html" title="Analog to Digital Converter (ADC) peripheral API. " alt="" coords="410,229,568,270"/>
+<area shape="rect" id="node11" href="$em__aes_8h.html" title="Advanced encryption standard (AES) accelerator peripheral API. " alt="" coords="593,229,751,270"/>
+<area shape="rect" id="node13" href="$em__bus_8h.html" title="RAM and peripheral bit&#45;field set and clear API. " alt="" coords="1131,229,1289,270"/>
+<area shape="rect" id="node15" href="$em__burtc_8h.html" title="Backup Real Time Counter (BURTC) peripheral API. " alt="" coords="831,334,989,375"/>
+<area shape="rect" id="node17" href="$em__cmu_8h.html" title="Clock management unit (CMU) API. " alt="" coords="1014,334,1172,375"/>
+<area shape="rect" id="node19" href="$ustimer_8c.html" title="Microsecond delay functions. " alt="" coords="405,425,568,466"/>
+<area shape="rect" id="node21" href="$spidrv_8h.html" title="SPIDRV API definition. " alt="" coords="1677,425,1840,466"/>
+<area shape="rect" id="node23" href="$em__cryotimer_8h.html" title="Ultra Low Energy Timer/Counter (CRYOTIMER) peripheral API. " alt="" coords="1197,334,1355,375"/>
+<area shape="rect" id="node25" href="$em__emu_8h.html" title="Energy management unit (EMU) peripheral API. " alt="" coords="649,334,807,375"/>
+<area shape="rect" id="node28" href="$em__gpio_8h.html" title="General Purpose IO (GPIO) peripheral API. " alt="" coords="1379,334,1537,375"/>
+<area shape="rect" id="node30" href="$em__msc_8h.html" title="Flash controller module (MSC) peripheral API. " alt="" coords="1562,334,1720,375"/>
+<area shape="rect" id="node33" href="$em__chip_8h.html" title="Chip Initialization API. " alt="" coords="1985,334,2143,375"/>
+<area shape="rect" id="node35" href="$em__system_8h.html" title="System API. " alt="" coords="1803,229,1961,270"/>
+<area shape="rect" id="node39" href="$em__common_8h.html" title="Emlib general purpose utilities. " alt="" coords="466,334,624,375"/>
+<area shape="rect" id="node42" href="$em__crc_8h.html" title="Cyclic Redundancy Check (CRC) API. " alt="" coords="1986,229,2144,270"/>
+<area shape="rect" id="node45" href="$em__crypto_8h.html" title="Cryptography accelerator peripheral API. " alt="" coords="2169,229,2327,270"/>
+<area shape="rect" id="node47" href="$em__dac_8h.html" title="Digital to Analog Converter (DAC) peripheral API. " alt="" coords="2403,229,2561,270"/>
+<area shape="rect" id="node49" href="$em__opamp_8h.html" title="Operational Amplifier (OPAMP) peripheral API. " alt="" coords="2345,334,2503,375"/>
+<area shape="rect" id="node51" href="$em__dbg_8h.html" title="Debug (DBG) API. " alt="" coords="2586,229,2744,270"/>
+<area shape="rect" id="node53" href="$em__dma_8h.html" title="Direct memory access (DMA) API. " alt="" coords="1569,229,1727,270"/>
+<area shape="rect" id="node55" href="$dmadrv_8h.html" title="DMADRV API definition. " alt="" coords="1797,334,1960,375"/>
+<area shape="rect" id="node58" href="$em__ebi_8h.html" title="External Bus Iterface (EBI) peripheral API. " alt="" coords="2769,229,2927,270"/>
+<area shape="rect" id="node62" href="$em__i2c_8h.html" title="Inter&#45;intergrated circuit (I2C) peripheral API. " alt="" coords="2951,229,3109,270"/>
+<area shape="rect" id="node64" href="$em__idac_8h.html" title="Current Digital to Analog Converter (IDAC) peripheral API. " alt="" coords="3134,229,3292,270"/>
+<area shape="rect" id="node66" href="$em__int_8h.html" title="Interrupt enable/disable unit API. " alt="" coords="49,334,207,375"/>
+<area shape="rect" id="node69" href="$em__lcd_8h.html" title="Liquid Crystal Display (LCD) peripheral API. " alt="" coords="3317,229,3475,270"/>
+<area shape="rect" id="node71" href="$em__ldma_8h.html" title="Direct memory access (LDMA) API. " alt="" coords="3499,229,3657,270"/>
+<area shape="rect" id="node73" href="$em__lesense_8h.html" title="Low Energy Sensor (LESENSE) peripheral API. " alt="" coords="3682,229,3840,270"/>
+<area shape="rect" id="node75" href="$em__letimer_8h.html" title="Low Energy Timer (LETIMER) peripheral API. " alt="" coords="3865,229,4023,270"/>
+<area shape="rect" id="node77" href="$em__leuart_8h.html" title="Low Energy Universal Asynchronous Receiver/Transmitter (LEUART) peripheral API. " alt="" coords="4047,229,4205,270"/>
+<area shape="rect" id="node79" href="$em__mpu_8h.html" title="Memory protection unit (MPU) peripheral API. " alt="" coords="4230,229,4388,270"/>
+<area shape="rect" id="node83" href="$em__part_8h.html" title="Verify that part specific main header files are supported and included. " alt="" coords="4413,229,4571,270"/>
+<area shape="rect" id="node85" href="$em__pcnt_8h.html" title="Pulse Counter (PCNT) peripheral API. " alt="" coords="4595,229,4753,270"/>
+<area shape="rect" id="node87" href="$em__prs_8h.html" title="Peripheral Reflex System (PRS) peripheral API. " alt="" coords="4778,229,4936,270"/>
+<area shape="rect" id="node89" href="$em__rmu_8h.html" title="Reset Management Unit (RMU) peripheral API. " alt="" coords="4961,229,5119,270"/>
+<area shape="rect" id="node91" href="$em__rtc_8h.html" title="Real Time Counter (RTC) peripheral API. " alt="" coords="5143,229,5301,270"/>
+<area shape="rect" id="node93" href="$em__rtcc_8h.html" title="Real Time Counter (RTCC) peripheral API. " alt="" coords="5326,229,5484,270"/>
+<area shape="rect" id="node95" href="$em__timer_8h.html" title="Timer/counter (TIMER) peripheral API. " alt="" coords="231,334,389,375"/>
+<area shape="rect" id="node98" href="$em__usart_8h.html" title="Universal synchronous/asynchronous receiver/transmitter (USART/UART) peripheral API. " alt="" coords="5509,229,5667,270"/>
+<area shape="rect" id="node100" href="$em__vcmp_8h.html" title="Voltage Comparator (VCMP) peripheral API. " alt="" coords="5691,229,5849,270"/>
+<area shape="rect" id="node102" href="$em__version_8h.html" title="Assign correct part number for include file. " alt="" coords="5874,229,6032,270"/>
+<area shape="rect" id="node104" href="$em__wdog_8h.html" title="Watchdog (WDOG) peripheral API. " alt="" coords="6057,229,6215,270"/>
+<area shape="rect" id="node106" href="$em__crypto_8c.html" title="Cryptography accelerator peripheral API. " alt="" coords="6239,229,6397,270"/>
+<area shape="rect" id="node111" href="$ezradio__auto__ack__plugin_8c.html" title="EzRadio auto acknowledge plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="6423,221,6601,277"/>
+<area shape="rect" id="node113" href="$ezradio__crcerror__plugin_8c.html" title="EzRadio CRC error plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="6625,221,6799,277"/>
+<area shape="rect" id="node115" href="$ezradio__direct__receive__plugin_8c.html" title="EzRadio direct reception plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="6823,214,6987,285"/>
+</map>

@@ -1,0 +1,46 @@
+<map id="C:/work/s025_sw/emdrv/nvm/src/nvm_hal.c" name="C:/work/s025_sw/emdrv/nvm/src/nvm_hal.c">
+<area shape="rect" id="node5" href="$em__msc_8h.html" title="Flash controller module (MSC) peripheral API. " alt="" coords="439,96,519,123"/>
+<area shape="rect" id="node94" href="$nvm_8h.html" title="Non&#45;Volatile Memory Wear&#45;Leveling driver API. " alt="" coords="195,96,251,123"/>
+<area shape="rect" id="node99" href="$nvm__hal_8h.html" title="Non&#45;Volatile Memory Wear&#45;Leveling driver HAL. " alt="" coords="259,171,339,197"/>
+<area shape="rect" id="node7" href="$em__device_8h.html" title="CMSIS Cortex&#45;M Peripheral Access Layer for Silicon Laboratories microcontroller devices. " alt="" coords="432,245,526,272"/>
+<area shape="rect" id="node91" href="$em__bus_8h.html" title="RAM and peripheral bit&#45;field set and clear API. " alt="" coords="517,171,595,197"/>
+<area shape="rect" id="node9" href="$efr32zg1p133f256gm48_8h.html" title="CMSIS Cortex&#45;M Peripheral Access Layer Header File for EFR32ZG1P133F256GM48. " alt="" coords="2970,320,3138,347"/>
+<area shape="rect" id="node13" href="$system__efr32zg1p_8h.html" title="CMSIS Cortex&#45;M3/M4 System Layer for EFR32 devices. " alt="" coords="6004,395,6141,421"/>
+<area shape="rect" id="node17" href="$efr32zg1p__msc_8h.html" title="EFR32ZG1P_MSC register and bit field definitions. " alt="" coords="5859,395,5979,421"/>
+<area shape="rect" id="node19" href="$efr32zg1p__emu_8h.html" title="EFR32ZG1P_EMU register and bit field definitions. " alt="" coords="207,395,330,421"/>
+<area shape="rect" id="node21" href="$efr32zg1p__rmu_8h.html" title="EFR32ZG1P_RMU register and bit field definitions. " alt="" coords="354,395,474,421"/>
+<area shape="rect" id="node23" href="$efr32zg1p__cmu_8h.html" title="EFR32ZG1P_CMU register and bit field definitions. " alt="" coords="499,395,619,421"/>
+<area shape="rect" id="node25" href="$efr32zg1p__crypto_8h.html" title="EFR32ZG1P_CRYPTO register and bit field definitions. " alt="" coords="644,395,775,421"/>
+<area shape="rect" id="node27" href="$efr32zg1p__gpio__p_8h.html" title="EFR32ZG1P_GPIO_P register and bit field definitions. " alt="" coords="800,395,934,421"/>
+<area shape="rect" id="node29" href="$efr32zg1p__gpio_8h.html" title="EFR32ZG1P_GPIO register and bit field definitions. " alt="" coords="959,395,1079,421"/>
+<area shape="rect" id="node31" href="$efr32zg1p__prs__ch_8h.html" title="EFR32ZG1P_PRS_CH register and bit field definitions. " alt="" coords="1104,395,1238,421"/>
+<area shape="rect" id="node33" href="$efr32zg1p__prs_8h.html" title="EFR32ZG1P_PRS register and bit field definitions. " alt="" coords="1263,395,1378,421"/>
+<area shape="rect" id="node35" href="$efr32zg1p__ldma__ch_8h.html" title="EFR32ZG1P_LDMA_CH register and bit field definitions. " alt="" coords="1403,395,1547,421"/>
+<area shape="rect" id="node37" href="$efr32zg1p__ldma_8h.html" title="EFR32ZG1P_LDMA register and bit field definitions. " alt="" coords="1573,395,1698,421"/>
+<area shape="rect" id="node39" href="$efr32zg1p__fpueh_8h.html" title="EFR32ZG1P_FPUEH register and bit field definitions. " alt="" coords="1723,395,1851,421"/>
+<area shape="rect" id="node41" href="$efr32zg1p__gpcrc_8h.html" title="EFR32ZG1P_GPCRC register and bit field definitions. " alt="" coords="1877,395,2005,421"/>
+<area shape="rect" id="node43" href="$efr32zg1p__timer__cc_8h.html" title="EFR32ZG1P_TIMER_CC register and bit field definitions. " alt="" coords="2029,395,2175,421"/>
+<area shape="rect" id="node45" href="$efr32zg1p__timer_8h.html" title="EFR32ZG1P_TIMER register and bit field definitions. " alt="" coords="2200,395,2326,421"/>
+<area shape="rect" id="node47" href="$efr32zg1p__usart_8h.html" title="EFR32ZG1P_USART register and bit field definitions. " alt="" coords="2351,395,2477,421"/>
+<area shape="rect" id="node49" href="$efr32zg1p__leuart_8h.html" title="EFR32ZG1P_LEUART register and bit field definitions. " alt="" coords="2502,395,2633,421"/>
+<area shape="rect" id="node51" href="$efr32zg1p__letimer_8h.html" title="EFR32ZG1P_LETIMER register and bit field definitions. " alt="" coords="2657,395,2794,421"/>
+<area shape="rect" id="node53" href="$efr32zg1p__cryotimer_8h.html" title="EFR32ZG1P_CRYOTIMER register and bit field definitions. " alt="" coords="2819,395,2969,421"/>
+<area shape="rect" id="node55" href="$efr32zg1p__pcnt_8h.html" title="EFR32ZG1P_PCNT register and bit field definitions. " alt="" coords="2993,395,3114,421"/>
+<area shape="rect" id="node57" href="$efr32zg1p__i2c_8h.html" title="EFR32ZG1P_I2C register and bit field definitions. " alt="" coords="3139,395,3251,421"/>
+<area shape="rect" id="node59" href="$efr32zg1p__adc_8h.html" title="EFR32ZG1P_ADC register and bit field definitions. " alt="" coords="3277,395,3394,421"/>
+<area shape="rect" id="node61" href="$efr32zg1p__acmp_8h.html" title="EFR32ZG1P_ACMP register and bit field definitions. " alt="" coords="3418,395,3546,421"/>
+<area shape="rect" id="node63" href="$efr32zg1p__idac_8h.html" title="EFR32ZG1P_IDAC register and bit field definitions. " alt="" coords="3570,395,3690,421"/>
+<area shape="rect" id="node65" href="$efr32zg1p__rtcc__cc_8h.html" title="EFR32ZG1P_RTCC_CC register and bit field definitions. " alt="" coords="3715,395,3851,421"/>
+<area shape="rect" id="node67" href="$efr32zg1p__rtcc__ret_8h.html" title="EFR32ZG1P_RTCC_RET register and bit field definitions. " alt="" coords="3877,395,4018,421"/>
+<area shape="rect" id="node69" href="$efr32zg1p__rtcc_8h.html" title="EFR32ZG1P_RTCC register and bit field definitions. " alt="" coords="4043,395,4161,421"/>
+<area shape="rect" id="node71" href="$efr32zg1p__wdog__pch_8h.html" title="EFR32ZG1P_WDOG_PCH register and bit field definitions. " alt="" coords="4186,395,4341,421"/>
+<area shape="rect" id="node73" href="$efr32zg1p__wdog_8h.html" title="EFR32ZG1P_WDOG register and bit field definitions. " alt="" coords="4365,395,4493,421"/>
+<area shape="rect" id="node75" href="$efr32zg1p__dma__descriptor_8h.html" title="EFR32ZG1P_DMA_DESCRIPTOR register and bit field definitions. " alt="" coords="4517,395,4703,421"/>
+<area shape="rect" id="node77" href="$efr32zg1p__devinfo_8h.html" title="EFR32ZG1P_DEVINFO register and bit field definitions. " alt="" coords="4727,395,4866,421"/>
+<area shape="rect" id="node79" href="$efr32zg1p__romtable_8h.html" title="EFR32ZG1P_ROMTABLE register and bit field definitions. " alt="" coords="4891,395,5038,421"/>
+<area shape="rect" id="node81" href="$efr32zg1p__prs__signals_8h.html" title="EFR32ZG1P_PRS_SIGNALS register and bit field definitions. " alt="" coords="5063,395,5223,421"/>
+<area shape="rect" id="node83" href="$efr32zg1p__dmareq_8h.html" title="EFR32ZG1P_DMAREQ register and bit field definitions. " alt="" coords="5249,395,5390,421"/>
+<area shape="rect" id="node85" href="$efr32zg1p__af__ports_8h.html" title="EFR32ZG1P_AF_PORTS register and bit field definitions. " alt="" coords="5414,395,5558,421"/>
+<area shape="rect" id="node87" href="$efr32zg1p__af__pins_8h.html" title="EFR32ZG1P_AF_PINS register and bit field definitions. " alt="" coords="5582,395,5721,421"/>
+<area shape="rect" id="node104" href="$ecode_8h.html" title="Energy Aware drivers error code definitions. " alt="" coords="237,245,303,272"/>
+</map>

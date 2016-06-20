@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file  ustimer.c
  * @brief Microsecond delay functions.
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -278,6 +278,7 @@ static void DelayTicksEM1( uint16_t ticks )
 /** @endcond */
 
 /******** THE REST OF THE FILE IS DOCUMENTATION ONLY !**********************//**
+ * @addtogroup USTIMER
  * @{
 
 @page ustimer_doc USTIMER Microsecond delay timer module

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SLWSTK6241A_ezradio_trx_ack" kitCompatibility="com.silabs.kit.si32.wireless.wstk.ezr32hg.slwstk6241a" partCompatibility="com.silabs.mcu.si32.ezr32.ezr32hg.ezr32hg320f64r55" toolchainCompatibility="" sdkCompatibility="com.silabs.sdk.si32.efm32.sls:[2.0.0-3.0.0)" contentRoot="../">
+  <module id="com.silabs.ide.si32.sdk.efm32.v2.kit">
+    <exclude pattern=".*" />
+  </module>
+  <includePath uri="config/RadioConfig" />
+  <module id="com.silabs.ide.si32.sdk.efm32.v2.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.ide.si32.sdk.efm32.v2.common.emlib">
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_dma.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_int.c" />
+    <include pattern="emlib/em_pcnt.c" />
+    <include pattern="emlib/em_prs.c" />
+    <include pattern="emlib/em_rtc.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_timer.c" />
+    <include pattern="emlib/em_usart.c" />
+  </module>
+  <module id="com.silabs.ide.si32.sdk.efm32.v2.common.emdrv">
+    <include pattern="Drivers(/.*){0,1}/dmadrv.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_api_lib.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_comm.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_hal.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_api_lib_add.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_plugin_manager.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_transmit_plugin.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_receive_plugin.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_crcerror_plugin.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_auto_ack_plugin.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_unmod_carrier_plugin.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_pn9_plugin.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_direct_transmit_plugin.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_direct_receive_plugin.c" />
+    <include pattern="Drivers(/.*){0,1}/gpiointerrupt.c" />
+    <include pattern="Drivers(/.*){0,1}/rtcdriver.c" />
+    <include pattern="Drivers(/.*){0,1}/spidrv.c" />
+    <include pattern="Drivers(/.*){0,1}/ustimer.c" />
+  </module>
+  <module id="com.silabs.ide.si32.sdk.efm32.v2.common.bsp">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.ide.si32.sdk.efm32.v2.common.drivers">
+    <include pattern="Drivers/display.c" />
+    <include pattern="Drivers/displayls013b7dh03.c" />
+    <include pattern="Drivers/displaypalemlib.c" />
+    <include pattern="Drivers/dmactrl.c" />
+    <include pattern="Drivers/retargetio.c" />
+    <include pattern="Drivers/retargettextdisplay.c" />
+    <include pattern="Drivers/textdisplay.c" />
+    <include pattern="Drivers/udelay.c" />
+  </module>
+  <module id="com.silabs.ide.si32.sdk.efm32.v2.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <module id="com.silabs.ide.si32.sdk.efm32.v2.external.glib">
+    <exclude pattern=".*" />
+  </module>
+  <macroDefinition name="SL_WSTK6241A" />
+  <macroDefinition name="EZRADIO_DRIVER_EXTENDED_SUPPORT" />
+  <macroDefinition name="EZRADIO_DRIVER_FULL_SUPPORT" />
+  <file name="readme.txt" uri="readme.txt" />
+  <includePath uri="studio:/project/RadioConfig" />
+  <includePath uri="." />
+  <includePath uri="config" />
+  <includePath uri="config/RadioConfig" />
+  <folder name="src">
+    <file name="main.c" uri="main.c" />
+    <file name="displayconfigapp.h" uri="config/displayconfigapp.h" />
+    <file name="dmadrv_config.h" uri="config/dmadrv_config.h" />
+    <file name="rtcdrv_config.h" uri="config/rtcdrv_config.h" />
+    <file name="spidrv_config.h" uri="config/spidrv_config.h" />
+    <file name="ustimer_config.h" uri="config/ustimer_config.h" />
+  </folder>
+  <folder name="RadioConfig">
+    <file name="radio-configurator_SLWSTK6241A.isc" uri="config/RadioConfig/radio-configurator_SLWSTK6241A.isc" />
+  </folder>
+<property key="category" value="Radio Examples"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.size"/>
+</project>

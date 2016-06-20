@@ -1,4 +1,12 @@
 ================ Revision history ============================================
+4.2.0:
+ - No changes.
+
+4.1.1:
+ - Extended USB bus reset duration.
+ - Extended USB bus reset recovery time in host stack to be more robust when
+   devices are attached.
+
 4.1.0:
  - Fixed bug in host stack, USBH_SetAltInterfaceB() specified device instead
    of interface.

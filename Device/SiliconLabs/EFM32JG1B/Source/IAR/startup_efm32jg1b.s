@@ -2,7 +2,7 @@
 ; * @file startup_efm32jg1b.s
 ; * @brief    CMSIS Core Device Startup File
 ; *           Silicon Labs EFM32JG1B Device Series
-; * @version 4.1.0
+; * @version 4.2.0
 ; * @date     30. January 2012
 ; *
 ; * @note
@@ -104,7 +104,7 @@ __vector_table_0x1c
         DCD PCNT0_IRQHandler  ; 22: PCNT0 Interrupt
         DCD CMU_IRQHandler  ; 23: CMU Interrupt
         DCD MSC_IRQHandler  ; 24: MSC Interrupt
-        DCD 0               ; 25: Reserved Interrupt
+        DCD CRYPTO_IRQHandler  ; 25: CRYPTO Interrupt
         DCD LETIMER0_IRQHandler  ; 26: LETIMER0 Interrupt
         DCD 0               ; 27: Reserved Interrupt
         DCD 0               ; 28: Reserved Interrupt
@@ -274,6 +274,11 @@ CMU_IRQHandler
         SECTION .text:CODE:REORDER:NOROOT(1)
 MSC_IRQHandler
         B MSC_IRQHandler
+
+        PUBWEAK CRYPTO_IRQHandler
+        SECTION .text:CODE:REORDER:NOROOT(1)
+CRYPTO_IRQHandler
+        B CRYPTO_IRQHandler
 
         PUBWEAK LETIMER0_IRQHandler
         SECTION .text:CODE:REORDER:NOROOT(1)

@@ -1,0 +1,5 @@
+<map id="RTC_Enable" name="RTC_Enable">
+<area shape="rect" id="node3" href="$group__RTC.html#gae4cfdbe68de01d77bbdc979f1b026382" title="Restart RTC counter from zero. " alt="" coords="144,5,275,32"/>
+<area shape="rect" id="node5" href="$group__RTCDRV.html#gae82ea6fa74f6bbc161b86a34385d63bf" title="Deinitialize RTCDRV driver. " alt="" coords="154,56,265,83"/>
+<area shape="rect" id="node7" href="$group__Udelay.html#ga523f858d15b74728046ceca9796f3046" title="Calibrates the microsecond delay loop. " alt="" coords="147,107,271,133"/>
+</map>

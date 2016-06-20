@@ -1,0 +1,32 @@
+<map id="C:/work/s025_sw/emdrv/common/inc/ecode.h" name="C:/work/s025_sw/emdrv/common/inc/ecode.h">
+<area shape="rect" id="node3" href="$ustimer_8h.html" title="Microsecond delay function API definition. " alt="" coords="291,103,455,145"/>
+<area shape="rect" id="node11" href="$spidrv_8h.html" title="SPIDRV API definition. " alt="" coords="2369,215,2532,257"/>
+<area shape="rect" id="node19" href="$rtcdriver_8h.html" title="RTCDRV timer API definition. " alt="" coords="2743,103,2907,145"/>
+<area shape="rect" id="node28" href="$dmadrv_8h.html" title="DMADRV API definition. " alt="" coords="2369,103,2532,145"/>
+<area shape="rect" id="node32" href="$uartdrv_8h.html" title="UARTDRV API definition. " alt="" coords="2557,215,2720,257"/>
+<area shape="rect" id="node38" href="$ezradio__plugin__manager_8h.html" title="This file contains the plug&#45;in manager for the EZRadio and EZRadioPRO chip families. " alt="" coords="1260,96,1439,152"/>
+<area shape="rect" id="node58" href="$nvm__hal_8h.html" title="Non&#45;Volatile Memory Wear&#45;Leveling driver HAL. " alt="" coords="3338,103,3501,145"/>
+<area shape="rect" id="node60" href="$nvm_8h.html" title="Non&#45;Volatile Memory Wear&#45;Leveling driver API. " alt="" coords="3338,215,3501,257"/>
+<area shape="rect" id="node68" href="$nvm__config_8h_source.html" title="C:/work/s025_sw/emdrv\l/config/nvm_config.h" alt="" coords="2973,103,3136,145"/>
+<area shape="rect" id="node5" href="$ustimer_8c.html" title="Microsecond delay functions. " alt="" coords="5,215,168,257"/>
+<area shape="rect" id="node7" href="$ezradio__api__lib_8c.html" title="This file contains the common API library of the EZRadio and EZRadioPRO families. ..." alt="" coords="193,208,356,264"/>
+<area shape="rect" id="node9" href="$ezradio__plugin__manager_8c.html" title="This file contains the plug&#45;in manager for the EZRadio and EZRadioPRO chip families. " alt="" coords="381,208,560,264"/>
+<area shape="rect" id="node13" href="$ezradio__hal_8c.html" title="This file contains EZRadio HAL. " alt="" coords="2249,320,2412,376"/>
+<area shape="rect" id="node15" href="$spidrv_8c.html" title="SPIDRV API implementation. " alt="" coords="2061,327,2224,369"/>
+<area shape="rect" id="node17" href="$ksz8851snl__spi_8c.html" title="SPI interface API for KSZ8851SNL Ethernet controller. " alt="" coords="2437,327,2656,369"/>
+<area shape="rect" id="node22" href="$rtcdriver_8c.html" title="RTCDRV timer API implementation. " alt="" coords="2930,215,3093,257"/>
+<area shape="rect" id="node24" href="$si1147__i2c_8c.html" title="i2c driver for the Si1147 " alt="" coords="3119,215,3313,257"/>
+<area shape="rect" id="node26" href="$si114x__sys__out_8c_source.html" title="C:/work/s025_sw/kits\l/common/drivers/si114x\l_sys_out.c" alt="" coords="2745,208,2905,264"/>
+<area shape="rect" id="node36" href="$dmadrv_8c.html" title="DMADRV API implementation. " alt="" coords="2181,215,2344,257"/>
+<area shape="rect" id="node34" href="$uartdrv_8c.html" title="UARTDRV API implementation. " alt="" coords="2681,327,2844,369"/>
+<area shape="rect" id="node40" href="$ezradio__auto__ack__plugin_8c.html" title="EzRadio auto acknowledge plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="584,208,763,264"/>
+<area shape="rect" id="node42" href="$ezradio__crcerror__plugin_8c.html" title="EzRadio CRC error plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="787,208,960,264"/>
+<area shape="rect" id="node44" href="$ezradio__direct__receive__plugin_8c.html" title="EzRadio direct reception plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="985,201,1148,271"/>
+<area shape="rect" id="node46" href="$ezradio__direct__transmit__plugin_8c.html" title="EzRadio direct transmission plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="1173,201,1336,271"/>
+<area shape="rect" id="node49" href="$ezradio__pn9__plugin_8c.html" title="EzRadio PN9 plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="1361,208,1524,264"/>
+<area shape="rect" id="node51" href="$ezradio__receive__plugin_8c.html" title="EzRadio receive plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="1549,208,1717,264"/>
+<area shape="rect" id="node53" href="$ezradio__transmit__plugin_8c.html" title="EzRadio transmit plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="1742,208,1916,264"/>
+<area shape="rect" id="node55" href="$ezradio__unmod__carrier__plugin_8c.html" title="EzRadio unmodulated carrier plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="1941,201,2104,271"/>
+<area shape="rect" id="node65" href="$nvm__hal_8c.html" title="Non&#45;Volatile Memory Wear&#45;Leveling driver HAL implementation. " alt="" coords="3458,327,3621,369"/>
+<area shape="rect" id="node63" href="$nvm_8c.html" title="Non&#45;Volatile Memory Wear&#45;Leveling driver API implementation. " alt="" coords="3270,327,3433,369"/>
+</map>

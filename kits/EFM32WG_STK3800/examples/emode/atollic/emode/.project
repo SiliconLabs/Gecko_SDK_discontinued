@@ -98,6 +98,16 @@
   <type>2</type>
   <locationURI>$%7BPARENT-4-PROJECT_LOC%7D/config</locationURI>
 </link>
+<link>
+  <name>Include_Dependencies/cmsis_emdrv_common_inc</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emdrv/common/inc</locationURI>
+</link>
+<link>
+  <name>Include_Dependencies/cmsis_emdrv_rtcdrv_inc</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emdrv/rtcdrv/inc</locationURI>
+</link>
 
 		<link>
 			<name>csdata</name>
@@ -115,11 +125,6 @@
 			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/Device/SiliconLabs/EFM32WG/Source/system_efm32wg.c</locationURI>
 		</link>
 		<link>
-			<name>bsp/bsp_trace.c</name>
-			<type>1</type>
-			<locationURI>$%7BPARENT-5-PROJECT_LOC%7D/common/bsp/bsp_trace.c</locationURI>
-		</link>
-		<link>
 			<name>Drivers/segmentlcd.c</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-5-PROJECT_LOC%7D/common/drivers/segmentlcd.c</locationURI>
@@ -128,11 +133,6 @@
 			<name>emlib/em_assert.c</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emlib/src/em_assert.c</locationURI>
-		</link>
-		<link>
-			<name>emlib/em_burtc.c</name>
-			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emlib/src/em_burtc.c</locationURI>
 		</link>
 		<link>
 			<name>emlib/em_cmu.c</name>
@@ -150,9 +150,9 @@
 			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emlib/src/em_gpio.c</locationURI>
 		</link>
 		<link>
-			<name>emlib/em_rmu.c</name>
+			<name>emlib/em_rtc.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emlib/src/em_rmu.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emlib/src/em_rtc.c</locationURI>
 		</link>
 		<link>
 			<name>emlib/em_system.c</name>
@@ -165,9 +165,34 @@
 			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emlib/src/em_lcd.c</locationURI>
 		</link>
 		<link>
-			<name>Source/emode.c</name>
+			<name>emlib/em_int.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/emode.c</locationURI>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emlib/src/em_int.c</locationURI>
+		</link>
+		<link>
+			<name>emdrv/rtcdriver.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emdrv/rtcdrv/src/rtcdriver.c</locationURI>
+		</link>
+		<link>
+			<name>BSP/bsp_trace.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-5-PROJECT_LOC%7D/common/bsp/bsp_trace.c</locationURI>
+		</link>
+		<link>
+			<name>Source/main.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/main.c</locationURI>
+		</link>
+		<link>
+			<name>Source/lcd_setup.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/lcd_setup.c</locationURI>
+		</link>
+		<link>
+			<name>Source/emodes.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/emodes.c</locationURI>
 		</link>
 	</linkedResources>
 	<filteredResources>
@@ -261,6 +286,38 @@
 </filter>
 <filter>
   <name>Include_Dependencies/kitconfig</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/cmsis_emdrv_common_inc</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/cmsis_emdrv_common_inc</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/cmsis_emdrv_rtcdrv_inc</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/cmsis_emdrv_rtcdrv_inc</name>
   <type>10</type>
   <matcher>
     <id>org.eclipse.ui.ide.multiFilter</id>

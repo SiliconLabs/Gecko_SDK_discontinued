@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$group__ksz8851snl.html#ga628b9c6f6df5bebe5d5cb1317d4b3f7b" title="Get the MAC address of the current board." alt="" coords="181,5,371,32"/>
-<area shape="rect" id="node5" href="$group__ksz8851snl.html#ga12cf356cb196dbc44230f7ad5aa16742" title="KSZ8851SNL_SPI_Init Initialize SPI interface to Ethernet controller." alt="" coords="203,56,349,83"/>
-<area shape="rect" id="node7" href="$group__ksz8851snl.html#gaef8e79d738a8e792ea8335a14e4d80c5" title="Read ethernet controller register." alt="" coords="175,107,377,133"/>
-<area shape="rect" id="node11" href="$group__ksz8851snl.html#ga194769a82e5a1c0ab03ea0923b7da2d0" title="Write ethernet controller register." alt="" coords="173,157,379,184"/>
-<area shape="rect" id="node9" href="$ksz8851snl__spi_8c.html#ab3cd4983675d048afb998f29244de6c0" title="Select/deselect the ksz8851snl chip." alt="" coords="427,107,634,133"/>
-<area shape="rect" id="node14" href="$ksz8851snl__spi_8c.html#aa7973e5c903af7ba709937e516393a30" title="Transmits a series of bytes over the spi link." alt="" coords="441,157,620,184"/>
-</map>

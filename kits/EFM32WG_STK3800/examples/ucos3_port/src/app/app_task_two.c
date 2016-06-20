@@ -23,7 +23,7 @@
 *
 * @file   app_task_two.c
 * @brief
-* @version 4.1.0
+* @version 4.2.0
 ******************************************************************************
 * @section License
 * <b>(C) Copyright 2013 Energy Micro AS, http://www.energymicro.com</b>
@@ -80,7 +80,7 @@ void APP_TaskTwo(void *p_arg)
  * Uncomment the macro definition in includes.h if serial
  * is connected to your STK board (USART1 or LEUART0)!    */
 #ifdef USART_CONNECTED
-  static char taskMsg; /* Received character to be passed to TaskThree */
+  static int  taskMsg; /* Received character to be passed to TaskThree */
   signed int  taskCharBuffer = -1; /* Character buffer for receiving */
 #endif /* end of #ifndef USART_CONNECTED */
 
@@ -106,7 +106,7 @@ void APP_TaskTwo(void *p_arg)
 
       /* ...and post the message to the mailbox */
       OSQPost((OS_Q        *) pSerialQueObj,
-              (void        *) &taskMsg,
+              (void        *) taskMsg,
               (OS_MSG_SIZE  ) 1U,
               (OS_OPT       )(OS_OPT_POST_FIFO | OS_OPT_POST_ALL),
               (OS_ERR      *)&err);

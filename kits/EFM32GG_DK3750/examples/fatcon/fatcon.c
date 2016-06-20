@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file
  * @brief FAT example using FatFS for access to the MicroSD card on the DK.
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -216,7 +216,11 @@ int main(void)
       }
     } while ((c != '\r') && (c != '\n') && (commandIndex < (CBUFSIZE - 1)));
     commandLine[--commandIndex] = '\0';
-    commandIndex            = 0;
+    commandIndex = 0;
+    if (strlen(commandLine) == 0 )
+    {
+      continue;
+    }
 
     /* Get command */
     command = strtok(commandLine, " ");

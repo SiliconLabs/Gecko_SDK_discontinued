@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file rtcdriver.c
  * @brief RTCDRV timer API implementation.
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -1087,6 +1087,7 @@ static void rescheduleRtc( uint32_t rtcCnt )
 /// @endcond
 
 /******** THE REST OF THE FILE IS DOCUMENTATION ONLY !**********************//**
+ * @addtogroup RTCDRV
  * @{
 
 @page rtcdrv_doc RTCDRV Real Time Clock Timer driver

@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$nvm__hal_8h.html#ae5903c7cb194ab35d7637879ca492479" title="Read data from NVM." alt="" coords="143,5,249,32"/>
-<area shape="rect" id="node5" href="$nvm__hal_8h.html#a0800d58f7bb43d0462592d0062c5cef3" title="Write data to NVM." alt="" coords="142,56,250,83"/>
-<area shape="rect" id="node7" href="$nvm__hal_8c.html#a45f9de7283ef86384cec16f569f9c575" title="Prototypes of functions that should be placed in RAM." alt="" coords="299,56,485,83"/>
-</map>

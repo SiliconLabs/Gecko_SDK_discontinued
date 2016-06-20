@@ -1,0 +1,10 @@
+<map id="EFM32G890F128" name="EFM32G890F128">
+<area shape="rect" id="node2" href="$group__EFM32G890F128__Peripheral__Base.html" title="EFM32G890F128 Peripheral\l Memory Map" alt="" coords="269,5,448,46"/>
+<area shape="rect" id="node3" href="$group__EFM32G890F128__Peripheral__TypeDefs.html" title="Device Specific Peripheral Register Structures. " alt="" coords="269,70,448,111"/>
+<area shape="rect" id="node4" href="$group__EFM32G890F128__Part.html" title="EFM32G890F128 Part" alt="" coords="287,136,431,163"/>
+<area shape="rect" id="node6" href="$group__EFM32G890F128__BitFields.html" title="EFM32G890F128 Bit Fields" alt="" coords="273,187,445,213"/>
+<area shape="rect" id="node7" href="$group__EFM32G890F128__Alternate__Function.html" title="EFM32G890F128 Alternate\l Function" alt="" coords="272,238,445,279"/>
+<area shape="rect" id="node8" href="$group__EFM32G890F128__Core.html" title="Processor and Core Peripheral Section. " alt="" coords="285,304,433,331"/>
+<area shape="rect" id="node9" href="$group__EFM32G890F128__Peripheral__Declaration.html" title="EFM32G890F128 Peripheral\l Declarations" alt="" coords="269,355,448,397"/>
+<area shape="rect" id="node5" href="$group__Parts.html" title="Parts" alt="" coords="5,187,56,213"/>
+</map>

@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file
  * @brief Provide BSP (board support package) configuration parameters.
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -17,7 +17,7 @@
 #define __SILICON_LABS_BSPCONFIG_H
 
 #define BSP_STK
-#define BSP_STK_2011
+#define BSP_STK_BRD2012
 
 #define BSP_BCC_USART         USART1
 #define BSP_BCC_CLK           cmuClock_USART1

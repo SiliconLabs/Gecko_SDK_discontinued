@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file nvm.c
- * @brief NVM API implementation
- * @version 4.1.0
+ * @brief Non-Volatile Memory Wear-Leveling driver API implementation
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -14,6 +14,7 @@
  ******************************************************************************/
 
 #include <stdbool.h>
+#include <stddef.h>
 #include "nvm.h"
 
 /*******************************************************************************
@@ -22,9 +23,9 @@
 
 /** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 
-/** Version constant of the NVM system. Is stored together with the datablocks
- * so that it is easy to upgrade between different versions of the system. */
-#define NVM_VERSION                            0x2U
+/** Version constant of the NVM system stored in NVM_Page_Header_t.
+ *  The version is checked in NVM_PageValidate(). */
+#define NVM_VERSION                            0x3U
 
 /* Sizes. Internal sizes of different objects */
 #define NVM_CONTENT_SIZE         (NVM_PAGE_SIZE - (NVM_HEADER_SIZE + NVM_FOOTER_SIZE))
@@ -45,9 +46,9 @@
 
 #define NVM_PAGES_PER_WEAR_HISTORY             0x8U
 
-/* Macros for acquiring and releasing write lock. Currently empty but could be redefined
-   in RTOSes to add resources protection. It is not recommended to call the NVM module
-   from interrupts or other tasks without ensuring that it is not used by main thread.   */
+/** Macros for acquiring and releasing write lock. Currently empty, but could be redefined
+ *  in RTOSes to add resources protection. It is not recommended to call the NVM module
+ *  from interrupts or other tasks without ensuring that it is not used by main thread.   */
 #ifndef NVM_ACQUIRE_WRITE_LOCK
 #define NVM_ACQUIRE_WRITE_LOCK
 #endif
@@ -76,24 +77,24 @@ typedef enum
  *  packed struct that is stored and retrieved from NVM directly. */
 typedef struct
 {
-  uint16_t watermark; /**< The watermark is made up of a update flag (1st bit) and the logical address of the page.  */
-  uint32_t updateId;  /**< The update id is the update id of this physical location in memory and sticks with it. */
-  uint16_t version;   /**< The version number of the API is also stored in the page for any future updates. */
+  uint32_t eraseCount;          /**< Erase count of this physical page in NVM. */
+  uint16_t watermark;           /**< The watermark is composed of a update flag (1st bit) and the logical address of the page.  */
+  uint16_t version;             /**< The version number of the API is also stored in the page for any future updates. */
 } NVM_Page_Header_t;
 
 /** size of page header on flash (not in RAM) */
-#define NVM_HEADER_SIZE          (2 * sizeof(uint16_t) + sizeof(uint32_t))
+#define NVM_HEADER_SIZE          (sizeof(NVM_Page_Header_t))
 
 /** A struct representing the footer of each page stored in NVM. This is a
  *  packed struct that is stored and retrieved from NVM directly. */
 typedef struct
 {
-  uint16_t checksum;  /**< Contains a 16 bit XOR checksum of the content of the page. */
-  uint16_t watermark; /**< Contains the same watermark as the opening of the page, but with the update bit always set to high.*/
+  uint16_t checksum;            /**< Contains a 16 bit XOR checksum of the content of the page. */
+  uint16_t watermark;           /**< Contains the same watermark as the header of the page, but with the update bit always set to 1.*/
 } NVM_Page_Footer_t;
 
 /** size of page footer on flash (not in RAM) */
-#define NVM_FOOTER_SIZE          (2 * sizeof(uint16_t))
+#define NVM_FOOTER_SIZE          (sizeof(NVM_Page_Footer_t))
 
 /** @endcond */
 
@@ -106,7 +107,7 @@ typedef struct
 
 static NVM_Config_t const *nvmConfig;
 
-#if (NVM_FEATURE_STATIC_WEAR_ENABLED == true)
+#if (NVM_FEATURE_STATIC_WEAR_ENABLED)
 /* Static wear leveling */
 
 /* Bit list that records which pages have been rewritten.
@@ -131,20 +132,20 @@ static bool nvmStaticWearWorking = false;
 
 /** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 
-static uint8_t* NVM_PageFind(uint16_t pageId);
+static uint8_t* NVM_PagePhysicalAddressGet(uint16_t pageId);
 static uint8_t* NVM_ScratchPageFindBest(void);
 static Ecode_t NVM_PageErase(uint8_t *pPhysicalAddress);
-static NVM_Page_Descriptor_t NVM_PageGet(uint16_t pageId);
+static NVM_Page_Descriptor_t NVM_PageDescriptorGet(uint16_t pageId);
 static NVM_ValidateResult_t NVM_PageValidate(uint8_t *pPhysicalAddress);
 
-#if (NVM_FEATURE_WEAR_PAGES_ENABLED == true)
+#if (NVM_FEATURE_WEAR_PAGES_ENABLED)
 static uint16_t NVM_WearIndex(uint8_t *pPhysicalAddress, NVM_Page_Descriptor_t *pPageDesc);
 static bool NVM_WearReadIndex(uint8_t *pPhysicalAddress, NVM_Page_Descriptor_t *pPageDesc, uint16_t *pIndex);
 #endif
 
 static void NVM_ChecksumAdditive(uint16_t *pChecksum, void *pBuffer, uint16_t len);
 
-#if (NVM_FEATURE_STATIC_WEAR_ENABLED == true)
+#if (NVM_FEATURE_STATIC_WEAR_ENABLED)
 static void NVM_StaticWearReset(void);
 static void NVM_StaticWearUpdate(uint16_t address);
 static Ecode_t NVM_StaticWearCheck(void);
@@ -179,7 +180,7 @@ static Ecode_t NVM_StaticWearCheck(void);
  *   Pointer to structure defining NVM area.
  *
  * @return
- *   Returns the result of the initialization
+ *   Returns the result of the initialization.
  ******************************************************************************/
 Ecode_t NVM_Init(NVM_Config_t const *config)
 {
@@ -203,8 +204,11 @@ Ecode_t NVM_Init(NVM_Config_t const *config)
   Ecode_t eraseResult;
 
   /* if there is no spare page, return error */
-  if( (config->pages <= config->userPages) || (config->pages > NVM_MAX_NUMBER_OF_PAGES) )
+  if( (config->pages <= config->userPages)
+    || (config->pages > NVM_MAX_NUMBER_OF_PAGES) )
+  {
     return ECODE_EMDRV_NVM_ERROR;
+  }
 
   /* now check that page structures fits to physical page size */
   {
@@ -218,7 +222,9 @@ Ecode_t NVM_Init(NVM_Config_t const *config)
       currentPage = &((*(config->nvmPages))[pageIdx]);
 
       while( (*(currentPage->page))[obj].location != 0)
+      {
         sum += (*(currentPage->page))[obj++].size;
+      }
 
       if(currentPage->pageType == nvmPageTypeNormal)
       {
@@ -251,7 +257,7 @@ Ecode_t NVM_Init(NVM_Config_t const *config)
   /* Initialize the NVM. */
   NVMHAL_Init();
 
-#if (NVM_FEATURE_STATIC_WEAR_ENABLED == true)
+#if (NVM_FEATURE_STATIC_WEAR_ENABLED)
   /* Initialize the static wear leveling functionality. */
   NVM_StaticWearReset();
 #endif
@@ -261,7 +267,9 @@ Ecode_t NVM_Init(NVM_Config_t const *config)
   {
     /* Read the logical address of the page stored at the current physical
      * address, and compare it to the value of an empty page. */
-    NVMHAL_Read(pPhysicalAddress, &logicalAddress, sizeof(logicalAddress));
+    NVMHAL_Read(pPhysicalAddress + offsetof(NVM_Page_Header_t, watermark),
+                &logicalAddress,
+                sizeof(logicalAddress));
     if (NVM_PAGE_EMPTY_VALUE != logicalAddress)
     {
       /* Not an empty page. Check if it validates. */
@@ -284,13 +292,17 @@ Ecode_t NVM_Init(NVM_Config_t const *config)
 
         /* Walk through all the possible pages looking for a page with
          * matching watermark. */
-        pDuplicatePhysicalAddress = (uint8_t *)(nvmConfig->nvmArea);
+        pDuplicatePhysicalAddress = (uint8_t *)(nvmConfig->nvmArea)
+                                      + offsetof(NVM_Page_Header_t, watermark);
         for (page = 0; (NVM_PAGE_EMPTY_VALUE != logicalAddress) && (page < nvmConfig->pages);
              ++page)
         {
-          NVMHAL_Read(pDuplicatePhysicalAddress, &duplicateLogicalAddress, sizeof(duplicateLogicalAddress));
+          NVMHAL_Read(pDuplicatePhysicalAddress + offsetof(NVM_Page_Header_t, watermark), &
+                      duplicateLogicalAddress,
+                      sizeof(duplicateLogicalAddress));
 
-          if ((pDuplicatePhysicalAddress != pPhysicalAddress) && ((logicalAddress | NVM_FIRST_BIT_ONE) == duplicateLogicalAddress))
+          if ((pDuplicatePhysicalAddress != pPhysicalAddress)
+              && ((logicalAddress | NVM_FIRST_BIT_ONE) == duplicateLogicalAddress))
           {
             /* Duplicate page has got the same logical address. Check if it
              * validates. */
@@ -348,25 +360,26 @@ Ecode_t NVM_Init(NVM_Config_t const *config)
   return result;
 }
 
+
 /***************************************************************************//**
  * @brief
  *   Erase the entire allocated NVM area.
  *
  * @details
  *   Use this function to erase the entire non-volatile memory area allocated to
- *   the NVM system. It is possible to set a fixed erasure count for all the
- *   pages, or retain the existing one. To retain the erasure count might not be
+ *   the NVM system. It is possible to set a fixed erase count for all the
+ *   pages, or retain the existing one. To retain the erase count might not be
  *   advisable if an error has occurred since this data may also have been
  *   damaged.
  *
- * @param[in] erasureCount
- *   Specifies which erasure count to set for the blank pages. Pass
- *   NVM_ERASE_RETAINCOUNT to retain the erasure count.
+ * @param[in] eraseCount
+ *   Specifies which erase count to set for the blank pages. Pass
+ *   NVM_ERASE_RETAINCOUNT to retain the erase count.
  *
  * @return
- *   Returns the result of the erase operation using a Ecode_t.
+ *   Returns the result of the erase operation.
  ******************************************************************************/
-Ecode_t NVM_Erase(uint32_t erasureCount)
+Ecode_t NVM_Erase(uint32_t eraseCount)
 {
   uint16_t page;
   /* Result used when returning from the function. */
@@ -375,32 +388,37 @@ Ecode_t NVM_Erase(uint32_t erasureCount)
   /* Location of physical page. */
   uint8_t *pPhysicalAddress = (uint8_t *)(nvmConfig->nvmArea);
 
-  /* Container for moving old erasure count, or set to new. */
-  uint32_t tempErasureCount = erasureCount;
+  /* Container for moving old erase count, or set to new. */
+  uint32_t tempEraseCount = eraseCount;
 
   /* Require write lock to continue. */
   NVM_ACQUIRE_WRITE_LOCK
 
   /* Loop over all the pages, as long as everything is OK. */
   for (page = 0;
-       (page < nvmConfig->pages) && ((ECODE_EMDRV_NVM_OK == result) || (ECODE_EMDRV_NVM_ERROR == result));
+       (page < nvmConfig->pages)
+         && ((ECODE_EMDRV_NVM_OK == result) || (ECODE_EMDRV_NVM_ERROR == result));
        ++page)
   {
-    /* If erasureCount input is set to the retain constant, we need to get the
-     * old erasure count before we erase the page. */
-    if (NVM_ERASE_RETAINCOUNT == erasureCount)
+    /* If eraseCount input is set to the retain constant, we need to get the
+     * old erase count before we erase the page. */
+    if (NVM_ERASE_RETAINCOUNT == eraseCount)
     {
-      /* Read old erasure count. */
-      NVMHAL_Read(pPhysicalAddress + 2, &tempErasureCount, sizeof(tempErasureCount));
+      /* Read old erase count. */
+      NVMHAL_Read(pPhysicalAddress + offsetof(NVM_Page_Header_t, eraseCount),
+                  &tempEraseCount,
+                  sizeof(tempEraseCount));
     }
 
     /* Erase page. */
     result = NVMHAL_PageErase(pPhysicalAddress);
 
-    /* If still OK, write erasure count to page. */
+    /* If still OK, write erase count to page. */
     if (ECODE_EMDRV_NVM_OK == result)
     {
-      result = NVMHAL_Write(pPhysicalAddress + 2, &tempErasureCount, sizeof(tempErasureCount));
+      result = NVMHAL_Write(pPhysicalAddress + offsetof(NVM_Page_Header_t, eraseCount),
+                            &tempEraseCount,
+                            sizeof(tempEraseCount));
     }
 
     /* Go to the next physical page. */
@@ -413,6 +431,7 @@ Ecode_t NVM_Erase(uint32_t erasureCount)
   return result;
 }
 
+
 /***************************************************************************//**
  * @brief
  *   Write an object or a page.
@@ -421,12 +440,12 @@ Ecode_t NVM_Erase(uint32_t erasureCount)
  *   Use this function to write an object or an entire page to NVM. It takes a
  *   page and an object and updates this object with the data pointed to by the
  *   corresponding page entry. All the objects in a page can be written
- *   simultaneously by using NVM_WRITE_ALL instead of an object ID. For "normal"
- *   pages it simply finds not used page in flash (with lowest erase counter) and
+ *   simultaneously by using NVM_WRITE_ALL instead of an object ID. For normal
+ *   pages it simply finds an unused page in flash with the lowest erase count and
  *   copies all objects belonging to this page updating objects defined by
- *   objectId argument. For "wear" pages function tries to find spare place in
- *   already used page and write object here - if there is no free space it uses
- *   new page invalidating previously used one.
+ *   objectId argument. For wear pages, this function tries to find spare place in
+ *   already used page and write object here. If there is no free space, it uses
+ *   a new page while invalidating previously used one.
  *
  * @param[in] pageId
  *   Identifier of the page you want to write to NVM.
@@ -436,7 +455,7 @@ Ecode_t NVM_Erase(uint32_t erasureCount)
  *   to write the entire page to memory.
  *
  * @return
- *   Returns the result of the write operation using a Ecode_t.
+ *   Returns the result of the write operation.
  ******************************************************************************/
 Ecode_t NVM_Write(uint16_t pageId, uint8_t objectId)
 {
@@ -475,12 +494,12 @@ Ecode_t NVM_Write(uint16_t pageId, uint8_t objectId)
    * page or create a new one. */
   bool wearWrite = false;
 
-#if (NVM_FEATURE_WRITE_NECESSARY_CHECK_ENABLED == true)
+#if (NVM_FEATURE_WRITE_NECESSARY_CHECK_ENABLED)
   /* Bool used when checking if a write operation is needed. */
   bool rewriteNeeded;
 #endif
 
-#if (NVM_FEATURE_WEAR_PAGES_ENABLED == true)
+#if (NVM_FEATURE_WEAR_PAGES_ENABLED)
   /* Used to hold the checksum of the wear object. */
   uint16_t wearChecksum;
   /* Byte size of the wear object. Includes checksum length. */
@@ -488,7 +507,7 @@ Ecode_t NVM_Write(uint16_t pageId, uint8_t objectId)
   /* Used to specify the internal index of the wear object in a page. */
   uint16_t wearIndex;
 
-  #if (NVM_FEATURE_WRITE_VALIDATION_ENABLED == true)
+  #if (NVM_FEATURE_WRITE_VALIDATION_ENABLED)
   /* The new wear index the object will be written to. */
   uint16_t wearIndexNew;
   #endif
@@ -498,19 +517,19 @@ Ecode_t NVM_Write(uint16_t pageId, uint8_t objectId)
   NVM_ACQUIRE_WRITE_LOCK
 
   /* Find old physical address. */
-  pOldPhysicalAddress = NVM_PageFind(pageId);
+  pOldPhysicalAddress = NVM_PagePhysicalAddressGet(pageId);
 
   /* Get the page configuration. */
-  pageDesc = NVM_PageGet(pageId);
+  pageDesc = NVM_PageDescriptorGet(pageId);
 
-#if (NVM_FEATURE_WRITE_NECESSARY_CHECK_ENABLED == true)
+#if (NVM_FEATURE_WRITE_NECESSARY_CHECK_ENABLED)
   /* If there is an old version of the page, it might not be necessary to update
    * the data. Also check that this is a normal page and that the static wear
    * leveling system is not working (this system might want to rewrite pages
    * even if the data is similar to the old version). */
   if (((uint8_t *) NVM_NO_PAGE_RETURNED != pOldPhysicalAddress)
       && (nvmPageTypeNormal == pageDesc.pageType)
-#if (NVM_FEATURE_STATIC_WEAR_ENABLED == true)
+#if (NVM_FEATURE_STATIC_WEAR_ENABLED)
       && !nvmStaticWearWorking
 #endif
 
@@ -575,7 +594,7 @@ Ecode_t NVM_Write(uint16_t pageId, uint8_t objectId)
 
 
 
-#if (NVM_FEATURE_WEAR_PAGES_ENABLED == true)
+#if (NVM_FEATURE_WEAR_PAGES_ENABLED)
   /* If this is a wear page then we can check if we can possibly squeeze another
    * version of the object inside the already existing page. If this is possible
    * we set the wearWrite boolean. This will then make us ignore the normal
@@ -587,7 +606,9 @@ Ecode_t NVM_Write(uint16_t pageId, uint8_t objectId)
      * always set to 0. */
 
     wearChecksum = NVM_CHECKSUM_INITIAL;
-    NVM_ChecksumAdditive(&wearChecksum, (*pageDesc.page)[0].location, (*pageDesc.page)[0].size);
+    NVM_ChecksumAdditive(&wearChecksum,
+                         (*pageDesc.page)[0].location,
+                         (*pageDesc.page)[0].size);
     wearChecksum &= NVM_LAST_BIT_ZERO;
 
     /* If there was an old page. */
@@ -600,17 +621,22 @@ Ecode_t NVM_Write(uint16_t pageId, uint8_t objectId)
       /* Check that the wearIndex returned is within the length of the page. */
       if (wearIndex < ((uint16_t) NVM_WEAR_CONTENT_SIZE) / wearObjectSize)
       {
-        result = NVMHAL_Write(pOldPhysicalAddress + NVM_HEADER_SIZE + wearIndex * wearObjectSize,
+        result = NVMHAL_Write(pOldPhysicalAddress
+                              + NVM_HEADER_SIZE
+                              + (wearIndex * wearObjectSize),
                               (*pageDesc.page)[0].location,
                               (*pageDesc.page)[0].size);
-        result = NVMHAL_Write(pOldPhysicalAddress + NVM_HEADER_SIZE + wearIndex * wearObjectSize + (*pageDesc.page)[0].size,
+        result = NVMHAL_Write(pOldPhysicalAddress
+                              + NVM_HEADER_SIZE
+                              + (wearIndex * wearObjectSize)
+                              + (*pageDesc.page)[0].size,
                               &wearChecksum,
                               sizeof(wearChecksum));
 
         /* Register that we have now written to the old page. */
         wearWrite = true;
 
-#if (NVM_FEATURE_WRITE_VALIDATION_ENABLED == true)
+#if (NVM_FEATURE_WRITE_VALIDATION_ENABLED)
         /* Check if the newest one that is valid is the same as the one we just
          * wrote to the NVM. */
         if ((!NVM_WearReadIndex(pOldPhysicalAddress, &pageDesc, &wearIndexNew)) ||
@@ -624,7 +650,7 @@ Ecode_t NVM_Write(uint16_t pageId, uint8_t objectId)
   }   /* End of wear page if. */
 #endif
 
-#if (NVM_FEATURE_WEAR_PAGES_ENABLED == true)
+#if (NVM_FEATURE_WEAR_PAGES_ENABLED)
   /* Do not create a new page if we have already done an in-page wear write. */
   if (!wearWrite)
   {
@@ -653,14 +679,19 @@ Ecode_t NVM_Write(uint16_t pageId, uint8_t objectId)
   }
 
   /* Generate and write header */
-  header.watermark = watermark;
-  header.updateId  = NVM_NO_WRITE_32BIT;
-  header.version   = NVM_VERSION;
+  header.watermark  = watermark;
+  header.eraseCount = NVM_NO_WRITE_32BIT;
+  header.version    = NVM_VERSION;
 
   /* store header at beginning of page */
-  result = NVMHAL_Write(pNewPhysicalAddress, &header.watermark, sizeof(header.watermark));
-  result = NVMHAL_Write(pNewPhysicalAddress + sizeof(header.watermark), &header.updateId, sizeof(header.updateId));
-  result = NVMHAL_Write(pNewPhysicalAddress + sizeof(header.watermark)+ + sizeof(header.updateId), &header.version, sizeof(header.version));
+  NVMHAL_Write(pNewPhysicalAddress + offsetof(NVM_Page_Header_t, watermark),
+               &header.watermark,
+               sizeof(header.watermark));
+  NVMHAL_Write(pNewPhysicalAddress + offsetof(NVM_Page_Header_t, eraseCount),
+               &header.eraseCount, sizeof(header.eraseCount));
+  result =
+  NVMHAL_Write(pNewPhysicalAddress + offsetof(NVM_Page_Header_t, version),
+               &header.version, sizeof(header.version));
 
   /* Reset address index within page. */
   offsetAddress = 0;
@@ -677,19 +708,23 @@ Ecode_t NVM_Write(uint16_t pageId, uint8_t objectId)
         ((*pageDesc.page)[objectIndex].objectId == objectId))
     {
       /* Write object from RAM. */
-      result = NVMHAL_Write(pNewPhysicalAddress + offsetAddress + NVM_HEADER_SIZE,
+      result = NVMHAL_Write(pNewPhysicalAddress + NVM_HEADER_SIZE + offsetAddress,
                             (*pageDesc.page)[objectIndex].location,
                             (*pageDesc.page)[objectIndex].size);
       offsetAddress += (*pageDesc.page)[objectIndex].size;
 
-      NVM_ChecksumAdditive(&checksum, (*pageDesc.page)[objectIndex].location, (*pageDesc.page)[objectIndex].size);
+      NVM_ChecksumAdditive(&checksum,
+                           (*pageDesc.page)[objectIndex].location,
+                           (*pageDesc.page)[objectIndex].size);
     }
     else
     {
       /* Get version from old page. */
       if ((uint8_t *) NVM_NO_PAGE_RETURNED != pOldPhysicalAddress)
       {
-        NVM_ChecksumAdditive(&checksum, pOldPhysicalAddress + offsetAddress + NVM_HEADER_SIZE, (*pageDesc.page)[objectIndex].size);
+        NVM_ChecksumAdditive(&checksum,
+                             pOldPhysicalAddress + offsetAddress + NVM_HEADER_SIZE,
+                             (*pageDesc.page)[objectIndex].size);
 
         copyLength = (*pageDesc.page)[objectIndex].size;
 
@@ -699,7 +734,7 @@ Ecode_t NVM_Write(uint16_t pageId, uint8_t objectId)
           NVMHAL_Read(pOldPhysicalAddress + offsetAddress + NVM_HEADER_SIZE,
                       &copyBuffer,
                       sizeof(copyBuffer));
-          result = NVMHAL_Write(pNewPhysicalAddress + offsetAddress + NVM_HEADER_SIZE,
+          result = NVMHAL_Write(pNewPhysicalAddress + NVM_HEADER_SIZE + offsetAddress,
                                 &copyBuffer,
                                 sizeof(copyBuffer));
 
@@ -713,10 +748,10 @@ Ecode_t NVM_Write(uint16_t pageId, uint8_t objectId)
   }
 
   /* If we are creating a wear page, add the checksum directly after the data. */
-#if (NVM_FEATURE_WEAR_PAGES_ENABLED == true)
+#if (NVM_FEATURE_WEAR_PAGES_ENABLED)
   if (nvmPageTypeWear == pageDesc.pageType)
   {
-    result = NVMHAL_Write(pNewPhysicalAddress + offsetAddress + NVM_HEADER_SIZE,
+    result = NVMHAL_Write(pNewPhysicalAddress + NVM_HEADER_SIZE + offsetAddress,
                           &wearChecksum,
                           sizeof(wearChecksum));
   }
@@ -726,17 +761,24 @@ Ecode_t NVM_Write(uint16_t pageId, uint8_t objectId)
 #endif
   if (ECODE_EMDRV_NVM_OK == result)
   {
-    /* write checksum at end of page */
-    result = NVMHAL_Write(pNewPhysicalAddress + (NVM_PAGE_SIZE - NVM_FOOTER_SIZE), &checksum, sizeof(checksum));
-    /* write watermark just after checksum at end of page */
-    result = NVMHAL_Write(pNewPhysicalAddress + (NVM_PAGE_SIZE + sizeof(checksum) - NVM_FOOTER_SIZE), &watermark, sizeof(watermark));
+    /* write checksum and watermark to the footer */
+    result = NVMHAL_Write(pNewPhysicalAddress +
+                            (NVM_PAGE_SIZE - NVM_FOOTER_SIZE) +
+                            offsetof(NVM_Page_Footer_t, checksum),
+                          &checksum,
+                          sizeof(checksum));
+    result = NVMHAL_Write(pNewPhysicalAddress +
+                            (NVM_PAGE_SIZE - NVM_FOOTER_SIZE) +
+                            offsetof(NVM_Page_Footer_t, watermark),
+                          &watermark,
+                          sizeof(watermark));
   }
 
-#if (NVM_FEATURE_WEAR_PAGES_ENABLED == true)
+#if (NVM_FEATURE_WEAR_PAGES_ENABLED)
 }     /* End of else from page type. */
 #endif
 
-#if (NVM_FEATURE_WRITE_VALIDATION_ENABLED == true)
+#if (NVM_FEATURE_WRITE_VALIDATION_ENABLED)
   /* Validate that the correct data was written. */
   if (nvmValidateResultOk != NVM_PageValidate(pNewPhysicalAddress))
   {
@@ -744,7 +786,7 @@ Ecode_t NVM_Write(uint16_t pageId, uint8_t objectId)
   }
 #endif
 
-#if (NVM_FEATURE_WEAR_PAGES_ENABLED == true)
+#if (NVM_FEATURE_WEAR_PAGES_ENABLED)
 }   /* End of if for normal write (!wearWrite). */
 #endif
 
@@ -768,6 +810,7 @@ Ecode_t NVM_Write(uint16_t pageId, uint8_t objectId)
   return result;
 }
 
+
 /***************************************************************************//**
  * @brief
  *   Read an object or an entire page.
@@ -786,11 +829,11 @@ Ecode_t NVM_Write(uint16_t pageId, uint8_t objectId)
  *   an entire page.
  *
  * @return
- *   Returns the result of the read operation using a Ecode_t.
+ *   Returns the result of the read operation.
  ******************************************************************************/
 Ecode_t NVM_Read(uint16_t pageId, uint8_t objectId)
 {
-#if (NVM_FEATURE_WEAR_PAGES_ENABLED == true)
+#if (NVM_FEATURE_WEAR_PAGES_ENABLED)
   /* Variable used to fetch read index. */
   uint16_t wearIndex;
 #endif
@@ -811,7 +854,7 @@ Ecode_t NVM_Read(uint16_t pageId, uint8_t objectId)
   NVM_ACQUIRE_WRITE_LOCK
 
   /* Find physical page. */
-  pPhysicalAddress = NVM_PageFind(pageId);
+  pPhysicalAddress = NVM_PagePhysicalAddressGet(pageId);
 
   /* If no page was found, we cannot read anything. */
   if ((uint8_t*) NVM_NO_PAGE_RETURNED == pPhysicalAddress)
@@ -822,15 +865,16 @@ Ecode_t NVM_Read(uint16_t pageId, uint8_t objectId)
   }
 
   /* Get page description. */
-  pageDesc = NVM_PageGet(pageId);
+  pageDesc = NVM_PageDescriptorGet(pageId);
 
-#if (NVM_FEATURE_WEAR_PAGES_ENABLED == true)
+#if (NVM_FEATURE_WEAR_PAGES_ENABLED)
   /* If this is a wear page, we must find out which object in the page should be
    * read. */
   if (nvmPageTypeWear == pageDesc.pageType)
   {
     /* Find valid object in wear page and read it. */
-    if (NVM_WearReadIndex(pPhysicalAddress, &pageDesc, &wearIndex))
+    if (NVM_WearReadIndex(pPhysicalAddress + offsetof(NVM_Page_Header_t, eraseCount),
+                          &pageDesc, &wearIndex))
     {
       NVMHAL_Read(pPhysicalAddress + NVM_HEADER_SIZE +
                   wearIndex * ((*pageDesc.page)[0].size + NVM_CHECKSUM_LENGTH),
@@ -852,7 +896,7 @@ Ecode_t NVM_Read(uint16_t pageId, uint8_t objectId)
     objectIndex   = 0;
     offsetAddress = 0;
 
-#if (NVM_FEATURE_READ_VALIDATION_ENABLED == true)
+#if (NVM_FEATURE_READ_VALIDATION_ENABLED)
     if (nvmValidateResultError == NVM_PageValidate(pPhysicalAddress))
     {
       /* Give up write lock and open for other API operations. */
@@ -866,7 +910,8 @@ Ecode_t NVM_Read(uint16_t pageId, uint8_t objectId)
     while ((*pageDesc.page)[objectIndex].size != 0)
     {
       /* Check if every object should be read or if this is the object to read. */
-      if ((NVM_READ_ALL_CMD == objectId) || ((*pageDesc.page)[objectIndex].objectId == objectId))
+      if ((NVM_READ_ALL_CMD == objectId)
+          || ((*pageDesc.page)[objectIndex].objectId == objectId))
       {
         NVMHAL_Read(pPhysicalAddress + offsetAddress + NVM_HEADER_SIZE,
                     (*pageDesc.page)[objectIndex].location,
@@ -884,6 +929,7 @@ Ecode_t NVM_Read(uint16_t pageId, uint8_t objectId)
   return ECODE_EMDRV_NVM_OK;
 }
 
+#if (NVM_FEATURE_WEARLEVELGET_ENABLED)
 /***************************************************************************//**
  * @brief
  *   Get maximum wear level.
@@ -893,16 +939,15 @@ Ecode_t NVM_Read(uint16_t pageId, uint8_t objectId)
  *   in memory. This can be used as a rough measure of health for the device.
  *
  * @return
- *   Returns the wear level as a uint32_t.
+ *   Maximum wear level (erase count)
  ******************************************************************************/
-#if (NVM_FEATURE_WEARLEVELGET_ENABLED == true)
 uint32_t NVM_WearLevelGet(void)
 {
   uint16_t page;
   /* Used to temporarily store the update id of the current page. */
-  uint32_t updateId;
+  uint32_t eraseCount;
   /* Worst (highest) update id. Used as return value. */
-  uint32_t worstUpdateId = 0;
+  uint32_t hiEraseCount = 0;
 
   /* Address of physical page. */
   uint8_t *pPhysicalAddress = (uint8_t *)(nvmConfig->nvmArea);
@@ -910,20 +955,22 @@ uint32_t NVM_WearLevelGet(void)
   /* Loop through all pages in memory. */
   for (page = 0; page < nvmConfig->pages; ++page)
   {
-    /* Find and compare erasure count. */
-    NVMHAL_Read(pPhysicalAddress + 2, &updateId, sizeof(updateId));
-    if (updateId > worstUpdateId)
+    /* Find and compare erase count. */
+    NVMHAL_Read(pPhysicalAddress + offsetof(NVM_Page_Header_t, eraseCount),
+                &eraseCount,
+                sizeof(eraseCount));
+    if (eraseCount > hiEraseCount)
     {
-      worstUpdateId = updateId;
+      hiEraseCount = eraseCount;
     }
 
     /* Go to the next physical page. */
     pPhysicalAddress += NVM_PAGE_SIZE;
   }
-
-  return worstUpdateId;
+  return hiEraseCount;
 }
 #endif
+
 
 /*******************************************************************************
  ***************************   LOCAL FUNCTIONS   *******************************
@@ -933,20 +980,20 @@ uint32_t NVM_WearLevelGet(void)
 
 /***************************************************************************//**
  * @brief
- *   Find the physical address of a page.
+ *   Get the physical address of a page.
  *
  * @details
- *   This function finds the physical address of a page given a page id by
+ *   This function finds the physical address of a page given a page ID by
  *   traversing the flash memory.
  *
  * @param[in] pageId
- *   NVM_Page_Ids that identifies the page.
+ *   ID of the page.
  *
  * @return
  *   Returns the resulting address as a uint8_t*. If no page was found
  *   (uint8_t*)NVM_NO_PAGE_RETURNED is returned.
  ******************************************************************************/
-static uint8_t* NVM_PageFind(uint16_t pageId)
+static uint8_t* NVM_PagePhysicalAddressGet(uint16_t pageId)
 {
   uint16_t page;
   /* Physical address to return. */
@@ -959,7 +1006,9 @@ static uint8_t* NVM_PageFind(uint16_t pageId)
   {
     /* Allow both versions of writing mark, invalid duplicates should already
      * have been deleted. */
-    NVMHAL_Read(pPhysicalAddress, &logicalAddress, sizeof(logicalAddress));
+    NVMHAL_Read(pPhysicalAddress + offsetof(NVM_Page_Header_t, watermark),
+                &logicalAddress,
+                sizeof(logicalAddress));
     if (((pageId | NVM_FIRST_BIT_ONE) == logicalAddress) || (pageId == logicalAddress))
     {
       return pPhysicalAddress;
@@ -973,9 +1022,10 @@ static uint8_t* NVM_PageFind(uint16_t pageId)
   return (uint8_t *) NVM_NO_PAGE_RETURNED;
 }
 
+
 /***************************************************************************//**
  * @brief
- *   Finds the best scratch page.
+ *   Find the best scratch page.
  *
  * @details
  *   This function returns the least used of all the currently empty pages. This
@@ -992,9 +1042,9 @@ static uint8_t* NVM_ScratchPageFindBest(void)
   uint8_t  *pPhysicalPage = (uint8_t *) NVM_NO_PAGE_RETURNED;
 
   /* Variable used to read and compare update id of physical pages. */
-  uint32_t updateId = NVM_HIGHEST_32BIT;
+  uint32_t eraseCount = NVM_HIGHEST_32BIT;
   /* The best update id found. */
-  uint32_t bestUpdateId = NVM_HIGHEST_32BIT;
+  uint32_t loEraseCount = NVM_HIGHEST_32BIT;
 
   /* Pointer to the current physical page. */
   uint8_t  *pPhysicalAddress = (uint8_t *)(nvmConfig->nvmArea);
@@ -1005,14 +1055,18 @@ static uint8_t* NVM_ScratchPageFindBest(void)
   for (page = 0; page < nvmConfig->pages; ++page)
   {
     /* Read and check logical address. */
-    NVMHAL_Read(pPhysicalAddress, &logicalAddress, sizeof(logicalAddress));
+    NVMHAL_Read(pPhysicalAddress + offsetof(NVM_Page_Header_t, watermark),
+                &logicalAddress,
+                sizeof(logicalAddress));
     if ((uint16_t) NVM_PAGE_EMPTY_VALUE == logicalAddress)
     {
-      /* Find and compare erasure count. */
-      NVMHAL_Read(pPhysicalAddress + 2, &updateId, sizeof(updateId));
-      if (updateId < bestUpdateId)
+      /* Find and compare erase count. */
+      NVMHAL_Read(pPhysicalAddress + offsetof(NVM_Page_Header_t, eraseCount),
+                  &eraseCount,
+                  sizeof(eraseCount));
+      if (eraseCount < loEraseCount)
       {
-        bestUpdateId  = updateId;
+        loEraseCount  = eraseCount;
         pPhysicalPage = pPhysicalAddress;
       }
     }
@@ -1025,34 +1079,39 @@ static uint8_t* NVM_ScratchPageFindBest(void)
   return pPhysicalPage;
 }
 
+
 /***************************************************************************//**
  * @brief
  *   Erases a page.
  *
  * @details
  *   This function erases the page at a certain address. All the data is erased
- *   while the erasure count of the page is retained and updated.
+ *   while the erase count of the page is retained and updated.
  *
- * @param[in] address
+ * @param[in] pPhysicalAddress
  *   Pointer to the location you want to erase.
  *
  * @return
- *   Returns the result of the operation as a Ecode_t.
+ *   Returns the result of the operation.
  ******************************************************************************/
 static Ecode_t NVM_PageErase(uint8_t *pPhysicalAddress)
 {
-#if (NVM_FEATURE_STATIC_WEAR_ENABLED == true)
+#if (NVM_FEATURE_STATIC_WEAR_ENABLED)
   /* Logical page address. */
   uint16_t logicalAddress;
 #endif
 
   /* Read out the old page update id. */
-  uint32_t updateId;
-  NVMHAL_Read(pPhysicalAddress + 2, &updateId, sizeof(updateId));
+  uint32_t eraseCount;
+  NVMHAL_Read(pPhysicalAddress + offsetof(NVM_Page_Header_t, eraseCount),
+              &eraseCount,
+              sizeof(eraseCount));
 
-#if (NVM_FEATURE_STATIC_WEAR_ENABLED == true)
+#if (NVM_FEATURE_STATIC_WEAR_ENABLED)
   /* Get logical page address. */
-  NVMHAL_Read(pPhysicalAddress, &logicalAddress, sizeof(logicalAddress));
+  NVMHAL_Read(pPhysicalAddress + offsetof(NVM_Page_Header_t, watermark),
+              &logicalAddress,
+              sizeof(logicalAddress));
 
   /* If not empty: mark as erased and check against threshold. */
   if (logicalAddress != NVM_PAGE_EMPTY_VALUE)
@@ -1066,12 +1125,15 @@ static Ecode_t NVM_PageErase(uint8_t *pPhysicalAddress)
   /* Erase the page. */
   NVMHAL_PageErase(pPhysicalAddress);
 
-  /* Update erasure count. */
-  updateId++;
+  /* Update erase count. */
+  eraseCount++;
 
-  /* Write increased erasure count. */
-  return NVMHAL_Write(pPhysicalAddress + 2, &updateId, sizeof(updateId));
+  /* Write increased erase count. */
+  return NVMHAL_Write(pPhysicalAddress + offsetof(NVM_Page_Header_t, eraseCount),
+                      &eraseCount,
+                      sizeof(eraseCount));
 }
+
 
 /***************************************************************************//**
  * @brief
@@ -1087,12 +1149,12 @@ static Ecode_t NVM_PageErase(uint8_t *pPhysicalAddress)
  *   overhead.
  *
  * @param[in] pageId
- *   Identifier of the page.
+ *   ID of the page.
  *
  * @return
- *   Returns the page description as a NVM_Page_Descriptor_t.
+ *   Returns the page descriptor.
  ******************************************************************************/
-static NVM_Page_Descriptor_t NVM_PageGet(uint16_t pageId)
+static NVM_Page_Descriptor_t NVM_PageDescriptorGet(uint16_t pageId)
 {
   uint8_t pageIndex;
   static const NVM_Page_Descriptor_t nullPage = { (uint8_t) 0, 0, (NVM_Page_Type_t) 0 };
@@ -1110,6 +1172,7 @@ static NVM_Page_Descriptor_t NVM_PageGet(uint16_t pageId)
   /* No page matched the ID, return a NULL page to mark the error. */
   return nullPage;
 }
+
 
 /***************************************************************************//**
  * @brief
@@ -1130,7 +1193,7 @@ static NVM_Page_Descriptor_t NVM_PageGet(uint16_t pageId)
  *   Pointer to the location you want to check.
  *
  * @return
- *   Returns the validation status of the address as a NVM_ValidateResult_t.
+ *   Returns the validation status of the address.
  ******************************************************************************/
 static NVM_ValidateResult_t NVM_PageValidate(uint8_t *pPhysicalAddress)
 {
@@ -1152,15 +1215,21 @@ static NVM_ValidateResult_t NVM_PageValidate(uint8_t *pPhysicalAddress)
   /* Address of read location within a page. */
   uint16_t offsetAddress;
 
-#if (NVM_FEATURE_WEAR_PAGES_ENABLED == true)
+#if (NVM_FEATURE_WEAR_PAGES_ENABLED)
   /* Variable used to fetch read index. */
   uint16_t index;
 #endif
 
   /* Read page header data */
-  NVMHAL_Read(pPhysicalAddress, &header.watermark, sizeof(header.watermark));
-  NVMHAL_Read(pPhysicalAddress + sizeof(header.watermark), &header.updateId, sizeof(header.updateId));
-  NVMHAL_Read(pPhysicalAddress + sizeof(header.watermark) + sizeof(header.updateId), &header.version, sizeof(header.version));
+  NVMHAL_Read(pPhysicalAddress + offsetof(NVM_Page_Header_t, watermark),
+              &header.watermark,
+              sizeof(header.watermark));
+  NVMHAL_Read(pPhysicalAddress + offsetof(NVM_Page_Header_t, eraseCount),
+              &header.eraseCount,
+              sizeof(header.eraseCount));
+  NVMHAL_Read(pPhysicalAddress + offsetof(NVM_Page_Header_t, version),
+              &header.version,
+              sizeof(header.version));
 
   /* Stop immediately if data is from another version of the API. */
   if (NVM_VERSION != header.version)
@@ -1169,10 +1238,10 @@ static NVM_ValidateResult_t NVM_PageValidate(uint8_t *pPhysicalAddress)
   }
 
   /* Get the page configuration. */
-  pageDesc = NVM_PageGet((header.watermark & NVM_FIRST_BIT_ZERO));
+  pageDesc = NVM_PageDescriptorGet((header.watermark & NVM_FIRST_BIT_ZERO));
 
 
-#if (NVM_FEATURE_WEAR_PAGES_ENABLED == true)
+#if (NVM_FEATURE_WEAR_PAGES_ENABLED)
   if (nvmPageTypeWear == pageDesc.pageType)
   {
     /* Wear page. */
@@ -1198,8 +1267,14 @@ static NVM_ValidateResult_t NVM_PageValidate(uint8_t *pPhysicalAddress)
 #endif
   {
     /* Normal page. */
-    NVMHAL_Read(pPhysicalAddress + (NVM_PAGE_SIZE - NVM_FOOTER_SIZE), &footer.checksum, sizeof(footer.checksum));
-    NVMHAL_Read(pPhysicalAddress + (NVM_PAGE_SIZE + sizeof(checksum) - NVM_FOOTER_SIZE), &footer.watermark, sizeof(footer.watermark));
+    NVMHAL_Read(pPhysicalAddress + (NVM_PAGE_SIZE - NVM_FOOTER_SIZE) +
+                  offsetof(NVM_Page_Footer_t, checksum),
+                &footer.checksum,
+                sizeof(footer.checksum));
+    NVMHAL_Read(pPhysicalAddress + (NVM_PAGE_SIZE - NVM_FOOTER_SIZE) +
+                  offsetof(NVM_Page_Footer_t, watermark),
+                &footer.watermark,
+                sizeof(footer.watermark));
     /* Check if watermark or watermark with flipped write bit matches. */
     if (header.watermark == footer.watermark)
     {
@@ -1224,7 +1299,10 @@ static NVM_ValidateResult_t NVM_PageValidate(uint8_t *pPhysicalAddress)
      * for a NULL object. */
     while ((*pageDesc.page)[objectIndex].size != 0)
     {
-      NVMHAL_Checksum(&checksum, (uint8_t *) pPhysicalAddress + NVM_HEADER_SIZE + offsetAddress, (*pageDesc.page)[objectIndex].size);
+      NVMHAL_Checksum(&checksum,
+                      (uint8_t *) pPhysicalAddress
+                       + NVM_HEADER_SIZE + offsetAddress,
+                      (*pageDesc.page)[objectIndex].size);
       offsetAddress += (*pageDesc.page)[objectIndex].size;
       objectIndex++;
     }
@@ -1234,11 +1312,11 @@ static NVM_ValidateResult_t NVM_PageValidate(uint8_t *pPhysicalAddress)
       result = nvmValidateResultError;
     }
   }
-
   return result;
 }
 
-#if (NVM_FEATURE_WEAR_PAGES_ENABLED == true)
+
+#if (NVM_FEATURE_WEAR_PAGES_ENABLED)
 /***************************************************************************//**
  * @brief
  *   Find used wear slots.
@@ -1251,11 +1329,11 @@ static NVM_ValidateResult_t NVM_PageValidate(uint8_t *pPhysicalAddress)
  * @param[in] *pPhysicalAddress
  *   Pointer to the start of the page you want to check.
  *
- * @param[in] pageDesc
+ * @param[in] *pageDesc
  *   The page descriptor for the page.
  *
  * @return
- *   Returns the index as a uint16_t.
+ *   Returns the wear index.
  ******************************************************************************/
 static uint16_t NVM_WearIndex(uint8_t *pPhysicalAddress, NVM_Page_Descriptor_t *pPageDesc)
 {
@@ -1272,9 +1350,9 @@ static uint16_t NVM_WearIndex(uint8_t *pPhysicalAddress, NVM_Page_Descriptor_t *
   /* Loop over possible pages. Stop when empty page was found. */
   while (wearIndex < NVM_WEAR_CONTENT_SIZE / wearObjectSize)
   {
-    NVMHAL_Read((uint8_t *)(pPhysicalAddress + NVM_HEADER_SIZE +
-                            wearIndex * wearObjectSize +
-                            (*pPageDesc->page)[0].size
+    NVMHAL_Read((uint8_t *)(pPhysicalAddress + NVM_HEADER_SIZE
+                            + (wearIndex * wearObjectSize)
+                            + (*pPageDesc->page)[0].size
                             ),
                 &checksum,
                 sizeof(checksum));
@@ -1291,11 +1369,12 @@ static uint16_t NVM_WearIndex(uint8_t *pPhysicalAddress, NVM_Page_Descriptor_t *
     * Increase the index and check again. */
     wearIndex++;
   }
-
   return wearIndex;
 }
 #endif
 
+
+#if (NVM_FEATURE_WEAR_PAGES_ENABLED)
 /***************************************************************************//**
  * @brief
  *   Find newest wear index in a page.
@@ -1315,12 +1394,13 @@ static uint16_t NVM_WearIndex(uint8_t *pPhysicalAddress, NVM_Page_Descriptor_t *
  *   Pointer to where to store the index found.
  *
  * @return
- *   Returns the result of the operation as a boolean.
+ *   Returns false if there are no valid instances.
  ******************************************************************************/
-#if (NVM_FEATURE_WEAR_PAGES_ENABLED == true)
-static bool NVM_WearReadIndex(uint8_t *pPhysicalAddress, NVM_Page_Descriptor_t *pPageDesc, uint16_t *pIndex)
+static bool NVM_WearReadIndex(uint8_t *pPhysicalAddress,
+                              NVM_Page_Descriptor_t *pPageDesc,
+                              uint16_t *pIndex)
 {
-#if (NVM_FEATURE_READ_VALIDATION_ENABLED == true)
+#if (NVM_FEATURE_READ_VALIDATION_ENABLED)
   /* Variable used for calculating checksum when validating. */
   uint16_t checksum = NVM_CHECKSUM_INITIAL;
 #endif
@@ -1343,10 +1423,13 @@ static bool NVM_WearReadIndex(uint8_t *pPhysicalAddress, NVM_Page_Descriptor_t *
     (*pIndex)--;
 
     /* Initialize checksum, and then calculate it from the HAL.*/
-    uint8_t *temp = pPhysicalAddress + NVM_HEADER_SIZE + (*pIndex) * wearObjectSize + (*pPageDesc->page)[0].size;
+    uint8_t *temp = pPhysicalAddress
+                    + NVM_HEADER_SIZE
+                    + (*pIndex) * wearObjectSize
+                    + (*pPageDesc->page)[0].size;
     NVMHAL_Read((uint8_t *) temp, &readBuffer, sizeof(readBuffer));
 
-#if (NVM_FEATURE_READ_VALIDATION_ENABLED == true)
+#if (NVM_FEATURE_READ_VALIDATION_ENABLED)
     /* Calculate the checksum before accepting the object. */
     checksum = NVM_CHECKSUM_INITIAL;
     NVMHAL_Checksum(&checksum, pPhysicalAddress + NVM_HEADER_SIZE + (*pIndex) * wearObjectSize, (*pPageDesc->page)[0].size);
@@ -1360,10 +1443,10 @@ static bool NVM_WearReadIndex(uint8_t *pPhysicalAddress, NVM_Page_Descriptor_t *
       validObjectFound = true;
     }
   }
-
   return validObjectFound;
 }
 #endif
+
 
 /***************************************************************************//**
  * @brief
@@ -1401,7 +1484,8 @@ static void NVM_ChecksumAdditive(uint16_t *pChecksum, void *pBuffer, uint16_t le
   *pChecksum = crc;
 }
 
-#if (NVM_FEATURE_STATIC_WEAR_ENABLED == true)
+
+#if (NVM_FEATURE_STATIC_WEAR_ENABLED)
 /***************************************************************************//**
  * @brief
  *   Resets the static wear leveling system.
@@ -1459,6 +1543,7 @@ static void NVM_StaticWearUpdate(uint16_t address)
   }
 }
 
+
 /***************************************************************************//**
  * @brief
  *   Run the static wear leveling check.
@@ -1493,7 +1578,7 @@ static Ecode_t NVM_StaticWearCheck(void)
       }
 
       /* Check for wear page. */
-      if (nvmPageTypeWear == NVM_PageGet(address).pageType)
+      if (nvmPageTypeWear == NVM_PageDescriptorGet(address).pageType)
       {
         /* Flip bit. */
         nvmStaticWearWriteHistory[address / NVM_PAGES_PER_WEAR_HISTORY] |= mask;
@@ -1519,16 +1604,16 @@ static Ecode_t NVM_StaticWearCheck(void)
 
   return ECODE_EMDRV_NVM_OK;
 }
-
 #endif
 
 /** @endcond */
 
 
 /******** THE REST OF THE FILE IS DOCUMENTATION ONLY !**********************//**
+ * @addtogroup NVM
  * @{
 
-@page nvm_doc NVM Non-volatile Memory driver
+@page nvm_doc NVM Non-volatile Memory Wear-Leveling driver
 
   @li @ref nvm_intro
   @li @ref nvm_conf
@@ -1538,18 +1623,11 @@ static Ecode_t NVM_StaticWearCheck(void)
 @n @section nvm_intro Introduction
 
   This driver allows you to store application data in NVM. The driver
-  supports wear leveling to maximize the lifetime of the underlying NVM system
-  and data validation. The driver performs wear leveling by writing objects to
-  the least used locations in the NVM system. The driver uses CCITT CRC16 for
-  data validation.
-
-  It is also possible for the user to specify certain pages as wear pages.
-  These pages can only contain a single object, but they provide better performance
-  and drastically increase the lifetime of the memory if the object is known to
-  a low update frequency.
+  supports wear leveling to maximize the lifetime of the underlying NVM system.
+  CCITT CRC16 is used for data validation.
 
   The size and layout of the data objects to be managed by this driver must be known at
-  compile-time.
+  compile-time. Object may be composed of any primitive data type (8, 16 or 32-bit).
 
   This driver consists of  the files nvm.c, nvm.h and nvm_hal.h. Additionally, a
   implementation of nvm_hal.c is required for the specific NVM system to be used.
@@ -1560,13 +1638,16 @@ static Ecode_t NVM_StaticWearCheck(void)
 @n @section nvm_conf Configuration Options
 
   The files nvm_config.c and nvm_config.h contains compile-time configuration
-  parameters and a specification of the user data structure to be managed by the
-  driver.
+  parameters and a specification of the user data structures to be managed by the
+  driver, and how these are mapped to pages. A page can be of type normal or wear.
+  A wear page can only contain a single object, but they provide better performance
+  and drastically increase the lifetime of the memory if the object is known to
+  have a low update frequency.
 
   nvm_config.c implements an user data example. The arrays colorTable, coefficientTable,
   etc are defined and assigned to NVM pages. A pointer to each page is assigned to the
-  page table nvmPages. The page table also contain a page type specifier. A page can
-  either be of type nvmPageTypeNormal or nvmPageTypeWear. Pages of type nvmPageTypeNormal
+  page table nvmPages. The page table also contain a page type specifier. A page is
+  either of type nvmPageTypeNormal or nvmPageTypeWear. Pages of type nvmPageTypeNormal
   are written to the unused page with the lowest erase count. For pages of type nvmPageTypeWear,
   the data is first attempted fitted in a already used page. If this fails, then a a new
   page is selected based on the lowest erase count. Pages of type nvmPageTypeWear can only
@@ -1628,11 +1709,13 @@ static Ecode_t NVM_StaticWearCheck(void)
   extern uint32_t colorTable[];
   extern uint8_t coefficientTable[];
   extern uint8_t primeNumberTable[];
-  extern uint8_t bonusTable[];
+  extern uint16_t bonusTable[];
   extern uint8_t privateKeyTable[];
-  extern uint8_t transformTable[];
+  extern uint16_t transformTable[];
   extern int32_t safetyTable[];
   extern uint8_t bigEmptyTable[450];
+  extern int8_t smallNegativeTable[];
+  extern uint16_t shortPositiveTable[];
   extern uint32_t singleVariable;
 
   // Object and page IDs maching the data defined in nvm_config.c
@@ -1646,7 +1729,9 @@ static Ecode_t NVM_StaticWearCheck(void)
     TRANSFORM_TABLE_ID,
     SINGLE_VARIABLE_ID,
     SAFETY_TABLE_ID,
-    BIG_EMPTY_TABLE_ID
+    BIG_EMPTY_TABLE_ID,
+    SMALL_NEGATIVE_TABLE_ID,
+    SHORT_POSITIVE_TABLE_ID
   } NVM_Object_Ids;
 
   typedef enum
@@ -1654,13 +1739,15 @@ static Ecode_t NVM_StaticWearCheck(void)
     MY_PAGE_1,
     MY_PAGE_2,
     MY_PAGE_3,
-    MY_PAGE_4
+    MY_PAGE_4,
+    MY_PAGE_5,
+    MY_PAGE_6,
   } NVM_Page_Ids;
 
   CHIP_Init();
 
-  // Erase all pages managed by the driver and set the erasure count
-  // for each page to 0. To retain the erasure count, pass NVM_ERASE_RETAINCOUNT.
+  // Erase all pages managed by the driver and set the erase count
+  // for each page to 0. To retain the erase count, pass NVM_ERASE_RETAINCOUNT.
   NVM_Erase(0);
 
   if (ECODE_EMDRV_NVM_NO_PAGES_AVAILABLE == NVM_Init(NVM_ConfigGet())
@@ -1673,6 +1760,8 @@ static Ecode_t NVM_StaticWearCheck(void)
   NVM_Write(MY_PAGE_2, NVM_WRITE_ALL_CMD));
   NVM_Write(MY_PAGE_3, NVM_WRITE_ALL_CMD));
   NVM_Write(MY_PAGE_4, NVM_WRITE_ALL_CMD));
+  NVM_Write(MY_PAGE_5, NVM_WRITE_ALL_CMD));
+  NVM_Write(MY_PAGE_6, NVM_WRITE_ALL_CMD));
 
   // Set some data elements to 0
   for (i = 0; i < 4; i++)
@@ -1689,11 +1778,13 @@ static Ecode_t NVM_StaticWearCheck(void)
   {
     if (bonusTable[i] == 0)
     {
-      // Should not happen
+      // Should not happen because bonusTable[] in NVM should contain the
+      // constants set in nvm_config.c
     }
     if (primeNumberTable[i] == 0)
     {
-      // Should not happen
+      // Should not happen because primeNumberTable[] in NVM should contain the
+      // constants set in nvm_config.c
     }
   }
 

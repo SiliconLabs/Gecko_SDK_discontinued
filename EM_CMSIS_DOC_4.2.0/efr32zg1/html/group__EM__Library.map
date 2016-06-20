@@ -1,0 +1,31 @@
+<map id="EM_Library" name="EM_Library">
+<area shape="rect" id="node1" href="$group__LDMA.html" title="Direct Memory Access (LDMA) Peripheral API. " alt="" coords="157,5,211,32"/>
+<area shape="rect" id="node2" href="$group__PCNT.html" title="Pulse Counter (PCNT) Peripheral API . " alt="" coords="157,56,211,83"/>
+<area shape="rect" id="node3" href="$group__RMU.html" title="Reset Management Unit (RMU) Peripheral API . " alt="" coords="160,107,208,133"/>
+<area shape="rect" id="node4" href="$group__BITBAND.html" title="BITBAND Peripheral API (deprecated &#45; use em_bus.h) . " alt="" coords="148,157,220,184"/>
+<area shape="rect" id="node5" href="$group__ACMP.html" title="Analog comparator (ACMP) Peripheral API . " alt="" coords="157,208,211,235"/>
+<area shape="rect" id="node6" href="$group__LETIMER.html" title="Low Energy Timer (LETIMER) Peripheral API . " alt="" coords="148,259,220,285"/>
+<area shape="rect" id="node7" href="$group__BUS.html" title="BUS RAM and register bit/field read/write API . " alt="" coords="161,309,207,336"/>
+<area shape="rect" id="node8" href="$group__CMU.html" title="Clock management unit (CMU) Peripheral API . " alt="" coords="160,360,208,387"/>
+<area shape="rect" id="node9" href="$group__RTCC.html" title="Real Time Counter (RTCC) Peripheral API . " alt="" coords="157,411,211,437"/>
+<area shape="rect" id="node10" href="$group__DBG.html" title="Debug (DBG) Peripheral API . " alt="" coords="161,461,207,488"/>
+<area shape="rect" id="node11" href="$group__I2C.html" title="Inter&#45;integrated Circuit (I2C) Peripheral API . " alt="" coords="163,512,205,539"/>
+<area shape="rect" id="node12" href="$group__CHIP.html" title="Chip Initialization API . " alt="" coords="159,563,209,589"/>
+<area shape="rect" id="node13" href="$group__LEUART.html" title="Low Energy Universal Asynchronous Receiver/Transmitter (LEUART) Peripheral API . " alt="" coords="151,613,217,640"/>
+<area shape="rect" id="node14" href="$group__CRYOTIMER.html" title="Ultra Low Energy Timer/Counter (CRYOTIMER) Peripheral API. " alt="" coords="139,664,229,691"/>
+<area shape="rect" id="node15" href="$group__COMMON.html" title="Emlib general purpose utilities. . " alt="" coords="146,715,222,741"/>
+<area shape="rect" id="node16" href="$group__SYSTEM.html" title="System Peripheral API . " alt="" coords="149,765,219,792"/>
+<area shape="rect" id="node17" href="$group__ADC.html" title="Analog to Digital Converter (ADC) Peripheral API . " alt="" coords="161,816,207,843"/>
+<area shape="rect" id="node18" href="$group__VERSION.html" title="VERSION" alt="" coords="147,867,221,893"/>
+<area shape="rect" id="node19" href="$group__PRS.html" title="Peripheral Reflex System (PRS) Peripheral API . " alt="" coords="161,917,207,944"/>
+<area shape="rect" id="node20" href="$group__USART.html" title="Universal Synchronous/Asynchronous Receiver/Transmitter (USART) peripheral API . " alt="" coords="153,968,215,995"/>
+<area shape="rect" id="node21" href="$group__IDAC.html" title="Current Digital to Analog Conversion (IDAC) Peripheral API . " alt="" coords="159,1019,209,1045"/>
+<area shape="rect" id="node22" href="$group__WDOG.html" title="Watchdog (WDOG) Peripheral API . " alt="" coords="155,1069,213,1096"/>
+<area shape="rect" id="node23" href="$group__GPIO.html" title="General Purpose Input/Output (GPIO) API . " alt="" coords="159,1120,209,1147"/>
+<area shape="rect" id="node24" href="$group__EMU.html" title="Energy Management Unit (EMU) Peripheral API . " alt="" coords="161,1171,207,1197"/>
+<area shape="rect" id="node25" href="$group__INT.html" title="Safe nesting of interrupt disable/enable API. " alt="" coords="163,1221,205,1248"/>
+<area shape="rect" id="node26" href="$group__MPU.html" title="Memory Protection Unit (MPU) Peripheral API. " alt="" coords="161,1272,207,1299"/>
+<area shape="rect" id="node27" href="$group__MSC.html" title="Flash controller (MSC) peripheral API . " alt="" coords="160,1323,208,1349"/>
+<area shape="rect" id="node28" href="$group__CRYPTO.html" title="Cryptography accelerator peripheral API. " alt="" coords="149,1373,219,1400"/>
+<area shape="rect" id="node29" href="$group__TIMER.html" title="Timer/Counter (TIMER) Peripheral API. " alt="" coords="155,1424,213,1451"/>
+</map>

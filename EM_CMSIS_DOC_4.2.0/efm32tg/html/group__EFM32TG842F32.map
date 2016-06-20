@@ -1,0 +1,10 @@
+<map id="EFM32TG842F32" name="EFM32TG842F32">
+<area shape="rect" id="node2" href="$group__EFM32TG842F32__Peripheral__TypeDefs.html" title="Device Specific Peripheral Register Structures. " alt="" coords="273,5,453,46"/>
+<area shape="rect" id="node3" href="$group__EFM32TG842F32__Core.html" title="Processor and Core Peripheral Section. " alt="" coords="288,71,437,97"/>
+<area shape="rect" id="node4" href="$group__EFM32TG842F32__Alternate__Function.html" title="EFM32TG842F32 Alternate\l Function" alt="" coords="275,122,450,163"/>
+<area shape="rect" id="node6" href="$group__EFM32TG842F32__Part.html" title="EFM32TG842F32 Part" alt="" coords="290,188,435,215"/>
+<area shape="rect" id="node7" href="$group__EFM32TG842F32__Peripheral__Base.html" title="EFM32TG842F32 Peripheral\l Memory Map" alt="" coords="273,239,453,281"/>
+<area shape="rect" id="node8" href="$group__EFM32TG842F32__BitFields.html" title="EFM32TG842F32 Bit Fields" alt="" coords="276,305,449,332"/>
+<area shape="rect" id="node9" href="$group__EFM32TG842F32__Peripheral__Declaration.html" title="EFM32TG842F32 Peripheral\l Declarations" alt="" coords="273,357,453,398"/>
+<area shape="rect" id="node5" href="$group__Parts.html" title="Parts" alt="" coords="5,188,56,215"/>
+</map>

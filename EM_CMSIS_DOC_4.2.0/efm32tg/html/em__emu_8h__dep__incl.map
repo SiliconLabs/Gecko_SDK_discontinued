@@ -1,0 +1,10 @@
+<map id="C:/work/s025_sw/emlib/inc/em_emu.h" name="C:/work/s025_sw/emlib/inc/em_emu.h">
+<area shape="rect" id="node3" href="$em__cmu_8c.html" title="Clock management unit (CMU) Peripheral API. " alt="" coords="5,97,163,138"/>
+<area shape="rect" id="node5" href="$em__emu_8c.html" title="Energy Management Unit (EMU) Peripheral API. " alt="" coords="187,97,345,138"/>
+<area shape="rect" id="node7" href="$em__rmu_8c.html" title="Reset Management Unit (RMU) peripheral module peripheral API. " alt="" coords="370,97,528,138"/>
+<area shape="rect" id="node9" href="$ustimer_8c.html" title="Microsecond delay functions. " alt="" coords="553,97,716,138"/>
+<area shape="rect" id="node11" href="$uartdrv_8c.html" title="UARTDRV API implementation. " alt="" coords="741,97,904,138"/>
+<area shape="rect" id="node13" href="$sleep_8c.html" title="Energy Modes management driver. " alt="" coords="929,97,1092,138"/>
+<area shape="rect" id="node15" href="$caplesense_8c.html" title="Capacitive sense driver. " alt="" coords="1117,97,1315,138"/>
+<area shape="rect" id="node17" href="$capsense_8c.html" title="Capacitive sense driver. " alt="" coords="1339,97,1527,138"/>
+</map>

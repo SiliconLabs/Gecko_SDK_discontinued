@@ -1,0 +1,20 @@
+<map id="ezradioStartPn9" name="ezradioStartPn9">
+<area shape="rect" id="node3" href="$group__API__Layer.html#ga2060b35450cc17415abf08a2f028b2b6" title="ezradio_get_int_status" alt="" coords="171,72,322,99"/>
+<area shape="rect" id="node41" href="$group__API__Layer.html#ga9f990f8ebde64b6ef0c051f397430c53" title="ezradio_request_device\l_state" alt="" coords="168,6,325,47"/>
+<area shape="rect" id="node44" href="$group__API__Layer.html#ga95ec30d47eea9860cccae2c5bb3fc878" title="ezradio_start_tx" alt="" coords="424,123,539,149"/>
+<area shape="rect" id="node5" href="$group__COMM__Layer.html#ga67ac511d7cfce9c8cb00cd31113ff9a4" title="ezradio_comm_SendCmdGetResp" alt="" coords="374,47,589,73"/>
+<area shape="rect" id="node7" href="$group__COMM__Layer.html#ga45656b02cb2cf46e29c8f509203e08b4" title="ezradio_comm_GetResp" alt="" coords="1064,123,1224,149"/>
+<area shape="rect" id="node31" href="$group__COMM__Layer.html#ga038a27f7a6883bc6640fe1187a98eed9" title="ezradio_comm_SendCmd" alt="" coords="637,123,805,149"/>
+<area shape="rect" id="node9" href="$group__HAL__Layer.html#ga09c7ef4b4780a8089505f54ef1f26fd5" title="ezradio_hal_ClearNsel" alt="" coords="1287,15,1436,41"/>
+<area shape="rect" id="node15" href="$group__HAL__Layer.html#ga52e4a984325c6446291b13b1a63e3dff" title="ezradio_hal_SpiWriteByte" alt="" coords="1277,167,1445,193"/>
+<area shape="rect" id="node19" href="$group__HAL__Layer.html#ga23ca775cc658644f29ceacbcc471606a" title="ezradio_hal_SpiReadByte" alt="" coords="1278,65,1445,92"/>
+<area shape="rect" id="node23" href="$group__HAL__Layer.html#ga9c4c63403aaa9f22f75391e4c767d298" title="ezradio_hal_SpiReadData" alt="" coords="1277,116,1445,143"/>
+<area shape="rect" id="node26" href="$group__HAL__Layer.html#gae80c58c4f19b8e2b56c033c94bcb0f10" title="ezradio_hal_SetNsel" alt="" coords="1292,268,1431,295"/>
+<area shape="rect" id="node11" href="$group__GPIO.html#ga607f3a5f3d881bb145101566f1664aba" title="Set a single pin in GPIO data out port register to 0. " alt="" coords="1502,28,1626,55"/>
+<area shape="rect" id="node13" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="1683,136,1802,163"/>
+<area shape="rect" id="node17" href="$group__SPIDRV.html#gaf53f10ccb89d8ae2c5c397db7cb87a9e" title="Start a SPI master blocking transmit transfer. " alt="" coords="1494,180,1634,207"/>
+<area shape="rect" id="node21" href="$group__SPIDRV.html#gace57de2fe713e7eed216c8f4d00e19b8" title="Start a SPI master blocking receive transfer. " alt="" coords="1497,104,1631,131"/>
+<area shape="rect" id="node28" href="$group__GPIO.html#gab08f054efbb07aaff57d616974c9c536" title="Set a single pin in GPIO data out register to 1. " alt="" coords="1507,256,1621,283"/>
+<area shape="rect" id="node33" href="$group__COMM__Layer.html#gac2d23214b75072bedd593da2815858d3" title="ezradio_comm_PollCTS" alt="" coords="853,123,1011,149"/>
+<area shape="rect" id="node37" href="$group__HAL__Layer.html#ga4121044d05b7372b071773d4582204f5" title="ezradio_hal_SpiWriteData" alt="" coords="1059,199,1229,225"/>
+</map>

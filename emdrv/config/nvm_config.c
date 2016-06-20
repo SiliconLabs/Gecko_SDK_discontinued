@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file nvm_config.c
- * @brief NVM config implementation
- * @version 4.1.0
+ * @brief NVM driver configuration
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -17,7 +17,7 @@
 #include "nvm.h"
 #include "nvm_config.h"
 
-/// @cond DO_NOT_INCLUDE_WITH_DOXYGEN
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 
 /*******************************************************************************
  ***********************   DATA SPECIFICATION START   **************************
@@ -26,22 +26,34 @@
 /**< Example data objects */
 uint32_t colorTable[]           = { 0x000000, 0xff0000, 0x00ff00, 0x0000ff, 0xffff00,
                                     0x00ffff, 0xff00ff, 0xc0c0c0, 0xffffff };
+
 uint8_t coefficientTable[]      = { 11, 12, 13, 14, 15 };
+
 uint8_t primeNumberTable[]      = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41,
                                     43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97,
                                     101, 103, 107, 109, 113, 127, 131, 137, 139, 149,
                                     151, 157, 163, 167, 173, 179, 181, 191, 193, 197,
                                     199, 211, 223, 227, 229, 233, 239, 241, 251 };
-uint8_t bonusTable[]            = { 39, 38, 37, 36 };
+
+uint16_t bonusTable[]           = { 39, 38, 37, 36 };
+
 uint8_t privateKeyTable[]       = { 49, 48, 47, 46 };
-uint8_t transformTable[]        = { 59, 58, 57, 56 };
+
+uint16_t transformTable[]       = { 59, 58, 57, 56 };
+
 int32_t safetyTable[]           = { -71, 72, -73, 74, -75, -76, -77, -78, 79, -70 };
+
 uint8_t bigEmptyTable[450];
+
 uint32_t singleVariable         = 68;
 
+int8_t smallNegativeTable[]     = { -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11,
+                                    -12, -13, -14, -15, -16, -17, -18, -19, -20 };
 
-/* Example object IDs. These IDs should have names that relate to the data
- * objects defined in nvm_config.c. */
+uint16_t shortPositiveTable[]   = {0xFFF0, 0xFFF1, 0xFFF2};
+
+
+/* Object IDs */
 typedef enum
 {
   COLOR_TABLE_ID,
@@ -52,17 +64,21 @@ typedef enum
   TRANSFORM_TABLE_ID,
   SINGLE_VARIABLE_ID,
   SAFETY_TABLE_ID,
-  BIG_EMPTY_TABLE_ID
+  BIG_EMPTY_TABLE_ID,
+  SMALL_NEGATIVE_TABLE_ID,
+  SHORT_POSITIVE_TABLE_ID
 } NVM_Object_Ids;
 
-/* Example page IDs.
- * These IDs should have names that relate to the pages defined in nvm_config.c. */
+
+/* Page IDs */
 typedef enum
 {
   MY_PAGE_1,
   MY_PAGE_2,
   MY_PAGE_3,
-  MY_PAGE_4
+  MY_PAGE_4,
+  MY_PAGE_5,
+  MY_PAGE_6
 } NVM_Page_Ids;
 
 /* Page definition 1.
@@ -110,6 +126,28 @@ NVM_Page_t const myPage4 =
   NVM_PAGE_TERMINATION /* Null termination of table. This is required. */
 };
 
+/* Page definition 5.
+ * Combine objects with their ID, and put them in a page.
+ * This page contains only one object, since it is going to be
+ * used as a wear page. */
+NVM_Page_t const myPage5 =
+{
+/*{ Pointer to object,            Size of object,           Object ID}, */
+  { (uint8_t *) smallNegativeTable,      sizeof(smallNegativeTable),      SMALL_NEGATIVE_TABLE_ID },
+  NVM_PAGE_TERMINATION /* Null termination of table. This is required. */
+};
+
+/* Page definition 6.
+ * Combine objects with their ID, and put them in a page.
+ * This page contains only one object, since it is going to be
+ * used as a wear page. */
+NVM_Page_t const myPage6 =
+{
+/*{ Pointer to object,            Size of object,           Object ID}, */
+  { (uint8_t *) shortPositiveTable,      sizeof(shortPositiveTable),      SHORT_POSITIVE_TABLE_ID },
+  NVM_PAGE_TERMINATION /* Null termination of table. This is required. */
+};
+
 /* Register all pages into the page table.
  * Assosiate each page to the page ID, and define the type of page. */
 NVM_Page_Table_t const nvmPages =
@@ -118,7 +156,9 @@ NVM_Page_Table_t const nvmPages =
   { MY_PAGE_1, &myPage1, nvmPageTypeNormal },
   { MY_PAGE_2, &myPage2, nvmPageTypeWear },
   { MY_PAGE_3, &myPage3, nvmPageTypeNormal },
-  { MY_PAGE_4, &myPage4, nvmPageTypeNormal }
+  { MY_PAGE_4, &myPage4, nvmPageTypeNormal },
+  { MY_PAGE_5, &myPage5, nvmPageTypeWear },
+  { MY_PAGE_6, &myPage6, nvmPageTypeWear }
 };
 
 /*******************************************************************************

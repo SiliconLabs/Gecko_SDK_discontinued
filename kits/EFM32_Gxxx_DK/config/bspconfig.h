@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file
  * @brief Provide BSP (board support package) configuration parameters.
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -17,7 +17,7 @@
 #define __BSPCONFIG_H
 
 #define BSP_DK
-#define BSP_DK_3200
+#define BSP_DK_BRD3200
 
 #if defined( EBI_PRESENT ) && !defined( LCD_PRESENT )
 #define BSP_BC_CTRL_EBI

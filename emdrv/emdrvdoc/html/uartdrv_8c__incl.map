@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node15" href="$uartdrv_8h.html" title="UARTDRV API definition." alt="" coords="455,80,529,107"/>
-<area shape="rect" id="node21" href="$ecode_8h.html" title="Energy Aware drivers error code definitions." alt="" coords="189,229,256,256"/>
-<area shape="rect" id="node23" href="$uartdrv__config_8h.html" title="UARTDRV configuration file." alt="" coords="408,155,523,181"/>
-<area shape="rect" id="node25" href="$dmadrv_8h.html" title="DMADRV API definition." alt="" coords="283,155,359,181"/>
-<area shape="rect" id="node31" href="$dmadrv__config_8h.html" title="DMADRV configuration file." alt="" coords="387,229,504,256"/>
-</map>

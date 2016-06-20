@@ -1,0 +1,48 @@
+<map id="INT_Disable" name="INT_Disable">
+<area shape="rect" id="node3" href="$group__CapSense.html#ga4a9a1233a70703ca91a6bc9fcf05ec19" title="Initializes the capacative sense system without LESENSE. " alt="" coords="185,5,306,32"/>
+<area shape="rect" id="node5" href="$group__DMADRV.html#gab503e066820cd13fd612f4365d4d07b2" title="Allocate (reserve) a DMA channel. " alt="" coords="160,208,331,235"/>
+<area shape="rect" id="node7" href="$group__SPIDRV.html#gae1bf2b297eca13e7e46cbbcb66202239" title="Initialize a SPI driver instance. " alt="" coords="444,107,535,133"/>
+<area shape="rect" id="node15" href="$group__UARTDRV.html#ga2aa9f087a06d6bf96933d657ac4e55d6" title="Initialize a UART driver instance. " alt="" coords="438,157,541,184"/>
+<area shape="rect" id="node17" href="$group__DMADRV.html#ga73633db63cfd99ba01a68b05c24094ec" title="Deinitialize DMADRV. " alt="" coords="433,360,545,387"/>
+<area shape="rect" id="node23" href="$group__DMADRV.html#gab4453539f4d22aa650324685a9f197e3" title="Free an allocate (reserved) DMA channel. " alt="" coords="414,411,565,437"/>
+<area shape="rect" id="node27" href="$group__DMADRV.html#ga43d0052d81f16e72914f85248a8554b1" title="Initialize DMADRV. " alt="" coords="197,157,294,184"/>
+<area shape="rect" id="node31" href="$group__DMADRV.html#gaa46714c6a19608cff3058c386f1e4c03" title="Check if a transfer has completed. " alt="" coords="411,892,568,919"/>
+<area shape="rect" id="node33" href="$group__DMADRV.html#ga9a253b47872d205a76b6f1b7b486194d" title="Get number of items remaining in a transfer. " alt="" coords="395,682,583,723"/>
+<area shape="rect" id="node35" href="$group__SPIDRV.html#ga071d128b28b8acff08396fb090b8025a" title="Abort an ongoing SPI transfer. " alt="" coords="652,575,804,601"/>
+<area shape="rect" id="node37" href="$group__SPIDRV.html#ga7d440db45246649580c6c5b08eb332da" title="Get the status of a SPI transfer. " alt="" coords="640,803,816,829"/>
+<area shape="rect" id="node39" href="$group__UARTDRV.html#ga0abd859c2a17dafe03abceeb4c96a12a" title="Abort an ongoing UART transfer. " alt="" coords="670,639,786,665"/>
+<area shape="rect" id="node45" href="$group__GPIOINT.html#gaffd9a793482ef44c0871654a9e60836e" title="Registers user callback for given pin number. " alt="" coords="160,309,331,336"/>
+<area shape="rect" id="node54" href="$group__LDMA.html#gaf5c9ca9bae8e1bcf397bf53d6f3f79f5" title="Start a DMA transfer. " alt="" coords="176,968,315,995"/>
+<area shape="rect" id="node58" href="$group__LDMA.html#ga94f7cafc791d8ddb5858dafee6a94ada" title="Stop a DMA transfer. " alt="" coords="177,512,313,539"/>
+<area shape="rect" id="node66" href="$group__LDMA.html#ga361b5d96651a907354f242c7945dd7d5" title="Check if a DMA transfer has completed. " alt="" coords="176,867,315,893"/>
+<area shape="rect" id="node69" href="$group__LDMA.html#gabfd6f1003414438b5c234f2bec304511" title="Get number of items remaining in a transfer. " alt="" coords="144,664,347,691"/>
+<area shape="rect" id="node72" href="$group__RetargetIo.html#ga5af724185f484056b02b42f4ab184bfb" title="Receive a byte from USART/LEUART and put into global buffer. " alt="" coords="172,1019,319,1045"/>
+<area shape="rect" id="node74" href="$group__RTCDRV.html#gaef2d97c6223617d158b05e03ee35950a" title="Allocate timer. " alt="" coords="167,56,323,83"/>
+<area shape="rect" id="node77" href="$group__RTCDRV.html#gaa783bf476e7a815f6177c626fef0ac98" title="Free timer. " alt="" coords="421,461,558,488"/>
+<area shape="rect" id="node80" href="$group__RTCDRV.html#ga0ad8d9097523a568e484ad9f6920ba88" title="Check if a given timer is running. " alt="" coords="179,1069,312,1096"/>
+<area shape="rect" id="node82" href="$group__RTCDRV.html#gaeee47cebc2ca33e571c965b90e1386d9" title="Start a timer. " alt="" coords="176,1120,315,1147"/>
+<area shape="rect" id="node96" href="$group__RTCDRV.html#ga7d3614e56f17c24103336a37891579a4" title="Stop a given timer. " alt="" coords="421,563,558,589"/>
+<area shape="rect" id="node100" href="$group__RTCDRV.html#ga3d7c481309659eeada554be33854c103" title="Get time left before a given timer expires. " alt="" coords="162,1171,329,1197"/>
+<area shape="rect" id="node102" href="$group__SLEEP.html#ga2845d5d6d00f408dda6894a654fd1adf" title="Sets the system to sleep into the lowest possible energy mode. " alt="" coords="197,1221,293,1248"/>
+<area shape="rect" id="node107" href="$group__SPIDRV.html#gaea943a66137078855a6511a75fb27437" title="Start a SPI master blocking single item (frame) transfer. " alt="" coords="146,1272,345,1299"/>
+<area shape="rect" id="node109" href="$group__SPIDRV.html#ga3e6e2f999eb2ef0fd16df41339e6dc84" title="Set SPI bus bitrate. " alt="" coords="181,1323,309,1349"/>
+<area shape="rect" id="node111" href="$group__SPIDRV.html#ga54ce984fad9b30b3e8e860b6ada5b77a" title="Set SPI framelength. " alt="" coords="164,1373,327,1400"/>
+<area shape="rect" id="node115" href="$group__Udelay.html#ga523f858d15b74728046ceca9796f3046" title="Calibrates the microsecond delay loop. " alt="" coords="183,1424,307,1451"/>
+<area shape="rect" id="node9" href="$group__HAL__Layer.html#gae1cf166781ecf4a2317e0d9d4f504197" title="ezradio_hal_SpiInit" alt="" coords="663,107,793,133"/>
+<area shape="rect" id="node13" href="$group__ksz8851snl.html#ga12cf356cb196dbc44230f7ad5aa16742" title="KSZ8851SNL_SPI_Init Initialize SPI interface to Ethernet controller. " alt="" coords="655,157,801,184"/>
+<area shape="rect" id="node11" href="$group__Plugin__Manager.html#ga55ab56dfaa297c93024dc43239bc8592" title="Radio Initialization. " alt="" coords="872,157,955,184"/>
+<area shape="rect" id="node19" href="$group__SPIDRV.html#ga1bebced0f8f5b3a3ac582916e4b13460" title="Deinitialize a SPI driver instance. " alt="" coords="675,461,781,488"/>
+<area shape="rect" id="node21" href="$group__UARTDRV.html#ga3b4222031534ab6d54ca068b5fa6e596" title="Deinitialize a UART driver instance. " alt="" coords="669,385,787,412"/>
+<area shape="rect" id="node41" href="$group__UARTDRV.html#ga34806bf9fc4d876aa6ae725ce060541b" title="Check the status of the UART and gather information about any ongoing receive operations. " alt="" coords="636,740,820,767"/>
+<area shape="rect" id="node43" href="$group__UARTDRV.html#gae5387109fb659840fa822aa6ae08b81f" title="Check the status of the UART and gather information about any ongoing transmit operations. " alt="" coords="633,689,823,716"/>
+<area shape="rect" id="node47" href="$group__HAL__Layer.html#gabf61af8f57a9c92ea50311df53a7d825" title="ezradio_hal_GpioInit" alt="" coords="659,208,797,235"/>
+<area shape="rect" id="node50" href="$group__GPIOINT.html#ga2d33c9188635a9b34cce16b4f1a2e6d4" title="Unregisters user callback for given pin number. " alt="" coords="396,309,583,336"/>
+<area shape="rect" id="node56" href="$group__DMADRV.html#ga0349951d92b3e6bf87a983f143d7125c" title="Start a LDMA transfer. " alt="" coords="396,968,583,995"/>
+<area shape="rect" id="node60" href="$group__DMADRV.html#ga3a04cb3aa30ec2fd955281f55538028d" title="Stop an ongoing DMA transfer. " alt="" coords="412,512,567,539"/>
+<area shape="rect" id="node84" href="$group__SPIDRV.html#gaa4a1d07a7cfa1b461231b81ee9bd7208" title="Start a SPI slave receive transfer. " alt="" coords="427,1019,551,1045"/>
+<area shape="rect" id="node86" href="$group__SPIDRV.html#gaacf21de6f56b73897137afe66c8a55fc" title="Start a SPI slave blocking receive transfer. " alt="" coords="424,1069,555,1096"/>
+<area shape="rect" id="node88" href="$group__SPIDRV.html#ga3b0e6cefe8389131f8cda2d3422ca165" title="Start a SPI slave transfer. " alt="" coords="425,1120,554,1147"/>
+<area shape="rect" id="node90" href="$group__SPIDRV.html#ga2117731649ff7375202f3db7c7eaea14" title="Start a SPI slave blocking transfer. " alt="" coords="421,1171,557,1197"/>
+<area shape="rect" id="node92" href="$group__SPIDRV.html#gab17e267c072c9fa5424ac0dbb6d162b4" title="Start a SPI slave transmit transfer. " alt="" coords="424,1221,555,1248"/>
+<area shape="rect" id="node94" href="$group__SPIDRV.html#ga950e481559e49f805c4c65701f272df5" title="Start a SPI slave blocking transmit transfer. " alt="" coords="420,1272,559,1299"/>
+</map>

@@ -1,0 +1,3 @@
+<map id="RTCDRV_GetWallClock" name="RTCDRV_GetWallClock">
+<area shape="rect" id="node3" href="$group__RTCDRV.html#ga5950470ac041a5eff659e7e9b016c402" title="Get wallclock tick count as a 32bit value. At 4 ticks per millisecond, overflow occurs after approxim..." alt="" coords="205,5,400,32"/>
+</map>

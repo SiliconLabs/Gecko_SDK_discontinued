@@ -1,0 +1,45 @@
+<map id="C:/work/s025_sw/emdrv/ezradiodrv/plugins/src/ezradio_auto_ack_plugin.c" name="C:/work/s025_sw/emdrv/ezradiodrv/plugins/src/ezradio_auto_ack_plugin.c">
+<area shape="rect" id="node5" href="$em__device_8h.html" title="CMSIS Cortex&#45;M Peripheral Access Layer for Silicon Laboratories microcontroller devices. " alt="" coords="2273,109,2367,136"/>
+<area shape="rect" id="node75" href="$ezradio__api__lib_8h.html" title="This file contains the common API library of the EZRadio and EZRadioPRO families. ..." alt="" coords="2655,109,2773,136"/>
+<area shape="rect" id="node79" href="$ezradio__plugin__manager_8h.html" title="This file contains the plug&#45;in manager for the EZRadio and EZRadioPRO chip families. " alt="" coords="2989,109,3163,136"/>
+<area shape="rect" id="node7" href="$ezr32wg330f256r69_8h.html" title="CMSIS Cortex&#45;M Peripheral Access Layer Header File for EZR32WG330F256R69. " alt="" coords="2229,192,2376,219"/>
+<area shape="rect" id="node11" href="$system__ezr32wg_8h.html" title="CMSIS Cortex&#45;M4 System Layer for EZR32WG devices. " alt="" coords="118,275,247,301"/>
+<area shape="rect" id="node13" href="$ezr32wg__dma__ch_8h.html" title="EZR32WG_DMA_CH register and bit field definitions. " alt="" coords="271,275,405,301"/>
+<area shape="rect" id="node15" href="$ezr32wg__dma_8h.html" title="EZR32WG_DMA register and bit field definitions. " alt="" coords="431,275,545,301"/>
+<area shape="rect" id="node17" href="$ezr32wg__aes_8h.html" title="EZR32WG_AES register and bit field definitions. " alt="" coords="569,275,679,301"/>
+<area shape="rect" id="node19" href="$ezr32wg__usb__hc_8h.html" title="EZR32WG_USB_HC register and bit field definitions. " alt="" coords="703,275,832,301"/>
+<area shape="rect" id="node21" href="$ezr32wg__usb__diep_8h.html" title="EZR32WG_USB_DIEP register and bit field definitions. " alt="" coords="857,275,996,301"/>
+<area shape="rect" id="node23" href="$ezr32wg__usb__doep_8h.html" title="EZR32WG_USB_DOEP register and bit field definitions. " alt="" coords="1021,275,1165,301"/>
+<area shape="rect" id="node25" href="$ezr32wg__usb_8h.html" title="EZR32WG_USB register and bit field definitions. " alt="" coords="1189,275,1299,301"/>
+<area shape="rect" id="node27" href="$ezr32wg__msc_8h.html" title="EZR32WG_MSC register and bit field definitions. " alt="" coords="1323,275,1435,301"/>
+<area shape="rect" id="node29" href="$ezr32wg__emu_8h.html" title="EZR32WG_EMU register and bit field definitions. " alt="" coords="1459,275,1573,301"/>
+<area shape="rect" id="node31" href="$ezr32wg__rmu_8h.html" title="EZR32WG_RMU register and bit field definitions. " alt="" coords="1597,275,1709,301"/>
+<area shape="rect" id="node33" href="$ezr32wg__cmu_8h.html" title="EZR32WG_CMU register and bit field definitions. " alt="" coords="1734,275,1847,301"/>
+<area shape="rect" id="node35" href="$ezr32wg__lesense__st_8h.html" title="EZR32WG_LESENSE_ST register and bit field definitions. " alt="" coords="1872,275,2021,301"/>
+<area shape="rect" id="node37" href="$ezr32wg__lesense__buf_8h.html" title="EZR32WG_LESENSE_BUF register and bit field definitions. " alt="" coords="2045,275,2203,301"/>
+<area shape="rect" id="node39" href="$ezr32wg__lesense__ch_8h.html" title="EZR32WG_LESENSE_CH register and bit field definitions. " alt="" coords="2227,275,2379,301"/>
+<area shape="rect" id="node41" href="$ezr32wg__lesense_8h.html" title="EZR32WG_LESENSE register and bit field definitions. " alt="" coords="2403,275,2535,301"/>
+<area shape="rect" id="node43" href="$ezr32wg__fpueh_8h.html" title="EZR32WG_FPUEH register and bit field definitions. " alt="" coords="2559,275,2680,301"/>
+<area shape="rect" id="node45" href="$ezr32wg__usart_8h.html" title="EZR32WG_USART register and bit field definitions. " alt="" coords="2705,275,2823,301"/>
+<area shape="rect" id="node47" href="$ezr32wg__timer__cc_8h.html" title="EZR32WG_TIMER_CC register and bit field definitions. " alt="" coords="2848,275,2987,301"/>
+<area shape="rect" id="node49" href="$ezr32wg__timer_8h.html" title="EZR32WG_TIMER register and bit field definitions. " alt="" coords="3011,275,3129,301"/>
+<area shape="rect" id="node51" href="$ezr32wg__acmp_8h.html" title="EZR32WG_ACMP register and bit field definitions. " alt="" coords="3155,275,3275,301"/>
+<area shape="rect" id="node53" href="$ezr32wg__leuart_8h.html" title="EZR32WG_LEUART register and bit field definitions. " alt="" coords="3299,275,3421,301"/>
+<area shape="rect" id="node55" href="$ezr32wg__rtc_8h.html" title="EZR32WG_RTC register and bit field definitions. " alt="" coords="3445,275,3549,301"/>
+<area shape="rect" id="node57" href="$ezr32wg__letimer_8h.html" title="EZR32WG_LETIMER register and bit field definitions. " alt="" coords="3574,275,3703,301"/>
+<area shape="rect" id="node59" href="$ezr32wg__pcnt_8h.html" title="EZR32WG_PCNT register and bit field definitions. " alt="" coords="3727,275,3840,301"/>
+<area shape="rect" id="node61" href="$ezr32wg__i2c_8h.html" title="EZR32WG_I2C register and bit field definitions. " alt="" coords="3865,275,3969,301"/>
+<area shape="rect" id="node63" href="$ezr32wg__gpio__p_8h.html" title="EZR32WG_GPIO_P register and bit field definitions. " alt="" coords="3994,275,4120,301"/>
+<area shape="rect" id="node65" href="$ezr32wg__gpio_8h.html" title="EZR32WG_GPIO register and bit field definitions. " alt="" coords="4145,275,4257,301"/>
+<area shape="rect" id="node67" href="$ezr32wg__vcmp_8h.html" title="EZR32WG_VCMP register and bit field definitions. " alt="" coords="4282,275,4400,301"/>
+<area shape="rect" id="node69" href="$ezr32wg__prs__ch_8h.html" title="EZR32WG_PRS_CH register and bit field definitions. " alt="" coords="4425,275,4551,301"/>
+<area shape="rect" id="node81" href="$ecode_8h.html" title="Energy Aware drivers error code definitions. " alt="" coords="2400,192,2467,219"/>
+<area shape="rect" id="node85" href="$ezradio__transmit__plugin_8h.html" title="EzRadio transmit plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="2608,192,2779,219"/>
+<area shape="rect" id="node87" href="$ezradio__receive__plugin_8h.html" title="EzRadio transmit plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="2803,192,2967,219"/>
+<area shape="rect" id="node89" href="$ezradio__crcerror__plugin_8h.html" title="EzRadio CRC error plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="2991,192,3160,219"/>
+<area shape="rect" id="node91" href="$ezradio__auto__ack__plugin_8h.html" title="EzRadio auto acknowledge plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="3185,192,3359,219"/>
+<area shape="rect" id="node93" href="$ezradio__unmod__carrier__plugin_8h.html" title="EzRadio unmodulated carrier plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="3384,185,3539,226"/>
+<area shape="rect" id="node95" href="$ezradio__pn9__plugin_8h.html" title="EzRadio PN9 plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="3563,192,3707,219"/>
+<area shape="rect" id="node97" href="$ezradio__direct__transmit__plugin_8h.html" title="EzRadio direct transmission plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="3731,185,3888,226"/>
+<area shape="rect" id="node99" href="$ezradio__direct__receive__plugin_8h.html" title="EzRadio direct reception plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="3913,185,4063,226"/>
+</map>

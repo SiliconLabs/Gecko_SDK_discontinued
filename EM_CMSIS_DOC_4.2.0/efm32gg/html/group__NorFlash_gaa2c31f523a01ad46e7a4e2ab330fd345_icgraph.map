@@ -1,0 +1,5 @@
+<map id="NORFLASH_ProgramWord16" name="NORFLASH_ProgramWord16">
+<area shape="rect" id="node3" href="$group__NorFlash.html#ga0598fe2d45292a3c2a78b3d7e80eda96" title="Program the flash device. " alt="" coords="475,5,615,32"/>
+<area shape="rect" id="node5" href="$group__NorFlash.html#gaa0a43df437ca71899ffe7b009d7669c4" title="Program a single byte in the flash device. " alt="" coords="251,31,415,57"/>
+<area shape="rect" id="node8" href="$group__NorFlash.html#ga221592efbe3deead0ddf678fff051a52" title="Program a word (32bit) in the flash device. " alt="" coords="241,81,426,108"/>
+</map>

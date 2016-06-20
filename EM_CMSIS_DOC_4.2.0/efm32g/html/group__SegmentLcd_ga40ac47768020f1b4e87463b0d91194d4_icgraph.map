@@ -1,0 +1,4 @@
+<map id="SegmentLCD_Write" name="SegmentLCD_Write">
+<area shape="rect" id="node3" href="$group__SegmentLcd.html#ga245fe077c9db4b869d98144d58a94656" title="Write a hexadecimal number on lower alphanumeric part of Segment LCD display. " alt="" coords="199,5,358,32"/>
+<area shape="rect" id="node5" href="$group__SegmentLcd.html#gaa77f1f04af621a6ffe0d3ce40d67ab8a" title="Write number on lower alphanumeric part of Segment LCD display. " alt="" coords="187,56,370,83"/>
+</map>

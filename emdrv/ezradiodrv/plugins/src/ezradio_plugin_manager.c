@@ -2,7 +2,7 @@
  * @file ezradio_plugin_manager.c
  * @brief This file contains the plug-in manager for the EZRadio and
  *        EZRadioPRO chip families.
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -205,6 +205,7 @@ static void GPIO_EZRadio_INT_IRQHandler( uint8_t pin )
 /// @endcond
 
 /******** THE REST OF THE FILE IS DOCUMENTATION ONLY !**********************//**
+ * @addtogroup EZRADIODRV
  * @{
 
 @page ezradiodrv_doc EZRADIODRV EzRadio Peripheral Interface driver
@@ -231,7 +232,7 @@ static void GPIO_EZRadio_INT_IRQHandler( uint8_t pin )
     - @ref ezradiodrv_hal
 
 @n @section ezradiodrv_intro Introduction
-  The EzRadio driver support the on-chip EzRadio radio of EZR32 devices. 
+  The EzRadio driver supports the on-chip EzRadio radio of EZR32 devices. 
   The driver system provides several access layer levels to the radio. In the 
   order of hierarchy they are the @ref ezradiodrv_plugin, the 
   @ref ezradiodrv_api, the @ref ezradiodrv_comm and the @ref ezradiodrv_hal. 
@@ -331,7 +332,7 @@ static void GPIO_EZRadio_INT_IRQHandler( uint8_t pin )
       values.
 
     @subsubsection ezradiodrv_plugin_api Plugin System API 
-      This section contain brief descriptions of the functions in the API of 
+      This section contains brief descriptions of the functions in the API of 
       each plugins. You will find detailed information on input and output 
       parameters and return values by clicking on the hyperlinked function names. 
       Most functions return an error code, @ref ECODE_EMDRV_EZRADIODRV_OK is

@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$group__DMADRV.html#ga3a04cb3aa30ec2fd955281f55538028d" title="Stop an ongoing DMA transfer." alt="" coords="239,5,393,32"/>
-<area shape="rect" id="node5" href="$group__DMADRV.html#ga9a253b47872d205a76b6f1b7b486194d" title="Get number of items remaining in a transfer." alt="" coords="205,56,427,83"/>
-<area shape="rect" id="node7" href="$group__RTCDRV.html#ga7d3614e56f17c24103336a37891579a4" title="Stop a given timer." alt="" coords="247,107,385,133"/>
-</map>

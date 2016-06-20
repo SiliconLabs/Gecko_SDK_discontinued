@@ -12,10 +12,10 @@
  *
  *
  * @endverbatim
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -41,8 +41,8 @@
  *
  *****************************************************************************/
 
-#ifndef __SILICON_LABS_EM_DEVICE_H__
-#define __SILICON_LABS_EM_DEVICE_H__
+#ifndef EM_DEVICE_H
+#define EM_DEVICE_H
 
 #if defined(EZR32HG220F32R55)
 #include "ezr32hg220f32r55.h"
@@ -131,4 +131,4 @@
 #else
 #error "em_device.h: PART NUMBER undefined"
 #endif
-#endif /* __SILICON_LABS_EM_DEVICE_H__ */
+#endif /* EM_DEVICE_H */

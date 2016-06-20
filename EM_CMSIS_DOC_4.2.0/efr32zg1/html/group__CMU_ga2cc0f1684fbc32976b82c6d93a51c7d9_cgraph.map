@@ -1,0 +1,5 @@
+<map id="CMU_OscillatorEnable" name="CMU_OscillatorEnable">
+<area shape="rect" id="node3" href="$group__BUS.html#gaca6b55014161f4c51c9daf4f707eeb7c" title="Perform a single&#45;bit read operation on a peripheral register. " alt="" coords="217,5,335,32"/>
+<area shape="rect" id="node5" href="$group__BUS.html#gaec23c86f9b844b9e0e102ebff0b96ff4" title="Perform a peripheral register masked read. " alt="" coords="203,56,349,83"/>
+<area shape="rect" id="node7" href="$group__EMU.html#ga3d442fa018de5138afb19a2b85797099" title="Update EMU module with CMU oscillator selection/enable status. " alt="" coords="201,107,351,133"/>
+</map>

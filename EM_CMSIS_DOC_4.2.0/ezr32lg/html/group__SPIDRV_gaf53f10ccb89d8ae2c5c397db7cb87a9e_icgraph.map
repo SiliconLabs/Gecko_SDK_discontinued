@@ -1,0 +1,51 @@
+<map id="SPIDRV_MTransmitB" name="SPIDRV_MTransmitB">
+<area shape="rect" id="node3" href="$group__HAL__Layer.html#ga52e4a984325c6446291b13b1a63e3dff" title="ezradio_hal_SpiWriteByte" alt="" coords="200,669,368,696"/>
+<area shape="rect" id="node92" href="$group__HAL__Layer.html#ga4121044d05b7372b071773d4582204f5" title="ezradio_hal_SpiWriteData" alt="" coords="675,543,845,569"/>
+<area shape="rect" id="node96" href="$ksz8851snl__spi_8c.html#aa7973e5c903af7ba709937e516393a30" title="Transmits a series of bytes over the spi link. " alt="" coords="195,847,373,873"/>
+<area shape="rect" id="node5" href="$group__COMM__Layer.html#ga45656b02cb2cf46e29c8f509203e08b4" title="ezradio_comm_GetResp" alt="" coords="444,669,604,696"/>
+<area shape="rect" id="node71" href="$group__COMM__Layer.html#gafc9ec03055010c4c5cbfed6d8637de71" title="ezradio_comm_ReadData" alt="" coords="895,1109,1063,1136"/>
+<area shape="rect" id="node83" href="$group__COMM__Layer.html#ga6316768a0f0661af747171605e86f401" title="ezradio_comm_WriteData" alt="" coords="893,517,1064,544"/>
+<area shape="rect" id="node7" href="$group__COMM__Layer.html#gac2d23214b75072bedd593da2815858d3" title="ezradio_comm_PollCTS" alt="" coords="681,644,839,671"/>
+<area shape="rect" id="node37" href="$group__COMM__Layer.html#ga67ac511d7cfce9c8cb00cd31113ff9a4" title="ezradio_comm_SendCmdGetResp" alt="" coords="1113,1008,1327,1035"/>
+<area shape="rect" id="node9" href="$group__COMM__Layer.html#ga038a27f7a6883bc6640fe1187a98eed9" title="ezradio_comm_SendCmd" alt="" coords="895,568,1063,595"/>
+<area shape="rect" id="node11" href="$group__API__Layer.html#gaaedde5a0144af3d029672a3d6c27210b" title="ezradio_power_up" alt="" coords="1156,340,1284,367"/>
+<area shape="rect" id="node13" href="$group__API__Layer.html#ga95ec30d47eea9860cccae2c5bb3fc878" title="ezradio_start_tx" alt="" coords="1163,391,1277,417"/>
+<area shape="rect" id="node15" href="$group__API__Layer.html#ga6bebb6e764046173bd4b58db3d5f30c2" title="ezradio_start_rx" alt="" coords="1163,441,1277,468"/>
+<area shape="rect" id="node17" href="$group__API__Layer.html#ga5f37f9c7237c880623753bbd9c772876" title="ezradio_set_property" alt="" coords="1149,492,1291,519"/>
+<area shape="rect" id="node19" href="$group__API__Layer.html#ga235ff2f0e61232797b5d3930b9319c5f" title="ezradio_change_state" alt="" coords="1147,543,1293,569"/>
+<area shape="rect" id="node21" href="$group__API__Layer.html#gadac39bea145c7690251ea39231b4595e" title="ezradio_nop" alt="" coords="1174,593,1266,620"/>
+<area shape="rect" id="node23" href="$group__API__Layer.html#gae98048c6798c02b17ce19356390a265a" title="ezradio_start_tx_fast" alt="" coords="1149,644,1291,671"/>
+<area shape="rect" id="node25" href="$group__API__Layer.html#ga2afe6af0c962076145f252f0e18d97ee" title="ezradio_start_rx_fast" alt="" coords="1149,695,1291,721"/>
+<area shape="rect" id="node27" href="$group__API__Layer.html#ga7aa4d52445b45b05292f22c888d54456" title="ezradio_get_int_status\l_fast_clear" alt="" coords="1145,746,1295,787"/>
+<area shape="rect" id="node29" href="$group__API__Layer.html#gae79ddb973018cb991d0272414cd7a961" title="ezradio_get_ph_status\l_fast_clear" alt="" coords="1145,811,1295,853"/>
+<area shape="rect" id="node31" href="$group__API__Layer.html#ga31fbcc3ddf36d660029f52c7590551bf" title="ezradio_get_modem_status\l_fast_clear" alt="" coords="1130,877,1310,918"/>
+<area shape="rect" id="node33" href="$group__API__Layer.html#gad600f530d5f68c9a059f6bc661b38dbd" title="ezradio_get_chip_status\l_fast_clear" alt="" coords="1140,942,1300,983"/>
+<area shape="rect" id="node35" href="$group__API__Layer.html#gab214bdcdc5818dff1a6714c2aa0f98e3" title="ezradio_fifo_info_fast\l_reset" alt="" coords="1147,122,1293,163"/>
+<area shape="rect" id="node65" href="$group__API__Layer.html#ga539bfe0739c7c40efd8b5ce2230ba2d8" title="ezradio_ircal" alt="" coords="1173,188,1267,215"/>
+<area shape="rect" id="node67" href="$group__API__Layer.html#ga3fc1fea6da81ea1d332f7ad430aa3be6" title="ezradio_tx_hop" alt="" coords="1165,239,1275,265"/>
+<area shape="rect" id="node69" href="$group__API__Layer.html#gacef1d81a9a5e390249154bbeed9b9df1" title="ezradio_rx_hop" alt="" coords="1165,289,1275,316"/>
+<area shape="rect" id="node39" href="$group__API__Layer.html#ga90809bd86f07081e57bdb2127c29b19c" title="ezradio_part_info" alt="" coords="1405,696,1528,723"/>
+<area shape="rect" id="node41" href="$group__API__Layer.html#ga2060b35450cc17415abf08a2f028b2b6" title="ezradio_get_int_status" alt="" coords="1391,747,1542,773"/>
+<area shape="rect" id="node43" href="$group__API__Layer.html#gada8c3e33f1cba006a91daba785d93298" title="ezradio_gpio_pin_cfg" alt="" coords="1395,797,1538,824"/>
+<area shape="rect" id="node45" href="$group__API__Layer.html#gad7e9af6ef1205ffb877a3c869f5193ee" title="ezradio_fifo_info" alt="" coords="1408,848,1525,875"/>
+<area shape="rect" id="node47" href="$group__API__Layer.html#gad46745a62ae7ab1876792eac63216874" title="ezradio_get_property" alt="" coords="1395,899,1539,925"/>
+<area shape="rect" id="node49" href="$group__API__Layer.html#ga6c5d8d1ef6ca843dfdbff5460e6dad2c" title="ezradio_func_info" alt="" coords="1405,949,1528,976"/>
+<area shape="rect" id="node51" href="$group__API__Layer.html#ga9f990f8ebde64b6ef0c051f397430c53" title="ezradio_request_device\l_state" alt="" coords="1388,1001,1545,1042"/>
+<area shape="rect" id="node53" href="$group__API__Layer.html#ga18c87c07ae75e6a7a378e2ebe9d618c1" title="ezradio_read_cmd_buff" alt="" coords="1388,1067,1545,1093"/>
+<area shape="rect" id="node55" href="$group__API__Layer.html#gac4a541df5be98d23714c2409ed485a1b" title="ezradio_get_ph_status" alt="" coords="1391,1117,1542,1144"/>
+<area shape="rect" id="node57" href="$group__API__Layer.html#gad7269dfaf3135be3218c08494df40542" title="ezradio_get_modem_status" alt="" coords="1377,1168,1557,1195"/>
+<area shape="rect" id="node59" href="$group__API__Layer.html#gad5ef27035ca328bb2861b5126600a490" title="ezradio_get_chip_status" alt="" coords="1387,1219,1547,1245"/>
+<area shape="rect" id="node61" href="$group__API__Layer.html#gaa6777e927f0bd0c5368ec58d4d6d3bcb" title="ezradio_get_packet_info" alt="" coords="1386,1269,1547,1296"/>
+<area shape="rect" id="node63" href="$group__API__Layer.html#ga84c393b3068b4ae7366205b5be11b382" title="ezradio_get_int_status\l_fast_clear_read" alt="" coords="1391,1321,1542,1362"/>
+<area shape="rect" id="node73" href="$group__API__Layer.html#ga329c4c3b314e2db479997a6b5bcf2ab0" title="ezradio_read_rx_fifo" alt="" coords="1150,1109,1290,1136"/>
+<area shape="rect" id="node75" href="$group__API__Layer.html#ga36440d6a56405dc92ec2b72e1e10292a" title="ezradio_frr_a_read" alt="" coords="1154,1160,1286,1187"/>
+<area shape="rect" id="node77" href="$group__API__Layer.html#gaf0cda7a2e6b72419d9c11e2bbcbb652a" title="ezradio_frr_b_read" alt="" coords="1154,1211,1286,1237"/>
+<area shape="rect" id="node79" href="$group__API__Layer.html#ga0ee2cc3558bc6e85aea2f4c74dd7023a" title="ezradio_frr_c_read" alt="" coords="1155,1261,1285,1288"/>
+<area shape="rect" id="node81" href="$group__API__Layer.html#ga3c6aa8b9c6580a45e53cb4f473e11168" title="ezradio_frr_d_read" alt="" coords="1154,1059,1286,1085"/>
+<area shape="rect" id="node85" href="$group__API__Layer.html#ga352edd05911a66d9fe2b2e7c11d2df22" title="ezradio_write_tx_fifo" alt="" coords="1149,71,1291,97"/>
+<area shape="rect" id="node87" href="$group__API__Layer.html#ga48c934c7d9a3a297087572137693cdf7" title="ezradio_write_ezconfig\l_array" alt="" coords="1143,5,1297,46"/>
+<area shape="rect" id="node98" href="$group__ksz8851snl.html#ga3eda0b4b00ab2ec0a7c265329587cc88" title="Read data from the ethernet controller RX FIFO. " alt="" coords="435,796,613,823"/>
+<area shape="rect" id="node100" href="$group__ksz8851snl.html#ga8bf407a2b072a222c5053b39963ed165" title="Continue writing ethernet controller FIFO. " alt="" coords="435,847,613,873"/>
+<area shape="rect" id="node102" href="$group__ksz8851snl.html#ga06d01a766dd38a09f6cb657bf778b385" title="Start writing to the ethernet controller FIFO. " alt="" coords="435,898,613,939"/>
+<area shape="rect" id="node104" href="$group__ksz8851snl.html#ga194769a82e5a1c0ab03ea0923b7da2d0" title="Write ethernet controller register. " alt="" coords="421,964,627,991"/>
+</map>

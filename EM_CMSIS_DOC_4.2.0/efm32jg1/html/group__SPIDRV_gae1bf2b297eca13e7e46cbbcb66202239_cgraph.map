@@ -1,0 +1,35 @@
+<map id="SPIDRV_Init" name="SPIDRV_Init">
+<area shape="rect" id="node3" href="$group__CMU.html#ga93913d50050d52b38b0a7c7c08ac81e8" title="Enable/disable a clock. " alt="" coords="596,347,719,373"/>
+<area shape="rect" id="node18" href="$group__DMADRV.html#gab503e066820cd13fd612f4365d4d07b2" title="Allocate (reserve) a DMA channel. " alt="" coords="144,245,315,272"/>
+<area shape="rect" id="node20" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="401,245,492,272"/>
+<area shape="rect" id="node22" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="403,296,490,323"/>
+<area shape="rect" id="node24" href="$group__DMADRV.html#ga43d0052d81f16e72914f85248a8554b1" title="Initialize DMADRV. " alt="" coords="181,347,278,373"/>
+<area shape="rect" id="node33" href="$group__RTCDRV.html#gaef2d97c6223617d158b05e03ee35950a" title="Allocate timer. " alt="" coords="151,296,307,323"/>
+<area shape="rect" id="node37" href="$group__RTCDRV.html#ga4419076832c5b4958dea6f1eec0a9bdf" title="Initialize RTCDRV driver. " alt="" coords="399,169,494,196"/>
+<area shape="rect" id="node77" href="$group__USART.html#gaab6053ba081f6fabce6762fb4563fb28" title="Init USART for synchronous mode. " alt="" coords="172,499,287,525"/>
+<area shape="rect" id="node5" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="993,144,1111,171"/>
+<area shape="rect" id="node7" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="792,448,923,475"/>
+<area shape="rect" id="node9" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="995,245,1109,272"/>
+<area shape="rect" id="node11" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="1192,397,1307,424"/>
+<area shape="rect" id="node13" href="$system__efm32jg1b_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="982,397,1122,424"/>
+<area shape="rect" id="node15" href="$system__efm32jg1b_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="1185,448,1313,475"/>
+<area shape="rect" id="node28" href="$group__LDMA.html#ga50d6a2d296d7e41c90d00d642152158d" title="Initialize the LDMA controller. " alt="" coords="407,347,486,373"/>
+<area shape="rect" id="node40" href="$group__CMU.html#gae11949f9c2e4033ad63dac48c9a739d3" title="Select reference clock/oscillator used for a clock branch. " alt="" coords="788,43,927,69"/>
+<area shape="rect" id="node55" href="$group__CMU.html#ga7cc316a8dca5436fcc39d57f5e6c412d" title="Set clock divisor/prescaler. " alt="" coords="597,296,718,323"/>
+<area shape="rect" id="node68" href="$group__RTCC.html#ga1e57f6a383c72e7af046dc7e0d8012ec" title="Initialize RTCC. " alt="" coords="618,144,697,171"/>
+<area shape="rect" id="node70" href="$group__RTCC.html#gab7534987a5b7ef7a3616d334f6944278" title="Configure the selected capture/compare channel of the RTCC. " alt="" coords="595,245,720,272"/>
+<area shape="rect" id="node72" href="$group__SLEEP.html#gac26ef85c0817797fb9ec823d38742af7" title="Begin sleep block in the requested energy mode. " alt="" coords="579,93,735,120"/>
+<area shape="rect" id="node43" href="$group__CMU.html#ga2cc0f1684fbc32976b82c6d93a51c7d9" title="Enable/disable oscillator. " alt="" coords="979,93,1125,120"/>
+<area shape="rect" id="node49" href="$group__EMU.html#ga3d442fa018de5138afb19a2b85797099" title="Update EMU module with CMU oscillator selection/enable status. " alt="" coords="1174,5,1325,32"/>
+<area shape="rect" id="node53" href="$system__efm32jg1b_8c.html#aef32887eb9b08a5dd7db73c35ca7c747" title="Get high frequency crystal oscillator clock frequency for target system. " alt="" coords="979,43,1125,69"/>
+<area shape="rect" id="node45" href="$group__BUS.html#gaca6b55014161f4c51c9daf4f707eeb7c" title="Perform a single&#45;bit read operation on a peripheral register. " alt="" coords="1191,132,1308,159"/>
+<area shape="rect" id="node47" href="$group__BUS.html#gaec23c86f9b844b9e0e102ebff0b96ff4" title="Perform a peripheral register masked read. " alt="" coords="1176,81,1323,108"/>
+<area shape="rect" id="node59" href="$group__CMU.html#gaaa24f7c1a4197491c08b1978a09c535c" title="Set clock prescaler. " alt="" coords="790,347,925,373"/>
+<area shape="rect" id="node61" href="$group__CMU.html#ga84f0496ce9567252a9cb63da230647a0" title="Convert prescaler dividend to logarithmic value. Only works for even numbers equal to 2^n..." alt="" coords="988,347,1116,373"/>
+<area shape="rect" id="node74" href="$group__EMU.html#ga72910c09de24f4e2f8f170dc06bd8c07" title="Block entering EM2 or higher number energy modes. " alt="" coords="804,93,911,120"/>
+<area shape="rect" id="node79" href="$group__USART.html#ga5b96146f7c05f78d31bd77aacd4a3b5f" title="Configure USART operating in synchronous mode to use a given baudrate (or as close as possible to spe..." alt="" coords="363,499,530,525"/>
+<area shape="rect" id="node88" href="$group__USART.html#ga4769e1b5d573d6cecc95ca0c7d8e2da2" title="Reset USART/UART to same state as after a HW reset. " alt="" coords="396,549,497,576"/>
+<area shape="rect" id="node81" href="$group__BUS.html#ga9e878ccba24fcbf97b5bcb8b53356e76" title="Perform peripheral register masked clear and value write. " alt="" coords="583,499,731,525"/>
+<area shape="rect" id="node83" href="$group__BUS.html#gad226bfe478c81d51681539d935241758" title="Perform a masked clear operation on peripheral register address. " alt="" coords="784,499,931,525"/>
+<area shape="rect" id="node85" href="$group__BUS.html#ga8225a5d4acac280abb182dc118e8df77" title="Perform a masked set operation on peripheral register address. " alt="" coords="789,549,925,576"/>
+</map>

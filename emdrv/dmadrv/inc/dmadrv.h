@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file dmadrv.h
  * @brief DMADRV API definition.
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -19,7 +19,6 @@
 #include "em_device.h"
 #include "ecode.h"
 
-/// @cond DO_NOT_INCLUDE_WITH_DOXYGEN
 #if defined( DMA_PRESENT ) && ( DMA_COUNT == 1 )
 #define EMDRV_DMADRV_UDMA
 #define EMDRV_DMADRV_DMA_PRESENT
@@ -31,7 +30,6 @@
 #else
 #error "No valid DMA engine defined."
 #endif
-/// @endcond
 
 #include "dmadrv_config.h"
 
@@ -46,9 +44,7 @@ extern "C" {
 
 /***************************************************************************//**
  * @addtogroup DMADRV
- * @brief DMADRV Serial Peripheral Interface module, see
- *        @ref dmadrv_doc page for detailed
- *        documentation.
+ * @brief DMADRV Direct Memory Access Driver.
  * @{
  ******************************************************************************/
 
@@ -90,10 +86,6 @@ typedef bool (*DMADRV_Callback_t)( unsigned int channel,
 
 /// Maximum length of one DMA transfer.
 #define DMADRV_MAX_XFER_COUNT ((int)((_DMA_CTRL_N_MINUS_1_MASK >> _DMA_CTRL_N_MINUS_1_SHIFT) + 1))
-
-#ifdef DOXY_DOC_ONLY
-#include "../Device/SiliconLabs/EFM32GG/Include/efm32gg_dmareq.h"
-#endif
 
 /// Peripherals that can trigger UDMA transfers.
 typedef enum
@@ -318,10 +310,6 @@ typedef enum
 
 /// Maximum length of one DMA transfer.
 #define DMADRV_MAX_XFER_COUNT ((int)((_LDMA_CH_CTRL_XFERCNT_MASK >> _LDMA_CH_CTRL_XFERCNT_SHIFT) + 1))
-
-#ifdef DOXY_DOC_ONLY
-#include "../Device/SiliconLabs/EFR32MG1P/Include/efr32mg1p_ldma.h"
-#endif
 
 /// Peripherals that can trigger LDMA transfers.
 typedef enum

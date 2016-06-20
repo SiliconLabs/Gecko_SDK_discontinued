@@ -1,0 +1,12 @@
+<map id="I2C_Init" name="I2C_Init">
+<area shape="rect" id="node3" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="121,56,239,83"/>
+<area shape="rect" id="node5" href="$group__I2C.html#ga02fbf32736b2e6c756399ceeba9563a1" title="Set I2C bus frequency. " alt="" coords="123,107,237,133"/>
+<area shape="rect" id="node7" href="$group__BUS.html#ga9e878ccba24fcbf97b5bcb8b53356e76" title="Perform peripheral register masked clear and value write. " alt="" coords="289,56,437,83"/>
+<area shape="rect" id="node13" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="297,157,428,184"/>
+<area shape="rect" id="node9" href="$group__BUS.html#gad226bfe478c81d51681539d935241758" title="Perform a masked clear operation on peripheral register address. " alt="" coords="485,5,632,32"/>
+<area shape="rect" id="node11" href="$group__BUS.html#ga8225a5d4acac280abb182dc118e8df77" title="Perform a masked set operation on peripheral register address. " alt="" coords="491,56,627,83"/>
+<area shape="rect" id="node15" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="501,107,616,133"/>
+<area shape="rect" id="node17" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="501,157,616,184"/>
+<area shape="rect" id="node19" href="$system__efm32jg1b_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="489,208,629,235"/>
+<area shape="rect" id="node21" href="$system__efm32jg1b_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="680,233,808,260"/>
+</map>

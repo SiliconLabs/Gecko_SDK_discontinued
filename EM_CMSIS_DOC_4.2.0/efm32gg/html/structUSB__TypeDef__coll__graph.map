@@ -1,0 +1,5 @@
+<map id="USB_TypeDef" name="USB_TypeDef">
+<area shape="rect" id="node4" href="$structUSB__HC__TypeDef.html" title="USB_HC EFM32GG USB HC. " alt="" coords="125,265,248,292"/>
+<area shape="rect" id="node7" href="$structUSB__DIEP__TypeDef.html" title="USB_DIEP EFM32GG USB DIEP. " alt="" coords="272,265,404,292"/>
+<area shape="rect" id="node10" href="$structUSB__DOEP__TypeDef.html" title="USB_DOEP EFM32GG USB DOEP. " alt="" coords="428,265,565,292"/>
+</map>

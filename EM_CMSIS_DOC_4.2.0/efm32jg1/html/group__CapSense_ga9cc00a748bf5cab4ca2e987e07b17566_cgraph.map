@@ -1,0 +1,10 @@
+<map id="CAPSENSE_Init" name="CAPSENSE_Init">
+<area shape="rect" id="node3" href="$group__ACMP.html#gab99c16a966bfa66c081160ec51e0a039" title="Sets up the ACMP for use in capacative sense applications. " alt="" coords="163,31,298,57"/>
+<area shape="rect" id="node7" href="$group__CMU.html#ga93913d50050d52b38b0a7c7c08ac81e8" title="Enable/disable a clock. " alt="" coords="169,81,292,108"/>
+<area shape="rect" id="node5" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="353,31,471,57"/>
+<area shape="rect" id="node10" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="347,81,477,108"/>
+<area shape="rect" id="node12" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="539,5,653,32"/>
+<area shape="rect" id="node14" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="539,56,653,83"/>
+<area shape="rect" id="node16" href="$system__efm32jg1b_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="526,107,666,133"/>
+<area shape="rect" id="node18" href="$system__efm32jg1b_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="715,132,843,159"/>
+</map>

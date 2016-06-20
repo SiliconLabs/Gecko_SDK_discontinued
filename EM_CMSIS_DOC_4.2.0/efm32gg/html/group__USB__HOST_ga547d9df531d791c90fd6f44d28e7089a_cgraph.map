@@ -1,0 +1,9 @@
+<map id="USBH_StallEpB" name="USBH_StallEpB">
+<area shape="rect" id="node3" href="$group__USB__HOST.html#gad94fe14defe6b7e33472364c65f07f17" title="Send a SETUP command to a device, blocking version. " alt="" coords="160,79,291,105"/>
+<area shape="rect" id="node5" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="880,180,971,207"/>
+<area shape="rect" id="node7" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="882,28,969,55"/>
+<area shape="rect" id="node9" href="$group__USB__HOST.html#ga0b43c59fc9d3c91d0039f761ef4d6333" title="Send a SETUP command to a device, non&#45;blocking version. " alt="" coords="339,79,463,105"/>
+<area shape="rect" id="node11" href="$group__USB__HOST.html#gaf791f134a36bb5376abaf59c45b84e84" title="Check if a device is connected. " alt="" coords="512,53,669,80"/>
+<area shape="rect" id="node15" href="$group__USB__COMMON.html#gac2a406f16d989b04c4fc5b37d5c10b45" title="Start a timer. " alt="" coords="532,104,649,131"/>
+<area shape="rect" id="node19" href="$group__USB__COMMON.html#gab73c922427cf0d509788a8063451703f" title="Stop a timer. " alt="" coords="717,104,832,131"/>
+</map>

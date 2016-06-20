@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file main.c
  * @brief Clock example for SLSTK3401A
- * @version 4.1.0
+ * @version 4.2.0
  *
  * This example shows how to optimize your code in order to drive
  * a graphical display in an energy friendly way.
@@ -296,6 +296,7 @@ int main(void)
 
   /* Init DCDC regulator with kit specific parameters */
   EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_STK_DEFAULT;
+  dcdcInit.powerConfig = emuPowerConfig_NoDcdc;
   EMU_DCDCInit(&dcdcInit);
 
   /* Use the 38 MHz frequency in order to decrease time spent awake. */

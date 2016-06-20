@@ -1,0 +1,21 @@
+<map id="UARTDRV_Init" name="UARTDRV_Init">
+<area shape="rect" id="node3" href="$group__CMU.html#ga93913d50050d52b38b0a7c7c08ac81e8" title="Enable/disable a clock. " alt="" coords="551,144,673,171"/>
+<area shape="rect" id="node18" href="$group__DMADRV.html#gab503e066820cd13fd612f4365d4d07b2" title="Allocate (reserve) a DMA channel. " alt="" coords="157,296,328,323"/>
+<area shape="rect" id="node20" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="381,271,472,297"/>
+<area shape="rect" id="node22" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="383,321,470,348"/>
+<area shape="rect" id="node24" href="$group__DMADRV.html#ga43d0052d81f16e72914f85248a8554b1" title="Initialize DMADRV. " alt="" coords="194,195,291,221"/>
+<area shape="rect" id="node31" href="$group__GPIOINT.html#gaffd9a793482ef44c0871654a9e60836e" title="Registers user callback for given pin number. " alt="" coords="157,347,328,373"/>
+<area shape="rect" id="node35" href="$group__GPIOINT.html#gac93e5702d7693ab3efbbccd9782b22e0" title="Initialization of GPIOINT module. " alt="" coords="195,448,290,475"/>
+<area shape="rect" id="node39" href="$group__USART.html#gaf593db61ee6acd852dd9dc01d79a3548" title="Enable/disable USART/UART receiver and/or transmitter. " alt="" coords="189,499,296,525"/>
+<area shape="rect" id="node41" href="$group__USART.html#ga5b851444f0fbdca97017c7b927b37f52" title="Init USART/UART for normal asynchronous mode. " alt="" coords="183,93,303,120"/>
+<area shape="rect" id="node48" href="$group__USART.html#gafd14f04ce72926161d83886b971ed310" title="Clear one or more pending USART interrupts. " alt="" coords="185,549,300,576"/>
+<area shape="rect" id="node5" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="753,144,871,171"/>
+<area shape="rect" id="node7" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="747,81,877,108"/>
+<area shape="rect" id="node9" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="939,5,1053,32"/>
+<area shape="rect" id="node11" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="939,56,1053,83"/>
+<area shape="rect" id="node13" href="$system__efm32jg1b_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="926,157,1066,184"/>
+<area shape="rect" id="node15" href="$system__efm32jg1b_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="1115,132,1243,159"/>
+<area shape="rect" id="node28" href="$group__LDMA.html#ga50d6a2d296d7e41c90d00d642152158d" title="Initialize the LDMA controller. " alt="" coords="387,195,466,221"/>
+<area shape="rect" id="node43" href="$group__USART.html#ga373a66831daf2d2fe59c04b327e0c9a1" title="Configure USART/UART operating in asynchronous mode to use a given baudrate (or as close as possible ..." alt="" coords="526,56,698,83"/>
+<area shape="rect" id="node46" href="$group__USART.html#ga4769e1b5d573d6cecc95ca0c7d8e2da2" title="Reset USART/UART to same state as after a HW reset. " alt="" coords="376,93,477,120"/>
+</map>

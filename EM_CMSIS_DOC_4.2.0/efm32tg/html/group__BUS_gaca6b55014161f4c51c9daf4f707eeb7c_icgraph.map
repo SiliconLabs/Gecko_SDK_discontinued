@@ -1,0 +1,28 @@
+<map id="BUS_RegBitRead" name="BUS_RegBitRead">
+<area shape="rect" id="node3" href="$group__CMU.html#ga144a6e08d50cc4913a3452231eb3cc36" title="Calibrate clock. " alt="" coords="201,208,308,235"/>
+<area shape="rect" id="node5" href="$group__CMU.html#ga6a5fb4b2d369de8db9ebf56edc780a7c" title="Get calibration count register. " alt="" coords="175,259,334,285"/>
+<area shape="rect" id="node7" href="$group__CMU.html#ga2cc0f1684fbc32976b82c6d93a51c7d9" title="Enable/disable oscillator. " alt="" coords="181,309,328,336"/>
+<area shape="rect" id="node40" href="$group__CMU.html#ga1200b660d32b39db023753094a282ae9" title="Set the oscillator frequency tuning control. " alt="" coords="171,360,338,387"/>
+<area shape="rect" id="node42" href="$group__GPIO.html#gac1050d30b940c30899c63aa060fa4dba" title="Read the pad value for a single pin in a GPIO port. " alt="" coords="203,411,307,437"/>
+<area shape="rect" id="node54" href="$group__GPIO.html#ga8ed31bc079380c74d6db162d4cdc16b8" title="Get current setting for a pin in a GPIO port data out register. " alt="" coords="198,461,311,488"/>
+<area shape="rect" id="node9" href="$group__CMU.html#gae11949f9c2e4033ad63dac48c9a739d3" title="Select reference clock/oscillator used for a clock branch. " alt="" coords="428,183,567,209"/>
+<area shape="rect" id="node35" href="$group__Udelay.html#ga523f858d15b74728046ceca9796f3046" title="Calibrates the microsecond delay loop. " alt="" coords="679,284,803,311"/>
+<area shape="rect" id="node37" href="$group__DBG.html#gaf17760c5d4350c442202dee4fe8ec15f" title="Enable Serial Wire Output (SWO) pin. " alt="" coords="438,309,557,336"/>
+<area shape="rect" id="node11" href="$group__RTCDRV.html#ga4419076832c5b4958dea6f1eec0a9bdf" title="Initialize RTCDRV driver. " alt="" coords="694,31,789,57"/>
+<area shape="rect" id="node21" href="$group__BSP__STK.html#gaba9ce74ca657de9f9f903e062cc654ef" title="Initialize board controller communication support (BCC) functionality. " alt="" coords="697,81,785,108"/>
+<area shape="rect" id="node23" href="$caplesense_8c.html#a2e4ba8079a4db025c71de23fd97211cc" title="Setup the CMU. " alt="" coords="661,132,821,159"/>
+<area shape="rect" id="node27" href="$group__RetargetIo.html#gab455176edfa0f3414d104e5d6d64cc50" title="Intializes UART/LEUART. " alt="" coords="670,183,813,209"/>
+<area shape="rect" id="node33" href="$group__SegmentLcd.html#ga0818c866cead74ab3902753a770eb4c4" title="Segment LCD Initialization routine for EFM32 STK display. " alt="" coords="681,233,801,260"/>
+<area shape="rect" id="node13" href="$group__SPIDRV.html#gae1bf2b297eca13e7e46cbbcb66202239" title="Initialize a SPI driver instance. " alt="" coords="904,31,995,57"/>
+<area shape="rect" id="node15" href="$group__HAL__Layer.html#gae1cf166781ecf4a2317e0d9d4f504197" title="ezradio_hal_SpiInit" alt="" coords="1080,5,1211,32"/>
+<area shape="rect" id="node19" href="$group__ksz8851snl.html#ga12cf356cb196dbc44230f7ad5aa16742" title="KSZ8851SNL_SPI_Init Initialize SPI interface to Ethernet controller. " alt="" coords="1073,56,1218,83"/>
+<area shape="rect" id="node17" href="$group__Plugin__Manager.html#ga55ab56dfaa297c93024dc43239bc8592" title="Radio Initialization. " alt="" coords="1267,5,1349,32"/>
+<area shape="rect" id="node25" href="$group__CapSense.html#ga4a9a1233a70703ca91a6bc9fcf05ec19" title="Initializes the capacative sense system without LESENSE. " alt="" coords="889,132,1010,159"/>
+<area shape="rect" id="node29" href="$group__RetargetIo.html#ga5af724185f484056b02b42f4ab184bfb" title="Receive a byte from USART/LEUART and put into global buffer. " alt="" coords="876,183,1023,209"/>
+<area shape="rect" id="node31" href="$group__RetargetIo.html#ga856ae0b788dccadc2c83a6e67409be5f" title="Transmit single byte to USART/LEUART. " alt="" coords="875,233,1024,260"/>
+<area shape="rect" id="node44" href="$group__HAL__Layer.html#gaabf77038901412b5b640149538ec5cbe" title="ezradio_hal_NirqLevel" alt="" coords="424,360,571,387"/>
+<area shape="rect" id="node48" href="$group__BSP__DK.html#ga5d856abb3eda44db619c8bacd9a7db4d" title="Get state MCU plugin board VBUS overcurrent flag. " alt="" coords="387,411,608,437"/>
+<area shape="rect" id="node50" href="$touch_8c.html#a3611206d185a38b740457a748712c457" title="Interrupt handler is executed with frequency ~28Hz when panel is not pressed and with frequency ~140H..." alt="" coords="435,461,560,488"/>
+<area shape="rect" id="node52" href="$group__Touch.html#ga96801185fed6bc54edb1334680c00095" title="Check status of the touch panel. " alt="" coords="444,512,551,539"/>
+<area shape="rect" id="node46" href="$group__API__Layer.html#ga5e458f080841a7423743d53e2217d1e5" title="ezradio_configuration_init" alt="" coords="657,360,826,387"/>
+</map>

@@ -1,0 +1,47 @@
+<map id="C:/work/s025_sw/emdrv/ezradiodrv/common/src/ezradio_comm.c" name="C:/work/s025_sw/emdrv/ezradiodrv/common/src/ezradio_comm.c">
+<area shape="rect" id="node7" href="$em__gpio_8h.html" title="General Purpose IO (GPIO) peripheral API. " alt="" coords="2909,109,2991,136"/>
+<area shape="rect" id="node97" href="$gpiointerrupt_8h.html" title="GPIOINT API definition. " alt="" coords="4158,259,4265,285"/>
+<area shape="rect" id="node100" href="$ezradio__hal_8h.html" title="This file contains EZRadio HAL. " alt="" coords="3134,109,3233,136"/>
+<area shape="rect" id="node102" href="$ezradio__comm_8h.html" title="This file contains the EZRadio communication layer. " alt="" coords="3257,109,3374,136"/>
+<area shape="rect" id="node9" href="$em__device_8h.html" title="CMSIS Cortex&#45;M Peripheral Access Layer for Silicon Laboratories microcontroller devices. " alt="" coords="2767,259,2861,285"/>
+<area shape="rect" id="node92" href="$em__bus_8h.html" title="RAM and peripheral bit&#45;field set and clear API. " alt="" coords="2863,184,2941,211"/>
+<area shape="rect" id="node95" href="$em__assert_8h.html" title="Emlib peripheral API &quot;assert&quot; implementation. " alt="" coords="2966,184,3059,211"/>
+<area shape="rect" id="node11" href="$efm32lg995f256_8h.html" title="CMSIS Cortex&#45;M Peripheral Access Layer Header File for EFM32LG995F256. " alt="" coords="2751,333,2877,360"/>
+<area shape="rect" id="node15" href="$system__efm32lg_8h.html" title="CMSIS Cortex&#45;M3 System Layer for EFM32LG devices. " alt="" coords="157,408,283,435"/>
+<area shape="rect" id="node18" href="$efm32lg__dma__ch_8h.html" title="EFM32LG_DMA_CH register and bit field definitions. " alt="" coords="309,408,439,435"/>
+<area shape="rect" id="node20" href="$efm32lg__dma_8h.html" title="EFM32LG_DMA register and bit field definitions. " alt="" coords="464,408,574,435"/>
+<area shape="rect" id="node22" href="$efm32lg__aes_8h.html" title="EFM32LG_AES register and bit field definitions. " alt="" coords="599,408,706,435"/>
+<area shape="rect" id="node24" href="$efm32lg__usb__hc_8h.html" title="EFM32LG_USB_HC register and bit field definitions. " alt="" coords="731,408,857,435"/>
+<area shape="rect" id="node26" href="$efm32lg__usb__diep_8h.html" title="EFM32LG_USB_DIEP register and bit field definitions. " alt="" coords="881,408,1018,435"/>
+<area shape="rect" id="node28" href="$efm32lg__usb__doep_8h.html" title="EFM32LG_USB_DOEP register and bit field definitions. " alt="" coords="1043,408,1185,435"/>
+<area shape="rect" id="node30" href="$efm32lg__usb_8h.html" title="EFM32LG_USB register and bit field definitions. " alt="" coords="1209,408,1315,435"/>
+<area shape="rect" id="node32" href="$efm32lg__msc_8h.html" title="EFM32LG_MSC register and bit field definitions. " alt="" coords="1339,408,1449,435"/>
+<area shape="rect" id="node34" href="$efm32lg__emu_8h.html" title="EFM32LG_EMU register and bit field definitions. " alt="" coords="1473,408,1583,435"/>
+<area shape="rect" id="node36" href="$efm32lg__rmu_8h.html" title="EFM32LG_RMU register and bit field definitions. " alt="" coords="1609,408,1718,435"/>
+<area shape="rect" id="node38" href="$efm32lg__cmu_8h.html" title="EFM32LG_CMU register and bit field definitions. " alt="" coords="1743,408,1853,435"/>
+<area shape="rect" id="node40" href="$efm32lg__lesense__st_8h.html" title="EFM32LG_LESENSE_ST register and bit field definitions. " alt="" coords="1878,408,2025,435"/>
+<area shape="rect" id="node42" href="$efm32lg__lesense__buf_8h.html" title="EFM32LG_LESENSE_BUF register and bit field definitions. " alt="" coords="2049,408,2203,435"/>
+<area shape="rect" id="node44" href="$efm32lg__lesense__ch_8h.html" title="EFM32LG_LESENSE_CH register and bit field definitions. " alt="" coords="2227,408,2377,435"/>
+<area shape="rect" id="node46" href="$efm32lg__lesense_8h.html" title="EFM32LG_LESENSE register and bit field definitions. " alt="" coords="2401,408,2530,435"/>
+<area shape="rect" id="node48" href="$efm32lg__ebi_8h.html" title="EFM32LG_EBI register and bit field definitions. " alt="" coords="2555,408,2657,435"/>
+<area shape="rect" id="node50" href="$efm32lg__usart_8h.html" title="EFM32LG_USART register and bit field definitions. " alt="" coords="2682,408,2797,435"/>
+<area shape="rect" id="node52" href="$efm32lg__timer__cc_8h.html" title="EFM32LG_TIMER_CC register and bit field definitions. " alt="" coords="2821,408,2955,435"/>
+<area shape="rect" id="node54" href="$efm32lg__timer_8h.html" title="EFM32LG_TIMER register and bit field definitions. " alt="" coords="2980,408,3095,435"/>
+<area shape="rect" id="node56" href="$efm32lg__acmp_8h.html" title="EFM32LG_ACMP register and bit field definitions. " alt="" coords="3121,408,3238,435"/>
+<area shape="rect" id="node58" href="$efm32lg__leuart_8h.html" title="EFM32LG_LEUART register and bit field definitions. " alt="" coords="3263,408,3381,435"/>
+<area shape="rect" id="node60" href="$efm32lg__rtc_8h.html" title="EFM32LG_RTC register and bit field definitions. " alt="" coords="3406,408,3507,435"/>
+<area shape="rect" id="node62" href="$efm32lg__letimer_8h.html" title="EFM32LG_LETIMER register and bit field definitions. " alt="" coords="3532,408,3658,435"/>
+<area shape="rect" id="node64" href="$efm32lg__pcnt_8h.html" title="EFM32LG_PCNT register and bit field definitions. " alt="" coords="3683,408,3793,435"/>
+<area shape="rect" id="node66" href="$efm32lg__i2c_8h.html" title="EFM32LG_I2C register and bit field definitions. " alt="" coords="3817,408,3919,435"/>
+<area shape="rect" id="node68" href="$efm32lg__gpio__p_8h.html" title="EFM32LG_GPIO_P register and bit field definitions. " alt="" coords="3944,408,4067,435"/>
+<area shape="rect" id="node70" href="$efm32lg__gpio_8h.html" title="EFM32LG_GPIO register and bit field definitions. " alt="" coords="4092,408,4202,435"/>
+<area shape="rect" id="node72" href="$efm32lg__vcmp_8h.html" title="EFM32LG_VCMP register and bit field definitions. " alt="" coords="4227,408,4342,435"/>
+<area shape="rect" id="node74" href="$efm32lg__prs__ch_8h.html" title="EFM32LG_PRS_CH register and bit field definitions. " alt="" coords="4367,408,4490,435"/>
+<area shape="rect" id="node76" href="$efm32lg__prs_8h.html" title="EFM32LG_PRS register and bit field definitions. " alt="" coords="4515,408,4619,435"/>
+<area shape="rect" id="node78" href="$efm32lg__adc_8h.html" title="EFM32LG_ADC register and bit field definitions. " alt="" coords="4643,408,4750,435"/>
+<area shape="rect" id="node80" href="$efm32lg__dac_8h.html" title="EFM32LG_DAC register and bit field definitions. " alt="" coords="4774,408,4881,435"/>
+<area shape="rect" id="node82" href="$efm32lg__lcd_8h.html" title="EFM32LG_LCD register and bit field definitions. " alt="" coords="4905,408,5007,435"/>
+<area shape="rect" id="node84" href="$efm32lg__burtc__ret_8h.html" title="EFM32LG_BURTC_RET register and bit field definitions. " alt="" coords="5033,408,5171,435"/>
+<area shape="rect" id="node86" href="$efm32lg__burtc_8h.html" title="EFM32LG_BURTC register and bit field definitions. " alt="" coords="5195,408,5310,435"/>
+<area shape="rect" id="node88" href="$efm32lg__wdog_8h.html" title="EFM32LG_WDOG register and bit field definitions. " alt="" coords="5334,408,5451,435"/>
+</map>

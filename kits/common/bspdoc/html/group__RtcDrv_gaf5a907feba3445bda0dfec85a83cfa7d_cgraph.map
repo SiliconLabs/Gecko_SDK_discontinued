@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$rtcdrv_8c.html#a32ac2ffdcdcf38d4a87717c03f74a710" title="Delay RTC callback." alt="" coords="189,5,257,32"/>
-<area shape="rect" id="node5" href="$group__RtcDrv.html#gae7edf939994aee11bc60540fbc5f4132" title="RTC trigger enable." alt="" coords="163,56,282,83"/>
-<area shape="rect" id="node7" href="$group__RtcDrv.html#gaf412462656f4827f98cb4a357209266e" title="Setup RTC with selected clock source and prescaler." alt="" coords="331,56,442,83"/>
-</map>

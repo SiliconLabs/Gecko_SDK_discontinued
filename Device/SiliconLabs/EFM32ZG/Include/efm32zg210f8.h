@@ -2,10 +2,10 @@
  * @file efm32zg210f8.h
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EFM32ZG210F8
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -31,8 +31,8 @@
  *
  *****************************************************************************/
 
-#ifndef __SILICON_LABS_EFM32ZG210F8_H__
-#define __SILICON_LABS_EFM32ZG210F8_H__
+#ifndef EFM32ZG210F8_H
+#define EFM32ZG210F8_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -363,4 +363,4 @@ typedef enum IRQn
 #ifdef __cplusplus
 }
 #endif
-#endif /* __SILICON_LABS_EFM32ZG210F8_H__ */
+#endif /* EFM32ZG210F8_H */

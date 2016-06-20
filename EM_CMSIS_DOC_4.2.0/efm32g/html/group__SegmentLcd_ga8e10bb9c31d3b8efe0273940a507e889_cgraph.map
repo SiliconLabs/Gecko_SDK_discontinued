@@ -1,0 +1,4 @@
+<map id="SegmentLCD_Battery" name="SegmentLCD_Battery">
+<area shape="rect" id="node3" href="$group__LCD.html#ga5c176631920506966de2bd727ef9e944" title="Turn on or clear a segment. " alt="" coords="198,5,319,32"/>
+<area shape="rect" id="node5" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="369,5,487,32"/>
+</map>

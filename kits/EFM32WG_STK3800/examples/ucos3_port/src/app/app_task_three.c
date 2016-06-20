@@ -23,7 +23,7 @@
 *
 * @file   app_task_three.c
 * @brief
-* @version 4.1.0
+* @version 4.2.0
 ******************************************************************************
 * @section License
 * <b>(C) Copyright 2013 Energy Micro AS, http://www.energymicro.com</b>
@@ -93,7 +93,7 @@ void APP_TaskThree(void *p_arg)
 #ifdef USART_CONNECTED
   char indxChar;
   char MsgSize;
-  char *pMsgContent;
+  int  MsgContent;
   static char taskStringBuffer[APPDEF_LCD_TXT_SIZE+1U] = {'u','C','/','O','S','-','3','\0'};
 #endif /* end of #ifndef USART_CONNECTED */
 
@@ -122,7 +122,7 @@ void APP_TaskThree(void *p_arg)
 #ifdef USART_CONNECTED
 
     /* Non-blocking reception of a message */
-    pMsgContent = OSQPend((OS_Q         *) pSerialQueObj,
+    MsgContent = (int) OSQPend((OS_Q         *) pSerialQueObj,
                           (OS_TICK       ) 0U,
                           (OS_OPT        ) OS_OPT_PEND_NON_BLOCKING,
                           (OS_MSG_SIZE  *)&MsgSize,
@@ -130,7 +130,7 @@ void APP_TaskThree(void *p_arg)
                           (OS_ERR       *)&err);
 
     /* If a valid message was received... */
-    if ((void *)0 != pMsgContent)
+    if (err == OS_ERR_NONE)
     {
       /* ...shift left the whole string by one... */
       for (indxChar = 0; indxChar < APPDEF_LCD_TXT_SIZE; indxChar++)
@@ -139,7 +139,7 @@ void APP_TaskThree(void *p_arg)
       }
 
       /* ...and concatenate the new character to the end. */
-      taskStringBuffer[APPDEF_LCD_TXT_SIZE-1] = *pMsgContent;
+      taskStringBuffer[APPDEF_LCD_TXT_SIZE-1] = (char) MsgContent;
 
       /* Write the string on serial port */
       printf("\nBuffer: %s", taskStringBuffer);

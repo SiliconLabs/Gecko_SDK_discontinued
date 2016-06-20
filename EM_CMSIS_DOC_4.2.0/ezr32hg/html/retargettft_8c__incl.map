@@ -1,0 +1,44 @@
+<map id="C:/work/s025_sw/kits/common/drivers/retargettft.c" name="C:/work/s025_sw/kits/common/drivers/retargettft.c">
+<area shape="rect" id="node7" href="$em__device_8h.html" title="CMSIS Cortex&#45;M Peripheral Access Layer for Silicon Laboratories microcontroller devices. " alt="" coords="383,245,477,272"/>
+<area shape="rect" id="node78" href="$em__cmu_8h.html" title="Clock management unit (CMU) API. " alt="" coords="499,96,581,123"/>
+<area shape="rect" id="node88" href="$em__ebi_8h.html" title="External Bus Iterface (EBI) peripheral API. " alt="" coords="191,171,265,197"/>
+<area shape="rect" id="node91" href="$em__gpio_8h.html" title="General Purpose IO (GPIO) peripheral API. " alt="" coords="389,96,472,123"/>
+<area shape="rect" id="node99" href="$bsp_8h.html" title="Board support package API definitions. " alt="" coords="605,96,659,123"/>
+<area shape="rect" id="node108" href="$retargettft_8h_source.html" title="retargettft.h" alt="" coords="901,96,992,123"/>
+<area shape="rect" id="node110" href="$displayfont8x8_8h.html" title="8x8 font with all characters " alt="" coords="1016,96,1131,123"/>
+<area shape="rect" id="node9" href="$ezr32hg320f64r69_8h.html" title="CMSIS Cortex&#45;M Peripheral Access Layer Header File for EZR32HG320F64R69. " alt="" coords="2329,320,2465,347"/>
+<area shape="rect" id="node15" href="$system__ezr32hg_8h.html" title="CMSIS Cortex&#45;M System Layer for EZR32HG devices. " alt="" coords="4570,395,4696,421"/>
+<area shape="rect" id="node18" href="$ezr32hg__aes_8h.html" title="EZR32HG_AES register and bit field definitions. " alt="" coords="276,395,383,421"/>
+<area shape="rect" id="node20" href="$ezr32hg__dma__ch_8h.html" title="EZR32HG_DMA_CH register and bit field definitions. " alt="" coords="407,395,537,421"/>
+<area shape="rect" id="node22" href="$ezr32hg__dma_8h.html" title="EZR32HG_DMA register and bit field definitions. " alt="" coords="562,395,672,421"/>
+<area shape="rect" id="node24" href="$ezr32hg__usb__diep_8h.html" title="EZR32HG_USB_DIEP register and bit field definitions. " alt="" coords="697,395,833,421"/>
+<area shape="rect" id="node26" href="$ezr32hg__usb__doep_8h.html" title="EZR32HG_USB_DOEP register and bit field definitions. " alt="" coords="859,395,1000,421"/>
+<area shape="rect" id="node28" href="$ezr32hg__usb_8h.html" title="EZR32HG_USB register and bit field definitions. " alt="" coords="1024,395,1131,421"/>
+<area shape="rect" id="node30" href="$ezr32hg__msc_8h.html" title="EZR32HG_MSC register and bit field definitions. " alt="" coords="1155,395,1264,421"/>
+<area shape="rect" id="node32" href="$ezr32hg__emu_8h.html" title="EZR32HG_EMU register and bit field definitions. " alt="" coords="1289,395,1399,421"/>
+<area shape="rect" id="node34" href="$ezr32hg__rmu_8h.html" title="EZR32HG_RMU register and bit field definitions. " alt="" coords="1424,395,1533,421"/>
+<area shape="rect" id="node36" href="$ezr32hg__cmu_8h.html" title="EZR32HG_CMU register and bit field definitions. " alt="" coords="1558,395,1668,421"/>
+<area shape="rect" id="node38" href="$ezr32hg__timer__cc_8h.html" title="EZR32HG_TIMER_CC register and bit field definitions. " alt="" coords="1693,395,1827,421"/>
+<area shape="rect" id="node40" href="$ezr32hg__timer_8h.html" title="EZR32HG_TIMER register and bit field definitions. " alt="" coords="1851,395,1967,421"/>
+<area shape="rect" id="node42" href="$ezr32hg__usart_8h.html" title="EZR32HG_USART register and bit field definitions. " alt="" coords="1992,395,2107,421"/>
+<area shape="rect" id="node44" href="$ezr32hg__prs__ch_8h.html" title="EZR32HG_PRS_CH register and bit field definitions. " alt="" coords="2131,395,2255,421"/>
+<area shape="rect" id="node46" href="$ezr32hg__prs_8h.html" title="EZR32HG_PRS register and bit field definitions. " alt="" coords="2280,395,2384,421"/>
+<area shape="rect" id="node48" href="$ezr32hg__idac_8h.html" title="EZR32HG_IDAC register and bit field definitions. " alt="" coords="2408,395,2517,421"/>
+<area shape="rect" id="node50" href="$ezr32hg__gpio__p_8h.html" title="EZR32HG_GPIO_P register and bit field definitions. " alt="" coords="2542,395,2665,421"/>
+<area shape="rect" id="node52" href="$ezr32hg__gpio_8h.html" title="EZR32HG_GPIO register and bit field definitions. " alt="" coords="2690,395,2800,421"/>
+<area shape="rect" id="node54" href="$ezr32hg__vcmp_8h.html" title="EZR32HG_VCMP register and bit field definitions. " alt="" coords="2825,395,2940,421"/>
+<area shape="rect" id="node56" href="$ezr32hg__adc_8h.html" title="EZR32HG_ADC register and bit field definitions. " alt="" coords="2965,395,3072,421"/>
+<area shape="rect" id="node58" href="$ezr32hg__leuart_8h.html" title="EZR32HG_LEUART register and bit field definitions. " alt="" coords="3097,395,3215,421"/>
+<area shape="rect" id="node60" href="$ezr32hg__pcnt_8h.html" title="EZR32HG_PCNT register and bit field definitions. " alt="" coords="3239,395,3349,421"/>
+<area shape="rect" id="node62" href="$ezr32hg__i2c_8h.html" title="EZR32HG_I2C register and bit field definitions. " alt="" coords="3374,395,3476,421"/>
+<area shape="rect" id="node64" href="$ezr32hg__rtc_8h.html" title="EZR32HG_RTC register and bit field definitions. " alt="" coords="3501,395,3603,421"/>
+<area shape="rect" id="node66" href="$ezr32hg__wdog_8h.html" title="EZR32HG_WDOG register and bit field definitions. " alt="" coords="3627,395,3744,421"/>
+<area shape="rect" id="node68" href="$ezr32hg__mtb_8h.html" title="EZR32HG_MTB register and bit field definitions. " alt="" coords="3769,395,3876,421"/>
+<area shape="rect" id="node70" href="$ezr32hg__dma__descriptor_8h.html" title="EZR32HG_DMA_DESCRIPTOR register and bit field definitions. " alt="" coords="3901,395,4075,421"/>
+<area shape="rect" id="node72" href="$ezr32hg__devinfo_8h.html" title="EZR32HG_DEVINFO register and bit field definitions. " alt="" coords="4099,395,4225,421"/>
+<area shape="rect" id="node74" href="$ezr32hg__romtable_8h.html" title="EZR32HG_ROMTABLE register and bit field definitions. " alt="" coords="4250,395,4387,421"/>
+<area shape="rect" id="node76" href="$ezr32hg__calibrate_8h.html" title="EZR32HG_CALIBRATE register and bit field definitions. " alt="" coords="4411,395,4545,421"/>
+<area shape="rect" id="node83" href="$em__assert_8h.html" title="Emlib peripheral API &quot;assert&quot; implementation. " alt="" coords="495,171,588,197"/>
+<area shape="rect" id="node85" href="$em__bus_8h.html" title="RAM and peripheral bit&#45;field set and clear API. " alt="" coords="391,171,469,197"/>
+<area shape="rect" id="node104" href="$em__usart_8h.html" title="Universal synchronous/asynchronous receiver/transmitter (USART/UART) peripheral API. " alt="" coords="714,171,800,197"/>
+</map>

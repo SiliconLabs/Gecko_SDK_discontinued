@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file spaceinvaders.c
  * @brief Spaceinvaders game.
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>

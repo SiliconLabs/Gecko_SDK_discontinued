@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ecode.h
  * @brief Energy Aware drivers error code definitions.
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -43,6 +43,10 @@ typedef uint32_t Ecode_t;
 #define ECODE_EMDRV_UARTDRV_BASE    ( ECODE_EMDRV_BASE | 0x00007000 ) ///< Base value for UARTDRV error codes.
 #define ECODE_EMDRV_DMADRV_BASE     ( ECODE_EMDRV_BASE | 0x00008000 ) ///< Base value for DMADRV error codes.
 #define ECODE_EMDRV_EZRADIODRV_BASE ( ECODE_EMDRV_BASE | 0x00009000 ) ///< Base value for EZRADIODRV error codes.
+#define ECODE_EMDRV_SHADRV_BASE     ( ECODE_EMDRV_BASE | 0x0000A000 ) ///< Base value for SHADRV error codes.
+#define ECODE_EMDRV_RSADRV_BASE     ( ECODE_EMDRV_BASE | 0x0000B000 ) ///< Base value for RSADRV error codes.
+#define ECODE_EMDRV_CRYPTO_BASE     ( ECODE_EMDRV_BASE | 0x0000C000 ) ///< Base value for CRYPTO error codes.
+#define ECODE_EMDRV_TEMPDRV_BASE    ( ECODE_EMDRV_BASE | 0x0000D000 ) ///< Base value for TEMPDRV error codes.
 
 /** @} (end addtogroup EM_Drivers) */
 

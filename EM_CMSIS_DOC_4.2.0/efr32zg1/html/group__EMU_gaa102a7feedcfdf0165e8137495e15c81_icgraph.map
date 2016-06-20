@@ -1,0 +1,4 @@
+<map id="EMU_Lock" name="EMU_Lock">
+<area shape="rect" id="node3" href="$group__RMU.html#ga1ebc1af03f738faa79b3e87d60a96ff1" title="Clear the reset cause register. " alt="" coords="133,5,285,32"/>
+<area shape="rect" id="node5" href="$group__SLEEP.html#ga01eb28531b3fc9a5c7880b86a98d4b1c" title="Initialize the Sleep module. " alt="" coords="333,5,416,32"/>
+</map>

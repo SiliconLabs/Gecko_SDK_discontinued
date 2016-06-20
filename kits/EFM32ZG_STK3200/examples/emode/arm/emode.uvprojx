@@ -495,9 +495,19 @@
           <GroupName>Source</GroupName>
           <Files>
             <File>
-              <FileName>emode.c</FileName>
+              <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\emode.c</FilePath>
+              <FilePath>..\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>lcd_setup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lcd_setup.c</FilePath>
+            </File>
+            <File>
+              <FileName>emodes.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\emodes.c</FilePath>
             </File>
           </Files>
         </Group>

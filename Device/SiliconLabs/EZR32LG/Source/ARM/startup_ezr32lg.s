@@ -2,7 +2,7 @@
 ; * @file startup_ezr32lg.s
 ; * @brief    CMSIS Core Device Startup File for
 ; *           Silicon Labs EZR32LG Device Series
-; * @version 4.1.0
+; * @version 4.2.0
 ; * @date     03. February 2012
 ; *
 ; * @note

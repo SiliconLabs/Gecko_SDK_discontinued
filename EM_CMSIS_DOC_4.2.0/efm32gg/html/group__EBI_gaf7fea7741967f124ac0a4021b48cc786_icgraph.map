@@ -1,0 +1,6 @@
+<map id="EBI_PolaritySet" name="EBI_PolaritySet">
+<area shape="rect" id="node3" href="$group__EBI.html#gad9f118caa49eadf9713559cfac3d3c04" title="Configure and enable External Bus Interface. " alt="" coords="174,5,239,32"/>
+<area shape="rect" id="node7" href="$group__EBI.html#ga897172023b4e5acc58c3bb5afb9e4195" title="Configure and initialize TFT Direct Drive. " alt="" coords="163,56,251,83"/>
+<area shape="rect" id="node5" href="$group__BSP__STK.html#ga03b1ff40234468f05b725c7997d8bd84" title="Initialize the EBI interface for accessing the onboard nandflash. " alt="" coords="307,5,394,32"/>
+<area shape="rect" id="node9" href="$group__Tft.html#gafae3e95323a15ac1b4b6ed6fa3c13e9b" title="TFT initialize or reinitialize Assumes EBI has been configured correctly in BSP_Init(BSP_INIT_DK_EBI)..." alt="" coords="299,56,402,83"/>
+</map>

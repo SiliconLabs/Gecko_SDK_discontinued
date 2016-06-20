@@ -192,16 +192,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>bsp</GroupName>
-          <Files>
-            <File>
-              <FileName>bsp_trace.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\common\bsp\bsp_trace.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>Drivers</GroupName>
           <Files>
             <File>
@@ -220,11 +210,6 @@
               <FilePath>..\..\..\..\..\emlib\src\em_assert.c</FilePath>
             </File>
             <File>
-              <FileName>em_burtc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\emlib\src\em_burtc.c</FilePath>
-            </File>
-            <File>
               <FileName>em_cmu.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\emlib\src\em_cmu.c</FilePath>
@@ -240,9 +225,9 @@
               <FilePath>..\..\..\..\..\emlib\src\em_gpio.c</FilePath>
             </File>
             <File>
-              <FileName>em_rmu.c</FileName>
+              <FileName>em_rtc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\emlib\src\em_rmu.c</FilePath>
+              <FilePath>..\..\..\..\..\emlib\src\em_rtc.c</FilePath>
             </File>
             <File>
               <FileName>em_system.c</FileName>
@@ -254,15 +239,50 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\emlib\src\em_lcd.c</FilePath>
             </File>
+            <File>
+              <FileName>em_int.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\emlib\src\em_int.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>emdrv</GroupName>
+          <Files>
+            <File>
+              <FileName>rtcdriver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\emdrv\rtcdrv\src\rtcdriver.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>BSP</GroupName>
+          <Files>
+            <File>
+              <FileName>bsp_trace.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\common\bsp\bsp_trace.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Source</GroupName>
           <Files>
             <File>
-              <FileName>emode.c</FileName>
+              <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\emode.c</FilePath>
+              <FilePath>..\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>lcd_setup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lcd_setup.c</FilePath>
+            </File>
+            <File>
+              <FileName>emodes.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\emodes.c</FilePath>
             </File>
           </Files>
         </Group>

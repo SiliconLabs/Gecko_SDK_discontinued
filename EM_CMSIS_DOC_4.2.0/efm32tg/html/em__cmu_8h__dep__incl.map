@@ -1,0 +1,46 @@
+<map id="C:/work/s025_sw/emlib/inc/em_cmu.h" name="C:/work/s025_sw/emlib/inc/em_cmu.h">
+<area shape="rect" id="node3" href="$em__adc_8c.html" title="Analog to Digital Converter (ADC) Peripheral API. " alt="" coords="5,97,163,138"/>
+<area shape="rect" id="node5" href="$em__cmu_8c.html" title="Clock management unit (CMU) Peripheral API. " alt="" coords="187,97,345,138"/>
+<area shape="rect" id="node7" href="$em__dac_8c.html" title="Digital to Analog Coversion (DAC) Peripheral API. " alt="" coords="370,97,528,138"/>
+<area shape="rect" id="node9" href="$em__dbg_8c.html" title="Debug (DBG) Peripheral API. " alt="" coords="553,97,711,138"/>
+<area shape="rect" id="node11" href="$em__dma_8c.html" title="Direct memory access (DMA) module peripheral API. " alt="" coords="735,97,893,138"/>
+<area shape="rect" id="node13" href="$em__emu_8c.html" title="Energy Management Unit (EMU) Peripheral API. " alt="" coords="918,97,1076,138"/>
+<area shape="rect" id="node15" href="$em__i2c_8c.html" title="Inter&#45;integrated Circuit (I2C) Peripheral API. " alt="" coords="1101,97,1259,138"/>
+<area shape="rect" id="node17" href="$em__lesense_8c.html" title="Low Energy Sensor (LESENSE) Peripheral API. " alt="" coords="1283,97,1441,138"/>
+<area shape="rect" id="node19" href="$em__letimer_8c.html" title="Low Energy Timer (LETIMER) Peripheral API. " alt="" coords="1466,97,1624,138"/>
+<area shape="rect" id="node21" href="$em__leuart_8c.html" title="Low Energy Universal Asynchronous Receiver/Transmitter (LEUART) Peripheral API. " alt="" coords="1649,97,1807,138"/>
+<area shape="rect" id="node23" href="$em__msc_8c.html" title="Flash controller (MSC) Peripheral API. " alt="" coords="1831,97,1989,138"/>
+<area shape="rect" id="node25" href="$em__pcnt_8c.html" title="Pulse Counter (PCNT) peripheral API. " alt="" coords="2014,97,2172,138"/>
+<area shape="rect" id="node27" href="$em__usart_8c.html" title="Universal synchronous/asynchronous receiver/transmitter (USART/UART) Peripheral API. " alt="" coords="2197,97,2355,138"/>
+<area shape="rect" id="node29" href="$ustimer_8c.html" title="Microsecond delay functions. " alt="" coords="2379,97,2543,138"/>
+<area shape="rect" id="node31" href="$spidrv_8h.html" title="SPIDRV API definition. " alt="" coords="2567,97,2731,138"/>
+<area shape="rect" id="node39" href="$uartdrv_8h.html" title="UARTDRV API definition. " alt="" coords="2755,97,2919,138"/>
+<area shape="rect" id="node43" href="$rtcdriver_8c.html" title="RTCDRV timer API implementation. " alt="" coords="2943,97,3107,138"/>
+<area shape="rect" id="node45" href="$dmadrv_8c.html" title="DMADRV API implementation. " alt="" coords="3131,97,3295,138"/>
+<area shape="rect" id="node47" href="$bsp__bcc_8c.html" title="Board Controller Communications (BCC) definitions. " alt="" coords="3320,97,3483,138"/>
+<area shape="rect" id="node49" href="$bsp__dk__3200_8c.html" title="Board support package API implementation for BRD3200. " alt="" coords="3507,97,3697,138"/>
+<area shape="rect" id="node51" href="$bsp__dk__3201_8c.html" title="Board support package API implementation for BRD3201. " alt="" coords="3722,97,3912,138"/>
+<area shape="rect" id="node53" href="$bsp__dk__mcuboard_8c.html" title="Board support package API for functions on MCU plugin boards. " alt="" coords="3937,97,4156,138"/>
+<area shape="rect" id="node55" href="$bsp__stk_8c.html" title="Board support package API implementation STK&#39;s. " alt="" coords="4181,97,4339,138"/>
+<area shape="rect" id="node57" href="$bsp__stk__leds_8c.html" title="Board support package API for GPIO leds on STK&#39;s. " alt="" coords="4364,97,4553,138"/>
+<area shape="rect" id="node59" href="$bsp__trace_8c.html" title="API for enabling SWO and ETM trace. " alt="" coords="4578,97,4749,138"/>
+<area shape="rect" id="node61" href="$caplesense_8c.html" title="Capacitive sense driver. " alt="" coords="4774,97,4972,138"/>
+<area shape="rect" id="node63" href="$capsense_8c.html" title="Capacitive sense driver. " alt="" coords="4997,97,5184,138"/>
+<area shape="rect" id="node65" href="$cdc_8c.html" title="USB Communication Device Class (CDC) driver. " alt="" coords="5209,97,5364,138"/>
+<area shape="rect" id="node67" href="$displaypalemlib_8c.html" title="Platform Abstraction Layer (PAL) for DISPLAY driver on EMLIB based platforms. " alt="" coords="5389,97,5611,138"/>
+<area shape="rect" id="node69" href="$i2cspm_8c.html" title="I2C simple poll&#45;based master mode driver for the DK/STK. " alt="" coords="5635,97,5809,138"/>
+<area shape="rect" id="node71" href="$microsd_8c.html" title="Micro SD card driver for the EFM32GG_DK3750 development kit. This file provides the interface layer b..." alt="" coords="5834,97,6013,138"/>
+<area shape="rect" id="node73" href="$msdd_8c.html" title="Mass Storage class Device (MSD) driver. " alt="" coords="6038,97,6204,138"/>
+<area shape="rect" id="node75" href="$mx25flash__spi_8c_source.html" title="C:/work/s025_sw/kits\l/common/drivers/mx25flash_spi.c" alt="" coords="6229,97,6445,138"/>
+<area shape="rect" id="node77" href="$retargetserial_8c.html" title="Provide stdio retargeting to USART/UART or LEUART. " alt="" coords="6470,97,6681,138"/>
+<area shape="rect" id="node79" href="$retargettft_8c.html" title="Provide stdio retargeting to TFT address mapped mode. " alt="" coords="6706,97,6899,138"/>
+<area shape="rect" id="node81" href="$segmentlcd_8c.html" title="EFM32 Segment LCD Display driver. " alt="" coords="6924,97,7124,138"/>
+<area shape="rect" id="node83" href="$tftspi_8c.html" title="EFM32GG_DK3750, SPI controller implementation for SSD2119 display interface when using Generic/Direct..." alt="" coords="7148,97,7311,138"/>
+<area shape="rect" id="node85" href="$touch_8c.html" title="EFM32GG_DK3750, Touch panel driver. " alt="" coords="7335,97,7501,138"/>
+<area shape="rect" id="node87" href="$udelay_8c.html" title="Microsecond delay routine. " alt="" coords="7526,97,7697,138"/>
+<area shape="rect" id="node89" href="$vddcheck_8c.html" title="VDD Voltage Check, using Voltage Comparator API. " alt="" coords="7723,97,7909,138"/>
+<area shape="rect" id="node33" href="$ezradio__hal_8c.html" title="This file contains EZRadio HAL. " alt="" coords="2271,187,2435,243"/>
+<area shape="rect" id="node35" href="$spidrv_8c.html" title="SPIDRV API implementation. " alt="" coords="2459,194,2623,235"/>
+<area shape="rect" id="node37" href="$ksz8851snl__spi_8c.html" title="SPI interface API for KSZ8851SNL Ethernet controller. " alt="" coords="2647,194,2867,235"/>
+<area shape="rect" id="node41" href="$uartdrv_8c.html" title="UARTDRV API implementation. " alt="" coords="2891,194,3055,235"/>
+</map>

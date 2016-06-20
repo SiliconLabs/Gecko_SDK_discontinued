@@ -1,0 +1,5 @@
+<map id="USBD_Read" name="USBD_Read">
+<area shape="rect" id="node3" href="$group__Cdc.html#gabb299273fea87474d24e85a3fe1ad4d0" title="Handle USB setup commands. Implements CDC class specific commands. " alt="" coords="167,5,279,32"/>
+<area shape="rect" id="node5" href="$group__Cdc.html#gaab8bd37b2a51931c429dbec05e92c11f" title="Callback function called each time the USB device state is changed. Starts CDC operation when device ..." alt="" coords="144,56,301,83"/>
+<area shape="rect" id="node7" href="$group__HidKeyboard.html#gaa6482849b2bbbb6c800516059ad17453" title="Handle USB setup commands. Implements HID class specific commands. This function must be called each ..." alt="" coords="157,107,288,133"/>
+</map>

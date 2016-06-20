@@ -1,0 +1,13 @@
+<map id="RTCDRV_DeInit" name="RTCDRV_DeInit">
+<area shape="rect" id="node3" href="$group__CMU.html#ga93913d50050d52b38b0a7c7c08ac81e8" title="Enable/disable a clock. " alt="" coords="177,131,300,158"/>
+<area shape="rect" id="node20" href="$group__RTC.html#ga19213bbf2d6cb73d55cec086a98493e6" title="Enable/disable RTC. " alt="" coords="380,182,471,208"/>
+<area shape="rect" id="node23" href="$group__SLEEP.html#ga1dd174edab75f62e330d1fb10b902e2d" title="End sleep block in the requested energy mode. " alt="" coords="165,232,312,259"/>
+<area shape="rect" id="node5" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="550,182,669,208"/>
+<area shape="rect" id="node7" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="360,80,491,107"/>
+<area shape="rect" id="node9" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="552,30,667,56"/>
+<area shape="rect" id="node11" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="552,80,667,107"/>
+<area shape="rect" id="node13" href="$system__efm32lg_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="539,131,679,158"/>
+<area shape="rect" id="node15" href="$system__efm32lg_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="728,55,856,82"/>
+<area shape="rect" id="node17" href="$system__efm32lg_8c.html#a442d0fcb831f601f02d643a64ab80f4c" title="GetProdRev" alt="" coords="904,55,992,82"/>
+<area shape="rect" id="node25" href="$group__EMU.html#ga9e959a9fd56ac4a2e18877b9b839d795" title="Unblock entering EM2 or higher number energy modes. " alt="" coords="364,232,487,259"/>
+</map>

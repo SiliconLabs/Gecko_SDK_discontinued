@@ -1,0 +1,11 @@
+<map id="MSDH_Init" name="MSDH_Init">
+<area shape="rect" id="node3" href="$msdscsi_8c.html#a20d1e1bc8c9f66d3bbf9f7ec45a8afeb" title="MSDSCSI module initialization. " alt="" coords="168,5,269,32"/>
+<area shape="rect" id="node7" href="$msdscsi_8c.html#a8618b70076ea29385d60c816791d253c" title="Issue a SCSI Inquiry command. " alt="" coords="157,56,280,83"/>
+<area shape="rect" id="node11" href="$msdscsi_8c.html#aabf14b7316a5270391c8961f7b7bd1e9" title="Issue a SCSI Read Capacity command. " alt="" coords="139,107,299,133"/>
+<area shape="rect" id="node14" href="$msdscsi_8c.html#aa04e858f68c0729af7d749a9bbbd64fb" title="Issue a SCSI Request Sense command. " alt="" coords="137,157,301,184"/>
+<area shape="rect" id="node17" href="$msdscsi_8c.html#a28044689db0ce7f73fe0eb209e01c68e" title="Issue a SCSI Test Unit Ready command. " alt="" coords="136,208,301,235"/>
+<area shape="rect" id="node20" href="$group__USB__COMMON.html#ga43cf32af5653cb2cd27fb6729be245fb" title="Transmit &quot;printf&quot; formated data on the debug serial port. " alt="" coords="171,259,266,285"/>
+<area shape="rect" id="node22" href="$group__USB__COMMON.html#gabb1c11cad365c7c3b99a3e7826035951" title="Active wait millisecond delay function. Can also be used inside interrupt handlers. " alt="" coords="151,309,287,336"/>
+<area shape="rect" id="node5" href="$msdbot_8c.html#a2d6610a0f39ffc856a740ff3330ba2e0" title="MSDBOT module initialization. " alt="" coords="353,5,450,32"/>
+<area shape="rect" id="node9" href="$msdbot_8c.html#a924b6ac8bbbb582c299825f371813067" title="Perform an MSD Bulk Only Transfer (BOT). " alt="" coords="350,132,453,159"/>
+</map>

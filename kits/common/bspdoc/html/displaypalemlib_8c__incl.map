@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node21" href="$bsp_8h.html" title="Board support package API definitions." alt="" coords="631,81,684,108"/>
-<area shape="rect" id="node28" href="$displayconfigall_8h.html" title="Main configuration file for the DISPLAY driver software stack." alt="" coords="759,81,877,108"/>
-<area shape="rect" id="node34" href="$displaypal_8h.html" title="Platform Abstraction Layer (PAL) interface for DISPLAY driver." alt="" coords="951,81,1040,108"/>
-<area shape="rect" id="node36" href="$emstatus_8h.html" title="EMSTATUS definitions." alt="" coords="1003,156,1088,183"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$group__NandFlash.html#ga89e673d7489781772b09cd59fae7f434" title="Copy a page within the device to a new location." alt="" coords="237,5,392,32"/>
-<area shape="rect" id="node5" href="$group__NandFlash.html#gab6b041fc25f751a48aea91db3409f094" title="Erase a block in the nand flash." alt="" coords="235,56,394,83"/>
-<area shape="rect" id="node7" href="$group__NandFlash.html#gac4148bf559466d233cccf815adbeb95d" title="Mark a block as bad." alt="" coords="227,107,403,133"/>
-<area shape="rect" id="node9" href="$group__NandFlash.html#gac7c2bddd174fa07c8140b38c7584cc59" title="Read a page from nand device." alt="" coords="237,157,392,184"/>
-<area shape="rect" id="node11" href="$group__NandFlash.html#ga9a52019a2c065536e1c707aea6f27830" title="Read the spare area content of a page." alt="" coords="234,208,395,235"/>
-<area shape="rect" id="node13" href="$group__NandFlash.html#ga1414ac5f995f6e37bef82297ff2f51a5" title="Write a page in nand device." alt="" coords="236,259,393,285"/>
-</map>

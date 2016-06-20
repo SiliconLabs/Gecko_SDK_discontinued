@@ -1,0 +1,12 @@
+<map id="C:/work/s025_sw/emdrv/ezradiodrv/plugins/inc/ezradio_transmit_plugin.h" name="C:/work/s025_sw/emdrv/ezradiodrv/plugins/inc/ezradio_transmit_plugin.h">
+<area shape="rect" id="node3" href="$ezradio__plugin__manager_8h.html" title="This file contains the plug&#45;in manager for the EZRadio and EZRadioPRO chip families. " alt="" coords="808,109,987,165"/>
+<area shape="rect" id="node9" href="$ezradio__direct__receive__plugin_8c.html" title="EzRadio direct reception plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="5,214,168,285"/>
+<area shape="rect" id="node11" href="$ezradio__direct__transmit__plugin_8c.html" title="EzRadio direct transmission plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="193,214,356,285"/>
+<area shape="rect" id="node15" href="$ezradio__pn9__plugin_8c.html" title="EzRadio PN9 plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="1177,221,1340,277"/>
+<area shape="rect" id="node19" href="$ezradio__transmit__plugin_8c.html" title="EzRadio transmit plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="1365,221,1539,277"/>
+<area shape="rect" id="node21" href="$ezradio__unmod__carrier__plugin_8c.html" title="EzRadio unmodulated carrier plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="1563,214,1727,285"/>
+<area shape="rect" id="node5" href="$ezradio__auto__ack__plugin_8c.html" title="EzRadio auto acknowledge plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="573,221,752,277"/>
+<area shape="rect" id="node7" href="$ezradio__crcerror__plugin_8c.html" title="EzRadio CRC error plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="776,221,949,277"/>
+<area shape="rect" id="node13" href="$ezradio__plugin__manager_8c.html" title="This file contains the plug&#45;in manager for the EZRadio and EZRadioPRO chip families. " alt="" coords="973,221,1152,277"/>
+<area shape="rect" id="node17" href="$ezradio__receive__plugin_8c.html" title="EzRadio receive plug&#45;in managed by the plug&#45;in manager if enabled. " alt="" coords="381,221,549,277"/>
+</map>

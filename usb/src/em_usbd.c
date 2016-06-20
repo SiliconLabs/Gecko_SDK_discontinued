@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file em_usbd.c
  * @brief USB protocol stack library API for EFM32/EZR32.
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -891,6 +891,7 @@ int USBD_Write( int epAddr, void *data, int byteCount,
 }
 
 /******** THE REST OF THE FILE IS DOCUMENTATION ONLY !**********************//**
+ * @addtogroup USB
  * @{
 
 @page usb_device USB device stack library

@@ -1,0 +1,27 @@
+<map id="USBD_Init" name="USBD_Init">
+<area shape="rect" id="node3" href="$group__CMU.html#ga93913d50050d52b38b0a7c7c08ac81e8" title="Enable/disable a clock. " alt="" coords="332,399,455,426"/>
+<area shape="rect" id="node20" href="$group__CMU.html#ga924a9c8dbde9e529e684f0c8e7dfdaa2" title="Get currently selected reference clock used for a clock branch. " alt="" coords="133,627,272,654"/>
+<area shape="rect" id="node22" href="$group__CMU.html#gae11949f9c2e4033ad63dac48c9a739d3" title="Select reference clock/oscillator used for a clock branch. " alt="" coords="133,526,272,552"/>
+<area shape="rect" id="node25" href="$group__CMU.html#ga2cc0f1684fbc32976b82c6d93a51c7d9" title="Enable/disable oscillator. " alt="" coords="320,652,467,679"/>
+<area shape="rect" id="node38" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="157,678,248,704"/>
+<area shape="rect" id="node40" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="159,728,246,755"/>
+<area shape="rect" id="node42" href="$group__USB__COMMON.html#ga21c87b800d87fd731173dd4f48f23c28" title="Activate the hardware timer used to pace the 1 millisecond timer system. " alt="" coords="149,222,256,248"/>
+<area shape="rect" id="node5" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="531,475,650,502"/>
+<area shape="rect" id="node7" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="525,399,656,426"/>
+<area shape="rect" id="node9" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="728,450,843,476"/>
+<area shape="rect" id="node11" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="728,348,843,375"/>
+<area shape="rect" id="node13" href="$system__ezr32wg_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="715,500,855,527"/>
+<area shape="rect" id="node15" href="$system__ezr32wg_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="904,450,1032,476"/>
+<area shape="rect" id="node17" href="$system__ezr32wg_8c.html#a442d0fcb831f601f02d643a64ab80f4c" title="GetProdRev" alt="" coords="1080,450,1168,476"/>
+<area shape="rect" id="node31" href="$group__EMU.html#ga3d442fa018de5138afb19a2b85797099" title="Update EMU module with CMU oscillator selection/enable status. " alt="" coords="515,602,666,628"/>
+<area shape="rect" id="node35" href="$system__ezr32wg_8c.html#aef32887eb9b08a5dd7db73c35ca7c747" title="Get high frequency crystal oscillator clock frequency for target system. " alt="" coords="321,450,466,476"/>
+<area shape="rect" id="node27" href="$group__BUS.html#gaca6b55014161f4c51c9daf4f707eeb7c" title="Perform a single&#45;bit read operation on a peripheral register. " alt="" coords="532,703,649,730"/>
+<area shape="rect" id="node29" href="$group__BUS.html#gaec23c86f9b844b9e0e102ebff0b96ff4" title="Perform a peripheral register masked read. " alt="" coords="517,652,664,679"/>
+<area shape="rect" id="node46" href="$group__TIMER.html#ga4ef423dd1b30cc66f3c3d3d51dac5d16" title="Set compare value for compare/capture channel when operating in compare or PWM mode. " alt="" coords="325,348,462,375"/>
+<area shape="rect" id="node48" href="$group__TIMER.html#ga83e10f77009812d7bfff2cf835ca64d7" title="Get TIMER counter value. " alt="" coords="328,44,459,71"/>
+<area shape="rect" id="node50" href="$group__TIMER.html#gad04a80140e22df0cd742e14933e9f028" title="Initialize TIMER. " alt="" coords="351,95,435,122"/>
+<area shape="rect" id="node52" href="$group__TIMER.html#ga9b2a3560717e0c174a030d99fa8501b4" title="Initialize TIMER compare/capture channel. " alt="" coords="343,146,443,172"/>
+<area shape="rect" id="node54" href="$group__TIMER.html#ga92304cb71e3c8da55c9715c8ab30dc57" title="Clear one or more pending TIMER interrupts. " alt="" coords="338,196,449,223"/>
+<area shape="rect" id="node56" href="$group__TIMER.html#ga10317eb2cd4cf6c5bde768023ea132cd" title="Enable one or more TIMER interrupts. " alt="" coords="334,247,453,274"/>
+<area shape="rect" id="node58" href="$group__TIMER.html#gad367b1801475494e0aeab2e4eab1e646" title="Set top value for timer. " alt="" coords="340,298,447,324"/>
+</map>

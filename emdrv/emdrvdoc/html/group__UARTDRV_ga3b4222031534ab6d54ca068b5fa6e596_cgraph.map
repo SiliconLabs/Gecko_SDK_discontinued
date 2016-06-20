@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$group__DMADRV.html#ga73633db63cfd99ba01a68b05c24094ec" title="Deinitialize DMADRV." alt="" coords="204,5,316,32"/>
-<area shape="rect" id="node5" href="$group__DMADRV.html#gab4453539f4d22aa650324685a9f197e3" title="Free an allocate (reserved) DMA channel." alt="" coords="185,56,335,83"/>
-<area shape="rect" id="node7" href="$group__DMADRV.html#ga3a04cb3aa30ec2fd955281f55538028d" title="Stop an ongoing DMA transfer." alt="" coords="183,107,337,133"/>
-<area shape="rect" id="node9" href="$group__GPIOINT.html#gaffd9a793482ef44c0871654a9e60836e" title="Registers user callback for given pin number." alt="" coords="175,157,345,184"/>
-<area shape="rect" id="node11" href="$group__UARTDRV.html#ga793738f4fce0d507867e3a56d36426d2" title="Set UART flow control state." alt="" coords="174,208,346,235"/>
-</map>

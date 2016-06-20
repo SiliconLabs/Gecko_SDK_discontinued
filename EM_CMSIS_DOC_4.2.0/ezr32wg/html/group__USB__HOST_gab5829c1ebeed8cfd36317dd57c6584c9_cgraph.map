@@ -1,0 +1,8 @@
+<map id="USBH_ReadB" name="USBH_ReadB">
+<area shape="rect" id="node3" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="656,195,747,222"/>
+<area shape="rect" id="node5" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="658,43,745,70"/>
+<area shape="rect" id="node7" href="$group__USB__HOST.html#ga3514adea6bc6da41b8a083153e3f9365" title="Read data from device endpoint, non&#45;blocking version. " alt="" coords="150,94,239,121"/>
+<area shape="rect" id="node9" href="$group__USB__HOST.html#gaf791f134a36bb5376abaf59c45b84e84" title="Check if a device is connected. " alt="" coords="288,69,445,95"/>
+<area shape="rect" id="node13" href="$group__USB__COMMON.html#gac2a406f16d989b04c4fc5b37d5c10b45" title="Start a timer. " alt="" coords="308,119,425,146"/>
+<area shape="rect" id="node17" href="$group__USB__COMMON.html#gab73c922427cf0d509788a8063451703f" title="Stop a timer. " alt="" coords="493,119,608,146"/>
+</map>

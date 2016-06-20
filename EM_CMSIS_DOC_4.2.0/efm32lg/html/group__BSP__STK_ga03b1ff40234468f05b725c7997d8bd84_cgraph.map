@@ -1,0 +1,29 @@
+<map id="BSP_EbiInit" name="BSP_EbiInit">
+<area shape="rect" id="node3" href="$group__CMU.html#ga93913d50050d52b38b0a7c7c08ac81e8" title="Enable/disable a clock. " alt="" coords="143,132,265,159"/>
+<area shape="rect" id="node20" href="$group__EBI.html#gad9f118caa49eadf9713559cfac3d3c04" title="Configure and enable External Bus Interface. " alt="" coords="171,487,237,513"/>
+<area shape="rect" id="node53" href="$group__GPIO.html#gab6751992334a136efe8750a1d01a850d" title="Set the mode for a GPIO pin. " alt="" coords="142,867,266,893"/>
+<area shape="rect" id="node5" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="571,487,690,513"/>
+<area shape="rect" id="node7" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="347,81,477,108"/>
+<area shape="rect" id="node9" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="573,5,688,32"/>
+<area shape="rect" id="node11" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="573,56,688,83"/>
+<area shape="rect" id="node13" href="$system__efm32lg_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="561,107,701,133"/>
+<area shape="rect" id="node15" href="$system__efm32lg_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="752,132,880,159"/>
+<area shape="rect" id="node17" href="$system__efm32lg_8c.html#a442d0fcb831f601f02d643a64ab80f4c" title="GetProdRev" alt="" coords="928,132,1016,159"/>
+<area shape="rect" id="node23" href="$group__EBI.html#gabef4d874ff17aa478fae71333a4c1ef5" title="Configure timing values of address latch bus accesses. " alt="" coords="337,233,487,260"/>
+<area shape="rect" id="node25" href="$group__EBI.html#gac6b82e12f6e3e8122191ae92783575d9" title="Configure address operation parameters for selected bank. " alt="" coords="315,284,509,311"/>
+<area shape="rect" id="node28" href="$group__EBI.html#ga436598b8da21b9d09559485af43cd12c" title="Configure timing values of address latch bus accesses. " alt="" coords="323,335,501,361"/>
+<area shape="rect" id="node30" href="$group__EBI.html#ga572ea9ffff7b789d3834cccef3fe911d" title="Configure EBI pin polarity for selected bank(s) for devices with individual timing support..." alt="" coords="345,385,479,412"/>
+<area shape="rect" id="node33" href="$group__EBI.html#ga6f024fe7418658a4658ba9f9aedbb67c" title="Configure read operation parameters for selected bank. " alt="" coords="323,436,501,463"/>
+<area shape="rect" id="node36" href="$group__EBI.html#gad300ed5617b3b3839a75e22743fe77df" title="Configure timing values of read bus accesses. " alt="" coords="331,487,493,513"/>
+<area shape="rect" id="node38" href="$group__EBI.html#ga26a32f19e176055efd9078ee0bacb443" title="Configure write operation parameters for selected bank. " alt="" coords="322,537,502,564"/>
+<area shape="rect" id="node41" href="$group__EBI.html#gac6aeffaa1964a6ace3e4cbf8dc909767" title="Configure timing values of write bus accesses. " alt="" coords="331,588,493,615"/>
+<area shape="rect" id="node43" href="$group__EBI.html#ga3ac877439175a25e03e658d247ae1615" title="Enable or disable EBI Chip Select. " alt="" coords="339,639,485,665"/>
+<area shape="rect" id="node46" href="$group__EBI.html#gaf7fea7741967f124ac0a4021b48cc786" title="Configure EBI pin polarity. " alt="" coords="358,689,466,716"/>
+<area shape="rect" id="node49" href="$group__EBI.html#gabd1af7612f8f14f7574df14547ce97e2" title="Configure timing values of read bus accesses. " alt="" coords="345,740,479,767"/>
+<area shape="rect" id="node51" href="$group__EBI.html#gad9333cd6c2c48f2d831513b88f638429" title="Configure timing values of write bus accesses. " alt="" coords="344,791,480,817"/>
+<area shape="rect" id="node55" href="$group__BUS.html#ga9e878ccba24fcbf97b5bcb8b53356e76" title="Perform peripheral register masked clear and value write. " alt="" coords="338,943,486,969"/>
+<area shape="rect" id="node61" href="$group__GPIO.html#ga607f3a5f3d881bb145101566f1664aba" title="Set a single pin in GPIO data out port register to 0. " alt="" coords="350,841,474,868"/>
+<area shape="rect" id="node64" href="$group__GPIO.html#gab08f054efbb07aaff57d616974c9c536" title="Set a single pin in GPIO data out register to 1. " alt="" coords="355,892,469,919"/>
+<area shape="rect" id="node57" href="$group__BUS.html#gad226bfe478c81d51681539d935241758" title="Perform a masked clear operation on peripheral register address. " alt="" coords="557,917,704,944"/>
+<area shape="rect" id="node59" href="$group__BUS.html#ga8225a5d4acac280abb182dc118e8df77" title="Perform a masked set operation on peripheral register address. " alt="" coords="563,968,699,995"/>
+</map>

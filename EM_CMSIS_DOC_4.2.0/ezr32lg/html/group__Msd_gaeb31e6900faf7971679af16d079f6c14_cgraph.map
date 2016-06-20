@@ -1,0 +1,32 @@
+<map id="MSDH_Init" name="MSDH_Init">
+<area shape="rect" id="node3" href="$group__Msd.html#ga20d1e1bc8c9f66d3bbf9f7ec45a8afeb" title="MSDSCSI module initialization. " alt="" coords="168,295,269,322"/>
+<area shape="rect" id="node7" href="$group__Msd.html#ga8618b70076ea29385d60c816791d253c" title="Issue a SCSI Inquiry command. " alt="" coords="157,548,280,575"/>
+<area shape="rect" id="node53" href="$group__Msd.html#gaabf14b7316a5270391c8961f7b7bd1e9" title="Issue a SCSI Read Capacity command. " alt="" coords="139,396,299,423"/>
+<area shape="rect" id="node56" href="$group__Msd.html#gaa04e858f68c0729af7d749a9bbbd64fb" title="Issue a SCSI Request Sense command. " alt="" coords="137,447,301,474"/>
+<area shape="rect" id="node59" href="$group__Msd.html#ga28044689db0ce7f73fe0eb209e01c68e" title="Issue a SCSI Test Unit Ready command. " alt="" coords="136,498,301,524"/>
+<area shape="rect" id="node62" href="$group__USB__COMMON.html#ga43cf32af5653cb2cd27fb6729be245fb" title="Transmit &quot;printf&quot; formated data on the debug serial port. " alt="" coords="171,599,266,626"/>
+<area shape="rect" id="node64" href="$group__USB__HOST.html#gad011363a4aa7f78c702a361bcebe67fb" title="Get the bus speed of the device attached to the USB port. " alt="" coords="149,650,288,676"/>
+<area shape="rect" id="node66" href="$group__USB__HOST.html#gae9ef72709bb00accb740a0350f79fe35" title="Will request both the device descriptor and the entire configuration descriptor from the device at US..." alt="" coords="349,346,488,372"/>
+<area shape="rect" id="node85" href="$group__USB__COMMON.html#gabb1c11cad365c7c3b99a3e7826035951" title="Active wait millisecond delay function. Can also be used inside interrupt handlers. " alt="" coords="151,700,287,727"/>
+<area shape="rect" id="node5" href="$group__Msd.html#ga2d6610a0f39ffc856a740ff3330ba2e0" title="MSDBOT module initialization. " alt="" coords="370,295,467,322"/>
+<area shape="rect" id="node9" href="$group__Msd.html#ga924b6ac8bbbb582c299825f371813067" title="Perform an MSD Bulk Only Transfer (BOT). " alt="" coords="367,447,470,474"/>
+<area shape="rect" id="node11" href="$group__USB__HOST.html#ga27c7b3b7944f7f1b8e4327dd66fa7ff8" title="Write data to device endpoint, blocking version. " alt="" coords="853,428,952,455"/>
+<area shape="rect" id="node31" href="$group__USB__HOST.html#gab5829c1ebeed8cfd36317dd57c6584c9" title="Read data from device endpoint, blocking version. " alt="" coords="855,491,951,518"/>
+<area shape="rect" id="node41" href="$group__USB__HOST.html#gabf8fcc4a69080f3d1005d1bc21d44218" title="Reset stall state on a stalled (halted) endpoint. " alt="" coords="586,396,707,423"/>
+<area shape="rect" id="node13" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="1797,254,1888,280"/>
+<area shape="rect" id="node15" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="1799,608,1886,635"/>
+<area shape="rect" id="node17" href="$group__USB__HOST.html#ga0c9fcc6a9f2db01206c010330b6e41f6" title="Write data to device endpoint, non&#45;blocking version. " alt="" coords="1101,330,1192,356"/>
+<area shape="rect" id="node19" href="$group__USB__HOST.html#gaf791f134a36bb5376abaf59c45b84e84" title="Check if a device is connected. " alt="" coords="1327,330,1484,356"/>
+<area shape="rect" id="node23" href="$group__USB__COMMON.html#gac2a406f16d989b04c4fc5b37d5c10b45" title="Start a timer. " alt="" coords="1347,482,1464,508"/>
+<area shape="rect" id="node27" href="$group__USB__COMMON.html#gab73c922427cf0d509788a8063451703f" title="Stop a timer. " alt="" coords="1600,431,1715,458"/>
+<area shape="rect" id="node35" href="$group__USB__HOST.html#ga3514adea6bc6da41b8a083153e3f9365" title="Read data from device endpoint, non&#45;blocking version. " alt="" coords="1102,482,1191,508"/>
+<area shape="rect" id="node43" href="$group__USB__HOST.html#gad94fe14defe6b7e33472364c65f07f17" title="Send a SETUP command to a device, blocking version. " alt="" coords="837,371,968,398"/>
+<area shape="rect" id="node47" href="$group__USB__HOST.html#ga0b43c59fc9d3c91d0039f761ef4d6333" title="Send a SETUP command to a device, non&#45;blocking version. " alt="" coords="1085,380,1209,407"/>
+<area shape="rect" id="node68" href="$group__USB__HOST.html#gad09af4f14c4b205a9e159cb4c5fa7b8f" title="Read a configuration descriptor from a device. " alt="" coords="537,295,757,322"/>
+<area shape="rect" id="node71" href="$group__USB__HOST.html#ga2656404a391e6894b03dde7d42d11f4f" title="Read a device descriptor from a device. " alt="" coords="556,346,737,372"/>
+<area shape="rect" id="node74" href="$group__USB__HOST.html#ga50dc10ac598c6c8479319ff58c186266" title="Populate device and endpoint data structures with data retrieved during device enumeration. " alt="" coords="576,786,717,812"/>
+<area shape="rect" id="node76" href="$group__USB__HOST.html#gabd04b4b1ea26459d6db42aa77b6d592d" title="Return a pointer to an interface descriptor. " alt="" coords="1048,836,1245,863"/>
+<area shape="rect" id="node82" href="$group__USB__HOST.html#ga10e6eb1a2e9802af4ec16254e3d44783" title="Return a pointer to an endpoint descriptor. " alt="" coords="805,836,1000,863"/>
+<area shape="rect" id="node78" href="$group__USB__HOST.html#ga2ac91d938f8553e31913afdb8d8d80dc" title="Return a pointer to a configuration descriptor. " alt="" coords="1294,836,1517,863"/>
+<area shape="rect" id="node80" href="$group__USB__HOST.html#ga4d6a8d78ebde4e394bb25aa62a871b30" title="Return a pointer to the device descriptor. " alt="" coords="1566,836,1749,863"/>
+</map>

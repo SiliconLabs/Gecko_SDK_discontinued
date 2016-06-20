@@ -2,10 +2,10 @@
  * @file ezr32hg320f32r55.h
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EZR32HG320F32R55
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -31,8 +31,8 @@
  *
  *****************************************************************************/
 
-#ifndef __SILICON_LABS_EZR32HG320F32R55_H__
-#define __SILICON_LABS_EZR32HG320F32R55_H__
+#ifndef EZR32HG320F32R55_H
+#define EZR32HG320F32R55_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -417,4 +417,4 @@ typedef enum IRQn
 #ifdef __cplusplus
 }
 #endif
-#endif /* __SILICON_LABS_EZR32HG320F32R55_H__ */
+#endif /* EZR32HG320F32R55_H */

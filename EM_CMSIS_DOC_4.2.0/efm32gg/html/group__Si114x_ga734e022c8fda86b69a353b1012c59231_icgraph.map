@@ -1,0 +1,9 @@
+<map id="delay_1ms" name="delay_1ms">
+<area shape="rect" id="node3" href="$group__Si114x.html#gadbec1218d8cc103d4d6c2fc0ec0f6abf" title="Populates the SI114X_CAL_S structure. " alt="" coords="293,56,443,83"/>
+<area shape="rect" id="node9" href="$group__Si114x.html#gafee1fd953ec8559b0b2c53b4d3a7d442" title="Writes a byte to an Si113x/4x Parameter. " alt="" coords="310,107,426,133"/>
+<area shape="rect" id="node15" href="$group__Si114x.html#ga85dcc599c9e3df8a22002f7ef5a3e5d8" title="Pauses autonomous measurements. " alt="" coords="137,5,245,32"/>
+<area shape="rect" id="node5" href="$group__Si114x.html#ga79b0443305d3a085028d1c197d398ede" title="Initializes and configures the Si1147 sensor. " alt="" coords="491,56,667,83"/>
+<area shape="rect" id="node7" href="$si114x__uv__index_8h.html#aee56b411a2cb91ae85cae51c2d4039f7" title="Initializes and configures the Si1146 sensor for UV index measurements. " alt="" coords="509,5,648,32"/>
+<area shape="rect" id="node12" href="$si114x__uv__index_8h.html#a5636599ea7d573fcee234cc8bf4de655" title="Set the VIS_RANGE bit of the optical sensor Si114x. " alt="" coords="499,107,658,133"/>
+<area shape="rect" id="node17" href="$group__Si114x.html#ga88b866258cb278b01da1bcf766cfab57" title="Resets the Si113x/4x, clears any interrupts and initializes the HW_KEY register. " alt="" coords="322,5,414,32"/>
+</map>

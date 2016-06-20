@@ -1,0 +1,9 @@
+<map id="LEUART_BaudrateGet" name="LEUART_BaudrateGet">
+<area shape="rect" id="node3" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="207,81,337,108"/>
+<area shape="rect" id="node16" href="$group__LEUART.html#ga0ae6c4ba0d7b1aa02db2c475757b257d" title="Calculate baudrate for LEUART given reference frequency and clock division. " alt="" coords="197,132,347,159"/>
+<area shape="rect" id="node5" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="408,5,523,32"/>
+<area shape="rect" id="node7" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="408,56,523,83"/>
+<area shape="rect" id="node9" href="$system__efm32g_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="395,107,535,133"/>
+<area shape="rect" id="node11" href="$system__efm32g_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="584,132,712,159"/>
+<area shape="rect" id="node13" href="$system__efm32g_8c.html#a442d0fcb831f601f02d643a64ab80f4c" title="GetProdRev" alt="" coords="760,132,848,159"/>
+</map>

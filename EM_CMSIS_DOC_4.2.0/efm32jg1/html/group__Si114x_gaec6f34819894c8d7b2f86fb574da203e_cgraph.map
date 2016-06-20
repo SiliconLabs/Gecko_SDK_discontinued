@@ -1,0 +1,5 @@
+<map id="Si1147_Write_Block_Register" name="Si1147_Write_Block_Register">
+<area shape="rect" id="node3" href="$group__I2CSPM.html#ga076766b20012fb6a0cdaaf0f2c760795" title="Perform I2C transfer. " alt="" coords="189,31,312,57"/>
+<area shape="rect" id="node5" href="$group__I2C.html#gae2bf2ecc3d0c4f55e3511d4871b64b16" title="Prepare and start an I2C transfer (single master mode only). " alt="" coords="360,5,475,32"/>
+<area shape="rect" id="node7" href="$group__I2C.html#ga67983b3dbe7f028a97f765e421b3df56" title="Continue an initiated I2C transfer (single master mode only). " alt="" coords="523,31,621,57"/>
+</map>

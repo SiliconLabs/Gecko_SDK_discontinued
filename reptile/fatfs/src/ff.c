@@ -2228,9 +2228,9 @@ FRESULT f_mount (
 		if (!ff_cre_syncobj(vol, &fs->sobj)) return FR_INT_ERR;
 #endif
 	}
-	else /* Unmount, Added by Energy Micro AS. */
+	else /* Unmount, Added by Silicon Labs, Inc. */
 	{
-	  disk_ioctl(fs->drv, CTRL_INVALIDATE, (void*)0);
+	  disk_ioctl(0, CTRL_INVALIDATE, (void*)0);
 	}
 	FatFs[vol] = fs;			/* Register new fs object */
 

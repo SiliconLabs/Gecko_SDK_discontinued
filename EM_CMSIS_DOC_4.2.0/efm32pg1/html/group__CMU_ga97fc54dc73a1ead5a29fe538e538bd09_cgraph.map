@@ -1,0 +1,10 @@
+<map id="CMU_HFXOInit" name="CMU_HFXOInit">
+<area shape="rect" id="node3" href="$group__BUS.html#ga9e878ccba24fcbf97b5bcb8b53356e76" title="Perform peripheral register masked clear and value write. " alt="" coords="161,56,309,83"/>
+<area shape="rect" id="node9" href="$group__CMU.html#ga924a9c8dbde9e529e684f0c8e7dfdaa2" title="Get currently selected reference clock used for a clock branch. " alt="" coords="165,107,304,133"/>
+<area shape="rect" id="node11" href="$group__CMU.html#ga2cc0f1684fbc32976b82c6d93a51c7d9" title="Enable/disable oscillator. " alt="" coords="161,157,308,184"/>
+<area shape="rect" id="node5" href="$group__BUS.html#gad226bfe478c81d51681539d935241758" title="Perform a masked clear operation on peripheral register address. " alt="" coords="360,5,507,32"/>
+<area shape="rect" id="node7" href="$group__BUS.html#ga8225a5d4acac280abb182dc118e8df77" title="Perform a masked set operation on peripheral register address. " alt="" coords="365,56,501,83"/>
+<area shape="rect" id="node13" href="$group__BUS.html#gaca6b55014161f4c51c9daf4f707eeb7c" title="Perform a single&#45;bit read operation on a peripheral register. " alt="" coords="375,107,492,133"/>
+<area shape="rect" id="node15" href="$group__BUS.html#gaec23c86f9b844b9e0e102ebff0b96ff4" title="Perform a peripheral register masked read. " alt="" coords="360,157,507,184"/>
+<area shape="rect" id="node17" href="$group__EMU.html#ga3d442fa018de5138afb19a2b85797099" title="Update EMU module with CMU oscillator selection/enable status. " alt="" coords="358,208,509,235"/>
+</map>

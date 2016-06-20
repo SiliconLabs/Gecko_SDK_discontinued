@@ -5,7 +5,7 @@
  * This example shows how to easily implement a direct receiver application for 
  * your controller using EZRadio or EZRadioPRO devices.
  *
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>

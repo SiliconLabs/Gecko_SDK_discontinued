@@ -1,4 +1,13 @@
 ================ Revision history ============================================
+4.2.0:
+- Fixed compiler warning in Macronix SPI flash driver.
+
+4.1.1:
+- Added driver for Macronix SPI flash.
+- Added more diagnostics output in MSD host driver.
+- Updated capsense driver interface to support APORT input channels
+- RTCC support in display driver
+
 4.1.0:
 - No changes.
 

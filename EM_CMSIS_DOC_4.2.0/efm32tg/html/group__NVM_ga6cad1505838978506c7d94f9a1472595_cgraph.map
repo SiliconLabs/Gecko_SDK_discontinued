@@ -1,0 +1,7 @@
+<map id="NVM_Erase" name="NVM_Erase">
+<area shape="rect" id="node3" href="$nvm__hal_8h.html#aaa2acd545c460f4cea576178fc185a21" title="Erase a page in the NVM. " alt="" coords="142,5,279,32"/>
+<area shape="rect" id="node7" href="$nvm__hal_8h.html#ae5903c7cb194ab35d7637879ca492479" title="Read data from NVM. " alt="" coords="157,56,264,83"/>
+<area shape="rect" id="node9" href="$nvm__hal_8h.html#a0800d58f7bb43d0462592d0062c5cef3" title="Write data to NVM. " alt="" coords="157,107,265,133"/>
+<area shape="rect" id="node5" href="$group__MSC.html#ga25bb7197232a0fa92f3fc22d3a128161" title="Erases a page in flash memory. " alt="" coords="329,5,444,32"/>
+<area shape="rect" id="node11" href="$group__MSC.html#ga76309e04e090815bd80e7e5da3ee6ff6" title="Writes data to flash memory. This function is interrupt safe, but slower than MSC_WriteWordFast(), which writes to flash with interrupts disabled. Write data must be aligned to words and contain a number of bytes that is divisable by four. " alt="" coords="328,107,445,133"/>
+</map>

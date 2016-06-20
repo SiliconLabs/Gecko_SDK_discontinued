@@ -1,0 +1,3 @@
+<map id="NANDFLASH_EccCorrect" name="NANDFLASH_EccCorrect">
+<area shape="rect" id="node3" href="$group__NandFlash.html#gac7c2bddd174fa07c8140b38c7584cc59" title="Read a page from nand device. Ecc errors will be detected and corrected if possible. NANDFLASH_Info_TypeDef::ecc will be set to the ecc generated while reading the page data. NANDFLASH_Info_TypeDef::spare will be set to the content of the page spare area. " alt="" coords="213,5,368,32"/>
+</map>

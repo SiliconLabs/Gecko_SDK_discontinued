@@ -1,0 +1,45 @@
+<map id="C:/work/s025_sw/emdrv/nvm/src/nvm_hal.c" name="C:/work/s025_sw/emdrv/nvm/src/nvm_hal.c">
+<area shape="rect" id="node5" href="$em__msc_8h.html" title="Flash controller module (MSC) peripheral API. " alt="" coords="68,96,148,123"/>
+<area shape="rect" id="node92" href="$nvm_8h.html" title="Non&#45;Volatile Memory Wear&#45;Leveling driver API. " alt="" coords="352,96,408,123"/>
+<area shape="rect" id="node97" href="$nvm__hal_8h.html" title="Non&#45;Volatile Memory Wear&#45;Leveling driver HAL. " alt="" coords="301,171,382,197"/>
+<area shape="rect" id="node7" href="$em__device_8h.html" title="CMSIS Cortex&#45;M Peripheral Access Layer for Silicon Laboratories microcontroller devices. " alt="" coords="294,245,388,272"/>
+<area shape="rect" id="node89" href="$em__bus_8h.html" title="RAM and peripheral bit&#45;field set and clear API. " alt="" coords="146,171,224,197"/>
+<area shape="rect" id="node9" href="$efm32jg1b200f256gm48_8h.html" title="CMSIS Cortex&#45;M Peripheral Access Layer Header File for EFM32JG1B200F256GM48. " alt="" coords="2793,320,2964,347"/>
+<area shape="rect" id="node13" href="$system__efm32jg1b_8h.html" title="CMSIS Cortex&#45;M3/M4 System Layer for EFM32 devices. " alt="" coords="5678,395,5819,421"/>
+<area shape="rect" id="node17" href="$efm32jg1b__msc_8h.html" title="EFM32JG1B_MSC register and bit field definitions. " alt="" coords="5844,395,5967,421"/>
+<area shape="rect" id="node19" href="$efm32jg1b__emu_8h.html" title="EFM32JG1B_EMU register and bit field definitions. " alt="" coords="45,395,171,421"/>
+<area shape="rect" id="node21" href="$efm32jg1b__rmu_8h.html" title="EFM32JG1B_RMU register and bit field definitions. " alt="" coords="196,395,319,421"/>
+<area shape="rect" id="node23" href="$efm32jg1b__cmu_8h.html" title="EFM32JG1B_CMU register and bit field definitions. " alt="" coords="344,395,470,421"/>
+<area shape="rect" id="node25" href="$efm32jg1b__crypto_8h.html" title="EFM32JG1B_CRYPTO register and bit field definitions. " alt="" coords="494,395,630,421"/>
+<area shape="rect" id="node27" href="$efm32jg1b__gpio__p_8h.html" title="EFM32JG1B_GPIO_P register and bit field definitions. " alt="" coords="654,395,792,421"/>
+<area shape="rect" id="node29" href="$efm32jg1b__gpio_8h.html" title="EFM32JG1B_GPIO register and bit field definitions. " alt="" coords="816,395,942,421"/>
+<area shape="rect" id="node31" href="$efm32jg1b__prs__ch_8h.html" title="EFM32JG1B_PRS_CH register and bit field definitions. " alt="" coords="966,395,1104,421"/>
+<area shape="rect" id="node33" href="$efm32jg1b__prs_8h.html" title="EFM32JG1B_PRS register and bit field definitions. " alt="" coords="1129,395,1247,421"/>
+<area shape="rect" id="node35" href="$efm32jg1b__ldma__ch_8h.html" title="EFM32JG1B_LDMA_CH register and bit field definitions. " alt="" coords="1272,395,1422,421"/>
+<area shape="rect" id="node37" href="$efm32jg1b__ldma_8h.html" title="EFM32JG1B_LDMA register and bit field definitions. " alt="" coords="1446,395,1575,421"/>
+<area shape="rect" id="node39" href="$efm32jg1b__gpcrc_8h.html" title="EFM32JG1B_GPCRC register and bit field definitions. " alt="" coords="1600,395,1731,421"/>
+<area shape="rect" id="node41" href="$efm32jg1b__timer__cc_8h.html" title="EFM32JG1B_TIMER_CC register and bit field definitions. " alt="" coords="1756,395,1906,421"/>
+<area shape="rect" id="node43" href="$efm32jg1b__timer_8h.html" title="EFM32JG1B_TIMER register and bit field definitions. " alt="" coords="1931,395,2062,421"/>
+<area shape="rect" id="node45" href="$efm32jg1b__usart_8h.html" title="EFM32JG1B_USART register and bit field definitions. " alt="" coords="2086,395,2216,421"/>
+<area shape="rect" id="node47" href="$efm32jg1b__leuart_8h.html" title="EFM32JG1B_LEUART register and bit field definitions. " alt="" coords="2241,395,2375,421"/>
+<area shape="rect" id="node49" href="$efm32jg1b__letimer_8h.html" title="EFM32JG1B_LETIMER register and bit field definitions. " alt="" coords="2400,395,2542,421"/>
+<area shape="rect" id="node51" href="$efm32jg1b__cryotimer_8h.html" title="EFM32JG1B_CRYOTIMER register and bit field definitions. " alt="" coords="2566,395,2720,421"/>
+<area shape="rect" id="node53" href="$efm32jg1b__pcnt_8h.html" title="EFM32JG1B_PCNT register and bit field definitions. " alt="" coords="2744,395,2870,421"/>
+<area shape="rect" id="node55" href="$efm32jg1b__i2c_8h.html" title="EFM32JG1B_I2C register and bit field definitions. " alt="" coords="2894,395,3011,421"/>
+<area shape="rect" id="node57" href="$efm32jg1b__adc_8h.html" title="EFM32JG1B_ADC register and bit field definitions. " alt="" coords="3036,395,3156,421"/>
+<area shape="rect" id="node59" href="$efm32jg1b__acmp_8h.html" title="EFM32JG1B_ACMP register and bit field definitions. " alt="" coords="3181,395,3312,421"/>
+<area shape="rect" id="node61" href="$efm32jg1b__idac_8h.html" title="EFM32JG1B_IDAC register and bit field definitions. " alt="" coords="3337,395,3460,421"/>
+<area shape="rect" id="node63" href="$efm32jg1b__rtcc__cc_8h.html" title="EFM32JG1B_RTCC_CC register and bit field definitions. " alt="" coords="3486,395,3627,421"/>
+<area shape="rect" id="node65" href="$efm32jg1b__rtcc__ret_8h.html" title="EFM32JG1B_RTCC_RET register and bit field definitions. " alt="" coords="3652,395,3796,421"/>
+<area shape="rect" id="node67" href="$efm32jg1b__rtcc_8h.html" title="EFM32JG1B_RTCC register and bit field definitions. " alt="" coords="3822,395,3944,421"/>
+<area shape="rect" id="node69" href="$efm32jg1b__wdog__pch_8h.html" title="EFM32JG1B_WDOG_PCH register and bit field definitions. " alt="" coords="3969,395,4127,421"/>
+<area shape="rect" id="node71" href="$efm32jg1b__wdog_8h.html" title="EFM32JG1B_WDOG register and bit field definitions. " alt="" coords="4152,395,4283,421"/>
+<area shape="rect" id="node73" href="$efm32jg1b__dma__descriptor_8h.html" title="EFM32JG1B_DMA_DESCRIPTOR register and bit field definitions. " alt="" coords="4308,395,4498,421"/>
+<area shape="rect" id="node75" href="$efm32jg1b__devinfo_8h.html" title="EFM32JG1B_DEVINFO register and bit field definitions. " alt="" coords="4522,395,4664,421"/>
+<area shape="rect" id="node77" href="$efm32jg1b__romtable_8h.html" title="EFM32JG1B_ROMTABLE register and bit field definitions. " alt="" coords="4690,395,4842,421"/>
+<area shape="rect" id="node79" href="$efm32jg1b__prs__signals_8h.html" title="EFM32JG1B_PRS_SIGNALS register and bit field definitions. " alt="" coords="4866,395,5031,421"/>
+<area shape="rect" id="node81" href="$efm32jg1b__dmareq_8h.html" title="EFM32JG1B_DMAREQ register and bit field definitions. " alt="" coords="5056,395,5200,421"/>
+<area shape="rect" id="node83" href="$efm32jg1b__af__ports_8h.html" title="EFM32JG1B_AF_PORTS register and bit field definitions. " alt="" coords="5225,395,5372,421"/>
+<area shape="rect" id="node85" href="$efm32jg1b__af__pins_8h.html" title="EFM32JG1B_AF_PINS register and bit field definitions. " alt="" coords="5397,395,5539,421"/>
+<area shape="rect" id="node102" href="$ecode_8h.html" title="Energy Aware drivers error code definitions. " alt="" coords="487,245,554,272"/>
+</map>

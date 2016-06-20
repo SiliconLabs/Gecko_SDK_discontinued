@@ -1,0 +1,12 @@
+<map id="Si1147_Write_Register" name="Si1147_Write_Register">
+<area shape="rect" id="node3" href="$group__Si114x.html#ga8d9e6e60e0ced326193208cdf976bbee" title="Writes to Si114x Register. " alt="" coords="209,237,362,264"/>
+<area shape="rect" id="node5" href="$group__Si114x.html#ga8f8ed0bfd8af165742a3169f87c1b32a" title="Enables or disables the Si1147 interrupt pin. " alt="" coords="419,5,594,46"/>
+<area shape="rect" id="node7" href="$group__Si114x.html#ga6621d57d8e2dedc1101227b7ad761d0a" title="Reads the UV measurement data and checks for object in proximity to the Si1147. " alt="" coords="411,70,603,111"/>
+<area shape="rect" id="node9" href="$group__Si114x.html#ga350c8e857065a5061a49cd66a1a4b2a4" title="Reads new measurement data and processes a new sample. This function should be called every time an i..." alt="" coords="439,136,575,163"/>
+<area shape="rect" id="node11" href="$group__Si114x.html#ga79b0443305d3a085028d1c197d398ede" title="Initializes and configures the Si1147 sensor. " alt="" coords="848,288,1024,315"/>
+<area shape="rect" id="node13" href="$group__Si114x.html#ga88b866258cb278b01da1bcf766cfab57" title="Resets the Si113x/4x, clears any interrupts and initializes the HW_KEY register. " alt="" coords="679,288,771,315"/>
+<area shape="rect" id="node16" href="$si114x__uv__index_8h.html#aee56b411a2cb91ae85cae51c2d4039f7" title="Initializes and configures the Si1146 sensor for UV index measurements. " alt="" coords="867,339,1005,365"/>
+<area shape="rect" id="node18" href="$group__Si114x.html#ga85dcc599c9e3df8a22002f7ef5a3e5d8" title="Pauses autonomous measurements. " alt="" coords="453,237,561,264"/>
+<area shape="rect" id="node21" href="$group__Si114x.html#gadbec1218d8cc103d4d6c2fc0ec0f6abf" title="Populates the SI114X_CAL_S structure. " alt="" coords="651,339,800,365"/>
+<area shape="rect" id="node25" href="$si114x__uv__index_8h.html#a92a1b86e34e4ed9dd68f51ba170c8e5f" title="Reads the UV index measurement data from the Si114x. " alt="" coords="425,440,588,467"/>
+</map>

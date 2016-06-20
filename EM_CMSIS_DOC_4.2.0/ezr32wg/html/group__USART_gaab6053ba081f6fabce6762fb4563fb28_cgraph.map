@@ -1,0 +1,13 @@
+<map id="USART_InitSync" name="USART_InitSync">
+<area shape="rect" id="node3" href="$group__USART.html#ga5b96146f7c05f78d31bd77aacd4a3b5f" title="Configure USART operating in synchronous mode to use a given baudrate (or as close as possible to spe..." alt="" coords="169,107,335,133"/>
+<area shape="rect" id="node24" href="$group__USART.html#ga4769e1b5d573d6cecc95ca0c7d8e2da2" title="Reset USART/UART to same state as after a HW reset. " alt="" coords="201,157,303,184"/>
+<area shape="rect" id="node5" href="$group__BUS.html#ga9e878ccba24fcbf97b5bcb8b53356e76" title="Perform peripheral register masked clear and value write. " alt="" coords="385,56,533,83"/>
+<area shape="rect" id="node11" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="393,157,524,184"/>
+<area shape="rect" id="node7" href="$group__BUS.html#gad226bfe478c81d51681539d935241758" title="Perform a masked clear operation on peripheral register address. " alt="" coords="581,5,728,32"/>
+<area shape="rect" id="node9" href="$group__BUS.html#ga8225a5d4acac280abb182dc118e8df77" title="Perform a masked set operation on peripheral register address. " alt="" coords="587,56,723,83"/>
+<area shape="rect" id="node13" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="597,107,712,133"/>
+<area shape="rect" id="node15" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="597,157,712,184"/>
+<area shape="rect" id="node17" href="$system__ezr32wg_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="585,208,725,235"/>
+<area shape="rect" id="node19" href="$system__ezr32wg_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="776,233,904,260"/>
+<area shape="rect" id="node21" href="$system__ezr32wg_8c.html#a442d0fcb831f601f02d643a64ab80f4c" title="GetProdRev" alt="" coords="952,233,1040,260"/>
+</map>

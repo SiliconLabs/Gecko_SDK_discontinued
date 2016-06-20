@@ -1,0 +1,6 @@
+<map id="Si1147_Read_Block_Register" name="Si1147_Read_Block_Register">
+<area shape="rect" id="node3" href="$group__Si114x.html#ga479ffe2c4fea4bf799a925d8e779400c" title="Reads block of Si114x registers. " alt="" coords="241,31,359,57"/>
+<area shape="rect" id="node5" href="$group__Si114x.html#gadbec1218d8cc103d4d6c2fc0ec0f6abf" title="Populates the SI114X_CAL_S structure. " alt="" coords="408,31,557,57"/>
+<area shape="rect" id="node7" href="$group__Si114x.html#ga79b0443305d3a085028d1c197d398ede" title="Initializes and configures the Si1147 sensor. " alt="" coords="605,5,781,32"/>
+<area shape="rect" id="node9" href="$si114x__uv__index_8h.html#aee56b411a2cb91ae85cae51c2d4039f7" title="Initializes and configures the Si1146 sensor for UV index measurements. " alt="" coords="624,56,763,83"/>
+</map>

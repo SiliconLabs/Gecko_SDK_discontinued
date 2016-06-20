@@ -1,0 +1,34 @@
+<map id="CAPLESENSE_Init" name="CAPLESENSE_Init">
+<area shape="rect" id="node3" href="$caplesense_8c.html#a78388fdc0a453879163ff3de37c6a6ec" title="Setup the ACMP. " alt="" coords="186,81,353,108"/>
+<area shape="rect" id="node17" href="$caplesense_8c.html#a2e4ba8079a4db025c71de23fd97211cc" title="Setup the CMU. " alt="" coords="411,284,571,311"/>
+<area shape="rect" id="node65" href="$caplesense_8c.html#a396cd017e7532802444b258813ee331b" title="Setup the GPIO. " alt="" coords="188,132,351,159"/>
+<area shape="rect" id="node76" href="$group__CapSense.html#ga9cf779d965cc198a603d60d01225b993" title="Setup the LESENSE for capavitive sensing. " alt="" coords="177,233,362,260"/>
+<area shape="rect" id="node78" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="224,284,315,311"/>
+<area shape="rect" id="node80" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="226,335,313,361"/>
+<area shape="rect" id="node5" href="$group__ACMP.html#ga7a312099dc46377af2714277236716d3" title="Sets up GPIO output from the ACMP. " alt="" coords="429,31,552,57"/>
+<area shape="rect" id="node13" href="$group__ACMP.html#gab99c16a966bfa66c081160ec51e0a039" title="Sets up the ACMP for use in capacative sense applications. " alt="" coords="423,81,558,108"/>
+<area shape="rect" id="node7" href="$group__BUS.html#ga9e878ccba24fcbf97b5bcb8b53356e76" title="Perform peripheral register masked clear and value write. " alt="" coords="626,31,774,57"/>
+<area shape="rect" id="node9" href="$group__BUS.html#gad226bfe478c81d51681539d935241758" title="Perform a masked clear operation on peripheral register address. " alt="" coords="829,5,976,32"/>
+<area shape="rect" id="node11" href="$group__BUS.html#ga8225a5d4acac280abb182dc118e8df77" title="Perform a masked set operation on peripheral register address. " alt="" coords="835,56,971,83"/>
+<area shape="rect" id="node15" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="843,132,962,159"/>
+<area shape="rect" id="node19" href="$group__CMU.html#ga7cc316a8dca5436fcc39d57f5e6c412d" title="Set clock divisor/prescaler. " alt="" coords="639,284,761,311"/>
+<area shape="rect" id="node41" href="$group__CMU.html#ga93913d50050d52b38b0a7c7c08ac81e8" title="Enable/disable a clock. " alt="" coords="639,233,761,260"/>
+<area shape="rect" id="node45" href="$group__CMU.html#gae11949f9c2e4033ad63dac48c9a739d3" title="Select reference clock/oscillator used for a clock branch. " alt="" coords="631,411,769,437"/>
+<area shape="rect" id="node60" href="$system__efm32jg1b_8h.html#acd24e7ebfd616c851c240233da5d2bba" title="Update CMSIS SystemCoreClock variable. " alt="" coords="619,537,781,564"/>
+<area shape="rect" id="node22" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="837,183,968,209"/>
+<area shape="rect" id="node24" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="1043,233,1157,260"/>
+<area shape="rect" id="node28" href="$system__efm32jg1b_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="1030,335,1170,361"/>
+<area shape="rect" id="node33" href="$group__CMU.html#gaaa24f7c1a4197491c08b1978a09c535c" title="Set clock prescaler. " alt="" coords="835,284,970,311"/>
+<area shape="rect" id="node26" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="1231,208,1345,235"/>
+<area shape="rect" id="node30" href="$system__efm32jg1b_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="1224,335,1352,361"/>
+<area shape="rect" id="node35" href="$group__CMU.html#ga84f0496ce9567252a9cb63da230647a0" title="Convert prescaler dividend to logarithmic value. Only works for even numbers equal to 2^n..." alt="" coords="1036,284,1164,311"/>
+<area shape="rect" id="node48" href="$group__CMU.html#ga2cc0f1684fbc32976b82c6d93a51c7d9" title="Enable/disable oscillator. " alt="" coords="829,487,976,513"/>
+<area shape="rect" id="node54" href="$group__EMU.html#ga3d442fa018de5138afb19a2b85797099" title="Update EMU module with CMU oscillator selection/enable status. " alt="" coords="1025,537,1175,564"/>
+<area shape="rect" id="node58" href="$system__efm32jg1b_8c.html#aef32887eb9b08a5dd7db73c35ca7c747" title="Get high frequency crystal oscillator clock frequency for target system. " alt="" coords="830,436,975,463"/>
+<area shape="rect" id="node50" href="$group__BUS.html#gaca6b55014161f4c51c9daf4f707eeb7c" title="Perform a single&#45;bit read operation on a peripheral register. " alt="" coords="1041,436,1159,463"/>
+<area shape="rect" id="node52" href="$group__BUS.html#gaec23c86f9b844b9e0e102ebff0b96ff4" title="Perform a peripheral register masked read. " alt="" coords="1027,487,1173,513"/>
+<area shape="rect" id="node62" href="$system__efm32jg1b_8h.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="1030,588,1170,615"/>
+<area shape="rect" id="node67" href="$group__GPIO.html#gab6751992334a136efe8750a1d01a850d" title="Set the mode for a GPIO pin. " alt="" coords="429,132,553,159"/>
+<area shape="rect" id="node70" href="$group__GPIO.html#ga607f3a5f3d881bb145101566f1664aba" title="Set a single pin in GPIO data out port register to 0. " alt="" coords="638,132,762,159"/>
+<area shape="rect" id="node73" href="$group__GPIO.html#gab08f054efbb07aaff57d616974c9c536" title="Set a single pin in GPIO data out register to 1. " alt="" coords="643,183,757,209"/>
+</map>

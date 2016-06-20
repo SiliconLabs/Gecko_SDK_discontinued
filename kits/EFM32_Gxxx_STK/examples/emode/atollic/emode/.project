@@ -125,11 +125,6 @@
 			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/Device/SiliconLabs/EFM32G/Source/system_efm32g.c</locationURI>
 		</link>
 		<link>
-			<name>BSP/bsp_trace.c</name>
-			<type>1</type>
-			<locationURI>$%7BPARENT-5-PROJECT_LOC%7D/common/bsp/bsp_trace.c</locationURI>
-		</link>
-		<link>
 			<name>Drivers/segmentlcd.c</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-5-PROJECT_LOC%7D/common/drivers/segmentlcd.c</locationURI>
@@ -180,9 +175,24 @@
 			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emdrv/rtcdrv/src/rtcdriver.c</locationURI>
 		</link>
 		<link>
-			<name>Source/emode.c</name>
+			<name>BSP/bsp_trace.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/emode.c</locationURI>
+			<locationURI>$%7BPARENT-5-PROJECT_LOC%7D/common/bsp/bsp_trace.c</locationURI>
+		</link>
+		<link>
+			<name>Source/main.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/main.c</locationURI>
+		</link>
+		<link>
+			<name>Source/lcd_setup.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/lcd_setup.c</locationURI>
+		</link>
+		<link>
+			<name>Source/g_emodes.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/g_emodes.c</locationURI>
 		</link>
 	</linkedResources>
 	<filteredResources>

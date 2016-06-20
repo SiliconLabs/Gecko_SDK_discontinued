@@ -1,0 +1,34 @@
+<map id="BUS_RegBitRead" name="BUS_RegBitRead">
+<area shape="rect" id="node3" href="$group__CMU.html#gad6f6c5df2605d058d236a3b35677f5ef" title="Set AUXHFRCO calibration for the selected target frequency. " alt="" coords="183,107,347,133"/>
+<area shape="rect" id="node5" href="$group__CMU.html#ga144a6e08d50cc4913a3452231eb3cc36" title="Calibrate clock. " alt="" coords="212,157,319,184"/>
+<area shape="rect" id="node7" href="$group__CMU.html#ga6a5fb4b2d369de8db9ebf56edc780a7c" title="Get calibration count register. " alt="" coords="186,208,345,235"/>
+<area shape="rect" id="node9" href="$group__CMU.html#ga0b9edc4e3400a44612b07c2c6f8f483a" title="Set HFRCO calibration for the selected target frequency. " alt="" coords="195,259,335,285"/>
+<area shape="rect" id="node11" href="$group__CMU.html#ga2cc0f1684fbc32976b82c6d93a51c7d9" title="Enable/disable oscillator. " alt="" coords="192,309,339,336"/>
+<area shape="rect" id="node48" href="$group__CMU.html#ga1200b660d32b39db023753094a282ae9" title="Set the oscillator frequency tuning control. " alt="" coords="182,360,349,387"/>
+<area shape="rect" id="node50" href="$group__EMU.html#ga547c14bc2f1573cb8bb1ef965cc635cd" title="Get the status of a voltage monitor channel. " alt="" coords="171,411,359,437"/>
+<area shape="rect" id="node52" href="$group__EMU.html#gafe10f8365d6b7a829585982be34f08ee" title="Get the status of the voltage monitor (VMON). " alt="" coords="194,461,337,488"/>
+<area shape="rect" id="node54" href="$group__GPIO.html#gac1050d30b940c30899c63aa060fa4dba" title="Read the pad value for a single pin in a GPIO port. " alt="" coords="213,512,317,539"/>
+<area shape="rect" id="node66" href="$group__GPIO.html#ga8ed31bc079380c74d6db162d4cdc16b8" title="Get current setting for a pin in a GPIO port data out register. " alt="" coords="209,563,322,589"/>
+<area shape="rect" id="node13" href="$group__CMU.html#gae11949f9c2e4033ad63dac48c9a739d3" title="Select reference clock/oscillator used for a clock branch. " alt="" coords="449,183,588,209"/>
+<area shape="rect" id="node39" href="$group__Udelay.html#ga523f858d15b74728046ceca9796f3046" title="Calibrates the microsecond delay loop. " alt="" coords="701,284,825,311"/>
+<area shape="rect" id="node41" href="$group__CMU.html#ga97fc54dc73a1ead5a29fe538e538bd09" title="Set HFXO control registers. " alt="" coords="466,309,571,336"/>
+<area shape="rect" id="node43" href="$group__CMU.html#ga188ca4e7b81ed62bf53ea15ea3ffbab6" title="Set LFXO control registers. " alt="" coords="467,360,570,387"/>
+<area shape="rect" id="node45" href="$group__DBG.html#gaf17760c5d4350c442202dee4fe8ec15f" title="Enable Serial Wire Output (SWO) pin. " alt="" coords="459,411,578,437"/>
+<area shape="rect" id="node15" href="$group__RTCDRV.html#ga4419076832c5b4958dea6f1eec0a9bdf" title="Initialize RTCDRV driver. " alt="" coords="715,31,810,57"/>
+<area shape="rect" id="node25" href="$group__BSP__STK.html#gaba9ce74ca657de9f9f903e062cc654ef" title="Initialize board controller communication support (BCC) functionality. " alt="" coords="719,81,807,108"/>
+<area shape="rect" id="node27" href="$caplesense_8c.html#a2e4ba8079a4db025c71de23fd97211cc" title="Setup the CMU. " alt="" coords="683,132,843,159"/>
+<area shape="rect" id="node31" href="$group__RetargetIo.html#gab455176edfa0f3414d104e5d6d64cc50" title="Intializes UART/LEUART. " alt="" coords="691,183,834,209"/>
+<area shape="rect" id="node37" href="$group__SegmentLcd.html#ga0818c866cead74ab3902753a770eb4c4" title="Segment LCD Initialization routine for EFM32 STK display. " alt="" coords="703,233,823,260"/>
+<area shape="rect" id="node17" href="$group__SPIDRV.html#gae1bf2b297eca13e7e46cbbcb66202239" title="Initialize a SPI driver instance. " alt="" coords="925,31,1016,57"/>
+<area shape="rect" id="node19" href="$group__HAL__Layer.html#gae1cf166781ecf4a2317e0d9d4f504197" title="ezradio_hal_SpiInit" alt="" coords="1101,5,1232,32"/>
+<area shape="rect" id="node23" href="$group__ksz8851snl.html#ga12cf356cb196dbc44230f7ad5aa16742" title="KSZ8851SNL_SPI_Init Initialize SPI interface to Ethernet controller. " alt="" coords="1094,56,1239,83"/>
+<area shape="rect" id="node21" href="$group__Plugin__Manager.html#ga55ab56dfaa297c93024dc43239bc8592" title="Radio Initialization. " alt="" coords="1288,5,1371,32"/>
+<area shape="rect" id="node29" href="$group__CapSense.html#ga4a9a1233a70703ca91a6bc9fcf05ec19" title="Initializes the capacative sense system without LESENSE. " alt="" coords="910,132,1031,159"/>
+<area shape="rect" id="node33" href="$group__RetargetIo.html#ga5af724185f484056b02b42f4ab184bfb" title="Receive a byte from USART/LEUART and put into global buffer. " alt="" coords="897,183,1044,209"/>
+<area shape="rect" id="node35" href="$group__RetargetIo.html#ga856ae0b788dccadc2c83a6e67409be5f" title="Transmit single byte to USART/LEUART. " alt="" coords="896,233,1045,260"/>
+<area shape="rect" id="node56" href="$group__HAL__Layer.html#gaabf77038901412b5b640149538ec5cbe" title="ezradio_hal_NirqLevel" alt="" coords="445,461,592,488"/>
+<area shape="rect" id="node60" href="$group__BSP__DK.html#ga5d856abb3eda44db619c8bacd9a7db4d" title="Get state MCU plugin board VBUS overcurrent flag. " alt="" coords="408,512,629,539"/>
+<area shape="rect" id="node62" href="$touch_8c.html#a3611206d185a38b740457a748712c457" title="Interrupt handler is executed with frequency ~28Hz when panel is not pressed and with frequency ~140H..." alt="" coords="456,563,581,589"/>
+<area shape="rect" id="node64" href="$group__Touch.html#ga96801185fed6bc54edb1334680c00095" title="Check status of the touch panel. " alt="" coords="465,613,572,640"/>
+<area shape="rect" id="node58" href="$group__API__Layer.html#ga5e458f080841a7423743d53e2217d1e5" title="ezradio_configuration_init" alt="" coords="678,461,847,488"/>
+</map>

@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file
  * @brief capsense configuration parameters.
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -22,7 +22,7 @@ extern "C" {
 #define ACMP_CAPSENSE                           ACMP0
 #define ACMP_CAPSENSE_CLKEN                     CMU_HFPERCLKEN0_ACMP0
 #define PRS_CH_CTRL_SOURCESEL_ACMP_CAPSENSE     PRS_CH_CTRL_SOURCESEL_ACMP0
-#define PRS_CH_CTRL_SIGSEL_ACMPOUT_CAMPSENSE    PRS_CH_CTRL_SIGSEL_ACMP0OUT
+#define PRS_CH_CTRL_SIGSEL_ACMPOUT_CAPSENSE     PRS_CH_CTRL_SIGSEL_ACMP0OUT
 
 #define ACMP_CHANNELS           8             /**< Number of channels for the Analog Comparator */
 

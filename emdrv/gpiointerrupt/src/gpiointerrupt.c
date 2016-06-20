@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file gpiointerrupt.c
  * @brief GPIOINT API implementation
- * @version 4.1.0
+ * @version 4.2.0
  *
  *******************************************************************************
  * @section License
@@ -181,6 +181,7 @@ void GPIO_ODD_IRQHandler(void)
 
 
 /******** THE REST OF THE FILE IS DOCUMENTATION ONLY !**********************//**
+ * @addtogroup GPIOINT
  * @{
 
 @page gpioint_doc GPIOINT General Purpose Input/Output Interrupt dispatcher

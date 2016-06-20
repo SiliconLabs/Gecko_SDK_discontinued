@@ -1,0 +1,37 @@
+<map id="C:/work/s025_sw/emlib/inc/em_crypto.h" name="C:/work/s025_sw/emlib/inc/em_crypto.h">
+<area shape="rect" id="node3" href="$em__device_8h.html" title="CMSIS Cortex&#45;M Peripheral Access Layer for Silicon Laboratories microcontroller devices. " alt="" coords="2422,96,2516,123"/>
+<area shape="rect" id="node5" href="$efm32zg222f32_8h.html" title="CMSIS Cortex&#45;M Peripheral Access Layer Header File for EFM32ZG222F32. " alt="" coords="2409,171,2529,197"/>
+<area shape="rect" id="node11" href="$system__efm32zg_8h.html" title="CMSIS Cortex&#45;M System Layer for EFM32 devices. " alt="" coords="258,245,387,272"/>
+<area shape="rect" id="node15" href="$efm32zg__aes_8h.html" title="EFM32ZG_AES register and bit field definitions. " alt="" coords="412,245,521,272"/>
+<area shape="rect" id="node17" href="$efm32zg__dma__ch_8h.html" title="EFM32ZG_DMA_CH register and bit field definitions. " alt="" coords="546,245,680,272"/>
+<area shape="rect" id="node19" href="$efm32zg__dma_8h.html" title="EFM32ZG_DMA register and bit field definitions. " alt="" coords="705,245,820,272"/>
+<area shape="rect" id="node21" href="$efm32zg__msc_8h.html" title="EFM32ZG_MSC register and bit field definitions. " alt="" coords="844,245,956,272"/>
+<area shape="rect" id="node23" href="$efm32zg__emu_8h.html" title="EFM32ZG_EMU register and bit field definitions. " alt="" coords="980,245,1095,272"/>
+<area shape="rect" id="node25" href="$efm32zg__rmu_8h.html" title="EFM32ZG_RMU register and bit field definitions. " alt="" coords="1119,245,1231,272"/>
+<area shape="rect" id="node27" href="$efm32zg__cmu_8h.html" title="EFM32ZG_CMU register and bit field definitions. " alt="" coords="1255,245,1368,272"/>
+<area shape="rect" id="node29" href="$efm32zg__timer__cc_8h.html" title="EFM32ZG_TIMER_CC register and bit field definitions. " alt="" coords="1393,245,1532,272"/>
+<area shape="rect" id="node31" href="$efm32zg__timer_8h.html" title="EFM32ZG_TIMER register and bit field definitions. " alt="" coords="1557,245,1675,272"/>
+<area shape="rect" id="node33" href="$efm32zg__acmp_8h.html" title="EFM32ZG_ACMP register and bit field definitions. " alt="" coords="1700,245,1820,272"/>
+<area shape="rect" id="node35" href="$efm32zg__usart_8h.html" title="EFM32ZG_USART register and bit field definitions. " alt="" coords="1845,245,1963,272"/>
+<area shape="rect" id="node37" href="$efm32zg__prs__ch_8h.html" title="EFM32ZG_PRS_CH register and bit field definitions. " alt="" coords="1987,245,2113,272"/>
+<area shape="rect" id="node39" href="$efm32zg__prs_8h.html" title="EFM32ZG_PRS register and bit field definitions. " alt="" coords="2139,245,2245,272"/>
+<area shape="rect" id="node41" href="$efm32zg__idac_8h.html" title="EFM32ZG_IDAC register and bit field definitions. " alt="" coords="2269,245,2381,272"/>
+<area shape="rect" id="node43" href="$efm32zg__gpio__p_8h.html" title="EFM32ZG_GPIO_P register and bit field definitions. " alt="" coords="2406,245,2532,272"/>
+<area shape="rect" id="node45" href="$efm32zg__gpio_8h.html" title="EFM32ZG_GPIO register and bit field definitions. " alt="" coords="2557,245,2669,272"/>
+<area shape="rect" id="node47" href="$efm32zg__vcmp_8h.html" title="EFM32ZG_VCMP register and bit field definitions. " alt="" coords="2694,245,2812,272"/>
+<area shape="rect" id="node49" href="$efm32zg__adc_8h.html" title="EFM32ZG_ADC register and bit field definitions. " alt="" coords="2837,245,2947,272"/>
+<area shape="rect" id="node51" href="$efm32zg__leuart_8h.html" title="EFM32ZG_LEUART register and bit field definitions. " alt="" coords="2971,245,3093,272"/>
+<area shape="rect" id="node53" href="$efm32zg__pcnt_8h.html" title="EFM32ZG_PCNT register and bit field definitions. " alt="" coords="3118,245,3231,272"/>
+<area shape="rect" id="node55" href="$efm32zg__i2c_8h.html" title="EFM32ZG_I2C register and bit field definitions. " alt="" coords="3255,245,3360,272"/>
+<area shape="rect" id="node57" href="$efm32zg__rtc_8h.html" title="EFM32ZG_RTC register and bit field definitions. " alt="" coords="3385,245,3489,272"/>
+<area shape="rect" id="node59" href="$efm32zg__wdog_8h.html" title="EFM32ZG_WDOG register and bit field definitions. " alt="" coords="3513,245,3633,272"/>
+<area shape="rect" id="node61" href="$efm32zg__dma__descriptor_8h.html" title="EFM32ZG_DMA_DESCRIPTOR register and bit field definitions. " alt="" coords="3657,245,3836,272"/>
+<area shape="rect" id="node63" href="$efm32zg__devinfo_8h.html" title="EFM32ZG_DEVINFO register and bit field definitions. " alt="" coords="3860,245,3991,272"/>
+<area shape="rect" id="node65" href="$efm32zg__romtable_8h.html" title="EFM32ZG_ROMTABLE register and bit field definitions. " alt="" coords="4015,245,4155,272"/>
+<area shape="rect" id="node67" href="$efm32zg__calibrate_8h.html" title="EFM32ZG_CALIBRATE register and bit field definitions. " alt="" coords="4180,245,4319,272"/>
+<area shape="rect" id="node69" href="$efm32zg__prs__signals_8h.html" title="EFM32ZG_PRS_SIGNALS register and bit field definitions. " alt="" coords="4343,245,4496,272"/>
+<area shape="rect" id="node71" href="$efm32zg__dmareq_8h.html" title="EFM32ZG_DMAREQ register and bit field definitions. " alt="" coords="4521,245,4655,272"/>
+<area shape="rect" id="node73" href="$efm32zg__dmactrl_8h.html" title="EFM32ZG_DMACTRL register and bit field definitions. " alt="" coords="4679,245,4811,272"/>
+<area shape="rect" id="node75" href="$efm32zg__af__ports_8h.html" title="EFM32ZG_AF_PORTS register and bit field definitions. " alt="" coords="4836,245,4972,272"/>
+<area shape="rect" id="node77" href="$efm32zg__af__pins_8h.html" title="EFM32ZG_AF_PINS register and bit field definitions. " alt="" coords="4996,245,5127,272"/>
+</map>

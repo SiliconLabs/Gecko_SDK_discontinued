@@ -2,10 +2,10 @@
  * @file efm32lg895f128.h
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EFM32LG895F128
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -31,8 +31,8 @@
  *
  *****************************************************************************/
 
-#ifndef __SILICON_LABS_EFM32LG895F128_H__
-#define __SILICON_LABS_EFM32LG895F128_H__
+#ifndef EFM32LG895F128_H
+#define EFM32LG895F128_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -2131,4 +2131,4 @@ typedef struct
 #ifdef __cplusplus
 }
 #endif
-#endif /* __SILICON_LABS_EFM32LG895F128_H__ */
+#endif /* EFM32LG895F128_H */

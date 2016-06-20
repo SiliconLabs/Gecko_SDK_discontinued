@@ -1,0 +1,135 @@
+var group__Parts =
+[
+    [ "EFM32GG995F1024", "group__EFM32GG995F1024.html", "group__EFM32GG995F1024" ],
+    [ "EFM32GG_ACMP", "group__EFM32GG__ACMP.html", "group__EFM32GG__ACMP" ],
+    [ "EFM32GG_ACMP_BitFields", "group__EFM32GG__ACMP__BitFields.html", "group__EFM32GG__ACMP__BitFields" ],
+    [ "EFM32GG_ADC", "group__EFM32GG__ADC.html", "group__EFM32GG__ADC" ],
+    [ "EFM32GG_ADC_BitFields", "group__EFM32GG__ADC__BitFields.html", "group__EFM32GG__ADC__BitFields" ],
+    [ "EFM32GG_AES", "group__EFM32GG__AES.html", "group__EFM32GG__AES" ],
+    [ "EFM32GG_AES_BitFields", "group__EFM32GG__AES__BitFields.html", "group__EFM32GG__AES__BitFields" ],
+    [ "EFM32GG_AF_Pins", "group__EFM32GG__AF__Pins.html", "group__EFM32GG__AF__Pins" ],
+    [ "EFM32GG_AF_Ports", "group__EFM32GG__AF__Ports.html", "group__EFM32GG__AF__Ports" ],
+    [ "EFM32GG_BURTC", "group__EFM32GG__BURTC.html", "group__EFM32GG__BURTC" ],
+    [ "EFM32GG_BURTC_BitFields", "group__EFM32GG__BURTC__BitFields.html", "group__EFM32GG__BURTC__BitFields" ],
+    [ "EFM32GG_CALIBRATE", "group__EFM32GG__CALIBRATE.html", "group__EFM32GG__CALIBRATE" ],
+    [ "EFM32GG_CMU", "group__EFM32GG__CMU.html", "group__EFM32GG__CMU" ],
+    [ "EFM32GG_CMU_BitFields", "group__EFM32GG__CMU__BitFields.html", "group__EFM32GG__CMU__BitFields" ],
+    [ "EFM32GG_DAC", "group__EFM32GG__DAC.html", "group__EFM32GG__DAC" ],
+    [ "EFM32GG_DAC_BitFields", "group__EFM32GG__DAC__BitFields.html", "group__EFM32GG__DAC__BitFields" ],
+    [ "EFM32GG_DEVINFO", "group__EFM32GG__DEVINFO.html", "group__EFM32GG__DEVINFO" ],
+    [ "EFM32GG_DEVINFO_BitFields", "group__EFM32GG__DEVINFO__BitFields.html", "group__EFM32GG__DEVINFO__BitFields" ],
+    [ "EFM32GG_DMA", "group__EFM32GG__DMA.html", "group__EFM32GG__DMA" ],
+    [ "EFM32GG_DMA_BitFields", "group__EFM32GG__DMA__BitFields.html", "group__EFM32GG__DMA__BitFields" ],
+    [ "EFM32GG_DMACTRL_BitFields", "group__EFM32GG__DMACTRL__BitFields.html", "group__EFM32GG__DMACTRL__BitFields" ],
+    [ "EFM32GG_DMAREQ_BitFields", "group__EFM32GG__DMAREQ__BitFields.html", "group__EFM32GG__DMAREQ__BitFields" ],
+    [ "EFM32GG_DMA_DESCRIPTOR", "group__EFM32GG__DMA__DESCRIPTOR.html", "group__EFM32GG__DMA__DESCRIPTOR" ],
+    [ "EFM32GG_EBI", "group__EFM32GG__EBI.html", "group__EFM32GG__EBI" ],
+    [ "EFM32GG_EBI_BitFields", "group__EFM32GG__EBI__BitFields.html", "group__EFM32GG__EBI__BitFields" ],
+    [ "EFM32GG_EMU", "group__EFM32GG__EMU.html", "group__EFM32GG__EMU" ],
+    [ "EFM32GG_EMU_BitFields", "group__EFM32GG__EMU__BitFields.html", "group__EFM32GG__EMU__BitFields" ],
+    [ "EFM32GG_ETM", "group__EFM32GG__ETM.html", "group__EFM32GG__ETM" ],
+    [ "EFM32GG_ETM_BitFields", "group__EFM32GG__ETM__BitFields.html", "group__EFM32GG__ETM__BitFields" ],
+    [ "EFM32GG_GPIO", "group__EFM32GG__GPIO.html", "group__EFM32GG__GPIO" ],
+    [ "EFM32GG_GPIO_BitFields", "group__EFM32GG__GPIO__BitFields.html", "group__EFM32GG__GPIO__BitFields" ],
+    [ "EFM32GG_I2C", "group__EFM32GG__I2C.html", "group__EFM32GG__I2C" ],
+    [ "EFM32GG_I2C_BitFields", "group__EFM32GG__I2C__BitFields.html", "group__EFM32GG__I2C__BitFields" ],
+    [ "EFM32GG_LCD", "group__EFM32GG__LCD.html", "group__EFM32GG__LCD" ],
+    [ "EFM32GG_LCD_BitFields", "group__EFM32GG__LCD__BitFields.html", "group__EFM32GG__LCD__BitFields" ],
+    [ "EFM32GG_LESENSE", "group__EFM32GG__LESENSE.html", "group__EFM32GG__LESENSE" ],
+    [ "EFM32GG_LESENSE_BitFields", "group__EFM32GG__LESENSE__BitFields.html", "group__EFM32GG__LESENSE__BitFields" ],
+    [ "EFM32GG_LETIMER", "group__EFM32GG__LETIMER.html", "group__EFM32GG__LETIMER" ],
+    [ "EFM32GG_LETIMER_BitFields", "group__EFM32GG__LETIMER__BitFields.html", "group__EFM32GG__LETIMER__BitFields" ],
+    [ "EFM32GG_LEUART", "group__EFM32GG__LEUART.html", "group__EFM32GG__LEUART" ],
+    [ "EFM32GG_LEUART_BitFields", "group__EFM32GG__LEUART__BitFields.html", "group__EFM32GG__LEUART__BitFields" ],
+    [ "EFM32GG_MSC", "group__EFM32GG__MSC.html", "group__EFM32GG__MSC" ],
+    [ "EFM32GG_MSC_BitFields", "group__EFM32GG__MSC__BitFields.html", "group__EFM32GG__MSC__BitFields" ],
+    [ "EFM32GG_PCNT", "group__EFM32GG__PCNT.html", "group__EFM32GG__PCNT" ],
+    [ "EFM32GG_PCNT_BitFields", "group__EFM32GG__PCNT__BitFields.html", "group__EFM32GG__PCNT__BitFields" ],
+    [ "EFM32GG_PRS", "group__EFM32GG__PRS.html", "group__EFM32GG__PRS" ],
+    [ "EFM32GG_PRS_BitFields", "group__EFM32GG__PRS__BitFields.html", "group__EFM32GG__PRS__BitFields" ],
+    [ "EFM32GG_RMU", "group__EFM32GG__RMU.html", "group__EFM32GG__RMU" ],
+    [ "EFM32GG_RMU_BitFields", "group__EFM32GG__RMU__BitFields.html", "group__EFM32GG__RMU__BitFields" ],
+    [ "EFM32GG_ROMTABLE", "group__EFM32GG__ROMTABLE.html", "group__EFM32GG__ROMTABLE" ],
+    [ "EFM32GG_ROMTABLE_BitFields", "group__EFM32GG__ROMTABLE__BitFields.html", "group__EFM32GG__ROMTABLE__BitFields" ],
+    [ "EFM32GG_RTC", "group__EFM32GG__RTC.html", "group__EFM32GG__RTC" ],
+    [ "EFM32GG_RTC_BitFields", "group__EFM32GG__RTC__BitFields.html", "group__EFM32GG__RTC__BitFields" ],
+    [ "EFM32GG_TIMER", "group__EFM32GG__TIMER.html", "group__EFM32GG__TIMER" ],
+    [ "EFM32GG_TIMER_BitFields", "group__EFM32GG__TIMER__BitFields.html", "group__EFM32GG__TIMER__BitFields" ],
+    [ "EFM32GG_UART_BitFields", "group__EFM32GG__UART__BitFields.html", "group__EFM32GG__UART__BitFields" ],
+    [ "EFM32GG_USART", "group__EFM32GG__USART.html", "group__EFM32GG__USART" ],
+    [ "EFM32GG_USART_BitFields", "group__EFM32GG__USART__BitFields.html", "group__EFM32GG__USART__BitFields" ],
+    [ "EFM32GG_USB", "group__EFM32GG__USB.html", "group__EFM32GG__USB" ],
+    [ "EFM32GG_USB_BitFields", "group__EFM32GG__USB__BitFields.html", "group__EFM32GG__USB__BitFields" ],
+    [ "EFM32GG_VCMP", "group__EFM32GG__VCMP.html", "group__EFM32GG__VCMP" ],
+    [ "EFM32GG_VCMP_BitFields", "group__EFM32GG__VCMP__BitFields.html", "group__EFM32GG__VCMP__BitFields" ],
+    [ "EFM32GG_WDOG", "group__EFM32GG__WDOG.html", "group__EFM32GG__WDOG" ],
+    [ "EFM32GG_WDOG_BitFields", "group__EFM32GG__WDOG__BitFields.html", "group__EFM32GG__WDOG__BitFields" ],
+    [ "EFM32GG_PRS_Signals", "group__EFM32GG__PRS__Signals.html", "group__EFM32GG__PRS__Signals" ],
+    [ "BURTC_RET_TypeDef", "structBURTC__RET__TypeDef.html", [
+      [ "REG", "structBURTC__RET__TypeDef.html#a9fe7461bb539c6b4ab5228c4797a5f31", null ]
+    ] ],
+    [ "DMA_CH_TypeDef", "structDMA__CH__TypeDef.html", [
+      [ "CTRL", "structDMA__CH__TypeDef.html#a266a6da8822d29e619c942e30f217de7", null ]
+    ] ],
+    [ "GPIO_P_TypeDef", "structGPIO__P__TypeDef.html", [
+      [ "CTRL", "structGPIO__P__TypeDef.html#a5b0ed681dcf52fefe424c3145cd5025f", null ],
+      [ "MODEL", "structGPIO__P__TypeDef.html#ad28242da58dcd7bf160cfdee1abe70d2", null ],
+      [ "MODEH", "structGPIO__P__TypeDef.html#aa8a7ce592d8fa594a61cf37d62c1d7d4", null ],
+      [ "DOUT", "structGPIO__P__TypeDef.html#a042c3a572e749f67f63d9a094e96d567", null ],
+      [ "DOUTSET", "structGPIO__P__TypeDef.html#a0d8f76be5706698e8e3fee8438c90b6a", null ],
+      [ "DOUTCLR", "structGPIO__P__TypeDef.html#aa4fc7332bb9352c0cbe1f05b64ca370a", null ],
+      [ "DOUTTGL", "structGPIO__P__TypeDef.html#a576341b58cbf31bfc9552f29c0276bca", null ],
+      [ "DIN", "structGPIO__P__TypeDef.html#a32cb3813b6bf7534d6e640528741a82e", null ],
+      [ "PINLOCKN", "structGPIO__P__TypeDef.html#a8858ff71b6607d96c82d221841686d0d", null ]
+    ] ],
+    [ "LESENSE_BUF_TypeDef", "structLESENSE__BUF__TypeDef.html", [
+      [ "DATA", "structLESENSE__BUF__TypeDef.html#af50dc63a54b7ba512b9520fd49a81f92", null ]
+    ] ],
+    [ "LESENSE_CH_TypeDef", "structLESENSE__CH__TypeDef.html", [
+      [ "TIMING", "structLESENSE__CH__TypeDef.html#a4a0f8abb7c6496436a4fcd1ad7201ffc", null ],
+      [ "INTERACT", "structLESENSE__CH__TypeDef.html#abe0b6c577b5a20078618e5987c6f9bd1", null ],
+      [ "EVAL", "structLESENSE__CH__TypeDef.html#adea024e1676c3ddb1f84c050054bca8f", null ],
+      [ "RESERVED0", "structLESENSE__CH__TypeDef.html#a0768d9423e8ff88ad6847b71a40357bd", null ]
+    ] ],
+    [ "LESENSE_ST_TypeDef", "structLESENSE__ST__TypeDef.html", [
+      [ "TCONFA", "structLESENSE__ST__TypeDef.html#adf47148abdb3a7e9216d2c82fd3f9237", null ],
+      [ "TCONFB", "structLESENSE__ST__TypeDef.html#a543c657b4d1b4316a608991d35ed7b9f", null ]
+    ] ],
+    [ "PRS_CH_TypeDef", "structPRS__CH__TypeDef.html", [
+      [ "CTRL", "structPRS__CH__TypeDef.html#a44f30addd8273511c81d535fef2414b2", null ]
+    ] ],
+    [ "TIMER_CC_TypeDef", "structTIMER__CC__TypeDef.html", [
+      [ "CTRL", "structTIMER__CC__TypeDef.html#af3a7a604528309ce227e5a048f61e770", null ],
+      [ "CCV", "structTIMER__CC__TypeDef.html#acc9438c0f8107f2ad9e358c8afb73bf2", null ],
+      [ "CCVP", "structTIMER__CC__TypeDef.html#a1673fb669a6ae2f7081d9a5f3f294785", null ],
+      [ "CCVB", "structTIMER__CC__TypeDef.html#aa3eff4dcde68225978411d7419aa81a9", null ]
+    ] ],
+    [ "USB_DIEP_TypeDef", "structUSB__DIEP__TypeDef.html", [
+      [ "CTL", "structUSB__DIEP__TypeDef.html#a945e9f94367e4114f745c7eb07f2d6ec", null ],
+      [ "RESERVED0", "structUSB__DIEP__TypeDef.html#a923f3912f94a85617caed571ea3b00e7", null ],
+      [ "INT", "structUSB__DIEP__TypeDef.html#a03214b5b7281d095ddccd5c8f93b526f", null ],
+      [ "RESERVED1", "structUSB__DIEP__TypeDef.html#a921d12b0c912527ac5396212e928fd7c", null ],
+      [ "TSIZ", "structUSB__DIEP__TypeDef.html#a3bed22acb6ae4a1429766a8df8243c57", null ],
+      [ "DMAADDR", "structUSB__DIEP__TypeDef.html#abf2a07b7240fdda2f2f770db92047906", null ],
+      [ "TXFSTS", "structUSB__DIEP__TypeDef.html#a2bc058d584e924b06cae2f475b8a1213", null ],
+      [ "RESERVED2", "structUSB__DIEP__TypeDef.html#a3ee01c1213158522ef2e22aa4fd74172", null ]
+    ] ],
+    [ "USB_DOEP_TypeDef", "structUSB__DOEP__TypeDef.html", [
+      [ "CTL", "structUSB__DOEP__TypeDef.html#ae5d4621522ef8644591b461bce91866c", null ],
+      [ "RESERVED0", "structUSB__DOEP__TypeDef.html#ada644506c54e62a0cdbf6195a94388e5", null ],
+      [ "INT", "structUSB__DOEP__TypeDef.html#a474a5c5947d82de5d4d88e326664d010", null ],
+      [ "RESERVED1", "structUSB__DOEP__TypeDef.html#a1c8a1be8faf371b1b66662edb992a4b1", null ],
+      [ "TSIZ", "structUSB__DOEP__TypeDef.html#af809bab8df7bb2153a150f31c51b8e51", null ],
+      [ "DMAADDR", "structUSB__DOEP__TypeDef.html#ab253e3834164547839330aad25542e03", null ],
+      [ "RESERVED2", "structUSB__DOEP__TypeDef.html#afd9b074c9e8a8a87f421c0ce87d61767", null ]
+    ] ],
+    [ "USB_HC_TypeDef", "structUSB__HC__TypeDef.html", [
+      [ "CHAR", "structUSB__HC__TypeDef.html#a05f188b9a1513f65ed88b8b3f6fc5d45", null ],
+      [ "RESERVED0", "structUSB__HC__TypeDef.html#ae1404028f38ed1faa299e353e938879b", null ],
+      [ "INT", "structUSB__HC__TypeDef.html#a4557245372361f02b237b6e1511429dd", null ],
+      [ "INTMSK", "structUSB__HC__TypeDef.html#ac4fe8a2609413d46fdee6ef5662806d2", null ],
+      [ "TSIZ", "structUSB__HC__TypeDef.html#a7404ddd12782af6c1a2e1f6b61e919a8", null ],
+      [ "DMAADDR", "structUSB__HC__TypeDef.html#a6f65d39daf7b80abf32584d37f254332", null ],
+      [ "RESERVED1", "structUSB__HC__TypeDef.html#adf550893f4367db8ffa9f37f01b759cb", null ]
+    ] ]
+];

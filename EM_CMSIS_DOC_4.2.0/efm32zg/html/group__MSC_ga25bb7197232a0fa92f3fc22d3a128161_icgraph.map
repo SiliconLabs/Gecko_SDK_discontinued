@@ -1,0 +1,4 @@
+<map id="MSC_ErasePage" name="MSC_ErasePage">
+<area shape="rect" id="node3" href="$nvm__hal_8c.html#aaa2acd545c460f4cea576178fc185a21" title="Erase a page in the NVM. " alt="" coords="169,5,306,32"/>
+<area shape="rect" id="node5" href="$group__NVM.html#ga6cad1505838978506c7d94f9a1472595" title="Erase the entire allocated NVM area. " alt="" coords="355,5,442,32"/>
+</map>

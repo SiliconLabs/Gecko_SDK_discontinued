@@ -1,0 +1,9 @@
+<map id="EBI_TFTInit" name="EBI_TFTInit">
+<area shape="rect" id="node3" href="$group__EBI.html#gaf7fea7741967f124ac0a4021b48cc786" title="Configure EBI pin polarity. " alt="" coords="165,5,273,32"/>
+<area shape="rect" id="node7" href="$group__EBI.html#gae4bb0491ae71ed303f803c6fe809268b" title="Configure frame buffer pointer. " alt="" coords="142,56,295,83"/>
+<area shape="rect" id="node9" href="$group__EBI.html#ga9cc5e21f92d8794704250addd555f887" title="Configure and initialize Horizontal Porch Settings. " alt="" coords="154,107,283,133"/>
+<area shape="rect" id="node11" href="$group__EBI.html#gaddde4b33a283d6ef4b22578d73f43f76" title="Configure and initialize TFT size settings. " alt="" coords="162,157,275,184"/>
+<area shape="rect" id="node13" href="$group__EBI.html#ga3160653245c7fa8aa2c5d20f32f8fde0" title="Configure TFT Direct Drive Timing Settings. " alt="" coords="155,208,283,235"/>
+<area shape="rect" id="node15" href="$group__EBI.html#ga4bd6c0b5a2274f9e381ed8ff78291b7b" title="Configure Vertical Porch Settings. " alt="" coords="154,259,283,285"/>
+<area shape="rect" id="node5" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="345,5,463,32"/>
+</map>

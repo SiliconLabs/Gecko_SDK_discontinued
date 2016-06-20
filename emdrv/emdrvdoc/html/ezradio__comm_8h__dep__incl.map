@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$ezradio__api__lib_8c.html" title="This file contains the common API library of the EZRadio and EZRadioPRO families..." alt="" coords="5,80,264,107"/>
-<area shape="rect" id="node5" href="$ezradio__comm_8c.html" title="This file contains the EZRadio communication layer." alt="" coords="289,80,545,107"/>
-<area shape="rect" id="node7" href="$si4x55_2ezradio__api__lib__add_8c.html" title="This file contains the additional API library for the listed members of the EZRadio..." alt="" coords="571,80,899,107"/>
-<area shape="rect" id="node9" href="$si4x6x_2ezradio__api__lib__add_8c.html" title="This file contains the additional API library for the listed members of the EZRadioPRO..." alt="" coords="923,80,1249,107"/>
-</map>

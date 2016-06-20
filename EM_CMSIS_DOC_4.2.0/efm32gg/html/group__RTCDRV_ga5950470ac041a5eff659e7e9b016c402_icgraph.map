@@ -1,0 +1,4 @@
+<map id="RTCDRV_GetWallClockTicks32" name="RTCDRV_GetWallClockTicks32">
+<area shape="rect" id="node3" href="$group__RTCDRV.html#gac9d75dfb6e046529bb9e5b9fc79df272" title="Get wallclock time. " alt="" coords="249,5,399,32"/>
+<area shape="rect" id="node5" href="$group__RTCDRV.html#ga8a56711f0cca956094187d4345964232" title="Set wallclock time. " alt="" coords="249,56,399,83"/>
+</map>

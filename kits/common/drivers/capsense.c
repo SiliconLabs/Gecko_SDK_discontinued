@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file
  * @brief Capacitive sense driver
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -13,15 +13,13 @@
  *
  ******************************************************************************/
 
-
-
-
 /* EM header files */
 #include "em_device.h"
 
 /* Drivers */
-#include "em_emu.h"
 #include "em_acmp.h"
+#include "em_cmu.h"
+#include "em_emu.h"
 #include "capsense.h"
 
 /** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
@@ -31,32 +29,65 @@ static volatile uint8_t currentChannel;
 /** Flag for measurement completion. */
 static volatile bool measurementComplete;
 
+#if defined(CAPSENSE_CH_IN_USE)
 /**************************************************************************//**
- * @brief  A bit vector which represents the channels to iterate through
- * @param ACMP_CHANNELS Vector of channels.
+ * @brief
+ *   A bit vector which represents the channels to iterate through
+ *
+ * @note
+ *   This api is deprecated and new application should define
+ *   CAPSENSE_CHANNELS instead of CAPSENSE_CH_IN_USE.
+ *
+ * @param ACMP_CHANNELS
+ *   Vector of channels.
  *****************************************************************************/
 static const bool channelsInUse[ACMP_CHANNELS] = CAPSENSE_CH_IN_USE;
+#elif defined(CAPSENSE_CHANNELS)
+/**************************************************************************//**
+ * @brief
+ *   An array of channels that the capsense driver should iterate through.
+ *
+ * @param CAPSENSE_CHANNELS
+ *   Initializer list that contains all the channels that the application
+ *   would like to use for capsense.
+ *
+ * @param ACMP_CHANNELS
+ *   The number of channels in the array
+ *****************************************************************************/
+static const ACMP_Channel_TypeDef channelList[ACMP_CHANNELS] = CAPSENSE_CHANNELS;
+#endif
+
+/**************************************************************************//**
+ * @brief The NUM_SLIDER_CHANNELS specifies how many of the ACMP_CHANNELS
+ *        are used for a touch slider
+ *****************************************************************************/
+#if !defined(NUM_SLIDER_CHANNELS)
+#define NUM_SLIDER_CHANNELS 4
+#endif
 
 /**************************************************************************//**
  * @brief This vector stores the latest read values from the ACMP
  * @param ACMP_CHANNELS Vector of channels.
  *****************************************************************************/
-static volatile uint32_t channelValues[ACMP_CHANNELS] = { 0, 0, 0, 0, 0, 0, 0, 0 };
+static volatile uint32_t channelValues[ACMP_CHANNELS] = {0};
 
 /**************************************************************************//**
  * @brief  This stores the maximum values seen by a channel
  * @param ACMP_CHANNELS Vector of channels.
  *****************************************************************************/
-static volatile uint32_t channelMaxValues[ACMP_CHANNELS] = { 1, 1, 1, 1, 1, 1, 1, 1 };
+static volatile uint32_t channelMaxValues[ACMP_CHANNELS] = {0};
 
 /** @endcond */
 
 /**************************************************************************//**
- * @brief TIMER0 interrupt handler.
- *        When TIMER0 expires the number of pulses on TIMER1 is inserted into
- *        channelValues. If this values is bigger than what is recorded in
- *        channelMaxValues, channelMaxValues is updated.
- *        Finally, the next ACMP channel is selected.
+ * @brief
+ *   TIMER0 interrupt handler.
+ *
+ * @detail
+ *   When TIMER0 expires the number of pulses on TIMER1 is inserted into
+ *   channelValues. If this values is bigger than what is recorded in
+ *   channelMaxValues, channelMaxValues is updated.
+ *   Finally, the next ACMP channel is selected.
  *****************************************************************************/
 void TIMER0_IRQHandler(void)
 {
@@ -138,17 +169,21 @@ int32_t CAPSENSE_getSliderPosition(void)
   /* Values used for interpolation. There is two more which represents the edges.
    * This makes the interpolation code a bit cleaner as we do not have to make special
    * cases for handling them */
-  uint32_t interpol[6] = { 255, 255, 255, 255, 255, 255 };
+  uint32_t interpol[(NUM_SLIDER_CHANNELS+2)];
+  for (i = 0; i < (NUM_SLIDER_CHANNELS+2); i++)
+  {
+    interpol[i] = 255;
+  }
 
   /* The calculated slider position. */
   int position;
 
-  /* Iterate through the 4 slider bars and calculate the current value divided by
+  /* Iterate through the slider bars and calculate the current value divided by
    * the maximum value multiplied by 256.
    * Note that there is an offset of 1 between channelValues and interpol.
    * This is done to make interpolation easier.
    */
-  for (i = 1; i < 5; i++)
+  for (i = 1; i < (NUM_SLIDER_CHANNELS+1); i++)
   {
     /* interpol[i] will be in the range 0-256 depending on channelMax */
     interpol[i]  = channelValues[i - 1] << 8;
@@ -180,17 +215,51 @@ int32_t CAPSENSE_getSliderPosition(void)
 }
 
 /**************************************************************************//**
- * @brief This function iterates through all the capsensors and reads and
- *        initiates a reading. Uses EM1 while waiting for the result from
- *        each sensor.
+ * @brief
+ *   Start a capsense measurement of a specific channel and waits for
+ *   it to complete.
+ *****************************************************************************/
+static void CAPSENSE_Measure(ACMP_Channel_TypeDef channel)
+{
+  /* Set up this channel in the ACMP. */
+  ACMP_CapsenseChannelSet(ACMP_CAPSENSE, channel);
+
+  /* Reset timers */
+  TIMER0->CNT = 0;
+  TIMER1->CNT = 0;
+
+  measurementComplete = false;
+
+  /* Start timers */
+  TIMER0->CMD = TIMER_CMD_START;
+  TIMER1->CMD = TIMER_CMD_START;
+
+  /* Wait for measurement to complete */
+  while ( measurementComplete == false )
+  {
+    EMU_EnterEM1();
+  }
+}
+
+/**************************************************************************//**
+ * @brief
+ *   This function iterates through all the capsensors and reads and
+ *   initiates a reading. Uses EM1 while waiting for the result from
+ *   each sensor.
  *****************************************************************************/
 void CAPSENSE_Sense(void)
 {
   /* Use the default STK capacative sensing setup and enable it */
   ACMP_Enable(ACMP_CAPSENSE);
 
-  uint8_t ch;
-  /* Iterate trough all channels */
+#if defined(CAPSENSE_CHANNELS)
+  /* Iterate through only the channels in the channelList */
+  for (currentChannel = 0; currentChannel < ACMP_CHANNELS; currentChannel++)
+  {
+    CAPSENSE_Measure(channelList[currentChannel]);
+  }
+#else
+  /* Iterate through all channels and check which channel is in use */
   for (currentChannel = 0; currentChannel < ACMP_CHANNELS; currentChannel++)
   {
     /* If this channel is not in use, skip to the next one */
@@ -199,38 +268,24 @@ void CAPSENSE_Sense(void)
       continue;
     }
 
-    /* Set up this channel in the ACMP. */
-    ch = currentChannel;
-    ACMP_CapsenseChannelSet(ACMP_CAPSENSE, (ACMP_Channel_TypeDef) ch);
-
-    /* Reset timers */
-    TIMER0->CNT = 0;
-    TIMER1->CNT = 0;
-
-    measurementComplete = false;
-
-    /* Start timers */
-    TIMER0->CMD = TIMER_CMD_START;
-    TIMER1->CMD = TIMER_CMD_START;
-
-    /* Wait for measurement to complete */
-    while ( measurementComplete == false )
-    {
-      EMU_EnterEM1();
-    }
+    CAPSENSE_Measure((ACMP_Channel_TypeDef) currentChannel);
   }
+#endif
 
   /* Disable ACMP while not sensing to reduce power consumption */
   ACMP_Disable(ACMP_CAPSENSE);
 }
 
 /**************************************************************************//**
- * @brief Initializes the capacative sense system.
- *        Capacative sensing uses two timers: TIMER0 and TIMER1 as well as ACMP.
- *        ACMP is set up in cap-sense (oscialltor mode).
- *        TIMER1 counts the number of pulses generated by ACMP_CAPSENSE.
- *        When TIMER0 expires it generates an interrupt.
- *        The number of pulses counted by TIMER1 is then stored in channelValues
+ * @brief
+ *   Initializes the capacitive sense system.
+ *
+ * @detail
+ *   Capacitive sensing uses two timers: TIMER0 and TIMER1 as well as ACMP.
+ *   ACMP is set up in cap-sense (oscillator mode).
+ *   TIMER1 counts the number of pulses generated by ACMP_CAPSENSE.
+ *   When TIMER0 expires it generates an interrupt.
+ *   The number of pulses counted by TIMER1 is then stored in channelValues
  *****************************************************************************/
 void CAPSENSE_Init(void)
 {
@@ -238,11 +293,15 @@ void CAPSENSE_Init(void)
   ACMP_CapsenseInit_TypeDef capsenseInit = ACMP_CAPSENSE_INIT_DEFAULT;
 
   /* Enable TIMER0, TIMER1, ACMP_CAPSENSE and PRS clock */
-  CMU->HFPERCLKDIV |= CMU_HFPERCLKDIV_HFPERCLKEN;
-  CMU->HFPERCLKEN0 |= CMU_HFPERCLKEN0_TIMER0
-                      | CMU_HFPERCLKEN0_TIMER1
-                      | ACMP_CAPSENSE_CLKEN
-                      | CMU_HFPERCLKEN0_PRS;
+  CMU_ClockEnable(cmuClock_HFPER, true);
+  CMU_ClockEnable(cmuClock_TIMER0, true);
+  CMU_ClockEnable(cmuClock_TIMER1, true);
+#if defined(ACMP_CAPSENSE_CMUCLOCK)
+  CMU_ClockEnable(ACMP_CAPSENSE_CMUCLOCK, true);  
+#else
+  CMU->HFPERCLKEN0 |= ACMP_CAPSENSE_CLKEN;
+#endif
+  CMU_ClockEnable(cmuClock_PRS, true);
 
   /* Initialize TIMER0 - Prescaler 2^9, top value 10, interrupt on overflow */
   TIMER0->CTRL = TIMER_CTRL_PRESC_DIV512;
@@ -264,7 +323,7 @@ void CAPSENSE_Init(void)
   /*Set up PRS channel 0 to trigger on ACMP1 output*/
   PRS->CH[0].CTRL = PRS_CH_CTRL_EDSEL_POSEDGE      /* Posedge triggers action */
                     | PRS_CH_CTRL_SOURCESEL_ACMP_CAPSENSE      /* PRS source */
-                    | PRS_CH_CTRL_SIGSEL_ACMPOUT_CAMPSENSE;    /* PRS source */
+                    | PRS_CH_CTRL_SIGSEL_ACMPOUT_CAPSENSE;     /* PRS source */
 
   /* Set up ACMP1 in capsense mode */
   ACMP_CapsenseInit(ACMP_CAPSENSE, &capsenseInit);

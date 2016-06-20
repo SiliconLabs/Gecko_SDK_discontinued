@@ -1,0 +1,51 @@
+<map id="ezradio_comm_SendCmd" name="ezradio_comm_SendCmd">
+<area shape="rect" id="node3" href="$group__API__Layer.html#ga235ff2f0e61232797b5d3930b9319c5f" title="ezradio_change_state" alt="" coords="256,107,403,133"/>
+<area shape="rect" id="node13" href="$group__COMM__Layer.html#ga67ac511d7cfce9c8cb00cd31113ff9a4" title="ezradio_comm_SendCmdGetResp" alt="" coords="222,816,437,843"/>
+<area shape="rect" id="node73" href="$group__API__Layer.html#gab214bdcdc5818dff1a6714c2aa0f98e3" title="ezradio_fifo_info_fast\l_reset" alt="" coords="257,918,402,959"/>
+<area shape="rect" id="node75" href="$group__API__Layer.html#gad600f530d5f68c9a059f6bc661b38dbd" title="ezradio_get_chip_status\l_fast_clear" alt="" coords="249,983,409,1025"/>
+<area shape="rect" id="node77" href="$group__API__Layer.html#ga7aa4d52445b45b05292f22c888d54456" title="ezradio_get_int_status\l_fast_clear" alt="" coords="254,1049,405,1090"/>
+<area shape="rect" id="node79" href="$group__API__Layer.html#ga31fbcc3ddf36d660029f52c7590551bf" title="ezradio_get_modem_status\l_fast_clear" alt="" coords="239,1114,419,1155"/>
+<area shape="rect" id="node81" href="$group__API__Layer.html#gae79ddb973018cb991d0272414cd7a961" title="ezradio_get_ph_status\l_fast_clear" alt="" coords="254,1179,405,1221"/>
+<area shape="rect" id="node83" href="$group__API__Layer.html#ga539bfe0739c7c40efd8b5ce2230ba2d8" title="ezradio_ircal" alt="" coords="282,1245,377,1272"/>
+<area shape="rect" id="node85" href="$group__API__Layer.html#gadac39bea145c7690251ea39231b4595e" title="ezradio_nop" alt="" coords="283,1296,375,1323"/>
+<area shape="rect" id="node87" href="$group__API__Layer.html#gaaedde5a0144af3d029672a3d6c27210b" title="ezradio_power_up" alt="" coords="265,1347,393,1373"/>
+<area shape="rect" id="node89" href="$group__API__Layer.html#gacef1d81a9a5e390249154bbeed9b9df1" title="ezradio_rx_hop" alt="" coords="274,1397,385,1424"/>
+<area shape="rect" id="node91" href="$group__API__Layer.html#ga5f37f9c7237c880623753bbd9c772876" title="ezradio_set_property" alt="" coords="258,1448,401,1475"/>
+<area shape="rect" id="node93" href="$group__API__Layer.html#ga6bebb6e764046173bd4b58db3d5f30c2" title="ezradio_start_rx" alt="" coords="272,259,387,285"/>
+<area shape="rect" id="node98" href="$group__API__Layer.html#ga2afe6af0c962076145f252f0e18d97ee" title="ezradio_start_rx_fast" alt="" coords="258,1499,401,1525"/>
+<area shape="rect" id="node100" href="$group__API__Layer.html#ga95ec30d47eea9860cccae2c5bb3fc878" title="ezradio_start_tx" alt="" coords="531,1501,645,1528"/>
+<area shape="rect" id="node105" href="$group__API__Layer.html#gae98048c6798c02b17ce19356390a265a" title="ezradio_start_tx_fast" alt="" coords="258,1549,401,1576"/>
+<area shape="rect" id="node107" href="$group__API__Layer.html#ga3fc1fea6da81ea1d332f7ad430aa3be6" title="ezradio_tx_hop" alt="" coords="275,1600,384,1627"/>
+<area shape="rect" id="node5" href="$group__Direct__Receive__Plugin.html#ga110cc9713875e0e8ce1e87aa7a66b536" title="Stops direct reception. " alt="" coords="505,157,671,184"/>
+<area shape="rect" id="node7" href="$group__Direct__Transmit__Plugin.html#gaaeb98ca48e265d89240b188fb685f02c" title="Stops direct transmission. " alt="" coords="501,5,675,32"/>
+<area shape="rect" id="node9" href="$group__PN9__Plugin.html#ga721700326b2545601f947f24fed72676" title="Stops PN9 carrier transmission. " alt="" coords="533,56,643,83"/>
+<area shape="rect" id="node11" href="$group__Unmod__Carrier__Plugin.html#ga597d48cd98b47dc8811996c67c475e91" title="Stops unmodulated carrier transmission. " alt="" coords="485,107,691,133"/>
+<area shape="rect" id="node15" href="$group__API__Layer.html#ga90809bd86f07081e57bdb2127c29b19c" title="ezradio_part_info" alt="" coords="527,1333,649,1360"/>
+<area shape="rect" id="node17" href="$group__API__Layer.html#ga2060b35450cc17415abf08a2f028b2b6" title="ezradio_get_int_status" alt="" coords="513,1035,663,1061"/>
+<area shape="rect" id="node19" href="$group__API__Layer.html#ga5e458f080841a7423743d53e2217d1e5" title="ezradio_configuration_init" alt="" coords="758,799,927,825"/>
+<area shape="rect" id="node31" href="$group__API__Layer.html#gada8c3e33f1cba006a91daba785d93298" title="ezradio_gpio_pin_cfg" alt="" coords="517,411,659,437"/>
+<area shape="rect" id="node33" href="$group__API__Layer.html#gad7e9af6ef1205ffb877a3c869f5193ee" title="ezradio_fifo_info" alt="" coords="529,461,647,488"/>
+<area shape="rect" id="node35" href="$group__API__Layer.html#gad46745a62ae7ab1876792eac63216874" title="ezradio_get_property" alt="" coords="516,512,660,539"/>
+<area shape="rect" id="node37" href="$group__API__Layer.html#ga6c5d8d1ef6ca843dfdbff5460e6dad2c" title="ezradio_func_info" alt="" coords="527,563,649,589"/>
+<area shape="rect" id="node39" href="$group__API__Layer.html#ga9f990f8ebde64b6ef0c051f397430c53" title="ezradio_request_device\l_state" alt="" coords="509,1435,667,1477"/>
+<area shape="rect" id="node44" href="$group__API__Layer.html#ga18c87c07ae75e6a7a378e2ebe9d618c1" title="ezradio_read_cmd_buff" alt="" coords="509,664,667,691"/>
+<area shape="rect" id="node46" href="$group__API__Layer.html#gac4a541df5be98d23714c2409ed485a1b" title="ezradio_get_ph_status" alt="" coords="513,715,663,741"/>
+<area shape="rect" id="node48" href="$group__API__Layer.html#gad7269dfaf3135be3218c08494df40542" title="ezradio_get_modem_status" alt="" coords="498,765,678,792"/>
+<area shape="rect" id="node50" href="$group__API__Layer.html#gad5ef27035ca328bb2861b5126600a490" title="ezradio_get_chip_status" alt="" coords="508,816,668,843"/>
+<area shape="rect" id="node52" href="$group__API__Layer.html#gaa6777e927f0bd0c5368ec58d4d6d3bcb" title="ezradio_get_packet_info" alt="" coords="507,867,669,893"/>
+<area shape="rect" id="node54" href="$group__API__Layer.html#ga84c393b3068b4ae7366205b5be11b382" title="ezradio_get_int_status\l_fast_clear_read" alt="" coords="513,918,663,959"/>
+<area shape="rect" id="node56" href="$group__API__Layer.html#ga812515656b246c20cce34daa883151a6" title="ezradio_gpio_pin_cfg_fast" alt="" coords="503,984,673,1011"/>
+<area shape="rect" id="node58" href="$group__API__Layer.html#ga959a4025e03dbdcf89a195021400601d" title="ezradio_get_ph_status\l_fast_clear_read" alt="" coords="513,1086,663,1127"/>
+<area shape="rect" id="node60" href="$group__API__Layer.html#ga2539aeb090517be778e29b658c7197fb" title="ezradio_get_modem_status\l_fast_clear_read" alt="" coords="498,1151,678,1193"/>
+<area shape="rect" id="node62" href="$group__API__Layer.html#ga797cd338dde1db4e7a24a06a06802766" title="ezradio_get_chip_status\l_fast_clear_read" alt="" coords="508,1217,668,1258"/>
+<area shape="rect" id="node64" href="$group__API__Layer.html#gaf761bc9fbc4e01da3b6fc09523da4260" title="ezradio_fifo_info_fast_read" alt="" coords="499,1283,677,1309"/>
+<area shape="rect" id="node67" href="$group__API__Layer.html#ga34050d696c76dfc0e2f210ac3465cdf0" title="ezradio_ezconfig_check" alt="" coords="509,1384,667,1411"/>
+<area shape="rect" id="node69" href="$group__API__Layer.html#gab50e698c116f28cdb80a64da04bb5dd2" title="ezradio_get_adc_reading" alt="" coords="505,309,671,336"/>
+<area shape="rect" id="node71" href="$group__API__Layer.html#ga50e5aeb4468316b1c8bd9005806b7f05" title="ezradio_ircal_manual" alt="" coords="516,360,660,387"/>
+<area shape="rect" id="node21" href="$group__Direct__Receive__Plugin.html#ga9a1aa8ea909b1667cf73d2227773251f" title="Starts direct reception with the radio configurations from the radioHandle parameter. " alt="" coords="758,504,927,531"/>
+<area shape="rect" id="node23" href="$group__Direct__Transmit__Plugin.html#gab765dcab5e4aab236830b5f2cd764f17" title="Starts direct transmission with the radio configurations from the radioHandle parameter. " alt="" coords="755,1443,931,1469"/>
+<area shape="rect" id="node25" href="$group__Plugin__Manager.html#ga55ab56dfaa297c93024dc43239bc8592" title="Radio Initialization. " alt="" coords="801,1035,884,1061"/>
+<area shape="rect" id="node27" href="$group__PN9__Plugin.html#ga6730098ec7ed97f93ad79079d6db3ab3" title="Starts PN9 transmission with the radio configurations from the radioHandle parameter. " alt="" coords="786,1493,899,1520"/>
+<area shape="rect" id="node29" href="$group__Unmod__Carrier__Plugin.html#ga52403c3b77b358386eb55a5bcdf8f3d8" title="Starts unmodulated carrier transmission with the radio configurations from the radioHandle parameter..." alt="" coords="739,1392,946,1419"/>
+<area shape="rect" id="node96" href="$group__Receive__Plugin.html#gae2761df30f35463d361937ddee63eed0" title="Set Radio to RX mode, packet length is always coming from the radio configuration. " alt="" coords="535,208,641,235"/>
+</map>

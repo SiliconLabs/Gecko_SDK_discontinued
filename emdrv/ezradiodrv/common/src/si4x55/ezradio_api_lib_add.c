@@ -2,7 +2,7 @@
  * @file si4x55/ezradio_api_lib_add.c
  * @brief This file contains the additional API library for the listed members of
  * the EZRadio family: Si4055_revC2A, Si4355_revC2A, Si4455_revC2A.
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -31,6 +31,7 @@
  *
  ******************************************************************************/
 
+#include <stddef.h>
 #include <stdint.h>
 #include <stdarg.h>
 #include "em_gpio.h"
@@ -172,8 +173,10 @@ void ezradio_ezconfig_check(uint16_t checksum, ezradio_cmd_reply_t *ezradioReply
                               EZRADIO_CMD_REPLY_COUNT_EZCONFIG_CHECK,
                               ezradioCmd );
 
-    ezradioReply->EZCONFIG_CHECK.RESULT = ezradioCmd[0];
-
+    if (ezradioReply != NULL)
+    {
+      ezradioReply->EZCONFIG_CHECK.RESULT = ezradioCmd[0];
+    }
 }
 
 #ifdef EZRADIO_DRIVER_EXTENDED_SUPPORT
@@ -203,10 +206,13 @@ void ezradio_get_adc_reading( uint8_t adc_en, uint8_t adc_cfg, ezradio_cmd_reply
                               EZRADIO_CMD_REPLY_COUNT_GET_ADC_READING,
                               ezradioCmd );
 
-    ezradioReply->GET_ADC_READING.GPIO_ADC         = ((uint16_t)ezradioCmd[0] << 8) & 0xFF00;
-    ezradioReply->GET_ADC_READING.GPIO_ADC        |=  (uint16_t)ezradioCmd[1] & 0x00FF;
-    ezradioReply->GET_ADC_READING.BATTERY_ADC      = ((uint16_t)ezradioCmd[2] << 8) & 0xFF00;
-    ezradioReply->GET_ADC_READING.BATTERY_ADC     |=  (uint16_t)ezradioCmd[3] & 0x00FF;
+    if (ezradioReply != NULL)
+    {
+      ezradioReply->GET_ADC_READING.GPIO_ADC         = ((uint16_t)ezradioCmd[0] << 8) & 0xFF00;
+      ezradioReply->GET_ADC_READING.GPIO_ADC        |=  (uint16_t)ezradioCmd[1] & 0x00FF;
+      ezradioReply->GET_ADC_READING.BATTERY_ADC      = ((uint16_t)ezradioCmd[2] << 8) & 0xFF00;
+      ezradioReply->GET_ADC_READING.BATTERY_ADC     |=  (uint16_t)ezradioCmd[3] & 0x00FF;
+    }
 }
 
 #endif /* EZRADIO_DRIVER_FULL_SUPPORT */

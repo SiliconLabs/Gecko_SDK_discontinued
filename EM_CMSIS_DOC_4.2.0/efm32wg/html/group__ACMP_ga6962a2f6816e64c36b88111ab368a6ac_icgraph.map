@@ -1,0 +1,3 @@
+<map id="ACMP_Enable" name="ACMP_Enable">
+<area shape="rect" id="node3" href="$group__CapSense.html#ga053d58010d19241662916216a0327ad6" title="This function iterates through all the capsensors and reads and initiates a reading. Uses EM1 while waiting for the result from each sensor. " alt="" coords="155,5,280,32"/>
+</map>

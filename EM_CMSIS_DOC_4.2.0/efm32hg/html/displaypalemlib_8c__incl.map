@@ -1,0 +1,41 @@
+<map id="C:/work/s025_sw/kits/common/drivers/displaypalemlib.c" name="C:/work/s025_sw/kits/common/drivers/displaypalemlib.c">
+<area shape="rect" id="node13" href="$em__device_8h.html" title="CMSIS Cortex&#45;M Peripheral Access Layer for Silicon Laboratories microcontroller devices. " alt="" coords="2701,245,2795,272"/>
+<area shape="rect" id="node74" href="$em__cmu_8h.html" title="Clock management unit (CMU) API. " alt="" coords="2784,96,2867,123"/>
+<area shape="rect" id="node83" href="$em__gpio_8h.html" title="General Purpose IO (GPIO) peripheral API. " alt="" coords="2596,96,2679,123"/>
+<area shape="rect" id="node89" href="$em__usart_8h.html" title="Universal synchronous/asynchronous receiver/transmitter (USART/UART) peripheral API. " alt="" coords="3012,171,3098,197"/>
+<area shape="rect" id="node93" href="$bsp_8h.html" title="Board support package API definitions. " alt="" coords="3174,96,3227,123"/>
+<area shape="rect" id="node99" href="$udelay_8h.html" title="Microsecond delay routine. " alt="" coords="3657,320,3727,347"/>
+<area shape="rect" id="node102" href="$displayconfigall_8h.html" title="Main configuration file for the DISPLAY driver software stack. " alt="" coords="3613,96,3731,123"/>
+<area shape="rect" id="node108" href="$displaypal_8h.html" title="Platform Abstraction Layer (PAL) interface for DISPLAY driver. " alt="" coords="3446,171,3535,197"/>
+<area shape="rect" id="node113" href="$em__rtc_8h.html" title="Real Time Counter (RTC) peripheral API. " alt="" coords="2914,171,2987,197"/>
+<area shape="rect" id="node15" href="$efm32hg322f64_8h.html" title="CMSIS Cortex&#45;M Peripheral Access Layer Header File for EFM32HG322F64. " alt="" coords="2070,320,2192,347"/>
+<area shape="rect" id="node21" href="$system__efm32hg_8h.html" title="CMSIS Cortex&#45;M System Layer for EFM32 devices. " alt="" coords="3890,395,4020,421"/>
+<area shape="rect" id="node24" href="$efm32hg__aes_8h.html" title="EFM32HG_AES register and bit field definitions. " alt="" coords="3292,395,3402,421"/>
+<area shape="rect" id="node26" href="$efm32hg__dma__ch_8h.html" title="EFM32HG_DMA_CH register and bit field definitions. " alt="" coords="3426,395,3560,421"/>
+<area shape="rect" id="node28" href="$efm32hg__dma_8h.html" title="EFM32HG_DMA register and bit field definitions. " alt="" coords="3586,395,3700,421"/>
+<area shape="rect" id="node30" href="$efm32hg__usb__diep_8h.html" title="EFM32HG_USB_DIEP register and bit field definitions. " alt="" coords="3724,395,3866,421"/>
+<area shape="rect" id="node32" href="$efm32hg__usb__doep_8h.html" title="EFM32HG_USB_DOEP register and bit field definitions. " alt="" coords="45,395,190,421"/>
+<area shape="rect" id="node34" href="$efm32hg__usb_8h.html" title="EFM32HG_USB register and bit field definitions. " alt="" coords="214,395,324,421"/>
+<area shape="rect" id="node36" href="$efm32hg__msc_8h.html" title="EFM32HG_MSC register and bit field definitions. " alt="" coords="349,395,462,421"/>
+<area shape="rect" id="node38" href="$efm32hg__emu_8h.html" title="EFM32HG_EMU register and bit field definitions. " alt="" coords="487,395,602,421"/>
+<area shape="rect" id="node40" href="$efm32hg__rmu_8h.html" title="EFM32HG_RMU register and bit field definitions. " alt="" coords="626,395,739,421"/>
+<area shape="rect" id="node42" href="$efm32hg__cmu_8h.html" title="EFM32HG_CMU register and bit field definitions. " alt="" coords="764,395,879,421"/>
+<area shape="rect" id="node44" href="$efm32hg__timer__cc_8h.html" title="EFM32HG_TIMER_CC register and bit field definitions. " alt="" coords="903,395,1042,421"/>
+<area shape="rect" id="node46" href="$efm32hg__timer_8h.html" title="EFM32HG_TIMER register and bit field definitions. " alt="" coords="1066,395,1186,421"/>
+<area shape="rect" id="node48" href="$efm32hg__acmp_8h.html" title="EFM32HG_ACMP register and bit field definitions. " alt="" coords="1210,395,1331,421"/>
+<area shape="rect" id="node50" href="$efm32hg__usart_8h.html" title="EFM32HG_USART register and bit field definitions. " alt="" coords="1356,395,1474,421"/>
+<area shape="rect" id="node52" href="$efm32hg__prs__ch_8h.html" title="EFM32HG_PRS_CH register and bit field definitions. " alt="" coords="1499,395,1627,421"/>
+<area shape="rect" id="node54" href="$efm32hg__prs_8h.html" title="EFM32HG_PRS register and bit field definitions. " alt="" coords="1652,395,1759,421"/>
+<area shape="rect" id="node56" href="$efm32hg__idac_8h.html" title="EFM32HG_IDAC register and bit field definitions. " alt="" coords="1784,395,1896,421"/>
+<area shape="rect" id="node58" href="$efm32hg__gpio__p_8h.html" title="EFM32HG_GPIO_P register and bit field definitions. " alt="" coords="1922,395,2050,421"/>
+<area shape="rect" id="node60" href="$efm32hg__gpio_8h.html" title="EFM32HG_GPIO register and bit field definitions. " alt="" coords="2074,395,2188,421"/>
+<area shape="rect" id="node62" href="$efm32hg__vcmp_8h.html" title="EFM32HG_VCMP register and bit field definitions. " alt="" coords="2212,395,2332,421"/>
+<area shape="rect" id="node64" href="$efm32hg__adc_8h.html" title="EFM32HG_ADC register and bit field definitions. " alt="" coords="2357,395,2467,421"/>
+<area shape="rect" id="node66" href="$efm32hg__leuart_8h.html" title="EFM32HG_LEUART register and bit field definitions. " alt="" coords="2492,395,2615,421"/>
+<area shape="rect" id="node68" href="$efm32hg__pcnt_8h.html" title="EFM32HG_PCNT register and bit field definitions. " alt="" coords="2639,395,2754,421"/>
+<area shape="rect" id="node70" href="$efm32hg__i2c_8h.html" title="EFM32HG_I2C register and bit field definitions. " alt="" coords="2778,395,2884,421"/>
+<area shape="rect" id="node72" href="$efm32hg__rtc_8h.html" title="EFM32HG_RTC register and bit field definitions. " alt="" coords="2909,395,3014,421"/>
+<area shape="rect" id="node78" href="$em__assert_8h.html" title="Emlib peripheral API &quot;assert&quot; implementation. " alt="" coords="2591,171,2684,197"/>
+<area shape="rect" id="node80" href="$em__bus_8h.html" title="RAM and peripheral bit&#45;field set and clear API. " alt="" coords="2709,171,2787,197"/>
+<area shape="rect" id="node110" href="$emstatus_8h.html" title="EMSTATUS definitions. " alt="" coords="3758,245,3843,272"/>
+</map>

@@ -1,0 +1,24 @@
+<map id="ezradio_reset" name="ezradio_reset">
+<area shape="rect" id="node3" href="$group__COMM__Layer.html#ga26dddf452edc3e30c29cdab7d9fef1a7" title="ezradio_comm_ClearCTS" alt="" coords="173,31,339,57"/>
+<area shape="rect" id="node5" href="$group__HAL__Layer.html#ga2ed0dd8b886f54f697fa930ce6706363" title="ezradio_hal_AssertShutdown" alt="" coords="162,81,350,108"/>
+<area shape="rect" id="node11" href="$group__HAL__Layer.html#ga2806bc95f89976726016169ea2b3339c" title="ezradio_hal_DeassertShutdown" alt="" coords="155,132,357,159"/>
+<area shape="rect" id="node16" href="$group__USTIMER.html#gae0ab9e930ee6cbd71061142c4ad4e298" title="Deinitialize USTIMER driver. " alt="" coords="199,183,313,209"/>
+<area shape="rect" id="node40" href="$group__USTIMER.html#ga3a844fc16a527d15450ba4692f6ce047" title="Delay a given number of microseconds. " alt="" coords="199,335,313,361"/>
+<area shape="rect" id="node42" href="$group__USTIMER.html#ga5c7fa9c799b61638907d4f832a45e58b" title="Activate and initialize the hardware timer used to pace the 1 microsecond delay functions. " alt="" coords="206,284,306,311"/>
+<area shape="rect" id="node7" href="$group__GPIO.html#gab08f054efbb07aaff57d616974c9c536" title="Set a single pin in GPIO data out register to 1. " alt="" coords="411,5,525,32"/>
+<area shape="rect" id="node9" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="585,56,703,83"/>
+<area shape="rect" id="node13" href="$group__GPIO.html#ga607f3a5f3d881bb145101566f1664aba" title="Set a single pin in GPIO data out port register to 0. " alt="" coords="406,56,530,83"/>
+<area shape="rect" id="node18" href="$group__CMU.html#ga93913d50050d52b38b0a7c7c08ac81e8" title="Enable/disable a clock. " alt="" coords="407,208,529,235"/>
+<area shape="rect" id="node34" href="$group__TIMER.html#gae3dd36e419641a24d3f44084c216bf71" title="Start/stop TIMER. " alt="" coords="416,107,520,133"/>
+<area shape="rect" id="node36" href="$group__TIMER.html#ga92304cb71e3c8da55c9715c8ab30dc57" title="Clear one or more pending TIMER interrupts. " alt="" coords="413,157,523,184"/>
+<area shape="rect" id="node38" href="$group__TIMER.html#gaa7f5ea5d035ebe3fad7dbb2e3c7c1cc9" title="Disable one or more TIMER interrupts. " alt="" coords="407,259,529,285"/>
+<area shape="rect" id="node21" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="579,309,709,336"/>
+<area shape="rect" id="node23" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="771,233,885,260"/>
+<area shape="rect" id="node25" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="771,284,885,311"/>
+<area shape="rect" id="node27" href="$system__ezr32wg_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="758,385,898,412"/>
+<area shape="rect" id="node29" href="$system__ezr32wg_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="947,360,1075,387"/>
+<area shape="rect" id="node31" href="$system__ezr32wg_8c.html#a442d0fcb831f601f02d643a64ab80f4c" title="GetProdRev" alt="" coords="1123,360,1211,387"/>
+<area shape="rect" id="node46" href="$group__TIMER.html#gad04a80140e22df0cd742e14933e9f028" title="Initialize TIMER. " alt="" coords="426,461,510,488"/>
+<area shape="rect" id="node48" href="$group__TIMER.html#ga9b2a3560717e0c174a030d99fa8501b4" title="Initialize TIMER compare/capture channel. " alt="" coords="418,309,518,336"/>
+<area shape="rect" id="node51" href="$group__TIMER.html#gad367b1801475494e0aeab2e4eab1e646" title="Set top value for timer. " alt="" coords="415,360,521,387"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="MSC_Init" name="MSC_Init">
+<area shape="rect" id="node3" href="$group__BSPCOMMON.html#ga5061043f8bb64d1b0130fe4185916916" title="Set or clear word in user page which enables or disables SWO in BSP_TraceProfilerSetup. If BSP_TraceProfilerEnable(false) has been run, no example project will enable SWO trace. " alt="" coords="128,5,291,32"/>
+<area shape="rect" id="node5" href="$nvm__hal_8c.html#a67a31b5bf9f6a36a8e67b3d03bf59b38" title="Initialize NVM driver. " alt="" coords="162,56,257,83"/>
+<area shape="rect" id="node7" href="$group__NVM.html#gaf74bb05f10ed4959e65e85fa438ead67" title="Initialize the NVM manager. " alt="" coords="339,56,413,83"/>
+</map>

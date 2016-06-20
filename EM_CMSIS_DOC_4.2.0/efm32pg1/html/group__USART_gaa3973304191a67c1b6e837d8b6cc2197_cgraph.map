@@ -1,0 +1,14 @@
+<map id="USART_InitI2s" name="USART_InitI2s">
+<area shape="rect" id="node3" href="$group__USART.html#gaf593db61ee6acd852dd9dc01d79a3548" title="Enable/disable USART/UART receiver and/or transmitter. " alt="" coords="161,81,268,108"/>
+<area shape="rect" id="node5" href="$group__USART.html#gaab6053ba081f6fabce6762fb4563fb28" title="Init USART for synchronous mode. " alt="" coords="157,132,272,159"/>
+<area shape="rect" id="node7" href="$group__USART.html#ga5b96146f7c05f78d31bd77aacd4a3b5f" title="Configure USART operating in synchronous mode to use a given baudrate (or as close as possible to spe..." alt="" coords="321,107,487,133"/>
+<area shape="rect" id="node26" href="$group__USART.html#ga4769e1b5d573d6cecc95ca0c7d8e2da2" title="Reset USART/UART to same state as after a HW reset. " alt="" coords="353,157,455,184"/>
+<area shape="rect" id="node9" href="$group__BUS.html#ga9e878ccba24fcbf97b5bcb8b53356e76" title="Perform peripheral register masked clear and value write. " alt="" coords="537,56,685,83"/>
+<area shape="rect" id="node15" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="545,157,676,184"/>
+<area shape="rect" id="node11" href="$group__BUS.html#gad226bfe478c81d51681539d935241758" title="Perform a masked clear operation on peripheral register address. " alt="" coords="733,5,880,32"/>
+<area shape="rect" id="node13" href="$group__BUS.html#ga8225a5d4acac280abb182dc118e8df77" title="Perform a masked set operation on peripheral register address. " alt="" coords="739,56,875,83"/>
+<area shape="rect" id="node17" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="749,107,864,133"/>
+<area shape="rect" id="node19" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="749,157,864,184"/>
+<area shape="rect" id="node21" href="$system__efm32pg1b_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="737,208,877,235"/>
+<area shape="rect" id="node23" href="$system__efm32pg1b_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="928,233,1056,260"/>
+</map>

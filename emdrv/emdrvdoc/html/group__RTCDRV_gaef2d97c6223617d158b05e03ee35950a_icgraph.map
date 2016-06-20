@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$group__SPIDRV.html#gae1bf2b297eca13e7e46cbbcb66202239" title="Initialize a SPI driver instance." alt="" coords="211,5,301,32"/>
-<area shape="rect" id="node5" href="$group__HAL__Layer.html#gae1cf166781ecf4a2317e0d9d4f504197" title="Initializes SPI driver for the EZRadio device." alt="" coords="349,5,480,32"/>
-<area shape="rect" id="node7" href="$group__Plugin__Manager.html#ga55ab56dfaa297c93024dc43239bc8592" title="Radio Initialization." alt="" coords="528,5,611,32"/>
-</map>

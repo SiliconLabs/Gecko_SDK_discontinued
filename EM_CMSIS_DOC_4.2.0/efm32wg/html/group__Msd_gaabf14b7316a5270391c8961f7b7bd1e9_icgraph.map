@@ -1,0 +1,6 @@
+<map id="MSDSCSI_ReadCapacity" name="MSDSCSI_ReadCapacity">
+<area shape="rect" id="node3" href="$group__Msd.html#gae8f9b12aff7da92b795ef4c64a5bd242" title="Get blocksize from the device. " alt="" coords="222,5,357,32"/>
+<area shape="rect" id="node5" href="$group__Msd.html#gaef64501159db49dd5e00287a2487ce68" title="Get sectorcount from the device. " alt="" coords="213,56,365,83"/>
+<area shape="rect" id="node7" href="$group__Msd.html#ga14bdf90c68d29571164a39c8f22f8f73" title="Get sectorsize from the device. " alt="" coords="218,107,361,133"/>
+<area shape="rect" id="node9" href="$group__Msd.html#gaeb31e6900faf7971679af16d079f6c14" title="Initialize an USB connected Mass Storage Device. Checks if the device is a valid MSD device..." alt="" coords="249,157,330,184"/>
+</map>

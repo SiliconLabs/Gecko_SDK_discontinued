@@ -1,9 +1,0 @@
-base referer
-rect $group__USART.html#g5b96146f7c05f78d31bd77aacd4a3b5f 176,81 357,108
-rect $group__USART.html#g4769e1b5d573d6cecc95ca0c7d8e2da2 213,132 321,159
-rect $group__BUS.html#g9e878ccba24fcbf97b5bcb8b53356e76 405,56 565,83
-rect $group__CMU.html#gc9aa0ed17f83bd48abcf7b430843374a 413,107 557,133
-rect $group__BUS.html#gd226bfe478c81d51681539d935241758 614,5 775,32
-rect $group__BUS.html#g8225a5d4acac280abb182dc118e8df77 621,56 768,83
-rect $group__CMU.html#g3ac649cb01dd184676c6bdea7ff3d768 632,107 757,133
-rect $group__CMU.html#g535e1e8fa3a9131d7151cc549bfb4f29 632,157 757,184

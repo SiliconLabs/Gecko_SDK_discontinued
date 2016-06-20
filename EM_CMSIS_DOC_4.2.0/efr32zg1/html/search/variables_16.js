@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['valid',['Valid',['../structMSDSCSI__RequestSenseData__TypeDef.html#ac486480a4989efbebbaccf3cbafc3b68',1,'MSDSCSI_RequestSenseData_TypeDef::Valid()'],['../structMSDD__CmdStatus__TypeDef.html#a0eb28e74638f8ca64f0cf141a4cb3055',1,'MSDD_CmdStatus_TypeDef::valid()']]],
+  ['vddlevelhigh',['vddLevelHigh',['../structACMP__CapsenseInit__TypeDef.html#a239d1c4dac0a34e9a8d7621454ffccfa',1,'ACMP_CapsenseInit_TypeDef']]],
+  ['vddlevellow',['vddLevelLow',['../structACMP__CapsenseInit__TypeDef.html#a8bffedb21c93b215402bea0e1040e703',1,'ACMP_CapsenseInit_TypeDef']]],
+  ['verification',['Verification',['../structMSDSCSI__Verify10__TypeDef.html#a30481a394fbcd76dca996efc1c1d6f57',1,'MSDSCSI_Verify10_TypeDef']]],
+  ['version',['Version',['../structMSDSCSI__InquiryData__TypeDef.html#a19b18638a490b73406a2a934e9846bb3',1,'MSDSCSI_InquiryData_TypeDef']]],
+  ['vis',['vis',['../structSI114X__IRQ__SAMPLE.html#a434aca5bbede919398acb1412d64aace',1,'SI114X_IRQ_SAMPLE']]],
+  ['vispd_5fadchi_5fwhled',['vispd_adchi_whled',['../structcal__ref__t.html#a0a6e163ff6ea04fd48947c6ff5fac5ac',1,'cal_ref_t']]],
+  ['vispd_5fadclo_5fwhled',['vispd_adclo_whled',['../structcal__ref__t.html#ac1c15fdb1f3a80f4c150b74727f56198',1,'cal_ref_t']]],
+  ['vispd_5fcorrection',['vispd_correction',['../structSI114X__CAL__S.html#a92961490b1a4ae8a444b7de381528d92',1,'SI114X_CAL_S']]],
+  ['vlpinput',['vlpInput',['../structACMP__Init__TypeDef.html#a9c93d6a04d11ffdee565b235c80b0ae7',1,'ACMP_Init_TypeDef']]],
+  ['vmonaltavddctrl',['VMONALTAVDDCTRL',['../structEMU__TypeDef.html#a79b7d33133c43db64a852051b8cd89df',1,'EMU_TypeDef']]],
+  ['vmonavddctrl',['VMONAVDDCTRL',['../structEMU__TypeDef.html#a0ec4e1ed91a6bb482b112d158cf480a0',1,'EMU_TypeDef']]],
+  ['vmoncal0',['VMONCAL0',['../structDEVINFO__TypeDef.html#abb5ff44bcaa9521390bb74a2eada9283',1,'DEVINFO_TypeDef']]],
+  ['vmoncal1',['VMONCAL1',['../structDEVINFO__TypeDef.html#a7b600d5345dd749326af355ffb0ae038',1,'DEVINFO_TypeDef']]],
+  ['vmoncal2',['VMONCAL2',['../structDEVINFO__TypeDef.html#a15c1446ffa7c32b52db9d7e149e86145',1,'DEVINFO_TypeDef']]],
+  ['vmondvddctrl',['VMONDVDDCTRL',['../structEMU__TypeDef.html#a6cf9cf5d4d58f47bfda6316e24d5574e',1,'EMU_TypeDef']]],
+  ['vmonio0ctrl',['VMONIO0CTRL',['../structEMU__TypeDef.html#afd5101039d010b2b92970e6ed29f585c',1,'EMU_TypeDef']]],
+  ['vrprotect',['VrProtect',['../structMSDSCSI__Verify10__TypeDef.html#ae54d995272dc054a0e9fbbd81f3f068c',1,'MSDSCSI_Verify10_TypeDef']]],
+  ['vs1',['Vs1',['../structMSDSCSI__InquiryData__TypeDef.html#ad69b6988740c3012da6579229731cf93',1,'MSDSCSI_InquiryData_TypeDef']]],
+  ['vs2',['Vs2',['../structMSDSCSI__InquiryData__TypeDef.html#a93bd09979d33921c72bd7183f3372a4a',1,'MSDSCSI_InquiryData_TypeDef']]]
+];

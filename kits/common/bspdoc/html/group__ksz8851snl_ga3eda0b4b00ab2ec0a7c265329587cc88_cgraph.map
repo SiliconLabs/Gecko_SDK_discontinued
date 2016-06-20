@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$ksz8851snl__spi_8c.html#a947af8a0b941a0ac77fbdaaec0c7a587" title="Receive a series of bytes over the spi link." alt="" coords="251,5,421,32"/>
-<area shape="rect" id="node5" href="$ksz8851snl__spi_8c.html#ab3cd4983675d048afb998f29244de6c0" title="Select/deselect the ksz8851snl chip." alt="" coords="233,56,439,83"/>
-<area shape="rect" id="node7" href="$ksz8851snl__spi_8c.html#aa7973e5c903af7ba709937e516393a30" title="Transmits a series of bytes over the spi link." alt="" coords="247,107,425,133"/>
-</map>

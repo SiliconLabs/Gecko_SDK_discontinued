@@ -1,0 +1,6 @@
+<map id="C:/work/s025_sw/kits/common/drivers/dmactrl.h" name="C:/work/s025_sw/kits/common/drivers/dmactrl.h">
+<area shape="rect" id="node3" href="$dmadrv_8c.html" title="DMADRV API implementation. " alt="" coords="5,97,168,138"/>
+<area shape="rect" id="node5" href="$cdc_8c.html" title="USB Communication Device Class (CDC) driver. " alt="" coords="193,97,348,138"/>
+<area shape="rect" id="node7" href="$dmactrl_8c.html" title="DMA control data block. " alt="" coords="372,97,551,138"/>
+<area shape="rect" id="node9" href="$nandflash_8c.html" title="EFM32GG_STK3700 nandflash driver. " alt="" coords="575,97,765,138"/>
+</map>

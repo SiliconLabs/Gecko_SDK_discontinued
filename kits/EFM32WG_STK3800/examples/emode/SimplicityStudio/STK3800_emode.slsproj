@@ -3,19 +3,21 @@
   <module id="com.silabs.ide.si32.sdk.efm32.v2.kit">
     <exclude pattern=".*" />
   </module>
-  <includePath uri="." />
   <module id="com.silabs.ide.si32.sdk.efm32.v2.common.CMSIS">
     <exclude pattern=".*" />
   </module>
   <module id="com.silabs.ide.si32.sdk.efm32.v2.common.emlib">
     <include pattern="emlib/em_assert.c" />
-    <include pattern="emlib/em_burtc.c" />
     <include pattern="emlib/em_cmu.c" />
     <include pattern="emlib/em_emu.c" />
     <include pattern="emlib/em_gpio.c" />
-    <include pattern="emlib/em_rmu.c" />
+    <include pattern="emlib/em_rtc.c" />
     <include pattern="emlib/em_system.c" />
     <include pattern="emlib/em_lcd.c" />
+    <include pattern="emlib/em_int.c" />
+  </module>
+  <module id="com.silabs.ide.si32.sdk.efm32.v2.common.emdrv">
+    <include pattern="Drivers(/.*){0,1}/rtcdriver.c" />
   </module>
   <module id="com.silabs.ide.si32.sdk.efm32.v2.common.bsp">
     <include pattern="BSP/bsp_trace.c" />
@@ -29,7 +31,10 @@
   </module>
   <macroDefinition name="DEBUG_EFM" languageCompatibility="c cpp" />
   <file name="readme.txt" uri="readme.txt" />
+  <includePath uri="." />
   <folder name="src">
-    <file name="emode.c" uri="emode.c" />
+    <file name="main.c" uri="main.c" />
+    <file name="lcd_setup.c" uri="lcd_setup.c" />
+    <file name="emodes.c" uri="emodes.c" />
   </folder>
 </project>

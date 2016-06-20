@@ -1,0 +1,25 @@
+var ksz8851snl__spi_8c =
+[
+    [ "BOGUS_BYTE", "ksz8851snl__spi_8c.html#a404266a05ffb37f3137256b78f1bf716", null ],
+    [ "REG_MASK", "ksz8851snl__spi_8c.html#aa6a4859af8e250ed21bc057b7540a461", null ],
+    [ "OPCODE_REG_READ", "ksz8851snl__spi_8c.html#a6fcbd064a7e187293addbe9e4cc93cce", null ],
+    [ "OPCODE_REG_WRITE", "ksz8851snl__spi_8c.html#ac8b540d46b3b86ae11c069183aea466c", null ],
+    [ "OPCODE_FIFO_READ", "ksz8851snl__spi_8c.html#a2d6c32b31b85ca6082321357f7439cc6", null ],
+    [ "OPCODE_FIFO_WRITE", "ksz8851snl__spi_8c.html#a4ca682808698daba93e94f054b9a51e0", null ],
+    [ "ADDRESS_MS2B_POS", "ksz8851snl__spi_8c.html#ae8526cb126f7098e0a88e852be5869c4", null ],
+    [ "ADDRESS_SHIFT", "ksz8851snl__spi_8c.html#a02fdff8245e3129623dda71f0245a704", null ],
+    [ "BYTE_ENABLE", "ksz8851snl__spi_8c.html#a3eab74b0d46a00705737d3fca071c8fb", null ],
+    [ "BYTE_ENABLE_SHIFT", "ksz8851snl__spi_8c.html#a586977cb555c555102ce455b8786c232", null ],
+    [ "ETH_CS_PIN", "ksz8851snl__spi_8c.html#a8c72b0130a3a8067c2e9ce362cd305b9", null ],
+    [ "ETH_CS_PORT", "ksz8851snl__spi_8c.html#a2107ae7691edb9a15edccada3ee54a43", null ],
+    [ "KSZ8851SNL_SPI_Init", "group__ksz8851snl.html#ga12cf356cb196dbc44230f7ad5aa16742", null ],
+    [ "KSZ8851SNL_SPI_Transmit", "ksz8851snl__spi_8c.html#aa7973e5c903af7ba709937e516393a30", null ],
+    [ "KSZ8851SNL_SPI_Receive", "ksz8851snl__spi_8c.html#a947af8a0b941a0ac77fbdaaec0c7a587", null ],
+    [ "KSZ8851SNL_SPI_SetChipSelect", "ksz8851snl__spi_8c.html#ab3cd4983675d048afb998f29244de6c0", null ],
+    [ "KSZ8851SNL_SPI_ReadRegister", "group__ksz8851snl.html#gaef8e79d738a8e792ea8335a14e4d80c5", null ],
+    [ "KSZ8851SNL_SPI_WriteRegister", "group__ksz8851snl.html#ga194769a82e5a1c0ab03ea0923b7da2d0", null ],
+    [ "KSZ8851SNL_SPI_ReadFifo", "group__ksz8851snl.html#ga3eda0b4b00ab2ec0a7c265329587cc88", null ],
+    [ "KSZ8851SNL_SPI_WriteFifoBegin", "group__ksz8851snl.html#ga06d01a766dd38a09f6cb657bf778b385", null ],
+    [ "KSZ8851SNL_SPI_WriteFifo", "group__ksz8851snl.html#ga8bf407a2b072a222c5053b39963ed165", null ],
+    [ "KSZ8851SNL_SPI_WriteFifoEnd", "group__ksz8851snl.html#ga3102136a87269f6531366fca103c06f7", null ]
+];

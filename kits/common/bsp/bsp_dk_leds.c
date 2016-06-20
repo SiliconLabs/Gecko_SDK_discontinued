@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file
  * @brief Board support package API for GPIO leds on STK's.
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -18,6 +18,10 @@
 #include "bsp.h"
 
 #if defined( BSP_DK_LEDS )
+/***************************************************************************//**
+ * @addtogroup BSP
+ * @{
+ ******************************************************************************/
 
 /***************************************************************************//**
  * @addtogroup BSPCOMMON API common for all kits
@@ -138,5 +142,6 @@ int BSP_LedToggle(int ledNo)
   return BSP_STATUS_ILLEGAL_PARAM;
 }
 
+/** @} */
 /** @} */
 #endif  /* BSP_DK_LEDS */

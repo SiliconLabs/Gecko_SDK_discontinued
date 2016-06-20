@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file
  * @brief Demo for energy mode current consumption testing.
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -21,6 +21,7 @@
 #include "em_emu.h"
 #include "em_gpio.h"
 #include "em_pcnt.h"
+#include "em_msc.h"
 
 #include "display.h"
 #include "textdisplay.h"
@@ -53,17 +54,25 @@ int main(void)
 {
   int currentEMode;
 
-  EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_STK_DEFAULT;
-  CMU_HFXOInit_TypeDef hfxoInit = CMU_HFXOINIT_STK_DEFAULT;
-
   /* Chip errata */
   CHIP_Init();
 
-  /* Init DCDC regulator and HFXO with kit specific parameters */
+  EMU_EM4Init_TypeDef em4init = EMU_EM4INIT_DEFAULT;
+  EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_STK_DEFAULT;
+  CMU_HFXOInit_TypeDef hfxoInit = CMU_HFXOINIT_STK_DEFAULT;
+  MSC_ExecConfig_TypeDef mscInit = MSC_EXECCONFIG_DEFAULT;
+
+  /* Initialize HFXO and EM4 with kit specific parameters */
+  EMU_EM4Init(&em4init);
   EMU_DCDCInit(&dcdcInit);
   CMU_HFXOInit(&hfxoInit);
 
-  /* Select ULFRCO as clock source for LFA */
+  /* Initialize MSC - enable conditional branch target prefetch delay */
+  MSC_Init();
+  mscInit.scbtEn = true;
+  MSC_ExecConfigSet(&mscInit);
+
+   /* Select ULFRCO as clock source for LFA */
   CMU_ClockSelectSet(cmuClock_LFA, cmuSelect_ULFRCO);
 
   /* Setup GPIO for pushbuttons. */
@@ -113,14 +122,14 @@ int main(void)
       switch (eMode)
       {
         case 0:
-          printf("\r   EM0 38.4MHz\n"
+          printf("\r    EM0 40MHz\n"
                    "  (primes calc)");
           break;
 
         case 1:
           printf("\r               " );
           printf( TEXTDISPLAY_ESC_SEQ_CURSOR_HOME_VT100 );
-          printf("\n\n\n\n\n\n\n\n\n\n\n\n   EM1 38.4MHz");
+          printf("\n\n\n\n\n\n\n\n\n\n\n\n   EM1 40MHz  ");
           break;
 
         case 2:
@@ -161,16 +170,19 @@ int main(void)
       /* Disable GPIO. */
       NVIC_DisableIRQ(GPIO_EVEN_IRQn);
       NVIC_DisableIRQ(GPIO_ODD_IRQn);
-      GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeDisabled, 1);
-      GPIO_PinModeSet(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN, gpioModeDisabled, 1);
+      GPIO_PinModeSet(BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN, gpioModeDisabled, 0);
+      GPIO_PinModeSet(BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN, gpioModeDisabled, 0);
 
       /* Clear LCD display. */
       printf("\f");
 
       switch (eMode)
       {
-        case 0:           /* EM0 38.4MHz (primes) */
-        case 1:           /* EM1 38.4MHz */
+        case 0:           /* EM0 40MHz (primes) */
+        case 1:           /* EM1 40MHz */
+          /* Enable DCDC low power mode */
+          EMU->DCDCCTRL = (EMU->DCDCCTRL & ~_EMU_DCDCCTRL_DCDCMODE_MASK)
+                           | EMU_DCDCCTRL_DCDCMODE_LOWPOWER;
         case 2:           /* EM2 32kHz */
         case 3:           /* EM3 */
         case 4:           /* EM4 */
@@ -198,7 +210,7 @@ int main(void)
       /* Do the slected energy mode test. */
       switch (eMode)
       {
-        case 0:  /* EM0 38.4MHz (primes) */
+        case 0:  /* EM0 40MHz (primes) */
           selectClock(cmuSelect_HFXO,               /* HF clock           */
                       CMU_OSCENCMD_HFRCODIS |       /* Clock disable mask */
                       CMU_OSCENCMD_LFXODIS  |
@@ -232,7 +244,7 @@ int main(void)
           }
           /*break;*/
 
-        case 1:  /* EM1 38.4MHz */
+        case 1:  /* EM1 40MHz */
           selectClock(cmuSelect_HFXO,               /* HF clock           */
                       CMU_OSCENCMD_HFRCODIS |       /* Clock disable mask */
                       CMU_OSCENCMD_LFXODIS  |
@@ -455,7 +467,7 @@ void PCNT0_IRQHandler(void)
  * @param[in] clockDisableMask   Bit masks with clocks to disable.
  *****************************************************************************/
 static void selectClock(CMU_Select_TypeDef hfClockSelect,
-                          uint32_t clockDisableMask)
+                        uint32_t clockDisableMask)
 {
   /* Select HF clock. */
   CMU_ClockSelectSet(cmuClock_HF, hfClockSelect);

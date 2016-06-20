@@ -1,0 +1,17 @@
+<map id="USBTIMER_Init" name="USBTIMER_Init">
+<area shape="rect" id="node3" href="$group__CMU.html#ga93913d50050d52b38b0a7c7c08ac81e8" title="Enable/disable a clock. " alt="" coords="168,31,291,57"/>
+<area shape="rect" id="node7" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="347,81,477,108"/>
+<area shape="rect" id="node21" href="$group__TIMER.html#ga4ef423dd1b30cc66f3c3d3d51dac5d16" title="Set compare value for compare/capture channel when operating in compare or PWM mode. " alt="" coords="161,132,298,159"/>
+<area shape="rect" id="node23" href="$group__TIMER.html#ga83e10f77009812d7bfff2cf835ca64d7" title="Get TIMER counter value. " alt="" coords="164,183,295,209"/>
+<area shape="rect" id="node25" href="$group__TIMER.html#gad04a80140e22df0cd742e14933e9f028" title="Initialize TIMER. " alt="" coords="187,233,271,260"/>
+<area shape="rect" id="node27" href="$group__TIMER.html#ga9b2a3560717e0c174a030d99fa8501b4" title="Initialize TIMER compare/capture channel. " alt="" coords="179,284,279,311"/>
+<area shape="rect" id="node29" href="$group__TIMER.html#ga92304cb71e3c8da55c9715c8ab30dc57" title="Clear one or more pending TIMER interrupts. " alt="" coords="174,335,285,361"/>
+<area shape="rect" id="node31" href="$group__TIMER.html#ga10317eb2cd4cf6c5bde768023ea132cd" title="Enable one or more TIMER interrupts. " alt="" coords="170,385,289,412"/>
+<area shape="rect" id="node33" href="$group__TIMER.html#gad367b1801475494e0aeab2e4eab1e646" title="Set top value for timer. " alt="" coords="176,436,283,463"/>
+<area shape="rect" id="node5" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="353,31,471,57"/>
+<area shape="rect" id="node9" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="539,5,653,32"/>
+<area shape="rect" id="node11" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="539,56,653,83"/>
+<area shape="rect" id="node13" href="$system__efm32lg_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="526,107,666,133"/>
+<area shape="rect" id="node15" href="$system__efm32lg_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="715,132,843,159"/>
+<area shape="rect" id="node17" href="$system__efm32lg_8c.html#a442d0fcb831f601f02d643a64ab80f4c" title="GetProdRev" alt="" coords="891,132,979,159"/>
+</map>

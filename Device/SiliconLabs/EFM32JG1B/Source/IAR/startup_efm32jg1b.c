@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file startup_efm32jg1b.c
  * @brief CMSIS Compatible EFM32JG1B startup file in C for IAR EWARM
- * @version 4.1.0
+ * @version 4.2.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -190,6 +190,11 @@ __weak void MSC_IRQHandler(void)
   while(1);
 }
 
+__weak void CRYPTO_IRQHandler(void)
+{
+  while(1);
+}
+
 __weak void LETIMER0_IRQHandler(void)
 {
   while(1);
@@ -250,7 +255,7 @@ const void * const __vector_table[]=  {
   (void *) PCNT0_IRQHandler,  /* 22 - PCNT0 */
   (void *) CMU_IRQHandler,  /* 23 - CMU */
   (void *) MSC_IRQHandler,  /* 24 - MSC */
-  (void *) 0,                /* 25 - Reserved */
+  (void *) CRYPTO_IRQHandler,  /* 25 - CRYPTO */
   (void *) LETIMER0_IRQHandler,  /* 26 - LETIMER0 */
   (void *) 0,                /* 27 - Reserved */
   (void *) 0,                /* 28 - Reserved */

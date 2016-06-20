@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_usbh.c
  * @brief USB protocol stack library API for EFM32/EZR32.
- * @version 4.1.0
+ * @version 4.2.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -35,9 +35,9 @@ volatile USBH_PortState_TypeDef   USBH_portStatus;
 const USBH_AttachTiming_TypeDef   USBH_attachTiming[]=
 {
   /* debounceTime resetTime */
-  {  200, 15 },
-  {  200, 20 },
-  {  200, 10 },
+  {  200, 75  },
+  {  200, 100 },
+  {  200, 50  },
 };
 
 #define PORT_VBUS_DELAY       250
@@ -992,11 +992,11 @@ int USBH_PortReset( void )
   USBH_portStatus = H_PORT_CONNECTED_RESETTING;
   USBHHAL_PortReset( true );
   INT_Enable();
-  USBTIMER_DelayMs( 30 );                 /* USB Reset delay */
+  USBTIMER_DelayMs( 50 );                 /* USB Reset delay */
   INT_Disable();
   USBHHAL_PortReset( false );
   INT_Enable();
-  USBTIMER_DelayMs( 10 );                 /* Reset recovery time */
+  USBTIMER_DelayMs( 100 );                /* Reset recovery time */
   USBH_portStatus = H_PORT_DISCONNECTED;
 
   return USB_STATUS_OK;
@@ -2219,10 +2219,11 @@ int USBH_WaitForDeviceConnectionB( uint8_t *buf, int timeoutInSeconds )
         accumulatedTime += 50;
     }
 
-    /* Reset recovery time. */
-    USBTIMER_DelayMs( 10 );
+    /* Reset recovery time, the USB standard says 10ms. Extend the  */
+    /* timeout to be lenient with non compliant devices.            */
+    USBTIMER_DelayMs( 100 );
     if ( deadLine )
-      accumulatedTime += 10;
+      accumulatedTime += 100;
 
     /* Do one USB transfer to check if device connection is OK. */
 
@@ -2442,6 +2443,7 @@ int USBH_WriteB( USBH_Ep_TypeDef *ep, void *data, int byteCount, int timeout )
 }
 
 /******** THE REST OF THE FILE IS DOCUMENTATION ONLY !**********************//**
+ * @addtogroup USB
  * @{
 
 @page usb_host USB host stack library

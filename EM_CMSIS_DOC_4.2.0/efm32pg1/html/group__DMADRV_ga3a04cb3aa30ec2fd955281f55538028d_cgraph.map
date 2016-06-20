@@ -1,0 +1,6 @@
+<map id="DMADRV_StopTransfer" name="DMADRV_StopTransfer">
+<area shape="rect" id="node3" href="$group__LDMA.html#ga94f7cafc791d8ddb5858dafee6a94ada" title="Stop a DMA transfer. " alt="" coords="208,56,344,83"/>
+<area shape="rect" id="node5" href="$group__BUS.html#gad226bfe478c81d51681539d935241758" title="Perform a masked clear operation on peripheral register address. " alt="" coords="392,5,539,32"/>
+<area shape="rect" id="node7" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="420,56,511,83"/>
+<area shape="rect" id="node9" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="422,107,509,133"/>
+</map>

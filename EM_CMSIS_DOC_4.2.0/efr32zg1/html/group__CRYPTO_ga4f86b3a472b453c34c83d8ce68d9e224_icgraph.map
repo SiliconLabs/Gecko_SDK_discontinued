@@ -1,0 +1,4 @@
+<map id="CRYPTO_DDataRead" name="CRYPTO_DDataRead">
+<area shape="rect" id="node3" href="$group__CRYPTO.html#ga3ebe33a6e36e8b538fb4726cc18be88e" title="Read 260 bits from the DDATA0 register. " alt="" coords="193,5,359,32"/>
+<area shape="rect" id="node5" href="$group__CRYPTO.html#gab607305b2daaffc513062b840f129fc9" title="Perform a SHA&#45;256 hash operation on a message. " alt="" coords="212,56,340,83"/>
+</map>

@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$group__MicroSd.html#gaf8bc1ef198bc70e4c16ec91c1deb3202" title="Deselect the micro SD card and release the SPI bus." alt="" coords="361,5,493,32"/>
-<area shape="rect" id="node7" href="$group__MicroSd.html#gad8f1138f2a82606cf64551dcfe50e7d1" title="Select the micro SD card and wait for the card to become ready." alt="" coords="193,31,311,57"/>
-<area shape="rect" id="node5" href="$group__MicroSd.html#ga8ed3e59a754cf25f4d8efc3809743e9d" title="Do one SPI transfer." alt="" coords="542,5,669,32"/>
-</map>

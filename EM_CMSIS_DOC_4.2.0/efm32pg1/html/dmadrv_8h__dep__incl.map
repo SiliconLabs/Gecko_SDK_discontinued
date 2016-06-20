@@ -1,0 +1,9 @@
+<map id="C:/work/s025_sw/emdrv/dmadrv/inc/dmadrv.h" name="C:/work/s025_sw/emdrv/dmadrv/inc/dmadrv.h">
+<area shape="rect" id="node3" href="$spidrv_8h.html" title="SPIDRV API definition. " alt="" coords="269,97,432,138"/>
+<area shape="rect" id="node7" href="$spidrv_8c.html" title="SPIDRV API implementation. " alt="" coords="437,194,600,235"/>
+<area shape="rect" id="node12" href="$uartdrv_8h.html" title="UARTDRV API definition. " alt="" coords="557,97,720,138"/>
+<area shape="rect" id="node16" href="$dmadrv_8c.html" title="DMADRV API implementation. " alt="" coords="745,97,908,138"/>
+<area shape="rect" id="node5" href="$ezradio__hal_8c.html" title="This file contains EZRadio HAL. " alt="" coords="5,187,168,243"/>
+<area shape="rect" id="node9" href="$ksz8851snl__spi_8c.html" title="SPI interface API for KSZ8851SNL Ethernet controller. " alt="" coords="193,194,412,235"/>
+<area shape="rect" id="node14" href="$uartdrv_8c.html" title="UARTDRV API implementation. " alt="" coords="625,194,788,235"/>
+</map>

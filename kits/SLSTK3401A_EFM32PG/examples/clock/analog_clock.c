@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file analog_clock.c
  * @brief Draws an analog clock using GLIB
- * @version 4.1.0
+ * @version 4.2.0
  *
  ******************************************************************************
  * @section License
@@ -47,7 +47,7 @@
 
 /* Define Pi if not already defined. */
 #ifndef PI
-#define PI    3.14159265358979
+#define PI    3.14159265358979f
 #endif
 
 extern GLIB_Context_t gc;
@@ -96,7 +96,7 @@ static void analogDrawHourHand(int32_t hour, int32_t minute)
   float a;
 
   /* Get angle */
-  a = (float) position / 30.0 * PI;
+  a = (float) position / 30.0f * PI;
 
   /* Hour pointer is just a line. Calculate start and end points. */
   GLIB_drawLine(&gc,
@@ -114,7 +114,7 @@ static void analogDrawMinuteHand(int32_t minute)
   float a;
 
   /* Get angle */
-  a = (float) minute / 30.0 * PI;
+  a = (float) minute / 30.0f * PI;
 
   /* Minute pointer is just a line. Calculate start and end points. */
   GLIB_drawLine(&gc,
@@ -143,7 +143,7 @@ static void analogDrawNumberPlate(void)
   for ( i = 1; i <= 12; i++ ) {
 
     /* Get angle */
-    a = (float) i / 6.0 * PI;
+    a = (float) i / 6.0f * PI;
 
     /* Calculate position for the label */
     x = CENTER_X - 4 + (int) (LABEL_LENGTH * sinf(a));
@@ -170,8 +170,8 @@ void analogClockInitGraphics(void)
   /* Pre-calculate positions for each second-dot
      Saves about 2 uA compared to calculating it every second */
   for ( i = 0; i < 16; i++ ) {
-    angle              = (float) (i) / 30.0 * PI;
-    secondPositions[i] = (int32_t) (SEC_POS * sinf(angle) + 0.5);
+    angle              = (float) (i) / 30.0f * PI;
+    secondPositions[i] = (int32_t) (SEC_POS * sinf(angle) + 0.5f);
   }
 }
 

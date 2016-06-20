@@ -1,0 +1,9 @@
+<map id="LEUART_Init" name="LEUART_Init">
+<area shape="rect" id="node3" href="$group__LEUART.html#gac8d75da0027ebce98cf33ebcdfe9bdad" title="Configure baudrate (or as close as possible to specified baudrate). " alt="" coords="151,81,295,108"/>
+<area shape="rect" id="node16" href="$group__LEUART.html#ga997e11e29be1835b8a49b35b0a2e38a5" title="LEUART register synchronization freeze control. " alt="" coords="147,132,298,159"/>
+<area shape="rect" id="node5" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="347,81,477,108"/>
+<area shape="rect" id="node7" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="539,5,653,32"/>
+<area shape="rect" id="node9" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="539,56,653,83"/>
+<area shape="rect" id="node11" href="$system__efm32hg_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="526,107,666,133"/>
+<area shape="rect" id="node13" href="$system__efm32hg_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="715,132,843,159"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="LDMA_TransferRemainingCount" name="LDMA_TransferRemainingCount">
+<area shape="rect" id="node3" href="$group__DMADRV.html#ga9a253b47872d205a76b6f1b7b486194d" title="Get number of items remaining in a transfer. " alt="" coords="257,99,445,141"/>
+<area shape="rect" id="node5" href="$group__SPIDRV.html#ga071d128b28b8acff08396fb090b8025a" title="Abort an ongoing SPI transfer. " alt="" coords="513,5,665,32"/>
+<area shape="rect" id="node7" href="$group__SPIDRV.html#ga7d440db45246649580c6c5b08eb332da" title="Get the status of a SPI transfer. " alt="" coords="501,56,677,83"/>
+<area shape="rect" id="node9" href="$group__UARTDRV.html#ga0abd859c2a17dafe03abceeb4c96a12a" title="Abort an ongoing UART transfer. " alt="" coords="531,107,647,133"/>
+<area shape="rect" id="node11" href="$group__UARTDRV.html#ga34806bf9fc4d876aa6ae725ce060541b" title="Check the status of the UART and gather information about any ongoing receive operations. " alt="" coords="497,157,681,184"/>
+<area shape="rect" id="node13" href="$group__UARTDRV.html#gae5387109fb659840fa822aa6ae08b81f" title="Check the status of the UART and gather information about any ongoing transmit operations. " alt="" coords="494,208,685,235"/>
+</map>

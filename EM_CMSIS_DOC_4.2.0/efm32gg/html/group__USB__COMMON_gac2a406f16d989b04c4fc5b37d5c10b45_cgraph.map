@@ -1,0 +1,5 @@
+<map id="USBTIMER_Start" name="USBTIMER_Start">
+<area shape="rect" id="node3" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="333,5,424,32"/>
+<area shape="rect" id="node5" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="335,68,422,95"/>
+<area shape="rect" id="node7" href="$group__USB__COMMON.html#gab73c922427cf0d509788a8063451703f" title="Stop a timer. " alt="" coords="171,31,285,57"/>
+</map>

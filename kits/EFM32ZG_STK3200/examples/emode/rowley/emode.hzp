@@ -28,7 +28,9 @@
       <file file_name="../../../../../emlib/src/em_usart.c"/>
     </folder>
     <folder Name="Source">
-      <file file_name="../emode.c"/>
+      <file file_name="../main.c"/>
+      <file file_name="../lcd_setup.c"/>
+      <file file_name="../emodes.c"/>
     </folder>
 
     <folder Name="System Files">

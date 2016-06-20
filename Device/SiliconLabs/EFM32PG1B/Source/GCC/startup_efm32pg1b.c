@@ -2,7 +2,7 @@
  * @file startup_efm32pg1b.c
  * @brief CMSIS Compatible EFM32PG1B startup file in C.
  *        Should be used with GCC 'GNU Tools ARM Embedded'
- * @version 4.1.0
+ * @version 4.2.0
  * Date:    12 June 2014
  *
  */
@@ -127,6 +127,7 @@ void LEUART0_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
 void PCNT0_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
 void CMU_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
 void MSC_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
+void CRYPTO_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
 void LETIMER0_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
 void RTCC_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
 void CRYOTIMER_IRQHandler(void) __attribute__ ((weak, alias("Default_Handler")));
@@ -182,7 +183,7 @@ const pFunc __Vectors[] __attribute__ ((section(".vectors"))) = {
   PCNT0_IRQHandler,                       /*  22 - PCNT0       */
   CMU_IRQHandler,                       /*  23 - CMU       */
   MSC_IRQHandler,                       /*  24 - MSC       */
-  Default_Handler,                          /*  25 - Reserved      */
+  CRYPTO_IRQHandler,                       /*  25 - CRYPTO       */
   LETIMER0_IRQHandler,                       /*  26 - LETIMER0       */
   Default_Handler,                          /*  27 - Reserved      */
   Default_Handler,                          /*  28 - Reserved      */

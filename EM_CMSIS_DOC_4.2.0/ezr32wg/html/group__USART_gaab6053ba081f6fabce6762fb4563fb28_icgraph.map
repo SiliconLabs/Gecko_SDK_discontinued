@@ -1,0 +1,9 @@
+<map id="USART_InitSync" name="USART_InitSync">
+<area shape="rect" id="node3" href="$group__MicroSd.html#ga3e6c324243ac41ecf09bd04a746b0cd5" title="Initialize the SPI peripheral for microSD card usage. SPI pins and speed etc. is defined in microsdco..." alt="" coords="169,5,271,32"/>
+<area shape="rect" id="node5" href="$group__Tft.html#ga2466fe58c7700827edd224e2ab84f3ea" title="SPI_TFT_Init Initialize SPI interface to TFT&#45;LCD SSD2119 controller. " alt="" coords="172,56,268,83"/>
+<area shape="rect" id="node7" href="$group__SPIDRV.html#gae1bf2b297eca13e7e46cbbcb66202239" title="Initialize a SPI driver instance. " alt="" coords="175,107,265,133"/>
+<area shape="rect" id="node15" href="$group__USART.html#gaa3973304191a67c1b6e837d8b6cc2197" title="Init USART for I2S mode. " alt="" coords="168,157,272,184"/>
+<area shape="rect" id="node9" href="$group__HAL__Layer.html#gae1cf166781ecf4a2317e0d9d4f504197" title="ezradio_hal_SpiInit" alt="" coords="328,81,459,108"/>
+<area shape="rect" id="node13" href="$group__ksz8851snl.html#ga12cf356cb196dbc44230f7ad5aa16742" title="KSZ8851SNL_SPI_Init Initialize SPI interface to Ethernet controller. " alt="" coords="321,132,466,159"/>
+<area shape="rect" id="node11" href="$group__Plugin__Manager.html#ga55ab56dfaa297c93024dc43239bc8592" title="Radio Initialization. " alt="" coords="515,81,597,108"/>
+</map>

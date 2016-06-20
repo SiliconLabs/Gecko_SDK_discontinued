@@ -1,0 +1,42 @@
+<map id="_write" name="_write">
+<area shape="rect" id="node3" href="$group__RetargetIo.html#ga856ae0b788dccadc2c83a6e67409be5f" title="Transmit single byte to USART/LEUART. " alt="" coords="112,537,261,564"/>
+<area shape="rect" id="node5" href="$group__RetargetIo.html#gab455176edfa0f3414d104e5d6d64cc50" title="Intializes UART/LEUART. " alt="" coords="322,309,465,336"/>
+<area shape="rect" id="node85" href="$group__RetargetIo.html#gaa0a41813e3ddadfbf867971b03a799d0" title="Transmit/display a character. " alt="" coords="328,487,459,513"/>
+<area shape="rect" id="node89" href="$group__RetargetIo.html#ga47b8191a5aaac7b583336350b37b617d" title="Display framebuffer. " alt="" coords="316,537,471,564"/>
+<area shape="rect" id="node91" href="$group__Textdisplay.html#ga3a2e2388e48b53f5634e78fc6c48bc76" title="Write a single character to a text display. " alt="" coords="310,588,477,615"/>
+<area shape="rect" id="node93" href="$retargettft_8c.html#a60dc864fe6ef296e5aab923e46e1ea16" title="Reset TFT text display state. " alt="" coords="348,639,439,665"/>
+<area shape="rect" id="node7" href="$group__CMU.html#ga93913d50050d52b38b0a7c7c08ac81e8" title="Enable/disable a clock. " alt="" coords="727,208,849,235"/>
+<area shape="rect" id="node24" href="$group__GPIO.html#gab6751992334a136efe8750a1d01a850d" title="Set the mode for a GPIO pin. " alt="" coords="527,157,651,184"/>
+<area shape="rect" id="node38" href="$group__USART.html#ga5b851444f0fbdca97017c7b927b37f52" title="Init USART/UART for normal asynchronous mode. " alt="" coords="529,309,649,336"/>
+<area shape="rect" id="node45" href="$group__USART.html#gafd14f04ce72926161d83886b971ed310" title="Clear one or more pending USART interrupts. " alt="" coords="532,461,647,488"/>
+<area shape="rect" id="node47" href="$group__USART.html#ga8127d71f47f7616c119dfceaa595747f" title="Enable one or more USART interrupts. " alt="" coords="528,512,651,539"/>
+<area shape="rect" id="node49" href="$group__USART.html#gaf593db61ee6acd852dd9dc01d79a3548" title="Enable/disable USART/UART receiver and/or transmitter. " alt="" coords="536,563,643,589"/>
+<area shape="rect" id="node51" href="$group__CMU.html#gae11949f9c2e4033ad63dac48c9a739d3" title="Select reference clock/oscillator used for a clock branch. " alt="" coords="719,512,857,539"/>
+<area shape="rect" id="node66" href="$group__CMU.html#ga7cc316a8dca5436fcc39d57f5e6c412d" title="Set clock divisor/prescaler. " alt="" coords="727,259,849,285"/>
+<area shape="rect" id="node72" href="$group__LEUART.html#ga14ed413542c26fb88fd1237f9eb99bd5" title="Init LEUART. " alt="" coords="543,360,635,387"/>
+<area shape="rect" id="node79" href="$group__LEUART.html#gac7d9d111138799c46cb48b96689242b0" title="Clear one or more pending LEUART interrupts. " alt="" coords="530,5,649,32"/>
+<area shape="rect" id="node81" href="$group__LEUART.html#ga5485a64cc586e5a8df2a78df567fa5f4" title="Enable one or more LEUART interrupts. " alt="" coords="526,56,653,83"/>
+<area shape="rect" id="node83" href="$group__LEUART.html#gaac8ffe82df5bc3b66519380843251228" title="Enable/disable LEUART receiver and/or transmitter. " alt="" coords="533,107,645,133"/>
+<area shape="rect" id="node9" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="937,208,1055,235"/>
+<area shape="rect" id="node11" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="931,309,1061,336"/>
+<area shape="rect" id="node13" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="1136,252,1251,279"/>
+<area shape="rect" id="node15" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="1136,353,1251,380"/>
+<area shape="rect" id="node17" href="$system__ezr32lg_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="1123,404,1263,431"/>
+<area shape="rect" id="node19" href="$system__ezr32lg_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="1317,353,1445,380"/>
+<area shape="rect" id="node21" href="$system__ezr32lg_8c.html#a442d0fcb831f601f02d643a64ab80f4c" title="GetProdRev" alt="" coords="1493,353,1581,380"/>
+<area shape="rect" id="node26" href="$group__BUS.html#ga9e878ccba24fcbf97b5bcb8b53356e76" title="Perform peripheral register masked clear and value write. " alt="" coords="714,56,862,83"/>
+<area shape="rect" id="node32" href="$group__GPIO.html#ga607f3a5f3d881bb145101566f1664aba" title="Set a single pin in GPIO data out port register to 0. " alt="" coords="726,107,850,133"/>
+<area shape="rect" id="node35" href="$group__GPIO.html#gab08f054efbb07aaff57d616974c9c536" title="Set a single pin in GPIO data out register to 1. " alt="" coords="731,157,845,184"/>
+<area shape="rect" id="node28" href="$group__BUS.html#gad226bfe478c81d51681539d935241758" title="Perform a masked clear operation on peripheral register address. " alt="" coords="923,31,1069,57"/>
+<area shape="rect" id="node30" href="$group__BUS.html#ga8225a5d4acac280abb182dc118e8df77" title="Perform a masked set operation on peripheral register address. " alt="" coords="928,81,1064,108"/>
+<area shape="rect" id="node40" href="$group__USART.html#ga373a66831daf2d2fe59c04b327e0c9a1" title="Configure USART/UART operating in asynchronous mode to use a given baudrate (or as close as possible ..." alt="" coords="702,309,874,336"/>
+<area shape="rect" id="node43" href="$group__USART.html#ga4769e1b5d573d6cecc95ca0c7d8e2da2" title="Reset USART/UART to same state as after a HW reset. " alt="" coords="737,360,839,387"/>
+<area shape="rect" id="node54" href="$group__CMU.html#ga2cc0f1684fbc32976b82c6d93a51c7d9" title="Enable/disable oscillator. " alt="" coords="923,505,1069,532"/>
+<area shape="rect" id="node60" href="$group__EMU.html#ga3d442fa018de5138afb19a2b85797099" title="Update EMU module with CMU oscillator selection/enable status. " alt="" coords="1118,556,1269,583"/>
+<area shape="rect" id="node64" href="$system__ezr32lg_8c.html#aef32887eb9b08a5dd7db73c35ca7c747" title="Get high frequency crystal oscillator clock frequency for target system. " alt="" coords="923,607,1069,633"/>
+<area shape="rect" id="node56" href="$group__BUS.html#gaca6b55014161f4c51c9daf4f707eeb7c" title="Perform a single&#45;bit read operation on a peripheral register. " alt="" coords="1135,455,1252,481"/>
+<area shape="rect" id="node58" href="$group__BUS.html#gaec23c86f9b844b9e0e102ebff0b96ff4" title="Perform a peripheral register masked read. " alt="" coords="1120,505,1267,532"/>
+<area shape="rect" id="node74" href="$group__LEUART.html#gac8d75da0027ebce98cf33ebcdfe9bdad" title="Configure baudrate (or as close as possible to specified baudrate). " alt="" coords="716,411,860,437"/>
+<area shape="rect" id="node77" href="$group__LEUART.html#ga997e11e29be1835b8a49b35b0a2e38a5" title="LEUART register synchronization freeze control. " alt="" coords="713,461,863,488"/>
+<area shape="rect" id="node87" href="$retargettft_8c.html#aa5af964a1f84893b8cd016492fcb4da9" title="Scroll one line of characters up on the screen. " alt="" coords="536,613,643,640"/>
+</map>

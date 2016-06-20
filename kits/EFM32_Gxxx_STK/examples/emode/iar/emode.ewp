@@ -147,7 +147,7 @@
         <option>
           <name>CCDefines</name>
           <state>EFM32G890F128</state>
-          
+          <state>DEBUG_EFM</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -955,7 +955,7 @@
           <name>CCDefines</name>
           <state>NDEBUG</state>
           <state>EFM32G890F128</state>
-          
+          <state>DEBUG_EFM</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -1627,12 +1627,6 @@
     </file>
   </group>
   <group>
-    <name>BSP</name>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\common\bsp\bsp_trace.c</name>
-    </file>
-  </group>
-  <group>
     <name>Drivers</name>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\common\drivers\segmentlcd.c</name>
@@ -1672,9 +1666,21 @@
     </file>
   </group>
   <group>
+    <name>BSP</name>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\common\bsp\bsp_trace.c</name>
+    </file>
+  </group>
+  <group>
     <name>Source</name>
     <file>
-      <name>$PROJ_DIR$\..\emode.c</name>
+      <name>$PROJ_DIR$\..\main.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\lcd_setup.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\g_emodes.c</name>
     </file>
   </group>
 

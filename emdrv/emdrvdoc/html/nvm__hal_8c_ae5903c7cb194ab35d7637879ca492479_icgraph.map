@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$group__NVM.html#gab056662c41fc69f6b1fe44ee5f94852b" title="Erase the entire allocated NVM area." alt="" coords="185,5,271,32"/>
-<area shape="rect" id="node5" href="$group__NVM.html#gaf74bb05f10ed4959e65e85fa438ead67" title="Initialize the NVM manager." alt="" coords="191,56,265,83"/>
-<area shape="rect" id="node7" href="$group__NVM.html#ga34880829bee50bf0fde0f6c9695dca86" title="Read an object or an entire page." alt="" coords="186,107,270,133"/>
-<area shape="rect" id="node9" href="$group__NVM.html#ga00eaed13302c2951bec32c92dca57597" title="Get maximum wear level." alt="" coords="161,157,295,184"/>
-<area shape="rect" id="node11" href="$group__NVM.html#gad181be9b434658d3552fb311039ff691" title="Write an object or a page." alt="" coords="185,208,271,235"/>
-</map>

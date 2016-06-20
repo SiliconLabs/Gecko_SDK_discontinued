@@ -1,0 +1,4 @@
+<map id="EBI_WriteTimingSet" name="EBI_WriteTimingSet">
+<area shape="rect" id="node3" href="$group__EBI.html#gad9f118caa49eadf9713559cfac3d3c04" title="Configure and enable External Bus Interface. " alt="" coords="190,5,255,32"/>
+<area shape="rect" id="node5" href="$group__BSP__STK.html#ga03b1ff40234468f05b725c7997d8bd84" title="Initialize the EBI interface for accessing the onboard nandflash. " alt="" coords="305,5,391,32"/>
+</map>

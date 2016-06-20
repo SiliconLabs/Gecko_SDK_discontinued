@@ -27,7 +27,9 @@
       <file file_name="../../../../common/bsp/bsp_trace.c"/>
     </folder>
     <folder Name="Source">
-      <file file_name="../emode.c"/>
+      <file file_name="../main.c"/>
+      <file file_name="../lcd_setup.c"/>
+      <file file_name="../tg_emodes.c"/>
     </folder>
 
     <folder Name="System Files">

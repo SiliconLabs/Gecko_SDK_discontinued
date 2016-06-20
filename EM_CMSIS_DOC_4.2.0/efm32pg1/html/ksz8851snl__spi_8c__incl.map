@@ -1,0 +1,44 @@
+<map id="C:/work/s025_sw/kits/common/drivers/ksz8851snl_spi.c" name="C:/work/s025_sw/kits/common/drivers/ksz8851snl_spi.c">
+<area shape="rect" id="node7" href="$ksz8851snl__spi_8h.html" title="SPI interface API for KSZ8851SNL Ethernet controller. " alt="" coords="1096,395,1214,421"/>
+<area shape="rect" id="node10" href="$em__assert_8h.html" title="Emlib peripheral API &quot;assert&quot; implementation. " alt="" coords="3329,245,3422,272"/>
+<area shape="rect" id="node12" href="$em__common_8h.html" title="Emlib general purpose utilities. " alt="" coords="2993,245,3100,272"/>
+<area shape="rect" id="node81" href="$em__gpio_8h.html" title="General Purpose IO (GPIO) peripheral API. " alt="" coords="3202,171,3285,197"/>
+<area shape="rect" id="node89" href="$spidrv_8h.html" title="SPIDRV API definition. " alt="" coords="3569,96,3636,123"/>
+<area shape="rect" id="node14" href="$em__device_8h.html" title="CMSIS Cortex&#45;M Peripheral Access Layer for Silicon Laboratories microcontroller devices. " alt="" coords="3286,320,3380,347"/>
+<area shape="rect" id="node16" href="$efm32pg1b200f256gm48_8h.html" title="CMSIS Cortex&#45;M Peripheral Access Layer Header File for EFM32PG1B200F256GM48. " alt="" coords="2407,395,2581,421"/>
+<area shape="rect" id="node20" href="$system__efm32pg1b_8h.html" title="CMSIS Cortex&#45;M3/M4 System Layer for EFM32 devices. " alt="" coords="24,469,168,496"/>
+<area shape="rect" id="node23" href="$efm32pg1b__msc_8h.html" title="EFM32PG1B_MSC register and bit field definitions. " alt="" coords="192,469,318,496"/>
+<area shape="rect" id="node25" href="$efm32pg1b__emu_8h.html" title="EFM32PG1B_EMU register and bit field definitions. " alt="" coords="343,469,472,496"/>
+<area shape="rect" id="node27" href="$efm32pg1b__rmu_8h.html" title="EFM32PG1B_RMU register and bit field definitions. " alt="" coords="496,469,622,496"/>
+<area shape="rect" id="node29" href="$efm32pg1b__cmu_8h.html" title="EFM32PG1B_CMU register and bit field definitions. " alt="" coords="648,469,776,496"/>
+<area shape="rect" id="node31" href="$efm32pg1b__crypto_8h.html" title="EFM32PG1B_CRYPTO register and bit field definitions. " alt="" coords="800,469,938,496"/>
+<area shape="rect" id="node33" href="$efm32pg1b__gpio__p_8h.html" title="EFM32PG1B_GPIO_P register and bit field definitions. " alt="" coords="963,469,1105,496"/>
+<area shape="rect" id="node35" href="$efm32pg1b__gpio_8h.html" title="EFM32PG1B_GPIO register and bit field definitions. " alt="" coords="1130,469,1258,496"/>
+<area shape="rect" id="node37" href="$efm32pg1b__prs__ch_8h.html" title="EFM32PG1B_PRS_CH register and bit field definitions. " alt="" coords="1283,469,1425,496"/>
+<area shape="rect" id="node39" href="$efm32pg1b__prs_8h.html" title="EFM32PG1B_PRS register and bit field definitions. " alt="" coords="1450,469,1573,496"/>
+<area shape="rect" id="node41" href="$efm32pg1b__ldma__ch_8h.html" title="EFM32PG1B_LDMA_CH register and bit field definitions. " alt="" coords="1597,469,1749,496"/>
+<area shape="rect" id="node43" href="$efm32pg1b__ldma_8h.html" title="EFM32PG1B_LDMA register and bit field definitions. " alt="" coords="1774,469,1905,496"/>
+<area shape="rect" id="node45" href="$efm32pg1b__fpueh_8h.html" title="EFM32PG1B_FPUEH register and bit field definitions. " alt="" coords="1930,469,2066,496"/>
+<area shape="rect" id="node47" href="$efm32pg1b__gpcrc_8h.html" title="EFM32PG1B_GPCRC register and bit field definitions. " alt="" coords="2091,469,2225,496"/>
+<area shape="rect" id="node49" href="$efm32pg1b__timer__cc_8h.html" title="EFM32PG1B_TIMER_CC register and bit field definitions. " alt="" coords="2250,469,2402,496"/>
+<area shape="rect" id="node51" href="$efm32pg1b__timer_8h.html" title="EFM32PG1B_TIMER register and bit field definitions. " alt="" coords="2427,469,2561,496"/>
+<area shape="rect" id="node53" href="$efm32pg1b__usart_8h.html" title="EFM32PG1B_USART register and bit field definitions. " alt="" coords="2586,469,2720,496"/>
+<area shape="rect" id="node55" href="$efm32pg1b__leuart_8h.html" title="EFM32PG1B_LEUART register and bit field definitions. " alt="" coords="2744,469,2881,496"/>
+<area shape="rect" id="node57" href="$efm32pg1b__letimer_8h.html" title="EFM32PG1B_LETIMER register and bit field definitions. " alt="" coords="2906,469,3050,496"/>
+<area shape="rect" id="node59" href="$efm32pg1b__cryotimer_8h.html" title="EFM32PG1B_CRYOTIMER register and bit field definitions. " alt="" coords="3075,469,3233,496"/>
+<area shape="rect" id="node61" href="$efm32pg1b__pcnt_8h.html" title="EFM32PG1B_PCNT register and bit field definitions. " alt="" coords="3258,469,3386,496"/>
+<area shape="rect" id="node63" href="$efm32pg1b__i2c_8h.html" title="EFM32PG1B_I2C register and bit field definitions. " alt="" coords="3410,469,3530,496"/>
+<area shape="rect" id="node65" href="$efm32pg1b__adc_8h.html" title="EFM32PG1B_ADC register and bit field definitions. " alt="" coords="3555,469,3678,496"/>
+<area shape="rect" id="node67" href="$efm32pg1b__acmp_8h.html" title="EFM32PG1B_ACMP register and bit field definitions. " alt="" coords="3703,469,3837,496"/>
+<area shape="rect" id="node69" href="$efm32pg1b__idac_8h.html" title="EFM32PG1B_IDAC register and bit field definitions. " alt="" coords="3862,469,3988,496"/>
+<area shape="rect" id="node71" href="$efm32pg1b__rtcc__cc_8h.html" title="EFM32PG1B_RTCC_CC register and bit field definitions. " alt="" coords="4013,469,4157,496"/>
+<area shape="rect" id="node73" href="$efm32pg1b__rtcc__ret_8h.html" title="EFM32PG1B_RTCC_RET register and bit field definitions. " alt="" coords="4182,469,4329,496"/>
+<area shape="rect" id="node75" href="$efm32pg1b__rtcc_8h.html" title="EFM32PG1B_RTCC register and bit field definitions. " alt="" coords="4354,469,4480,496"/>
+<area shape="rect" id="node77" href="$efm32pg1b__wdog__pch_8h.html" title="EFM32PG1B_WDOG_PCH register and bit field definitions. " alt="" coords="4504,469,4666,496"/>
+<area shape="rect" id="node85" href="$em__bus_8h.html" title="RAM and peripheral bit&#45;field set and clear API. " alt="" coords="3175,245,3253,272"/>
+<area shape="rect" id="node92" href="$em__cmu_8h.html" title="Clock management unit (CMU) API. " alt="" coords="3390,171,3473,197"/>
+<area shape="rect" id="node98" href="$ecode_8h.html" title="Energy Aware drivers error code definitions. " alt="" coords="3902,245,3969,272"/>
+<area shape="rect" id="node102" href="$rtcdriver_8h.html" title="RTCDRV timer API definition. " alt="" coords="3966,171,4046,197"/>
+<area shape="rect" id="node109" href="$dmadrv_8h.html" title="DMADRV API definition. " alt="" coords="3680,171,3756,197"/>
+<area shape="rect" id="node113" href="$em__ldma_8h.html" title="Direct memory access (LDMA) API. " alt="" coords="3650,245,3736,272"/>
+</map>
