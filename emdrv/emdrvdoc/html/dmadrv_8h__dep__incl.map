@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$spidrv_8h.html" title="SPIDRV API definition." alt="" coords="5,81,131,108"/>
+<area shape="rect" id="node5" href="$spidrv_8c.html" title="SPIDRV API implementation." alt="" coords="30,156,156,182"/>
+<area shape="rect" id="node8" href="$uartdrv_8h.html" title="UARTDRV API definition." alt="" coords="207,81,348,108"/>
+<area shape="rect" id="node13" href="$dmadrv_8c.html" title="DMADRV API implementation." alt="" coords="373,81,517,108"/>
+<area shape="rect" id="node10" href="$uartdrv_8c.html" title="UARTDRV API implementation." alt="" coords="207,156,348,182"/>
+</map>

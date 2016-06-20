@@ -1,0 +1,32 @@
+The RTX_Blinky project is a simple RTX Kernel based example
+for the NXP 'LPC1768' microcontroller using Keil 'MCB1700' 
+Evaluation Board, compliant to Cortex Microcontroller 
+Software Interface Standard (CMSIS V3.0).
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL  =  12 MHz
+   - PLL0  = 400 MHz
+   - CCLK  = 100 MHz
+
+The simple RTX Kernel based example simulates the step-motor 
+driver. Four LEDs are blinking simulating the activation of 
+the four output driver stages:
+
+- phase A
+- phase B
+- phase C
+- phase D
+
+This example simulates Half step driver mode and
+CW rotation direction.
+
+The Blinky program is available in different targets:
+
+  Simulator:     configured for software Simulator
+
+  LPC1768 RAM:   runs from Internal RAM located on chip
+                 (used for target debugging)
+
+  LPC1768 Flash: runs from Internal Flash located on chip
+                 (used for production or target debugging)

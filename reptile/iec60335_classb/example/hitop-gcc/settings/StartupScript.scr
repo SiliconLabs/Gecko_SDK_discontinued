@@ -1,0 +1,11 @@
+// Hitex/Lue/2008-02-05
+
+// start at main c code
+// RESET TARGET
+// because after a reset the controller is in
+// bootloader mode run to the application entry point.
+// setting the program counter to the entry point is not 
+// sufficient. 
+RESET TARGET
+
+

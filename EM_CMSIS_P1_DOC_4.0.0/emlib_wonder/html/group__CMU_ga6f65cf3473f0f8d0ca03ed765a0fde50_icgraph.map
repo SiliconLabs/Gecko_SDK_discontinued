@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$group__PCNT.html#ga726934d28be99230a6025503fdbaf86d" title="Init pulse counter." alt="" coords="262,5,343,32"/>
+<area shape="rect" id="node3" href="$group__PCNT.html#gadf14f80981badc92e7a30a43caae130b" title="Reset PCNT to same state as after a HW reset." alt="" coords="253,56,352,83"/>
+</map>

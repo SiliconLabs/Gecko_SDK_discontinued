@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$group__BITBAND.html#ga7df78ffd2c201e674a4444c42b6fcec3" title="Perform bit&#45;band operation on peripheral memory location." alt="" coords="400,5,547,32"/>
+<area shape="rect" id="node3" href="$group__CMU.html#ga6f65cf3473f0f8d0ca03ed765a0fde50" title="Select PCNTn clock." alt="" coords="152,31,352,57"/>
+<area shape="rect" id="node4" href="$group__PCNT.html#gaa0a00b056f5f6404abd02de84c30d002" title="Set top buffer value." alt="" coords="179,81,325,108"/>
+</map>

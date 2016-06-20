@@ -1,0 +1,997 @@
+
+Allocating common symbols
+Common symbol       size              file
+
+ClockTest           0x14              .\objects\iec60335_class_b_timer_rtc_test.o
+SystemCoreClock     0x4               .\objects\system_efm32.o
+IEC60335_IRQ_Test   0x8               .\objects\iec60335_class_b_interrupt_test.o
+IEC60335_CPUregTestPOST
+                    0x8               .\objects\iec60335_class_b_cpureg_test.o
+IRQVectorTable      0x100             .\objects\iec60335_class_b_interrupt_test.o
+IEC60335_CPUregTestBIST
+                    0x8               .\objects\iec60335_class_b_cpureg_test.o
+bistTest            0x14              .\objects\main.o
+testsecond          0x14              .\objects\startup.o
+testfirst           0x14              .\objects\startup.o
+IRQtest             0xc               .\objects\main.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+VECTORFLASH      0x00000000         0x000000e0         xr
+CRCFLASH         0x000000e0         0x00000020         xr
+FLASH            0x00000100         0x0001ff00         xr
+SRAM             0x20000000         0x00004000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD .\objects\iec60335_class_b_cpureg_test.o
+LOAD .\objects\iec60335_class_b_cpureg_test_bist_gcc.o
+LOAD .\objects\iec60335_class_b_cpureg_test_post_gcc.o
+LOAD .\objects\iec60335_class_b_critical_data.o
+LOAD .\objects\iec60335_class_b_flash_test.o
+LOAD .\objects\iec60335_class_b_interrupt_test.o
+LOAD .\objects\iec60335_class_b_post.o
+LOAD .\objects\iec60335_class_b_programcounter_test.o
+LOAD .\objects\iec60335_class_b_ram_test.o
+LOAD .\objects\iec60335_class_b_timer_rtc_test.o
+LOAD .\objects\iec60335_class_b_wdt_test.o
+LOAD .\objects\efm32_cmu.o
+LOAD .\objects\efm32_emu.o
+LOAD .\objects\core_cm3.o
+LOAD .\objects\dvk_spi.o
+LOAD .\objects\efm32g890f128_interrupt.o
+LOAD .\objects\main.o
+LOAD .\objects\startup.o
+LOAD .\objects\system_efm32.o
+
+.vectors        0x00000000       0xb8
+                0x00000000                __vectors_start = .
+ *(_vector)
+ _vector        0x00000000       0xb8 .\objects\startup.o
+                0x00000000                interrupts
+                0x000000b8                . = ALIGN (0x4)
+
+.CRCs           0x000000e0       0x14
+                0x000000e0                PROVIDE (_crc_location, .)
+ *(_CRC_area)
+ _CRC_area      0x000000e0       0x14 .\objects\iec60335_class_b_flash_test.o
+                0x000000e0                IEC60335_Flash_CRC_REF
+                0x000000f4                . = ALIGN (0x4)
+
+.reset          0x00000100       0x7c
+ *(.IEC60335_B_beforeReset)
+                0x00000100                __startup_code__ = .
+ *(._Reset)
+ ._Reset        0x00000100       0x7c .\objects\startup.o
+                0x00000100                Reset
+                0x0000017c                __startup_code_end__ = .
+                0x0000017c                . = ALIGN (0x4)
+
+.text           0x0000017c     0x3f58
+                0x0000017c                __text_start = .
+                0x0000017c                PROVIDE (_stext, .)
+                0x0000017c                . = ALIGN (0x4)
+                0x0000017c                _IEC60335_code_ = .
+ *(.IEC60335_code)
+ .IEC60335_code
+                0x0000017c      0x348 .\objects\iec60335_class_b_interrupt_test.o
+                0x0000017c                IEC60335_IRQReplacementHandler
+                0x00000228                IEC60335_ClassB_InitInterruptTest
+                0x00000444                IEC60335_ClassB_InterruptCheck
+ .IEC60335_code
+                0x000004c4       0x7c .\objects\iec60335_class_b_post.o
+                0x000004c4                IEC60335_ClassB_POST
+ .IEC60335_code
+                0x00000540      0x144 .\objects\iec60335_class_b_programcounter_test.o
+                0x00000540                IEC60335_ClassB_PCTest_POST
+                0x0000059c                IEC60335_ClassB_PCTest_BIST
+ .IEC60335_code
+                0x00000684      0x52c .\objects\iec60335_class_b_timer_rtc_test.o
+                0x00000684                IEC60335_resetClockTest
+                0x00000700                IEC60335_ClassB_initClockTest
+                0x000008a4                IEC60335_ClassB_Clocktest_PollHandler
+                0x00000a4c                IEC60335_ClassB_Clocktest_RTCHandler
+ .IEC60335_code
+                0x00000bb0      0x134 .\objects\iec60335_class_b_wdt_test.o
+                0x00000bb0                IEC60335_ClassB_initWDT
+                0x00000c94                IEC60335_ClassB_Refresh_WDT
+                0x00000cc4                IEC60335_ClassB_Force_WDT_Reset
+ .IEC60335_code
+                0x00000ce4      0x368 .\objects\dvk_spi.o
+                0x00000ce4                DVK_SPI_Com
+                0x00000de8                DVK_SPI
+                0x0000104c                _IEC60335_code_end_ = .
+ *(.IEC60335_B_PCTestCodeA)
+ .IEC60335_B_PCTestCodeA
+                0x0000104c       0x28 .\objects\iec60335_class_b_programcounter_test.o
+                0x0000104c                IEC60335_B_PCTest_A
+ *(.IEC60335_B_PCTestCodeB)
+ .IEC60335_B_PCTestCodeB
+                0x00001074       0x28 .\objects\iec60335_class_b_programcounter_test.o
+                0x00001074                IEC60335_B_PCTest_B
+ *(.IEC60335_B_PCTestCodeC)
+ .IEC60335_B_PCTestCodeC
+                0x0000109c       0x28 .\objects\iec60335_class_b_programcounter_test.o
+                0x0000109c                IEC60335_B_PCTest_C
+ *(.IEC60335_B_PCTestCodeD)
+ .IEC60335_B_PCTestCodeD
+                0x000010c4       0x28 .\objects\iec60335_class_b_programcounter_test.o
+                0x000010c4                IEC60335_B_PCTest_D
+ *(.IEC60335_B_PCTestCodeE)
+ .IEC60335_B_PCTestCodeE
+                0x000010ec       0x28 .\objects\iec60335_class_b_programcounter_test.o
+                0x000010ec                IEC60335_B_PCTest_E
+ *(.IEC60335_B_PCTestCodeF)
+ .IEC60335_B_PCTestCodeF
+                0x00001114       0x28 .\objects\iec60335_class_b_programcounter_test.o
+                0x00001114                IEC60335_B_PCTest_F
+ *(.text .text.*)
+ .text          0x0000113c       0xf8 .\objects\iec60335_class_b_cpureg_test.o
+                0x0000113c                IEC60335_ClassB_CPUregTest_POST
+                0x00001164                IEC60335_ClassB_CPUregTest_BIST
+ .text          0x00001234      0x41c .\objects\iec60335_class_b_cpureg_test_bist_gcc.o
+                0x00001234                ASMCPUregTestLOW
+                0x0000133c                ASMCPUregTestHIGH
+                0x0000139a                ASMCPUregTestSP
+                0x0000148c                ASMCPUregTestSPEC
+ .text          0x00001650      0x3e0 .\objects\iec60335_class_b_cpureg_test_post_gcc.o
+                0x00001650                ASMCPUregTestPOST
+ .text          0x00001a30        0x0 .\objects\iec60335_class_b_critical_data.o
+ .text          0x00001a30      0x420 .\objects\iec60335_class_b_flash_test.o
+                0x00001a30                crc32
+                0x00001c38                IEC60335_ClassB_FLASHtest_POST
+                0x00001ca8                IEC60335_ClassB_FLASHtest_BIST
+ .text          0x00001e50       0x80 .\objects\iec60335_class_b_interrupt_test.o
+                0x00001eb0                __call_Vect
+ .text          0x00001ed0        0x0 .\objects\iec60335_class_b_post.o
+ .text          0x00001ed0        0x0 .\objects\iec60335_class_b_programcounter_test.o
+ .text          0x00001ed0      0x438 .\objects\iec60335_class_b_ram_test.o
+                0x00001f24                IEC60335_ClassB_RAMtest
+                0x00002200                IEC60335_ClassB_RAMtest_POST
+                0x0000221c                IEC60335_ClassB_RAMtest_BIST
+ .text          0x00002308        0x0 .\objects\iec60335_class_b_timer_rtc_test.o
+ .text          0x00002308        0x0 .\objects\iec60335_class_b_wdt_test.o
+ .text          0x00002308      0xfa0 .\objects\efm32_cmu.o
+                0x0000245c                CMU_Calibrate
+                0x00002524                CMU_ClockDivGet
+                0x00002638                CMU_ClockDivSet
+                0x000027d8                CMU_ClockEnable
+                0x000028a0                CMU_ClockFreqGet
+                0x00002b40                CMU_ClockSelectGet
+                0x00002c30                CMU_ClockSelectSet
+                0x00002dc8                CMU_FreezeEnable
+                0x00002e10                CMU_HFRCOBandGet
+                0x00002e30                CMU_HFRCOBandSet
+                0x00002f40                CMU_HFRCOStartupDelayGet
+                0x00002f60                CMU_HFRCOStartupDelaySet
+                0x00002f9c                CMU_LCDClkFDIVGet
+                0x00002fb8                CMU_LCDClkFDIVSet
+                0x00003008                CMU_OscillatorEnable
+                0x000030ec                CMU_OscillatorTuningGet
+                0x00003150                CMU_OscillatorTuningSet
+                0x000031f0                CMU_PCNTClockExternalGet
+                0x00003268                CMU_PCNTClockExternalSet
+ .text          0x000032a8      0x2c0 .\objects\efm32_emu.o
+                0x000033cc                EMU_EnterEM2
+                0x00003434                EMU_EnterEM3
+                0x000034c8                EMU_EnterEM4
+                0x00003528                EMU_MemPwrDown
+                0x00003548                EMU_UpdateOscConfig
+ .text          0x00003568      0x2b4 .\objects\core_cm3.o
+                0x00003568                __get_PSP
+                0x00003578                __set_PSP
+                0x00003594                __get_MSP
+                0x000035a4                __set_MSP
+                0x000035c0                __get_BASEPRI
+                0x000035e0                __set_BASEPRI
+                0x000035f8                __get_PRIMASK
+                0x00003618                __set_PRIMASK
+                0x00003630                __get_FAULTMASK
+                0x00003650                __set_FAULTMASK
+                0x00003668                __get_CONTROL
+                0x00003688                __set_CONTROL
+                0x000036a0                __REV
+                0x000036c4                __REV16
+                0x000036e8                __REVSH
+                0x0000370c                __RBIT
+                0x00003730                __LDREXB
+                0x00003754                __LDREXH
+                0x00003778                __LDREXW
+                0x0000379c                __STREXB
+                0x000037c8                __STREXH
+                0x000037f4                __STREXW
+ .text          0x0000381c        0x0 .\objects\dvk_spi.o
+ .text          0x0000381c       0x78 .\objects\efm32g890f128_interrupt.o
+                0x0000381c                FaultHandler
+                0x00003824                NMI_Handler
+                0x00003824                DefaultNMI_Handler
+                0x00003830                DefaultHardFault_Handler
+                0x00003830                HardFault_Handler
+                0x0000383c                MemManage_Handler
+                0x0000383c                DefaultMemManage_Handler
+                0x00003848                BusFault_Handler
+                0x00003848                DefaultBusFault_Handler
+                0x00003854                UsageFault_Handler
+                0x00003854                DefaultUsageFault_Handler
+                0x00003860                DebugMon_Handler
+                0x00003860                DefaultDebugMon_Handler
+                0x0000386c                DefaultSVC_Handler
+                0x0000386c                SVC_Handler
+                0x00003878                PendSV_Handler
+                0x00003878                DefaultPendSV_Handler
+                0x00003884                DefaultSysTick_Handler
+                0x0000388c                USART2_RX_IRQHandler
+                0x0000388c                PCNT0_IRQHandler
+                0x0000388c                PCNT1_IRQHandler
+                0x0000388c                ACMP0_IRQHandler
+                0x0000388c                USART0_RX_IRQHandler
+                0x0000388c                DAC0_IRQHandler
+                0x0000388c                CMU_IRQHandler
+                0x0000388c                GPIO_ODD_IRQHandler
+                0x0000388c                AES_IRQHandler
+                0x0000388c                VCMP_IRQHandler
+                0x0000388c                DMA_IRQHandler
+                0x0000388c                TIMER2_IRQHandler
+                0x0000388c                USART2_TX_IRQHandler
+                0x0000388c                USART0_TX_IRQHandler
+                0x0000388c                I2C0_IRQHandler
+                0x0000388c                LEUART1_IRQHandler
+                0x0000388c                USART1_RX_IRQHandler
+                0x0000388c                USART1_TX_IRQHandler
+                0x0000388c                MSC_IRQHandler
+                0x0000388c                ADC0_IRQHandler
+                0x0000388c                LEUART0_IRQHandler
+                0x0000388c                GPIO_EVEN_IRQHandler
+                0x0000388c                UART0_TX_IRQHandler
+                0x0000388c                DefaultHandler
+                0x0000388c                RTC_IRQHandler
+                0x0000388c                LCD_IRQHandler
+                0x0000388c                PCNT2_IRQHandler
+                0x0000388c                UART0_RX_IRQHandler
+                0x0000388c                LETIMER0_IRQHandler
+                0x0000388c                TIMER1_IRQHandler
+ .text          0x00003894      0x228 .\objects\main.o
+                0x000038c4                SysTick_Handler
+                0x000038d0                TIMER0_IRQHandler
+                0x000038ec                initSystick
+                0x00003974                initController
+                0x00003988                main
+ .text          0x00003abc        0x0 .\objects\startup.o
+ .text          0x00003abc      0x1d8 .\objects\system_efm32.o
+                0x00003abc                SystemCoreClockGet
+                0x00003af8                SystemHFClockGet
+                0x00003be0                SystemHFXOClockGet
+                0x00003bf8                SystemHFXOClockSet
+                0x00003c2c                SystemInit
+                0x00003c38                SystemLFRCOClockGet
+                0x00003c48                SystemLFXOClockGet
+                0x00003c60                SystemLFXOClockSet
+ *(.gnu.linkonce.t.*)
+ *(.glue_7)
+ .glue_7        0x00000000        0x0 linker stubs
+ *(.glue_7t)
+ .glue_7t       0x00000000        0x0 linker stubs
+ *(.gcc_except_table)
+ *(.vfp11_veneer)
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+ *(.janus_2cc_veneer)
+ *(.v4_bx)
+ .v4_bx         0x00000000        0x0 linker stubs
+ *(.eh_frame)
+ *(.rodata .rodata*)
+ .rodata        0x00003c94      0x400 .\objects\iec60335_class_b_flash_test.o
+ .rodata        0x00004094       0x38 .\objects\iec60335_class_b_programcounter_test.o
+                0x00004094                PCTest_funcTable
+                0x000040ac                PCTest_resultTable
+ .rodata        0x000040cc        0x8 .\objects\main.o
+ *(.gnu.linkonce.r.*)
+                0x000040d4                PROVIDE (_etext, .)
+                0x000040d4                PROVIDE (__text_end, .)
+
+.data           0x20000000       0x1c load address 0x000040d4
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                PROVIDE (_sdata, .)
+                0x20000000                __data_start = .
+ *(.data.privileged)
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                __privileged_data_end = .
+ *(vtable vtable.*)
+ *(.IEC60335_B_beforeRAMcode)
+ *(.RAMcode)
+ *(.IEC60335_B_behindRAMcode)
+ *(.data .data.*)
+ .data          0x20000000        0x0 .\objects\iec60335_class_b_cpureg_test.o
+ .data          0x20000000        0x0 .\objects\iec60335_class_b_cpureg_test_bist_gcc.o
+ .data          0x20000000        0x0 .\objects\iec60335_class_b_cpureg_test_post_gcc.o
+ .data          0x20000000        0x0 .\objects\iec60335_class_b_critical_data.o
+ .data          0x20000000       0x14 .\objects\iec60335_class_b_flash_test.o
+ .data          0x20000014        0x0 .\objects\iec60335_class_b_interrupt_test.o
+ .data          0x20000014        0x0 .\objects\iec60335_class_b_post.o
+ .data          0x20000014        0x0 .\objects\iec60335_class_b_programcounter_test.o
+ .data          0x20000014        0x0 .\objects\iec60335_class_b_ram_test.o
+ .data          0x20000014        0x0 .\objects\iec60335_class_b_timer_rtc_test.o
+ .data          0x20000014        0x0 .\objects\iec60335_class_b_wdt_test.o
+ .data          0x20000014        0x0 .\objects\efm32_cmu.o
+ .data          0x20000014        0x0 .\objects\efm32_emu.o
+ .data          0x20000014        0x0 .\objects\core_cm3.o
+ .data          0x20000014        0x0 .\objects\dvk_spi.o
+ .data          0x20000014        0x0 .\objects\efm32g890f128_interrupt.o
+ .data          0x20000014        0x0 .\objects\main.o
+ .data          0x20000014        0x0 .\objects\startup.o
+ .data          0x20000014        0x8 .\objects\system_efm32.o
+ *(.gnu.linkonce.d*)
+                0x2000001c                __data_end = .
+                0x2000001c                PROVIDE (_edata, .)
+
+.bss            0x20000100      0x360 load address 0x000041d4
+                0x20000100                . = ALIGN (0x4)
+                0x20000100                PROVIDE (_sbss, .)
+                0x20000100                __bss_start = .
+ *(.bss .bss.*)
+ .bss           0x20000100        0x0 .\objects\iec60335_class_b_cpureg_test.o
+ .bss           0x20000100        0x0 .\objects\iec60335_class_b_cpureg_test_bist_gcc.o
+ .bss           0x20000100        0x0 .\objects\iec60335_class_b_cpureg_test_post_gcc.o
+ .bss           0x20000100        0x0 .\objects\iec60335_class_b_critical_data.o
+ .bss           0x20000100        0x0 .\objects\iec60335_class_b_flash_test.o
+ .bss           0x20000100       0x84 .\objects\iec60335_class_b_interrupt_test.o
+                0x20000100                pIEC60335_IRQ_Test
+ .bss           0x20000184        0x0 .\objects\iec60335_class_b_post.o
+ .bss           0x20000184        0x1 .\objects\iec60335_class_b_programcounter_test.o
+ .bss           0x20000185        0x0 .\objects\iec60335_class_b_ram_test.o
+ .bss           0x20000185        0x0 .\objects\iec60335_class_b_timer_rtc_test.o
+ .bss           0x20000185        0x0 .\objects\iec60335_class_b_wdt_test.o
+ .bss           0x20000185        0x0 .\objects\efm32_cmu.o
+ *fill*         0x20000185        0x1 00
+ .bss           0x20000186        0x2 .\objects\efm32_emu.o
+ .bss           0x20000188        0x0 .\objects\core_cm3.o
+ .bss           0x20000188        0x0 .\objects\dvk_spi.o
+ .bss           0x20000188        0x0 .\objects\efm32g890f128_interrupt.o
+ .bss           0x20000188        0x0 .\objects\main.o
+ .bss           0x20000188        0x0 .\objects\startup.o
+ .bss           0x20000188        0x0 .\objects\system_efm32.o
+ *(COMMON)
+ COMMON         0x20000188       0x10 .\objects\iec60335_class_b_cpureg_test.o
+                0x20000188                IEC60335_CPUregTestPOST
+                0x20000190                IEC60335_CPUregTestBIST
+ *fill*         0x20000198       0x68 00
+ COMMON         0x20000200      0x200 .\objects\iec60335_class_b_interrupt_test.o
+                0x20000200                IEC60335_IRQ_Test
+                0x20000300                IRQVectorTable
+ COMMON         0x20000400       0x14 .\objects\iec60335_class_b_timer_rtc_test.o
+                0x20000400                ClockTest
+ COMMON         0x20000414       0x20 .\objects\main.o
+                0x20000414                bistTest
+                0x20000428                IRQtest
+ COMMON         0x20000434       0x28 .\objects\startup.o
+                0x20000434                testsecond
+                0x20000448                testfirst
+ COMMON         0x2000045c        0x4 .\objects\system_efm32.o
+                0x2000045c                SystemCoreClock
+ *(.gnu.linkonce.b*)
+                0x20000460                __bss_end = .
+                0x20000460                PROVIDE (_ebss, .)
+                0x20003ffc                estack = 0x20003ffc
+
+.stack          0x20000460      0x800 load address 0x00004534
+                0x20000460                . = ALIGN (0x4)
+                0x20000460                __stack_start = .
+ *(.stack .stack.*)
+ .stack         0x20000460      0x800 .\objects\startup.o
+                0x20000460                Stack
+                0x20000c60                __stack_end = .
+                0x20003ffc                PROVIDE (_initial_sp, estack)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.ARM.attributes
+                0x00000000       0x10
+ .ARM.attributes
+                0x00000000       0x10 .\objects\iec60335_class_b_cpureg_test.o
+ .ARM.attributes
+                0x00000010       0x10 .\objects\iec60335_class_b_cpureg_test_bist_gcc.o
+ .ARM.attributes
+                0x00000020       0x10 .\objects\iec60335_class_b_cpureg_test_post_gcc.o
+ .ARM.attributes
+                0x00000030       0x10 .\objects\iec60335_class_b_critical_data.o
+ .ARM.attributes
+                0x00000040       0x10 .\objects\iec60335_class_b_flash_test.o
+ .ARM.attributes
+                0x00000050       0x10 .\objects\iec60335_class_b_interrupt_test.o
+ .ARM.attributes
+                0x00000060       0x10 .\objects\iec60335_class_b_post.o
+ .ARM.attributes
+                0x00000070       0x10 .\objects\iec60335_class_b_programcounter_test.o
+ .ARM.attributes
+                0x00000080       0x10 .\objects\iec60335_class_b_ram_test.o
+ .ARM.attributes
+                0x00000090       0x10 .\objects\iec60335_class_b_timer_rtc_test.o
+ .ARM.attributes
+                0x000000a0       0x10 .\objects\iec60335_class_b_wdt_test.o
+ .ARM.attributes
+                0x000000b0       0x10 .\objects\efm32_cmu.o
+ .ARM.attributes
+                0x000000c0       0x10 .\objects\efm32_emu.o
+ .ARM.attributes
+                0x000000d0       0x10 .\objects\core_cm3.o
+ .ARM.attributes
+                0x000000e0       0x10 .\objects\dvk_spi.o
+ .ARM.attributes
+                0x000000f0       0x10 .\objects\efm32g890f128_interrupt.o
+ .ARM.attributes
+                0x00000100       0x10 .\objects\main.o
+ .ARM.attributes
+                0x00000110       0x10 .\objects\startup.o
+ .ARM.attributes
+                0x00000120       0x10 .\objects\system_efm32.o
+
+.comment        0x00000000       0x11
+ *(.comment)
+ .comment       0x00000000       0x11 .\objects\iec60335_class_b_cpureg_test.o
+                                 0x12 (size before relaxing)
+ .comment       0x00000000       0x12 .\objects\iec60335_class_b_critical_data.o
+ .comment       0x00000000       0x12 .\objects\iec60335_class_b_flash_test.o
+ .comment       0x00000000       0x12 .\objects\iec60335_class_b_interrupt_test.o
+ .comment       0x00000000       0x12 .\objects\iec60335_class_b_post.o
+ .comment       0x00000000       0x12 .\objects\iec60335_class_b_programcounter_test.o
+ .comment       0x00000000       0x12 .\objects\iec60335_class_b_ram_test.o
+ .comment       0x00000000       0x12 .\objects\iec60335_class_b_timer_rtc_test.o
+ .comment       0x00000000       0x12 .\objects\iec60335_class_b_wdt_test.o
+ .comment       0x00000000       0x12 .\objects\efm32_cmu.o
+ .comment       0x00000000       0x12 .\objects\efm32_emu.o
+ .comment       0x00000000       0x12 .\objects\core_cm3.o
+ .comment       0x00000000       0x12 .\objects\dvk_spi.o
+ .comment       0x00000000       0x12 .\objects\efm32g890f128_interrupt.o
+ .comment       0x00000000       0x12 .\objects\main.o
+ .comment       0x00000000       0x12 .\objects\startup.o
+ .comment       0x00000000       0x12 .\objects\system_efm32.o
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x2c0
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 .\objects\iec60335_class_b_cpureg_test.o
+ .debug_aranges
+                0x00000020       0x20 .\objects\iec60335_class_b_cpureg_test_bist_gcc.o
+ .debug_aranges
+                0x00000040       0x20 .\objects\iec60335_class_b_cpureg_test_post_gcc.o
+ .debug_aranges
+                0x00000060       0x20 .\objects\iec60335_class_b_flash_test.o
+ .debug_aranges
+                0x00000080       0x38 .\objects\iec60335_class_b_interrupt_test.o
+ .debug_aranges
+                0x000000b8       0x20 .\objects\iec60335_class_b_post.o
+ .debug_aranges
+                0x000000d8       0x58 .\objects\iec60335_class_b_programcounter_test.o
+ .debug_aranges
+                0x00000130       0x20 .\objects\iec60335_class_b_ram_test.o
+ .debug_aranges
+                0x00000150       0x38 .\objects\iec60335_class_b_timer_rtc_test.o
+ .debug_aranges
+                0x00000188       0x30 .\objects\iec60335_class_b_wdt_test.o
+ .debug_aranges
+                0x000001b8       0x20 .\objects\efm32_cmu.o
+ .debug_aranges
+                0x000001d8       0x20 .\objects\efm32_emu.o
+ .debug_aranges
+                0x000001f8       0x20 .\objects\core_cm3.o
+ .debug_aranges
+                0x00000218       0x28 .\objects\dvk_spi.o
+ .debug_aranges
+                0x00000240       0x20 .\objects\efm32g890f128_interrupt.o
+ .debug_aranges
+                0x00000260       0x20 .\objects\main.o
+ .debug_aranges
+                0x00000280       0x20 .\objects\startup.o
+ .debug_aranges
+                0x000002a0       0x20 .\objects\system_efm32.o
+
+.debug_pubnames
+                0x00000000      0xb44
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x92 .\objects\iec60335_class_b_cpureg_test.o
+ .debug_pubnames
+                0x00000092       0x7d .\objects\iec60335_class_b_flash_test.o
+ .debug_pubnames
+                0x0000010f       0xce .\objects\iec60335_class_b_interrupt_test.o
+ .debug_pubnames
+                0x000001dd       0x2b .\objects\iec60335_class_b_post.o
+ .debug_pubnames
+                0x00000208      0x10e .\objects\iec60335_class_b_programcounter_test.o
+ .debug_pubnames
+                0x00000316       0x70 .\objects\iec60335_class_b_ram_test.o
+ .debug_pubnames
+                0x00000386       0xb1 .\objects\iec60335_class_b_timer_rtc_test.o
+ .debug_pubnames
+                0x00000437       0x72 .\objects\iec60335_class_b_wdt_test.o
+ .debug_pubnames
+                0x000004a9      0x1d3 .\objects\efm32_cmu.o
+ .debug_pubnames
+                0x0000067c       0x70 .\objects\efm32_emu.o
+ .debug_pubnames
+                0x000006ec      0x159 .\objects\core_cm3.o
+ .debug_pubnames
+                0x00000845       0x2e .\objects\dvk_spi.o
+ .debug_pubnames
+                0x00000873      0x129 .\objects\efm32g890f128_interrupt.o
+ .debug_pubnames
+                0x0000099c       0x81 .\objects\main.o
+ .debug_pubnames
+                0x00000a1d       0x52 .\objects\startup.o
+ .debug_pubnames
+                0x00000a6f       0xd5 .\objects\system_efm32.o
+
+.debug_info     0x00000000     0x5840
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0x168 .\objects\iec60335_class_b_cpureg_test.o
+ .debug_info    0x00000168       0xd4 .\objects\iec60335_class_b_cpureg_test_bist_gcc.o
+ .debug_info    0x0000023c       0xd4 .\objects\iec60335_class_b_cpureg_test_post_gcc.o
+ .debug_info    0x00000310       0x7a .\objects\iec60335_class_b_critical_data.o
+ .debug_info    0x0000038a      0x31d .\objects\iec60335_class_b_flash_test.o
+ .debug_info    0x000006a7      0x69b .\objects\iec60335_class_b_interrupt_test.o
+ .debug_info    0x00000d42      0x29c .\objects\iec60335_class_b_post.o
+ .debug_info    0x00000fde      0x44b .\objects\iec60335_class_b_programcounter_test.o
+ .debug_info    0x00001429      0x5a8 .\objects\iec60335_class_b_ram_test.o
+ .debug_info    0x000019d1      0x943 .\objects\iec60335_class_b_timer_rtc_test.o
+ .debug_info    0x00002314      0x4ed .\objects\iec60335_class_b_wdt_test.o
+ .debug_info    0x00002801      0xcd6 .\objects\efm32_cmu.o
+ .debug_info    0x000034d7      0x61a .\objects\efm32_emu.o
+ .debug_info    0x00003af1      0x54c .\objects\core_cm3.o
+ .debug_info    0x0000403d      0x6d6 .\objects\dvk_spi.o
+ .debug_info    0x00004713      0x177 .\objects\efm32g890f128_interrupt.o
+ .debug_info    0x0000488a      0x8b7 .\objects\main.o
+ .debug_info    0x00005141      0x2e6 .\objects\startup.o
+ .debug_info    0x00005427      0x419 .\objects\system_efm32.o
+
+.debug_abbrev   0x00000000     0x14e7
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0xcc .\objects\iec60335_class_b_cpureg_test.o
+ .debug_abbrev  0x000000cc       0x14 .\objects\iec60335_class_b_cpureg_test_bist_gcc.o
+ .debug_abbrev  0x000000e0       0x14 .\objects\iec60335_class_b_cpureg_test_post_gcc.o
+ .debug_abbrev  0x000000f4       0x2a .\objects\iec60335_class_b_critical_data.o
+ .debug_abbrev  0x0000011e      0x127 .\objects\iec60335_class_b_flash_test.o
+ .debug_abbrev  0x00000245      0x183 .\objects\iec60335_class_b_interrupt_test.o
+ .debug_abbrev  0x000003c8      0x10a .\objects\iec60335_class_b_post.o
+ .debug_abbrev  0x000004d2      0x154 .\objects\iec60335_class_b_programcounter_test.o
+ .debug_abbrev  0x00000626      0x1d8 .\objects\iec60335_class_b_ram_test.o
+ .debug_abbrev  0x000007fe      0x19c .\objects\iec60335_class_b_timer_rtc_test.o
+ .debug_abbrev  0x0000099a      0x13c .\objects\iec60335_class_b_wdt_test.o
+ .debug_abbrev  0x00000ad6      0x1f5 .\objects\efm32_cmu.o
+ .debug_abbrev  0x00000ccb      0x19d .\objects\efm32_emu.o
+ .debug_abbrev  0x00000e68       0xbe .\objects\core_cm3.o
+ .debug_abbrev  0x00000f26      0x11c .\objects\dvk_spi.o
+ .debug_abbrev  0x00001042       0x60 .\objects\efm32g890f128_interrupt.o
+ .debug_abbrev  0x000010a2      0x1b3 .\objects\main.o
+ .debug_abbrev  0x00001255      0x101 .\objects\startup.o
+ .debug_abbrev  0x00001356      0x191 .\objects\system_efm32.o
+
+.debug_line     0x00000000     0x23a1
+ *(.debug_line)
+ .debug_line    0x00000000       0xc7 .\objects\iec60335_class_b_cpureg_test.o
+ .debug_line    0x000000c7      0x1e4 .\objects\iec60335_class_b_cpureg_test_bist_gcc.o
+ .debug_line    0x000002ab      0x1be .\objects\iec60335_class_b_cpureg_test_post_gcc.o
+ .debug_line    0x00000469       0x1d .\objects\iec60335_class_b_critical_data.o
+ .debug_line    0x00000486      0x1df .\objects\iec60335_class_b_flash_test.o
+ .debug_line    0x00000665      0x261 .\objects\iec60335_class_b_interrupt_test.o
+ .debug_line    0x000008c6      0x1c7 .\objects\iec60335_class_b_post.o
+ .debug_line    0x00000a8d      0x24f .\objects\iec60335_class_b_programcounter_test.o
+ .debug_line    0x00000cdc      0x300 .\objects\iec60335_class_b_ram_test.o
+ .debug_line    0x00000fdc      0x27b .\objects\iec60335_class_b_timer_rtc_test.o
+ .debug_line    0x00001257      0x1f9 .\objects\iec60335_class_b_wdt_test.o
+ .debug_line    0x00001450      0x39c .\objects\efm32_cmu.o
+ .debug_line    0x000017ec      0x211 .\objects\efm32_emu.o
+ .debug_line    0x000019fd      0x167 .\objects\core_cm3.o
+ .debug_line    0x00001b64      0x202 .\objects\dvk_spi.o
+ .debug_line    0x00001d66       0xa7 .\objects\efm32g890f128_interrupt.o
+ .debug_line    0x00001e0d      0x230 .\objects\main.o
+ .debug_line    0x0000203d      0x1a0 .\objects\startup.o
+ .debug_line    0x000021dd      0x1c4 .\objects\system_efm32.o
+
+.debug_frame    0x00000000      0xe24
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x4c .\objects\iec60335_class_b_cpureg_test.o
+ .debug_frame   0x0000004c       0x6c .\objects\iec60335_class_b_flash_test.o
+ .debug_frame   0x000000b8       0xd8 .\objects\iec60335_class_b_interrupt_test.o
+ .debug_frame   0x00000190       0x30 .\objects\iec60335_class_b_post.o
+ .debug_frame   0x000001c0       0xf8 .\objects\iec60335_class_b_programcounter_test.o
+ .debug_frame   0x000002b8       0xac .\objects\iec60335_class_b_ram_test.o
+ .debug_frame   0x00000364       0x8c .\objects\iec60335_class_b_timer_rtc_test.o
+ .debug_frame   0x000003f0       0x64 .\objects\iec60335_class_b_wdt_test.o
+ .debug_frame   0x00000454      0x2a8 .\objects\efm32_cmu.o
+ .debug_frame   0x000006fc      0x124 .\objects\efm32_emu.o
+ .debug_frame   0x00000820      0x298 .\objects\core_cm3.o
+ .debug_frame   0x00000ab8       0x4c .\objects\dvk_spi.o
+ .debug_frame   0x00000b04      0x134 .\objects\efm32g890f128_interrupt.o
+ .debug_frame   0x00000c38       0xd0 .\objects\main.o
+ .debug_frame   0x00000d08       0x30 .\objects\startup.o
+ .debug_frame   0x00000d38       0xec .\objects\system_efm32.o
+
+.debug_str      0x00000000     0x1d17
+ *(.debug_str)
+ .debug_str     0x00000000      0x247 .\objects\iec60335_class_b_cpureg_test.o
+                                0x282 (size before relaxing)
+ .debug_str     0x00000247       0x4e .\objects\iec60335_class_b_critical_data.o
+                                0x140 (size before relaxing)
+ .debug_str     0x00000295      0x184 .\objects\iec60335_class_b_flash_test.o
+                                0x309 (size before relaxing)
+ .debug_str     0x00000419      0x3d6 .\objects\iec60335_class_b_interrupt_test.o
+                                0x5eb (size before relaxing)
+ .debug_str     0x000007ef       0xce .\objects\iec60335_class_b_post.o
+                                0x2a8 (size before relaxing)
+ .debug_str     0x000008bd      0x114 .\objects\iec60335_class_b_programcounter_test.o
+                                0x383 (size before relaxing)
+ .debug_str     0x000009d1      0x26e .\objects\iec60335_class_b_ram_test.o
+                                0x472 (size before relaxing)
+ .debug_str     0x00000c3f      0x1a8 .\objects\iec60335_class_b_timer_rtc_test.o
+                                0x683 (size before relaxing)
+ .debug_str     0x00000de7       0xd9 .\objects\iec60335_class_b_wdt_test.o
+                                0x3b0 (size before relaxing)
+ .debug_str     0x00000ec0      0x76c .\objects\efm32_cmu.o
+                                0x986 (size before relaxing)
+ .debug_str     0x0000162c       0xd7 .\objects\efm32_emu.o
+                                0x369 (size before relaxing)
+ .debug_str     0x00001703      0x15a .\objects\core_cm3.o
+                                0x282 (size before relaxing)
+ .debug_str     0x0000185d      0x12b .\objects\dvk_spi.o
+                                0x3c7 (size before relaxing)
+ .debug_str     0x00001988      0x10f .\objects\efm32g890f128_interrupt.o
+                                0x20e (size before relaxing)
+ .debug_str     0x00001a97       0xd0 .\objects\main.o
+                                0x7ef (size before relaxing)
+ .debug_str     0x00001b67       0xac .\objects\startup.o
+                                0x26e (size before relaxing)
+ .debug_str     0x00001c13      0x104 .\objects\system_efm32.o
+                                0x323 (size before relaxing)
+
+.debug_loc      0x00000000     0x1792
+ *(.debug_loc)
+ .debug_loc     0x00000000       0x64 .\objects\iec60335_class_b_cpureg_test.o
+ .debug_loc     0x00000064       0xa8 .\objects\iec60335_class_b_flash_test.o
+ .debug_loc     0x0000010c      0x170 .\objects\iec60335_class_b_interrupt_test.o
+ .debug_loc     0x0000027c       0x38 .\objects\iec60335_class_b_post.o
+ .debug_loc     0x000002b4      0x1c0 .\objects\iec60335_class_b_programcounter_test.o
+ .debug_loc     0x00000474      0x102 .\objects\iec60335_class_b_ram_test.o
+ .debug_loc     0x00000576       0xe0 .\objects\iec60335_class_b_timer_rtc_test.o
+ .debug_loc     0x00000656       0x9c .\objects\iec60335_class_b_wdt_test.o
+ .debug_loc     0x000006f2      0x4e4 .\objects\efm32_cmu.o
+ .debug_loc     0x00000bd6      0x1f4 .\objects\efm32_emu.o
+ .debug_loc     0x00000dca      0x460 .\objects\core_cm3.o
+ .debug_loc     0x0000122a       0x70 .\objects\dvk_spi.o
+ .debug_loc     0x0000129a      0x1e4 .\objects\efm32g890f128_interrupt.o
+ .debug_loc     0x0000147e      0x14c .\objects\main.o
+ .debug_loc     0x000015ca       0x38 .\objects\startup.o
+ .debug_loc     0x00001602      0x190 .\objects\system_efm32.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+OUTPUT(.\objects\IEC60335_ClassB.elf elf32-littlearm)
+
+.debug_pubtypes
+                0x00000000      0x96b
+ .debug_pubtypes
+                0x00000000       0x65 .\objects\iec60335_class_b_cpureg_test.o
+ .debug_pubtypes
+                0x00000065       0x12 .\objects\iec60335_class_b_critical_data.o
+ .debug_pubtypes
+                0x00000077       0xa5 .\objects\iec60335_class_b_flash_test.o
+ .debug_pubtypes
+                0x0000011c       0xcd .\objects\iec60335_class_b_interrupt_test.o
+ .debug_pubtypes
+                0x000001e9       0xbc .\objects\iec60335_class_b_post.o
+ .debug_pubtypes
+                0x000002a5       0xc8 .\objects\iec60335_class_b_programcounter_test.o
+ .debug_pubtypes
+                0x0000036d       0x83 .\objects\iec60335_class_b_ram_test.o
+ .debug_pubtypes
+                0x000003f0       0xd1 .\objects\iec60335_class_b_timer_rtc_test.o
+ .debug_pubtypes
+                0x000004c1       0xa8 .\objects\iec60335_class_b_wdt_test.o
+ .debug_pubtypes
+                0x00000569       0xc5 .\objects\efm32_cmu.o
+ .debug_pubtypes
+                0x0000062e       0x65 .\objects\efm32_emu.o
+ .debug_pubtypes
+                0x00000693       0x50 .\objects\core_cm3.o
+ .debug_pubtypes
+                0x000006e3       0xa1 .\objects\dvk_spi.o
+ .debug_pubtypes
+                0x00000784       0x12 .\objects\efm32g890f128_interrupt.o
+ .debug_pubtypes
+                0x00000796      0x12c .\objects\main.o
+ .debug_pubtypes
+                0x000008c2       0x7a .\objects\startup.o
+ .debug_pubtypes
+                0x0000093c       0x2f .\objects\system_efm32.o
+
+.debug_ranges   0x00000000       0xf0
+ .debug_ranges  0x00000000       0x28 .\objects\iec60335_class_b_interrupt_test.o
+ .debug_ranges  0x00000028       0x10 .\objects\iec60335_class_b_post.o
+ .debug_ranges  0x00000038       0x48 .\objects\iec60335_class_b_programcounter_test.o
+ .debug_ranges  0x00000080       0x28 .\objects\iec60335_class_b_timer_rtc_test.o
+ .debug_ranges  0x000000a8       0x20 .\objects\iec60335_class_b_wdt_test.o
+ .debug_ranges  0x000000c8       0x18 .\objects\dvk_spi.o
+ .debug_ranges  0x000000e0       0x10 .\objects\startup.o
+
+Cross Reference Table
+
+Symbol                                            File
+ACMP0_IRQHandler                                  .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+ADC0_IRQHandler                                   .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+AES_IRQHandler                                    .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+ASMCPUregTestHIGH                                 .\objects\iec60335_class_b_cpureg_test_bist_gcc.o
+                                                  .\objects\iec60335_class_b_cpureg_test.o
+ASMCPUregTestLOW                                  .\objects\iec60335_class_b_cpureg_test_bist_gcc.o
+                                                  .\objects\iec60335_class_b_cpureg_test.o
+ASMCPUregTestPOST                                 .\objects\iec60335_class_b_cpureg_test_post_gcc.o
+                                                  .\objects\iec60335_class_b_cpureg_test.o
+ASMCPUregTestSP                                   .\objects\iec60335_class_b_cpureg_test_bist_gcc.o
+                                                  .\objects\iec60335_class_b_cpureg_test.o
+ASMCPUregTestSPEC                                 .\objects\iec60335_class_b_cpureg_test_bist_gcc.o
+                                                  .\objects\iec60335_class_b_cpureg_test.o
+BusFault_Handler                                  .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+CMU_Calibrate                                     .\objects\efm32_cmu.o
+CMU_ClockDivGet                                   .\objects\efm32_cmu.o
+CMU_ClockDivSet                                   .\objects\efm32_cmu.o
+CMU_ClockEnable                                   .\objects\efm32_cmu.o
+                                                  .\objects\main.o
+CMU_ClockFreqGet                                  .\objects\efm32_cmu.o
+CMU_ClockSelectGet                                .\objects\efm32_cmu.o
+CMU_ClockSelectSet                                .\objects\efm32_cmu.o
+CMU_FreezeEnable                                  .\objects\efm32_cmu.o
+CMU_HFRCOBandGet                                  .\objects\efm32_cmu.o
+CMU_HFRCOBandSet                                  .\objects\efm32_cmu.o
+CMU_HFRCOStartupDelayGet                          .\objects\efm32_cmu.o
+CMU_HFRCOStartupDelaySet                          .\objects\efm32_cmu.o
+CMU_IRQHandler                                    .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+CMU_LCDClkFDIVGet                                 .\objects\efm32_cmu.o
+CMU_LCDClkFDIVSet                                 .\objects\efm32_cmu.o
+CMU_OscillatorEnable                              .\objects\efm32_cmu.o
+CMU_OscillatorTuningGet                           .\objects\efm32_cmu.o
+CMU_OscillatorTuningSet                           .\objects\efm32_cmu.o
+CMU_PCNTClockExternalGet                          .\objects\efm32_cmu.o
+CMU_PCNTClockExternalSet                          .\objects\efm32_cmu.o
+ClockTest                                         .\objects\main.o
+                                                  .\objects\iec60335_class_b_timer_rtc_test.o
+DAC0_IRQHandler                                   .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+DMA_IRQHandler                                    .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+DVK_SPI                                           .\objects\dvk_spi.o
+DVK_SPI_Com                                       .\objects\dvk_spi.o
+DebugMon_Handler                                  .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+DefaultBusFault_Handler                           .\objects\efm32g890f128_interrupt.o
+DefaultDebugMon_Handler                           .\objects\efm32g890f128_interrupt.o
+DefaultHandler                                    .\objects\efm32g890f128_interrupt.o
+DefaultHardFault_Handler                          .\objects\efm32g890f128_interrupt.o
+DefaultMemManage_Handler                          .\objects\efm32g890f128_interrupt.o
+DefaultNMI_Handler                                .\objects\efm32g890f128_interrupt.o
+DefaultPendSV_Handler                             .\objects\efm32g890f128_interrupt.o
+DefaultSVC_Handler                                .\objects\efm32g890f128_interrupt.o
+DefaultSysTick_Handler                            .\objects\efm32g890f128_interrupt.o
+DefaultUsageFault_Handler                         .\objects\efm32g890f128_interrupt.o
+EMU_EnterEM2                                      .\objects\efm32_emu.o
+EMU_EnterEM3                                      .\objects\efm32_emu.o
+EMU_EnterEM4                                      .\objects\efm32_emu.o
+EMU_MemPwrDown                                    .\objects\efm32_emu.o
+EMU_UpdateOscConfig                               .\objects\efm32_emu.o
+                                                  .\objects\efm32_cmu.o
+FaultHandler                                      .\objects\efm32g890f128_interrupt.o
+GPIO_EVEN_IRQHandler                              .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+GPIO_ODD_IRQHandler                               .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+HardFault_Handler                                 .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+I2C0_IRQHandler                                   .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+IEC60335_B_PCTest_A                               .\objects\iec60335_class_b_programcounter_test.o
+IEC60335_B_PCTest_B                               .\objects\iec60335_class_b_programcounter_test.o
+IEC60335_B_PCTest_C                               .\objects\iec60335_class_b_programcounter_test.o
+IEC60335_B_PCTest_D                               .\objects\iec60335_class_b_programcounter_test.o
+IEC60335_B_PCTest_E                               .\objects\iec60335_class_b_programcounter_test.o
+IEC60335_B_PCTest_F                               .\objects\iec60335_class_b_programcounter_test.o
+IEC60335_CPUregTestBIST                           .\objects\iec60335_class_b_cpureg_test_bist_gcc.o
+                                                  .\objects\iec60335_class_b_cpureg_test.o
+IEC60335_CPUregTestPOST                           .\objects\iec60335_class_b_cpureg_test_post_gcc.o
+                                                  .\objects\iec60335_class_b_cpureg_test.o
+IEC60335_ClassB_CPUregTest_BIST                   .\objects\iec60335_class_b_cpureg_test.o
+                                                  .\objects\main.o
+IEC60335_ClassB_CPUregTest_POST                   .\objects\iec60335_class_b_cpureg_test.o
+                                                  .\objects\iec60335_class_b_post.o
+IEC60335_ClassB_Clocktest_PollHandler             .\objects\iec60335_class_b_timer_rtc_test.o
+                                                  .\objects\main.o
+IEC60335_ClassB_Clocktest_RTCHandler              .\objects\iec60335_class_b_timer_rtc_test.o
+IEC60335_ClassB_FLASHtest_BIST                    .\objects\iec60335_class_b_flash_test.o
+                                                  .\objects\main.o
+IEC60335_ClassB_FLASHtest_POST                    .\objects\iec60335_class_b_flash_test.o
+                                                  .\objects\iec60335_class_b_post.o
+IEC60335_ClassB_Force_WDT_Reset                   .\objects\iec60335_class_b_wdt_test.o
+IEC60335_ClassB_InitInterruptTest                 .\objects\iec60335_class_b_interrupt_test.o
+                                                  .\objects\main.o
+IEC60335_ClassB_InterruptCheck                    .\objects\iec60335_class_b_interrupt_test.o
+                                                  .\objects\main.o
+IEC60335_ClassB_PCTest_BIST                       .\objects\iec60335_class_b_programcounter_test.o
+                                                  .\objects\main.o
+IEC60335_ClassB_PCTest_POST                       .\objects\iec60335_class_b_programcounter_test.o
+                                                  .\objects\iec60335_class_b_post.o
+IEC60335_ClassB_POST                              .\objects\iec60335_class_b_post.o
+                                                  .\objects\startup.o
+IEC60335_ClassB_RAMtest                           .\objects\iec60335_class_b_ram_test.o
+IEC60335_ClassB_RAMtest_BIST                      .\objects\iec60335_class_b_ram_test.o
+                                                  .\objects\main.o
+IEC60335_ClassB_RAMtest_POST                      .\objects\iec60335_class_b_ram_test.o
+                                                  .\objects\iec60335_class_b_post.o
+IEC60335_ClassB_Refresh_WDT                       .\objects\iec60335_class_b_wdt_test.o
+IEC60335_ClassB_initClockTest                     .\objects\iec60335_class_b_timer_rtc_test.o
+                                                  .\objects\main.o
+IEC60335_ClassB_initWDT                           .\objects\iec60335_class_b_wdt_test.o
+IEC60335_Flash_CRC_REF                            .\objects\iec60335_class_b_flash_test.o
+IEC60335_IRQReplacementHandler                    .\objects\iec60335_class_b_interrupt_test.o
+IEC60335_IRQ_Test                                 .\objects\iec60335_class_b_interrupt_test.o
+IEC60335_resetClockTest                           .\objects\iec60335_class_b_timer_rtc_test.o
+IRQVectorTable                                    .\objects\iec60335_class_b_interrupt_test.o
+IRQtest                                           .\objects\main.o
+LCD_IRQHandler                                    .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+LETIMER0_IRQHandler                               .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+LEUART0_IRQHandler                                .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+LEUART1_IRQHandler                                .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+MSC_IRQHandler                                    .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+MemManage_Handler                                 .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+NMI_Handler                                       .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+PCNT0_IRQHandler                                  .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+PCNT1_IRQHandler                                  .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+PCNT2_IRQHandler                                  .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+PCTest_funcTable                                  .\objects\iec60335_class_b_programcounter_test.o
+                                                  .\objects\iec60335_class_b_post.o
+PCTest_resultTable                                .\objects\iec60335_class_b_programcounter_test.o
+                                                  .\objects\iec60335_class_b_post.o
+PendSV_Handler                                    .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+RTC_IRQHandler                                    .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+Reset                                             .\objects\startup.o
+SVC_Handler                                       .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+Stack                                             .\objects\startup.o
+SysTick_Handler                                   .\objects\main.o
+                                                  .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+SystemCoreClock                                   .\objects\system_efm32.o
+SystemCoreClockGet                                .\objects\system_efm32.o
+                                                  .\objects\efm32_emu.o
+                                                  .\objects\efm32_cmu.o
+SystemHFClockGet                                  .\objects\system_efm32.o
+                                                  .\objects\efm32_cmu.o
+SystemHFXOClockGet                                .\objects\system_efm32.o
+SystemHFXOClockSet                                .\objects\system_efm32.o
+SystemInit                                        .\objects\system_efm32.o
+SystemLFRCOClockGet                               .\objects\system_efm32.o
+                                                  .\objects\efm32_cmu.o
+SystemLFXOClockGet                                .\objects\system_efm32.o
+                                                  .\objects\efm32_cmu.o
+SystemLFXOClockSet                                .\objects\system_efm32.o
+TIMER0_IRQHandler                                 .\objects\main.o
+                                                  .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+TIMER1_IRQHandler                                 .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+TIMER2_IRQHandler                                 .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+UART0_RX_IRQHandler                               .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+UART0_TX_IRQHandler                               .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+USART0_RX_IRQHandler                              .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+USART0_TX_IRQHandler                              .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+USART1_RX_IRQHandler                              .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+USART1_TX_IRQHandler                              .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+USART2_RX_IRQHandler                              .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+USART2_TX_IRQHandler                              .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+UsageFault_Handler                                .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+VCMP_IRQHandler                                   .\objects\efm32g890f128_interrupt.o
+                                                  .\objects\startup.o
+__LDREXB                                          .\objects\core_cm3.o
+__LDREXH                                          .\objects\core_cm3.o
+__LDREXW                                          .\objects\core_cm3.o
+__RBIT                                            .\objects\core_cm3.o
+__REV                                             .\objects\core_cm3.o
+__REV16                                           .\objects\core_cm3.o
+__REVSH                                           .\objects\core_cm3.o
+__STREXB                                          .\objects\core_cm3.o
+__STREXH                                          .\objects\core_cm3.o
+__STREXW                                          .\objects\core_cm3.o
+__call_Vect                                       .\objects\iec60335_class_b_interrupt_test.o
+__get_BASEPRI                                     .\objects\core_cm3.o
+__get_CONTROL                                     .\objects\core_cm3.o
+__get_FAULTMASK                                   .\objects\core_cm3.o
+__get_MSP                                         .\objects\core_cm3.o
+                                                  .\objects\iec60335_class_b_ram_test.o
+__get_PRIMASK                                     .\objects\core_cm3.o
+__get_PSP                                         .\objects\core_cm3.o
+__set_BASEPRI                                     .\objects\core_cm3.o
+__set_CONTROL                                     .\objects\core_cm3.o
+__set_FAULTMASK                                   .\objects\core_cm3.o
+__set_MSP                                         .\objects\core_cm3.o
+__set_PRIMASK                                     .\objects\core_cm3.o
+__set_PSP                                         .\objects\core_cm3.o
+__text_start                                      .\objects\iec60335_class_b_flash_test.o
+_ebss                                             .\objects\startup.o
+_edata                                            .\objects\startup.o
+_etext                                            .\objects\startup.o
+_initial_sp                                       .\objects\startup.o
+_sbss                                             .\objects\startup.o
+_sdata                                            .\objects\startup.o
+bistTest                                          .\objects\main.o
+crc32                                             .\objects\iec60335_class_b_flash_test.o
+initController                                    .\objects\main.o
+initSystick                                       .\objects\main.o
+interrupts                                        .\objects\startup.o
+main                                              .\objects\main.o
+                                                  .\objects\startup.o
+pIEC60335_IRQ_Test                                .\objects\iec60335_class_b_interrupt_test.o
+testfirst                                         .\objects\startup.o
+testsecond                                        .\objects\startup.o

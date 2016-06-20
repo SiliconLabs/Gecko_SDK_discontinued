@@ -1,0 +1,18 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$em__emu_8h.html" title="Energy management unit (EMU) peripheral API." alt="" coords="440,80,772,107"/>
+<area shape="rect" id="node3" href="$em__cmu_8c.html" title="Clock management unit (CMU) Peripheral API." alt="" coords="5,155,339,181"/>
+<area shape="rect" id="node5" href="$em__rmu_8c.html" title="Reset Management Unit (RMU) peripheral module peripheral API." alt="" coords="723,155,1052,181"/>
+<area shape="rect" id="node6" href="$em__gpio_8h.html" title="General Purpose IO (GPIO) peripheral API." alt="" coords="925,80,1255,107"/>
+<area shape="rect" id="node8" href="$em__msc_8h.html" title="Flash controller module (MSC) peripheral API." alt="" coords="1281,80,1612,107"/>
+<area shape="rect" id="node10" href="$em__acmp_8c.html" title="Analog Comparator (ACMP) Peripheral API." alt="" coords="1637,80,1979,107"/>
+<area shape="rect" id="node11" href="$em__dma_8c.html" title="Direct memory access (DMA) module peripheral API." alt="" coords="2003,80,2337,107"/>
+<area shape="rect" id="node12" href="$em__i2c_8c.html" title="Inter&#45;integrated Circuit (I2C) Peripheral API." alt="" coords="2362,80,2685,107"/>
+<area shape="rect" id="node13" href="$em__idac_8c.html" title="Current Digital to Analog Converter (IDAC) peripheral API." alt="" coords="2710,80,3041,107"/>
+<area shape="rect" id="node14" href="$em__pcnt_8c.html" title="Pulse Counter (PCNT) peripheral API." alt="" coords="3067,80,3399,107"/>
+<area shape="rect" id="node15" href="$em__prs_8c.html" title="Peripheral Reflex System (PRS) Peripheral API." alt="" coords="3424,80,3749,107"/>
+<area shape="rect" id="node16" href="$em__rtc_8c.html" title="Real Time Counter (RTC) Peripheral API." alt="" coords="3773,80,4095,107"/>
+<area shape="rect" id="node17" href="$em__wdog_8c.html" title="Watchdog (WDOG) peripheral API devices." alt="" coords="4121,80,4460,107"/>
+<area shape="rect" id="node4" href="$em__emu_8c.html" title="Energy Management Unit (EMU) Peripheral API." alt="" coords="363,155,697,181"/>
+<area shape="rect" id="node7" href="$em__gpio_8c.html" title="General Purpose IO (GPIO) peripheral API devices." alt="" coords="1078,155,1409,181"/>
+<area shape="rect" id="node9" href="$em__msc_8c.html" title="Flash controller (MSC) Peripheral API." alt="" coords="1435,155,1767,181"/>
+</map>

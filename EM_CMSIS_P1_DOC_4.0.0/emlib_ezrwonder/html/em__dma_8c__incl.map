@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$em__dma_8h.html" title="Direct memory access (DMA) API." alt="" coords="39,80,130,107"/>
+<area shape="rect" id="node6" href="$em__cmu_8h.html" title="Clock management unit (CMU) API." alt="" coords="183,80,274,107"/>
+<area shape="rect" id="node7" href="$em__bitband_8h.html" title="Bitband Peripheral API." alt="" coords="266,155,375,181"/>
+<area shape="rect" id="node8" href="$em__assert_8h.html" title="EFM32 peripheral API &quot;assert&quot; implementation." alt="" coords="349,80,450,107"/>
+</map>

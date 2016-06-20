@@ -1,0 +1,19 @@
+This is a simple RTX Kernel based example that uses a binary semaphore
+to share the communication line. Two threads are defined:
+
+thread1: A thread with high priority, that is executed every 3ms, and
+         sends a short string "Thread1" via COM Port. When a 3ms delay
+         has expired, it waits for a free semaphore for 1ms.
+         If the semaphore is not free it will not send the string.
+
+thread2: A thread with normal priority, running whenever no other thread
+         with higher priority is active. It sends a short string "Thread2" 
+         via COM Port when the semaphore is free. If the semaphore is 
+         in use, it will wait. 
+
+The Semaphore example program is available for one target:
+
+Simulator: uVision Simulator for evaluation
+
+
+

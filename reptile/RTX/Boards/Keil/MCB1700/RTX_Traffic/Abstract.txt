@@ -1,0 +1,30 @@
+The RTX_Traffic project is a simple RTX Kernel based example
+for the NXP 'LPC1768' microcontroller using Keil 'MCB1700' 
+Evaluation Board, compliant to Cortex Microcontroller 
+Software Interface Standard (CMSIS V3.0).
+
+Example functionality:                                                   
+ - Clock Settings:
+   - XTAL  =  12 MHz
+   - PLL0  = 400 MHz
+   - CCLK  = 100 MHz
+
+Traffic is a program that controls a traffic light.
+
+The traffic light is timed and lets cars pass during a
+specific time period.  There is a pedestrial crossing button (INT0)
+that lets pedestrians cross.  
+
+There are several things of interest here:
+
+*  This program uses RTX Kernel
+
+*  UART1 settings: 115200 baud, 8 data bits, no parity, 1 stop bit
+
+
+The Traffic program is available in different targets:
+
+  Simulator:     configured for software Simulator
+
+  LPC1768 Flash: runs from Internal Flash located on chip
+                 (used for production or target debugging)

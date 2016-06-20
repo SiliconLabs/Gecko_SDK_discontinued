@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$i2cspm_8c.html" title="I2C simple poll&#45;based master mode driver for the DK/STK." alt="" coords="5,80,176,107"/>
+<area shape="rect" id="node5" href="$si1147__i2c_8c.html" title="i2c driver for the Si1147" alt="" coords="201,80,391,107"/>
+<area shape="rect" id="node8" href="$si114x__sys__out_8c_source.html" title="common/drivers/si114x_sys_out.c" alt="" coords="440,80,656,107"/>
+<area shape="rect" id="node11" href="$si7013_8c.html" title="Driver for the Si7013 Temperature / Humidity sensor." alt="" coords="705,80,871,107"/>
+<area shape="rect" id="node14" href="$tempsens_8c.html" title="Temperature sensor driver for DS75 temperature sensor compatible device on the DK..." alt="" coords="919,80,1104,107"/>
+<area shape="rect" id="node17" href="$touch_8c.html" title="EFM32GG_DK3750, Touch panel driver." alt="" coords="1153,80,1313,107"/>
+</map>

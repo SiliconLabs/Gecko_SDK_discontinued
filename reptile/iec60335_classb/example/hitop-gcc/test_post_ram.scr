@@ -1,0 +1,66 @@
+// EM IEC60335-ClassB Test Script (HiTOP)
+// open a file and write the header
+%fileno = %file_open("TestResult_POST_RAM.txt", "w")
+%file_write(%fileno, "RAM Test:\n")
+%file_write(%fileno, "Energy Micro IEC60355 class b test script log\n")
+%file_write(%fileno, "provides execution log of the POST RAM test function\n")
+%file_write(%fileno, "\n")
+%file_write(%fileno, "executed : ")
+%time_format="%H:%M:%S"
+%file_write(%fileno, %current_time)
+%file_write(%fileno, ", ")
+%date_format="%d.%m.%Y"
+%file_write(%fileno, %current_date)
+%file_write(%fileno, "\n")
+%sysfreq = 32000000
+%memsize = 16384
+%memsizek = %memsize/1024
+%file_write(%fileno, "System frequency  : %d MHz\n", %sysfreq/1000000)
+%file_write(%fileno, "RAM size to check : %d byte\n", %memsize)
+%file_write(%fileno, "\n")
+%file_write(%fileno, "*************************************\n")
+%file_write(%fileno, "This test checks the functionality of the RAM test\n")
+%file_write(%fileno, "marching algo.\n")
+%file_write(%fileno, "This Test doesn't inject any failures.\n")
+%file_write(%fileno, "POST test\n\t")
+%file_write(%fileno, "test result : ")
+IF (!%ice_halted) {
+HALT
+}
+BREAK DELETE
+RESET TARGET 
+WAIT 10
+// enable cycle counter
+OUTPUT DWORD TO 0xE0001000 PAUSE 1 = 0x00000001
+
+GO UNTIL IEC60335_ClassB_POST
+WAIT 10
+%pc = #iec60335_class_b_post#85
+WAIT 10
+GO UNTIL IEC60335_ClassB_RAMtest
+WAIT 10
+// reset cycle counter
+OUTPUT DWORD TO 0xE0001004 PAUSE 1 = 0x00000000
+GO UNTIL #310
+wait 10
+
+// read cycle counter
+%count = dword at 0xE0001004
+%res = result
+IF (%res == 1) {
+%file_write(%fileno, "PASS\n")
+}
+else {
+%file_write(%fileno, "FAIL\n")
+}
+%file_write(%fileno, "\n")
+%file_write(%fileno, "Runtime analysis :\n\t")
+%file_write(%fileno, "execution cycles : %d\n\t", %count)
+%file_write(%fileno, "execution time   : %f sec\n\t", ((float)%count/%sysfreq))
+%file_write(%fileno, "exec.time/Kbyte  : %f sec/kbyte\n", ((float)%count/%sysfreq/%memsizek))
+%file_write(%fileno, "\n")
+
+%file_write(%fileno, "End of test\n")
+
+//Close File
+%file_close(%fileno)

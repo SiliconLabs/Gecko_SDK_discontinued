@@ -1,0 +1,31 @@
+FLASH Test:
+Energy Micro IEC60355 class b test script log
+provides execution log of the POST Flash test function
+
+executed : 11:38:36, 11.07.2011
+System frequency    : 32 MHz
+FLASH size to check : 130690 byte
+
+This test checks the functionality of the software crc32 based
+Flash test algo and CRC value.
+*************************************
+This Test doesn't inject any failures.
+POST test
+	test result : PASS
+
+Runtime analysis :
+	execution cycles : 4100584
+	execution time   : 0.128143 sec
+	exec.time/Kbyte  : 0.001009 sec/kbyte
+
+*************************************
+The Test injects an error into the reference CRC value.
+POST test
+	test result : FAIL
+
+Runtime analysis :
+	execution cycles : 4504861
+	execution time   : 0.140777 sec
+	exec.time/Kbyte  : 0.001108 sec/kbyte
+
+End of test

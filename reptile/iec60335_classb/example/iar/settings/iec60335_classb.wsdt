@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Workspace>
+  <ConfigDictionary>
+    
+  <CurrentConfigs><Project>iec60335_classb/Debug</Project></CurrentConfigs></ConfigDictionary>
+  <Desktop>
+    <Static>
+      <Workspace>
+        <ColumnWidths>
+          
+          
+          
+          
+        <Column0>382</Column0><Column1>31</Column1><Column2>29</Column2><Column3>0</Column3></ColumnWidths>
+      </Workspace>
+    <Build><ColumnWidth0>20</ColumnWidth0><ColumnWidth1>584</ColumnWidth1><ColumnWidth2>496</ColumnWidth2><ColumnWidth3>61</ColumnWidth3></Build><Find-in-Files><ColumnWidth0>440</ColumnWidth0><ColumnWidth1>62</ColumnWidth1><ColumnWidth2>754</ColumnWidth2></Find-in-Files><Debug-Log><ColumnWidth0>18</ColumnWidth0><ColumnWidth1>1224</ColumnWidth1></Debug-Log><TerminalIO/></Static>
+    <Windows>
+      
+    <Wnd0>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-21014-21438</Identity>
+            <TabName>Workspace</TabName>
+            <Factory>Workspace</Factory>
+            <Session>
+              
+            <NodeDict><ExpandedNode>iec60335_classb</ExpandedNode><ExpandedNode>iec60335_classb/CMSIS</ExpandedNode><ExpandedNode>iec60335_classb/IEC60335</ExpandedNode><ExpandedNode>iec60335_classb/Source</ExpandedNode></NodeDict></Session>
+          </Tab>
+        </Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd0><Wnd1><Tabs><Tab><Identity>TabID-21056-25122</Identity><TabName>Build</TabName><Factory>Build</Factory><Session/></Tab><Tab><Identity>TabID-1800-10318</Identity><TabName>Find in Files</TabName><Factory>Find-in-Files</Factory><Session/></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd1></Windows>
+    <Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\source\main.c</Filename><XPos>0</XPos><YPos>128</YPos><SelStart>4055</SelStart><SelEnd>4055</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\CMSIS\CM3\DeviceSupport\EnergyMicro\EFM32\startup\iar\startup_efm32.s</Filename><XPos>0</XPos><YPos>114</YPos><SelStart>4982</SelStart><SelEnd>4982</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\iec60335_classb\inc\iec60335_class_b.h</Filename><XPos>0</XPos><YPos>102</YPos><SelStart>4758</SelStart><SelEnd>4758</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_flash_test.c</Filename><XPos>0</XPos><YPos>196</YPos><SelStart>9415</SelStart><SelEnd>9415</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_timer_rtc_test.c</Filename><XPos>0</XPos><YPos>257</YPos><SelStart>9209</SelStart><SelEnd>9209</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_interrupt_test.c</Filename><XPos>0</XPos><YPos>37</YPos><SelStart>3059</SelStart><SelEnd>3059</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\..\..\Program Files (x86)\IAR Systems\Embedded Workbench 6.0_4\arm\inc\c\DLib_Defaults.h</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\CMSIS\CM3\CoreSupport\core_cm3.h</Filename><XPos>0</XPos><YPos>1145</YPos><SelStart>61685</SelStart><SelEnd>61685</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\source\dvk_spi.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><ActiveTab>8</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-00f5b8a0><key>iaridepm.enu1</key></Toolbar-00f5b8a0></Sizes></Row0></Top><Left><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>631</Bottom><Right>462</Right><x>-2</x><y>-2</y><xscreen>230</xscreen><yscreen>201</yscreen><sizeHorzCX>155932</sizeHorzCX><sizeHorzCY>202621</sizeHorzCY><sizeVertCX>314576</sizeVertCX><sizeVertCY>638105</sizeVertCY></Rect></Wnd0></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>317</Bottom><Right>1477</Right><x>-2</x><y>-2</y><xscreen>1479</xscreen><yscreen>319</yscreen><sizeHorzCX>1002712</sizeHorzCX><sizeHorzCY>321573</sizeHorzCY><sizeVertCX>155932</sizeVertCX><sizeVertCY>202621</sizeVertCY></Rect></Wnd1></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+  </Desktop>
+</Workspace>
+
+

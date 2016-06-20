@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$group__ksz8851snl.html#ga194769a82e5a1c0ab03ea0923b7da2d0" title="Write ethernet controller register." alt="" coords="211,31,416,57"/>
+<area shape="rect" id="node5" href="$ksz8851snl__spi_8c.html#ab3cd4983675d048afb998f29244de6c0" title="Select/deselect the ksz8851snl chip." alt="" coords="465,5,671,32"/>
+<area shape="rect" id="node7" href="$ksz8851snl__spi_8c.html#aa7973e5c903af7ba709937e516393a30" title="Transmits a series of bytes over the spi link." alt="" coords="479,56,657,83"/>
+</map>

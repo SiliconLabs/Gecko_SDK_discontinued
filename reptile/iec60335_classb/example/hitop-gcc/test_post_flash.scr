@@ -1,0 +1,102 @@
+// EM IEC60335-ClassB Test Script (HiTOP)
+// open a file and write the header
+%fileno = %file_open("TestResult_POST_Flash.txt", "w")
+%file_write(%fileno, "FLASH Test:\n")
+%file_write(%fileno, "Energy Micro IEC60355 class b test script log\n")
+%file_write(%fileno, "provides execution log of the POST Flash test function\n")
+%file_write(%fileno, "\n")
+%file_write(%fileno, "executed : ")
+%time_format="%H:%M:%S"
+%file_write(%fileno, %current_time)
+%file_write(%fileno, ", ")
+%date_format="%d.%m.%Y"
+%file_write(%fileno, %current_date)
+%file_write(%fileno, "\n")
+%sysfreq = 32000000
+%memsize = 130690
+%memsizek = %memsize/1024
+%file_write(%fileno, "System frequency    : %d MHz\n", %sysfreq/1000000)
+%file_write(%fileno, "FLASH size to check : %d byte\n", %memsize)
+%file_write(%fileno, "\n")
+%file_write(%fileno, "This test checks the functionality of the software crc32 based\n")
+%file_write(%fileno, "Flash test algo and CRC value.\n")
+%file_write(%fileno, "*************************************\n")
+%file_write(%fileno, "This Test doesn't inject any failures.\n")
+%file_write(%fileno, "POST test\n\t")
+%file_write(%fileno, "test result : ")
+IF (!%ice_halted) {
+HALT
+}
+RESET TARGET 
+WAIT 10
+// enable cycle counter
+OUTPUT DWORD TO 0xE0001000 PAUSE 1 = 0x00000001
+
+GO UNTIL IEC60335_ClassB_POST
+WAIT 10
+%pc = #iec60335_class_b_post#72
+GO UNTIL #iec60335_class_b_flash_test#IEC60335_ClassB_FLASHtest_POST
+// reset cycle counter
+OUTPUT DWORD TO 0xE0001004 PAUSE 1 = 0x00000000
+GO UNTIL #iec60335_class_b_post#76
+WAIT 10
+// read cycle counter
+%count = dword at 0xE0001004
+%res = result
+IF (%res == 1) {
+%file_write(%fileno, "PASS\n")
+}
+else {
+%file_write(%fileno, "FAIL\n")
+}
+%file_write(%fileno, "\n")
+%file_write(%fileno, "Runtime analysis :\n\t")
+%file_write(%fileno, "execution cycles : %d\n\t", %count)
+%file_write(%fileno, "execution time   : %f sec\n\t", ((float)%count/%sysfreq))
+%file_write(%fileno, "exec.time/Kbyte  : %f sec/kbyte\n", ((float)%count/%sysfreq/%memsizek))
+%file_write(%fileno, "\n")
+%file_write(%fileno, "*************************************\n")
+%file_write(%fileno, "The Test injects an error into the reference CRC value.\n")
+%file_write(%fileno, "POST test\n\t")
+%file_write(%fileno, "test result : ")
+IF (!%ice_halted) {
+HALT
+}
+BREAK DELETE
+RESET TARGET 
+WAIT 10
+// enable cycle counter
+OUTPUT DWORD TO 0xE0001000 PAUSE 1 = 0x00000001
+GO UNTIL IEC60335_ClassB_POST
+WAIT 10
+%pc = #iec60335_class_b_post#72
+GO UNTIL #iec60335_class_b_flash_test#IEC60335_ClassB_FLASHtest_POST
+// manipulate CRCval
+%CRCVal = IEC60335_Flash_CRC_REF.CRC32Val
+%CRCVal++
+IEC60335_Flash_CRC_REF.CRC32Val = %CRCVal
+// reset cycle counter
+OUTPUT DWORD TO 0xE0001004 PAUSE 1 = 0x00000000
+GO UNTIL #iec60335_class_b_post#76 
+WAIT 10
+// read cycle counter
+%count = dword at 0xE0001004
+%res = result
+IF (%res == 1) {
+%file_write(%fileno, "PASS\n")
+}
+else {
+%file_write(%fileno, "FAIL\n")
+}
+%file_write(%fileno, "\n")
+%file_write(%fileno, "Runtime analysis :\n\t")
+%file_write(%fileno, "execution cycles : %d\n\t", %count)
+%file_write(%fileno, "execution time   : %f sec\n\t", ((float)%count/%sysfreq))
+%file_write(%fileno, "exec.time/Kbyte  : %f sec/kbyte\n", ((float)%count/%sysfreq/%memsizek))
+%file_write(%fileno, "\n")
+%file_write(%fileno, "End of test\n")
+
+//Close File
+%file_close(%fileno)
+// reload the application
+LOAD OBJECT ".\objects\IEC60335_ClassB.htx" CODE

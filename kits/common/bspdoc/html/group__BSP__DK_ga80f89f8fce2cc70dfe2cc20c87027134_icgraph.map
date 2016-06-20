@@ -1,0 +1,24 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$group__BSP__DK.html#gacdf0586194771b5184caf46a9f0bd3ea" title="Configure display control." alt="" coords="219,31,351,57"/>
+<area shape="rect" id="node19" href="$group__BSP__DK.html#gaa48894d4c034984910e1d2e91904d719" title="Extended the EBI addressing range by enabling address lines A16&#45;A22." alt="" coords="184,81,387,108"/>
+<area shape="rect" id="node21" href="$group__BSP__DK.html#gaa21b2b631c67f15bc2a77b470f34673d" title="Inform board controller about current energy mode." alt="" coords="215,132,355,159"/>
+<area shape="rect" id="node23" href="$group__BSPCOMMON.html#ga8289bda0de5688289312df216c8b7a63" title="Initialize board support package functionality." alt="" coords="251,183,320,209"/>
+<area shape="rect" id="node25" href="$group__BSP__DK.html#ga1a9c3b853809d1a040f22e62ebf73baf" title="Disable interrupts from board controller." alt="" coords="214,233,357,260"/>
+<area shape="rect" id="node27" href="$group__BSP__DK.html#gab24747ec37075c951b11362686773c56" title="Enable interrupts from board controller." alt="" coords="216,284,355,311"/>
+<area shape="rect" id="node29" href="$group__BSP__DK.html#gabcf383cf2f180516720e4d9e8328b09a" title="Clear board controller interrupt flags." alt="" coords="205,335,366,361"/>
+<area shape="rect" id="node31" href="$group__BSP__DK.html#ga617da68215423d7c8030742077ebafa7" title="Set board controller interrupt flags." alt="" coords="210,385,361,412"/>
+<area shape="rect" id="node33" href="$group__BSPCOMMON.html#ga6a279f7836be1c7ca5422e363e16aac3" title="Turn off a single LED." alt="" coords="235,436,336,463"/>
+<area shape="rect" id="node35" href="$group__BSPCOMMON.html#ga650892d504ec3942e61c0cc11837ec8e" title="Turn on a single LED." alt="" coords="240,487,331,513"/>
+<area shape="rect" id="node37" href="$group__BSPCOMMON.html#ga613508f20bd7eb40c6e9c51f9a2fcc29" title="Initialize LED drivers." alt="" coords="238,537,333,564"/>
+<area shape="rect" id="node39" href="$group__BSPCOMMON.html#ga3ccf1b78b909be9b57d580a6bafc038d" title="Update all LED&#39;s." alt="" coords="237,588,333,615"/>
+<area shape="rect" id="node41" href="$group__BSPCOMMON.html#gaa1d7f74ca14b30270a60546fb8fe9083" title="Toggle a single LED." alt="" coords="230,639,341,665"/>
+<area shape="rect" id="node43" href="$group__BSP__DK.html#ga18ee56d221a2a21cb67f7320e78f3401" title="DK Peripheral Access Control Enable or disable access to on&#45;board peripherals through..." alt="" coords="211,689,359,716"/>
+<area shape="rect" id="node5" href="$group__Tft.html#ga53cad6afec098c05461dd0da9479c0ef" title="TFT initialize or reinitialize to Address Mapped Mode Assumes EBI has been configured..." alt="" coords="435,5,597,32"/>
+<area shape="rect" id="node7" href="$group__Tft.html#gafae3e95323a15ac1b4b6ed6fa3c13e9b" title="TFT initialize or reinitialize Assumes EBI has been configured correctly in BSP_Init(BSP_INIT_DK_EBI..." alt="" coords="465,373,567,400"/>
+<area shape="rect" id="node9" href="$retargettft_8c.html#a60dc864fe6ef296e5aab923e46e1ea16" title="Reset TFT text display state." alt="" coords="471,56,561,83"/>
+<area shape="rect" id="node11" href="$group__RetargetIo.html#gad444352f46f856ffcb6cb255e3ef5d7b" title="Intializes TFT text display." alt="" coords="657,31,783,57"/>
+<area shape="rect" id="node13" href="$group__RetargetIo.html#ga856ae0b788dccadc2c83a6e67409be5f" title="Transmit single byte to the TFT." alt="" coords="645,81,795,108"/>
+<area shape="rect" id="node15" href="$group__RetargetIo.html#ga086fc1b0720a915cba9092371c03d367" title="Write to a file." alt="" coords="843,81,901,108"/>
+<area shape="rect" id="node17" href="$group__RetargetIo.html#gaae54d7b9578ba1fc171ce6f30f4c68a3" title="Increase heap." alt="" coords="949,81,1003,108"/>
+<area shape="rect" id="node46" href="$group__Touch.html#ga7998398248274366ad0d8cc3abc63f35" title="Initialize touch panel driver." alt="" coords="472,689,560,716"/>
+</map>

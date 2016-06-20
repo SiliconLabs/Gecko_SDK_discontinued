@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$em__cmu_8c.html" title="Clock management unit (CMU) Peripheral API." alt="" coords="5,80,339,107"/>
+<area shape="rect" id="node3" href="$em__emu_8c.html" title="Energy Management Unit (EMU) Peripheral API." alt="" coords="363,80,697,107"/>
+<area shape="rect" id="node4" href="$em__rmu_8c.html" title="Reset Management Unit (RMU) peripheral module peripheral API." alt="" coords="723,80,1052,107"/>
+</map>

@@ -1,0 +1,7 @@
+This example program shows how to use the RTX Kernel mail objects
+for task inter-communication. 
+
+The MAIL example program is available for one target:
+
+Simulator: uVision Simulator for evaluation
+

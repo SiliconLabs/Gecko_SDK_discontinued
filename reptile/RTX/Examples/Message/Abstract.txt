@@ -1,0 +1,10 @@
+This example program shows how to use the RTX Kernel messages
+for task inter-communication. Because the message objects in this
+example are fixed size, the RTX Thread-Safe Fixed-Block Memory
+Allocation functions are used. They are fully reentrant and can
+be used with RTX Kernel with no restrictions.
+
+The MESSAGE example program is available for one target:
+
+Simulator: uVision Simulator for evaluation
+

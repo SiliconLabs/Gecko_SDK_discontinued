@@ -1,0 +1,16 @@
+================ Revision history ============================================
+4.0.0:
+- Maintenance release.
+
+3.20.13:
+ - Updated Simplicity Studio project files.
+
+3.20.12:
+ - Added humitemp example.
+
+3.20.10:
+ - USB usbdhidkbd example has been energy optimized.
+ - All USB examples use new Low Energy Modes (LEM).
+
+3.20.9:
+ - Initial revision.

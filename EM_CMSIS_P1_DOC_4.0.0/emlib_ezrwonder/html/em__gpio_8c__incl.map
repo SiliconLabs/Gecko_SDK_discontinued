@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$em__gpio_8h.html" title="General Purpose IO (GPIO) peripheral API." alt="" coords="126,80,215,107"/>
+<area shape="rect" id="node5" href="$em__bitband_8h.html" title="Bitband Peripheral API." alt="" coords="176,155,285,181"/>
+<area shape="rect" id="node6" href="$em__assert_8h.html" title="EFM32 peripheral API &quot;assert&quot; implementation." alt="" coords="309,155,411,181"/>
+</map>

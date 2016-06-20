@@ -1,0 +1,21 @@
+RAM Test:
+Energy Micro IEC60355 class b test script log
+provides execution log of the POST RAM test function
+
+executed : 11:36:53, 11.07.2011
+System frequency  : 32 MHz
+RAM size to check : 16384 byte
+
+*************************************
+This test checks the functionality of the RAM test
+marching algo.
+This Test doesn't inject any failures.
+POST test
+	test result : PASS
+
+Runtime analysis :
+	execution cycles : 2649880
+	execution time   : 0.082809 sec
+	exec.time/Kbyte  : 0.005176 sec/kbyte
+
+End of test

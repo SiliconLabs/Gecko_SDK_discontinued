@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$si114x__functions_8c.html#a50d91593be08d65b013f22a42f0ddcb1" title="Aligns the value pointed by value_p to either the LEFT or RIGHT the number of shifted..." alt="" coords="126,195,175,221"/>
+<area shape="rect" id="node5" href="$si114x__functions_8c.html#ac9f9c30376cfa4e7d75d3df4aca0bd38" title="Returns a fixed&#45;point (20&#45;bit fraction) after dividing op1/op2." alt="" coords="366,132,453,159"/>
+<area shape="rect" id="node27" href="$si114x__functions_8c.html#af6754f2631570292e96493f5149dfa36" title="Returns a fixed&#45;point (20&#45;bit fraction) after multiplying op1*op2." alt="" coords="361,245,458,272"/>
+<area shape="rect" id="node33" href="$si114x__functions_8c.html#a3635be76445f56c810f15a35828d38ca" title="The fx20_round was designed to perform rounding to however many significant digits..." alt="" coords="225,144,311,171"/>
+<area shape="rect" id="node7" href="$si114x__functions_8c.html#a808f2899298260f393055312b4f80ac6" title="Returns the ratio to correlate between x_RANGE=0 and x_RANGE=1 It is typically 14..." alt="" coords="510,56,618,83"/>
+<area shape="rect" id="node15" href="$si114x__functions_8c.html#a61432bf1caf8279773cbd20cbff01762" title="Returns the calibration ratio to be applied to IR measurements." alt="" coords="510,107,618,133"/>
+<area shape="rect" id="node18" href="$si114x__functions_8c.html#af2b82da725b191c13d12b558513d16b7" title="Returns the ratio to correlate between measurements made from large PD to measurements..." alt="" coords="521,157,607,184"/>
+<area shape="rect" id="node21" href="$si114x__functions_8c.html#af8fdd4e552ea67d71ca4f6efe98cde06" title="Returns the ratio to adjust for differences in IRLED drive strength." alt="" coords="527,208,601,235"/>
+<area shape="rect" id="node24" href="$si114x__functions_8c.html#ab4c6c95d4cfe808f6bae73c8f1d6e949" title="Returns the calibration ratio to be applied to VIS measurements." alt="" coords="507,5,621,32"/>
+<area shape="rect" id="node9" href="$group__Si114x.html#gadbec1218d8cc103d4d6c2fc0ec0f6abf" title="Populates the SI114X_CAL_S structure." alt="" coords="669,132,819,159"/>
+<area shape="rect" id="node11" href="$group__Si114x.html#ga79b0443305d3a085028d1c197d398ede" title="Initializes and configures the Si1147 sensor." alt="" coords="867,132,1043,159"/>
+<area shape="rect" id="node13" href="$si114x__uv__index_8h.html#aee56b411a2cb91ae85cae51c2d4039f7" title="Initializes and configures the Si1146 sensor for UV index measurements." alt="" coords="885,183,1024,209"/>
+<area shape="rect" id="node29" href="$group__Si114x.html#ga9966ab23359f5ae0c7e5b8d79a4ef59a" title="Initializes the Si113x/46/47/48 UCOEF Registers." alt="" coords="684,183,804,209"/>
+</map>

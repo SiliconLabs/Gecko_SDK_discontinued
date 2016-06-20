@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$si114x__functions_8c.html#ad3caa9be1c88c281a2b56d85874ce13e" title="Waits until the Si113x/4x is sleeping before proceeding." alt="" coords="518,27,629,54"/>
+<area shape="rect" id="node5" href="$group__Si114x.html#ga734e022c8fda86b69a353b1012c59231" title="Implements 1ms delay." alt="" coords="741,27,824,54"/>
+<area shape="rect" id="node7" href="$group__Si114x.html#gaeae79629a9f5a41c75ba329fa056eeef" title="Reads from Si114x register." alt="" coords="699,128,866,155"/>
+<area shape="rect" id="node10" href="$group__Si114x.html#ga479ffe2c4fea4bf799a925d8e779400c" title="Reads block of Si114x registers." alt="" coords="198,280,317,307"/>
+<area shape="rect" id="node12" href="$group__Si114x.html#gad06dc467120c7e78af29a2959589a796" title="Sends a NOP command to the Si113x/4x." alt="" coords="216,128,299,155"/>
+<area shape="rect" id="node19" href="$group__Si114x.html#ga8d9e6e60e0ced326193208cdf976bbee" title="Writes to Si114x Register." alt="" coords="497,179,650,206"/>
+<area shape="rect" id="node14" href="$si114x__functions_8c.html#abdc2cf05a4b2387da379ec970c73c205" title="Helper function to send a command to the Si113x/4x." alt="" coords="365,128,448,155"/>
+</map>

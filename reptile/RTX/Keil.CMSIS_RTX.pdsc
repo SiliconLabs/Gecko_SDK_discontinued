@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package schemaVersion="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
+  <vendor>Keil</vendor>
+  <name>CMSIS_RTX</name>
+  <description>RTX is a CMSIS-RTOS compliant RTOS for Cortex-M based devices</description>
+  <license>License.txt</license>
+  <!-- web download link -->
+  <url>http://www.keil.com/pack/</url>
+
+  <releases>
+    <release version="4.70.0">
+      with CMSIS-RTOS API V1.02:
+        Control functions for short timeouts in microsecond resolution:
+        Added: osKernelSysTick, osKernelSysTickFrequency, osKernelSysTickMicroSec
+        Removed: osSignalGet       
+    </release>
+    <release version="4.61.0">
+      Updates:
+      - osTimerCreate can be called prior to osKernelStart (but after osKernelInitialize)
+      - initialization of external timer corrected for Cortex-M0/M0+/M1
+      - Message/Mail Queue behaviour corrected when timeout expires
+    </release>
+  </releases>
+  
+  <conditions>
+    <condition id= "CMSIS_Core">
+      <description>This component requires the CMSIS CORE component</description>
+      <require Cclass ="CMSIS" Cgroup="CORE"/>
+    </condition>
+    
+    <!-- ARMCC -->
+    <condition id="CM0_LE_ARMCC">
+      <description>Cortex-M0 or Cortex-M0+ or SC000 processor based device in little endian mode for the ARM Compiler</description>
+      <accept Dcore="Cortex-M0"/>
+      <accept Dcore="Cortex-M0+"/>
+      <accept Dcore="SC000"/>
+      <require Dendian="Little-endian"/>
+      <require Tcompiler="ARMCC"/>
+    </condition>
+
+    <condition id="CM0_BE_ARMCC">
+      <description>Cortex-M0 or Cortex-M0+ or SC000 processor based device in big endian mode for the ARM Compiler</description>
+      <accept Dcore="Cortex-M0"/>
+      <accept Dcore="Cortex-M0+"/>
+      <accept Dcore="SC000"/>
+      <require Dendian="Big-endian"/>
+      <require Tcompiler="ARMCC"/>
+    </condition>
+
+    <condition id="CM3_LE_ARMCC">
+      <description>Cortex-M3 or SC300 processor based device in little endian mode for the ARM Compiler</description>
+      <accept Dcore="Cortex-M3"/>
+      <accept Dcore="Cortex-M4" Dfpu="NO_FPU"/>
+      <accept Dcore="SC000"/>
+      <require Dendian="Little-endian"/>
+      <require Tcompiler="ARMCC"/>
+    </condition>
+
+    <condition id="CM3_BE_ARMCC">
+      <description>Cortex-M3 or SC300 processor based device in big endian mode for the ARM Compiler</description>
+      <accept Dcore="Cortex-M3"/>
+      <accept Dcore="Cortex-M4" Dfpu="NO_FPU"/>
+      <accept Dcore="SC000"/>
+      <require Dendian="Big-endian"/>
+      <require Tcompiler="ARMCC"/>
+    </condition>
+
+    <condition id="CM4F_LE_ARMCC">
+      <description>Cortex-M4 processor based device using Floating Point Unit in little endian mode for the ARM Compiler</description>
+      <require Dcore="Cortex-M4" Dfpu="FPU"/>
+      <require Dendian="Little-endian"/>
+      <require Tcompiler="ARMCC"/>
+    </condition>
+
+    <condition id="CM4F_BE_ARMCC">
+      <description>Cortex-M4 processor based device using Floating Point Unit in big endian mode for the ARM Compiler</description>
+      <accept Dcore="Cortex-M4" Dfpu="FPU"/>
+      <require Dendian="Big-endian"/>
+      <require Tcompiler="ARMCC"/>
+    </condition>
+
+    <!-- GCC -->
+    <condition id="CM0_LE_GCC">
+      <description>Cortex-M0 or Cortex-M0+ or SC000 processor based device in little endian mode for the GCC Compiler</description>
+      <accept Dcore="Cortex-M0"/>
+      <accept Dcore="Cortex-M0+"/>
+      <accept Dcore="SC000"/>
+      <require Dendian="Little-endian"/>
+      <require Tcompiler="GCC"/>
+    </condition>
+
+    <condition id="CM0_BE_GCC">
+      <description>Cortex-M0 or Cortex-M0+ or SC000 processor based device in big endian mode for the GCC Compiler</description>
+      <accept Dcore="Cortex-M0"/>
+      <accept Dcore="Cortex-M0+"/>
+      <accept Dcore="SC000"/>
+      <require Dendian="Big-endian"/>
+      <require Tcompiler="GCC"/>
+    </condition>
+
+    <condition id="CM3_LE_GCC">
+      <description>Cortex-M3 or SC300 processor based device in little endian mode for the GCC Compiler</description>
+      <accept Dcore="Cortex-M3"/>
+      <accept Dcore="Cortex-M4" Dfpu="NO_FPU"/>
+      <accept Dcore="SC000"/>
+      <require Dendian="Little-endian"/>
+      <require Tcompiler="GCC"/>
+    </condition>
+
+    <condition id="CM3_BE_GCC">
+      <description>Cortex-M3 or SC300 processor based device in big endian mode for the GCC Compiler</description>
+      <accept Dcore="Cortex-M3"/>
+      <accept Dcore="Cortex-M4" Dfpu="NO_FPU"/>
+      <accept Dcore="SC000"/>
+      <require Dendian="Big-endian"/>
+      <require Tcompiler="GCC"/>
+    </condition>
+
+    <condition id="CM4F_LE_GCC">
+      <description>Cortex-M4 processor based device using Floating Point Unit in little endian mode for the GCC Compiler</description>
+      <accept Dcore="Cortex-M4"/>
+      <require Dfpu="FPU"/>
+      <require Dendian="Little-endian"/>
+      <require Tcompiler="GCC"/>
+    </condition>
+
+    <condition id="CM4F_BE_GCC">
+      <description>Cortex-M4 processor based device using Floating Point Unit in little endian mode for the GCC Compiler</description>
+      <accept Dcore="Cortex-M4"/>
+      <require Dfpu="FPU"/>
+      <require Dendian="Big-endian"/>
+      <require Tcompiler="GCC"/>
+    </condition>
+
+    <!-- IAR -->
+    <condition id="CM0_LE_IAR">
+      <description>Cortex-M0 or Cortex-M0+ or SC000 processor based device in little endian mode for the IAR Compiler</description>
+      <accept Dcore="Cortex-M0"/>
+      <accept Dcore="Cortex-M0+"/>
+      <accept Dcore="SC000"/>
+      <require Dendian="Little-endian"/>
+      <require Tcompiler="IAR"/>
+    </condition>
+
+    <condition id="CM0_BE_IAR">
+      <description>Cortex-M0 or Cortex-M0+ or SC000 processor based device in big endian mode for the IAR Compiler</description>
+      <accept Dcore="Cortex-M0"/>
+      <accept Dcore="Cortex-M0+"/>
+      <accept Dcore="SC000"/>
+      <require Dendian="Big-endian"/>
+      <require Tcompiler="IAR"/>
+    </condition>
+
+    <condition id="CM3_LE_IAR">
+      <description>Cortex-M3 or SC300 processor based device in little endian mode for the IAR Compiler</description>
+      <accept Dcore="Cortex-M3"/>
+      <accept Dcore="Cortex-M4" Dfpu="NO_FPU"/>
+      <accept Dcore="SC000"/>
+      <require Dendian="Little-endian"/>
+      <require Tcompiler="IAR"/>
+    </condition>
+
+    <condition id="CM3_BE_IAR">
+      <description>Cortex-M3 or SC300 processor based device in big endian mode for the IAR Compiler</description>
+      <accept Dcore="Cortex-M3"/>
+      <accept Dcore="Cortex-M4" Dfpu="NO_FPU"/>
+      <accept Dcore="SC000"/>
+      <require Dendian="Big-endian"/>
+      <require Tcompiler="IAR"/>
+    </condition>
+
+    <condition id="CM4F_LE_IAR">
+      <description>Cortex-M4 processor based device using Floating Point Unit in little endian mode for the IAR Compiler</description>
+      <accept Dcore="Cortex-M4"/>
+      <require Dfpu="FPU"/>
+      <require Dendian="Little-endian"/>
+      <require Tcompiler="IAR"/>
+    </condition>
+
+    <condition id="CM4F_BE_IAR">
+      <description>Cortex-M4 processor based device using Floating Point Unit in little endian mode for the IAR Compiler</description>
+      <accept Dcore="Cortex-M4"/>
+      <require Dfpu="FPU"/>
+      <require Dendian="Big-endian"/>
+      <require Tcompiler="IAR"/>
+    </condition>    
+  </conditions>
+
+  <components>
+    <component Cclass="CMSIS" Cgroup="RTOS" Csub="Keil RTX" Cversion="4.70.0" condition="CMSIS_Core">
+      <!-- short component description -->
+      <description>RTX is a CMSIS RTOS implemenation for Cortex-M, SC000, and SC300 processor based devices.</description>
+      <files>
+        <!-- CPU independent -->
+        <file category="doc" name="Doc\index.html"/>
+        <file category="header" name="INC\cmsis_os.h"/>
+        <file category="source" name="Templates\RTX_Conf_CM.c" copy="true"/>
+        <!-- CPU and Compiler dependent -->
+        <!-- ARMCC -->
+        <file category="library" condition="CM0_LE_ARMCC"  name="Lib\ARM\RTX_CM0.lib"/>
+        <file category="library" condition="CM0_BE_ARMCC"  name="Lib\ARM\RTX_CM0_B.lib"/>
+        <file category="library" condition="CM3_LE_ARMCC"  name="Lib\ARM\RTX_CM3.lib"/>
+        <file category="library" condition="CM3_BE_ARMCC"  name="Lib\ARM\RTX_CM3_B.lib"/>
+        <file category="library" condition="CM4F_LE_ARMCC" name="Lib\ARM\RTX_CM4.lib"/>
+        <file category="library" condition="CM4F_BE_ARMCC" name="Lib\ARM\RTX_CM4_B.lib"/>
+        <!-- GCC -->
+        <file category="library" condition="CM0_LE_GCC"  name="Lib\GCC\libRTX_CM0.a"/>
+        <file category="library" condition="CM0_BE_GCC"  name="Lib\GCC\libRTX_CM0_B.a"/>
+        <file category="library" condition="CM3_LE_GCC"  name="Lib\GCC\libRTX_CM3.a"/>
+        <file category="library" condition="CM3_BE_GCC"  name="Lib\GCC\libRTX_CM3_B.a"/>
+        <file category="library" condition="CM4F_LE_GCC" name="Lib\GCC\libRTX_CM4.a"/>
+        <file category="library" condition="CM4F_BE_GCC" name="Lib\GCC\libRTX_CM4_B.a"/>
+        <!-- IAR -->
+        <file category="library" condition="CM0_LE_IAR"  name="Lib\IAR\RTX_CM0.a"/>
+        <file category="library" condition="CM0_BE_IAR"  name="Lib\IAR\RTX_CM0_B.a"/>
+        <file category="library" condition="CM3_LE_IAR"  name="Lib\IAR\RTX_CM3.a"/>
+        <file category="library" condition="CM3_BE_IAR"  name="Lib\IAR\RTX_CM3_B.a"/>
+        <file category="library" condition="CM4F_LE_IAR" name="Lib\IAR\RTX_CM4.a"/>
+        <file category="library" condition="CM4F_BE_IAR" name="Lib\IAR\RTX_CM4_B.a"/>
+      </files>
+    </component>
+  </components>
+</package>

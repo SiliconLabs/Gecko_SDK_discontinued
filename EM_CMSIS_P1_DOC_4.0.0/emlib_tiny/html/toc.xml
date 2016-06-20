@@ -1,0 +1,1099 @@
+<toc label="Silicon Labs EFM32 emlib Peripheral Library">
+  <topic label="Modules">
+    <topic label="EM_Library">
+      <topic label="ACMP">
+        <topic label="Defines">
+          <topic label="ACMP_CAPSENSE_INIT_DEFAULT" href="group__ACMP.html#ga331e09f7103b18624b211ae978091159"/>
+          <topic label="ACMP_INIT_DEFAULT" href="group__ACMP.html#ga9115f680f5920e690f8c9f4048f5f030"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="ACMP_CapsenseResistor_TypeDef" href="group__ACMP.html#gaf50197241694fe457b4c378106792961"/>
+          <topic label="ACMP_Channel_TypeDef" href="group__ACMP.html#ga0971c188cd2a1aeff32dd621f851af17"/>
+          <topic label="ACMP_HysteresisLevel_TypeDef" href="group__ACMP.html#ga216306eec0ad9c6d68aa3c6819378001"/>
+          <topic label="ACMP_WarmTime_TypeDef" href="group__ACMP.html#ga2b7353a15f969ac05a608ffb84922f0e"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="ACMP_CapsenseChannelSet" href="group__ACMP.html#ga2c5edb834f314093c377e5c0673f7729"/>
+          <topic label="ACMP_CapsenseInit" href="group__ACMP.html#gab99c16a966bfa66c081160ec51e0a039"/>
+          <topic label="ACMP_ChannelSet" href="group__ACMP.html#gaf2552815d97fa6b5cf035cf20727e322"/>
+          <topic label="ACMP_Disable" href="group__ACMP.html#gaab980ab061d6799cc4bf756b141733d2"/>
+          <topic label="ACMP_Enable" href="group__ACMP.html#ga6962a2f6816e64c36b88111ab368a6ac"/>
+          <topic label="ACMP_GPIOSetup" href="group__ACMP.html#ga7a312099dc46377af2714277236716d3"/>
+          <topic label="ACMP_Init" href="group__ACMP.html#gad04e5819cd2d6ca5a275e8cc047f9ecf"/>
+          <topic label="ACMP_IntClear" href="group__ACMP.html#ga8bcba309288cc9ee7ac36b57169d667a"/>
+          <topic label="ACMP_IntDisable" href="group__ACMP.html#gab1ff345abb9e2017c8747c33dd52343e"/>
+          <topic label="ACMP_IntEnable" href="group__ACMP.html#gadeefb3be48b5054abb35f3d408f2bb2d"/>
+          <topic label="ACMP_IntGet" href="group__ACMP.html#ga19890a5e2c672b8784099663da0188b7"/>
+          <topic label="ACMP_IntGetEnabled" href="group__ACMP.html#ga25690c5816d3edb5a409302345c72400"/>
+          <topic label="ACMP_IntSet" href="group__ACMP.html#gabb734b62f1ad3cfba9ebc5d0e1267fc8"/>
+          <topic label="ACMP_Reset" href="group__ACMP.html#ga671cb9f47c56e8c8a81af7d4bbfdbc5f"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="ACMP_CapsenseInit_TypeDef" href="structACMP__CapsenseInit__TypeDef.html"/>
+          <topic label="ACMP_Init_TypeDef" href="structACMP__Init__TypeDef.html"/>
+        </topic>
+      </topic>
+      <topic label="ADC">
+        <topic label="Defines">
+          <topic label="ADC_INIT_DEFAULT" href="group__ADC.html#ga4572f863a8d863214dfd0a4b48f653e2"/>
+          <topic label="ADC_INITSCAN_DEFAULT" href="group__ADC.html#gabe964e6cb872ec50ada2c37331a0176d"/>
+          <topic label="ADC_INITSINGLE_DEFAULT" href="group__ADC.html#ga1a0cd333a457f356692138fcf3b2275e"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="ADC_AcqTime_TypeDef" href="group__ADC.html#ga85e06060d63f1b16039d8efa318833d4"/>
+          <topic label="ADC_LPFilter_TypeDef" href="group__ADC.html#ga3fc7e4aa2fb8d028f622e93e7bea3055"/>
+          <topic label="ADC_OvsRateSel_TypeDef" href="group__ADC.html#gaaeb1f1d92bdb6a1bfc824461d63f5a21"/>
+          <topic label="ADC_PRSSEL_TypeDef" href="group__ADC.html#gacc4ddb8213b64d8b89df372069003b49"/>
+          <topic label="ADC_Ref_TypeDef" href="group__ADC.html#ga90e3c5bfd7ebdd7686cf65bb896e4eac"/>
+          <topic label="ADC_Res_TypeDef" href="group__ADC.html#ga0e5f9f20d16acc591c7329302f562f10"/>
+          <topic label="ADC_SingleInput_TypeDef" href="group__ADC.html#ga35d458714c6cb3a1d08586aadcb30eba"/>
+          <topic label="ADC_Start_TypeDef" href="group__ADC.html#gabb2bed27705f116f042670adb36996fb"/>
+          <topic label="ADC_Warmup_TypeDef" href="group__ADC.html#ga3990fbf520d66567df3de07ac040d6c5"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="ADC_DataScanGet" href="group__ADC.html#ga16bbb8a7a2a4304a9b5233ff5e55dceb"/>
+          <topic label="ADC_DataSingleGet" href="group__ADC.html#gad88086368d3a6ddd2ca71503da68607b"/>
+          <topic label="ADC_Init" href="group__ADC.html#ga3d5a968fbc40b29ebc05f17b311f2eb9"/>
+          <topic label="ADC_InitScan" href="group__ADC.html#ga41207273ca90e4173084233060e0edbb"/>
+          <topic label="ADC_InitSingle" href="group__ADC.html#ga76aa8949d51eb1027906f68b0952ea0e"/>
+          <topic label="ADC_IntClear" href="group__ADC.html#ga8519f6d9482a6fb6a15365f62fc4435d"/>
+          <topic label="ADC_IntDisable" href="group__ADC.html#ga4e7612b7ab98ff06627cd121d51da1dc"/>
+          <topic label="ADC_IntEnable" href="group__ADC.html#ga98bf6f1584f8879dd9d0118afd78e240"/>
+          <topic label="ADC_IntGet" href="group__ADC.html#ga672d01dc9249a61c1b294a6849d5e55a"/>
+          <topic label="ADC_IntSet" href="group__ADC.html#ga9538560672ae862a2fc339ce7c7999b9"/>
+          <topic label="ADC_PrescaleCalc" href="group__ADC.html#ga635eb5e70c406ff3bd150b8e695a70f9"/>
+          <topic label="ADC_Reset" href="group__ADC.html#ga75639a8eba9a3353c216b324e554827e"/>
+          <topic label="ADC_Start" href="group__ADC.html#ga9dbf010db18a514043b369886de0bfc7"/>
+          <topic label="ADC_TimebaseCalc" href="group__ADC.html#ga95a5a908501b6c3bbd44022d41205e73"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="ADC_Init_TypeDef" href="structADC__Init__TypeDef.html"/>
+          <topic label="ADC_InitScan_TypeDef" href="structADC__InitScan__TypeDef.html"/>
+          <topic label="ADC_InitSingle_TypeDef" href="structADC__InitSingle__TypeDef.html"/>
+        </topic>
+      </topic>
+      <topic label="AES">
+        <topic label="Typedefs">
+          <topic label="AES_CtrFuncPtr_TypeDef" href="group__AES.html#gacd4b7910a9645f1d8905e1ee627310e7"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="AES_CBC128" href="group__AES.html#gab5b6ca62c19d1604d633918bb2657d1d"/>
+          <topic label="AES_CFB128" href="group__AES.html#ga0b1883845a5aa60208b496ab7527c761"/>
+          <topic label="AES_CTR128" href="group__AES.html#ga84ad30201de9ffcc858897609a7813ff"/>
+          <topic label="AES_CTRUpdate32Bit" href="group__AES.html#ga5a0c2448f7c6b17427d2103fde30f33f"/>
+          <topic label="AES_DecryptKey128" href="group__AES.html#gad13d72ceabfc5e05ef89d89dda50745a"/>
+          <topic label="AES_ECB128" href="group__AES.html#gabe2c25563ac2502fa8d1a9e520689b72"/>
+          <topic label="AES_IntClear" href="group__AES.html#ga23db99a6412ea76cadd2a92e27fe91c0"/>
+          <topic label="AES_IntDisable" href="group__AES.html#ga0b9664ab0522d8f834cae9b6635802cd"/>
+          <topic label="AES_IntEnable" href="group__AES.html#ga237a5765f5ea75f9d96d3bebab4294d8"/>
+          <topic label="AES_IntGet" href="group__AES.html#gae7ec6a859651936fb72513965a415638"/>
+          <topic label="AES_IntSet" href="group__AES.html#ga1ff2f03bbd50feb38fd38c7167a90742"/>
+          <topic label="AES_OFB128" href="group__AES.html#gac650a8113889ca6bbf6f89d058a1a042"/>
+        </topic>
+      </topic>
+      <topic label="BITBAND">
+        <topic label="Functions">
+          <topic label="BITBAND_Peripheral" href="group__BITBAND.html#ga7df78ffd2c201e674a4444c42b6fcec3"/>
+          <topic label="BITBAND_PeripheralRead" href="group__BITBAND.html#ga7fb188d17a5b2e4e28752c5955c01bf3"/>
+          <topic label="BITBAND_SRAM" href="group__BITBAND.html#gadeb8874cb6213945a0ab24d39fe3e425"/>
+          <topic label="BITBAND_SRAMRead" href="group__BITBAND.html#gab358ffddc290c3d773aaa149636969ea"/>
+        </topic>
+      </topic>
+      <topic label="CHIP">
+        <topic label="Functions">
+          <topic label="CHIP_Init" href="group__CHIP.html#ga6491ac6b7e786d253753c334615bce61"/>
+        </topic>
+      </topic>
+      <topic label="CMU">
+        <topic label="Defines">
+          <topic label="cmuClkDiv_1" href="group__CMU.html#gad5af061f8ac0481c356787dfcce77c8a"/>
+          <topic label="cmuClkDiv_1024" href="group__CMU.html#gaf46e884afc882e67ed8ca2e529601047"/>
+          <topic label="cmuClkDiv_128" href="group__CMU.html#ga7bac78cdbaaea0a3b9adcee51ceb3d15"/>
+          <topic label="cmuClkDiv_16" href="group__CMU.html#ga68497cf4ac7db8eff59e0dc24a13f0ec"/>
+          <topic label="cmuClkDiv_16384" href="group__CMU.html#gab50c893022881c95be5e22bae2f03701"/>
+          <topic label="cmuClkDiv_2" href="group__CMU.html#ga7a64ea4956cdd8e97dec3bf1d6f6e555"/>
+          <topic label="cmuClkDiv_2048" href="group__CMU.html#ga5cae9e86d5781c03abb6c30052700733"/>
+          <topic label="cmuClkDiv_256" href="group__CMU.html#gab26f1cb93268e3c522c0754bfb683325"/>
+          <topic label="cmuClkDiv_32" href="group__CMU.html#ga8d4ec68c8af4cca9b160ae15edc6bdb6"/>
+          <topic label="cmuClkDiv_32768" href="group__CMU.html#ga28469d8ee771922db7023433679d1570"/>
+          <topic label="cmuClkDiv_4" href="group__CMU.html#ga8f806b8ebeeb75f4edc6c35c807c5663"/>
+          <topic label="cmuClkDiv_4096" href="group__CMU.html#ga9f2dc423346986b51ffb373f01c3dd3d"/>
+          <topic label="cmuClkDiv_512" href="group__CMU.html#ga33ccab25ceda68aab4c5df351c831dab"/>
+          <topic label="cmuClkDiv_64" href="group__CMU.html#ga14c961921caeaec57103d8f007db9bca"/>
+          <topic label="cmuClkDiv_8" href="group__CMU.html#gac22671609e25f5812e3875e456197536"/>
+          <topic label="cmuClkDiv_8192" href="group__CMU.html#gafad43ea36abb483f4782b0c7602b9dd3"/>
+        </topic>
+        <topic label="Typedefs">
+          <topic label="CMU_ClkDiv_TypeDef" href="group__CMU.html#ga44da9c73a703ac0f9c9f101aa43414c3"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="CMU_Clock_TypeDef" href="group__CMU.html#ga519ea66a1a21e07f2d1cccc9aa55799e"/>
+          <topic label="CMU_HFRCOBand_TypeDef" href="group__CMU.html#ga3f4c73b01d8cc272612aac2c1d223617"/>
+          <topic label="CMU_Osc_TypeDef" href="group__CMU.html#ga095c94cc5b58238856389c523ce12c2a"/>
+          <topic label="CMU_Select_TypeDef" href="group__CMU.html#gaeaf3a27499d7441981159c5973546751"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="CMU_Calibrate" href="group__CMU.html#ga144a6e08d50cc4913a3452231eb3cc36"/>
+          <topic label="CMU_CalibrateCountGet" href="group__CMU.html#ga1fbc42994e368187419ee77ff20a1897"/>
+          <topic label="CMU_CalibrateStart" href="group__CMU.html#gac5aeb07dc88e57c40e97cbf6f5104d17"/>
+          <topic label="CMU_ClockDivGet" href="group__CMU.html#ga394b7d0a12416ce1222c582101644c8a"/>
+          <topic label="CMU_ClockDivSet" href="group__CMU.html#ga7cc316a8dca5436fcc39d57f5e6c412d"/>
+          <topic label="CMU_ClockEnable" href="group__CMU.html#ga93913d50050d52b38b0a7c7c08ac81e8"/>
+          <topic label="CMU_ClockFreqGet" href="group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a"/>
+          <topic label="CMU_ClockSelectGet" href="group__CMU.html#ga924a9c8dbde9e529e684f0c8e7dfdaa2"/>
+          <topic label="CMU_ClockSelectSet" href="group__CMU.html#gae11949f9c2e4033ad63dac48c9a739d3"/>
+          <topic label="CMU_FreezeEnable" href="group__CMU.html#gaa497e1eb68ca0bfbac25e855537f1d9b"/>
+          <topic label="CMU_HFRCOBandGet" href="group__CMU.html#ga19c1d39a4c7f2ce2c43184c93d2c5cf9"/>
+          <topic label="CMU_HFRCOBandSet" href="group__CMU.html#gab1c6acfc1b842909bb4304c3e336bd0b"/>
+          <topic label="CMU_HFRCOStartupDelayGet" href="group__CMU.html#gaf5bddb45d5e1113799a0ea7310f25fbe"/>
+          <topic label="CMU_HFRCOStartupDelaySet" href="group__CMU.html#ga372be88565a544593e25a69b812706ac"/>
+          <topic label="CMU_IntClear" href="group__CMU.html#gacad813230403f62cb86dfec5bdf1cd85"/>
+          <topic label="CMU_IntDisable" href="group__CMU.html#gaf0c444c62e6d01286ad89b42e3735a71"/>
+          <topic label="CMU_IntEnable" href="group__CMU.html#ga8064ca9c7a506baca69c559170f137ae"/>
+          <topic label="CMU_IntGet" href="group__CMU.html#ga21f6920438a29deb2770d702754b701c"/>
+          <topic label="CMU_IntGetEnabled" href="group__CMU.html#ga0589735004e02b6f8cf918c84823e179"/>
+          <topic label="CMU_IntSet" href="group__CMU.html#ga46e62fbd6f8e0843b5d1fc49a0845355"/>
+          <topic label="CMU_LCDClkFDIVGet" href="group__CMU.html#gad457bf7183e8e8530681e93803321ded"/>
+          <topic label="CMU_LCDClkFDIVSet" href="group__CMU.html#ga72d523a129eb31231432ad1010fa1096"/>
+          <topic label="CMU_Lock" href="group__CMU.html#gaf6b90e2c10eca7c67fe3bc27d8081ae4"/>
+          <topic label="CMU_OscillatorEnable" href="group__CMU.html#ga2cc0f1684fbc32976b82c6d93a51c7d9"/>
+          <topic label="CMU_OscillatorTuningGet" href="group__CMU.html#gaad396e0b8150709c599f2e5a7dec6e62"/>
+          <topic label="CMU_OscillatorTuningSet" href="group__CMU.html#ga1200b660d32b39db023753094a282ae9"/>
+          <topic label="CMU_PCNTClockExternalGet" href="group__CMU.html#ga7157d770b564d56d56c44755179309f7"/>
+          <topic label="CMU_PCNTClockExternalSet" href="group__CMU.html#ga6f65cf3473f0f8d0ca03ed765a0fde50"/>
+          <topic label="CMU_Unlock" href="group__CMU.html#ga15ee8874bbe2c87a9b47aa81d3b76f51"/>
+        </topic>
+      </topic>
+      <topic label="COMMON">
+        <topic label="Defines">
+          <topic label="EFM32_ALIGN" href="group__COMMON.html#ga3e1e293640dd826cbd20924b763ddcc0"/>
+          <topic label="EFM32_MAX" href="group__COMMON.html#ga939df829c7cdcf8a52a80b5dc121e75a"/>
+          <topic label="EFM32_MIN" href="group__COMMON.html#ga4697e43b9f1da10aced32da568a8c729"/>
+          <topic label="EFM32_PACK_END" href="group__COMMON.html#gab2675861d42aae2af68c05f8fa1da22f"/>
+          <topic label="EFM32_PACK_START" href="group__COMMON.html#ga099d98fa4e24657df90ae06fc13a4815"/>
+        </topic>
+      </topic>
+      <topic label="DAC">
+        <topic label="Defines">
+          <topic label="DAC_INIT_DEFAULT" href="group__DAC.html#ga80ea2df39483b3e75d2ef0571981d723"/>
+          <topic label="DAC_INITCHANNEL_DEFAULT" href="group__DAC.html#ga740f2cbef0723031cbc6b56cb9810712"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="DAC_ConvMode_TypeDef" href="group__DAC.html#ga1873d940c66b284a1a0e51165b89dee2"/>
+          <topic label="DAC_Output_TypeDef" href="group__DAC.html#ga617a3738402df25ad3b7775e11fa8122"/>
+          <topic label="DAC_PRSSEL_TypeDef" href="group__DAC.html#ga9a001c7b4582155a4e2d3073dcf60cc5"/>
+          <topic label="DAC_Ref_TypeDef" href="group__DAC.html#gad68bed4b325435b9616fa26d0deb7959"/>
+          <topic label="DAC_Refresh_TypeDef" href="group__DAC.html#ga5b92900b465aa009a59cd0398e0dbf10"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="DAC_Channel0OutputSet" href="group__DAC.html#ga8c99169a36fa3e2689e00d41fda5a6be"/>
+          <topic label="DAC_Channel1OutputSet" href="group__DAC.html#ga1ea9a1f5611a62d97fe36c3f943a14d2"/>
+          <topic label="DAC_ChannelOutputSet" href="group__DAC.html#ga8f0091a380e451ca9b79956556b94195"/>
+          <topic label="DAC_Enable" href="group__DAC.html#ga3efabd2832fe5862fefd86e02accf2b8"/>
+          <topic label="DAC_Init" href="group__DAC.html#gae8fd0951c9fd781d120c8d5e4ce7745d"/>
+          <topic label="DAC_InitChannel" href="group__DAC.html#gaf77b8f5a47f5420264a2b3562664fa0d"/>
+          <topic label="DAC_IntClear" href="group__DAC.html#ga17ff331912dc9ddd5250803302f26198"/>
+          <topic label="DAC_IntDisable" href="group__DAC.html#gaaf7c34d3c7b5bdd5a87bdd96ad341b6c"/>
+          <topic label="DAC_IntEnable" href="group__DAC.html#ga19d3d4711c28673c3abc291eecc19c9c"/>
+          <topic label="DAC_IntGet" href="group__DAC.html#ga37f2d18ec2e48b7aa5a6702a8faaad31"/>
+          <topic label="DAC_IntSet" href="group__DAC.html#ga54cbc262d16b3099305857b533b143a3"/>
+          <topic label="DAC_PrescaleCalc" href="group__DAC.html#gae0b4477588f4b20c488bc6483739b562"/>
+          <topic label="DAC_Reset" href="group__DAC.html#ga00ce350b6aa3bad03cf665702f714e59"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="DAC_Init_TypeDef" href="structDAC__Init__TypeDef.html"/>
+          <topic label="DAC_InitChannel_TypeDef" href="structDAC__InitChannel__TypeDef.html"/>
+        </topic>
+      </topic>
+      <topic label="DMA">
+        <topic label="Typedefs">
+          <topic label="DMA_FuncPtr_TypeDef" href="group__DMA.html#ga5c5c36780e4efcd88a63653f9b7277f3"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="DMA_ArbiterConfig_TypeDef" href="group__DMA.html#ga0b815384b08ec6721a23eb8a29db0c59"/>
+          <topic label="DMA_CycleCtrl_TypeDef" href="group__DMA.html#gaf7c5bc2b557c15cabf48a19746df01b7"/>
+          <topic label="DMA_DataInc_TypeDef" href="group__DMA.html#gaade1a68a6cbf32800b8ac4046a133988"/>
+          <topic label="DMA_DataSize_TypeDef" href="group__DMA.html#ga19fed692b981a8dc7e3a5d6b0f281540"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="DMA_ActivateAuto" href="group__DMA.html#gadaa5cd30f373b3e8150b64c26e53f2cd"/>
+          <topic label="DMA_ActivateBasic" href="group__DMA.html#ga6b72fd4e3bcc36e68cca16e5fa243a11"/>
+          <topic label="DMA_ActivatePingPong" href="group__DMA.html#ga7dd7d665c343274d70d5e597121b6b05"/>
+          <topic label="DMA_ActivateScatterGather" href="group__DMA.html#gabc90358478008982202768d217375a80"/>
+          <topic label="DMA_CfgChannel" href="group__DMA.html#gab119fe5869e7ebcfd29542d05dae2d29"/>
+          <topic label="DMA_CfgDescr" href="group__DMA.html#ga6595eabbd98c16c3d610eebb88daf052"/>
+          <topic label="DMA_CfgDescrScatterGather" href="group__DMA.html#gac365a3587fa185c9b32b549ed8e8dc23"/>
+          <topic label="DMA_ChannelEnable" href="group__DMA.html#gab7d47175069b1952534467bf115eb02e"/>
+          <topic label="DMA_ChannelEnabled" href="group__DMA.html#gad699a3954c696e5523826c04befb6db5"/>
+          <topic label="DMA_Init" href="group__DMA.html#ga1b244c27cc74059907a25a806eac9b90"/>
+          <topic label="DMA_IRQHandler" href="group__DMA.html#gac1fca8b8a3ce0431d9aebbf432eda751"/>
+          <topic label="DMA_RefreshPingPong" href="group__DMA.html#ga98484c1f3ff4ca1bef804b1d35f387bd"/>
+          <topic label="DMA_Reset" href="group__DMA.html#ga35a483de1c773d6cd958434372054b8b"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="DMA_CB_TypeDef" href="structDMA__CB__TypeDef.html"/>
+          <topic label="DMA_CfgChannel_TypeDef" href="structDMA__CfgChannel__TypeDef.html"/>
+          <topic label="DMA_CfgDescr_TypeDef" href="structDMA__CfgDescr__TypeDef.html"/>
+          <topic label="DMA_CfgDescrSGAlt_TypeDef" href="structDMA__CfgDescrSGAlt__TypeDef.html"/>
+          <topic label="DMA_Init_TypeDef" href="structDMA__Init__TypeDef.html"/>
+        </topic>
+      </topic>
+      <topic label="EMU">
+        <topic label="Defines">
+          <topic label="EMU_EM23INIT_DEFAULT" href="group__EMU.html#ga3ab678c773fd5adc3d8763184b1e5b36"/>
+          <topic label="EMU_EM4INIT_DEFAULT" href="group__EMU.html#ga2ccfdd68ead3dab3d4926cac997b1461"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="EMU_BODMode_TypeDef" href="group__EMU.html#ga7453aecd1fc0cf2d035df6178dfb9a16"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="EMU_EM2Block" href="group__EMU.html#ga72910c09de24f4e2f8f170dc06bd8c07"/>
+          <topic label="EMU_EM2UnBlock" href="group__EMU.html#ga9e959a9fd56ac4a2e18877b9b839d795"/>
+          <topic label="EMU_EnterEM1" href="group__EMU.html#gaed0c4092bd3adc7a6679e1e2903d1267"/>
+          <topic label="EMU_EnterEM2" href="group__EMU.html#gacadc56c5e2a8fb2890edd139b694b25b"/>
+          <topic label="EMU_EnterEM3" href="group__EMU.html#ga9e98f9066d91dbd64c3e73254336218f"/>
+          <topic label="EMU_EnterEM4" href="group__EMU.html#gac92115921464d7435fc714d8b9bd494b"/>
+          <topic label="EMU_Lock" href="group__EMU.html#gaa102a7feedcfdf0165e8137495e15c81"/>
+          <topic label="EMU_MemPwrDown" href="group__EMU.html#ga49eb5750384ff279aae225ab5922e9f1"/>
+          <topic label="EMU_Unlock" href="group__EMU.html#gaae70d64f013a75e2d728b3a6d71e3f62"/>
+          <topic label="EMU_UpdateOscConfig" href="group__EMU.html#ga3d442fa018de5138afb19a2b85797099"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="EMU_EM23Init_TypeDef" href="structEMU__EM23Init__TypeDef.html"/>
+          <topic label="EMU_EM4Init_TypeDef" href="structEMU__EM4Init__TypeDef.html"/>
+        </topic>
+      </topic>
+      <topic label="GPIO">
+        <topic label="Enumerations">
+          <topic label="GPIO_DriveMode_TypeDef" href="group__GPIO.html#ga0a984b2fd4eedd92d814e512555e10c5"/>
+          <topic label="GPIO_Mode_TypeDef" href="group__GPIO.html#ga93ff740308e5b31729d8593a89967cda"/>
+          <topic label="GPIO_Port_TypeDef" href="group__GPIO.html#gafe496583dfd425fc03c413d49459efe6"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="GPIO_DbgLocationSet" href="group__GPIO.html#ga2e5db302df7c3695b41b582094ca6c15"/>
+          <topic label="GPIO_DbgSWDClkEnable" href="group__GPIO.html#ga7aa21d660197b3e2f67589db89686bbf"/>
+          <topic label="GPIO_DbgSWDIOEnable" href="group__GPIO.html#gaceecf411d11a30e7fa10fc42dd4f612d"/>
+          <topic label="GPIO_DriveModeSet" href="group__GPIO.html#ga74243df78de8e19283d234307fd96259"/>
+          <topic label="GPIO_InputSenseSet" href="group__GPIO.html#gafb671a91ea44d3da7061588668f01e4a"/>
+          <topic label="GPIO_IntClear" href="group__GPIO.html#ga1c840f8a9d9ee23d76f3f51000f9cc5d"/>
+          <topic label="GPIO_IntConfig" href="group__GPIO.html#ga42f6d22ce3a60ac994a5f663c18c0785"/>
+          <topic label="GPIO_IntDisable" href="group__GPIO.html#ga0669ffdb8d3bbc8734c2ffa51ce39b4f"/>
+          <topic label="GPIO_IntEnable" href="group__GPIO.html#gae83ed3dafe4e582f81f34815af282b8d"/>
+          <topic label="GPIO_IntGet" href="group__GPIO.html#ga3b2ec1c19fdc6cb955e09641a704b5b7"/>
+          <topic label="GPIO_IntGetEnabled" href="group__GPIO.html#ga55d11c01de82f0152d8727d551cff7bb"/>
+          <topic label="GPIO_IntSet" href="group__GPIO.html#ga95700a5be7f020297ed30fafcca08b74"/>
+          <topic label="GPIO_Lock" href="group__GPIO.html#ga5336b419525b0e2b6a69334eeb80f7af"/>
+          <topic label="GPIO_PinInGet" href="group__GPIO.html#gac1050d30b940c30899c63aa060fa4dba"/>
+          <topic label="GPIO_PinModeSet" href="group__GPIO.html#gab6751992334a136efe8750a1d01a850d"/>
+          <topic label="GPIO_PinOutClear" href="group__GPIO.html#ga607f3a5f3d881bb145101566f1664aba"/>
+          <topic label="GPIO_PinOutGet" href="group__GPIO.html#ga8ed31bc079380c74d6db162d4cdc16b8"/>
+          <topic label="GPIO_PinOutSet" href="group__GPIO.html#gab08f054efbb07aaff57d616974c9c536"/>
+          <topic label="GPIO_PinOutToggle" href="group__GPIO.html#gaa2700528c9a13461095c33953cc3130a"/>
+          <topic label="GPIO_PortInGet" href="group__GPIO.html#ga2f8836d19b7cba3c8fbd421d4bd4c1b1"/>
+          <topic label="GPIO_PortOutClear" href="group__GPIO.html#ga5fac00f6219c714bde007b67646248d1"/>
+          <topic label="GPIO_PortOutGet" href="group__GPIO.html#gad19688850ae2494f8586ed059f78125a"/>
+          <topic label="GPIO_PortOutSet" href="group__GPIO.html#ga39a52563da4bf3105f61a49dc77b79a1"/>
+          <topic label="GPIO_PortOutSetVal" href="group__GPIO.html#gaf9558eb1193bbda3a05330f552d129ca"/>
+          <topic label="GPIO_PortOutToggle" href="group__GPIO.html#ga8e79bb33659c58ef081c5dc74476a9ec"/>
+          <topic label="GPIO_Unlock" href="group__GPIO.html#ga3c5e527ac0c884a53b3c59af2afb6652"/>
+        </topic>
+      </topic>
+      <topic label="I2C">
+        <topic label="Defines">
+          <topic label="I2C_FLAG_10BIT_ADDR" href="group__I2C.html#ga6fd13e29a6b6315de051549037ac176f"/>
+          <topic label="I2C_FLAG_READ" href="group__I2C.html#ga0c1779663a5ebf44e956ea3f591b4e61"/>
+          <topic label="I2C_FLAG_WRITE" href="group__I2C.html#ga091476f45133e8a6deb9dbd7a3ea6229"/>
+          <topic label="I2C_FLAG_WRITE_READ" href="group__I2C.html#gaf9fc47d6ee1c66405dc491f7a4c3b8fc"/>
+          <topic label="I2C_FLAG_WRITE_WRITE" href="group__I2C.html#ga28bb5f9d0559f3af24c0554e497ba2b3"/>
+          <topic label="I2C_FREQ_FAST_MAX" href="group__I2C.html#ga29a3fbc14b30b68601118a9866e7440d"/>
+          <topic label="I2C_FREQ_FASTPLUS_MAX" href="group__I2C.html#ga6961334be5d2f1d6e98d8f48de3b040e"/>
+          <topic label="I2C_FREQ_STANDARD_MAX" href="group__I2C.html#ga0a2167eb1e00a8da86bf0826f712f0f8"/>
+          <topic label="I2C_INIT_DEFAULT" href="group__I2C.html#ga5c7fbd27ef311914288d8e7ce02f1528"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="I2C_ClockHLR_TypeDef" href="group__I2C.html#gabb1516548b4528328682d6be09a3e3a5"/>
+          <topic label="I2C_TransferReturn_TypeDef" href="group__I2C.html#ga7c781ec28ae11e3e28892de7aa07a00f"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="I2C_BusFreqGet" href="group__I2C.html#gaf2563ff04d4b24825a6c67f9ec4dcb80"/>
+          <topic label="I2C_BusFreqSet" href="group__I2C.html#ga2c0e3b79d2855fd85d4a29a469bbf2ff"/>
+          <topic label="I2C_Enable" href="group__I2C.html#gaca1c9ca46d6945a4696f8a34ab8c2ddf"/>
+          <topic label="I2C_Init" href="group__I2C.html#gab52e0fc0d3690e40f80a193d5b6fdd51"/>
+          <topic label="I2C_IntClear" href="group__I2C.html#ga928527f7065f6b8d4a2bb282bbf8b7cd"/>
+          <topic label="I2C_IntDisable" href="group__I2C.html#gaa11c438128e5fa1d5860d0b7ad88fbfe"/>
+          <topic label="I2C_IntEnable" href="group__I2C.html#ga0b472a05a39a4e1a94d6b1d6270b7aa1"/>
+          <topic label="I2C_IntGet" href="group__I2C.html#ga6339175b1242ccf52567f43b969153c1"/>
+          <topic label="I2C_IntSet" href="group__I2C.html#gab6d23302ba9e55d10ee19f20d91f170d"/>
+          <topic label="I2C_Reset" href="group__I2C.html#ga602a1d2c64c05453bf9c1b1d52194678"/>
+          <topic label="I2C_SlaveAddressGet" href="group__I2C.html#ga18042cf363fe66fb94fcd724d07efad2"/>
+          <topic label="I2C_SlaveAddressMaskGet" href="group__I2C.html#ga0a0296ee95a311687feea28bac21d1ff"/>
+          <topic label="I2C_SlaveAddressMaskSet" href="group__I2C.html#ga9ac1d9e8ab3c9303cfabaafe407b5b1e"/>
+          <topic label="I2C_SlaveAddressSet" href="group__I2C.html#ga6d7459b4e89456387a9ea5576612b01d"/>
+          <topic label="I2C_Transfer" href="group__I2C.html#ga67983b3dbe7f028a97f765e421b3df56"/>
+          <topic label="I2C_TransferInit" href="group__I2C.html#gae2bf2ecc3d0c4f55e3511d4871b64b16"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="I2C_Init_TypeDef" href="structI2C__Init__TypeDef.html"/>
+          <topic label="I2C_TransferSeq_TypeDef" href="structI2C__TransferSeq__TypeDef.html"/>
+        </topic>
+      </topic>
+      <topic label="INT">
+        <topic label="Functions">
+          <topic label="INT_Disable" href="group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5"/>
+          <topic label="INT_Enable" href="group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56"/>
+        </topic>
+        <topic label="Variables">
+          <topic label="INT_LockCnt" href="group__INT.html#ga2b05202b72fa3edd46f1d9fc94f2f451"/>
+        </topic>
+      </topic>
+      <topic label="LCD">
+        <topic label="Defines">
+          <topic label="LCD_INIT_DEFAULT" href="group__LCD.html#ga0911d208c554e1520e21d8e3df7f3e6c"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="LCD_AnimLogic_TypeDef" href="group__LCD.html#ga92902bdc24eea5f00745f247536eb5cc"/>
+          <topic label="LCD_AnimShift_TypeDef" href="group__LCD.html#ga6414aee2a60b9532d356a1423253e929"/>
+          <topic label="LCD_Bias_TypeDef" href="group__LCD.html#gae514a48c9db49818cf832d21604754a5"/>
+          <topic label="LCD_ConConf_TypeDef" href="group__LCD.html#gad1dd2e4756549f019dbdbbb9bc76d6a4"/>
+          <topic label="LCD_FCPreScale_TypeDef" href="group__LCD.html#gadb31288745ef2c417aa697413230a652"/>
+          <topic label="LCD_Mux_TypeDef" href="group__LCD.html#ga8f1a22ea036d6ea5f5ecc4e12e44e4c5"/>
+          <topic label="LCD_SegmentRange_TypeDef" href="group__LCD.html#ga1ec97abe68d147faccb9597f10be8c9a"/>
+          <topic label="LCD_UpdateCtrl_TypeDef" href="group__LCD.html#ga34370ad541df02f8378fe9022620fbc4"/>
+          <topic label="LCD_VBoostLevel_TypeDef" href="group__LCD.html#ga752298aa2fa7ddd07a3298780b6a7dc9"/>
+          <topic label="LCD_VLCDSel_TypeDef" href="group__LCD.html#gad692503495e3618efdef81ed74b3924e"/>
+          <topic label="LCD_Wave_TypeDef" href="group__LCD.html#gab54b70818484c89e583e20004fd4a0b6"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="LCD_AnimEnable" href="group__LCD.html#ga370a02864a788e98e6a6d6e859058317"/>
+          <topic label="LCD_AnimInit" href="group__LCD.html#ga1ba720135f8c1869113823d684e084f5"/>
+          <topic label="LCD_AnimState" href="group__LCD.html#ga1592b99360e4fb02f3f5c5cd7646bbd4"/>
+          <topic label="LCD_BiasComSet" href="group__LCD.html#ga7843cbadb32a101fc3846e1bf4659bef"/>
+          <topic label="LCD_BiasSegmentSet" href="group__LCD.html#gaab1e6500ce35b72eaebdc54b3b0ec392"/>
+          <topic label="LCD_BlankEnable" href="group__LCD.html#ga25f32ee5e9376e6277fd47eeafca13d5"/>
+          <topic label="LCD_BlinkEnable" href="group__LCD.html#ga8de4bda300afe88b567b545fdbe484d4"/>
+          <topic label="LCD_BlinkState" href="group__LCD.html#ga62d6992513031ebc152058594cbf982b"/>
+          <topic label="LCD_ContrastSet" href="group__LCD.html#ga0d783bed716497ea3ba7e618f469ac32"/>
+          <topic label="LCD_DSCEnable" href="group__LCD.html#ga2b783db06bbe2944ba0e37253b07b7b3"/>
+          <topic label="LCD_Enable" href="group__LCD.html#ga47b12ccafec62a5adddefcba148ff442"/>
+          <topic label="LCD_FrameCountEnable" href="group__LCD.html#gaf5c8f8228a57761bb2a027130763d7b4"/>
+          <topic label="LCD_FrameCountInit" href="group__LCD.html#ga26c8e0ea9e738e4926f7e7e649ae4358"/>
+          <topic label="LCD_FreezeEnable" href="group__LCD.html#gaa8c374f0e169b555a7980e0e355584e0"/>
+          <topic label="LCD_Init" href="group__LCD.html#ga6c06e074a2a2f04da49c06206e9be571"/>
+          <topic label="LCD_IntClear" href="group__LCD.html#ga85ef9fa5ef7beaad871fe887182d6064"/>
+          <topic label="LCD_IntDisable" href="group__LCD.html#ga1ec2ab7a9fbc59bef88c5f635b5b8cd0"/>
+          <topic label="LCD_IntEnable" href="group__LCD.html#ga26e7c3e726118e25f29c3987f7b4bc3a"/>
+          <topic label="LCD_IntGet" href="group__LCD.html#ga19aeec76708bf068ff0331fd3487bf60"/>
+          <topic label="LCD_IntGetEnabled" href="group__LCD.html#gae87455a6d43cdbeba26b4b324706ec21"/>
+          <topic label="LCD_IntSet" href="group__LCD.html#ga285cb55f01224c107c133c71afae5942"/>
+          <topic label="LCD_SegmentRangeEnable" href="group__LCD.html#ga84b488e1bd5032de1a8307a937b3064b"/>
+          <topic label="LCD_SegmentSet" href="group__LCD.html#ga5c176631920506966de2bd727ef9e944"/>
+          <topic label="LCD_SegmentSetLow" href="group__LCD.html#ga098d20909d9b75fbad54f4176a5c8864"/>
+          <topic label="LCD_SyncBusyDelay" href="group__LCD.html#gad9d68c13929c40cf0d45194358491bb7"/>
+          <topic label="LCD_SyncBusyGet" href="group__LCD.html#ga3aed15ee7b02bd66ca53f4bb29f1ba29"/>
+          <topic label="LCD_UpdateCtrl" href="group__LCD.html#gaae47aa4f1e46d3643f51c07f560580a8"/>
+          <topic label="LCD_VBoostSet" href="group__LCD.html#ga23d1bf6a3ce88f8514eaa1388f8c7d98"/>
+          <topic label="LCD_VLCDSelect" href="group__LCD.html#ga8a9defe802f8056ad3afb11b23909808"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="LCD_AnimInit_TypeDef" href="structLCD__AnimInit__TypeDef.html"/>
+          <topic label="LCD_FrameCountInit_TypeDef" href="structLCD__FrameCountInit__TypeDef.html"/>
+          <topic label="LCD_Init_TypeDef" href="structLCD__Init__TypeDef.html"/>
+        </topic>
+      </topic>
+      <topic label="LESENSE">
+        <topic label="Defines">
+          <topic label="LESENSE_ALTEX_CH_CONF_DEFAULT" href="group__LESENSE.html#ga24aaa1d470e442c25bdea8f7131efab2"/>
+          <topic label="LESENSE_ALTEX_CONF_DEFAULT" href="group__LESENSE.html#ga54b4e60571e04fd83ef61e402ee50598"/>
+          <topic label="LESENSE_CH_CONF_DEFAULT" href="group__LESENSE.html#ga8da3d809158fe07b6b7434589462bcb6"/>
+          <topic label="LESENSE_CORECTRL_DESC_DEFAULT" href="group__LESENSE.html#ga040f7f899988be877ab2134473662397"/>
+          <topic label="LESENSE_DECCTRL_DESC_DEFAULT" href="group__LESENSE.html#ga05d61d702307917f962b5af09755c496"/>
+          <topic label="LESENSE_DECODER_CONF_DEFAULT" href="group__LESENSE.html#ga130bb6e5e802e4b28f993753de2ee313"/>
+          <topic label="LESENSE_INIT_DEFAULT" href="group__LESENSE.html#gaa8b03f76f26cf06cbc09efae88e4336a"/>
+          <topic label="LESENSE_PERCTRL_DESC_DEFAULT" href="group__LESENSE.html#gac1c18b05d96c2ddb0ca4ff5f7cc61f4c"/>
+          <topic label="LESENSE_SCAN_CONF_DEFAULT" href="group__LESENSE.html#gabe5c7dff185ddcd7047f2b35da859bbd"/>
+          <topic label="LESENSE_ST_CONF_DEFAULT" href="group__LESENSE.html#gae4fea3639bac6abd3d3087204dcb1f7d"/>
+          <topic label="LESENSE_TIMECTRL_DESC_DEFAULT" href="group__LESENSE.html#gae10d6d2e305b961e6664bfbc93862c78"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="LESENSE_AltExMap_TypeDef" href="group__LESENSE.html#ga353d749d1e56452fb664963c41d67cb0"/>
+          <topic label="LESENSE_AltExPinIdle_TypeDef" href="group__LESENSE.html#ga8c9bcc6b0b9192fa1169f8ce1c766868"/>
+          <topic label="LESENSE_BiasMode_TypeDef" href="group__LESENSE.html#ga88d879432f34d026f8bfbd481d582fa1"/>
+          <topic label="LESENSE_BufTrigLevel_TypeDef" href="group__LESENSE.html#gafea2a924018edd708f161ad84237be71"/>
+          <topic label="LESENSE_ChClk_TypeDef" href="group__LESENSE.html#gad75ff5fe98fbe7fe30e79150803c1d7d"/>
+          <topic label="LESENSE_ChCompMode_TypeDef" href="group__LESENSE.html#ga468e17957c2cdfaf2733189468c2cb1b"/>
+          <topic label="LESENSE_ChIntMode_TypeDef" href="group__LESENSE.html#ga4c03caf7e59477201dbf4b906d503669"/>
+          <topic label="LESENSE_ChPinExMode_TypeDef" href="group__LESENSE.html#ga4afcd408aa49b59d6476f3d9144c5196"/>
+          <topic label="LESENSE_ChPinIdleMode_TypeDef" href="group__LESENSE.html#gaff36cd1e8c65cae36da232832e03dd1d"/>
+          <topic label="LESENSE_ChSampleMode_TypeDef" href="group__LESENSE.html#ga58e8af54c9773f66b045a6a17b10cc3a"/>
+          <topic label="LESENSE_ClkPresc_TypeDef" href="group__LESENSE.html#ga87cfed7d62c2ab576068a3beda57b1d0"/>
+          <topic label="LESENSE_ControlACMP_TypeDef" href="group__LESENSE.html#ga3bf09e30c45f584c708655c3d7eeb211"/>
+          <topic label="LESENSE_ControlDACConv_TypeDef" href="group__LESENSE.html#gae64b3460e263becd29b7755b94d1aa41"/>
+          <topic label="LESENSE_ControlDACData_TypeDef" href="group__LESENSE.html#gae4a838a9fbe18931d7bf7067b4567b88"/>
+          <topic label="LESENSE_ControlDACOut_TypeDef" href="group__LESENSE.html#ga0b1462fa86adc1a1d3042b0d4e5badd3"/>
+          <topic label="LESENSE_DACRef_TypeDef" href="group__LESENSE.html#gaa01d8ed0fd2d3f67c81860ae16bfa5d2"/>
+          <topic label="LESENSE_DecInput_TypeDef" href="group__LESENSE.html#ga51f02ccd2468cf6d095b62fc4d25658c"/>
+          <topic label="LESENSE_DMAWakeUp_TypeDef" href="group__LESENSE.html#ga06634baea0f6206f665df26018ec68cf"/>
+          <topic label="LESENSE_PRSSel_TypeDef" href="group__LESENSE.html#ga81f01d564a4451ea2737a6c2abf17771"/>
+          <topic label="LESENSE_ScanConfSel_TypeDef" href="group__LESENSE.html#ga2cc46db62eaf75c7d7d6ee94678efcda"/>
+          <topic label="LESENSE_ScanMode_TypeDef" href="group__LESENSE.html#ga5e540ba859daf09ac666c039d21af1a9"/>
+          <topic label="LESENSE_StTransAct_TypeDef" href="group__LESENSE.html#ga12f6a630786467cb261e6577eea6c53d"/>
+          <topic label="LESENSE_WarmupMode_TypeDef" href="group__LESENSE.html#gae77285c42dc4aa211c3cc753abdf4645"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="LESENSE_AltExConfig" href="group__LESENSE.html#ga5e74a058bf6cb6a84b1b207ad7d0abcd"/>
+          <topic label="LESENSE_ChannelActiveGet" href="group__LESENSE.html#gaebe21d230636d75d99dea2cc315305a0"/>
+          <topic label="LESENSE_ChannelAllConfig" href="group__LESENSE.html#ga24763a5f55c777f3021963a4f7809a96"/>
+          <topic label="LESENSE_ChannelConfig" href="group__LESENSE.html#ga6aa126a4b073bd48954c8903da1bf47f"/>
+          <topic label="LESENSE_ChannelEnable" href="group__LESENSE.html#ga611f48ec1dcb0e3f6007a5245fcbac7f"/>
+          <topic label="LESENSE_ChannelEnableMask" href="group__LESENSE.html#gad39d66ad78cc0a5499bbf213e8b9bc6b"/>
+          <topic label="LESENSE_ChannelThresSet" href="group__LESENSE.html#gaa0f60936997170e7563c97552b99bb88"/>
+          <topic label="LESENSE_ChannelTimingSet" href="group__LESENSE.html#ga81efdc1593d4cbdd8e599f8cd1a42aa1"/>
+          <topic label="LESENSE_ClkDivSet" href="group__LESENSE.html#ga1ffd0b11de75b11d122d5a62d1a7fbab"/>
+          <topic label="LESENSE_DecoderStart" href="group__LESENSE.html#ga13e2e54c63941457aa18aed1c4462cd4"/>
+          <topic label="LESENSE_DecoderStateAllConfig" href="group__LESENSE.html#ga5c9e0e09e723fa04321bc17773b1e253"/>
+          <topic label="LESENSE_DecoderStateConfig" href="group__LESENSE.html#gaef8bc2c145fcae89fc4a3b6516bb4654"/>
+          <topic label="LESENSE_DecoderStateGet" href="group__LESENSE.html#ga26346866d73087ef74712b35b18fa596"/>
+          <topic label="LESENSE_DecoderStateSet" href="group__LESENSE.html#gad164d8048a3c0112d352c0b6447d66b1"/>
+          <topic label="LESENSE_DecoderStop" href="group__LESENSE.html#ga020ef394a68b9bcbf68cd8d2a2d4f2da"/>
+          <topic label="LESENSE_Init" href="group__LESENSE.html#ga0a398212f9973311040dee0752bb587d"/>
+          <topic label="LESENSE_IntClear" href="group__LESENSE.html#ga994502fe555c22c4223a52f567662361"/>
+          <topic label="LESENSE_IntDisable" href="group__LESENSE.html#ga822a0537ced6051e6b21c3b1bf60d2be"/>
+          <topic label="LESENSE_IntEnable" href="group__LESENSE.html#gafefe1cdd68c34d8897088ef121456132"/>
+          <topic label="LESENSE_IntGet" href="group__LESENSE.html#gaadf86516aeaa26c0710fbc54492327c0"/>
+          <topic label="LESENSE_IntGetEnabled" href="group__LESENSE.html#gab80c9f49b0340d5a233193968df00683"/>
+          <topic label="LESENSE_IntSet" href="group__LESENSE.html#ga3d0b9f213f944264b2e6811eb0f4fed7"/>
+          <topic label="LESENSE_RAMPowerDown" href="group__LESENSE.html#ga9ee8e095e147450d5fe1e8db24ceb781"/>
+          <topic label="LESENSE_Reset" href="group__LESENSE.html#ga40f43668fc902a37ce1be07c83e7771b"/>
+          <topic label="LESENSE_ResultBufferClear" href="group__LESENSE.html#ga1bb23d00276c3abbee5584b125106927"/>
+          <topic label="LESENSE_ScanFreqSet" href="group__LESENSE.html#gae8655dcda510a74ab5e0c2fdc7aded58"/>
+          <topic label="LESENSE_ScanModeSet" href="group__LESENSE.html#gaa0333bb6df6eaa9833919e0e7519b658"/>
+          <topic label="LESENSE_ScanResultDataBufferGet" href="group__LESENSE.html#ga26c2f4a57fb232a0a74b8b13bf7b3acd"/>
+          <topic label="LESENSE_ScanResultDataGet" href="group__LESENSE.html#ga75de0322234f80b2bdcece55cef7144e"/>
+          <topic label="LESENSE_ScanResultGet" href="group__LESENSE.html#gacb70c06f9976dc498b2295020faab890"/>
+          <topic label="LESENSE_ScanStart" href="group__LESENSE.html#gaa78676d3eb250d8ebdc6f08ee249704c"/>
+          <topic label="LESENSE_ScanStop" href="group__LESENSE.html#ga6fff645ccb362fbeba4e4ea1e0b0fcb3"/>
+          <topic label="LESENSE_SensorStateGet" href="group__LESENSE.html#ga2ee5eb4f4f582c371a1fd3bf24d10205"/>
+          <topic label="LESENSE_StartDelaySet" href="group__LESENSE.html#gae2e4883549fbd7cce4ec059c3c550bda"/>
+          <topic label="LESENSE_StatusGet" href="group__LESENSE.html#gad80bdc3858c24311db2e8f9d5e1c2f5f"/>
+          <topic label="LESENSE_StatusWait" href="group__LESENSE.html#gaf9ff24d9d9e534fbc56ca6498b3933ae"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="LESENSE_CoreCtrlDesc_TypeDef" href="structLESENSE__CoreCtrlDesc__TypeDef.html"/>
+          <topic label="LESENSE_TimeCtrlDesc_TypeDef" href="structLESENSE__TimeCtrlDesc__TypeDef.html"/>
+          <topic label="LESENSE_PerCtrlDesc_TypeDef" href="structLESENSE__PerCtrlDesc__TypeDef.html"/>
+          <topic label="LESENSE_DecCtrlDesc_TypeDef" href="structLESENSE__DecCtrlDesc__TypeDef.html"/>
+          <topic label="LESENSE_Init_TypeDef" href="structLESENSE__Init__TypeDef.html"/>
+          <topic label="LESENSE_ChDesc_TypeDef" href="structLESENSE__ChDesc__TypeDef.html"/>
+          <topic label="LESENSE_ChAll_TypeDef" href="structLESENSE__ChAll__TypeDef.html"/>
+          <topic label="LESENSE_AltExDesc_TypeDef" href="structLESENSE__AltExDesc__TypeDef.html"/>
+          <topic label="LESENSE_ConfAltEx_TypeDef" href="structLESENSE__ConfAltEx__TypeDef.html"/>
+          <topic label="LESENSE_DecStCond_TypeDef" href="structLESENSE__DecStCond__TypeDef.html"/>
+          <topic label="LESENSE_DecStDesc_TypeDef" href="structLESENSE__DecStDesc__TypeDef.html"/>
+          <topic label="LESENSE_DecStAll_TypeDef" href="structLESENSE__DecStAll__TypeDef.html"/>
+        </topic>
+      </topic>
+      <topic label="LETIMER">
+        <topic label="Defines">
+          <topic label="LETIMER_INIT_DEFAULT" href="group__LETIMER.html#gaa409061c5239d936cd67b4d578c054b3"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="LETIMER_RepeatMode_TypeDef" href="group__LETIMER.html#ga621d39064a03e229a02e2c33fd815eb2"/>
+          <topic label="LETIMER_UFOA_TypeDef" href="group__LETIMER.html#ga7e794807b846cd4764aa5ff96e259ba7"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="LETIMER_CompareGet" href="group__LETIMER.html#ga8def6260e3c54ec6dac11581dcd7c1c5"/>
+          <topic label="LETIMER_CompareSet" href="group__LETIMER.html#ga5881f97abb64700592a23e213edeba21"/>
+          <topic label="LETIMER_CounterGet" href="group__LETIMER.html#ga50ca4ff31c5eee289cb249fd160683f2"/>
+          <topic label="LETIMER_Enable" href="group__LETIMER.html#gaca64117c08fbb558eb2feb300cef0621"/>
+          <topic label="LETIMER_FreezeEnable" href="group__LETIMER.html#gaf4a565497669b1852de043374173c288"/>
+          <topic label="LETIMER_Init" href="group__LETIMER.html#gaa4e7e28b4b04595a991a93b9e76c9919"/>
+          <topic label="LETIMER_IntClear" href="group__LETIMER.html#ga73948168b9c0345e75551ed3f8115474"/>
+          <topic label="LETIMER_IntDisable" href="group__LETIMER.html#gac559ba136bfd11379a1dc12cc45cc82e"/>
+          <topic label="LETIMER_IntEnable" href="group__LETIMER.html#ga11110bb53b566e017a9248a4a8946963"/>
+          <topic label="LETIMER_IntGet" href="group__LETIMER.html#gafc3fe4be7e3a67c4403c0c0a9966a893"/>
+          <topic label="LETIMER_IntSet" href="group__LETIMER.html#ga8ad490c965b096e4bde9ebdc2a16ec05"/>
+          <topic label="LETIMER_RepeatGet" href="group__LETIMER.html#ga8012c191a62ae300457d246f6fd13c04"/>
+          <topic label="LETIMER_RepeatSet" href="group__LETIMER.html#ga99d89e7b494ea6d0a30be57444a7ba2a"/>
+          <topic label="LETIMER_Reset" href="group__LETIMER.html#gaf7209283bdf0e32dd3983d2fbb078d20"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="LETIMER_Init_TypeDef" href="structLETIMER__Init__TypeDef.html"/>
+        </topic>
+      </topic>
+      <topic label="LEUART">
+        <topic label="Defines">
+          <topic label="LEUART_INIT_DEFAULT" href="group__LEUART.html#gacb3f4d665d8aca8088a1eff6adb7f5f8"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="LEUART_Databits_TypeDef" href="group__LEUART.html#ga6bc858472381dd682afb465b3c363111"/>
+          <topic label="LEUART_Enable_TypeDef" href="group__LEUART.html#gac19b101f40ce0d0a0920f82abebc129e"/>
+          <topic label="LEUART_Parity_TypeDef" href="group__LEUART.html#ga034badf61f0e439ce3a6cf4169f504c0"/>
+          <topic label="LEUART_Stopbits_TypeDef" href="group__LEUART.html#gaf748a72c90312181000bd33926390552"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="LEUART_BaudrateCalc" href="group__LEUART.html#ga0ae6c4ba0d7b1aa02db2c475757b257d"/>
+          <topic label="LEUART_BaudrateGet" href="group__LEUART.html#ga41e06e8c961222093afa8997419ee9af"/>
+          <topic label="LEUART_BaudrateSet" href="group__LEUART.html#gac8d75da0027ebce98cf33ebcdfe9bdad"/>
+          <topic label="LEUART_Enable" href="group__LEUART.html#gaac8ffe82df5bc3b66519380843251228"/>
+          <topic label="LEUART_FreezeEnable" href="group__LEUART.html#ga997e11e29be1835b8a49b35b0a2e38a5"/>
+          <topic label="LEUART_Init" href="group__LEUART.html#ga14ed413542c26fb88fd1237f9eb99bd5"/>
+          <topic label="LEUART_IntClear" href="group__LEUART.html#gac7d9d111138799c46cb48b96689242b0"/>
+          <topic label="LEUART_IntDisable" href="group__LEUART.html#gae685d3468982536584bf09757c5eec08"/>
+          <topic label="LEUART_IntEnable" href="group__LEUART.html#ga5485a64cc586e5a8df2a78df567fa5f4"/>
+          <topic label="LEUART_IntGet" href="group__LEUART.html#ga6212bf3e49e50b94c4f9f4b7195ae8af"/>
+          <topic label="LEUART_IntGetEnabled" href="group__LEUART.html#ga92c5a62c0db7c7f004f068c30b9a23b1"/>
+          <topic label="LEUART_IntSet" href="group__LEUART.html#gaa2551eeb204f1fe8bf67f40a1dfbb66b"/>
+          <topic label="LEUART_Reset" href="group__LEUART.html#gac1d2e66b6eb2ef53079453ebc2f1e5fa"/>
+          <topic label="LEUART_Rx" href="group__LEUART.html#ga7e84f260b845b086996737d5c6a3d584"/>
+          <topic label="LEUART_RxDataGet" href="group__LEUART.html#ga6e7d1fb455d7b94fe37b616b5ee0a556"/>
+          <topic label="LEUART_RxDataXGet" href="group__LEUART.html#ga087936f9e8fe4de34a34508967f512e0"/>
+          <topic label="LEUART_RxDmaInEM2Enable" href="group__LEUART.html#gaf9a622af67512b98926d2117f0ea29d1"/>
+          <topic label="LEUART_RxExt" href="group__LEUART.html#ga41f5c2769d8f3789596111ee6e5e7f3b"/>
+          <topic label="LEUART_StatusGet" href="group__LEUART.html#ga43bd574280826803da1d94d87e7d71cc"/>
+          <topic label="LEUART_Tx" href="group__LEUART.html#ga0acc32fe9bb75edec5123e7f155c68ac"/>
+          <topic label="LEUART_TxDmaInEM2Enable" href="group__LEUART.html#ga0e54fd1a0a16f1e899969f29de49674f"/>
+          <topic label="LEUART_TxExt" href="group__LEUART.html#gaec9893a933f75974c16bd63ac823fd8e"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="LEUART_Init_TypeDef" href="structLEUART__Init__TypeDef.html"/>
+        </topic>
+      </topic>
+      <topic label="MPU">
+        <topic label="Defines">
+          <topic label="MPU_CTRL_HFNMIENA" href="group__MPU.html#gab7ed92a5600fdd190fb3ce6c8b9eef0a"/>
+          <topic label="MPU_CTRL_PRIVDEFENA" href="group__MPU.html#gaab51c0ef4d298181c4658130e720c126"/>
+          <topic label="MPU_INIT_FLASH_DEFAULT" href="group__MPU.html#ga7dd89b899b29011a595eae970ee9c64c"/>
+          <topic label="MPU_INIT_PERIPHERAL_DEFAULT" href="group__MPU.html#ga6827c9b1a3262f44a276f4f836fb55cc"/>
+          <topic label="MPU_INIT_SRAM_DEFAULT" href="group__MPU.html#gafb50eaf58ac5c817d898a39e067767d8"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="MPU_RegionAp_TypeDef" href="group__MPU.html#gad31bacb9d44584cbeece0f228b543518"/>
+          <topic label="MPU_RegionSize_TypeDef" href="group__MPU.html#ga6a3fea8505cbab92ee8ac776359d5a26"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="MPU_ConfigureRegion" href="group__MPU.html#gaeb57443d5bd3de565f7d0b0ebd8b8785"/>
+          <topic label="MPU_Disable" href="group__MPU.html#ga2661d44882b4c52855ef24bb8f8f70e7"/>
+          <topic label="MPU_Enable" href="group__MPU.html#ga0e68f22ed2a7f26043d94953b18742c8"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="MPU_RegionInit_TypeDef" href="structMPU__RegionInit__TypeDef.html"/>
+        </topic>
+      </topic>
+      <topic label="MSC">
+        <topic label="Defines">
+          <topic label="MSC_PROGRAM_TIMEOUT" href="group__MSC.html#ga2ccebeae7857abb74bd22341b7761583"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="MSC_Status_TypeDef" href="group__MSC.html#gaa548bd1d520a543e249b6a85338b59c0"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="MSC_Deinit" href="group__MSC.html#gadb2eab07fedfb79fba5a3abdd8b5c96a"/>
+          <topic label="MSC_ErasePage" href="group__MSC.html#ga25bb7197232a0fa92f3fc22d3a128161"/>
+          <topic label="MSC_Init" href="group__MSC.html#gaa02df815c14caedbc2fd0a8910d2e055"/>
+          <topic label="MSC_IntClear" href="group__MSC.html#ga3e99a1115d2fdec306e3ebd3a9c5e3b4"/>
+          <topic label="MSC_IntDisable" href="group__MSC.html#gae93719c876be33cc035e8a4791c4c9fe"/>
+          <topic label="MSC_IntEnable" href="group__MSC.html#ga4824f067a4895d743b9d369b2d261e1c"/>
+          <topic label="MSC_IntGet" href="group__MSC.html#gae8463b277bec80606e0eb8fe71641f78"/>
+          <topic label="MSC_IntGetEnabled" href="group__MSC.html#ga30acc1e5a9cbe04debbc18e40f95ee65"/>
+          <topic label="MSC_IntSet" href="group__MSC.html#ga0792aa6d5cef984923e3d10d44b5723f"/>
+          <topic label="MSC_WriteWord" href="group__MSC.html#ga76309e04e090815bd80e7e5da3ee6ff6"/>
+          <topic label="MSC_WriteWordFast" href="group__MSC.html#gab9b796ba26919fd0f434bbb7c339f1c4"/>
+        </topic>
+      </topic>
+      <topic label="OPAMP">
+        <topic label="Defines">
+          <topic label="OPA_INIT_CASCADED_INVERTING_OPA0" href="group__OPAMP.html#ga9a1dd24490678d5520acdb03af0488a0"/>
+          <topic label="OPA_INIT_CASCADED_INVERTING_OPA1" href="group__OPAMP.html#ga4892ebf4e9f8f89c63ed5af7c41cb738"/>
+          <topic label="OPA_INIT_CASCADED_INVERTING_OPA2" href="group__OPAMP.html#ga1df18b290880d83da38190404129e1c7"/>
+          <topic label="OPA_INIT_CASCADED_NON_INVERTING_OPA0" href="group__OPAMP.html#ga96357785937648a5251fdbb59c6a7245"/>
+          <topic label="OPA_INIT_CASCADED_NON_INVERTING_OPA1" href="group__OPAMP.html#ga8ee39ac052ebd047ca7f88e075a4cb58"/>
+          <topic label="OPA_INIT_CASCADED_NON_INVERTING_OPA2" href="group__OPAMP.html#ga1da2e9ee9c5e0f55ce83d077cd53e547"/>
+          <topic label="OPA_INIT_DIFF_DRIVER_OPA0" href="group__OPAMP.html#ga6f489ecb4c8b5a4ce254beb7b800d26b"/>
+          <topic label="OPA_INIT_DIFF_DRIVER_OPA1" href="group__OPAMP.html#gaf262f55cf9a9ac0b1484c6d20d460fa7"/>
+          <topic label="OPA_INIT_DIFF_RECEIVER_OPA0" href="group__OPAMP.html#gafeccb7d0b52a89683509281c0a963b41"/>
+          <topic label="OPA_INIT_DIFF_RECEIVER_OPA1" href="group__OPAMP.html#ga3a450c211b76f44b292c7da2b54648d3"/>
+          <topic label="OPA_INIT_DIFF_RECEIVER_OPA2" href="group__OPAMP.html#ga2ec29abc3a122acae0b455d8eb2d391e"/>
+          <topic label="OPA_INIT_INVERTING" href="group__OPAMP.html#gae270957f9325564a7f2e03c41b690ffb"/>
+          <topic label="OPA_INIT_INVERTING_OPA2" href="group__OPAMP.html#ga11f347814bf9cfba89c7bd7c519553b2"/>
+          <topic label="OPA_INIT_NON_INVERTING" href="group__OPAMP.html#gac7dc1995dc74fcc4569afb7e4a93a6c5"/>
+          <topic label="OPA_INIT_NON_INVERTING_OPA2" href="group__OPAMP.html#ga52bf2f889356bbd1f8bb634ff461a593"/>
+          <topic label="OPA_INIT_UNITY_GAIN" href="group__OPAMP.html#ga23931b39cc75e704bc079e0dc0478497"/>
+          <topic label="OPA_INIT_UNITY_GAIN_OPA2" href="group__OPAMP.html#gae5b3f4e4f3fdca9f9c0c166601a732f8"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="OPAMP_NegSel_TypeDef" href="group__OPAMP.html#gaa158f1109c96c14b9531b47a76df24bd"/>
+          <topic label="OPAMP_OutMode_TypeDef" href="group__OPAMP.html#gab82f68a27f2f50473502101e9b1f42ab"/>
+          <topic label="OPAMP_PosSel_TypeDef" href="group__OPAMP.html#ga2c5ecf4f85f9031861b4e81643cb4ff8"/>
+          <topic label="OPAMP_ResInMux_TypeDef" href="group__OPAMP.html#ga847c3ca2ddb170b44bc27816123b0ff6"/>
+          <topic label="OPAMP_ResSel_TypeDef" href="group__OPAMP.html#gaa3e5ca28a695563596b9554fec10f810"/>
+          <topic label="OPAMP_TypeDef" href="group__OPAMP.html#ga8ab8b812547585753acc6893f340e32c"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="OPAMP_Disable" href="group__OPAMP.html#ga814b73bd0007ff07c24beeae1175f0d2"/>
+          <topic label="OPAMP_Enable" href="group__OPAMP.html#gae4961677bcc2a81a88093ab23195e2c0"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="OPAMP_Init_TypeDef" href="structOPAMP__Init__TypeDef.html"/>
+        </topic>
+      </topic>
+      <topic label="PCNT">
+        <topic label="Defines">
+          <topic label="PCNT0_CNT_SIZE" href="group__PCNT.html#gaf9147680cf4def78a0d85a8056ac305d"/>
+          <topic label="PCNT_INIT_DEFAULT" href="group__PCNT.html#ga6cec823dab4c0de6e47a6939ad978290"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="PCNT_CntEvent_TypeDef" href="group__PCNT.html#gaf5d5d7081a8e56ad0571addc1028ac5c"/>
+          <topic label="PCNT_Mode_TypeDef" href="group__PCNT.html#ga2fb0fc7f68c902b71b271ba5687643a4"/>
+          <topic label="PCNT_PRSInput_TypeDef" href="group__PCNT.html#gae186a75007f832e0de80ccae92528104"/>
+          <topic label="PCNT_PRSSel_TypeDef" href="group__PCNT.html#ga1e54a6fa69a7da44510c6f38ced54486"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="PCNT_AuxCounterGet" href="group__PCNT.html#ga2571e9ccf1f9c011a5f69c847c394a33"/>
+          <topic label="PCNT_CounterGet" href="group__PCNT.html#ga70fe3bed7f9fc6b0823d53023fdf5f37"/>
+          <topic label="PCNT_CounterReset" href="group__PCNT.html#gacb21126956add214b4af318f61fd17cd"/>
+          <topic label="PCNT_CounterSet" href="group__PCNT.html#ga420446309a8fbbb76574d96ffc6db024"/>
+          <topic label="PCNT_CounterTopSet" href="group__PCNT.html#ga4f29435f61c53e4a6e86947fe1980be9"/>
+          <topic label="PCNT_Enable" href="group__PCNT.html#gaa8820c09f38c0237a58300bdfa53cb0e"/>
+          <topic label="PCNT_FreezeEnable" href="group__PCNT.html#ga0a3a18c64e545011e4b4eaef0bdc2b3d"/>
+          <topic label="PCNT_Init" href="group__PCNT.html#ga726934d28be99230a6025503fdbaf86d"/>
+          <topic label="PCNT_IntClear" href="group__PCNT.html#ga656f9c01f924fb88378bf4d77bb927a1"/>
+          <topic label="PCNT_IntDisable" href="group__PCNT.html#gab68278a67e797c54abf963dd6546f448"/>
+          <topic label="PCNT_IntEnable" href="group__PCNT.html#ga48363e8f5b035115fda26ce1c7c73953"/>
+          <topic label="PCNT_IntGet" href="group__PCNT.html#gad2c0d9afde7927503a4abee86862c7f1"/>
+          <topic label="PCNT_IntGetEnabled" href="group__PCNT.html#ga94a4c16e59e21c6550082fe5cb91db5e"/>
+          <topic label="PCNT_IntSet" href="group__PCNT.html#gabe2234a84d44892bb33c590f5c3857e2"/>
+          <topic label="PCNT_PRSInputEnable" href="group__PCNT.html#ga3398bc56f58cfc86afeedcd4febc5753"/>
+          <topic label="PCNT_Reset" href="group__PCNT.html#gadf14f80981badc92e7a30a43caae130b"/>
+          <topic label="PCNT_TopBufferGet" href="group__PCNT.html#ga891fb6ed2bb9bf604783b363c87464de"/>
+          <topic label="PCNT_TopBufferSet" href="group__PCNT.html#gaa0a00b056f5f6404abd02de84c30d002"/>
+          <topic label="PCNT_TopGet" href="group__PCNT.html#ga963e01aecd570531bae9630800165ff4"/>
+          <topic label="PCNT_TopSet" href="group__PCNT.html#gac40297f0dcf3f1502b8cbca2aced1466"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="PCNT_Init_TypeDef" href="structPCNT__Init__TypeDef.html"/>
+        </topic>
+      </topic>
+      <topic label="PRS">
+        <topic label="Enumerations">
+          <topic label="PRS_Edge_TypeDef" href="group__PRS.html#ga853e2a53ed99eb3a0c5e163e1d33e814"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="PRS_LevelSet" href="group__PRS.html#ga9fe2bc6548ee63f233cb706920d97b4e"/>
+          <topic label="PRS_PulseTrigger" href="group__PRS.html#gabf5756623b5b766e287ca27441bd0f1d"/>
+          <topic label="PRS_SourceAsyncSignalSet" href="group__PRS.html#gaf05c066e83d651bfbdcb170af48c6843"/>
+          <topic label="PRS_SourceSignalSet" href="group__PRS.html#gab8273dde832f46d40696b4c5025e411c"/>
+        </topic>
+      </topic>
+      <topic label="RMU">
+        <topic label="Defines">
+          <topic label="RMU_LockupResetDisable" href="group__RMU.html#ga6d8a5178e92750ec32db8c010fc19778"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="RMU_Reset_TypeDef" href="group__RMU.html#ga8ac0ad7bdf565905989745354d31cb07"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="RMU_ResetCauseClear" href="group__RMU.html#ga1ebc1af03f738faa79b3e87d60a96ff1"/>
+          <topic label="RMU_ResetCauseGet" href="group__RMU.html#gac065bbcb3b26d3f0b5c875df4cbad685"/>
+          <topic label="RMU_ResetControl" href="group__RMU.html#gac5c00c75975bd9eac775fd93739da04f"/>
+        </topic>
+      </topic>
+      <topic label="RTC">
+        <topic label="Defines">
+          <topic label="RTC_INIT_DEFAULT" href="group__RTC.html#gaa4e54bd1f7a26594eb031789117137dc"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="RTC_CompareGet" href="group__RTC.html#ga866d59c5c7c743e8f5382d2f7e6df8ec"/>
+          <topic label="RTC_CompareSet" href="group__RTC.html#gae6de92934675357cf5731663406e9615"/>
+          <topic label="RTC_CounterGet" href="group__RTC.html#ga08c2d4b78b387af02917d01db5a72aba"/>
+          <topic label="RTC_CounterReset" href="group__RTC.html#gae4cfdbe68de01d77bbdc979f1b026382"/>
+          <topic label="RTC_Enable" href="group__RTC.html#ga19213bbf2d6cb73d55cec086a98493e6"/>
+          <topic label="RTC_FreezeEnable" href="group__RTC.html#gae75ea5a9ceb5123c2394fc722e27d2cd"/>
+          <topic label="RTC_Init" href="group__RTC.html#ga693d1c349834ec6be942f5b27258f6e9"/>
+          <topic label="RTC_IntClear" href="group__RTC.html#ga910583d142223c79d276cdffd317a1bf"/>
+          <topic label="RTC_IntDisable" href="group__RTC.html#ga2a98d203572e19e46332a767ed129d75"/>
+          <topic label="RTC_IntEnable" href="group__RTC.html#gaa8a148dcdf7ac48dd76b84406f7b69a0"/>
+          <topic label="RTC_IntGet" href="group__RTC.html#ga12263d43936af8d57cac8327d7225a1d"/>
+          <topic label="RTC_IntSet" href="group__RTC.html#ga1bb5c0890ca9d48a8e70a2a237226e43"/>
+          <topic label="RTC_Reset" href="group__RTC.html#gae1afe76d35fac641cdad34913ca63c95"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="RTC_Init_TypeDef" href="structRTC__Init__TypeDef.html"/>
+        </topic>
+      </topic>
+      <topic label="SYSTEM">
+        <topic label="Enumerations">
+          <topic label="SYSTEM_PartFamily_TypeDef" href="group__SYSTEM.html#ga45f33557f44ae73db1c70765a2a29e5a"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="SYSTEM_ChipRevisionGet" href="group__SYSTEM.html#ga6470ed38937ffd0b8b509334c5add7dd"/>
+          <topic label="SYSTEM_GetCalibrationTemperature" href="group__SYSTEM.html#ga2a8be52c7eeb3f5d395ee7791e5c8bf8"/>
+          <topic label="SYSTEM_GetCalibrationValue" href="group__SYSTEM.html#ga786913c991338e29650617d89aec3768"/>
+          <topic label="SYSTEM_GetFamily" href="group__SYSTEM.html#ga5b5bb91ac7916b37ce069dd75fc94196"/>
+          <topic label="SYSTEM_GetFlashPageSize" href="group__SYSTEM.html#ga9708a581c8fe3a02fc6ac92175a3860a"/>
+          <topic label="SYSTEM_GetFlashSize" href="group__SYSTEM.html#gacf4974847994d28b5e03e1cb6d76f5c0"/>
+          <topic label="SYSTEM_GetPartNumber" href="group__SYSTEM.html#ga4b9b04ffdb1f05c14f73f1b7ed0a95ba"/>
+          <topic label="SYSTEM_GetProdRev" href="group__SYSTEM.html#ga0ab109172e28a441c3ff173d0f83405b"/>
+          <topic label="SYSTEM_GetSRAMSize" href="group__SYSTEM.html#ga1e9f2935e6ccee880c25605351770560"/>
+          <topic label="SYSTEM_GetUnique" href="group__SYSTEM.html#ga3ae06ffaffeb005dc411bfefedd1f16b"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="SYSTEM_ChipRevision_TypeDef" href="structSYSTEM__ChipRevision__TypeDef.html"/>
+        </topic>
+      </topic>
+      <topic label="TIMER">
+        <topic label="Defines">
+          <topic label="TIMER_INIT_DEFAULT" href="group__TIMER.html#ga8803e04b755a2a22dc9167e109a6be89"/>
+          <topic label="TIMER_INITCC_DEFAULT" href="group__TIMER.html#ga1444f0ca7a97773a1152aa886f17b48a"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="TIMER_CCMode_TypeDef" href="group__TIMER.html#gacaeb01f1c6c64b144b9a5913893bd718"/>
+          <topic label="TIMER_ClkSel_TypeDef" href="group__TIMER.html#ga511d9c88c172605ee06715c274ad9cfa"/>
+          <topic label="TIMER_Edge_TypeDef" href="group__TIMER.html#gaa024137506ad0a0cd518c4572f8ba545"/>
+          <topic label="TIMER_Event_TypeDef" href="group__TIMER.html#ga141160bf6b286d2a001079a562c64761"/>
+          <topic label="TIMER_InputAction_TypeDef" href="group__TIMER.html#gad737fcc050f53fc713f07f22f9bd5143"/>
+          <topic label="TIMER_Mode_TypeDef" href="group__TIMER.html#ga7198f02825e0938408a7287a75171265"/>
+          <topic label="TIMER_OutputAction_TypeDef" href="group__TIMER.html#ga3899377f736a636532b16922f7c65728"/>
+          <topic label="TIMER_Prescale_TypeDef" href="group__TIMER.html#gadc7dec57fe232c5fbabbb7cd25ebffe0"/>
+          <topic label="TIMER_PRSSEL_TypeDef" href="group__TIMER.html#gaaa9a5454731dae18603a8076f9a9010a"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="TIMER_CaptureGet" href="group__TIMER.html#ga17f48913c060adae55b26b39f1f39a4c"/>
+          <topic label="TIMER_CompareBufSet" href="group__TIMER.html#gaca426134377caec8f8e5d44fe7726a4a"/>
+          <topic label="TIMER_CompareSet" href="group__TIMER.html#ga4ef423dd1b30cc66f3c3d3d51dac5d16"/>
+          <topic label="TIMER_CounterGet" href="group__TIMER.html#ga83e10f77009812d7bfff2cf835ca64d7"/>
+          <topic label="TIMER_CounterSet" href="group__TIMER.html#gadf8070d157063a47b20abe97e146a919"/>
+          <topic label="TIMER_Enable" href="group__TIMER.html#gae3dd36e419641a24d3f44084c216bf71"/>
+          <topic label="TIMER_Init" href="group__TIMER.html#gad04a80140e22df0cd742e14933e9f028"/>
+          <topic label="TIMER_InitCC" href="group__TIMER.html#ga9b2a3560717e0c174a030d99fa8501b4"/>
+          <topic label="TIMER_IntClear" href="group__TIMER.html#ga92304cb71e3c8da55c9715c8ab30dc57"/>
+          <topic label="TIMER_IntDisable" href="group__TIMER.html#gaa7f5ea5d035ebe3fad7dbb2e3c7c1cc9"/>
+          <topic label="TIMER_IntEnable" href="group__TIMER.html#ga10317eb2cd4cf6c5bde768023ea132cd"/>
+          <topic label="TIMER_IntGet" href="group__TIMER.html#gacbd76455f127f402f6b38ed94f68e4e6"/>
+          <topic label="TIMER_IntGetEnabled" href="group__TIMER.html#gab0fb61a0bc7cc248a247b59637c76d02"/>
+          <topic label="TIMER_IntSet" href="group__TIMER.html#gabef9a01112726dde12b8b9c7831bd266"/>
+          <topic label="TIMER_Reset" href="group__TIMER.html#gade950f7c7c81fe3ae1612f40f5e0327d"/>
+          <topic label="TIMER_TopBufSet" href="group__TIMER.html#gaa4768fe62ef7609d62bf432e7143332c"/>
+          <topic label="TIMER_TopGet" href="group__TIMER.html#gaea8b8e6f85bb4cbe77f21bb838169692"/>
+          <topic label="TIMER_TopSet" href="group__TIMER.html#gad367b1801475494e0aeab2e4eab1e646"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="TIMER_Init_TypeDef" href="structTIMER__Init__TypeDef.html"/>
+          <topic label="TIMER_InitCC_TypeDef" href="structTIMER__InitCC__TypeDef.html"/>
+        </topic>
+      </topic>
+      <topic label="USART">
+        <topic label="Defines">
+          <topic label="USART_INITASYNC_DEFAULT" href="group__USART.html#gadc8f891a4bd89e12d447801bad5ba108"/>
+          <topic label="USART_INITIRDA_DEFAULT" href="group__USART.html#ga7e493420d94db772e10afe78524af68e"/>
+          <topic label="USART_INITPRSTRIGGER_DEFAULT" href="group__USART.html#ga8a1b203a68a8c787938fd30cd3ac6935"/>
+          <topic label="USART_INITSYNC_DEFAULT" href="group__USART.html#gaaf3d1a75faf77eca583c62339c005712"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="USART_ClockMode_TypeDef" href="group__USART.html#ga9308807377a9f1b25c19bc60d9f64674"/>
+          <topic label="USART_Databits_TypeDef" href="group__USART.html#ga882a4def49cdb2fb18622d61b24eeacd"/>
+          <topic label="USART_Enable_TypeDef" href="group__USART.html#gab911b3b57b0cfe33cc34e7c37693c14b"/>
+          <topic label="USART_IrDAPrsSel_Typedef" href="group__USART.html#gaa76c86d959fdc20d201ad4171ba646a1"/>
+          <topic label="USART_IrDAPw_Typedef" href="group__USART.html#ga4622379ccdcc531ab7f9e7e1cefe404f"/>
+          <topic label="USART_OVS_TypeDef" href="group__USART.html#gab8f135534a77aba5382a820b2a35a284"/>
+          <topic label="USART_Parity_TypeDef" href="group__USART.html#ga57d987f474e5fd47d4760c4178c7f0d5"/>
+          <topic label="USART_PrsTriggerCh_TypeDef" href="group__USART.html#ga61793f62c8e5dcd0c8adc9ec314f7bdc"/>
+          <topic label="USART_Stopbits_TypeDef" href="group__USART.html#ga697bdb6e146a4f6b8e761efc4f31065e"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="USART_BaudrateAsyncSet" href="group__USART.html#ga373a66831daf2d2fe59c04b327e0c9a1"/>
+          <topic label="USART_BaudrateCalc" href="group__USART.html#gac3af64b304f10a2ea679526f8fe3a9fb"/>
+          <topic label="USART_BaudrateGet" href="group__USART.html#ga9f78987c84c2023fe907867833cdfab4"/>
+          <topic label="USART_BaudrateSyncSet" href="group__USART.html#ga5b96146f7c05f78d31bd77aacd4a3b5f"/>
+          <topic label="USART_Enable" href="group__USART.html#gaf593db61ee6acd852dd9dc01d79a3548"/>
+          <topic label="USART_InitAsync" href="group__USART.html#ga5b851444f0fbdca97017c7b927b37f52"/>
+          <topic label="USART_InitPrsTrigger" href="group__USART.html#ga0deb307dc635809644280bd95dca6301"/>
+          <topic label="USART_InitSync" href="group__USART.html#gaab6053ba081f6fabce6762fb4563fb28"/>
+          <topic label="USART_IntClear" href="group__USART.html#gafd14f04ce72926161d83886b971ed310"/>
+          <topic label="USART_IntDisable" href="group__USART.html#gaa2d55028ab7683a2f86273af78112f7e"/>
+          <topic label="USART_IntEnable" href="group__USART.html#ga8127d71f47f7616c119dfceaa595747f"/>
+          <topic label="USART_IntGet" href="group__USART.html#ga24a830213c75a320c1e9876b3e8377b1"/>
+          <topic label="USART_IntGetEnabled" href="group__USART.html#ga86d583f6d635af762553ddf95b62cafe"/>
+          <topic label="USART_IntSet" href="group__USART.html#ga0112cac9728cf10729a5f1226d9cd2ae"/>
+          <topic label="USART_Reset" href="group__USART.html#ga4769e1b5d573d6cecc95ca0c7d8e2da2"/>
+          <topic label="USART_Rx" href="group__USART.html#ga85160dfc5405a7fd0f35948fc45450df"/>
+          <topic label="USART_RxDataGet" href="group__USART.html#gaf5761ee99b677e00054e40a7e64bada5"/>
+          <topic label="USART_RxDataXGet" href="group__USART.html#gadd9e5500365247235bf2fae44d414902"/>
+          <topic label="USART_RxDouble" href="group__USART.html#gab9ce412ba8931aa7087b2f3e79b9f315"/>
+          <topic label="USART_RxDoubleExt" href="group__USART.html#gac7f32fb42fbf27b2f8c0fbcc86b54813"/>
+          <topic label="USART_RxDoubleGet" href="group__USART.html#ga8fd644e2914f519de12851eeafa9951e"/>
+          <topic label="USART_RxDoubleXGet" href="group__USART.html#ga8520661f6931d0cac4a2c6929b89c5e0"/>
+          <topic label="USART_RxExt" href="group__USART.html#ga93710bf6c5a6c6eff97644bc40ba80c6"/>
+          <topic label="USART_SpiTransfer" href="group__USART.html#gad1ce52fc0a8a5a618fffd614b086c46c"/>
+          <topic label="USART_StatusGet" href="group__USART.html#ga488366f59378eb51be017a5b20c12d9a"/>
+          <topic label="USART_Tx" href="group__USART.html#gabdac7c0c6cc0b6aa998bf8d688f46591"/>
+          <topic label="USART_TxDouble" href="group__USART.html#gabeab88ec2b2fd0fee0b1b42f8aa4f69b"/>
+          <topic label="USART_TxDoubleExt" href="group__USART.html#ga3a032f4772d7f52a50bc497b15bcd41b"/>
+          <topic label="USART_TxExt" href="group__USART.html#ga8ff633e12b44c4032366a859d07f9766"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="USART_InitAsync_TypeDef" href="structUSART__InitAsync__TypeDef.html"/>
+          <topic label="USART_PrsTriggerInit_TypeDef" href="structUSART__PrsTriggerInit__TypeDef.html"/>
+          <topic label="USART_InitSync_TypeDef" href="structUSART__InitSync__TypeDef.html"/>
+          <topic label="USART_InitIrDA_TypeDef" href="structUSART__InitIrDA__TypeDef.html"/>
+        </topic>
+      </topic>
+      <topic label="VCMP">
+        <topic label="Defines">
+          <topic label="VCMP_INIT_DEFAULT" href="group__VCMP.html#ga52b01f1cadf892c8ec22e9ce4106b360"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="VCMP_Hysteresis_TypeDef" href="group__VCMP.html#gab56ac68a10865bcbd08f2978a6cf5d5b"/>
+          <topic label="VCMP_WarmTime_TypeDef" href="group__VCMP.html#ga4d4b37ff688f47766c7f11fd44806cc6"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="VCMP_Disable" href="group__VCMP.html#ga4d05b8a07f535aea84df53ffcc0904da"/>
+          <topic label="VCMP_Enable" href="group__VCMP.html#gacd1e72c9db56316c049efb14e3aa2fc2"/>
+          <topic label="VCMP_Init" href="group__VCMP.html#ga52aa53df539c0d68c1e2e0f5b4b40041"/>
+          <topic label="VCMP_IntClear" href="group__VCMP.html#ga90c047e9c776cad27065458add1486fd"/>
+          <topic label="VCMP_IntDisable" href="group__VCMP.html#ga67704d1b4bfa3b74f0a5991efc64ef6d"/>
+          <topic label="VCMP_IntEnable" href="group__VCMP.html#gaf52eef153dec125bcc731ad0d31e3f11"/>
+          <topic label="VCMP_IntGet" href="group__VCMP.html#ga2c95d208b80bffc906fef5c3bcdeacc8"/>
+          <topic label="VCMP_IntGetEnabled" href="group__VCMP.html#gaffed33ef4b644cd0f52bf99613012473"/>
+          <topic label="VCMP_IntSet" href="group__VCMP.html#ga4f19b07662931f087951ba5ff5af1189"/>
+          <topic label="VCMP_LowPowerRefSet" href="group__VCMP.html#gab87bb21a4afe57c7721d424e2f8e99c5"/>
+          <topic label="VCMP_Ready" href="group__VCMP.html#ga8ded00997c333fd43ebb3c5ad888bac7"/>
+          <topic label="VCMP_TriggerSet" href="group__VCMP.html#ga185203f0a0c2e0343cca51d82b2b21ef"/>
+          <topic label="VCMP_VDDHigher" href="group__VCMP.html#ga9ec536ab9b943fcf5c1ec34feb951f13"/>
+          <topic label="VCMP_VDDLower" href="group__VCMP.html#gac052041a40fe31b2d6b6536628674b24"/>
+          <topic label="VCMP_VoltageToLevel" href="group__VCMP.html#ga90bc9473c20571d6a6938b3afbdd26c7"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="VCMP_Init_TypeDef" href="structVCMP__Init__TypeDef.html"/>
+        </topic>
+      </topic>
+      <topic label="Version">
+        <topic label="Defines">
+          <topic label="_CMSIS_VERSION" href="group__Version.html#gafe8b89eb13233d0d2e5b398082af8c7b"/>
+          <topic label="_CMSIS_VERSION_MAJOR" href="group__Version.html#ga2b7a4dfb079133883b2e4f70dbcdbc65"/>
+          <topic label="_CMSIS_VERSION_MINOR" href="group__Version.html#ga1e6cdaaa80091ca35f6015437456d39a"/>
+          <topic label="_CMSIS_VERSION_PATCH" href="group__Version.html#ga6e2b3a24b898c335b56d8e68ee3d7050"/>
+          <topic label="_EMLIB_VERSION" href="group__Version.html#ga6d1283cc853becee2508bc2dfc772096"/>
+          <topic label="_EMLIB_VERSION_MAJOR" href="group__Version.html#ga69ba661826816055c9fc52afee0ca6ce"/>
+          <topic label="_EMLIB_VERSION_MINOR" href="group__Version.html#gab345b096dcb0eece0d802b8df10b2c76"/>
+          <topic label="_EMLIB_VERSION_PATCH" href="group__Version.html#ga2516db79921dc0f450574c569964132e"/>
+        </topic>
+      </topic>
+      <topic label="WDOG">
+        <topic label="Defines">
+          <topic label="WDOG_INIT_DEFAULT" href="group__WDOG.html#ga8169ae345fecb9d7abddeb495db92693"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="WDOG_ClkSel_TypeDef" href="group__WDOG.html#ga84959950c7a90940b7b2aa414648f338"/>
+          <topic label="WDOG_PeriodSel_TypeDef" href="group__WDOG.html#gafb32176c669596071269d5fe62734505"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="WDOG_Enable" href="group__WDOG.html#ga662ed794f642aac8293b7cae09c4b223"/>
+          <topic label="WDOG_Feed" href="group__WDOG.html#gabf4cfa0c00f36eb71896f2ce1e884d27"/>
+          <topic label="WDOG_Init" href="group__WDOG.html#ga227aa37d1eab4e7748ecc801c386c7a7"/>
+          <topic label="WDOG_Lock" href="group__WDOG.html#ga26823031e069f4133964156550b64097"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="WDOG_Init_TypeDef" href="structWDOG__Init__TypeDef.html"/>
+        </topic>
+      </topic>
+    </topic>
+  </topic>
+  <topic label="Data Structures">
+    <topic label="ACMP_CapsenseInit_TypeDef" href="structACMP__CapsenseInit__TypeDef.html"/>
+    <topic label="ACMP_Init_TypeDef" href="structACMP__Init__TypeDef.html"/>
+    <topic label="ADC_Init_TypeDef" href="structADC__Init__TypeDef.html"/>
+    <topic label="ADC_InitScan_TypeDef" href="structADC__InitScan__TypeDef.html"/>
+    <topic label="ADC_InitSingle_TypeDef" href="structADC__InitSingle__TypeDef.html"/>
+    <topic label="DAC_Init_TypeDef" href="structDAC__Init__TypeDef.html"/>
+    <topic label="DAC_InitChannel_TypeDef" href="structDAC__InitChannel__TypeDef.html"/>
+    <topic label="DMA_CB_TypeDef" href="structDMA__CB__TypeDef.html"/>
+    <topic label="DMA_CfgChannel_TypeDef" href="structDMA__CfgChannel__TypeDef.html"/>
+    <topic label="DMA_CfgDescr_TypeDef" href="structDMA__CfgDescr__TypeDef.html"/>
+    <topic label="DMA_CfgDescrSGAlt_TypeDef" href="structDMA__CfgDescrSGAlt__TypeDef.html"/>
+    <topic label="DMA_Init_TypeDef" href="structDMA__Init__TypeDef.html"/>
+    <topic label="EMU_EM23Init_TypeDef" href="structEMU__EM23Init__TypeDef.html"/>
+    <topic label="EMU_EM4Init_TypeDef" href="structEMU__EM4Init__TypeDef.html"/>
+    <topic label="I2C_Init_TypeDef" href="structI2C__Init__TypeDef.html"/>
+    <topic label="I2C_TransferSeq_TypeDef" href="structI2C__TransferSeq__TypeDef.html"/>
+    <topic label="LCD_AnimInit_TypeDef" href="structLCD__AnimInit__TypeDef.html"/>
+    <topic label="LCD_FrameCountInit_TypeDef" href="structLCD__FrameCountInit__TypeDef.html"/>
+    <topic label="LCD_Init_TypeDef" href="structLCD__Init__TypeDef.html"/>
+    <topic label="LESENSE_AltExDesc_TypeDef" href="structLESENSE__AltExDesc__TypeDef.html"/>
+    <topic label="LESENSE_ChAll_TypeDef" href="structLESENSE__ChAll__TypeDef.html"/>
+    <topic label="LESENSE_ChDesc_TypeDef" href="structLESENSE__ChDesc__TypeDef.html"/>
+    <topic label="LESENSE_ConfAltEx_TypeDef" href="structLESENSE__ConfAltEx__TypeDef.html"/>
+    <topic label="LESENSE_CoreCtrlDesc_TypeDef" href="structLESENSE__CoreCtrlDesc__TypeDef.html"/>
+    <topic label="LESENSE_DecCtrlDesc_TypeDef" href="structLESENSE__DecCtrlDesc__TypeDef.html"/>
+    <topic label="LESENSE_DecStAll_TypeDef" href="structLESENSE__DecStAll__TypeDef.html"/>
+    <topic label="LESENSE_DecStCond_TypeDef" href="structLESENSE__DecStCond__TypeDef.html"/>
+    <topic label="LESENSE_DecStDesc_TypeDef" href="structLESENSE__DecStDesc__TypeDef.html"/>
+    <topic label="LESENSE_Init_TypeDef" href="structLESENSE__Init__TypeDef.html"/>
+    <topic label="LESENSE_PerCtrlDesc_TypeDef" href="structLESENSE__PerCtrlDesc__TypeDef.html"/>
+    <topic label="LESENSE_TimeCtrlDesc_TypeDef" href="structLESENSE__TimeCtrlDesc__TypeDef.html"/>
+    <topic label="LETIMER_Init_TypeDef" href="structLETIMER__Init__TypeDef.html"/>
+    <topic label="LEUART_Init_TypeDef" href="structLEUART__Init__TypeDef.html"/>
+    <topic label="MPU_RegionInit_TypeDef" href="structMPU__RegionInit__TypeDef.html"/>
+    <topic label="OPAMP_Init_TypeDef" href="structOPAMP__Init__TypeDef.html"/>
+    <topic label="PCNT_Init_TypeDef" href="structPCNT__Init__TypeDef.html"/>
+    <topic label="RTC_Init_TypeDef" href="structRTC__Init__TypeDef.html"/>
+    <topic label="SYSTEM_ChipRevision_TypeDef" href="structSYSTEM__ChipRevision__TypeDef.html"/>
+    <topic label="TIMER_Init_TypeDef" href="structTIMER__Init__TypeDef.html"/>
+    <topic label="TIMER_InitCC_TypeDef" href="structTIMER__InitCC__TypeDef.html"/>
+    <topic label="USART_InitAsync_TypeDef" href="structUSART__InitAsync__TypeDef.html"/>
+    <topic label="USART_InitIrDA_TypeDef" href="structUSART__InitIrDA__TypeDef.html"/>
+    <topic label="USART_InitSync_TypeDef" href="structUSART__InitSync__TypeDef.html"/>
+    <topic label="USART_PrsTriggerInit_TypeDef" href="structUSART__PrsTriggerInit__TypeDef.html"/>
+    <topic label="VCMP_Init_TypeDef" href="structVCMP__Init__TypeDef.html"/>
+    <topic label="WDOG_Init_TypeDef" href="structWDOG__Init__TypeDef.html"/>
+  </topic>
+  <topic label="Data Fields" href="functions.html"/>
+  <topic label="File List">
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_acmp.h" href="em__acmp_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_adc.h" href="em__adc_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_aes.h" href="em__aes_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_assert.h" href="em__assert_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_bitband.h" href="em__bitband_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_burtc.h" href="em__burtc_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_chip.h" href="em__chip_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_cmu.h" href="em__cmu_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_common.h" href="em__common_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_dac.h" href="em__dac_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_dbg.h" href="em__dbg_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_dma.h" href="em__dma_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_ebi.h" href="em__ebi_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_emu.h" href="em__emu_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_gpio.h" href="em__gpio_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_i2c.h" href="em__i2c_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_idac.h" href="em__idac_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_int.h" href="em__int_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_lcd.h" href="em__lcd_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_lesense.h" href="em__lesense_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_letimer.h" href="em__letimer_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_leuart.h" href="em__leuart_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_mpu.h" href="em__mpu_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_msc.h" href="em__msc_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_opamp.h" href="em__opamp_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_part.h" href="em__part_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_pcnt.h" href="em__pcnt_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_prs.h" href="em__prs_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_rmu.h" href="em__rmu_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_rtc.h" href="em__rtc_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_system.h" href="em__system_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_timer.h" href="em__timer_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_usart.h" href="em__usart_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_vcmp.h" href="em__vcmp_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_version.h" href="em__version_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/inc/em_wdog.h" href="em__wdog_8h.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_acmp.c" href="em__acmp_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_adc.c" href="em__adc_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_aes.c" href="em__aes_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_assert.c" href="em__assert_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_burtc.c" href="em__burtc_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_cmu.c" href="em__cmu_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_dac.c" href="em__dac_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_dbg.c" href="em__dbg_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_dma.c" href="em__dma_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_ebi.c" href="em__ebi_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_emu.c" href="em__emu_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_gpio.c" href="em__gpio_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_i2c.c" href="em__i2c_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_idac.c" href="em__idac_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_int.c" href="em__int_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_lcd.c" href="em__lcd_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_lesense.c" href="em__lesense_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_letimer.c" href="em__letimer_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_leuart.c" href="em__leuart_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_mpu.c" href="em__mpu_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_msc.c" href="em__msc_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_opamp.c" href="em__opamp_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_pcnt.c" href="em__pcnt_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_prs.c" href="em__prs_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_rmu.c" href="em__rmu_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_rtc.c" href="em__rtc_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_system.c" href="em__system_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_timer.c" href="em__timer_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_usart.c" href="em__usart_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_vcmp.c" href="em__vcmp_8c.html"/>
+    <topic label="release/EM_CMSIS_P1_4.0.0/emlib/src/em_wdog.c" href="em__wdog_8c.html"/>
+  </topic>
+  <topic label="Directory Hierarchy">
+    <topic label="release">
+      <topic label="EM_CMSIS_P1_4.0.0">
+        <topic label="emlib">
+          <topic label="inc">
+            <topic label="em_acmp.h" href="em__acmp_8h.html"/>
+            <topic label="em_adc.h" href="em__adc_8h.html"/>
+            <topic label="em_aes.h" href="em__aes_8h.html"/>
+            <topic label="em_assert.h" href="em__assert_8h.html"/>
+            <topic label="em_bitband.h" href="em__bitband_8h.html"/>
+            <topic label="em_burtc.h" href="em__burtc_8h.html"/>
+            <topic label="em_chip.h" href="em__chip_8h.html"/>
+            <topic label="em_cmu.h" href="em__cmu_8h.html"/>
+            <topic label="em_common.h" href="em__common_8h.html"/>
+            <topic label="em_dac.h" href="em__dac_8h.html"/>
+            <topic label="em_dbg.h" href="em__dbg_8h.html"/>
+            <topic label="em_dma.h" href="em__dma_8h.html"/>
+            <topic label="em_ebi.h" href="em__ebi_8h.html"/>
+            <topic label="em_emu.h" href="em__emu_8h.html"/>
+            <topic label="em_gpio.h" href="em__gpio_8h.html"/>
+            <topic label="em_i2c.h" href="em__i2c_8h.html"/>
+            <topic label="em_idac.h" href="em__idac_8h.html"/>
+            <topic label="em_int.h" href="em__int_8h.html"/>
+            <topic label="em_lcd.h" href="em__lcd_8h.html"/>
+            <topic label="em_lesense.h" href="em__lesense_8h.html"/>
+            <topic label="em_letimer.h" href="em__letimer_8h.html"/>
+            <topic label="em_leuart.h" href="em__leuart_8h.html"/>
+            <topic label="em_mpu.h" href="em__mpu_8h.html"/>
+            <topic label="em_msc.h" href="em__msc_8h.html"/>
+            <topic label="em_opamp.h" href="em__opamp_8h.html"/>
+            <topic label="em_part.h" href="em__part_8h.html"/>
+            <topic label="em_pcnt.h" href="em__pcnt_8h.html"/>
+            <topic label="em_prs.h" href="em__prs_8h.html"/>
+            <topic label="em_rmu.h" href="em__rmu_8h.html"/>
+            <topic label="em_rtc.h" href="em__rtc_8h.html"/>
+            <topic label="em_system.h" href="em__system_8h.html"/>
+            <topic label="em_timer.h" href="em__timer_8h.html"/>
+            <topic label="em_usart.h" href="em__usart_8h.html"/>
+            <topic label="em_vcmp.h" href="em__vcmp_8h.html"/>
+            <topic label="em_version.h" href="em__version_8h.html"/>
+            <topic label="em_wdog.h" href="em__wdog_8h.html"/>
+          </topic>
+          <topic label="src">
+            <topic label="em_acmp.c" href="em__acmp_8c.html"/>
+            <topic label="em_adc.c" href="em__adc_8c.html"/>
+            <topic label="em_aes.c" href="em__aes_8c.html"/>
+            <topic label="em_assert.c" href="em__assert_8c.html"/>
+            <topic label="em_burtc.c" href="em__burtc_8c.html"/>
+            <topic label="em_cmu.c" href="em__cmu_8c.html"/>
+            <topic label="em_dac.c" href="em__dac_8c.html"/>
+            <topic label="em_dbg.c" href="em__dbg_8c.html"/>
+            <topic label="em_dma.c" href="em__dma_8c.html"/>
+            <topic label="em_ebi.c" href="em__ebi_8c.html"/>
+            <topic label="em_emu.c" href="em__emu_8c.html"/>
+            <topic label="em_gpio.c" href="em__gpio_8c.html"/>
+            <topic label="em_i2c.c" href="em__i2c_8c.html"/>
+            <topic label="em_idac.c" href="em__idac_8c.html"/>
+            <topic label="em_int.c" href="em__int_8c.html"/>
+            <topic label="em_lcd.c" href="em__lcd_8c.html"/>
+            <topic label="em_lesense.c" href="em__lesense_8c.html"/>
+            <topic label="em_letimer.c" href="em__letimer_8c.html"/>
+            <topic label="em_leuart.c" href="em__leuart_8c.html"/>
+            <topic label="em_mpu.c" href="em__mpu_8c.html"/>
+            <topic label="em_msc.c" href="em__msc_8c.html"/>
+            <topic label="em_opamp.c" href="em__opamp_8c.html"/>
+            <topic label="em_pcnt.c" href="em__pcnt_8c.html"/>
+            <topic label="em_prs.c" href="em__prs_8c.html"/>
+            <topic label="em_rmu.c" href="em__rmu_8c.html"/>
+            <topic label="em_rtc.c" href="em__rtc_8c.html"/>
+            <topic label="em_system.c" href="em__system_8c.html"/>
+            <topic label="em_timer.c" href="em__timer_8c.html"/>
+            <topic label="em_usart.c" href="em__usart_8c.html"/>
+            <topic label="em_vcmp.c" href="em__vcmp_8c.html"/>
+            <topic label="em_wdog.c" href="em__wdog_8c.html"/>
+          </topic>
+        </topic>
+      </topic>
+    </topic>
+  </topic>
+  <topic label="Globals" href="globals.html"/>
+</toc>

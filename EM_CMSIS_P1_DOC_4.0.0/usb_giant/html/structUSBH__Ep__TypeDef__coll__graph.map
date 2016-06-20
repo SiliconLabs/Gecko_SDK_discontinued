@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node9" href="$structUSBH__Device__TypeDef.html" title="USB HOST device definition." alt="" coords="1091,540,1261,566"/>
+<area shape="rect" id="node2" href="$structUSB__EndpointDescriptor__TypeDef.html" title="USB Endpoint Descriptor." alt="" coords="274,972,510,998"/>
+<area shape="rect" id="node10" href="$structUSB__ConfigurationDescriptor__TypeDef.html" title="USB Configuration Descriptor." alt="" coords="259,477,525,504"/>
+<area shape="rect" id="node12" href="$structUSB__DeviceDescriptor__TypeDef.html" title="USB Device Descriptor." alt="" coords="279,533,505,560"/>
+<area shape="rect" id="node14" href="$structUSB__Setup__TypeDef.html" title="USB Setup request package." alt="" coords="317,1086,467,1113"/>
+<area shape="rect" id="node11" href="$structUSB__InterfaceDescriptor__TypeDef.html" title="USB Interface Descriptor." alt="" coords="550,272,789,298"/>
+</map>

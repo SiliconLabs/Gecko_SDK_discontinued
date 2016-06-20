@@ -1,0 +1,7 @@
+// EM IEC60335-ClassB Test Script (HiTOP)
+// main script file
+EXECUTE "test_reg_low.scr"
+EXECUTE "test_reg_high.scr"
+EXECUTE "test_reg_spec.scr"
+EXECUTE "test_reg_SP.scr"
+EXECUTE "test_reg_pc.scr"

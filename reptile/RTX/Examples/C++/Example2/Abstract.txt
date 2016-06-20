@@ -1,0 +1,6 @@
+
+The C++ Example 2 shows some features of the C++ language:
+
+  - Opeation Overloading
+  - Name Spaces
+  - Friend Functions

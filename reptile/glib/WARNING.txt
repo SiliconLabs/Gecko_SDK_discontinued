@@ -1,0 +1,9 @@
+WARNING:
+
+SD2119 driver and GLIB graphics library are not 
+intended for production purposes, and are included here
+to illustrate TFT display driving only.
+
+These components are subject to changes in API/usage and
+there will be no effort to keep compatibility, or
+to support this software in any way.

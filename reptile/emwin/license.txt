@@ -1,0 +1,71 @@
+Energy Micro
+SEGGER emWin Library for Energy Micro Microcontrollers and Radios
+Software License Agreement
+
+
+IMPORTANT: PLEASE READ THE FOLLOWING LICENSE AGREEMENT CAREFULLY. BY CLICKING THE "I ACCEPT THE AGREEMENT" BOX, YOU (EITHER AN INDIVIDUAL OR LEGAL ENTITY) ARE AGREEING THAT YOU HAVE ACCEPTED ALL OF THE TERMS AND CONDITIONS CONTAINED IN THIS AGREEMENT, AND ARE LEGALLY BOUND THEREBY.
+
+This Software License Agreement (the "Agreement") is a binding, legal agreement between Energy Micro AS (hereinafter referred to as "Energy Micro") and you (either an individual or legal entity) (hereinafter referred to as "Licensee").
+
+This Agreement applies to the SEGGER emWin Library software that is downloadable from the Energy Micro web site or through Simplicity Studio (the "Licensed Software", as defined below).
+
+If you do not accept and agree to this Agreement, do not click the "I accept the Agreement" and do not download or use any of the Licensed Software. Using, copying, modifying or distributing any Licensed Software is otherwise prohibited by law if you do not accept this Agreement. By installing, using, copying, modifying or distributing any part of the Licensed Software, Licensee also indicates that it accepts this Agreement.
+
+1.	Definitions 
+
+In addition to other terms defined elsewhere in this Agreement, the following terms, when the first letter is capitalized, have the meanings set forth in this Section 1. All definitions below shall apply both to their singular or plural forms, as the context may require.
+
+"Executable Binary Code" means computer programs that have been fully assembled or compiled (into Object code) and linked into machine-readable and executable binary form, which can be executed by a computer, but is not generally readable by humans without reverse assembly, reverse compiling or reverse engineering.
+
+"Licensed Software" means the SEGGER emWin Library software that is downloadable from the Energy Micro web site or through Simplicity Studio for use with the specified Energy Micro Microcontrollers, and any error corrections, fixes, modifications or improvements (if any) to the Licensed Software that Energy Micro provides, in Energy Micro’s sole discretion, to Licensee hereunder.
+
+"Licensee Product" means any product made by or for Licensee, which incorporates the specified Energy Micro Microcontroller.
+
+"Object Code" means computer programs assembled, compiled or converted to magnetic, optical, or electronic binary form or software media, which are readable or usable by machines, but which are not generally readable by humans without decompiling or reverse engineering. 
+
+"Energy Micro Microcontroller" means Energy Micro's ARM Cortex M3 and M4F microcontroller and/or radio integrated circuit products only. 
+
+"Source Code" means (1) computer programs written in higher-level programming languages, (2) programming techniques and algorithms used therein, and (3) all accompanying documentation related to the Source Code. Source Code is intelligible to trained programmers and may be translated into Object Code for execution on computer equipment through the process of compiling, or may be executed by the process of interpretation at the time of execution.
+
+2.	Limited License 
+
+Subject to the terms and conditions of this Agreement, Energy Micro hereby grants to Licensee, and Licensee hereby accepts, a non­exclusive, worldwide, personal, non-transferable license under Energy Micro’s relevant copyrights, without the right to sublicense to: 
+
+(a)	use and execute the Licensed Software for evaluation and demonstration purposes only with the specified Energy Micro Microcontrollers. 
+
+(b)	use, execute, copy, modify and create derivative works of the Licensed Software Object Code that is provided by Energy Micro hereunder to develop customized application programs to operate with the specified Energy Micro Microcontrollers and distribute, directly and indirectly, such Licensed Software and derivative works thereof incorporated in such application programs, in Executable Binary Code form only, in Licensee Products incorporating the specified Energy Micro Microcontrollers.
+
+3.	License Restrictions
+
+3.1		Licensee is expressly prohibited from marketing or distributing the Licensed Software on a stand-alone basis, or for any purpose other than to operate with the specified Energy Micro Microcontrollers.
+
+3.2		Licensee shall not, and shall not permit any third party to, copy any portion of the Licensed Software, except as permitted under Section 2. 
+
+3.3		Licensee shall not, and shall not permit any third party to, modify or alter any portion of the Licensed Software, except as permitted under Section 2.
+
+3.4		Licensee shall not, and shall not permit any third party to, reverse engineer, decompile or disassemble the Licensed Software. 
+
+3.5		The Licensed Software is licensed and not sold, and any and all references to "sale" or "sold" of any Licensed Software shall be deemed to mean license, and no ownership or assignment of any intellectual property rights is intended nor shall be implied thereby. 
+
+3.6		Except for the limited copyright Licenses granted to Licensee under Section 2 herein, Licensee acknowledges and agrees that Energy Micro does not confer any license or other right, by implication, estoppel or otherwise, under any other intellectual property rights of Energy Micro or its affiliates. Notwithstanding anything to the contrary herein, no patent license, immunity or other patent right of any kind is granted under this Agreement by Energy Micro, or any of its affiliates, either directly or by implication, estoppel, or otherwise.
+
+3.7		Licensee shall not remove or alter any copyright notices, proprietary information notices or restricted rights notices of Energy Micro or its suppliers in any Licensed Software as provided by Energy Micro, and shall affix to any media containing a copy of any Licensed Software all such notices as were affixed to the original media of such Licensed Software.
+
+4.	Warranty
+
+4.1		The Licensed Software is provided to Licensee "AS IS" without any warranties of any kind, including without limitation, Energy Micro and its Licensors do not warrant to Licensee that the licensed software will operate error free or uninterrupted, nor that it will meet your requirements. Energy Micro and its licensors shall not have any duty or obligation to defend or indemnify Licensee or to hold it harmless for any reason related to the Licensed Software, or otherwise be liable to Licensee or any third party with respect to the subject matter of this Agreement. Licensee acknowledges and agrees that the Licensed Software is provided AS-IS and accepts all risks of utilizing the Licensed Software under the conditions set forth in this Agreement. 
+
+4.2		ENERGY MICRO EXPRESSLY DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT OF INTELLECTUAL PROPERTY RIGHTS. ENERGY MICRO SHALL HAVE NO LIABILITY TO LICENSEE, OR ITS SUBSIDIARIES, AFFILIATES, OR ANY OTHER THIRD PARTY FOR ANY DAMAGES, INCLUDING WITHOUT LIMITATION, DAMAGES RESULTING OR ALLEGED TO HAVE RESULTED FROM ANY DEFECT, ERROR OR OMISSION IN THE LICENSED SOFTWARE, OR AS A RESULT OF ANY INFRINGEMENT OF ANY INTELLECTUAL PROPERTY RIGHT OF ANY THIRD PARTY. IN NO EVENT SHALL ENERGY MICRO OR ITS LICENSORS BE LIABLE FOR ANY INCIDENTAL, INDIRECT, SPECIAL, EXEMPLARY, PUNITIVE, OR CONSEQUENTIAL DAMAGES (INCLUDING LOST PROFITS) SUFFERED BY LICENSEE OR ITS SUBSIDIARIES, AFFILIATES, OR ANY THIRD PARTY ARISING OUT OF OR RELATED TO THIS AGREEMENT, INCLUDING WITHOUT LIMITATION THE USE OR NON-USE OF THE LICENSED SOFTWARE, EVEN IF ENERGY MICRO HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. IN NO EVENT SHALL ENERGY MICRO’S OR ITS LICENSOR’S TOTAL AGGREGATE LIABILITY FOR DAMAGES ARISING OUT OF THIS AGREEMENT EXCEED THE AMOUNT OF ONE THOUSAND DOLLARS (US$1,000). 
+
+5.	Terms and Termination 
+
+5.1	Energy Micro may terminate this Agreement at anytime if Licensee breaches or violates any terms or conditions of this Agreement.
+
+5.2	Energy Micro can make YOU liable, if YOU should fail to comply with this license.
+
+6.	Miscellaneous
+
+6.1	This Agreement shall be governed by and construed in accordance with the laws of Norway. Any disputes that may arise from this Agreement shall be subject to the exclusive jurisdiction of the courts of Norway, with Oslo city court an agreed venue.
+
+6.2	In the event that any provision of this Agreement is prohibited by any mandatory law governing its construction, performance or enforcement, such provision shall be ineffective to the extent of such prohibition without invalidating thereby any of the remaining provisions of the Agreement.
+ 

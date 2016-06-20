@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$bsp__dk__3200_8c.html" title="Board support package API implementation for BRD3200." alt="" coords="5,80,192,107"/>
+<area shape="rect" id="node6" href="$bsp__dk__3201_8c.html" title="Board support package API implementation for BRD3201." alt="" coords="240,80,427,107"/>
+<area shape="rect" id="node9" href="$bsp__dk__leds_8c.html" title="Board support package API for GPIO leds on STK&#39;s." alt="" coords="475,80,656,107"/>
+<area shape="rect" id="node11" href="$bsp__dk__mcuboard_8c.html" title="Board support package API for functions on MCU plugin boards." alt="" coords="681,80,895,107"/>
+<area shape="rect" id="node13" href="$bsp__stk_8c.html" title="Board support package API implementation STK&#39;s." alt="" coords="920,80,1075,107"/>
+<area shape="rect" id="node15" href="$bsp__stk__leds_8c.html" title="Board support package API for GPIO leds on STK&#39;s." alt="" coords="1099,80,1283,107"/>
+<area shape="rect" id="node17" href="$bsp__trace_8c.html" title="API for enabling SWO and ETM trace." alt="" coords="1307,80,1473,107"/>
+<area shape="rect" id="node20" href="$cdc_8c.html" title="USB Communication Device Class (CDC) driver." alt="" coords="1523,80,1672,107"/>
+<area shape="rect" id="node23" href="$displaypalemlib_8c.html" title="Platform Abstraction Layer (PAL) for DISPLAY driver on EMLIB based platforms." alt="" coords="1721,80,1937,107"/>
+<area shape="rect" id="node26" href="$retargettft_8c.html" title="Provide stdio retargeting to TFT address mapped mode." alt="" coords="1986,80,2173,107"/>
+<area shape="rect" id="node29" href="$tftamapped_8c.html" title="EFM32GG_DK3750, TFT Initialization and setup for Adress Mapped mode." alt="" coords="2223,80,2417,107"/>
+<area shape="rect" id="node32" href="$tftdirect_8c.html" title="EFM32GG_DK3750, TFT Initialization and setup for Direct Drive mode." alt="" coords="2466,80,2640,107"/>
+<area shape="rect" id="node35" href="$touch_8c.html" title="EFM32GG_DK3750, Touch panel driver." alt="" coords="2689,80,2849,107"/>
+</map>

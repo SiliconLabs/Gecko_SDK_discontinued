@@ -1,0 +1,29 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$group__Si114x.html#gadbec1218d8cc103d4d6c2fc0ec0f6abf" title="Populates the SI114X_CAL_S structure." alt="" coords="192,499,341,525"/>
+<area shape="rect" id="node51" href="$group__Si114x.html#ga8d9e6e60e0ced326193208cdf976bbee" title="Writes to Si114x Register." alt="" coords="915,1056,1069,1083"/>
+<area shape="rect" id="node63" href="$group__Si114x.html#ga9966ab23359f5ae0c7e5b8d79a4ef59a" title="Initializes the Si113x/46/47/48 UCOEF Registers." alt="" coords="401,119,521,145"/>
+<area shape="rect" id="node73" href="$group__Si114x.html#gafee1fd953ec8559b0b2c53b4d3a7d442" title="Writes a byte to an Si113x/4x Parameter." alt="" coords="750,540,866,567"/>
+<area shape="rect" id="node79" href="$group__Si114x.html#ga88b866258cb278b01da1bcf766cfab57" title="Resets the Si113x/4x, clears any interrupts and initializes the HW_KEY register." alt="" coords="221,1119,313,1145"/>
+<area shape="rect" id="node5" href="$si114x__functions_8c.html#ad3caa9be1c88c281a2b56d85874ce13e" title="Waits until the Si113x/4x is sleeping before proceeding." alt="" coords="937,641,1047,668"/>
+<area shape="rect" id="node7" href="$group__Si114x.html#ga734e022c8fda86b69a353b1012c59231" title="Implements 1ms delay." alt="" coords="1160,819,1243,845"/>
+<area shape="rect" id="node9" href="$group__Si114x.html#gaeae79629a9f5a41c75ba329fa056eeef" title="Reads from Si114x register." alt="" coords="1118,540,1285,567"/>
+<area shape="rect" id="node11" href="$si114x__functions_8c.html#a808f2899298260f393055312b4f80ac6" title="Returns the ratio to correlate between x_RANGE=0 and x_RANGE=1 It is typically 14..." alt="" coords="407,169,515,196"/>
+<area shape="rect" id="node25" href="$si114x__functions_8c.html#a3ac697e3bdbd89a27b3c92771464d225" title="Due to small differences in factory test setup, the reference calibration values..." alt="" coords="590,340,693,367"/>
+<area shape="rect" id="node27" href="$si114x__functions_8c.html#a61432bf1caf8279773cbd20cbff01762" title="Returns the calibration ratio to be applied to IR measurements." alt="" coords="407,271,515,297"/>
+<area shape="rect" id="node31" href="$si114x__functions_8c.html#af2b82da725b191c13d12b558513d16b7" title="Returns the ratio to correlate between measurements made from large PD to measurements..." alt="" coords="419,220,504,247"/>
+<area shape="rect" id="node34" href="$si114x__functions_8c.html#af8fdd4e552ea67d71ca4f6efe98cde06" title="Returns the ratio to adjust for differences in IRLED drive strength." alt="" coords="424,321,499,348"/>
+<area shape="rect" id="node38" href="$si114x__functions_8c.html#a1f05335605433b4c715436f8c2750127" title="This is a helper function called from si114x_get_calibration() Writes 0x11 to the..." alt="" coords="390,676,533,703"/>
+<area shape="rect" id="node42" href="$group__Si114x.html#ga479ffe2c4fea4bf799a925d8e779400c" title="Reads block of Si114x registers." alt="" coords="582,575,701,601"/>
+<area shape="rect" id="node44" href="$group__Si114x.html#gad06dc467120c7e78af29a2959589a796" title="Sends a NOP command to the Si113x/4x." alt="" coords="600,879,683,905"/>
+<area shape="rect" id="node59" href="$si114x__functions_8c.html#ab4c6c95d4cfe808f6bae73c8f1d6e949" title="Returns the calibration ratio to be applied to VIS measurements." alt="" coords="404,372,519,399"/>
+<area shape="rect" id="node13" href="$si114x__functions_8c.html#ac9f9c30376cfa4e7d75d3df4aca0bd38" title="Returns a fixed&#45;point (20&#45;bit fraction) after dividing op1/op2." alt="" coords="598,283,685,309"/>
+<area shape="rect" id="node15" href="$si114x__functions_8c.html#a50d91593be08d65b013f22a42f0ddcb1" title="Aligns the value pointed by value_p to either the LEFT or RIGHT the number of shifted..." alt="" coords="967,80,1017,107"/>
+<area shape="rect" id="node17" href="$si114x__functions_8c.html#afe977399de96463bb65a39f6f1093c64" title="This performs a shift_left function." alt="" coords="1166,55,1237,81"/>
+<area shape="rect" id="node19" href="$si114x__functions_8c.html#a3635be76445f56c810f15a35828d38ca" title="The fx20_round was designed to perform rounding to however many significant digits..." alt="" coords="765,29,851,56"/>
+<area shape="rect" id="node46" href="$si114x__functions_8c.html#abdc2cf05a4b2387da379ec970c73c205" title="Helper function to send a command to the Si113x/4x." alt="" coords="767,879,849,905"/>
+<area shape="rect" id="node65" href="$si114x__functions_8c.html#af6754f2631570292e96493f5149dfa36" title="Returns a fixed&#45;point (20&#45;bit fraction) after multiplying op1*op2." alt="" coords="593,55,690,81"/>
+<area shape="rect" id="node70" href="$group__Si114x.html#ga15059dd986a51d8188b5c93aa70681b6" title="Writes block of Si114x registers." alt="" coords="932,439,1052,465"/>
+<area shape="rect" id="node81" href="$group__Si114x.html#ga68d719ca4b817a58e8014c9e826b390a" title="Implements 10ms delay." alt="" coords="416,1208,507,1235"/>
+<area shape="rect" id="node83" href="$group__Si114x.html#ga85dcc599c9e3df8a22002f7ef5a3e5d8" title="Pauses autonomous measurements." alt="" coords="407,1081,515,1108"/>
+<area shape="rect" id="node85" href="$si114x__functions_8c.html#a33af8952f62e2826a91b1306145dd9fd" title="Pause measurement helper function." alt="" coords="595,929,688,956"/>
+</map>

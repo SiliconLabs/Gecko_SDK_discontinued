@@ -1,0 +1,168 @@
+================ Revision history ============================================
+4.0.0:
+- Maintenance release.
+
+3.20.12:
+- Maintenance release.
+
+3.20.5:
+- Maintenance release.
+
+3.20.2:
+- Deleted old examples for FreeRTOS (FreeRTOS and freertos_blink)
+- Added FreeRTOS tickless and blink demo
+
+3.20.0:
+- uC/OS-III real time os examples now use version 3.03.00 of uC/OS-III.
+- uC/OS-II real time os examples now use version 2.92.07 of uC/OS-II.
+- Added Atollic and GCC ARM Embedded project files to examples projects.
+
+2.0.3:
+- All examples need new EM_BSP_COMMON package.
+
+2.0.2:
+- Fixed bug in MPU example.
+
+2.0.1:
+- This release requires the EFM32_CMSIS_3.0.0 package
+- Updated source and include files to CMSIS_V3
+- Updated license restrictions
+
+1.7.4:
+- Added new TRACE API to Board Support Package
+- All examples will now try to enable SWO trace for profiler by default
+- Added binary example builds for all examples (.bin/.out for eA Profiler)
+- Updated readme files
+
+1.7.3:
+- Added example "tftemode" for EBI enabled EFM32_G2xx_DK kits, similar to
+  the "emode" Segment-LCD version
+- Improved SPI for SD-Card implementation.
+- Corrected use of f_opendir() in all FatFS based examples.
+- Fixed Keil MDK-ARM project files, system peripheral view was missing
+- Fixed USART initialization in ucos2 port
+
+1.7.2:
+- Added Changes and Readme files to delivery
+
+1.7.1:
+- This package required EFM32_CMSIS_2.2.1
+- Added support for combined EBI/LCD boards in BSP
+- Added debug symbols to all Keil MDK-ARM builds
+- Fixed gradient for temp.sensor example
+- Updated BSP to work with most recent efm32lib, NOTE! USART_Reset() will now
+  also clear USART_ROUTE register to not drive GPIO pins after the call.
+  This means USART_ROUTE can not be called _before_ calls to USART_InitSync()/
+  USART_InitASync()
+
+1.6.1:
+- This release requires the EFM32_CMSIS_2.0.x package
+- Updates to make microsd driver more robust (wavplayer and slideshow examples)
+- All projects now have DEBUG_EFM (assert for efm32lib) enabled
+- Moved LCD font definition into C file, added extern declarations to header
+- Added const to LCD structures, to make sure arrays go into flash storage
+
+1.6.0:
+- EFM32_CMSIS_1.3.0 required for this release
+- Updated examples to comply with latest EFM32_CMSIS updates
+- CHIP_init (drivers/chip.h) has been moved to EFM32_CMSIS efm32_chip.h,
+  and renamed CHIP_Init to comply with efm32lib conventions
+- Updated and corrected all project files; some project options were not
+  correctly defined for various IDEs
+- Added debug and release builds in CodeSourcery makefiles
+- Added IrDA example
+- Added MPU example
+- Added Micrium uC/OS-II example project (IAR EWARM and Keil MDKARM only)
+- Added inttemp - internal temperature sensor example for EFM32 revC chips
+- Added wav_player example - plays .WAV file from micro-SD card
+- Corrected segmentlcd driver, LCD_SEGMENT_DP<x> had wrong defines
+
+1.5.1:
+- Rowley CrossWorks project files changed, file paths are now compatible
+  with non-windows environments
+
+1.5.0:
+- EFM32_CMSIS_1.2.0 required for this release
+- Updated board (DVK) specific drivers to use new efm32lib Peripheral APIs
+- Added even simpler energy mode demo, called "emode", use EFM joystick
+  to control application
+- Fixed some problems in SegmentLCD (previously lcdcontroller), which now
+  will correctly disable display (fixes segment junk and reduces current)
+- Added slideshow demo with FatFS on microSD support, read readme.txt for
+  details
+- graphics library and FatFS now in drivers directory
+- RTC and LCD controller now use LFRCO instead of LFXO
+
+1.4.2:
+- Fixed iar project files
+- Fixed build of G290 variant of several examples, removed double file
+  entries in project files
+
+1.4.0:
+- Added SPI support for driving TFT-LCD. Currently very slow in SPI-mode.
+- New examples require EFM32_CMSIS_1.1.3
+- New potentiometer, light sensor, preamp and accelometer examples
+
+1.3.4:
+- Fixed double entries in project files
+
+1.3.3:
+- Moved several duplicated drivers, such as lcdcontroller, into drivers folder
+- Added temperature and eeprom examples
+- Updated BSP - DVK_getJoystick and DVK_getPushbutton will now only return
+  events when AEM-state indicates EFM32 (Keys: EFM in GUI)
+- Added project files for CrossWorks and Codesourcery Makefiles
+- Moved common peripheral code into drivers subdirectory
+- Changed several examples to use efm32lib
+- BSP now requires EFM32_CMSIS_1.1.2 or higher
+- Minor clean ups and fixes to all examples
+
+1.2.0:
+- Added new example, "clocks"
+- EFM32_CMSIS_1.0.5 (or higher) required for this release
+- Updated example applications to refelect new EFM32_CMSIS update
+- Updated chip errata code, clock disable was introduced in test rev > 3
+- Added voltage check to enable VBOOST when necessary on LCD
+
+1.1.1:
+- Examples using FPGA interrupts changed GPIO configuration to use pull up
+  due to changes in DVK kit FPGA firmware
+
+1.1.0:
+- Minor, cosmetic changes, integration release with EFM32_CMSIS_1.0.4
+- Added missing files to G290 variant of rs232a example
+
+1.0.6:
+- Added more peripherals to the peripheral example.
+- Added base addresses for SRAM, TFT (SSD2119) and FLASH to bsp
+- Added example driving the TFT from the EFM32 with EBI support
+- Added RS232 port A, USART example (115200 baud) similar to rs232b example
+- Chip errata in zip file
+
+1.0.5:
+- Internal only, not released
+
+1.0.4:
+- Bug fixes for some examples, if EFM32 goes down to EM4, need to clear FPGA
+  interrupt on restart (for joystick and emlcd examples), cmu->syncbusy issue
+  fixed with leuart example
+
+1.0.3:
+- Updated to use latest EFM32_CMSIS version 1.0.3, some bit field changes
+  to LCD examples
+- Added chip errata calibration fix, updated all example projects with fix
+- NOTE! Example projects changed to reflect chip errata fixes, now default is
+  is all peripheral clocks off
+
+1.0.2:
+- Updated lcd example: Turned off clocks/peripherals that were not active
+  during demonstration
+- Updated emlcd rtc, ensure right clock was selected and enabled
+- Updated BSP, disable USART2 SPI clocks in DVK_disable()
+
+1.0.1:
+- First public release
+- Corrected several BSP issues, added functional EBI access
+
+1.0.0:
+- Internal only, first release

@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$ksz8851snl_8c.html#aca1ebdc21bb550265c785e6d5ae76f80" title="helper function for KSZ8851SNL_UpdateMIBCounters" alt="" coords="267,31,389,57"/>
+<area shape="rect" id="node5" href="$group__ksz8851snl.html#gaef8e79d738a8e792ea8335a14e4d80c5" title="Read ethernet controller register." alt="" coords="439,5,641,32"/>
+<area shape="rect" id="node9" href="$group__ksz8851snl.html#ga194769a82e5a1c0ab03ea0923b7da2d0" title="Write ethernet controller register." alt="" coords="437,56,643,83"/>
+<area shape="rect" id="node7" href="$ksz8851snl__spi_8c.html#ab3cd4983675d048afb998f29244de6c0" title="Select/deselect the ksz8851snl chip." alt="" coords="691,5,898,32"/>
+<area shape="rect" id="node12" href="$ksz8851snl__spi_8c.html#aa7973e5c903af7ba709937e516393a30" title="Transmits a series of bytes over the spi link." alt="" coords="705,56,884,83"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$group__USB__HOST.html#gabd04b4b1ea26459d6db42aa77b6d592d" title="Return a pointer to an interface descriptor." alt="" coords="301,31,520,57"/>
+<area shape="rect" id="node3" href="$group__USB__HOST.html#ga50dc10ac598c6c8479319ff58c186266" title="Populate device and endpoint data structures with data retrieved during device enumeration..." alt="" coords="835,31,991,57"/>
+<area shape="rect" id="node6" href="$group__USB__HOST.html#ga10e6eb1a2e9802af4ec16254e3d44783" title="Return a pointer to an endpoint descriptor." alt="" coords="569,56,786,83"/>
+<area shape="rect" id="node4" href="$group__USB__HOST.html#gae9ef72709bb00accb740a0350f79fe35" title="Will request both the device descriptor and the entire configuration descriptor from..." alt="" coords="1081,5,1237,32"/>
+<area shape="rect" id="node5" href="$group__USB__HOST.html#ga62f99f2ed786c98d00935fc2fd140aaf" title="Wait for device connection." alt="" coords="1040,56,1277,83"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$group__TIMER.html#ga59f5d85009fa218eadf75d992d8b7254" title="Clear DTI fault source flags." alt="" coords="161,5,311,32"/>
+<area shape="rect" id="node3" href="$group__TIMER.html#ga95411ff86d8a4c40b1b30565ae52360a" title="Enable or disable DTI unit." alt="" coords="171,56,301,83"/>
+<area shape="rect" id="node4" href="$group__TIMER.html#ga23bbd3fb6710c301b9196d5fb1579c03" title="Get DTI fault source flags status." alt="" coords="167,107,305,133"/>
+</map>

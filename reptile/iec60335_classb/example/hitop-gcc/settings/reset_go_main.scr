@@ -1,0 +1,11 @@
+// Hitex/Lue/2008-02-05 
+// Executable Script file for HiTOP Debugger
+// Flash application
+
+// Reset    
+RESET TARGET
+
+// execute program till main
+Go UNTIL main
+wait
+

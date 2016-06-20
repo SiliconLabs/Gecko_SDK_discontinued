@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$group__Tft.html#ga53cad6afec098c05461dd0da9479c0ef" title="TFT initialize or reinitialize to Address Mapped Mode Assumes EBI has been configured..." alt="" coords="187,5,349,32"/>
+<area shape="rect" id="node5" href="$group__Tft.html#gafae3e95323a15ac1b4b6ed6fa3c13e9b" title="TFT initialize or reinitialize Assumes EBI has been configured correctly in BSP_Init(BSP_INIT_DK_EBI..." alt="" coords="217,56,319,83"/>
+<area shape="rect" id="node7" href="$retargettft_8c.html#a60dc864fe6ef296e5aab923e46e1ea16" title="Reset TFT text display state." alt="" coords="223,107,313,133"/>
+<area shape="rect" id="node9" href="$group__RetargetIo.html#gad444352f46f856ffcb6cb255e3ef5d7b" title="Intializes TFT text display." alt="" coords="409,81,535,108"/>
+<area shape="rect" id="node11" href="$group__RetargetIo.html#ga856ae0b788dccadc2c83a6e67409be5f" title="Transmit single byte to the TFT." alt="" coords="397,132,547,159"/>
+<area shape="rect" id="node13" href="$group__RetargetIo.html#ga086fc1b0720a915cba9092371c03d367" title="Write to a file." alt="" coords="595,132,653,159"/>
+<area shape="rect" id="node15" href="$group__RetargetIo.html#gaae54d7b9578ba1fc171ce6f30f4c68a3" title="Increase heap." alt="" coords="701,132,755,159"/>
+</map>
