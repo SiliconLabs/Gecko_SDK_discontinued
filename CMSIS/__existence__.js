@@ -1,0 +1,1 @@
+var CMSIS = true;

@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$group__USB__HOST.html#ga50dc10ac598c6c8479319ff58c186266" title="Populate device and endpoint data structures with data retrieved during device enumeration..." alt="" coords="273,31,429,57"/>
+<area shape="rect" id="node3" href="$group__USB__HOST.html#gae9ef72709bb00accb740a0350f79fe35" title="Will request both the device descriptor and the entire configuration descriptor from..." alt="" coords="518,5,674,32"/>
+<area shape="rect" id="node4" href="$group__USB__HOST.html#ga62f99f2ed786c98d00935fc2fd140aaf" title="Wait for device connection." alt="" coords="477,56,715,83"/>
+</map>

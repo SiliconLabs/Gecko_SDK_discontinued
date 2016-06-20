@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$group__BITBAND.html#ga7df78ffd2c201e674a4444c42b6fcec3" title="Perform bit&#45;band operation on peripheral memory location." alt="" coords="263,5,409,32"/>
+<area shape="rect" id="node3" href="$group__LESENSE.html#gaa0f60936997170e7563c97552b99bb88" title="Set LESENSE channel threshold parameters." alt="" coords="239,56,433,83"/>
+<area shape="rect" id="node4" href="$group__LESENSE.html#ga81efdc1593d4cbdd8e599f8cd1a42aa1" title="Set LESENSE channel timing parameters." alt="" coords="235,107,437,133"/>
+</map>

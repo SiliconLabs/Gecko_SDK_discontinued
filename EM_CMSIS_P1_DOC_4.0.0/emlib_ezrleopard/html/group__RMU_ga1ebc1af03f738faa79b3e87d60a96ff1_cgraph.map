@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$group__BITBAND.html#ga7df78ffd2c201e674a4444c42b6fcec3" title="Perform bit&#45;band operation on peripheral memory location." alt="" coords="221,5,368,32"/>
+<area shape="rect" id="node3" href="$group__EMU.html#gaa102a7feedcfdf0165e8137495e15c81" title="Lock the EMU in order to protect all its registers against unintended modification..." alt="" coords="251,56,338,83"/>
+<area shape="rect" id="node4" href="$group__EMU.html#gaae70d64f013a75e2d728b3a6d71e3f62" title="Unlock the EMU so that writing to locked registers again is possible." alt="" coords="245,107,344,133"/>
+</map>

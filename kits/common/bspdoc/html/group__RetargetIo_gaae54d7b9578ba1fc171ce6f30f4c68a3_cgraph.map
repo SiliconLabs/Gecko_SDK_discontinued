@@ -1,0 +1,13 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$group__RetargetIo.html#ga086fc1b0720a915cba9092371c03d367" title="Write to a file." alt="" coords="107,119,165,146"/>
+<area shape="rect" id="node5" href="$group__RetargetIo.html#ga856ae0b788dccadc2c83a6e67409be5f" title="Transmit single byte to USART/LEUART." alt="" coords="213,119,363,146"/>
+<area shape="rect" id="node7" href="$group__BSP__DK.html#ga4044b087f6c29f36df7e29ade3bafb49" title="Read from a board controller register." alt="" coords="810,43,937,70"/>
+<area shape="rect" id="node9" href="$group__RetargetIo.html#gab455176edfa0f3414d104e5d6d64cc50" title="Intializes UART/LEUART." alt="" coords="423,43,566,70"/>
+<area shape="rect" id="node11" href="$group__RetargetIo.html#gaa0a41813e3ddadfbf867971b03a799d0" title="Transmit/display a character." alt="" coords="429,94,560,120"/>
+<area shape="rect" id="node15" href="$group__RetargetIo.html#ga47b8191a5aaac7b583336350b37b617d" title="Display framebuffer." alt="" coords="417,144,572,171"/>
+<area shape="rect" id="node17" href="$group__Textdisplay.html#ga3a2e2388e48b53f5634e78fc6c48bc76" title="Write a single character to a text display." alt="" coords="411,195,578,222"/>
+<area shape="rect" id="node19" href="$retargettft_8c.html#a60dc864fe6ef296e5aab923e46e1ea16" title="Reset TFT text display state." alt="" coords="449,246,540,272"/>
+<area shape="rect" id="node13" href="$retargettft_8c.html#aa5af964a1f84893b8cd016492fcb4da9" title="Scroll one line of characters up on the screen." alt="" coords="640,94,747,120"/>
+<area shape="rect" id="node21" href="$group__BSP__DK.html#gacdf0586194771b5184caf46a9f0bd3ea" title="Configure display control." alt="" coords="627,195,759,222"/>
+<area shape="rect" id="node24" href="$group__BSP__DK.html#ga80f89f8fce2cc70dfe2cc20c87027134" title="Write to a board controller register." alt="" coords="809,195,938,222"/>
+</map>

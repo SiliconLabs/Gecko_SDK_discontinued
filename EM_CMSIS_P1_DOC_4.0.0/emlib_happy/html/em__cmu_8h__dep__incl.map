@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$em__adc_8c.html" title="Analog to Digital Converter (ADC) Peripheral API." alt="" coords="5,81,333,108"/>
+<area shape="rect" id="node3" href="$em__cmu_8c.html" title="Clock management unit (CMU) Peripheral API." alt="" coords="358,81,692,108"/>
+<area shape="rect" id="node4" href="$em__dma_8c.html" title="Direct memory access (DMA) module peripheral API." alt="" coords="717,81,1051,108"/>
+<area shape="rect" id="node5" href="$em__emu_8c.html" title="Energy Management Unit (EMU) Peripheral API." alt="" coords="1075,81,1409,108"/>
+<area shape="rect" id="node6" href="$em__i2c_8c.html" title="Inter&#45;integrated Circuit (I2C) Peripheral API." alt="" coords="1434,81,1757,108"/>
+<area shape="rect" id="node7" href="$em__idac_8c.html" title="Current Digital to Analog Converter (IDAC) peripheral API." alt="" coords="1782,81,2113,108"/>
+<area shape="rect" id="node8" href="$em__leuart_8c.html" title="Low Energy Universal Asynchronous Receiver/Transmitter (LEUART) Peripheral API." alt="" coords="2139,81,2480,108"/>
+<area shape="rect" id="node9" href="$em__pcnt_8c.html" title="Pulse Counter (PCNT) peripheral API." alt="" coords="2504,81,2836,108"/>
+<area shape="rect" id="node10" href="$em__usart_8c.html" title="Universal synchronous/asynchronous receiver/transmitter (USART/UART) Peripheral API..." alt="" coords="2862,81,3199,108"/>
+</map>

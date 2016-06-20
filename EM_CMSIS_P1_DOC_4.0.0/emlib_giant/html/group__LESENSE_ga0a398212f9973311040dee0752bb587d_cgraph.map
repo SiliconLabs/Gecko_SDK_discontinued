@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$group__LESENSE.html#gad164d8048a3c0112d352c0b6447d66b1" title="Set LESENSE decoder state." alt="" coords="157,5,349,32"/>
+<area shape="rect" id="node3" href="$group__LESENSE.html#ga40f43668fc902a37ce1be07c83e7771b" title="Reset the LESENSE module." alt="" coords="193,56,314,83"/>
+<area shape="rect" id="node4" href="$group__LESENSE.html#gaa0333bb6df6eaa9833919e0e7519b658" title="Set scan mode of the LESENSE channels." alt="" coords="168,107,339,133"/>
+<area shape="rect" id="node6" href="$group__LESENSE.html#gae2e4883549fbd7cce4ec059c3c550bda" title="Set start delay of sensor interaction on each channel." alt="" coords="168,157,339,184"/>
+<area shape="rect" id="node5" href="$group__LESENSE.html#gaa78676d3eb250d8ebdc6f08ee249704c" title="Start scanning of sensors." alt="" coords="397,107,544,133"/>
+</map>

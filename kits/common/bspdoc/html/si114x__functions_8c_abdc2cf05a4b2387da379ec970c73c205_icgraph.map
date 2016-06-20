@@ -1,0 +1,17 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$si114x__functions_8c.html#a33af8952f62e2826a91b1306145dd9fd" title="Pause measurement helper function." alt="" coords="153,107,247,133"/>
+<area shape="rect" id="node13" href="$group__Si114x.html#ga67641e7a7af1b206f7b77d9290a1236e" title="Sends an ALSFORCE command to the Si113x/4x." alt="" coords="145,208,255,235"/>
+<area shape="rect" id="node15" href="$group__Si114x.html#gad06dc467120c7e78af29a2959589a796" title="Sends a NOP command to the Si113x/4x." alt="" coords="159,56,241,83"/>
+<area shape="rect" id="node24" href="$group__Si114x.html#ga81f826b515433015f7096e7b90e2d3b6" title="Reads a Parameter from the Si113x/4x." alt="" coords="137,259,263,285"/>
+<area shape="rect" id="node26" href="$group__Si114x.html#gadc132f6cea4bc1410d797129ce926871" title="Sends a PSALSAUTO command to the Si113x/4x." alt="" coords="611,157,727,184"/>
+<area shape="rect" id="node29" href="$group__Si114x.html#gac4487c27a69c68ce91b6f193fc35fd3f" title="Sends a PSALSFORCE command to the Si113x/4x." alt="" coords="139,309,261,336"/>
+<area shape="rect" id="node35" href="$group__Si114x.html#ga7a4845ea85412e812dceed34f27ee624" title="Sends a PSFORCE command to the Si113x/4x." alt="" coords="147,360,253,387"/>
+<area shape="rect" id="node5" href="$group__Si114x.html#ga85dcc599c9e3df8a22002f7ef5a3e5d8" title="Pauses autonomous measurements." alt="" coords="375,107,483,133"/>
+<area shape="rect" id="node7" href="$group__Si114x.html#ga88b866258cb278b01da1bcf766cfab57" title="Resets the Si113x/4x, clears any interrupts and initializes the HW_KEY register." alt="" coords="623,107,715,133"/>
+<area shape="rect" id="node9" href="$group__Si114x.html#ga79b0443305d3a085028d1c197d398ede" title="Initializes and configures the Si1147 sensor." alt="" coords="792,107,968,133"/>
+<area shape="rect" id="node11" href="$si114x__uv__index_8h.html#aee56b411a2cb91ae85cae51c2d4039f7" title="Initializes and configures the Si1146 sensor for UV index measurements." alt="" coords="811,56,949,83"/>
+<area shape="rect" id="node17" href="$si114x__functions_8c.html#a1f05335605433b4c715436f8c2750127" title="This is a helper function called from si114x_get_calibration() Writes 0x11 to the..." alt="" coords="358,5,501,32"/>
+<area shape="rect" id="node19" href="$group__Si114x.html#gadbec1218d8cc103d4d6c2fc0ec0f6abf" title="Populates the SI114X_CAL_S structure." alt="" coords="595,56,744,83"/>
+<area shape="rect" id="node31" href="$group__Si114x.html#ga6621d57d8e2dedc1101227b7ad761d0a" title="Reads the UV measurement data and checks for object in proximity to the Si1147." alt="" coords="312,284,547,311"/>
+<area shape="rect" id="node33" href="$si114x__uv__index_8h.html#a92a1b86e34e4ed9dd68f51ba170c8e5f" title="Reads the UV index measurement data from the Si114x." alt="" coords="348,335,511,361"/>
+</map>

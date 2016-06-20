@@ -1,0 +1,71 @@
+// EM IEC60335-ClassB Test Script (HiTOP)
+// open a file and write the header
+%fileno = %file_open("TestResult_Reg_High.txt", "w")
+%file_write(%fileno, "Register Test:\n")
+%file_write(%fileno, "Energy Micro IEC60355 class b test script log\n")
+%file_write(%fileno, "provides execution log of the BIST register set r8 to r12 test function\n")
+%file_write(%fileno, "\n")
+%file_write(%fileno, "executed : ")
+%time_format="%H:%M:%S"
+%file_write(%fileno, %current_time)
+%file_write(%fileno, ", ")
+%date_format="%d.%m.%Y"
+%file_write(%fileno, %current_date)
+%file_write(%fileno, "\n")
+%sysfreq = 32000000
+%file_write(%fileno, "System frequency : %d MHz\n", %sysfreq/1000000)
+%file_write(%fileno, "\n")
+%file_write(%fileno, "This test checks the functionality of the BIST register test\n")
+%file_write(%fileno, "testing r0 to r7 CPU register.\n")
+%file_write(%fileno, "*************************************\n")
+%file_write(%fileno, "This Test doesn't inject any failures.\n")
+%file_write(%fileno, "BIST test\n\t")
+%file_write(%fileno, "test result : ")
+IF (!%ice_halted) {
+HALT
+}
+BREAK DELETE
+RESET TARGET
+WAIT 10
+/* scip POST tests */
+%pc = #startup#153 
+WAIT 10
+// enable cycle counter
+OUTPUT DWORD TO 0xE0001000 PAUSE 1 = 0x00000001
+
+GO UNTIL #main#113
+WAIT 10
+%pc = #main#148
+
+GO UNTIL #iec60335_class_b_cpureg_test#IEC60335_ClassB_CPUregTest_BIST
+wait 10
+GO UNTIL #56
+wait 10
+%pc = #iec60335_class_b_cpureg_test#63
+wait 10
+GO UNTIL #ASMCPUregTestHIGH
+wait 10
+
+// reset cycle counter
+OUTPUT DWORD TO 0xE0001004 PAUSE 1 = 0x00000000
+GO UNTIL #iec60335_class_b_cpureg_test#66
+WAIT 10
+// read cycle counter
+%count = dword at 0xE0001004
+%res = IEC60335_CPUregTestBIST.testResult
+IF (%res == 1) {
+%file_write(%fileno, "PASS\n")
+}
+else {
+%file_write(%fileno, "FAIL\n")
+}
+%file_write(%fileno, "\n")
+%file_write(%fileno, "Runtime analysis :\n\t")
+%file_write(%fileno, "execution cycles : %d\n\t", %count)
+%file_write(%fileno, "execution time   : %f sec\n", ((float)%count/%sysfreq))
+%file_write(%fileno, "\n")
+
+%file_write(%fileno, "End of test\n")
+
+//Close File
+%file_close(%fileno)

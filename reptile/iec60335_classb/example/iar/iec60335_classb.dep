@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>1851409338</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Threads.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\inc\iec60335_class_b.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\CMSIS\CM3\DeviceSupport\EnergyMicro\EFM32\efm32g890f128.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xencoding_limits.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\inc\iec60335_class_b_wdt_test.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\inc\iec60335_class_b_critical_data.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\CMSIS\CM3\DeviceSupport\EnergyMicro\EFM32\system_efm32.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\inc\iec60335_class_b_ram_test.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\inc\iec60335_class_b_typedef.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\inc\iec60335_class_b_cpureg_test.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\efm32lib\inc\efm32_cmu.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\efm32g890f128_interrupt.o</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_class_b_cpureg_test.o</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\efm32_cmu.o</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\inc\iec60335_class_b_flash_test.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\CMSIS\CM3\CoreSupport\core_cm3.h</file>
+      <file>$PROJ_DIR$\..\source\efm32g890f128_interrupt.h</file>
+      <file>$PROJ_DIR$\..\source\dvk_spi.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\efm32lib\inc\efm32_bitband.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\efm32lib\inc\efm32_assert.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\inc\iec60335_class_b_programcounter_test.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\inc\iec60335_class_b_interrupt_test.h</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\core_cm3.o</file>
+      <file>$PROJ_DIR$\..\..\..\..\efm32lib\inc\efm32_emu.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\inc\iec60335_class_b_timer_rtc_test.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\inc\iec60335_class_b_def.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\inc\iec60335_class_b_post.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\CMSIS\CM3\DeviceSupport\EnergyMicro\EFM32\efm32.h</file>
+      <file>$PROJ_DIR$\..\source\main.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\CMSIS\CM3\DeviceSupport\EnergyMicro\EFM32\startup\iar\startup_efm32.s</file>
+      <file>$PROJ_DIR$\..\..\..\..\efm32lib\src\efm32_cmu.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\CMSIS\CM3\DeviceSupport\EnergyMicro\EFM32\system_efm32.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_cpureg_test_post_iar.s</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_flash_test.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\CMSIS\CM3\CoreSupport\core_cm3.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_critical_data.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_cpureg_test.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_cpureg_test_bist_iar.s</file>
+      <file>$PROJ_DIR$\..\source\efm32g890f128_interrupt.c</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_class_b_flash_test.o</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_class_b_critical_data.o</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_class_b_wdt_test.o</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\main.o</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_class_b_programcounter_test.o</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\dvk_spi.o</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_class_b_interrupt_test.o</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_class_b_post.o</file>
+      <file>$PROJ_DIR$\..\source\main.c</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_class_b_post.pbi</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Exe\iec60335_classb.out</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_class_b_flash_test.pbi</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_class_b_interrupt_test.pbi</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_class_b_ram_test.pbi</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_class_b_critical_data.pbi</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_class_b_cpureg_test.pbi</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_class_b_programcounter_test.pbi</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_class_b_timer_rtc_test.pbi</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\system_efm32.o</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_classb.pbd</file>
+      <file>$PROJ_DIR$\..\source\dvk_spi.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_wdt_test.c</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_class_b_wdt_test.pbi</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_programcounter_test.c</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\efm32g890f128_interrupt.pbi</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_class_b_cpureg_test_post_iar.o</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_class_b_cpureg_test_bist_iar.o</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\core_cm3.pbi</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\startup_efm32.o</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\dvk_spi.pbi</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\efm32_cmu.pbi</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\system_efm32.pbi</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_interrupt_test.c</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_class_b_timer_rtc_test.o</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_post.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_timer_rtc_test.c</file>
+      <file>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_class_b_ram_test.o</file>
+      <file>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_ram_test.c</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\CMSIS\CM3\DeviceSupport\EnergyMicro\EFM32\startup\iar\startup_efm32.s</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 76</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\efm32lib\src\efm32_cmu.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 19</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 78</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 14 34 35 2 21 17 33 7 4 15 10 3 0 12 8 25 24 29</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 14 34 35 2 21 17 33 7 4 10 3 0 12 8 25 24 29</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\CMSIS\CM3\DeviceSupport\EnergyMicro\EFM32\system_efm32.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 66</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 17 33 7 4 15 10 3 0 35 2 21 12 8</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 33 7 4 10 3 0 35 2 21 12 8</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_cpureg_test_post_iar.s</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 73</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_flash_test.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 47</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 58</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 35 2 21 17 33 7 4 15 10 3 0 12 8 1 31 11 34 26 13 27 9 20 30 6 5 32 23</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 35 2 21 17 33 7 4 10 3 0 12 8 1 31 11 34 26 13 27 9 20 30 6 5 32 23</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\CMSIS\CM3\CoreSupport\core_cm3.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 28</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 75</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 17 33 7 4 15 10 3 0</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 33 7 4 10 3 0</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_critical_data.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 48</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 62</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 6 11 17 33 7 4 15 10 3 0 34</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 6 11 17 33 7 4 10 3 0 34</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_cpureg_test.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 18</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 63</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 17 33 7 4 15 10 3 0 13 11 34</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 33 7 4 10 3 0 13 11 34</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_cpureg_test_bist_iar.s</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 74</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\source\efm32g890f128_interrupt.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 16</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 72</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 35 2 21 17 33 7 4 15 10 3 0 12 8 22</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 35 2 21 17 33 7 4 10 3 0 12 8 22</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\source\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 50</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 59</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 35 2 21 17 33 7 4 15 10 3 0 12 8 1 31 11 34 26 13 27 9 20 30 6 5 32 23 36 14</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 35 2 21 17 33 7 4 10 3 0 12 8 1 31 11 34 26 13 27 9 20 30 6 5 32 23 36 14</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\iec60335_classb\Debug\Obj\iec60335_classb.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 75 77 78 72 63 62 58 60 56 64 61 65 70 59 79</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\source\dvk_spi.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 52</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 77</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 35 2 21 17 33 7 4 15 10 3 0 12 8 1 31 11 34 26 13 27 9 20 30 6 5 32 23</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 35 2 21 17 33 7 4 10 3 0 12 8 1 31 11 34 26 13 27 9 20 30 6 5 32 23</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_wdt_test.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 49</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 70</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 5 1 2 21 17 33 7 4 15 10 3 0 12 8 31 11 34 26 13 27 9 20 30 6 32 23</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 5 1 2 21 17 33 7 4 10 3 0 12 8 31 11 34 26 13 27 9 20 30 6 32 23</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_programcounter_test.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 51</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 64</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 1 2 21 17 33 7 4 15 10 3 0 12 8 31 11 34 26 13 27 9 20 30 6 5 32 23</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 1 2 21 17 33 7 4 10 3 0 12 8 31 11 34 26 13 27 9 20 30 6 5 32 23</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_interrupt_test.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 53</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 60</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 27 1 2 21 17 33 7 4 15 10 3 0 12 8 31 11 34 26 13 9 20 30 6 5 32 23</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 27 1 2 21 17 33 7 4 10 3 0 12 8 31 11 34 26 13 9 20 30 6 5 32 23</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_post.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 54</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 56</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 1 2 21 17 33 7 4 15 10 3 0 12 8 31 11 34 26 13 27 9 20 30 6 5 32 23</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 1 2 21 17 33 7 4 10 3 0 12 8 31 11 34 26 13 27 9 20 30 6 5 32 23</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_timer_rtc_test.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 81</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 65</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 1 2 21 17 33 7 4 15 10 3 0 12 8 31 11 34 26 13 27 9 20 30 6 5 32 23</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 1 2 21 17 33 7 4 10 3 0 12 8 31 11 34 26 13 27 9 20 30 6 5 32 23</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\iec60335_classb\src\iec60335_class_b_ram_test.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 84</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 61</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 35 2 21 17 33 7 4 15 10 3 0 12 8 1 31 11 34 26 13 27 9 20 30 6 5 32 23</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 35 2 21 17 33 7 4 10 3 0 12 8 1 31 11 34 26 13 27 9 20 30 6 5 32 23</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 57</file>
+        </tool>
+      </outputs>
+    </file>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>ILINK</tool>
+    </forcedrebuild>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>ILINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

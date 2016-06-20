@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$group__DMADRV.html#ga73633db63cfd99ba01a68b05c24094ec" title="Deinitialize DMADRV." alt="" coords="181,5,293,32"/>
+<area shape="rect" id="node5" href="$group__DMADRV.html#gab4453539f4d22aa650324685a9f197e3" title="Free an allocate (reserved) DMA channel." alt="" coords="162,56,313,83"/>
+<area shape="rect" id="node7" href="$group__DMADRV.html#ga3a04cb3aa30ec2fd955281f55538028d" title="Stop an ongoing DMA transfer." alt="" coords="160,107,315,133"/>
+<area shape="rect" id="node9" href="$group__RTCDRV.html#gaa783bf476e7a815f6177c626fef0ac98" title="Free timer." alt="" coords="169,157,306,184"/>
+<area shape="rect" id="node11" href="$group__RTCDRV.html#ga7d3614e56f17c24103336a37891579a4" title="Stop a given timer." alt="" coords="169,208,306,235"/>
+</map>

@@ -1,0 +1,20 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$group__ADC.html#ga635eb5e70c406ff3bd150b8e695a70f9" title="Calculate prescaler value used to determine ADC clock." alt="" coords="221,5,363,32"/>
+<area shape="rect" id="node3" href="$group__ADC.html#ga95a5a908501b6c3bbd44022d41205e73" title="Calculate timebase value in order to get a timebase providing at least 1us." alt="" coords="217,56,367,83"/>
+<area shape="rect" id="node4" href="$group__CMU.html#ga7cc316a8dca5436fcc39d57f5e6c412d" title="Set clock divisor/prescaler." alt="" coords="225,107,359,133"/>
+<area shape="rect" id="node5" href="$group__CMU.html#ga93913d50050d52b38b0a7c7c08ac81e8" title="Enable/disable a clock." alt="" coords="223,157,361,184"/>
+<area shape="rect" id="node7" href="$group__I2C.html#gaf2563ff04d4b24825a6c67f9ec4dcb80" title="Get current configured I2C bus frequency." alt="" coords="231,208,353,235"/>
+<area shape="rect" id="node8" href="$group__I2C.html#ga2c0e3b79d2855fd85d4a29a469bbf2ff" title="Set I2C bus frequency." alt="" coords="231,259,353,285"/>
+<area shape="rect" id="node10" href="$group__LEUART.html#ga41e06e8c961222093afa8997419ee9af" title="Get current baudrate for LEUART." alt="" coords="213,309,371,336"/>
+<area shape="rect" id="node11" href="$group__LEUART.html#gac8d75da0027ebce98cf33ebcdfe9bdad" title="Configure baudrate (or as close as possible to specified baudrate)." alt="" coords="214,360,370,387"/>
+<area shape="rect" id="node13" href="$group__MSC.html#gaa02df815c14caedbc2fd0a8910d2e055" title="Enables the flash controller for writing." alt="" coords="255,411,329,437"/>
+<area shape="rect" id="node14" href="$group__USART.html#ga373a66831daf2d2fe59c04b327e0c9a1" title="Configure USART/UART operating in asynchronous mode to use a given baudrate (or as..." alt="" coords="197,461,387,488"/>
+<area shape="rect" id="node16" href="$group__USART.html#ga9f78987c84c2023fe907867833cdfab4" title="Get current baudrate for USART/UART." alt="" coords="217,512,367,539"/>
+<area shape="rect" id="node17" href="$group__USART.html#ga5b96146f7c05f78d31bd77aacd4a3b5f" title="Configure USART operating in synchronous mode to use a given baudrate (or as close..." alt="" coords="201,563,383,589"/>
+<area shape="rect" id="node6" href="$group__DMA.html#ga1b244c27cc74059907a25a806eac9b90" title="Initializes DMA controller." alt="" coords="462,157,538,184"/>
+<area shape="rect" id="node9" href="$group__I2C.html#gab52e0fc0d3690e40f80a193d5b6fdd51" title="Initialize I2C." alt="" coords="466,259,534,285"/>
+<area shape="rect" id="node12" href="$group__LEUART.html#ga14ed413542c26fb88fd1237f9eb99bd5" title="Init LEUART." alt="" coords="451,360,549,387"/>
+<area shape="rect" id="node15" href="$group__USART.html#ga5b851444f0fbdca97017c7b927b37f52" title="Init USART/UART for normal asynchronous mode." alt="" coords="435,461,565,488"/>
+<area shape="rect" id="node18" href="$group__USART.html#gaab6053ba081f6fabce6762fb4563fb28" title="Init USART for synchronous mode." alt="" coords="439,563,561,589"/>
+<area shape="rect" id="node19" href="$group__USART.html#gaa3973304191a67c1b6e837d8b6cc2197" title="Init USART for I2S mode." alt="" coords="614,563,722,589"/>
+</map>

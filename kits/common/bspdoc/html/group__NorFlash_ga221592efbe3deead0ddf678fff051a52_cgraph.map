@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$group__NorFlash.html#gaa2c31f523a01ad46e7a4e2ab330fd345" title="Program a word (16bit) in the flash device." alt="" coords="241,5,426,32"/>
+<area shape="rect" id="node5" href="$group__NorFlash.html#gac9117b3f4164f665966e78f2cc4af78e" title="Check if an address is valid for the flash device." alt="" coords="475,5,640,32"/>
+</map>

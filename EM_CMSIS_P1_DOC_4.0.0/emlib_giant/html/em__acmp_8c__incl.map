@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$em__acmp_8h.html" title="Analog Comparator (ACMP) peripheral API." alt="" coords="139,80,237,107"/>
+<area shape="rect" id="node6" href="$em__bitband_8h.html" title="Bitband Peripheral API." alt="" coords="5,80,115,107"/>
+<area shape="rect" id="node7" href="$em__assert_8h.html" title="EFM32 peripheral API &quot;assert&quot; implementation." alt="" coords="312,80,413,107"/>
+</map>

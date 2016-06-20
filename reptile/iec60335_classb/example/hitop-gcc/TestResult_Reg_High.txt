@@ -1,0 +1,19 @@
+Register Test:
+Energy Micro IEC60355 class b test script log
+provides execution log of the BIST register set r8 to r12 test function
+
+executed : 11:17:42, 11.07.2011
+System frequency : 32 MHz
+
+This test checks the functionality of the BIST register test
+testing r0 to r7 CPU register.
+*************************************
+This Test doesn't inject any failures.
+BIST test
+	test result : PASS
+
+Runtime analysis :
+	execution cycles : 91
+	execution time   : 0.000003 sec
+
+End of test

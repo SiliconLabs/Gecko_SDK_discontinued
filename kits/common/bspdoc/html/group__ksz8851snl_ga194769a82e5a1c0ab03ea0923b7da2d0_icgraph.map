@@ -1,0 +1,16 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$group__ksz8851snl.html#ga1fc05f812bbd153f2cd82042b7398e67" title="Enable RX and TX." alt="" coords="293,5,432,32"/>
+<area shape="rect" id="node5" href="$group__ksz8851snl.html#ga414381cd961a77b97b9e17970ba43e7a" title="Initialize the registers of the ethernet controller." alt="" coords="303,56,422,83"/>
+<area shape="rect" id="node7" href="$group__ksz8851snl.html#ga06b0ac238cdd63e2f652b0a1f694ef55" title="Clear interrupt flags." alt="" coords="289,107,436,133"/>
+<area shape="rect" id="node9" href="$group__ksz8851snl.html#ga3e64dcfd57de13fdcc6549ab3d476ba7" title="disables the chip interrupts" alt="" coords="284,157,441,184"/>
+<area shape="rect" id="node11" href="$group__ksz8851snl.html#ga6a70548f793f9d73e9fbc95bd45378ec" title="enables the chip interrupts" alt="" coords="285,208,440,235"/>
+<area shape="rect" id="node13" href="$group__ksz8851snl.html#ga81ad6322ce0b536302cc2c442bf0dbab" title="Clear PMECR (Power Management Event Control Register) flags." alt="" coords="259,259,466,285"/>
+<area shape="rect" id="node15" href="$group__ksz8851snl.html#gad49a596fbc706123a1aa477f14cdf3b4" title="Performs the actual receive of a raw frame over the network." alt="" coords="549,436,694,463"/>
+<area shape="rect" id="node17" href="$group__ksz8851snl.html#ga4c087f2e3d625db1c02e65c73f4839f3" title="Reset RxQueue." alt="" coords="271,360,455,387"/>
+<area shape="rect" id="node19" href="$group__ksz8851snl.html#ga31c3be356bee9c4f14f9e5255c87c21c" title="Prepares for a transmission of an ethernet frame over the network." alt="" coords="271,411,454,437"/>
+<area shape="rect" id="node21" href="$group__ksz8851snl.html#ga4e4ea2904a2346dbe35d1ecffb3aa8ca" title="Ends a transmission of an ethernet frame to the ethernet controller." alt="" coords="276,461,449,488"/>
+<area shape="rect" id="node23" href="$group__ksz8851snl.html#gade8cdaacfa6891944c80bd3e832012dd" title="Reset TxQueue." alt="" coords="271,512,455,539"/>
+<area shape="rect" id="node25" href="$ksz8851snl_8c.html#aca1ebdc21bb550265c785e6d5ae76f80" title="helper function for KSZ8851SNL_UpdateMIBCounters" alt="" coords="301,613,424,640"/>
+<area shape="rect" id="node29" href="$ksz8851snl_8c.html#a1893ae2fdc832fc747a3f297c6b17d5c" title="Release the current frame if it is inconsistent." alt="" coords="280,563,445,589"/>
+<area shape="rect" id="node27" href="$group__ksz8851snl.html#ga9a2d44441ec164bb37194fb00d00994f" title="Update the Management Information Base Counters." alt="" coords="515,613,728,640"/>
+</map>

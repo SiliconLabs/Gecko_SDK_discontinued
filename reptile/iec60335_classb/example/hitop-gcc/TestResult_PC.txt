@@ -1,0 +1,30 @@
+Register Test:
+Energy Micro IEC60355 class b test script log
+provides execution log of the BIST and POST register Program Counter (PC) test function
+
+executed : 11:18:05, 11.07.2011
+System frequency : 32 MHz
+
+This test checks the functionality of the POST register test
+testing program counter (PC) CPU register.
+*************************************
+POST test
+This Test doesn't inject any failures.
+BIST test
+	test result : PASS
+
+Runtime analysis :
+	execution cycles : 415
+	execution time   : 0.000013 sec
+
+*************************************
+BIST test
+This Test doesn't inject any failures.
+POST test
+	test result : FAIL
+
+Runtime analysis :
+	execution cycles : 164
+	execution time   : 0.000005 sec
+
+End of test

@@ -1,0 +1,24 @@
+================ Revision history ============================================
+3.20.5:
+ - API change: coordinates changed from uint16_t to int32_t. The application may
+   pass negative coordinates. Clipping of negative coordinates is handled by GLIB.
+ - Added support for fonts. 3 fonts are included in GLIB, Normal 8x8,
+   Narrow 6x8 and Number 16x20 (numbers only). Included fonts can be removed and
+   custom fonts can be added. Default font is Normal 8x8.
+ - Added feature to set custom line and character spacing.
+ - General performance and code space optimizations.
+ - Bugfix: GLIB_drawPartialCircle could overshoot a circle octet by one pixel if
+   the radius is large enough.
+ - Bugfix: Drawing lines outside the clipping region could generate unwanted
+   graphical artifacts.
+ - GLIB types postfixed with _t.
+
+3.20.3:
+ - Bugfix: Drawing a black pixel on already white pixel on a Sharp Memory LCD with
+   Zero gecko now behave correctly.
+
+3.20.2:
+ - Added support for multiple display devices.
+
+3.00.2:
+ - Initial release of GLIB.

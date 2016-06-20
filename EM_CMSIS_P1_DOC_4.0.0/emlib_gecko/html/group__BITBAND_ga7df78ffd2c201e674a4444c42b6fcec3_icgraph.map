@@ -1,0 +1,34 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$group__ACMP.html#gab99c16a966bfa66c081160ec51e0a039" title="Sets up the ACMP for use in capacative sense applications." alt="" coords="227,5,373,32"/>
+<area shape="rect" id="node3" href="$group__ACMP.html#gad04e5819cd2d6ca5a275e8cc047f9ecf" title="ACMP_Init" alt="" coords="259,56,341,83"/>
+<area shape="rect" id="node4" href="$group__CMU.html#ga7cc316a8dca5436fcc39d57f5e6c412d" title="Set clock divisor/prescaler." alt="" coords="233,107,367,133"/>
+<area shape="rect" id="node5" href="$group__CMU.html#ga93913d50050d52b38b0a7c7c08ac81e8" title="Enable/disable a clock." alt="" coords="231,157,369,184"/>
+<area shape="rect" id="node7" href="$group__CMU.html#gae11949f9c2e4033ad63dac48c9a739d3" title="Select reference clock/oscillator used for a clock branch." alt="" coords="223,208,377,235"/>
+<area shape="rect" id="node8" href="$group__CMU.html#ga6f65cf3473f0f8d0ca03ed765a0fde50" title="Select PCNTn clock." alt="" coords="200,309,400,336"/>
+<area shape="rect" id="node9" href="$group__PCNT.html#ga726934d28be99230a6025503fdbaf86d" title="Init pulse counter." alt="" coords="479,284,561,311"/>
+<area shape="rect" id="node10" href="$group__PCNT.html#gadf14f80981badc92e7a30a43caae130b" title="Reset PCNT to same state as after a HW reset." alt="" coords="471,348,569,375"/>
+<area shape="rect" id="node11" href="$group__DAC.html#ga3efabd2832fe5862fefd86e02accf2b8" title="Enable/disable DAC channel." alt="" coords="249,411,351,437"/>
+<area shape="rect" id="node12" href="$group__DAC.html#gae8fd0951c9fd781d120c8d5e4ce7745d" title="Initialize DAC." alt="" coords="262,461,338,488"/>
+<area shape="rect" id="node13" href="$group__DMA.html#gab119fe5869e7ebcfd29542d05dae2d29" title="Configure a DMA channel." alt="" coords="233,512,367,539"/>
+<area shape="rect" id="node14" href="$group__EBI.html#gab75fa83a3071d81162d19db6ec191ec5" title="Enable or disable EBI Bank." alt="" coords="239,563,361,589"/>
+<area shape="rect" id="node15" href="$group__EBI.html#ga3ac877439175a25e03e658d247ae1615" title="Enable or disable EBI Chip Select." alt="" coords="221,613,379,640"/>
+<area shape="rect" id="node16" href="$group__EBI.html#gad9f118caa49eadf9713559cfac3d3c04" title="Configure and enable External Bus Interface." alt="" coords="487,664,553,691"/>
+<area shape="rect" id="node17" href="$group__EBI.html#gaf7fea7741967f124ac0a4021b48cc786" title="Configure EBI pin polarity." alt="" coords="243,715,357,741"/>
+<area shape="rect" id="node18" href="$group__EMU.html#ga72910c09de24f4e2f8f170dc06bd8c07" title="Block entering EM2 or higher number energy modes." alt="" coords="242,765,358,792"/>
+<area shape="rect" id="node19" href="$group__EMU.html#ga9e959a9fd56ac4a2e18877b9b839d795" title="Unblock entering EM2 or higher number energy modes." alt="" coords="233,816,367,843"/>
+<area shape="rect" id="node20" href="$group__GPIO.html#ga7aa21d660197b3e2f67589db89686bbf" title="Enable/disable serial wire clock pin." alt="" coords="210,867,390,893"/>
+<area shape="rect" id="node21" href="$group__GPIO.html#gaceecf411d11a30e7fa10fc42dd4f612d" title="Enable/disable serial wire data pin." alt="" coords="213,917,387,944"/>
+<area shape="rect" id="node22" href="$group__GPIO.html#ga42f6d22ce3a60ac994a5f663c18c0785" title="Configure GPIO interrupt." alt="" coords="241,968,359,995"/>
+<area shape="rect" id="node23" href="$group__I2C.html#gaca1c9ca46d6945a4696f8a34ab8c2ddf" title="Enable/disable I2C." alt="" coords="253,1019,347,1045"/>
+<area shape="rect" id="node24" href="$group__I2C.html#gab52e0fc0d3690e40f80a193d5b6fdd51" title="Initialize I2C." alt="" coords="266,1069,334,1096"/>
+<area shape="rect" id="node25" href="$group__LCD.html#ga5c176631920506966de2bd727ef9e944" title="Turn on or clear a segment." alt="" coords="233,1120,367,1147"/>
+<area shape="rect" id="node26" href="$group__PCNT.html#gacb21126956add214b4af318f61fd17cd" title="Reset PCNT counters and TOP register." alt="" coords="225,1171,375,1197"/>
+<area shape="rect" id="node27" href="$group__RMU.html#ga1ebc1af03f738faa79b3e87d60a96ff1" title="Clear the reset cause register." alt="" coords="216,1221,384,1248"/>
+<area shape="rect" id="node28" href="$group__RMU.html#gac5c00c75975bd9eac775fd93739da04f" title="Disable/enable reset for various peripherals and signal sources." alt="" coords="231,1272,369,1299"/>
+<area shape="rect" id="node29" href="$group__RTC.html#ga19213bbf2d6cb73d55cec086a98493e6" title="Enable/disable RTC." alt="" coords="251,1323,349,1349"/>
+<area shape="rect" id="node31" href="$group__WDOG.html#ga662ed794f642aac8293b7cae09c4b223" title="Enable/disable the watchdog timer." alt="" coords="242,1373,358,1400"/>
+<area shape="rect" id="node32" href="$group__WDOG.html#ga227aa37d1eab4e7748ecc801c386c7a7" title="Initialize watchdog (assuming the watchdog configuration has not been locked)." alt="" coords="475,1449,565,1476"/>
+<area shape="rect" id="node33" href="$group__WDOG.html#ga26823031e069f4133964156550b64097" title="Lock the watchdog configuration." alt="" coords="249,1475,351,1501"/>
+<area shape="rect" id="node6" href="$group__DMA.html#ga1b244c27cc74059907a25a806eac9b90" title="Initializes DMA controller." alt="" coords="482,157,558,184"/>
+<area shape="rect" id="node30" href="$group__RTC.html#gae4cfdbe68de01d77bbdc979f1b026382" title="Restart RTC counter from zero." alt="" coords="449,1323,591,1349"/>
+</map>

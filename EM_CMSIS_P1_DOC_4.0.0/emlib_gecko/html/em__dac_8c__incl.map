@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$em__dac_8h.html" title="Digital to Analog Converter (DAC) peripheral API." alt="" coords="139,80,225,107"/>
+<area shape="rect" id="node5" href="$em__cmu_8h.html" title="Clock management unit (CMU) API." alt="" coords="275,80,365,107"/>
+<area shape="rect" id="node6" href="$em__assert_8h.html" title="EFM32 peripheral API &quot;assert&quot; implementation." alt="" coords="413,80,515,107"/>
+<area shape="rect" id="node7" href="$em__bitband_8h.html" title="Bitband Peripheral API." alt="" coords="5,80,115,107"/>
+</map>

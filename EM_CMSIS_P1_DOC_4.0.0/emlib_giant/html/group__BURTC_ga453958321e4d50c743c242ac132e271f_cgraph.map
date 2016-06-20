@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$group__BURTC.html#gac802da232cf033799ace0a7625cd7754" title="Convert dividend to prescaler logarithmic value. Only works for even numbers equal..." alt="" coords="154,5,294,32"/>
+<area shape="rect" id="node3" href="$group__BURTC.html#ga366ffff57aa50af096dbaab5a0b626f4" title="Enable or Disable BURTC peripheral reset and start counter." alt="" coords="166,56,282,83"/>
+<area shape="rect" id="node5" href="$group__BURTC.html#ga6a7ad38c493ca909c77e0e752df6f7e9" title="Freeze register updates until enabled." alt="" coords="144,107,304,133"/>
+<area shape="rect" id="node6" href="$group__BURTC.html#ga5f02d4a1b39760a358b66f133f0bd463" title="Clear one or more pending BURTC interrupts." alt="" coords="163,157,285,184"/>
+<area shape="rect" id="node7" href="$group__BURTC.html#ga786e93a5fb08fee21d21191fa035aac8" title="Wait for ongoing sync of register(s) to low frequency domain to complete." alt="" coords="171,208,277,235"/>
+<area shape="rect" id="node4" href="$group__BITBAND.html#ga7df78ffd2c201e674a4444c42b6fcec3" title="Perform bit&#45;band operation on peripheral memory location." alt="" coords="352,81,499,108"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$group__RetargetIo.html#ga5af724185f484056b02b42f4ab184bfb" title="Receive a byte from USART/LEUART and put into global buffer." alt="" coords="199,5,345,32"/>
+<area shape="rect" id="node5" href="$group__RetargetIo.html#ga856ae0b788dccadc2c83a6e67409be5f" title="Transmit single byte to USART/LEUART." alt="" coords="197,56,347,83"/>
+</map>

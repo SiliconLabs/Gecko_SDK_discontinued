@@ -1,0 +1,527 @@
+<toc label="Silicon Labs Energy Aware Drivers">
+  <topic label="NVM Non-volatile Memory driver" href="nvm__doc.html">
+  </topic>
+  <topic label="GPIOINT General Purpose Input/Output Interrupt dispatcher" href="gpioint__doc.html">
+  </topic>
+  <topic label="RTCDRV Real Time Clock Timer driver" href="rtcdrv__doc.html">
+  </topic>
+  <topic label="SPIDRV Serial Peripheral Interface driver" href="spidrv__doc.html">
+  </topic>
+  <topic label="UARTDRV Universal asynchronous receiver/transmitter driver" href="uartdrv__doc.html">
+  </topic>
+  <topic label="USTIMER Microsecond delay timer module" href="ustimer__doc.html">
+  </topic>
+  <topic label="DMADRV Direct Memory Access" href="dmadrv__doc.html">
+  </topic>
+  <topic label="Modules">
+    <topic label="EM_Drivers">
+      <topic label="NVM">
+        <topic label="Defines">
+          <topic label="ECODE_EMDRV_NVM_ADDR_INVALID" href="group__NVM.html#gacb8a7f9574d3b638baa9975a1d2d525b"/>
+          <topic label="ECODE_EMDRV_NVM_ALIGNMENT_INVALID" href="group__NVM.html#gaae4e262fa99ff77f50f342100567e579"/>
+          <topic label="ECODE_EMDRV_NVM_DATA_INVALID" href="group__NVM.html#ga513abf6d9830442da42feae5d3aa3793"/>
+          <topic label="ECODE_EMDRV_NVM_ERROR" href="group__NVM.html#gad67929c11d6b7520bf992dc6dcfc4d2c"/>
+          <topic label="ECODE_EMDRV_NVM_NO_PAGES_AVAILABLE" href="group__NVM.html#ga2345b10d783d735ed6be169a918ec991"/>
+          <topic label="ECODE_EMDRV_NVM_OK" href="group__NVM.html#gae332cf766a19b67f1ed35c9d9e95bd20"/>
+          <topic label="ECODE_EMDRV_NVM_PAGE_INVALID" href="group__NVM.html#ga6ea441c3105ea4a18a10a3b042bd7d86"/>
+          <topic label="ECODE_EMDRV_NVM_WRITE_LOCK" href="group__NVM.html#ga903849e2678082db4030a0f553ea508a"/>
+          <topic label="NVM_ERASE_RETAINCOUNT" href="group__NVM.html#gaddbc995da5f67dc3b176213f32008a62"/>
+          <topic label="NVM_FEATURE_READ_VALIDATION_ENABLED" href="group__NVM.html#ga3d7ad74b54fa1247f8ac76937e1617c8"/>
+          <topic label="NVM_FEATURE_STATIC_WEAR_ENABLED" href="group__NVM.html#ga0d9706aadc11d6e812a8f01514a18fb9"/>
+          <topic label="NVM_FEATURE_WEAR_PAGES_ENABLED" href="group__NVM.html#ga3cd563b966e9c86ab8d3626e2b2c18ed"/>
+          <topic label="NVM_FEATURE_WEARLEVELGET_ENABLED" href="group__NVM.html#ga370ddfaab0d3958c065f5d55f9d1a496"/>
+          <topic label="NVM_FEATURE_WRITE_NECESSARY_CHECK_ENABLED" href="group__NVM.html#gaeebe6d0db9baa368600b33ebf65824d1"/>
+          <topic label="NVM_FEATURE_WRITE_VALIDATION_ENABLED" href="group__NVM.html#gae35a0c8cb1ff9d920bfd082b8891505a"/>
+          <topic label="NVM_MAX_NUMBER_OF_PAGES" href="group__NVM.html#ga9fc5731ea0401c43f6c6b52ebd029b1e"/>
+          <topic label="NVM_PAGE_SIZE" href="group__NVM.html#ga08c4178cfbc31aaa81efee5588c5c6e6"/>
+          <topic label="NVM_PAGE_TERMINATION" href="group__NVM.html#gabdbe94a8a506bb943ed440adf4c3c0c6"/>
+          <topic label="NVM_PAGES_SCRATCH" href="group__NVM.html#ga49567a141e224894e1db086905cf4120"/>
+          <topic label="NVM_READ_ALL_CMD" href="group__NVM.html#gaf237b8d940d372ccbd82b8998fbc8f60"/>
+          <topic label="NVM_STATIC_WEAR_THRESHOLD" href="group__NVM.html#gafb9b8c59c73d77fd4784034d8a7497d5"/>
+          <topic label="NVM_WRITE_ALL_CMD" href="group__NVM.html#ga69ca4a7805f154f9e3b65bf2a42c8037"/>
+          <topic label="NVM_WRITE_NONE_CMD" href="group__NVM.html#gac2786ac8b0b1ae7ae7dd2ee028cc97c7"/>
+        </topic>
+        <topic label="Typedefs">
+          <topic label="NVM_Page_t" href="group__NVM.html#gad031bb1b4302cdf6c337fdcfb367256b"/>
+          <topic label="NVM_Page_Table_t" href="group__NVM.html#ga397a9a680fa744d86084bdcb3521548a"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="NVM_Page_Type_t" href="group__NVM.html#gae2a292fc163eaa08574b4c061c0b1eca"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="NVM_ConfigGet" href="group__NVM.html#gaec2b85094eab4e1a9f94cd0cfa8ee71b"/>
+          <topic label="NVM_Erase" href="group__NVM.html#gab056662c41fc69f6b1fe44ee5f94852b"/>
+          <topic label="NVM_Init" href="group__NVM.html#gaf74bb05f10ed4959e65e85fa438ead67"/>
+          <topic label="NVM_Read" href="group__NVM.html#ga34880829bee50bf0fde0f6c9695dca86"/>
+          <topic label="NVM_WearLevelGet" href="group__NVM.html#ga00eaed13302c2951bec32c92dca57597"/>
+          <topic label="NVM_Write" href="group__NVM.html#gad181be9b434658d3552fb311039ff691"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="NVM_Object_Descriptor_t" href="structNVM__Object__Descriptor__t.html"/>
+          <topic label="NVM_Page_Descriptor_t" href="structNVM__Page__Descriptor__t.html"/>
+          <topic label="NVM_Config_t" href="structNVM__Config__t.html"/>
+        </topic>
+      </topic>
+      <topic label="GPIOINT">
+        <topic label="Typedefs">
+          <topic label="GPIOINT_IrqCallbackPtr_t" href="group__GPIOINT.html#ga546f0de2f88be238b5a5340428e85d52"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="GPIOINT_CallbackRegister" href="group__GPIOINT.html#gaffd9a793482ef44c0871654a9e60836e"/>
+          <topic label="GPIOINT_CallbackUnRegister" href="group__GPIOINT.html#ga2d33c9188635a9b34cce16b4f1a2e6d4"/>
+          <topic label="GPIOINT_Init" href="group__GPIOINT.html#gac93e5702d7693ab3efbbccd9782b22e0"/>
+        </topic>
+      </topic>
+      <topic label="SLEEP">
+        <topic label="Defines">
+          <topic label="SLEEP_EM4_WAKEUP_CALLBACK_ENABLED" href="group__SLEEP.html#ga3717bfa0453ddbc59511693e5b4c38ee"/>
+          <topic label="SLEEP_LOWEST_ENERGY_MODE_DEFAULT" href="group__SLEEP.html#ga5eb562f111da99f4c90ffb674ae39307"/>
+        </topic>
+        <topic label="Typedefs">
+          <topic label="SLEEP_CbFuncPtr_t" href="group__SLEEP.html#gaabb774d36a8e59808daabf39497f3791"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="SLEEP_EnergyMode_t" href="group__SLEEP.html#gaafb23646b17401bdad763d0fb0c7ff9a"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="SLEEP_ForceSleepInEM4" href="group__SLEEP.html#gaa5cc0b5f4087136c23fda12b840bab8e"/>
+          <topic label="SLEEP_Init" href="group__SLEEP.html#ga01eb28531b3fc9a5c7880b86a98d4b1c"/>
+          <topic label="SLEEP_LowestEnergyModeGet" href="group__SLEEP.html#gaeb054dce581519f0f29d46d372a7abb2"/>
+          <topic label="SLEEP_Sleep" href="group__SLEEP.html#ga2845d5d6d00f408dda6894a654fd1adf"/>
+          <topic label="SLEEP_SleepBlockBegin" href="group__SLEEP.html#gac26ef85c0817797fb9ec823d38742af7"/>
+          <topic label="SLEEP_SleepBlockEnd" href="group__SLEEP.html#ga1dd174edab75f62e330d1fb10b902e2d"/>
+        </topic>
+      </topic>
+      <topic label="RTCDRV">
+        <topic label="Defines">
+          <topic label="ECODE_EMDRV_RTCDRV_ALL_TIMERS_USED" href="group__RTCDRV.html#ga438d9a6102b0bc78eb9d0f80dd9ae6d4"/>
+          <topic label="ECODE_EMDRV_RTCDRV_ILLEGAL_TIMER_ID" href="group__RTCDRV.html#ga541a5648ecaa2b43ce6e76bca02c44ce"/>
+          <topic label="ECODE_EMDRV_RTCDRV_OK" href="group__RTCDRV.html#ga0c5b41f3cde7ea0fc19616c05d2a8132"/>
+          <topic label="ECODE_EMDRV_RTCDRV_PARAM_ERROR" href="group__RTCDRV.html#gad9070ac5c8805b44a4fe2e284d75cc7d"/>
+          <topic label="ECODE_EMDRV_RTCDRV_TIMER_NOT_ALLOCATED" href="group__RTCDRV.html#ga786188a1db4e9187fc996c857efe3086"/>
+          <topic label="ECODE_EMDRV_RTCDRV_TIMER_NOT_RUNNING" href="group__RTCDRV.html#ga6f61a5708b7d1589edebb799eb8521b7"/>
+          <topic label="EMDRV_RTCDRV_NUM_TIMERS" href="group__RTCDRV.html#ga1e594cb0a81e293583b5c012cc078d87"/>
+        </topic>
+        <topic label="Typedefs">
+          <topic label="RTCDRV_Callback_t" href="group__RTCDRV.html#gae62c00d19cea9dd8926629689f35c813"/>
+          <topic label="RTCDRV_TimerID_t" href="group__RTCDRV.html#gaee916c150e4188cb5647a2cfd3ca1fca"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="RTCDRV_TimerType_t" href="group__RTCDRV.html#ga08a8750e466e18aee02bbb692446dac9"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="RTCDRV_AllocateTimer" href="group__RTCDRV.html#gaef2d97c6223617d158b05e03ee35950a"/>
+          <topic label="RTCDRV_DeInit" href="group__RTCDRV.html#gae82ea6fa74f6bbc161b86a34385d63bf"/>
+          <topic label="RTCDRV_Delay" href="group__RTCDRV.html#ga65ef38fa0eb21b4c379512aa087f7686"/>
+          <topic label="RTCDRV_FreeTimer" href="group__RTCDRV.html#gaa783bf476e7a815f6177c626fef0ac98"/>
+          <topic label="RTCDRV_GetWallClock" href="group__RTCDRV.html#gac9d75dfb6e046529bb9e5b9fc79df272"/>
+          <topic label="RTCDRV_GetWallClockTicks32" href="group__RTCDRV.html#ga5950470ac041a5eff659e7e9b016c402"/>
+          <topic label="RTCDRV_GetWallClockTicks64" href="group__RTCDRV.html#ga84c0a0641d243f1574b865c80cae9736"/>
+          <topic label="RTCDRV_Init" href="group__RTCDRV.html#ga4419076832c5b4958dea6f1eec0a9bdf"/>
+          <topic label="RTCDRV_IsRunning" href="group__RTCDRV.html#ga0ad8d9097523a568e484ad9f6920ba88"/>
+          <topic label="RTCDRV_MsecsToTicks" href="group__RTCDRV.html#gadc6ac3c03c378a577b1a984941b8e3ff"/>
+          <topic label="RTCDRV_SecsToTicks" href="group__RTCDRV.html#ga05460d0b01eda411ec536833328f43ea"/>
+          <topic label="RTCDRV_SetWallClock" href="group__RTCDRV.html#ga8a56711f0cca956094187d4345964232"/>
+          <topic label="RTCDRV_StartTimer" href="group__RTCDRV.html#gaeee47cebc2ca33e571c965b90e1386d9"/>
+          <topic label="RTCDRV_StopTimer" href="group__RTCDRV.html#ga7d3614e56f17c24103336a37891579a4"/>
+          <topic label="RTCDRV_TicksToMsec" href="group__RTCDRV.html#ga1bc6098cd0c2ae5d7ef2f24444eb8f1a"/>
+          <topic label="RTCDRV_TicksToSec" href="group__RTCDRV.html#gac52e05089b461ddb5ca4b2dffa04a575"/>
+          <topic label="RTCDRV_TimeRemaining" href="group__RTCDRV.html#ga3d7c481309659eeada554be33854c103"/>
+        </topic>
+      </topic>
+      <topic label="SPIDRV">
+        <topic label="Defines">
+          <topic label="ECODE_EMDRV_SPIDRV_ABORTED" href="group__SPIDRV.html#ga6fa497c90552cd4a5a171df85a4cc2ff"/>
+          <topic label="ECODE_EMDRV_SPIDRV_BUSY" href="group__SPIDRV.html#ga9e9cef5beffb68b757a079404b939ef5"/>
+          <topic label="ECODE_EMDRV_SPIDRV_DMA_ALLOC_ERROR" href="group__SPIDRV.html#ga6464dd0b0517f0b6a9baf9fcb0e5015f"/>
+          <topic label="ECODE_EMDRV_SPIDRV_IDLE" href="group__SPIDRV.html#ga5895306e19420d805870b7c0c9fa2ada"/>
+          <topic label="ECODE_EMDRV_SPIDRV_ILLEGAL_HANDLE" href="group__SPIDRV.html#gaafa5ae1f0a47144a11cbf18f2760a5ff"/>
+          <topic label="ECODE_EMDRV_SPIDRV_MODE_ERROR" href="group__SPIDRV.html#ga0c2f1edd90df0d093f33240bc4b57ed8"/>
+          <topic label="ECODE_EMDRV_SPIDRV_OK" href="group__SPIDRV.html#ga38b85d953fb373f09638bcf7c44d0967"/>
+          <topic label="ECODE_EMDRV_SPIDRV_PARAM_ERROR" href="group__SPIDRV.html#ga6760019174c4ac5bb0dce83b515fd2d7"/>
+          <topic label="ECODE_EMDRV_SPIDRV_TIMEOUT" href="group__SPIDRV.html#ga5a80e8e9a81e323a5e64eef0a793e0c7"/>
+          <topic label="ECODE_EMDRV_SPIDRV_TIMER_ALLOC_ERROR" href="group__SPIDRV.html#ga23e5cb98212c37e189e3ec44b98d6774"/>
+          <topic label="EMDRV_SPIDRV_INCLUDE_SLAVE" href="group__SPIDRV.html#gac97618bf624bc25f2133aa03f4c8d921"/>
+          <topic label="SPIDRV_MASTER_USART0" href="group__SPIDRV.html#ga551dc4157363812661bc07602b3e1184"/>
+          <topic label="SPIDRV_MASTER_USART1" href="group__SPIDRV.html#ga8516f5e723dc93a6d2a392e37c25252b"/>
+          <topic label="SPIDRV_MASTER_USART2" href="group__SPIDRV.html#ga7a8acfe9763b52fd70029ac0a6207123"/>
+          <topic label="SPIDRV_MASTER_USARTRF0" href="group__SPIDRV.html#ga10d9b3df4bcb0f7e8a57f09fd0f9b74e"/>
+          <topic label="SPIDRV_SLAVE_USART0" href="group__SPIDRV.html#gaf0a5e7101c4df9d4d264f46227cdfa36"/>
+          <topic label="SPIDRV_SLAVE_USART1" href="group__SPIDRV.html#ga2e19ab6c2117260945a111fc9f4cd4b9"/>
+          <topic label="SPIDRV_SLAVE_USART2" href="group__SPIDRV.html#gac0f451db8f1d80cadb60d27738b44171"/>
+          <topic label="SPIDRV_SLAVE_USARTRF0" href="group__SPIDRV.html#ga156909bd29ba0cd4b8d35e2d8e10a53a"/>
+        </topic>
+        <topic label="Typedefs">
+          <topic label="SPIDRV_Callback_t" href="group__SPIDRV.html#ga8f2803a8df999e8fb4bf0bcd7b92db7f"/>
+          <topic label="SPIDRV_Handle_t" href="group__SPIDRV.html#gaa2b4d4c1c192566db0b9080a5c06eb60"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="SPIDRV_BitOrder_t" href="group__SPIDRV.html#ga2571cd18e87ebb5f73c7807f2dc481d6"/>
+          <topic label="SPIDRV_ClockMode_t" href="group__SPIDRV.html#ga13720525a175ccbac25d23f36389c5e7"/>
+          <topic label="SPIDRV_CsControl_t" href="group__SPIDRV.html#ga1b2445b05fd2c5a499068e7cd6642380"/>
+          <topic label="SPIDRV_SlaveStart_t" href="group__SPIDRV.html#ga5886a33d407438f827ca1b47a8bb6be0"/>
+          <topic label="SPIDRV_Type_t" href="group__SPIDRV.html#ga92f8a1bb98455a277eb9238eb020c9e2"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="SPIDRV_AbortTransfer" href="group__SPIDRV.html#ga071d128b28b8acff08396fb090b8025a"/>
+          <topic label="SPIDRV_DeInit" href="group__SPIDRV.html#ga1bebced0f8f5b3a3ac582916e4b13460"/>
+          <topic label="SPIDRV_GetBitrate" href="group__SPIDRV.html#ga9b3613b7cfbd6f3584a957c757934841"/>
+          <topic label="SPIDRV_GetFramelength" href="group__SPIDRV.html#ga08075cb727e683585eeace6de71fcc80"/>
+          <topic label="SPIDRV_GetTransferStatus" href="group__SPIDRV.html#ga7d440db45246649580c6c5b08eb332da"/>
+          <topic label="SPIDRV_Init" href="group__SPIDRV.html#gae1bf2b297eca13e7e46cbbcb66202239"/>
+          <topic label="SPIDRV_MReceive" href="group__SPIDRV.html#ga791215fe6c21c8630d8acd45dd02491c"/>
+          <topic label="SPIDRV_MReceiveB" href="group__SPIDRV.html#gace57de2fe713e7eed216c8f4d00e19b8"/>
+          <topic label="SPIDRV_MTransfer" href="group__SPIDRV.html#ga783d2e10fd457bdb7b214f59238c3deb"/>
+          <topic label="SPIDRV_MTransferB" href="group__SPIDRV.html#gac897032e6a00ff40e476f1f3dadc55ba"/>
+          <topic label="SPIDRV_MTransferSingleItemB" href="group__SPIDRV.html#gaea943a66137078855a6511a75fb27437"/>
+          <topic label="SPIDRV_MTransmit" href="group__SPIDRV.html#ga29fb3ab707b29dbb8efaad5523e162b3"/>
+          <topic label="SPIDRV_MTransmitB" href="group__SPIDRV.html#gaf53f10ccb89d8ae2c5c397db7cb87a9e"/>
+          <topic label="SPIDRV_SetBitrate" href="group__SPIDRV.html#ga3e6e2f999eb2ef0fd16df41339e6dc84"/>
+          <topic label="SPIDRV_SetFramelength" href="group__SPIDRV.html#ga54ce984fad9b30b3e8e860b6ada5b77a"/>
+          <topic label="SPIDRV_SReceive" href="group__SPIDRV.html#gaa4a1d07a7cfa1b461231b81ee9bd7208"/>
+          <topic label="SPIDRV_SReceiveB" href="group__SPIDRV.html#gaacf21de6f56b73897137afe66c8a55fc"/>
+          <topic label="SPIDRV_STransfer" href="group__SPIDRV.html#ga3b0e6cefe8389131f8cda2d3422ca165"/>
+          <topic label="SPIDRV_STransferB" href="group__SPIDRV.html#ga2117731649ff7375202f3db7c7eaea14"/>
+          <topic label="SPIDRV_STransmit" href="group__SPIDRV.html#gab17e267c072c9fa5424ac0dbb6d162b4"/>
+          <topic label="SPIDRV_STransmitB" href="group__SPIDRV.html#ga950e481559e49f805c4c65701f272df5"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="SPIDRV_Init_t" href="structSPIDRV__Init__t.html"/>
+          <topic label="SPIDRV_HandleData_t" href="structSPIDRV__HandleData__t.html"/>
+        </topic>
+      </topic>
+      <topic label="UARTDRV">
+        <topic label="Defines">
+          <topic label="DEFINE_BUF_QUEUE" href="group__UARTDRV.html#ga24318918f06c584749d8a2f8a96be2fc"/>
+          <topic label="ECODE_EMDRV_UARTDRV_ABORTED" href="group__UARTDRV.html#ga1babd131ff80b65efe93b29061670691"/>
+          <topic label="ECODE_EMDRV_UARTDRV_BUSY" href="group__UARTDRV.html#ga8169d4d7ba0c2c5fec2a9097555c33e9"/>
+          <topic label="ECODE_EMDRV_UARTDRV_DMA_ALLOC_ERROR" href="group__UARTDRV.html#ga7801419f35bd50a8593ddc10fe8090e0"/>
+          <topic label="ECODE_EMDRV_UARTDRV_FRAME_ERROR" href="group__UARTDRV.html#ga3feafa9f368c2f87c450b51c0a6dad9f"/>
+          <topic label="ECODE_EMDRV_UARTDRV_IDLE" href="group__UARTDRV.html#ga1c71e9adb59ea02dd52b94ee2958ada4"/>
+          <topic label="ECODE_EMDRV_UARTDRV_ILLEGAL_HANDLE" href="group__UARTDRV.html#gaeecd32d7c68e1de2820634d5184b51d6"/>
+          <topic label="ECODE_EMDRV_UARTDRV_ILLEGAL_OPERATION" href="group__UARTDRV.html#ga1d1f73b8d3778cdd8622ef6ff21bb4ff"/>
+          <topic label="ECODE_EMDRV_UARTDRV_OK" href="group__UARTDRV.html#gab58e66dca86247dadeb887240b081bfb"/>
+          <topic label="ECODE_EMDRV_UARTDRV_PARAM_ERROR" href="group__UARTDRV.html#gac79962a620c2d706928e43c9f7d27766"/>
+          <topic label="ECODE_EMDRV_UARTDRV_PARITY_ERROR" href="group__UARTDRV.html#ga9a16b6ed8163a7564d63699c505887a3"/>
+          <topic label="ECODE_EMDRV_UARTDRV_QUEUE_EMPTY" href="group__UARTDRV.html#ga17a8f445d10c7d37c68c9e6267152a6e"/>
+          <topic label="ECODE_EMDRV_UARTDRV_QUEUE_FULL" href="group__UARTDRV.html#ga1508fd8b2237135b1b02a2b7096edac0"/>
+          <topic label="ECODE_EMDRV_UARTDRV_WAITING" href="group__UARTDRV.html#ga8e898b24e44ca23c91a95dd86c8456dd"/>
+          <topic label="EMDRV_UARTDRV_HW_FLOW_CONTROL_ENABLE" href="group__UARTDRV.html#gac788e9ff2ed8ef59f875de5c50eb5fe8"/>
+          <topic label="EMDRV_UARTDRV_MAX_CONCURRENT_TX_BUFS" href="group__UARTDRV.html#ga1a5792abd05dc9ec1eb1c2fa0e9b9d6a"/>
+          <topic label="EMDRV_UARTDRV_MAX_DRIVER_INSTANCES" href="group__UARTDRV.html#gaede5027a4c6873b9679f0b6df1acd11c"/>
+          <topic label="UARTDRV_FC_SW_XOFF" href="group__UARTDRV.html#ga528f36160480e9caadd6bdad3f61765c"/>
+          <topic label="UARTDRV_FC_SW_XON" href="group__UARTDRV.html#ga0d5de1353096abcc856b6ad24abc60bb"/>
+        </topic>
+        <topic label="Typedefs">
+          <topic label="UARTDRV_Callback_t" href="group__UARTDRV.html#ga21e9309063a2bd5d007fc8b3aabcb07b"/>
+          <topic label="UARTDRV_Count_t" href="group__UARTDRV.html#ga20f2dca466c884ed896061f8e90ff816"/>
+          <topic label="UARTDRV_Handle_t" href="group__UARTDRV.html#ga559d69d7978a815087a905fb13af15ea"/>
+          <topic label="UARTDRV_Status_t" href="group__UARTDRV.html#gae1cf3e2748cf7a377fe60f055c07c3a6"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="UARTDRV_AbortType_t" href="group__UARTDRV.html#ga61b3dc571d3ffe1f87c25cf025030cd4"/>
+          <topic label="UARTDRV_FlowControlState_t" href="group__UARTDRV.html#gaab9e8a9a6d955b585965708b1e351df3"/>
+          <topic label="UARTDRV_FlowControlType_t" href="group__UARTDRV.html#ga177f0b50755bb636576e003b73cd935d"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="UARTDRV_Abort" href="group__UARTDRV.html#ga0abd859c2a17dafe03abceeb4c96a12a"/>
+          <topic label="UARTDRV_DeInit" href="group__UARTDRV.html#ga3b4222031534ab6d54ca068b5fa6e596"/>
+          <topic label="UARTDRV_FlowControlGetPeerStatus" href="group__UARTDRV.html#ga3ba0e9be643afcefc0962dcdb2e635a7"/>
+          <topic label="UARTDRV_FlowControlGetSelfStatus" href="group__UARTDRV.html#ga54bed0223f912f7a5a5e1c4a62356ffe"/>
+          <topic label="UARTDRV_FlowControlIgnoreRestrain" href="group__UARTDRV.html#ga8e0d51c55deaa14695b276c3c19cd4a1"/>
+          <topic label="UARTDRV_FlowControlSet" href="group__UARTDRV.html#ga793738f4fce0d507867e3a56d36426d2"/>
+          <topic label="UARTDRV_ForceReceive" href="group__UARTDRV.html#gac978c9e489a78347598b3005bb49545e"/>
+          <topic label="UARTDRV_ForceTransmit" href="group__UARTDRV.html#ga762bade408c1a64812467e1f58026899"/>
+          <topic label="UARTDRV_GetReceiveDepth" href="group__UARTDRV.html#gab9b0230941575668b73874ffe1ff01e4"/>
+          <topic label="UARTDRV_GetReceiveStatus" href="group__UARTDRV.html#ga34806bf9fc4d876aa6ae725ce060541b"/>
+          <topic label="UARTDRV_GetTransmitDepth" href="group__UARTDRV.html#gab467cb6aa9940119e4f03bd860c76266"/>
+          <topic label="UARTDRV_GetTransmitStatus" href="group__UARTDRV.html#gae5387109fb659840fa822aa6ae08b81f"/>
+          <topic label="UARTDRV_Init" href="group__UARTDRV.html#ga2aa9f087a06d6bf96933d657ac4e55d6"/>
+          <topic label="UARTDRV_Receive" href="group__UARTDRV.html#ga1d8a5e61c33176ad32cf3c1330e132c6"/>
+          <topic label="UARTDRV_ReceiveB" href="group__UARTDRV.html#ga5d8380296aa482ac95360d3855a2e150"/>
+          <topic label="UARTDRV_Transmit" href="group__UARTDRV.html#ga484ac0b78a9eccb0ec6a1d30b7cc3232"/>
+          <topic label="UARTDRV_TransmitB" href="group__UARTDRV.html#ga58f8120e861e2d9335e2acceec1ae4f7"/>
+        </topic>
+        <topic label="Data Structures">
+          <topic label="UARTDRV_Buffer_t" href="structUARTDRV__Buffer__t.html"/>
+          <topic label="UARTDRV_Buffer_FifoQueue_t" href="structUARTDRV__Buffer__FifoQueue__t.html"/>
+          <topic label="UARTDRV_Init_t" href="structUARTDRV__Init__t.html"/>
+          <topic label="UARTDRV_HandleData_t" href="structUARTDRV__HandleData__t.html"/>
+        </topic>
+      </topic>
+      <topic label="USTIMER">
+        <topic label="Defines">
+          <topic label="ECODE_EMDRV_USTIMER_OK" href="group__USTIMER.html#gafa7a3cfd6fa84e52ff30b19963c550bc"/>
+          <topic label="USTIMER_TIMER" href="group__USTIMER.html#gaab4876afcee8648b401a325151daf555"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="USTIMER_DeInit" href="group__USTIMER.html#gae0ab9e930ee6cbd71061142c4ad4e298"/>
+          <topic label="USTIMER_Delay" href="group__USTIMER.html#ga3a844fc16a527d15450ba4692f6ce047"/>
+          <topic label="USTIMER_DelayIntSafe" href="group__USTIMER.html#ga22982b2c10f35aa2f9dacb7252dfa0af"/>
+          <topic label="USTIMER_Init" href="group__USTIMER.html#ga5c7fa9c799b61638907d4f832a45e58b"/>
+        </topic>
+      </topic>
+      <topic label="DMADRV">
+        <topic label="Defines">
+          <topic label="DMADRV_MAX_XFER_COUNT" href="group__DMADRV.html#gaf9bcfe1e5a7ead155ba92b8132c5f17f"/>
+          <topic label="DMADRV_MAX_XFER_COUNT" href="group__DMADRV.html#gaf9bcfe1e5a7ead155ba92b8132c5f17f"/>
+          <topic label="ECODE_EMDRV_DMADRV_ALREADY_FREED" href="group__DMADRV.html#ga3c5f5833c747aec203d10853194ff348"/>
+          <topic label="ECODE_EMDRV_DMADRV_ALREADY_INITIALIZED" href="group__DMADRV.html#ga7c91611d3f79a7496ba2dee2639f7965"/>
+          <topic label="ECODE_EMDRV_DMADRV_CH_NOT_ALLOCATED" href="group__DMADRV.html#ga04c887be3eba7ea848f6b6bd25c16600"/>
+          <topic label="ECODE_EMDRV_DMADRV_CHANNELS_EXHAUSTED" href="group__DMADRV.html#gaab97205f395c359f6d639347bb9f0f5f"/>
+          <topic label="ECODE_EMDRV_DMADRV_IN_USE" href="group__DMADRV.html#ga7414a4bd6c8211ada153e2129e04f183"/>
+          <topic label="ECODE_EMDRV_DMADRV_NOT_INITIALIZED" href="group__DMADRV.html#ga718c15920e4f1c5885827eb903e70d64"/>
+          <topic label="ECODE_EMDRV_DMADRV_OK" href="group__DMADRV.html#gac20848ba30d8793ad1344fc442aae4c4"/>
+          <topic label="ECODE_EMDRV_DMADRV_PARAM_ERROR" href="group__DMADRV.html#ga3b8e93e5fab3ce4f3f12f137c7b83410"/>
+          <topic label="EMDRV_DMADRV_DMA_CH_COUNT" href="group__DMADRV.html#ga6f53d4015fbc79bce2e418aa7b4a09d4"/>
+          <topic label="EMDRV_DMADRV_USE_NATIVE_API" href="group__DMADRV.html#ga571ae25c6cd18c189db365f43e58fa17"/>
+        </topic>
+        <topic label="Typedefs">
+          <topic label="DMADRV_Callback_t" href="group__DMADRV.html#ga1b7eecd96edd7cc638f035f6c840ca77"/>
+        </topic>
+        <topic label="Enumerations">
+          <topic label="DMADRV_DataSize_t" href="group__DMADRV.html#ga83e27b6f2572d9957d8286ed16c8afd3"/>
+          <topic label="DMADRV_Datasize_t" href="group__DMADRV.html#ga5c64472ab957fa92a8b5099895591a8e"/>
+          <topic label="DMADRV_PeripheralSignal_t" href="group__DMADRV.html#ga12209f50fd4ec4e4b50f7c5217e8797b"/>
+          <topic label="DMADRV_Peripheralsignal_t" href="group__DMADRV.html#ga9d887cd6a26d26ed74cb19d77b501a94"/>
+        </topic>
+        <topic label="Functions">
+          <topic label="DMADRV_AllocateChannel" href="group__DMADRV.html#gab503e066820cd13fd612f4365d4d07b2"/>
+          <topic label="DMADRV_DeInit" href="group__DMADRV.html#ga73633db63cfd99ba01a68b05c24094ec"/>
+          <topic label="DMADRV_FreeChannel" href="group__DMADRV.html#gab4453539f4d22aa650324685a9f197e3"/>
+          <topic label="DMADRV_Init" href="group__DMADRV.html#ga43d0052d81f16e72914f85248a8554b1"/>
+          <topic label="DMADRV_LdmaStartTransfer" href="group__DMADRV.html#ga0349951d92b3e6bf87a983f143d7125c"/>
+          <topic label="DMADRV_MemoryPeripheral" href="group__DMADRV.html#gab1506de1a628ac908b2f8fe93e370578"/>
+          <topic label="DMADRV_MemoryPeripheralPingPong" href="group__DMADRV.html#ga887d429df9893aef3b421e2fdd8f8641"/>
+          <topic label="DMADRV_PeripheralMemory" href="group__DMADRV.html#gaef226beb40700660728baf2cb509a2c4"/>
+          <topic label="DMADRV_PeripheralMemoryPingPong" href="group__DMADRV.html#gafcabf314184e7d8f82d2164365f36bef"/>
+          <topic label="DMADRV_StopTransfer" href="group__DMADRV.html#ga3a04cb3aa30ec2fd955281f55538028d"/>
+          <topic label="DMADRV_TransferActive" href="group__DMADRV.html#ga1a42965073322a9c2b1f8ebb8a67e846"/>
+          <topic label="DMADRV_TransferCompletePending" href="group__DMADRV.html#gae6b5ec49230e4f15b78c31c57bfa3967"/>
+          <topic label="DMADRV_TransferDone" href="group__DMADRV.html#gaa46714c6a19608cff3058c386f1e4c03"/>
+          <topic label="DMADRV_TransferRemainingCount" href="group__DMADRV.html#ga9a253b47872d205a76b6f1b7b486194d"/>
+        </topic>
+      </topic>
+      <topic label="Defines">
+        <topic label="ECODE_EMDRV_AESDRV_BASE" href="group__EM__Drivers.html#gacd2521efb3148322a620e06977a993a3"/>
+        <topic label="ECODE_EMDRV_BASE" href="group__EM__Drivers.html#gab5c93ce8fa98b03d93fee45b2a04402e"/>
+        <topic label="ECODE_EMDRV_DMADRV_BASE" href="group__EM__Drivers.html#gaf42696e8f3ccd7165e59feea571189b4"/>
+        <topic label="ECODE_EMDRV_ECC_BASE" href="group__EM__Drivers.html#gaa25bc468d19800452fe7b00c8256281f"/>
+        <topic label="ECODE_EMDRV_NVM_BASE" href="group__EM__Drivers.html#ga7a26d8fb5894576e86204682ee788728"/>
+        <topic label="ECODE_EMDRV_RTCDRV_BASE" href="group__EM__Drivers.html#gae689e81bbb1b4e8a7c160677b039146e"/>
+        <topic label="ECODE_EMDRV_SPIDRV_BASE" href="group__EM__Drivers.html#ga7e8592ecd56d0333b6e9904cc62909c6"/>
+        <topic label="ECODE_EMDRV_UARTDRV_BASE" href="group__EM__Drivers.html#ga7917a64f97194a1de1727f6b1d4c9a30"/>
+        <topic label="ECODE_EMDRV_USTIMER_BASE" href="group__EM__Drivers.html#gaf7d4930f44fab4843d94120efc9a9828"/>
+        <topic label="ECODE_OK" href="group__EM__Drivers.html#gad59417e7951d81dfc15ec2757f08148e"/>
+      </topic>
+      <topic label="Typedefs">
+        <topic label="Ecode_t" href="group__EM__Drivers.html#ga7bf5621660c5ba69ac4dd3044173d35c"/>
+      </topic>
+    </topic>
+  </topic>
+  <topic label="Data Structures">
+    <topic label="ezradio_cmd_reply_union" href="unionezradio__cmd__reply__union.html"/>
+    <topic label="ezradio_reply_EZCONFIG_CHECK_map" href="structezradio__reply__EZCONFIG__CHECK__map.html"/>
+    <topic label="ezradio_reply_FIFO_INFO_map" href="structezradio__reply__FIFO__INFO__map.html"/>
+    <topic label="ezradio_reply_FRR_A_READ_map" href="structezradio__reply__FRR__A__READ__map.html"/>
+    <topic label="ezradio_reply_FRR_B_READ_map" href="structezradio__reply__FRR__B__READ__map.html"/>
+    <topic label="ezradio_reply_FRR_C_READ_map" href="structezradio__reply__FRR__C__READ__map.html"/>
+    <topic label="ezradio_reply_FRR_D_READ_map" href="structezradio__reply__FRR__D__READ__map.html"/>
+    <topic label="ezradio_reply_FUNC_INFO_map" href="structezradio__reply__FUNC__INFO__map.html"/>
+    <topic label="ezradio_reply_GENERIC_map" href="structezradio__reply__GENERIC__map.html"/>
+    <topic label="ezradio_reply_GET_ADC_READING_map" href="structezradio__reply__GET__ADC__READING__map.html"/>
+    <topic label="ezradio_reply_GET_CHIP_STATUS_map" href="structezradio__reply__GET__CHIP__STATUS__map.html"/>
+    <topic label="ezradio_reply_GET_INT_STATUS_map" href="structezradio__reply__GET__INT__STATUS__map.html"/>
+    <topic label="ezradio_reply_GET_MODEM_STATUS_map" href="structezradio__reply__GET__MODEM__STATUS__map.html"/>
+    <topic label="ezradio_reply_GET_PH_STATUS_map" href="structezradio__reply__GET__PH__STATUS__map.html"/>
+    <topic label="ezradio_reply_GET_PROPERTY_map" href="structezradio__reply__GET__PROPERTY__map.html"/>
+    <topic label="ezradio_reply_GPIO_PIN_CFG_map" href="structezradio__reply__GPIO__PIN__CFG__map.html"/>
+    <topic label="ezradio_reply_IRCAL_MANUAL_map" href="structezradio__reply__IRCAL__MANUAL__map.html"/>
+    <topic label="ezradio_reply_PACKET_INFO_map" href="structezradio__reply__PACKET__INFO__map.html"/>
+    <topic label="ezradio_reply_PART_INFO_map" href="structezradio__reply__PART__INFO__map.html"/>
+    <topic label="ezradio_reply_READ_CMD_BUFF_map" href="structezradio__reply__READ__CMD__BUFF__map.html"/>
+    <topic label="ezradio_reply_READ_RX_FIFO_map" href="structezradio__reply__READ__RX__FIFO__map.html"/>
+    <topic label="ezradio_reply_REQUEST_DEVICE_STATE_map" href="structezradio__reply__REQUEST__DEVICE__STATE__map.html"/>
+    <topic label="NVM_Config_t" href="structNVM__Config__t.html"/>
+    <topic label="NVM_Object_Descriptor_t" href="structNVM__Object__Descriptor__t.html"/>
+    <topic label="NVM_Page_Descriptor_t" href="structNVM__Page__Descriptor__t.html"/>
+    <topic label="SPIDRV_HandleData_t" href="structSPIDRV__HandleData__t.html"/>
+    <topic label="SPIDRV_Init_t" href="structSPIDRV__Init__t.html"/>
+    <topic label="UARTDRV_Buffer_FifoQueue_t" href="structUARTDRV__Buffer__FifoQueue__t.html"/>
+    <topic label="UARTDRV_Buffer_t" href="structUARTDRV__Buffer__t.html"/>
+    <topic label="UARTDRV_HandleData_t" href="structUARTDRV__HandleData__t.html"/>
+    <topic label="UARTDRV_Init_t" href="structUARTDRV__Init__t.html"/>
+  </topic>
+  <topic label="Data Fields" href="functions.html"/>
+  <topic label="File List">
+    <topic label="common/inc/ecode.h" href="ecode_8h.html"/>
+    <topic label="config/dmadrv_config.h" href="dmadrv__config_8h.html"/>
+    <topic label="config/nvm_config.c" href="nvm__config_8c.html"/>
+    <topic label="config/nvm_config.h" href="nvm__config_8h.html"/>
+    <topic label="config/rtcdrv_config.h" href="rtcdrv__config_8h.html"/>
+    <topic label="config/spidrv_config.h" href="spidrv__config_8h.html"/>
+    <topic label="config/uartdrv_config.h" href="uartdrv__config_8h.html"/>
+    <topic label="config/ustimer_config.h" href="ustimer__config_8h.html"/>
+    <topic label="dmadrv/inc/dmadrv.h" href="dmadrv_8h.html"/>
+    <topic label="dmadrv/src/dmadrv.c" href="dmadrv_8c.html"/>
+    <topic label="ezradiodrv/common/inc/ezradio_api_lib.h" href="ezradio__api__lib_8h.html"/>
+    <topic label="ezradiodrv/common/inc/ezradio_comm.h" href="ezradio__comm_8h.html"/>
+    <topic label="ezradiodrv/common/inc/ezradio_hal.h" href="ezradio__hal_8h.html"/>
+    <topic label="ezradiodrv/common/inc/si4x55/ezradio_api_lib_add.h"/>
+    <topic label="ezradiodrv/common/inc/si4x6x/ezradio_api_lib_add.h"/>
+    <topic label="ezradiodrv/common/src/ezradio_api_lib.c" href="ezradio__api__lib_8c.html"/>
+    <topic label="ezradiodrv/common/src/ezradio_comm.c" href="ezradio__comm_8c.html"/>
+    <topic label="ezradiodrv/common/src/ezradio_hal.c" href="ezradio__hal_8c.html"/>
+    <topic label="ezradiodrv/common/src/si4x55/ezradio_api_lib_add.c"/>
+    <topic label="ezradiodrv/common/src/si4x6x/ezradio_api_lib_add.c"/>
+    <topic label="ezradiodrv/si4455/inc/ezradio_cmd.h"/>
+    <topic label="ezradiodrv/si4455/inc/ezradio_prop.h"/>
+    <topic label="ezradiodrv/si4460/inc/ezradio_cmd.h"/>
+    <topic label="ezradiodrv/si4460/inc/ezradio_prop.h"/>
+    <topic label="ezradiodrv/si4463/inc/ezradio_cmd.h"/>
+    <topic label="ezradiodrv/si4463/inc/ezradio_prop.h"/>
+    <topic label="gpiointerrupt/inc/gpiointerrupt.h" href="gpiointerrupt_8h.html"/>
+    <topic label="gpiointerrupt/src/gpiointerrupt.c" href="gpiointerrupt_8c.html"/>
+    <topic label="nvm/inc/nvm.h" href="nvm_8h.html"/>
+    <topic label="nvm/inc/nvm_hal.h" href="nvm__hal_8h.html"/>
+    <topic label="nvm/src/nvm.c" href="nvm_8c.html"/>
+    <topic label="nvm/src/nvm_hal.c" href="nvm__hal_8c.html"/>
+    <topic label="rtcdrv/inc/rtcdriver.h" href="rtcdriver_8h.html"/>
+    <topic label="rtcdrv/src/rtcdriver.c" href="rtcdriver_8c.html"/>
+    <topic label="sleep/inc/sleep.h" href="sleep_8h.html"/>
+    <topic label="sleep/src/sleep.c" href="sleep_8c.html"/>
+    <topic label="spidrv/inc/spidrv.h" href="spidrv_8h.html"/>
+    <topic label="spidrv/src/spidrv.c" href="spidrv_8c.html"/>
+    <topic label="uartdrv/inc/uartdrv.h" href="uartdrv_8h.html"/>
+    <topic label="uartdrv/src/uartdrv.c" href="uartdrv_8c.html"/>
+    <topic label="ustimer/inc/ustimer.h" href="ustimer_8h.html"/>
+    <topic label="ustimer/src/ustimer.c" href="ustimer_8c.html"/>
+  </topic>
+  <topic label="Directory Hierarchy">
+    <topic label="common">
+      <topic label="inc">
+        <topic label="ecode.h" href="ecode_8h.html"/>
+      </topic>
+    </topic>
+    <topic label="config">
+      <topic label="dmadrv_config.h" href="dmadrv__config_8h.html"/>
+      <topic label="nvm_config.c" href="nvm__config_8c.html"/>
+      <topic label="nvm_config.h" href="nvm__config_8h.html"/>
+      <topic label="rtcdrv_config.h" href="rtcdrv__config_8h.html"/>
+      <topic label="spidrv_config.h" href="spidrv__config_8h.html"/>
+      <topic label="uartdrv_config.h" href="uartdrv__config_8h.html"/>
+      <topic label="ustimer_config.h" href="ustimer__config_8h.html"/>
+    </topic>
+    <topic label="dmadrv">
+      <topic label="inc">
+        <topic label="dmadrv.h" href="dmadrv_8h.html"/>
+      </topic>
+      <topic label="src">
+        <topic label="dmadrv.c" href="dmadrv_8c.html"/>
+      </topic>
+    </topic>
+    <topic label="ezradiodrv">
+      <topic label="common">
+        <topic label="inc">
+          <topic label="si4x55">
+            <topic label="ezradio_api_lib_add.h" href="si4x55_2ezradio__api__lib__add_8h.html"/>
+          </topic>
+          <topic label="si4x6x">
+            <topic label="ezradio_api_lib_add.h" href="si4x6x_2ezradio__api__lib__add_8h.html"/>
+          </topic>
+          <topic label="ezradio_api_lib.h" href="ezradio__api__lib_8h.html"/>
+          <topic label="ezradio_comm.h" href="ezradio__comm_8h.html"/>
+          <topic label="ezradio_hal.h" href="ezradio__hal_8h.html"/>
+        </topic>
+        <topic label="src">
+          <topic label="si4x55">
+            <topic label="ezradio_api_lib_add.c" href="si4x55_2ezradio__api__lib__add_8c.html"/>
+          </topic>
+          <topic label="si4x6x">
+            <topic label="ezradio_api_lib_add.c" href="si4x6x_2ezradio__api__lib__add_8c.html"/>
+          </topic>
+          <topic label="ezradio_api_lib.c" href="ezradio__api__lib_8c.html"/>
+          <topic label="ezradio_comm.c" href="ezradio__comm_8c.html"/>
+          <topic label="ezradio_hal.c" href="ezradio__hal_8c.html"/>
+        </topic>
+      </topic>
+      <topic label="si4455">
+        <topic label="inc">
+          <topic label="ezradio_cmd.h" href="si4455_2inc_2ezradio__cmd_8h.html"/>
+          <topic label="ezradio_prop.h" href="si4455_2inc_2ezradio__prop_8h.html"/>
+        </topic>
+      </topic>
+      <topic label="si4460">
+        <topic label="inc">
+          <topic label="ezradio_cmd.h" href="si4460_2inc_2ezradio__cmd_8h.html"/>
+          <topic label="ezradio_prop.h" href="si4460_2inc_2ezradio__prop_8h.html"/>
+        </topic>
+      </topic>
+      <topic label="si4463">
+        <topic label="inc">
+          <topic label="ezradio_cmd.h" href="si4463_2inc_2ezradio__cmd_8h.html"/>
+          <topic label="ezradio_prop.h" href="si4463_2inc_2ezradio__prop_8h.html"/>
+        </topic>
+      </topic>
+    </topic>
+    <topic label="gpiointerrupt">
+      <topic label="inc">
+        <topic label="gpiointerrupt.h" href="gpiointerrupt_8h.html"/>
+      </topic>
+      <topic label="src">
+        <topic label="gpiointerrupt.c" href="gpiointerrupt_8c.html"/>
+      </topic>
+    </topic>
+    <topic label="nvm">
+      <topic label="inc">
+        <topic label="nvm.h" href="nvm_8h.html"/>
+        <topic label="nvm_hal.h" href="nvm__hal_8h.html"/>
+      </topic>
+      <topic label="src">
+        <topic label="nvm.c" href="nvm_8c.html"/>
+        <topic label="nvm_hal.c" href="nvm__hal_8c.html"/>
+      </topic>
+    </topic>
+    <topic label="rtcdrv">
+      <topic label="inc">
+        <topic label="rtcdriver.h" href="rtcdriver_8h.html"/>
+      </topic>
+      <topic label="src">
+        <topic label="rtcdriver.c" href="rtcdriver_8c.html"/>
+      </topic>
+    </topic>
+    <topic label="sleep">
+      <topic label="inc">
+        <topic label="sleep.h" href="sleep_8h.html"/>
+      </topic>
+      <topic label="src">
+        <topic label="sleep.c" href="sleep_8c.html"/>
+      </topic>
+    </topic>
+    <topic label="spidrv">
+      <topic label="inc">
+        <topic label="spidrv.h" href="spidrv_8h.html"/>
+      </topic>
+      <topic label="src">
+        <topic label="spidrv.c" href="spidrv_8c.html"/>
+      </topic>
+    </topic>
+    <topic label="uartdrv">
+      <topic label="inc">
+        <topic label="uartdrv.h" href="uartdrv_8h.html"/>
+      </topic>
+      <topic label="src">
+        <topic label="uartdrv.c" href="uartdrv_8c.html"/>
+      </topic>
+    </topic>
+    <topic label="ustimer">
+      <topic label="inc">
+        <topic label="ustimer.h" href="ustimer_8h.html"/>
+      </topic>
+      <topic label="src">
+        <topic label="ustimer.c" href="ustimer_8c.html"/>
+      </topic>
+    </topic>
+  </topic>
+  <topic label="Globals" href="globals.html"/>
+</toc>

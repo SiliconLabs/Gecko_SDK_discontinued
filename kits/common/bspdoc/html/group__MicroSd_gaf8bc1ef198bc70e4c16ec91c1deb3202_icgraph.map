@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$group__MicroSd.html#ga543e44b6288de777f5e2d140b7f2763b" title="Turn off micro SD card power." alt="" coords="355,5,493,32"/>
+<area shape="rect" id="node5" href="$group__MicroSd.html#gad8f1138f2a82606cf64551dcfe50e7d1" title="Select the micro SD card and wait for the card to become ready." alt="" coords="187,49,306,76"/>
+<area shape="rect" id="node8" href="$group__MicroSd.html#gaf042e8f651d56b97f1b66fc1d499ade0" title="Send a command packet to micro SD card." alt="" coords="355,87,493,113"/>
+</map>

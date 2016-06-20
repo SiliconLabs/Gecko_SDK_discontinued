@@ -1,0 +1,19 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$nvm_8h.html" title="NVM API definition." alt="" coords="196,155,303,181"/>
+<area shape="rect" id="node6" href="$nvm__hal_8h.html" title="Non&#45;Volatile Memory HAL." alt="" coords="5,229,136,256"/>
+<area shape="rect" id="node13" href="$nvm__config_8c.html" title="NVM config implementation." alt="" coords="341,229,477,256"/>
+<area shape="rect" id="node17" href="$rtcdriver_8h.html" title="RTCDRV timer API definition." alt="" coords="877,80,1016,107"/>
+<area shape="rect" id="node21" href="$spidrv_8h.html" title="SPIDRV API definition." alt="" coords="1041,155,1167,181"/>
+<area shape="rect" id="node26" href="$uartdrv_8h.html" title="UARTDRV API definition." alt="" coords="1413,155,1555,181"/>
+<area shape="rect" id="node30" href="$ustimer_8h.html" title="Microsecond delay function API definition." alt="" coords="537,80,681,107"/>
+<area shape="rect" id="node36" href="$dmadrv_8h.html" title="DMADRV API definition." alt="" coords="1133,80,1277,107"/>
+<area shape="rect" id="node44" href="$nvm__config_8h.html" title="NVM config definition." alt="" coords="159,80,296,107"/>
+<area shape="rect" id="node8" href="$nvm__hal_8c.html" title="Non&#45;Volatile Memory HAL for EFM32 flash." alt="" coords="56,304,187,331"/>
+<area shape="rect" id="node10" href="$nvm_8c.html" title="NVM API implementation." alt="" coords="211,229,317,256"/>
+<area shape="rect" id="node19" href="$rtcdriver_8c.html" title="RTCDRV timer API implementation." alt="" coords="877,155,1016,181"/>
+<area shape="rect" id="node23" href="$spidrv_8c.html" title="SPIDRV API implementation." alt="" coords="1091,229,1217,256"/>
+<area shape="rect" id="node28" href="$uartdrv_8c.html" title="UARTDRV API implementation." alt="" coords="1413,229,1555,256"/>
+<area shape="rect" id="node32" href="$ustimer_8c.html" title="Microsecond delay functions." alt="" coords="423,155,568,181"/>
+<area shape="rect" id="node34" href="$ezradio__api__lib_8c.html" title="This file contains the common API library of the EZRadio and EZRadioPRO families..." alt="" coords="593,155,852,181"/>
+<area shape="rect" id="node42" href="$dmadrv_8c.html" title="DMADRV API implementation." alt="" coords="1243,155,1388,181"/>
+</map>

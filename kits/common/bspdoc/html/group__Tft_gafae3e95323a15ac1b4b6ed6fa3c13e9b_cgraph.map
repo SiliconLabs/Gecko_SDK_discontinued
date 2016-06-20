@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$group__BSP__DK.html#gacdf0586194771b5184caf46a9f0bd3ea" title="Configure display control." alt="" coords="166,26,298,52"/>
+<area shape="rect" id="node5" href="$group__BSP__DK.html#ga4044b087f6c29f36df7e29ade3bafb49" title="Read from a board controller register." alt="" coords="357,26,483,52"/>
+<area shape="rect" id="node9" href="$group__BSP__DK.html#ga18ee56d221a2a21cb67f7320e78f3401" title="DK Peripheral Access Control Enable or disable access to on&#45;board peripherals through..." alt="" coords="158,76,306,103"/>
+<area shape="rect" id="node14" href="$group__Tft.html#ga7548cd4534fbfc9c5b9740252223e646" title="GPIO configuration for TFT direct drive." alt="" coords="157,127,307,154"/>
+<area shape="rect" id="node7" href="$group__BSP__DK.html#ga80f89f8fce2cc70dfe2cc20c87027134" title="Write to a board controller register." alt="" coords="355,76,485,103"/>
+</map>

@@ -1,0 +1,19 @@
+Register Test:
+Energy Micro IEC60355 class b test script log
+provides execution log of the POST register test function
+
+executed : 11:14:06, 11.07.2011
+System frequency : 32 MHz
+
+This test checks the functionality of the POST register test
+testing all CPU registers.
+*************************************
+This Test doesn't inject any failures.
+POST test
+	test result : PASS
+
+Runtime analysis :
+	execution cycles : 596
+	execution time   : 0.000019 sec
+
+End of test

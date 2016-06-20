@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$group__USB__DEVICE.html#ga0e5f5bd847e7cc1c4c384bb6b7f0ce77" title="Initializes USB device hardware and internal protocol stack data structures, then..." alt="" coords="165,5,248,32"/>
+<area shape="rect" id="node3" href="$group__USB__HOST.html#gaedb37814762148d4977bd0dbc1a9b46e" title="Initialize host protocol stack data structures." alt="" coords="166,56,247,83"/>
+</map>

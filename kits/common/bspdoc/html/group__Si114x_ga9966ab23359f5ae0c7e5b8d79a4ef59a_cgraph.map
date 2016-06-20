@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$si114x__functions_8c.html#af6754f2631570292e96493f5149dfa36" title="Returns a fixed&#45;point (20&#45;bit fraction) after multiplying op1*op2." alt="" coords="209,23,306,50"/>
+<area shape="rect" id="node14" href="$group__Si114x.html#ga15059dd986a51d8188b5c93aa70681b6" title="Writes block of Si114x registers." alt="" coords="197,74,317,100"/>
+<area shape="rect" id="node16" href="$group__Si114x.html#gaeae79629a9f5a41c75ba329fa056eeef" title="Reads from Si114x register." alt="" coords="174,124,341,151"/>
+<area shape="rect" id="node5" href="$si114x__functions_8c.html#a50d91593be08d65b013f22a42f0ddcb1" title="Aligns the value pointed by value_p to either the LEFT or RIGHT the number of shifted..." alt="" coords="526,23,575,50"/>
+<area shape="rect" id="node7" href="$si114x__functions_8c.html#afe977399de96463bb65a39f6f1093c64" title="This performs a shift_left function." alt="" coords="625,23,695,50"/>
+<area shape="rect" id="node9" href="$si114x__functions_8c.html#a3635be76445f56c810f15a35828d38ca" title="The fx20_round was designed to perform rounding to however many significant digits..." alt="" coords="390,74,477,100"/>
+</map>

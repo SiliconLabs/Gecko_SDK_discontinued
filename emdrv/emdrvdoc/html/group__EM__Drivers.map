@@ -1,0 +1,10 @@
+<map id="structs" name="structs">
+<area shape="rect" id="node1" href="$group__SLEEP.html" title="Energy Modes management driver." alt="" coords="153,5,210,32"/>
+<area shape="rect" id="node2" href="$group__NVM.html" title="NVM Non&#45;volatile Memory driver, see NVM Non&#45;volatile Memory driver page for detailed..." alt="" coords="157,56,205,83"/>
+<area shape="rect" id="node4" href="$group__USTIMER.html" title="USTIMER Microsecond delay timer module, see USTIMER Microsecond delay timer module..." alt="" coords="144,107,219,133"/>
+<area shape="rect" id="node5" href="$group__SPIDRV.html" title="SPIDRV Serial Peripheral Interface module, see SPIDRV Serial Peripheral Interface..." alt="" coords="149,157,214,184"/>
+<area shape="rect" id="node6" href="$group__RTCDRV.html" title="RTCDRV timer module, see RTCDRV Real Time Clock Timer driver page for detailed documentation..." alt="" coords="146,208,217,235"/>
+<area shape="rect" id="node7" href="$group__GPIOINT.html" title="GPIOINT General Purpose Input/Output Interrupt dispatcher, see GPIOINT General Purpose..." alt="" coords="146,259,217,285"/>
+<area shape="rect" id="node8" href="$group__UARTDRV.html" title="UARTDRV Universal asynchronous receiver/transmitter driver, see UARTDRV Universal..." alt="" coords="142,309,221,336"/>
+<area shape="rect" id="node9" href="$group__DMADRV.html" title="DMADRV Serial Peripheral Interface module, see DMADRV Direct Memory Access page for..." alt="" coords="145,360,217,387"/>
+</map>

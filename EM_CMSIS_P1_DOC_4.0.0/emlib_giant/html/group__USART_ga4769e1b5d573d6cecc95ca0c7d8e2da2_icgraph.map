@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$group__USART.html#ga5b851444f0fbdca97017c7b927b37f52" title="Init USART/UART for normal asynchronous mode." alt="" coords="163,5,293,32"/>
+<area shape="rect" id="node3" href="$group__USART.html#gaab6053ba081f6fabce6762fb4563fb28" title="Init USART for synchronous mode." alt="" coords="167,56,289,83"/>
+</map>

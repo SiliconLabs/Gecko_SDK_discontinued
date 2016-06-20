@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node20" href="$bsp_8h.html" title="Board support package API definitions." alt="" coords="739,81,792,108"/>
+<area shape="rect" id="node28" href="$i2cspm_8h.html" title="I2C simple poll&#45;based master mode driver for the DK/STK." alt="" coords="910,81,983,108"/>
+<area shape="rect" id="node35" href="$eeprom_8h.html" title="EEPROM driver for 24AA024 (2Kbit) EEPROM device on the DK." alt="" coords="336,81,413,108"/>
+</map>

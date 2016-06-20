@@ -1,0 +1,19 @@
+================ Revision history ============================================
+4.0.0:
+- Maintenance release.
+
+3.20.12:
+- Added the glib example.
+
+3.20.5:
+- Maintenance release.
+
+3.20.4:
+- Added weatherstation examples (requires sensor board expansion kit).
+
+3.20.3:
+- Updated rowley project files.
+- Energy optimized analog clock example. 130 uA -> 6 uA.
+
+3.20.2:
+- Initial revision.

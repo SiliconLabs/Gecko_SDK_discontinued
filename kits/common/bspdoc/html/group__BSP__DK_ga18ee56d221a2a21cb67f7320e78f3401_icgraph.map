@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$group__Tft.html#gafae3e95323a15ac1b4b6ed6fa3c13e9b" title="TFT initialize or reinitialize Assumes EBI has been configured correctly in BSP_Init(BSP_INIT_DK_EBI..." alt="" coords="203,5,306,32"/>
+<area shape="rect" id="node5" href="$group__Touch.html#ga7998398248274366ad0d8cc3abc63f35" title="Initialize touch panel driver." alt="" coords="211,56,299,83"/>
+</map>

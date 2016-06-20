@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$group__Si114x.html#ga79b0443305d3a085028d1c197d398ede" title="Initializes and configures the Si1147 sensor." alt="" coords="171,5,347,32"/>
+<area shape="rect" id="node5" href="$si114x__uv__index_8h.html#aee56b411a2cb91ae85cae51c2d4039f7" title="Initializes and configures the Si1146 sensor for UV index measurements." alt="" coords="189,56,328,83"/>
+<area shape="rect" id="node7" href="$si114x__uv__index_8h.html#a5636599ea7d573fcee234cc8bf4de655" title="Set the VIS_RANGE bit of the optical sensor Si114x." alt="" coords="179,107,338,133"/>
+</map>
