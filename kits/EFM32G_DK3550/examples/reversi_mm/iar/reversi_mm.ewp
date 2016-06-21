@@ -147,7 +147,6 @@
         <option>
           <name>CCDefines</name>
           <state>EFM32G890F128</state>
-          <state>DEBUG_EFM</state>
           <state>ENERGY_AWARE</state>
         </option>
         <option>
@@ -958,7 +957,6 @@
           <name>CCDefines</name>
           <state>NDEBUG</state>
           <state>EFM32G890F128</state>
-          <state>DEBUG_EFM</state>
           <state>ENERGY_AWARE</state>
         </option>
         <option>

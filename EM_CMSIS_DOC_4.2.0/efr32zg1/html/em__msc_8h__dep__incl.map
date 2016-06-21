@@ -1,6 +1,0 @@
-<map id="C:/work/s025_sw/emlib/inc/em_msc.h" name="C:/work/s025_sw/emlib/inc/em_msc.h">
-<area shape="rect" id="node3" href="$em__msc_8c.html" title="Flash controller (MSC) Peripheral API. " alt="" coords="5,97,163,138"/>
-<area shape="rect" id="node5" href="$nvm__hal_8c.html" title="Non&#45;Volatile Memory Wear&#45;Leveling driver HAL implementation. " alt="" coords="187,97,351,138"/>
-<area shape="rect" id="node7" href="$bsp__trace_8h.html" title="SWO Trace API (for eAProfiler) " alt="" coords="376,97,549,138"/>
-<area shape="rect" id="node9" href="$bsp__trace_8c.html" title="API for enabling SWO and ETM trace. " alt="" coords="377,187,548,229"/>
-</map>

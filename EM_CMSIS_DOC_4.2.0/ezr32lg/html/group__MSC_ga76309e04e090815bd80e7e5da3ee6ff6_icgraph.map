@@ -1,6 +1,0 @@
-<map id="MSC_WriteWord" name="MSC_WriteWord">
-<area shape="rect" id="node3" href="$group__BSPCOMMON.html#ga5061043f8bb64d1b0130fe4185916916" title="Set or clear word in user page which enables or disables SWO in BSP_TraceProfilerSetup. If BSP_TraceProfilerEnable(false) has been run, no example project will enable SWO trace. " alt="" coords="171,5,333,32"/>
-<area shape="rect" id="node5" href="$nvm__hal_8c.html#a0800d58f7bb43d0462592d0062c5cef3" title="Write data to NVM. " alt="" coords="198,56,306,83"/>
-<area shape="rect" id="node7" href="$group__NVM.html#ga6cad1505838978506c7d94f9a1472595" title="Erase the entire allocated NVM area. " alt="" coords="382,31,469,57"/>
-<area shape="rect" id="node9" href="$group__NVM.html#gad181be9b434658d3552fb311039ff691" title="Write an object or a page. " alt="" coords="382,81,469,108"/>
-</map>

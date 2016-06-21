@@ -1,4 +1,0 @@
-<map id="BURTC_Reset" name="BURTC_Reset">
-<area shape="rect" id="node3" href="$group__BUS.html#gaca6b55014161f4c51c9daf4f707eeb7c" title="Perform a single&#45;bit read operation on a peripheral register. " alt="" coords="156,5,273,32"/>
-<area shape="rect" id="node5" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="155,56,274,83"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="ezradio_hal_SetNsel" name="ezradio_hal_SetNsel">
-<area shape="rect" id="node3" href="$group__GPIO.html#gab08f054efbb07aaff57d616974c9c536" title="Set a single pin in GPIO data out register to 1. " alt="" coords="193,5,306,32"/>
-<area shape="rect" id="node5" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="355,5,474,32"/>
-</map>

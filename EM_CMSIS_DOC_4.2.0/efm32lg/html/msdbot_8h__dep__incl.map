@@ -1,5 +1,0 @@
-<map id="C:/work/s025_sw/kits/common/drivers/msdbot.h" name="C:/work/s025_sw/kits/common/drivers/msdbot.h">
-<area shape="rect" id="node3" href="$msdbot_8c.html" title="Implements the host side of the Bulk Only Transport protocol for USB Mass Storage class Devices..." alt="" coords="5,97,181,138"/>
-<area shape="rect" id="node5" href="$msdd_8c.html" title="Mass Storage class Device (MSD) driver. " alt="" coords="206,97,372,138"/>
-<area shape="rect" id="node7" href="$msdscsi_8c.html" title="SCSI interface for Mass Storage Devices (MSD). " alt="" coords="397,97,576,138"/>
-</map>

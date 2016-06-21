@@ -1,8 +1,0 @@
-<map id="GPIO_PinModeSet" name="GPIO_PinModeSet">
-<area shape="rect" id="node3" href="$group__BUS.html#ga9e878ccba24fcbf97b5bcb8b53356e76" title="Perform peripheral register masked clear and value write. " alt="" coords="179,31,327,57"/>
-<area shape="rect" id="node9" href="$group__GPIO.html#ga607f3a5f3d881bb145101566f1664aba" title="Set a single pin in GPIO data out port register to 0. " alt="" coords="191,81,315,108"/>
-<area shape="rect" id="node13" href="$group__GPIO.html#gab08f054efbb07aaff57d616974c9c536" title="Set a single pin in GPIO data out register to 1. " alt="" coords="197,132,310,159"/>
-<area shape="rect" id="node5" href="$group__BUS.html#gad226bfe478c81d51681539d935241758" title="Perform a masked clear operation on peripheral register address. " alt="" coords="376,5,523,32"/>
-<area shape="rect" id="node7" href="$group__BUS.html#ga8225a5d4acac280abb182dc118e8df77" title="Perform a masked set operation on peripheral register address. " alt="" coords="381,56,517,83"/>
-<area shape="rect" id="node11" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="390,119,509,145"/>
-</map>

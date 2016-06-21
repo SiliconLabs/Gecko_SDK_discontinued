@@ -1,6 +1,0 @@
-<map id="Si114xBlockWrite" name="Si114xBlockWrite">
-<area shape="rect" id="node3" href="$group__Si114x.html#gaec6f34819894c8d7b2f86fb574da203e" title="Writes a block of data to the Si1147 sensor. " alt="" coords="174,23,309,65"/>
-<area shape="rect" id="node5" href="$group__I2CSPM.html#ga076766b20012fb6a0cdaaf0f2c760795" title="Perform I2C transfer. " alt="" coords="357,31,480,57"/>
-<area shape="rect" id="node7" href="$group__I2C.html#gae2bf2ecc3d0c4f55e3511d4871b64b16" title="Prepare and start an I2C transfer (single master mode only). " alt="" coords="528,5,643,32"/>
-<area shape="rect" id="node9" href="$group__I2C.html#ga67983b3dbe7f028a97f765e421b3df56" title="Continue an initiated I2C transfer (single master mode only). " alt="" coords="691,31,789,57"/>
-</map>

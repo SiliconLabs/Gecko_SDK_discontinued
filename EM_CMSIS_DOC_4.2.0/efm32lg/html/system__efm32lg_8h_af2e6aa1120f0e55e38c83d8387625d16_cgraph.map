@@ -1,4 +1,0 @@
-<map id="SystemCoreClockGet" name="SystemCoreClockGet">
-<area shape="rect" id="node3" href="$system__efm32lg_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="195,5,323,32"/>
-<area shape="rect" id="node5" href="$system__efm32lg_8c.html#a442d0fcb831f601f02d643a64ab80f4c" title="GetProdRev" alt="" coords="371,5,459,32"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="LESENSE_ChannelThresSet" name="LESENSE_ChannelThresSet">
-<area shape="rect" id="node3" href="$group__CapSense.html#ga9cf779d965cc198a603d60d01225b993" title="Setup the LESENSE for capavitive sensing. " alt="" coords="667,5,853,32"/>
-<area shape="rect" id="node7" href="$group__LESENSE.html#ga6aa126a4b073bd48954c8903da1bf47f" title="Configure a single LESENSE sensor channel. " alt="" coords="232,31,395,57"/>
-<area shape="rect" id="node5" href="$group__CapSense.html#ga4a9a1233a70703ca91a6bc9fcf05ec19" title="Initializes the capacative sense system without LESENSE. " alt="" coords="902,5,1023,32"/>
-<area shape="rect" id="node9" href="$group__LESENSE.html#ga24763a5f55c777f3021963a4f7809a96" title="Configure all (16) LESENSE sensor channels. " alt="" coords="443,31,619,57"/>
-</map>

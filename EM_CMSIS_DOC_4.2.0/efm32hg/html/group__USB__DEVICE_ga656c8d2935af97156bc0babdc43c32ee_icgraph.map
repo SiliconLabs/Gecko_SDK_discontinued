@@ -1,6 +1,0 @@
-<map id="USBD_Write" name="USBD_Write">
-<area shape="rect" id="node3" href="$group__Cdc.html#gabb299273fea87474d24e85a3fe1ad4d0" title="Handle USB setup commands. Implements CDC class specific commands. " alt="" coords="165,5,277,32"/>
-<area shape="rect" id="node5" href="$group__HidKeyboard.html#gacf010c3e66985e5c5796c8d2f16de788" title="Report a keyboard press/release event. " alt="" coords="144,56,299,83"/>
-<area shape="rect" id="node7" href="$group__HidKeyboard.html#gaa6482849b2bbbb6c800516059ad17453" title="Handle USB setup commands. Implements HID class specific commands. This function must be called each ..." alt="" coords="156,107,287,133"/>
-<area shape="rect" id="node9" href="$group__Msd.html#gafd14b40b8d009c6341c92a35b5e9ad42" title="Called whenever a USB setup command is received. This function overrides standard CLEAR_FEATURE comma..." alt="" coords="160,157,283,184"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="ADC_TimebaseCalc" name="ADC_TimebaseCalc">
-<area shape="rect" id="node3" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="187,56,317,83"/>
-<area shape="rect" id="node5" href="$system__efm32jg1b_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="555,5,683,32"/>
-<area shape="rect" id="node7" href="$system__efm32jg1b_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="366,31,506,57"/>
-<area shape="rect" id="node10" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="379,81,493,108"/>
-<area shape="rect" id="node12" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="379,132,493,159"/>
-</map>

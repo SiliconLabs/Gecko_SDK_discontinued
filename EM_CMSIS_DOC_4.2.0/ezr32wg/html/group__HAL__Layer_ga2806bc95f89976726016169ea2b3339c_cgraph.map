@@ -1,4 +1,0 @@
-<map id="ezradio_hal_DeassertShutdown" name="ezradio_hal_DeassertShutdown">
-<area shape="rect" id="node3" href="$group__GPIO.html#ga607f3a5f3d881bb145101566f1664aba" title="Set a single pin in GPIO data out port register to 0. " alt="" coords="257,5,381,32"/>
-<area shape="rect" id="node5" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="430,5,549,32"/>
-</map>

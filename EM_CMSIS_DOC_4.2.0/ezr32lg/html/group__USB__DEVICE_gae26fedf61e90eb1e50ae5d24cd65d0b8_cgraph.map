@@ -1,5 +1,0 @@
-<map id="USBD_Stop" name="USBD_Stop">
-<area shape="rect" id="node3" href="$group__USB__DEVICE.html#ga2d952f8cf9bde552cfd5559ae47e70fc" title="Stop USB device operation. " alt="" coords="142,31,263,57"/>
-<area shape="rect" id="node5" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="312,5,403,32"/>
-<area shape="rect" id="node7" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="314,56,401,83"/>
-</map>

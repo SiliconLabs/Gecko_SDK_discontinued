@@ -1,4 +1,0 @@
-<map id="KSZ8851SNL_SPI_WriteFifo" name="KSZ8851SNL_SPI_WriteFifo">
-<area shape="rect" id="node3" href="$ksz8851snl__spi_8c.html#aa7973e5c903af7ba709937e516393a30" title="Transmits a series of bytes over the spi link. " alt="" coords="232,5,411,32"/>
-<area shape="rect" id="node5" href="$group__SPIDRV.html#gaf53f10ccb89d8ae2c5c397db7cb87a9e" title="Start a SPI master blocking transmit transfer. " alt="" coords="459,5,599,32"/>
-</map>

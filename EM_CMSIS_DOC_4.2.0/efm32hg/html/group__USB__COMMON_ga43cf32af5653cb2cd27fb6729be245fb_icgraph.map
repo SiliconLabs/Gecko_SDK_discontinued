@@ -1,4 +1,0 @@
-<map id="USB_PRINTF" name="USB_PRINTF">
-<area shape="rect" id="node3" href="$group__Msd.html#gaeb31e6900faf7971679af16d079f6c14" title="Initialize an USB connected Mass Storage Device. Checks if the device is a valid MSD device..." alt="" coords="191,5,273,32"/>
-<area shape="rect" id="node5" href="$group__USB__COMMON.html#ga543c505ec86acb344f7f0c00c55fc266" title="Format and print a text string given an error code, prepends an optional user supplied leader string..." alt="" coords="150,56,314,83"/>
-</map>

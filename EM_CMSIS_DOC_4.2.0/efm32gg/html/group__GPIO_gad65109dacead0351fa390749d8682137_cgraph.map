@@ -1,4 +1,0 @@
-<map id="GPIO_EM4EnablePinWakeup" name="GPIO_EM4EnablePinWakeup">
-<area shape="rect" id="node3" href="$group__GPIO.html#ga9373299464cb309d7251c73de17d0d66" title="Enable GPIO pin retention of output enable, output value, pull enable and pull direction in EM4..." alt="" coords="237,5,408,32"/>
-<area shape="rect" id="node5" href="$group__GPIO.html#ga1c840f8a9d9ee23d76f3f51000f9cc5d" title="Clear one or more pending GPIO interrupts. " alt="" coords="271,56,374,83"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="SegmentLCD_Write" name="SegmentLCD_Write">
-<area shape="rect" id="node3" href="$group__LCD.html#gaa8c374f0e169b555a7980e0e355584e0" title="When set, LCD registers will not be updated until cleared,. " alt="" coords="221,5,349,32"/>
-<area shape="rect" id="node5" href="$group__LCD.html#ga5c176631920506966de2bd727ef9e944" title="Turn on or clear a segment. " alt="" coords="225,56,346,83"/>
-<area shape="rect" id="node9" href="$group__LCD.html#gad9d68c13929c40cf0d45194358491bb7" title="Polls LCD SYNCBUSY flags, until flag has been cleared. " alt="" coords="218,107,353,133"/>
-<area shape="rect" id="node11" href="$group__SegmentLcd.html#ga19fe655661c0ffdba952864c9e28cb0c" title="Turn all segments on alpha characters in display off. " alt="" coords="187,157,383,184"/>
-<area shape="rect" id="node7" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="433,56,551,83"/>
-</map>

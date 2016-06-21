@@ -1,8 +1,0 @@
-<map id="SPIDRV_STransmitB" name="SPIDRV_STransmitB">
-<area shape="rect" id="node3" href="$group__RTCDRV.html#gaeee47cebc2ca33e571c965b90e1386d9" title="Start a timer. " alt="" coords="192,56,331,83"/>
-<area shape="rect" id="node5" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="412,5,503,32"/>
-<area shape="rect" id="node7" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="414,56,501,83"/>
-<area shape="rect" id="node9" href="$group__SLEEP.html#gac26ef85c0817797fb9ec823d38742af7" title="Begin sleep block in the requested energy mode. " alt="" coords="379,107,535,133"/>
-<area shape="rect" id="node11" href="$group__EMU.html#ga72910c09de24f4e2f8f170dc06bd8c07" title="Block entering EM2 or higher number energy modes. " alt="" coords="584,107,691,133"/>
-<area shape="rect" id="node13" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="739,107,858,133"/>
-</map>

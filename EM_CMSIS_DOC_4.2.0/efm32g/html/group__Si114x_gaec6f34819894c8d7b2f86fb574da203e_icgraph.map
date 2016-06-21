@@ -1,8 +1,0 @@
-<map id="Si1147_Write_Block_Register" name="Si1147_Write_Block_Register">
-<area shape="rect" id="node3" href="$group__Si114x.html#ga15059dd986a51d8188b5c93aa70681b6" title="Writes block of Si114x registers. " alt="" coords="189,31,309,57"/>
-<area shape="rect" id="node5" href="$group__Si114x.html#gafee1fd953ec8559b0b2c53b4d3a7d442" title="Writes a byte to an Si113x/4x Parameter. " alt="" coords="359,56,475,83"/>
-<area shape="rect" id="node13" href="$group__Si114x.html#ga9966ab23359f5ae0c7e5b8d79a4ef59a" title="Initializes the Si113x/46/47/48 UCOEF Registers. " alt="" coords="357,5,477,32"/>
-<area shape="rect" id="node7" href="$group__Si114x.html#ga79b0443305d3a085028d1c197d398ede" title="Initializes and configures the Si1147 sensor. " alt="" coords="525,56,701,83"/>
-<area shape="rect" id="node9" href="$si114x__uv__index_8h.html#a5636599ea7d573fcee234cc8bf4de655" title="Set the VIS_RANGE bit of the optical sensor Si114x. " alt="" coords="534,107,693,133"/>
-<area shape="rect" id="node11" href="$si114x__uv__index_8h.html#aee56b411a2cb91ae85cae51c2d4039f7" title="Initializes and configures the Si1146 sensor for UV index measurements. " alt="" coords="544,5,683,32"/>
-</map>

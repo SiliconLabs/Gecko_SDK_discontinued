@@ -1,4 +1,0 @@
-<map id="ADC_InitSingle" name="ADC_InitSingle">
-<area shape="rect" id="node3" href="$touch_8c.html#a3611206d185a38b740457a748712c457" title="Interrupt handler is executed with frequency ~28Hz when panel is not pressed and with frequency ~140H..." alt="" coords="160,5,285,32"/>
-<area shape="rect" id="node5" href="$group__Touch.html#ga7998398248274366ad0d8cc3abc63f35" title="Initialize touch panel driver. " alt="" coords="179,56,267,83"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="RMU_ResetCauseClear" name="RMU_ResetCauseClear">
-<area shape="rect" id="node3" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="206,5,325,32"/>
-<area shape="rect" id="node5" href="$group__EMU.html#gaa102a7feedcfdf0165e8137495e15c81" title="Lock the EMU in order to protect its registers against unintended modification. " alt="" coords="226,56,305,83"/>
-<area shape="rect" id="node7" href="$group__EMU.html#gaae70d64f013a75e2d728b3a6d71e3f62" title="Unlock the EMU so that writing to locked registers again is possible. " alt="" coords="220,107,311,133"/>
-</map>

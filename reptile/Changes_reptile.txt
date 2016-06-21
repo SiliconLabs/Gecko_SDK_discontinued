@@ -1,4 +1,7 @@
 ================ Revision history ============================================
+4.2.1:
+ - No changes.
+
 4.2.0:
  - Added mbedtls-2.1.0 (https://tls.mbed.org/) including CRYPTO acceleration
    plugins for Pearl Gecko.

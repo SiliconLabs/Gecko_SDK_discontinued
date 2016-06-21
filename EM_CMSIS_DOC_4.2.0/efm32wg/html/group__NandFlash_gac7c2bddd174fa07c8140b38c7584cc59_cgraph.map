@@ -1,6 +1,0 @@
-<map id="NANDFLASH_ReadPage" name="NANDFLASH_ReadPage">
-<area shape="rect" id="node3" href="$group__EBI.html#ga201417ea7b7a4b4b0e011d05bf45e434" title="Start ECC generator on NAND flash transfers. " alt="" coords="222,5,367,32"/>
-<area shape="rect" id="node5" href="$group__EBI.html#gae4b13ea35205bc87efb2fbbb3eaabccf" title="Stop NAND flash ECC generator and return generated ECC. " alt="" coords="223,56,366,83"/>
-<area shape="rect" id="node7" href="$group__NandFlash.html#ga439db746d35d38bd98b554084bd15907" title="Check if an address is valid for the nand flash device. " alt="" coords="209,107,381,133"/>
-<area shape="rect" id="node9" href="$group__NandFlash.html#ga5f05f548912d09981e531480b6802700" title="Check generated ECC against ECC read from device and correct data if possible. " alt="" coords="215,157,374,184"/>
-</map>

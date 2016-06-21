@@ -1,4 +1,0 @@
-<map id="EBI_ChipSelectEnable" name="EBI_ChipSelectEnable">
-<area shape="rect" id="node3" href="$group__EBI.html#gad9f118caa49eadf9713559cfac3d3c04" title="Configure and enable External Bus Interface. " alt="" coords="201,5,266,32"/>
-<area shape="rect" id="node5" href="$group__BSP__STK.html#ga03b1ff40234468f05b725c7997d8bd84" title="Initialize the EBI interface for accessing the onboard nandflash. " alt="" coords="315,5,402,32"/>
-</map>

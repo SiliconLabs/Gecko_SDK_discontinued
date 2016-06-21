@@ -1,4 +1,0 @@
-<map id="BUS_RegMaskedWrite" name="BUS_RegMaskedWrite">
-<area shape="rect" id="node3" href="$group__BUS.html#gad226bfe478c81d51681539d935241758" title="Perform a masked clear operation on peripheral register address. " alt="" coords="203,5,349,32"/>
-<area shape="rect" id="node5" href="$group__BUS.html#ga8225a5d4acac280abb182dc118e8df77" title="Perform a masked set operation on peripheral register address. " alt="" coords="208,56,344,83"/>
-</map>

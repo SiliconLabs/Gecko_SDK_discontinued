@@ -1,4 +1,0 @@
-<map id="WDOG_Init" name="WDOG_Init">
-<area shape="rect" id="node3" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="278,5,397,32"/>
-<area shape="rect" id="node5" href="$group__WDOG.html#ga26823031e069f4133964156550b64097" title="Lock the watchdog configuration. " alt="" coords="139,31,229,57"/>
-</map>

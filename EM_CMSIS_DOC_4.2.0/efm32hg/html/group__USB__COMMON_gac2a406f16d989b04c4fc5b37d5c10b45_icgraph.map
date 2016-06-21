@@ -1,4 +1,0 @@
-<map id="USBTIMER_Start" name="USBTIMER_Start">
-<area shape="rect" id="node3" href="$group__Cdc.html#gaab8bd37b2a51931c429dbec05e92c11f" title="Callback function called each time the USB device state is changed. Starts CDC operation when device ..." alt="" coords="180,5,337,32"/>
-<area shape="rect" id="node5" href="$group__HidKeyboard.html#ga978af2049c35ad48a8b0668a04146cf1" title="Handle USB state change events, this function must be called each time the USB device state is change..." alt="" coords="171,56,346,83"/>
-</map>

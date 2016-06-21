@@ -1,5 +1,0 @@
-<map id="LDMA_StopTransfer" name="LDMA_StopTransfer">
-<area shape="rect" id="node3" href="$group__BUS.html#gad226bfe478c81d51681539d935241758" title="Perform a masked clear operation on peripheral register address. " alt="" coords="189,5,336,32"/>
-<area shape="rect" id="node5" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="217,56,308,83"/>
-<area shape="rect" id="node7" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="219,107,306,133"/>
-</map>

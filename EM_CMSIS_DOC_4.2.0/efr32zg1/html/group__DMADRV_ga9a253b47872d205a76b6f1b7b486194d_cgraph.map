@@ -1,5 +1,0 @@
-<map id="DMADRV_TransferRemainingCount" name="DMADRV_TransferRemainingCount">
-<area shape="rect" id="node3" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="493,5,584,32"/>
-<area shape="rect" id="node5" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="495,68,582,95"/>
-<area shape="rect" id="node7" href="$group__LDMA.html#gabfd6f1003414438b5c234f2bec304511" title="Get number of items remaining in a transfer. " alt="" coords="243,31,445,57"/>
-</map>

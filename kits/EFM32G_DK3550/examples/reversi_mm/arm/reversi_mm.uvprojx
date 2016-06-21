@@ -344,7 +344,7 @@
             <uThumb>0</uThumb>
             <VariousControls>
               <MiscControls>--c99</MiscControls>
-              <Define>EFM32G890F128 DEBUG_EFM ENERGY_AWARE</Define>
+              <Define>EFM32G890F128 ENERGY_AWARE</Define>
               <Undefine></Undefine>
               <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32G\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\reptile\emwin\inc;..\..\..\..\..\reptile\glib;..\..\..\..\common\drivers\emwin\Dk3550;..\..\..\..\common\drivers;..\..\..\..\common\bsp;..\..\..\config;..</IncludePath>
             </VariousControls>

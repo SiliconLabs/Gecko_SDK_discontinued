@@ -1,5 +1,0 @@
-<map id="TIMER_CompareSet" name="TIMER_CompareSet">
-<area shape="rect" id="node3" href="$group__USB__COMMON.html#ga21c87b800d87fd731173dd4f48f23c28" title="Activate the hardware timer used to pace the 1 millisecond timer system. " alt="" coords="192,31,299,57"/>
-<area shape="rect" id="node5" href="$group__USB__DEVICE.html#ga0e5f5bd847e7cc1c4c384bb6b7f0ce77" title="Initializes USB device hardware and internal protocol stack data structures, then connects the data&#45;l..." alt="" coords="347,5,426,32"/>
-<area shape="rect" id="node7" href="$group__USB__HOST.html#gaedb37814762148d4977bd0dbc1a9b46e" title="Initialize host protocol stack data structures. " alt="" coords="347,56,426,83"/>
-</map>

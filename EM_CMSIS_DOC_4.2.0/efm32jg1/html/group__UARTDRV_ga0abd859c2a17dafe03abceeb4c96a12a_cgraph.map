@@ -1,9 +1,0 @@
-<map id="UARTDRV_Abort" name="UARTDRV_Abort">
-<area shape="rect" id="node3" href="$group__DMADRV.html#ga3a04cb3aa30ec2fd955281f55538028d" title="Stop an ongoing DMA transfer. " alt="" coords="188,5,343,32"/>
-<area shape="rect" id="node9" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="687,81,777,108"/>
-<area shape="rect" id="node11" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="689,183,775,209"/>
-<area shape="rect" id="node13" href="$group__DMADRV.html#ga9a253b47872d205a76b6f1b7b486194d" title="Get number of items remaining in a transfer. " alt="" coords="171,129,359,170"/>
-<area shape="rect" id="node5" href="$group__LDMA.html#ga94f7cafc791d8ddb5858dafee6a94ada" title="Stop a DMA transfer. " alt="" coords="441,5,577,32"/>
-<area shape="rect" id="node7" href="$group__BUS.html#gad226bfe478c81d51681539d935241758" title="Perform a masked clear operation on peripheral register address. " alt="" coords="659,5,805,32"/>
-<area shape="rect" id="node17" href="$group__LDMA.html#gabfd6f1003414438b5c234f2bec304511" title="Get number of items remaining in a transfer. " alt="" coords="408,157,611,184"/>
-</map>

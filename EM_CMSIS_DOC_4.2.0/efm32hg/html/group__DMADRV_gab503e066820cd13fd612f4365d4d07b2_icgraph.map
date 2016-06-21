@@ -1,7 +1,0 @@
-<map id="DMADRV_AllocateChannel" name="DMADRV_AllocateChannel">
-<area shape="rect" id="node3" href="$group__SPIDRV.html#gae1bf2b297eca13e7e46cbbcb66202239" title="Initialize a SPI driver instance. " alt="" coords="231,31,321,57"/>
-<area shape="rect" id="node11" href="$group__UARTDRV.html#ga2aa9f087a06d6bf96933d657ac4e55d6" title="Initialize a UART driver instance. " alt="" coords="225,81,327,108"/>
-<area shape="rect" id="node5" href="$group__HAL__Layer.html#gae1cf166781ecf4a2317e0d9d4f504197" title="ezradio_hal_SpiInit" alt="" coords="384,5,515,32"/>
-<area shape="rect" id="node9" href="$group__ksz8851snl.html#ga12cf356cb196dbc44230f7ad5aa16742" title="KSZ8851SNL_SPI_Init Initialize SPI interface to Ethernet controller. " alt="" coords="377,56,522,83"/>
-<area shape="rect" id="node7" href="$group__Plugin__Manager.html#ga55ab56dfaa297c93024dc43239bc8592" title="Radio Initialization. " alt="" coords="571,5,653,32"/>
-</map>

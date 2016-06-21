@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file ezr32lg_burtc.h
  * @brief EZR32LG_BURTC register and bit field definitions
- * @version 4.2.0
+ * @version 4.2.1
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>

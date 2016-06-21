@@ -1,4 +1,0 @@
-<map id="MSDH_WriteSectors" name="MSDH_WriteSectors">
-<area shape="rect" id="node3" href="$msdscsi_8c.html#af01dd388f44692d483d2d83decf804c2" title="Perform a SCSI Write(10) command. " alt="" coords="192,5,320,32"/>
-<area shape="rect" id="node5" href="$msdbot_8c.html#a924b6ac8bbbb582c299825f371813067" title="Perform an MSD Bulk Only Transfer (BOT). " alt="" coords="369,5,471,32"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="ezradio_change_state" name="ezradio_change_state">
-<area shape="rect" id="node3" href="$group__Direct__Receive__Plugin.html#ga110cc9713875e0e8ce1e87aa7a66b536" title="Stops direct reception. " alt="" coords="219,5,386,32"/>
-<area shape="rect" id="node5" href="$group__Direct__Transmit__Plugin.html#gaaeb98ca48e265d89240b188fb685f02c" title="Stops direct transmission. " alt="" coords="215,56,390,83"/>
-<area shape="rect" id="node7" href="$group__PN9__Plugin.html#ga721700326b2545601f947f24fed72676" title="Stops PN9 carrier transmission. " alt="" coords="247,107,358,133"/>
-<area shape="rect" id="node9" href="$group__Unmod__Carrier__Plugin.html#ga597d48cd98b47dc8811996c67c475e91" title="Stops unmodulated carrier transmission. " alt="" coords="200,157,405,184"/>
-</map>

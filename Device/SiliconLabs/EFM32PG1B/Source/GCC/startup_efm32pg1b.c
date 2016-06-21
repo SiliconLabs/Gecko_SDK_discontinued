@@ -2,7 +2,7 @@
  * @file startup_efm32pg1b.c
  * @brief CMSIS Compatible EFM32PG1B startup file in C.
  *        Should be used with GCC 'GNU Tools ARM Embedded'
- * @version 4.2.0
+ * @version 4.2.1
  * Date:    12 June 2014
  *
  */

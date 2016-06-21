@@ -42,7 +42,6 @@
     <include pattern="emwin/.*/LCDConf.c" />
     <include pattern="emwin/.*/ssd2119.c" />
   </module>
-  <macroDefinition name="DEBUG_EFM" languageCompatibility="c cpp" />
   <macroDefinition name="ENERGY_AWARE" />
   <file name="readme.txt" uri="readme.txt" />
   <file name="reversi.icf" uri="reversi.icf" toolchainCompatibility="com.silabs.ide.si32.iar" />

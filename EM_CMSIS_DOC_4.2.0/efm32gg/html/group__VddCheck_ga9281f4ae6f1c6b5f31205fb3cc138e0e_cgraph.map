@@ -1,9 +1,0 @@
-<map id="VDDCHECK_LowVoltage" name="VDDCHECK_LowVoltage">
-<area shape="rect" id="node3" href="$group__VCMP.html#ga52aa53df539c0d68c1e2e0f5b4b40041" title="Configure and enable Voltage Comparator. " alt="" coords="245,107,325,133"/>
-<area shape="rect" id="node9" href="$group__VCMP.html#ga8ded00997c333fd43ebb3c5ad888bac7" title="VCMP output is ready. " alt="" coords="439,157,537,184"/>
-<area shape="rect" id="node14" href="$group__VCMP.html#ga9ec536ab9b943fcf5c1ec34feb951f13" title="Returns true, if Voltage Comparator indicated VDD &gt; trigger level, else false. " alt="" coords="224,208,347,235"/>
-<area shape="rect" id="node16" href="$group__VCMP.html#ga90bc9473c20571d6a6938b3afbdd26c7" title="Calculate voltage to trigger level. " alt="" coords="211,259,360,285"/>
-<area shape="rect" id="node5" href="$group__VCMP.html#ga90c047e9c776cad27065458add1486fd" title="Clear one or more pending VCMP interrupts. " alt="" coords="435,5,541,32"/>
-<area shape="rect" id="node7" href="$group__VCMP.html#gab87bb21a4afe57c7721d424e2f8e99c5" title="Enable or disable Low Power Reference setting. " alt="" coords="409,56,567,83"/>
-<area shape="rect" id="node11" href="$group__VCMP.html#ga185203f0a0c2e0343cca51d82b2b21ef" title="Configure trigger level of voltage comparator. " alt="" coords="427,107,549,133"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="C:/work/s025_sw/emlib/inc/em_system.h" name="C:/work/s025_sw/emlib/inc/em_system.h">
-<area shape="rect" id="node3" href="$em__chip_8h.html" title="Chip Initialization API. " alt="" coords="5,97,163,138"/>
-<area shape="rect" id="node5" href="$em__cmu_8c.html" title="Clock management unit (CMU) Peripheral API. " alt="" coords="187,97,345,138"/>
-<area shape="rect" id="node7" href="$em__emu_8c.html" title="Energy Management Unit (EMU) Peripheral API. " alt="" coords="370,97,528,138"/>
-<area shape="rect" id="node9" href="$em__msc_8c.html" title="Flash controller (MSC) Peripheral API. " alt="" coords="553,97,711,138"/>
-<area shape="rect" id="node11" href="$em__system_8c.html" title="System Peripheral API. " alt="" coords="735,97,893,138"/>
-<area shape="rect" id="node13" href="$bsp__dk__3200_8c.html" title="Board support package API implementation for BRD3200. " alt="" coords="918,97,1108,138"/>
-</map>

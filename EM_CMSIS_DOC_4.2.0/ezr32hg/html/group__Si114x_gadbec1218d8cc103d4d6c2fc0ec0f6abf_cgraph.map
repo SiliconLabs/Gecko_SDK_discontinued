@@ -1,7 +1,0 @@
-<map id="si114x_get_calibration" name="si114x_get_calibration">
-<area shape="rect" id="node3" href="$group__Si114x.html#ga734e022c8fda86b69a353b1012c59231" title="Implements 1ms delay. " alt="" coords="245,5,328,32"/>
-<area shape="rect" id="node5" href="$group__Si114x.html#ga479ffe2c4fea4bf799a925d8e779400c" title="Reads block of Si114x registers. " alt="" coords="227,56,346,83"/>
-<area shape="rect" id="node7" href="$group__Si114x.html#gad06dc467120c7e78af29a2959589a796" title="Sends a NOP command to the Si113x/4x. " alt="" coords="245,107,328,133"/>
-<area shape="rect" id="node9" href="$group__Si114x.html#gaeae79629a9f5a41c75ba329fa056eeef" title="Reads from Si114x register. " alt="" coords="203,157,370,184"/>
-<area shape="rect" id="node11" href="$group__Si114x.html#ga8d9e6e60e0ced326193208cdf976bbee" title="Writes to Si114x Register. " alt="" coords="210,208,363,235"/>
-</map>

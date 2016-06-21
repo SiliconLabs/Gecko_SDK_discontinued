@@ -2076,6 +2076,9 @@
       <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_cmu.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_system.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_emu.c</name>
     </file>
     <file>

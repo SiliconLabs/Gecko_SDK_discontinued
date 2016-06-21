@@ -1,6 +1,0 @@
-<map id="CRYPTO_AES_ProcessLoop" name="CRYPTO_AES_ProcessLoop">
-<area shape="rect" id="node3" href="$group__CRYPTO.html#gaf7b93c251ece7ee753fe5f0d040015ed" title="Read 128 bits of data from a DATAX register in the CRYPTO module. " alt="" coords="233,5,364,32"/>
-<area shape="rect" id="node7" href="$group__CRYPTO.html#ga98ce739aaeb1bb84dcab1993fe4c10d0" title="Write 128 bits of data to a DATAX register in the CRYPTO module. " alt="" coords="232,56,365,83"/>
-<area shape="rect" id="node5" href="$group__CRYPTO.html#gafa237c4eba8834f79e3f131a385a76e4" title="Read a 128 bit value from a crypto register. " alt="" coords="414,5,586,32"/>
-<area shape="rect" id="node9" href="$group__CRYPTO.html#gaca41b63a70f98785f4ee47f5a7f2c8d4" title="Write a 128 bit value into a crypto register. " alt="" coords="421,56,579,83"/>
-</map>

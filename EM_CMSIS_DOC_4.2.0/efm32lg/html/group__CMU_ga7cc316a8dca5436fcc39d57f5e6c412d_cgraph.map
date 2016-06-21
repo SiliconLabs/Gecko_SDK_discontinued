@@ -1,9 +1,0 @@
-<map id="CMU_ClockDivSet" name="CMU_ClockDivSet">
-<area shape="rect" id="node3" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="182,5,301,32"/>
-<area shape="rect" id="node5" href="$group__CMU.html#gac9aa0ed17f83bd48abcf7b430843374a" title="Get clock frequency for a clock point. " alt="" coords="176,107,307,133"/>
-<area shape="rect" id="node11" href="$system__efm32lg_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="355,43,495,69"/>
-<area shape="rect" id="node16" href="$group__CMU.html#ga3ac649cb01dd184676c6bdea7ff3d768" title="Convert dividend to logarithmic value. Only works for even numbers equal to 2^n. " alt="" coords="368,195,483,221"/>
-<area shape="rect" id="node7" href="$system__efm32lg_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="544,68,672,95"/>
-<area shape="rect" id="node14" href="$group__CMU.html#ga535e1e8fa3a9131d7151cc549bfb4f29" title="Convert logarithm of 2 prescaler to division factor. " alt="" coords="368,144,483,171"/>
-<area shape="rect" id="node9" href="$system__efm32lg_8c.html#a442d0fcb831f601f02d643a64ab80f4c" title="GetProdRev" alt="" coords="720,68,808,95"/>
-</map>

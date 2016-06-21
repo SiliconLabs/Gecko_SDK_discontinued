@@ -1,5 +1,0 @@
-<map id="LCD_Enable" name="LCD_Enable">
-<area shape="rect" id="node3" href="$group__LCD.html#ga6c06e074a2a2f04da49c06206e9be571" title="Initalize Liquid Crystal Display (LCD) controller. " alt="" coords="181,5,251,32"/>
-<area shape="rect" id="node7" href="$group__SegmentLcd.html#gaa6396568a708435511368037db1a39a5" title="Disables LCD controller. " alt="" coords="145,56,287,83"/>
-<area shape="rect" id="node5" href="$group__SegmentLcd.html#ga0818c866cead74ab3902753a770eb4c4" title="Segment LCD Initialization routine for EFM32 STK display. " alt="" coords="336,5,456,32"/>
-</map>

@@ -1958,6 +1958,9 @@
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_msc.c</name>
     </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_system.c</name>
+    </file>
   </group>
   <group>
     <name>Source</name>

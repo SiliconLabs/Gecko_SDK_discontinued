@@ -1,5 +1,0 @@
-<map id="GPIOINT_CallbackUnRegister" name="GPIOINT_CallbackUnRegister">
-<area shape="rect" id="node3" href="$group__GPIOINT.html#gaffd9a793482ef44c0871654a9e60836e" title="Registers user callback for given pin number. " alt="" coords="240,31,411,57"/>
-<area shape="rect" id="node5" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="459,5,549,32"/>
-<area shape="rect" id="node7" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="461,56,547,83"/>
-</map>

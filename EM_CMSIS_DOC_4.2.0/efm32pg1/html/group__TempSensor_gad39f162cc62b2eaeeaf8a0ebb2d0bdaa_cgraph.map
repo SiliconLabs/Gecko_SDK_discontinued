@@ -1,6 +1,0 @@
-<map id="TEMPSENS_TemperatureGet" name="TEMPSENS_TemperatureGet">
-<area shape="rect" id="node3" href="$group__TempSensor.html#gae77973607cb0dc33faaed18274885717" title="Read sensor register content. " alt="" coords="241,31,399,57"/>
-<area shape="rect" id="node5" href="$group__I2CSPM.html#ga076766b20012fb6a0cdaaf0f2c760795" title="Perform I2C transfer. " alt="" coords="448,31,571,57"/>
-<area shape="rect" id="node7" href="$group__I2C.html#gae2bf2ecc3d0c4f55e3511d4871b64b16" title="Prepare and start an I2C transfer (single master mode only). " alt="" coords="619,5,733,32"/>
-<area shape="rect" id="node9" href="$group__I2C.html#ga67983b3dbe7f028a97f765e421b3df56" title="Continue an initiated I2C transfer (single master mode only). " alt="" coords="782,31,879,57"/>
-</map>

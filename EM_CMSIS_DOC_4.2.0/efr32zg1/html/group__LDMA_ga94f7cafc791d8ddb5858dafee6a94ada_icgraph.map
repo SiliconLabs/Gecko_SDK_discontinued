@@ -1,7 +1,0 @@
-<map id="LDMA_StopTransfer" name="LDMA_StopTransfer">
-<area shape="rect" id="node3" href="$group__DMADRV.html#ga3a04cb3aa30ec2fd955281f55538028d" title="Stop an ongoing DMA transfer. " alt="" coords="189,81,344,108"/>
-<area shape="rect" id="node5" href="$group__SPIDRV.html#ga1bebced0f8f5b3a3ac582916e4b13460" title="Deinitialize a SPI driver instance. " alt="" coords="415,5,521,32"/>
-<area shape="rect" id="node7" href="$group__SPIDRV.html#ga071d128b28b8acff08396fb090b8025a" title="Abort an ongoing SPI transfer. " alt="" coords="392,56,544,83"/>
-<area shape="rect" id="node9" href="$group__UARTDRV.html#ga3b4222031534ab6d54ca068b5fa6e596" title="Deinitialize a UART driver instance. " alt="" coords="409,107,527,133"/>
-<area shape="rect" id="node11" href="$group__UARTDRV.html#ga0abd859c2a17dafe03abceeb4c96a12a" title="Abort an ongoing UART transfer. " alt="" coords="410,157,526,184"/>
-</map>

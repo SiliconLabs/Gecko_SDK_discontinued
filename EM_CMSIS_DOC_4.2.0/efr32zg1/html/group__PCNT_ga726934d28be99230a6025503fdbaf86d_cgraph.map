@@ -1,5 +1,0 @@
-<map id="PCNT_Init" name="PCNT_Init">
-<area shape="rect" id="node3" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="363,5,482,32"/>
-<area shape="rect" id="node5" href="$group__CMU.html#gac0fede38cfa32965cc8ace2b51a14d5b" title="Select PCNTn clock. " alt="" coords="133,31,315,57"/>
-<area shape="rect" id="node8" href="$group__PCNT.html#ga4f29435f61c53e4a6e86947fe1980be9" title="Set counter and top values. " alt="" coords="151,81,297,108"/>
-</map>

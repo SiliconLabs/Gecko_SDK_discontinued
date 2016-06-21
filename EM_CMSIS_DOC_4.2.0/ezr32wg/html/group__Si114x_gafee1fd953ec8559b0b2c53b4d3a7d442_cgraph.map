@@ -1,5 +1,0 @@
-<map id="Si114xParamSet" name="Si114xParamSet">
-<area shape="rect" id="node3" href="$group__Si114x.html#ga734e022c8fda86b69a353b1012c59231" title="Implements 1ms delay. " alt="" coords="213,5,296,32"/>
-<area shape="rect" id="node5" href="$group__Si114x.html#ga15059dd986a51d8188b5c93aa70681b6" title="Writes block of Si114x registers. " alt="" coords="195,56,315,83"/>
-<area shape="rect" id="node7" href="$group__Si114x.html#gaeae79629a9f5a41c75ba329fa056eeef" title="Reads from Si114x register. " alt="" coords="171,107,338,133"/>
-</map>

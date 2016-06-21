@@ -315,6 +315,11 @@
               <FilePath>..\..\..\..\..\emlib\src\em_assert.c</FilePath>
             </File>
             <File>
+              <FileName>em_system.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\emlib\src\em_system.c</FilePath>
+            </File>
+            <File>
               <FileName>em_cmu.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\emlib\src\em_cmu.c</FilePath>

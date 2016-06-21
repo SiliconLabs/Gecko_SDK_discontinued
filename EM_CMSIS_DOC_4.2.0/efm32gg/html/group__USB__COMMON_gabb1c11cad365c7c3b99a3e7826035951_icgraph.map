@@ -1,7 +1,0 @@
-<map id="USBTIMER_DelayMs" name="USBTIMER_DelayMs">
-<area shape="rect" id="node3" href="$group__Msd.html#gaeb31e6900faf7971679af16d079f6c14" title="Initialize an USB connected Mass Storage Device. Checks if the device is a valid MSD device..." alt="" coords="255,5,337,32"/>
-<area shape="rect" id="node5" href="$group__USB__DEVICE.html#ga9fb12718f509c578656e4fc08bc40f69" title="Perform a remote wakeup signalling sequence. " alt="" coords="221,56,371,83"/>
-<area shape="rect" id="node7" href="$group__USB__HOST.html#gac57479eb6271bc262a6652b50fd122ce" title="Drive reset signalling on the USB port. " alt="" coords="239,107,353,133"/>
-<area shape="rect" id="node9" href="$group__USB__HOST.html#gaa2cb3b486c0d628c23cce6a26984580b" title="Drive resume signalling on the USB port. " alt="" coords="231,157,361,184"/>
-<area shape="rect" id="node11" href="$group__USB__HOST.html#ga62f99f2ed786c98d00935fc2fd140aaf" title="Wait for device connection. " alt="" coords="190,208,402,235"/>
-</map>

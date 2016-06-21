@@ -1,9 +1,0 @@
-<map id="BSP_BccPinsEnable" name="BSP_BccPinsEnable">
-<area shape="rect" id="node3" href="$group__GPIO.html#gab6751992334a136efe8750a1d01a850d" title="Set the mode for a GPIO pin. " alt="" coords="185,81,309,108"/>
-<area shape="rect" id="node5" href="$group__BUS.html#ga9e878ccba24fcbf97b5bcb8b53356e76" title="Perform peripheral register masked clear and value write. " alt="" coords="358,31,506,57"/>
-<area shape="rect" id="node11" href="$group__GPIO.html#ga607f3a5f3d881bb145101566f1664aba" title="Set a single pin in GPIO data out port register to 0. " alt="" coords="370,81,494,108"/>
-<area shape="rect" id="node15" href="$group__GPIO.html#gab08f054efbb07aaff57d616974c9c536" title="Set a single pin in GPIO data out register to 1. " alt="" coords="375,132,489,159"/>
-<area shape="rect" id="node7" href="$group__BUS.html#gad226bfe478c81d51681539d935241758" title="Perform a masked clear operation on peripheral register address. " alt="" coords="555,5,701,32"/>
-<area shape="rect" id="node9" href="$group__BUS.html#ga8225a5d4acac280abb182dc118e8df77" title="Perform a masked set operation on peripheral register address. " alt="" coords="560,56,696,83"/>
-<area shape="rect" id="node13" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="569,119,687,145"/>
-</map>

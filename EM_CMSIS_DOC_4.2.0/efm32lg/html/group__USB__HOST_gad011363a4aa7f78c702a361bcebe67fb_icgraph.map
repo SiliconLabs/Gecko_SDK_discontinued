@@ -1,4 +1,0 @@
-<map id="USBH_GetPortSpeed" name="USBH_GetPortSpeed">
-<area shape="rect" id="node3" href="$group__Msd.html#gaeb31e6900faf7971679af16d079f6c14" title="Initialize an USB connected Mass Storage Device. Checks if the device is a valid MSD device..." alt="" coords="258,5,339,32"/>
-<area shape="rect" id="node5" href="$group__USB__HOST.html#ga62f99f2ed786c98d00935fc2fd140aaf" title="Wait for device connection. " alt="" coords="193,56,405,83"/>
-</map>

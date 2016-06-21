@@ -1,8 +1,0 @@
-<map id="EBI_Init" name="EBI_Init">
-<area shape="rect" id="node3" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="321,87,439,114"/>
-<area shape="rect" id="node5" href="$group__EBI.html#gabef4d874ff17aa478fae71333a4c1ef5" title="Configure timing values of address latch bus accesses. " alt="" coords="121,37,271,63"/>
-<area shape="rect" id="node7" href="$group__EBI.html#ga3ac877439175a25e03e658d247ae1615" title="Enable or disable EBI Chip Select. " alt="" coords="123,87,269,114"/>
-<area shape="rect" id="node10" href="$group__EBI.html#gaf7fea7741967f124ac0a4021b48cc786" title="Configure EBI pin polarity. " alt="" coords="142,138,250,165"/>
-<area shape="rect" id="node13" href="$group__EBI.html#gabd1af7612f8f14f7574df14547ce97e2" title="Configure timing values of read bus accesses. " alt="" coords="129,189,263,215"/>
-<area shape="rect" id="node15" href="$group__EBI.html#gad9333cd6c2c48f2d831513b88f638429" title="Configure timing values of write bus accesses. " alt="" coords="128,239,264,266"/>
-</map>

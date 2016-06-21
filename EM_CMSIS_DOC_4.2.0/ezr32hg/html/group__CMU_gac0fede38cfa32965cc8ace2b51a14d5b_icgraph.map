@@ -1,4 +1,0 @@
-<map id="CMU_PCNTClockExternalSet" name="CMU_PCNTClockExternalSet">
-<area shape="rect" id="node3" href="$group__PCNT.html#ga726934d28be99230a6025503fdbaf86d" title="Init pulse counter. " alt="" coords="242,5,321,32"/>
-<area shape="rect" id="node5" href="$group__PCNT.html#gadf14f80981badc92e7a30a43caae130b" title="Reset PCNT to same state as after a HW reset. " alt="" coords="235,56,327,83"/>
-</map>

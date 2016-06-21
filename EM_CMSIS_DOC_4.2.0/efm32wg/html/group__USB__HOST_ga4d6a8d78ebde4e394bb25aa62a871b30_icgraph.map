@@ -1,9 +1,0 @@
-<map id="USBH_QGetDeviceDescriptor" name="USBH_QGetDeviceDescriptor">
-<area shape="rect" id="node3" href="$group__USB__HOST.html#ga2ac91d938f8553e31913afdb8d8d80dc" title="Return a pointer to a configuration descriptor. " alt="" coords="238,31,461,57"/>
-<area shape="rect" id="node5" href="$group__USB__HOST.html#gabd04b4b1ea26459d6db42aa77b6d592d" title="Return a pointer to an interface descriptor. " alt="" coords="509,31,707,57"/>
-<area shape="rect" id="node7" href="$group__USB__HOST.html#ga50dc10ac598c6c8479319ff58c186266" title="Populate device and endpoint data structures with data retrieved during device enumeration. " alt="" coords="997,31,1139,57"/>
-<area shape="rect" id="node15" href="$group__USB__HOST.html#ga10e6eb1a2e9802af4ec16254e3d44783" title="Return a pointer to an endpoint descriptor. " alt="" coords="755,56,949,83"/>
-<area shape="rect" id="node9" href="$group__USB__HOST.html#gae9ef72709bb00accb740a0350f79fe35" title="Will request both the device descriptor and the entire configuration descriptor from the device at US..." alt="" coords="1224,5,1363,32"/>
-<area shape="rect" id="node13" href="$group__USB__HOST.html#ga62f99f2ed786c98d00935fc2fd140aaf" title="Wait for device connection. " alt="" coords="1187,56,1399,83"/>
-<area shape="rect" id="node11" href="$group__Msd.html#gaeb31e6900faf7971679af16d079f6c14" title="Initialize an USB connected Mass Storage Device. Checks if the device is a valid MSD device..." alt="" coords="1449,5,1530,32"/>
-</map>

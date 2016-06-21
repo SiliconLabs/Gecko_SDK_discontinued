@@ -1,4 +1,0 @@
-<map id="CRYPTO_DData0Read260" name="CRYPTO_DData0Read260">
-<area shape="rect" id="node3" href="$group__CRYPTO.html#ga4f86b3a472b453c34c83d8ce68d9e224" title="Read 256 bits of data from a DDATAX register in the CRYPTO module. " alt="" coords="221,5,360,32"/>
-<area shape="rect" id="node5" href="$group__CRYPTO.html#gafa237c4eba8834f79e3f131a385a76e4" title="Read a 128 bit value from a crypto register. " alt="" coords="409,5,581,32"/>
-</map>

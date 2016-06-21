@@ -1,7 +1,0 @@
-<map id="RTCDRV_StartTimer" name="RTCDRV_StartTimer">
-<area shape="rect" id="node3" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="225,5,316,32"/>
-<area shape="rect" id="node5" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="227,56,314,83"/>
-<area shape="rect" id="node7" href="$group__SLEEP.html#gac26ef85c0817797fb9ec823d38742af7" title="Begin sleep block in the requested energy mode. " alt="" coords="193,107,349,133"/>
-<area shape="rect" id="node9" href="$group__EMU.html#ga72910c09de24f4e2f8f170dc06bd8c07" title="Block entering EM2 or higher number energy modes. " alt="" coords="397,107,504,133"/>
-<area shape="rect" id="node11" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="553,107,671,133"/>
-</map>

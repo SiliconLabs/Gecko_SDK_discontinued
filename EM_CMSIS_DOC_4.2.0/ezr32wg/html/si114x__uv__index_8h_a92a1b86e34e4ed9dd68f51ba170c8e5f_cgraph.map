@@ -1,5 +1,0 @@
-<map id="Si114x_MeasureUVIndex" name="Si114x_MeasureUVIndex">
-<area shape="rect" id="node3" href="$group__Si114x.html#gac4487c27a69c68ce91b6f193fc35fd3f" title="Sends a PSALSFORCE command to the Si113x/4x. " alt="" coords="239,5,361,32"/>
-<area shape="rect" id="node5" href="$group__Si114x.html#gaeae79629a9f5a41c75ba329fa056eeef" title="Reads from Si114x register. " alt="" coords="217,56,383,83"/>
-<area shape="rect" id="node7" href="$group__Si114x.html#ga8d9e6e60e0ced326193208cdf976bbee" title="Writes to Si114x Register. " alt="" coords="223,107,377,133"/>
-</map>

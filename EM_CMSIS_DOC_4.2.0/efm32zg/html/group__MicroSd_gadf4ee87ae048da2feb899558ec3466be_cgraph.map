@@ -1,4 +1,0 @@
-<map id="MICROSD_BlockTx" name="MICROSD_BlockTx">
-<area shape="rect" id="node3" href="$group__MicroSd.html#ga8ed3e59a754cf25f4d8efc3809743e9d" title="Do one SPI transfer. " alt="" coords="182,5,309,32"/>
-<area shape="rect" id="node5" href="$group__USART.html#gad1ce52fc0a8a5a618fffd614b086c46c" title="Perform one 8 bit frame SPI transfer. " alt="" coords="357,5,493,32"/>
-</map>

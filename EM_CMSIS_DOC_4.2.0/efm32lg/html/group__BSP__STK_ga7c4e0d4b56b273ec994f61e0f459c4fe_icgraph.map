@@ -1,4 +1,0 @@
-<map id="BSP_BccPacketReceive" name="BSP_BccPacketReceive">
-<area shape="rect" id="node3" href="$group__BSP__STK.html#gab4e9e65adf7c92f14550927e0957fe6b" title="Request AEM (Advanced Energy Monitoring) current from board controller. " alt="" coords="206,5,319,32"/>
-<area shape="rect" id="node5" href="$group__BSP__STK.html#ga49f47507e5d6c286a2913807671803aa" title="Request AEM (Advanced Energy Monitoring) voltage from board controller. " alt="" coords="206,56,319,83"/>
-</map>

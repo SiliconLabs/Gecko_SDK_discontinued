@@ -1,3 +1,0 @@
-<map id="NVMHAL_Write" name="NVMHAL_Write">
-<area shape="rect" id="node3" href="$group__MSC.html#ga76309e04e090815bd80e7e5da3ee6ff6" title="Writes data to flash memory. This function is interrupt safe, but slower than MSC_WriteWordFast(), which writes to flash with interrupts disabled. Write data must be aligned to words and contain a number of bytes that is divisable by four. " alt="" coords="163,5,280,32"/>
-</map>

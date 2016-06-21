@@ -1,3 +1,0 @@
-<map id="USBD_StallEp" name="USBD_StallEp">
-<area shape="rect" id="node3" href="$group__Msd.html#ga0dfd9473471d01231de7541cfd7f5ede" title="Serve the MSD state machine. This function should be called on a regular basis from your main loop..." alt="" coords="152,5,259,32"/>
-</map>

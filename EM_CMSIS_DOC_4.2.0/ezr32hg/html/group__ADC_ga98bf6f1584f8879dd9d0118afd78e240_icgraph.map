@@ -1,4 +1,0 @@
-<map id="ADC_IntEnable" name="ADC_IntEnable">
-<area shape="rect" id="node3" href="$group__Touch.html#ga8c35b907b601d52774d63dd6b86ebc83" title="Returns current touch position and state. " alt="" coords="160,5,269,32"/>
-<area shape="rect" id="node5" href="$group__Touch.html#ga7998398248274366ad0d8cc3abc63f35" title="Initialize touch panel driver. " alt="" coords="171,56,259,83"/>
-</map>

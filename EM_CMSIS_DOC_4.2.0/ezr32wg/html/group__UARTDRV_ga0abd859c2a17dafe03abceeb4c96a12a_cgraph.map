@@ -1,7 +1,0 @@
-<map id="UARTDRV_Abort" name="UARTDRV_Abort">
-<area shape="rect" id="node3" href="$group__DMADRV.html#ga3a04cb3aa30ec2fd955281f55538028d" title="Stop an ongoing DMA transfer. " alt="" coords="188,5,343,32"/>
-<area shape="rect" id="node7" href="$group__DMADRV.html#ga9a253b47872d205a76b6f1b7b486194d" title="Get number of items remaining in a transfer. " alt="" coords="171,107,359,149"/>
-<area shape="rect" id="node9" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="432,88,523,115"/>
-<area shape="rect" id="node11" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="434,143,521,169"/>
-<area shape="rect" id="node5" href="$group__DMA.html#gab7d47175069b1952534467bf115eb02e" title="Enable or disable a DMA channel. " alt="" coords="408,5,547,32"/>
-</map>

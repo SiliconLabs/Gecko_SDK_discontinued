@@ -1,6 +1,0 @@
-<map id="EMU_EnterEM1" name="EMU_EnterEM1">
-<area shape="rect" id="node3" href="$capsense_8c.html#a39680c5b208b4c50c0b00834dddae3c0" title="Start a capsense measurement of a specific channel and waits for it to complete. " alt="" coords="165,5,304,32"/>
-<area shape="rect" id="node7" href="$group__UARTDRV.html#ga5d8380296aa482ac95360d3855a2e150" title="Start a blocking receive. " alt="" coords="167,56,303,83"/>
-<area shape="rect" id="node9" href="$group__UARTDRV.html#ga58f8120e861e2d9335e2acceec1ae4f7" title="Start a blocking transmit. " alt="" coords="163,107,306,133"/>
-<area shape="rect" id="node5" href="$group__CapSense.html#ga053d58010d19241662916216a0327ad6" title="This function iterates through all the capsensors and reads and initiates a reading. Uses EM1 while waiting for the result from each sensor. " alt="" coords="355,5,480,32"/>
-</map>

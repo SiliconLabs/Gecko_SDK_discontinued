@@ -1,6 +1,0 @@
-<map id="LESENSE_ChannelAllConfig" name="LESENSE_ChannelAllConfig">
-<area shape="rect" id="node3" href="$group__LESENSE.html#ga6aa126a4b073bd48954c8903da1bf47f" title="Configure a single LESENSE sensor channel. " alt="" coords="229,56,392,83"/>
-<area shape="rect" id="node5" href="$group__LESENSE.html#ga81efdc1593d4cbdd8e599f8cd1a42aa1" title="Set LESENSE channel timing parameters. " alt="" coords="440,5,624,32"/>
-<area shape="rect" id="node7" href="$group__LESENSE.html#gaa0f60936997170e7563c97552b99bb88" title="Set LESENSE channel threshold parameters. " alt="" coords="443,56,621,83"/>
-<area shape="rect" id="node9" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="473,107,591,133"/>
-</map>

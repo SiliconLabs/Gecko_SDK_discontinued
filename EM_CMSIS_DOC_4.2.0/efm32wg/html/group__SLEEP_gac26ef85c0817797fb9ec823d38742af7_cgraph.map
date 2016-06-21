@@ -1,4 +1,0 @@
-<map id="SLEEP_SleepBlockBegin" name="SLEEP_SleepBlockBegin">
-<area shape="rect" id="node3" href="$group__EMU.html#ga72910c09de24f4e2f8f170dc06bd8c07" title="Block entering EM2 or higher number energy modes. " alt="" coords="211,5,317,32"/>
-<area shape="rect" id="node5" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="366,5,485,32"/>
-</map>

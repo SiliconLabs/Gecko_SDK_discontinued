@@ -1,9 +1,0 @@
-<map id="ezradio_get_int_status" name="ezradio_get_int_status">
-<area shape="rect" id="node3" href="$group__API__Layer.html#ga5e458f080841a7423743d53e2217d1e5" title="ezradio_configuration_init" alt="" coords="225,5,394,32"/>
-<area shape="rect" id="node5" href="$group__Plugin__Manager.html#ga55ab56dfaa297c93024dc43239bc8592" title="Radio Initialization. " alt="" coords="268,56,351,83"/>
-<area shape="rect" id="node7" href="$group__Plugin__Manager.html#ga32fa115744a93d5a0e56b5c33b8231bb" title="EzRadio plugin manager state machine handler. This function should be called in the application in an..." alt="" coords="235,107,383,133"/>
-<area shape="rect" id="node9" href="$group__Direct__Receive__Plugin.html#ga9a1aa8ea909b1667cf73d2227773251f" title="Starts direct reception with the radio configurations from the radioHandle parameter. " alt="" coords="225,157,394,184"/>
-<area shape="rect" id="node11" href="$group__Direct__Transmit__Plugin.html#gab765dcab5e4aab236830b5f2cd764f17" title="Starts direct transmission with the radio configurations from the radioHandle parameter. " alt="" coords="221,208,397,235"/>
-<area shape="rect" id="node13" href="$group__PN9__Plugin.html#ga6730098ec7ed97f93ad79079d6db3ab3" title="Starts PN9 transmission with the radio configurations from the radioHandle parameter. " alt="" coords="253,259,366,285"/>
-<area shape="rect" id="node15" href="$group__Unmod__Carrier__Plugin.html#ga52403c3b77b358386eb55a5bcdf8f3d8" title="Starts unmodulated carrier transmission with the radio configurations from the radioHandle parameter..." alt="" coords="206,309,413,336"/>
-</map>

@@ -106,10 +106,10 @@ DEPFLAGS = -MMD -MP -MF $(@:.o=.d)
 #
 override CFLAGS += -D$(DEVICE) -Wall -Wextra -mcpu=cortex-m4 -mthumb \
 -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -ffunction-sections \
--fdata-sections -fomit-frame-pointer -std=c99 -DMBEDTLS_CONFIG_FILE='"config-aescrypt.h"' -DDEBUG_EFM -DRETARGET_VCOM  \
+-fdata-sections -fomit-frame-pointer -std=c99 -DMBEDTLS_CONFIG_FILE="<config-aescrypt.h>" -DDEBUG_EFM -DRETARGET_VCOM  \
 $(DEPFLAGS)
 
-override ASMFLAGS += -x assembler-with-cpp -D$(DEVICE) -Wall -Wextra -mcpu=cortex-m4 -mthumb -DMBEDTLS_CONFIG_FILE='"config-aescrypt.h"' -DDEBUG_EFM -DRETARGET_VCOM  $(DEPFLAGS)
+override ASMFLAGS += -x assembler-with-cpp -D$(DEVICE) -Wall -Wextra -mcpu=cortex-m4 -mthumb -DMBEDTLS_CONFIG_FILE="<config-aescrypt.h>" -DDEBUG_EFM -DRETARGET_VCOM  $(DEPFLAGS)
 
 #
 # NOTE: The -Wl,--gc-sections flag may interfere with debugging using gdb.
@@ -194,6 +194,7 @@ C_SRC +=  \
 ../../../../../reptile/mbedtls/sl_crypto/sl_sha1.c \
 ../../../../../reptile/mbedtls/sl_crypto/sl_sha256.c \
 ../../../../../emlib/src/em_assert.c \
+../../../../../emlib/src/em_system.c \
 ../../../../../emlib/src/em_cmu.c \
 ../../../../../emlib/src/em_emu.c \
 ../../../../../emlib/src/em_gpio.c \

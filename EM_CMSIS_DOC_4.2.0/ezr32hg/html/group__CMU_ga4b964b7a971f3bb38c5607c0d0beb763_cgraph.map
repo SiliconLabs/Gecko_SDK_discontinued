@@ -1,5 +1,0 @@
-<map id="CMU_USHFRCOBandSet" name="CMU_USHFRCOBandSet">
-<area shape="rect" id="node3" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="234,5,353,32"/>
-<area shape="rect" id="node5" href="$group__CMU.html#ga924a9c8dbde9e529e684f0c8e7dfdaa2" title="Get currently selected reference clock used for a clock branch. " alt="" coords="224,56,363,83"/>
-<area shape="rect" id="node7" href="$group__CMU.html#ga75065eb424383bb05db21fde4e91d743" title="Get USHFRCO band in use. " alt="" coords="214,107,373,133"/>
-</map>

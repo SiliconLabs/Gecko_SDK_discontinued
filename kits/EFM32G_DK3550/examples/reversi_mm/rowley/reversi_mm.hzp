@@ -56,7 +56,7 @@
   <configuration Name="THUMB Flash Release" inherited_configurations="THUMB;Flash;Release"/>
   <configuration Name="THUMB" Platform="ARM" arm_instruction_set="THUMB" arm_library_instruction_set="THUMB" c_preprocessor_definitions="__THUMB" hidden="Yes"/>
   <configuration Name="Flash" c_preprocessor_definitions="__FLASH_BUILD" hidden="Yes"/>
-  <configuration Name="Debug" build_debug_information="Yes" c_additional_options="-Wall;-Wextra;" c_preprocessor_definitions="DEBUG;DEBUG_EFM;ENERGY_AWARE" gcc_optimization_level="None" hidden="Yes" link_include_startup_code="No"/>
-  <configuration Name="Release" build_debug_information="No" c_additional_options="-Wall;-Wextra;" c_preprocessor_definitions="DEBUG_EFM;ENERGY_AWARE" gcc_optimization_level="Optimize For Size" hidden="Yes" link_include_startup_code="No"/>
+  <configuration Name="Debug" build_debug_information="Yes" c_additional_options="-Wall;-Wextra;" c_preprocessor_definitions="DEBUG;ENERGY_AWARE" gcc_optimization_level="Optimize For Size" hidden="Yes" link_include_startup_code="No"/>
+  <configuration Name="Release" build_debug_information="No" c_additional_options="-Wall;-Wextra;" c_preprocessor_definitions="ENERGY_AWARE" gcc_optimization_level="Optimize For Size" hidden="Yes" link_include_startup_code="No"/>
   <configuration Name="Common" linker_printf_enabled="Yes"/>
 </solution>

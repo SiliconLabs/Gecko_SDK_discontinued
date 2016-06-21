@@ -1,3 +1,0 @@
-<map id="EBI_TFTInit" name="EBI_TFTInit">
-<area shape="rect" id="node3" href="$group__Tft.html#gafae3e95323a15ac1b4b6ed6fa3c13e9b" title="TFT initialize or reinitialize Assumes EBI has been configured correctly in BSP_Init(BSP_INIT_DK_EBI)..." alt="" coords="142,5,245,32"/>
-</map>

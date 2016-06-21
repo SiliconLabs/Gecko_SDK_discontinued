@@ -1,4 +1,7 @@
 ================ Revision history ============================================
+4.2.1:
+ - No changes.
+
 4.2.0:
  - Added TEMPDRV, a temperature sensor driver.
 

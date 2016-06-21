@@ -1,9 +1,0 @@
-<map id="SegmentLCD_LowerHex" name="SegmentLCD_LowerHex">
-<area shape="rect" id="node3" href="$group__SegmentLcd.html#ga9c02dec45dfa5339da028c046b7e1a36" title="Light up or shut off various symbols on Segment LCD. " alt="" coords="213,5,357,32"/>
-<area shape="rect" id="node9" href="$group__SegmentLcd.html#ga40ac47768020f1b4e87463b0d91194d4" title="Write text on LCD display. " alt="" coords="219,56,352,83"/>
-<area shape="rect" id="node5" href="$group__LCD.html#ga5c176631920506966de2bd727ef9e944" title="Turn on or clear a segment. " alt="" coords="443,5,565,32"/>
-<area shape="rect" id="node7" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="651,5,770,32"/>
-<area shape="rect" id="node11" href="$group__LCD.html#gad9d68c13929c40cf0d45194358491bb7" title="Polls LCD SYNCBUSY flags, until flag has been cleared. " alt="" coords="437,56,571,83"/>
-<area shape="rect" id="node13" href="$group__LCD.html#gaa8c374f0e169b555a7980e0e355584e0" title="When set, LCD registers will not be updated until cleared,. " alt="" coords="440,107,568,133"/>
-<area shape="rect" id="node15" href="$group__SegmentLcd.html#ga19fe655661c0ffdba952864c9e28cb0c" title="Turn all segments on alpha characters in display off. " alt="" coords="406,157,602,184"/>
-</map>

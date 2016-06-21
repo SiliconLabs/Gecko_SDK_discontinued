@@ -1,8 +1,0 @@
-<map id="SPIDRV_AbortTransfer" name="SPIDRV_AbortTransfer">
-<area shape="rect" id="node3" href="$group__DMADRV.html#ga3a04cb3aa30ec2fd955281f55538028d" title="Stop an ongoing DMA transfer. " alt="" coords="223,5,377,32"/>
-<area shape="rect" id="node7" href="$group__DMADRV.html#ga9a253b47872d205a76b6f1b7b486194d" title="Get number of items remaining in a transfer. " alt="" coords="206,158,394,199"/>
-<area shape="rect" id="node9" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="467,107,557,133"/>
-<area shape="rect" id="node11" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="469,165,555,192"/>
-<area shape="rect" id="node15" href="$group__RTCDRV.html#ga7d3614e56f17c24103336a37891579a4" title="Stop a given timer. " alt="" coords="231,107,369,133"/>
-<area shape="rect" id="node5" href="$group__DMA.html#gab7d47175069b1952534467bf115eb02e" title="Enable or disable a DMA channel. " alt="" coords="443,5,581,32"/>
-</map>

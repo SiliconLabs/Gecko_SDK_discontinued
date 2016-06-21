@@ -1,5 +1,0 @@
-<map id="MSC_ErasePage" name="MSC_ErasePage">
-<area shape="rect" id="node3" href="$group__BSPCOMMON.html#ga5061043f8bb64d1b0130fe4185916916" title="Set or clear word in user page which enables or disables SWO in BSP_TraceProfilerSetup. If BSP_TraceProfilerEnable(false) has been run, no example project will enable SWO trace. " alt="" coords="168,5,331,32"/>
-<area shape="rect" id="node5" href="$nvm__hal_8c.html#aaa2acd545c460f4cea576178fc185a21" title="Erase a page in the NVM. " alt="" coords="181,56,318,83"/>
-<area shape="rect" id="node7" href="$group__NVM.html#ga6cad1505838978506c7d94f9a1472595" title="Erase the entire allocated NVM area. " alt="" coords="379,56,466,83"/>
-</map>

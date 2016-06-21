@@ -1,4 +1,0 @@
-<map id="RTCDRV_StopTimer" name="RTCDRV_StopTimer">
-<area shape="rect" id="node3" href="$group__SPIDRV.html#ga071d128b28b8acff08396fb090b8025a" title="Abort an ongoing SPI transfer. " alt="" coords="192,5,344,32"/>
-<area shape="rect" id="node5" href="$group__SPIDRV.html#ga1bebced0f8f5b3a3ac582916e4b13460" title="Deinitialize a SPI driver instance. " alt="" coords="215,56,321,83"/>
-</map>

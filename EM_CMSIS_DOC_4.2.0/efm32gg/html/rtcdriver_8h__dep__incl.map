@@ -1,9 +1,0 @@
-<map id="C:/work/s025_sw/emdrv/rtcdrv/inc/rtcdriver.h" name="C:/work/s025_sw/emdrv/rtcdrv/inc/rtcdriver.h">
-<area shape="rect" id="node3" href="$spidrv_8h.html" title="SPIDRV API definition. " alt="" coords="193,103,356,145"/>
-<area shape="rect" id="node11" href="$rtcdriver_8c.html" title="RTCDRV timer API implementation. " alt="" coords="381,103,544,145"/>
-<area shape="rect" id="node13" href="$si1147__i2c_8c.html" title="i2c driver for the Si1147 " alt="" coords="569,103,764,145"/>
-<area shape="rect" id="node15" href="$si114x__sys__out_8c_source.html" title="C:/work/s025_sw/kits\l/common/drivers/si114x\l_sys_out.c" alt="" coords="789,96,949,152"/>
-<area shape="rect" id="node5" href="$ezradio__hal_8c.html" title="This file contains EZRadio HAL. " alt="" coords="5,200,168,256"/>
-<area shape="rect" id="node7" href="$spidrv_8c.html" title="SPIDRV API implementation. " alt="" coords="193,207,356,249"/>
-<area shape="rect" id="node9" href="$ksz8851snl__spi_8c.html" title="SPI interface API for KSZ8851SNL Ethernet controller. " alt="" coords="381,207,600,249"/>
-</map>

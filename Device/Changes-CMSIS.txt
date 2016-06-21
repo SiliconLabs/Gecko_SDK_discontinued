@@ -1,4 +1,7 @@
 ================ Revision history ============================================
+4.2.1:
+ - No changes.
+
 4.2.0:
  - Various corrections and improvements of Jade/Pearl/EFR family files.
 

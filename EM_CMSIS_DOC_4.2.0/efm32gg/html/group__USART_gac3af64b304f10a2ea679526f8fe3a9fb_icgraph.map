@@ -1,4 +1,0 @@
-<map id="USART_BaudrateCalc" name="USART_BaudrateCalc">
-<area shape="rect" id="node3" href="$group__USART.html#ga9f78987c84c2023fe907867833cdfab4" title="Get current baudrate for USART/UART. " alt="" coords="197,5,336,32"/>
-<area shape="rect" id="node5" href="$group__SPIDRV.html#ga9b3613b7cfbd6f3584a957c757934841" title="Get current SPI bus bitrate. " alt="" coords="384,5,512,32"/>
-</map>

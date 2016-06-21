@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file ezr32lg_af_pins.h
  * @brief EZR32LG_AF_PINS register and bit field definitions
- * @version 4.2.0
+ * @version 4.2.1
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>

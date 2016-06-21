@@ -1,5 +1,0 @@
-<map id="BURTC_ClockFreqGet" name="BURTC_ClockFreqGet">
-<area shape="rect" id="node3" href="$system__efm32gg_8c.html#a477d1670608b8ca76108b6e21c1124eb" title="Get low frequency RC oscillator clock frequency for target system. " alt="" coords="202,5,353,32"/>
-<area shape="rect" id="node5" href="$system__efm32gg_8c.html#a186aefb7bb200c8fda0fc0a4d4b2aa14" title="Get low frequency crystal oscillator clock frequency for target system. " alt="" coords="206,56,349,83"/>
-<area shape="rect" id="node7" href="$system__efm32gg_8c.html#a88eecfafda55942454a9e10912b3f224" title="Get ultra low frequency RC oscillator clock frequency for target system. " alt="" coords="198,107,357,133"/>
-</map>

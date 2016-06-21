@@ -1,6 +1,0 @@
-<map id="CMU_ClockSelectGet" name="CMU_ClockSelectGet">
-<area shape="rect" id="node3" href="$group__CMU.html#ga0b9edc4e3400a44612b07c2c6f8f483a" title="Set HFRCO calibration for the selected target frequency. " alt="" coords="193,5,333,32"/>
-<area shape="rect" id="node5" href="$group__CMU.html#ga97fc54dc73a1ead5a29fe538e538bd09" title="Set HFXO control registers. " alt="" coords="210,56,315,83"/>
-<area shape="rect" id="node7" href="$group__CMU.html#ga188ca4e7b81ed62bf53ea15ea3ffbab6" title="Set LFXO control registers. " alt="" coords="211,107,314,133"/>
-<area shape="rect" id="node9" href="$group__Udelay.html#ga523f858d15b74728046ceca9796f3046" title="Calibrates the microsecond delay loop. " alt="" coords="201,157,325,184"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="SystemHFXOClockSet" name="SystemHFXOClockSet">
-<area shape="rect" id="node3" href="$system__efm32hg_8c.html#af2e6aa1120f0e55e38c83d8387625d16" title="Get the current core clock frequency. " alt="" coords="201,5,341,32"/>
-<area shape="rect" id="node5" href="$system__efm32hg_8c.html#ab5991f4c3faeaed3b4f20d5ab515f1f2" title="Get the current HFCLK frequency. " alt="" coords="389,5,517,32"/>
-</map>

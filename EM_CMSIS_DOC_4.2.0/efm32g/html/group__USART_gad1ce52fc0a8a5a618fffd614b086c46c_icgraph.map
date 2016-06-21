@@ -1,9 +1,0 @@
-<map id="USART_SpiTransfer" name="USART_SpiTransfer">
-<area shape="rect" id="node3" href="$group__MicroSd.html#ga8ed3e59a754cf25f4d8efc3809743e9d" title="Do one SPI transfer. " alt="" coords="190,169,317,196"/>
-<area shape="rect" id="node5" href="$group__MicroSd.html#gaf8bc1ef198bc70e4c16ec91c1deb3202" title="Deselect the micro SD card and release the SPI bus. " alt="" coords="366,68,498,95"/>
-<area shape="rect" id="node11" href="$group__MicroSd.html#gaf042e8f651d56b97f1b66fc1d499ade0" title="Send a command packet to micro SD card. " alt="" coords="715,93,853,120"/>
-<area shape="rect" id="node16" href="$group__MicroSd.html#ga4f2cd8f75823802af6efb0568189387c" title="Receive a data block from micro SD card. " alt="" coords="369,195,495,221"/>
-<area shape="rect" id="node18" href="$group__MicroSd.html#gadf4ee87ae048da2feb899558ec3466be" title="Send a data block to micro SD card. " alt="" coords="369,245,495,272"/>
-<area shape="rect" id="node7" href="$group__MicroSd.html#gad8f1138f2a82606cf64551dcfe50e7d1" title="Select the micro SD card and wait for the card to become ready. " alt="" coords="547,43,666,69"/>
-<area shape="rect" id="node9" href="$group__MicroSd.html#ga543e44b6288de777f5e2d140b7f2763b" title="Turn off micro SD card power. DK doesn&#39;t support socket power control, only disable the SPI clock..." alt="" coords="715,5,853,32"/>
-</map>

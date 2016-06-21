@@ -1,5 +1,0 @@
-<map id="delay_10ms" name="delay_10ms">
-<area shape="rect" id="node3" href="$group__Si114x.html#ga88b866258cb278b01da1bcf766cfab57" title="Resets the Si113x/4x, clears any interrupts and initializes the HW_KEY register. " alt="" coords="145,31,237,57"/>
-<area shape="rect" id="node5" href="$group__Si114x.html#ga79b0443305d3a085028d1c197d398ede" title="Initializes and configures the Si1147 sensor. " alt="" coords="285,5,461,32"/>
-<area shape="rect" id="node7" href="$si114x__uv__index_8h.html#aee56b411a2cb91ae85cae51c2d4039f7" title="Initializes and configures the Si1146 sensor for UV index measurements. " alt="" coords="304,56,443,83"/>
-</map>

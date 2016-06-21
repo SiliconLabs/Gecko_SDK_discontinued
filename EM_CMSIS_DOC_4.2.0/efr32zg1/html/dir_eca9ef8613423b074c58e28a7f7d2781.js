@@ -1,4 +1,0 @@
-var dir_eca9ef8613423b074c58e28a7f7d2781 =
-[
-    [ "EFR32ZG1P", "dir_141f1b28539f008d5f02b8693d6a4316.html", "dir_141f1b28539f008d5f02b8693d6a4316" ]
-];

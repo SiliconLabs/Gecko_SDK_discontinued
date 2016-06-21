@@ -2,12 +2,12 @@ Gecko SDK
 =========
 
 The Gecko SDK is software development kit developed by Silicon Labs for the [EFM32](http://www.silabs.com/products/mcu/32-bit/Pages/32-bit-microcontrollers.aspx) and [EZR32](http://www.silabs.com/products/wireless/proprietary/Pages/proprietary-wireless-protocols.aspx). It contains the basic software needed for development, covering everything from the low-level hardware abstraction layer (HAL) and peripheral drivers to communication stacks and example code.
-The Gecko SDK is also part of the [Simplicity Studio](http://www.silabs.com/simplicity) toolsuite from Silicon Labs. Downloading Simplicity Studio also gives you access to a large range of tools, like Configurator and Energy Profiler together with access to all software and docuementation 
+The Gecko SDK is also part of the [Simplicity Studio](http://www.silabs.com/simplicity) toolsuite from Silicon Labs. Downloading Simplicity Studio also gives you access to a large range of tools, like Configurator and Energy Profiler together with access to all software and documentation.
 
 Documentation
 -------------
 
-Full API documentation is available hosted on [GitHub pages](http://siliconlabs.github.io/Gecko_SDK/EM_CMSIS_DOC_4.2.0/), in the [EM_CMSIS_DOC_4.2.0](EM_CMSIS_DOC_4.2.0) folder and within Simplicity Studio by clicking the *Software Documentation* tile.
+Full API documentation is available in the [Gecko_SDK_Doc](https://github.com/SiliconLabs/Gecko_SDK_Doc) repository, hosted on [GitHub pages](http://siliconlabs.github.io/Gecko_SDK_Doc/), and within Simplicity Studio by clicking the *Software Documentation* tile.  
 For datasheets, reference manuals and other documentation items, download [Simplicity Studio](http://www.silabs.com/simplicity) or head over to the [document library](http://www.silabs.com/support/pages/document-library.aspx?p=MCUs--32-bit).
 
 About the folders

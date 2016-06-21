@@ -284,6 +284,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\emlib\src\em_msc.c</FilePath>
             </File>
+            <File>
+              <FileName>em_system.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\emlib\src\em_system.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

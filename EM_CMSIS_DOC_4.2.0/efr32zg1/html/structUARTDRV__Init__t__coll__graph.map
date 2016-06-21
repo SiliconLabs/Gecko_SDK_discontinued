@@ -1,6 +1,0 @@
-<map id="UARTDRV_Init_t" name="UARTDRV_Init_t">
-<area shape="rect" id="node10" href="$structUARTDRV__Buffer__FifoQueue__t.html" title="Transfer operation FIFO queue typedef. " alt="" coords="607,217,801,244"/>
-<area shape="rect" id="node14" href="$structUARTDRV__Buffer__t.html" title="UART transfer buffer. " alt="" coords="299,159,429,185"/>
-<area shape="rect" id="node16" href="$structUARTDRV__HandleData.html" title="UARTDRV_HandleData" alt="" coords="6,149,157,176"/>
-<area shape="rect" id="node28" href="$structUSART__TypeDef.html" title="USART_TypeDef" alt="" coords="454,393,570,420"/>
-</map>

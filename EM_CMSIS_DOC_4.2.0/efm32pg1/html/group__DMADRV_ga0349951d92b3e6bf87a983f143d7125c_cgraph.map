@@ -1,7 +1,0 @@
-<map id="DMADRV_LdmaStartTransfer" name="DMADRV_LdmaStartTransfer">
-<area shape="rect" id="node3" href="$group__LDMA.html#gaf5c9ca9bae8e1bcf397bf53d6f3f79f5" title="Start a DMA transfer. " alt="" coords="240,81,379,108"/>
-<area shape="rect" id="node5" href="$group__BUS.html#gad226bfe478c81d51681539d935241758" title="Perform a masked clear operation on peripheral register address. " alt="" coords="427,5,573,32"/>
-<area shape="rect" id="node7" href="$group__BUS.html#ga8225a5d4acac280abb182dc118e8df77" title="Perform a masked set operation on peripheral register address. " alt="" coords="432,56,568,83"/>
-<area shape="rect" id="node9" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="455,107,545,133"/>
-<area shape="rect" id="node11" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="457,157,543,184"/>
-</map>

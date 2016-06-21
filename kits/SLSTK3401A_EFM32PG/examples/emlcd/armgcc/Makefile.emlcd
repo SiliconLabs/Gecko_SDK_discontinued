@@ -146,6 +146,7 @@ C_SRC +=  \
 ../../../../common/drivers/textdisplay.c \
 ../../../../common/drivers/udelay.c \
 ../../../../../emlib/src/em_assert.c \
+../../../../../emlib/src/em_system.c \
 ../../../../../emlib/src/em_cmu.c \
 ../../../../../emlib/src/em_emu.c \
 ../../../../../emlib/src/em_gpio.c \

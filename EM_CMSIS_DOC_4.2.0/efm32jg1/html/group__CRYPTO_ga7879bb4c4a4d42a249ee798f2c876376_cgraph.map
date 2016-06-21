@@ -1,5 +1,0 @@
-<map id="CRYPTO_KeyBufWrite" name="CRYPTO_KeyBufWrite">
-<area shape="rect" id="node3" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="211,5,330,32"/>
-<area shape="rect" id="node5" href="$group__CRYPTO.html#gaca41b63a70f98785f4ee47f5a7f2c8d4" title="Write a 128 bit value into a crypto register. " alt="" coords="389,81,547,108"/>
-<area shape="rect" id="node7" href="$group__CRYPTO.html#gabe780f35a77400c0caa255a2b09d6042" title="Write 256 bits of data to a DDATAX register in the CRYPTO module. " alt="" coords="200,107,341,133"/>
-</map>

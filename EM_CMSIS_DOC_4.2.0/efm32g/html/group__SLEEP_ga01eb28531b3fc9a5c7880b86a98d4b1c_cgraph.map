@@ -1,7 +1,0 @@
-<map id="SLEEP_Init" name="SLEEP_Init">
-<area shape="rect" id="node3" href="$group__RMU.html#ga1ebc1af03f738faa79b3e87d60a96ff1" title="Clear the reset cause register. " alt="" coords="136,56,288,83"/>
-<area shape="rect" id="node11" href="$group__RMU.html#gac065bbcb3b26d3f0b5c875df4cbad685" title="Get the cause of the last reset. " alt="" coords="141,107,283,133"/>
-<area shape="rect" id="node5" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="337,5,455,32"/>
-<area shape="rect" id="node7" href="$group__EMU.html#gaa102a7feedcfdf0165e8137495e15c81" title="Lock the EMU in order to protect its registers against unintended modification. " alt="" coords="357,56,435,83"/>
-<area shape="rect" id="node9" href="$group__EMU.html#gaae70d64f013a75e2d728b3a6d71e3f62" title="Unlock the EMU so that writing to locked registers again is possible. " alt="" coords="351,107,441,133"/>
-</map>

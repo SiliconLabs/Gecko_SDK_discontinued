@@ -1,4 +1,0 @@
-<map id="USBTIMER_DelayMs" name="USBTIMER_DelayMs">
-<area shape="rect" id="node3" href="$group__Msd.html#gaeb31e6900faf7971679af16d079f6c14" title="Initialize an USB connected Mass Storage Device. Checks if the device is a valid MSD device..." alt="" coords="225,5,306,32"/>
-<area shape="rect" id="node5" href="$group__USB__DEVICE.html#ga9fb12718f509c578656e4fc08bc40f69" title="Perform a remote wakeup signalling sequence. " alt="" coords="190,56,341,83"/>
-</map>

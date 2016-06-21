@@ -1,4 +1,0 @@
-<map id="USB_PUTCHAR" name="USB_PUTCHAR">
-<area shape="rect" id="node3" href="$group__USB__HOST.html#gab7a5bb1a4f4cae3b9cc0556b98d3a4d9" title="Pretty print a configuration descriptor on the debug serial port. " alt="" coords="161,5,381,32"/>
-<area shape="rect" id="node5" href="$group__USB__HOST.html#ga60806aa452e18cee2002a2a5de015982" title="Print a USB string descriptor on the debug serial port. " alt="" coords="211,56,331,83"/>
-</map>

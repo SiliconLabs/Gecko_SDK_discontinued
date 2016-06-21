@@ -1,4 +1,0 @@
-<map id="VCMP_TriggerSet" name="VCMP_TriggerSet">
-<area shape="rect" id="node3" href="$group__VCMP.html#ga52aa53df539c0d68c1e2e0f5b4b40041" title="Configure and enable Voltage Comparator. " alt="" coords="176,5,256,32"/>
-<area shape="rect" id="node5" href="$group__VddCheck.html#ga9281f4ae6f1c6b5f31205fb3cc138e0e" title="Check if voltage is higher than indicated. " alt="" coords="304,5,461,32"/>
-</map>

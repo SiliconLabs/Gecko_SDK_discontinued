@@ -1,6 +1,0 @@
-<map id="USART_Enable" name="USART_Enable">
-<area shape="rect" id="node3" href="$group__RetargetIo.html#gab455176edfa0f3414d104e5d6d64cc50" title="Intializes UART/LEUART. " alt="" coords="161,31,303,57"/>
-<area shape="rect" id="node9" href="$group__UARTDRV.html#ga2aa9f087a06d6bf96933d657ac4e55d6" title="Initialize a UART driver instance. " alt="" coords="181,81,283,108"/>
-<area shape="rect" id="node5" href="$group__RetargetIo.html#ga5af724185f484056b02b42f4ab184bfb" title="Receive a byte from USART/LEUART and put into global buffer. " alt="" coords="353,5,500,32"/>
-<area shape="rect" id="node7" href="$group__RetargetIo.html#ga856ae0b788dccadc2c83a6e67409be5f" title="Transmit single byte to USART/LEUART. " alt="" coords="352,56,501,83"/>
-</map>

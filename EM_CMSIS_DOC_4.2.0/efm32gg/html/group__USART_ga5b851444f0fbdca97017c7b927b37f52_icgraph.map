@@ -1,8 +1,0 @@
-<map id="USART_InitAsync" name="USART_InitAsync">
-<area shape="rect" id="node3" href="$group__BSP__STK.html#gaba9ce74ca657de9f9f903e062cc654ef" title="Initialize board controller communication support (BCC) functionality. " alt="" coords="201,5,289,32"/>
-<area shape="rect" id="node5" href="$group__RetargetIo.html#gab455176edfa0f3414d104e5d6d64cc50" title="Intializes UART/LEUART. " alt="" coords="174,56,317,83"/>
-<area shape="rect" id="node11" href="$group__UARTDRV.html#ga2aa9f087a06d6bf96933d657ac4e55d6" title="Initialize a UART driver instance. " alt="" coords="194,107,297,133"/>
-<area shape="rect" id="node13" href="$group__USART.html#ga68be1cf794e547ab572d71b7bada30c0" title="Init USART0 for asynchronous IrDA mode. " alt="" coords="189,157,301,184"/>
-<area shape="rect" id="node7" href="$group__RetargetIo.html#ga5af724185f484056b02b42f4ab184bfb" title="Receive a byte from USART/LEUART and put into global buffer. " alt="" coords="367,31,513,57"/>
-<area shape="rect" id="node9" href="$group__RetargetIo.html#ga856ae0b788dccadc2c83a6e67409be5f" title="Transmit single byte to USART/LEUART. " alt="" coords="365,81,515,108"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="ezradio_hal_NirqLevel" name="ezradio_hal_NirqLevel">
-<area shape="rect" id="node3" href="$group__GPIO.html#gac1050d30b940c30899c63aa060fa4dba" title="Read the pad value for a single pin in a GPIO port. " alt="" coords="200,5,304,32"/>
-<area shape="rect" id="node5" href="$group__BUS.html#gaca6b55014161f4c51c9daf4f707eeb7c" title="Perform a single&#45;bit read operation on a peripheral register. " alt="" coords="352,5,469,32"/>
-</map>

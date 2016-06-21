@@ -1935,6 +1935,9 @@
       <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_assert.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_system.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_acmp.c</name>
     </file>
     <file>

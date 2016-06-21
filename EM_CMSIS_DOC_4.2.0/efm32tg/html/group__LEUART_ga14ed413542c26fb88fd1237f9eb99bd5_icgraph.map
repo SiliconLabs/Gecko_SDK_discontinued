@@ -1,6 +1,0 @@
-<map id="LEUART_Init" name="LEUART_Init">
-<area shape="rect" id="node3" href="$group__BSP__STK.html#gaba9ce74ca657de9f9f903e062cc654ef" title="Initialize board controller communication support (BCC) functionality. " alt="" coords="175,5,263,32"/>
-<area shape="rect" id="node5" href="$group__RetargetIo.html#gab455176edfa0f3414d104e5d6d64cc50" title="Intializes UART/LEUART. " alt="" coords="147,56,290,83"/>
-<area shape="rect" id="node7" href="$group__RetargetIo.html#ga5af724185f484056b02b42f4ab184bfb" title="Receive a byte from USART/LEUART and put into global buffer. " alt="" coords="340,31,487,57"/>
-<area shape="rect" id="node9" href="$group__RetargetIo.html#ga856ae0b788dccadc2c83a6e67409be5f" title="Transmit single byte to USART/LEUART. " alt="" coords="339,81,488,108"/>
-</map>

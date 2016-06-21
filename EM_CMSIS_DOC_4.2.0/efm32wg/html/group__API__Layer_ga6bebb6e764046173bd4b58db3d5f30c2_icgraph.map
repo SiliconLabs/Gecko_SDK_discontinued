@@ -1,4 +1,0 @@
-<map id="ezradio_start_rx" name="ezradio_start_rx">
-<area shape="rect" id="node3" href="$group__Direct__Receive__Plugin.html#ga9a1aa8ea909b1667cf73d2227773251f" title="Starts direct reception with the radio configurations from the radioHandle parameter. " alt="" coords="169,5,338,32"/>
-<area shape="rect" id="node5" href="$group__Receive__Plugin.html#gae2761df30f35463d361937ddee63eed0" title="Set Radio to RX mode, packet length is always coming from the radio configuration. " alt="" coords="200,56,307,83"/>
-</map>

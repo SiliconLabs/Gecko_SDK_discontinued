@@ -1,8 +1,0 @@
-<map id="GPIO_PinInGet" name="GPIO_PinInGet">
-<area shape="rect" id="node3" href="$touch_8c.html#a3611206d185a38b740457a748712c457" title="Interrupt handler is executed with frequency ~28Hz when panel is not pressed and with frequency ~140H..." alt="" coords="205,5,331,32"/>
-<area shape="rect" id="node5" href="$group__BSP__DK.html#ga5d856abb3eda44db619c8bacd9a7db4d" title="Get state MCU plugin board VBUS overcurrent flag. " alt="" coords="157,56,379,83"/>
-<area shape="rect" id="node7" href="$group__HAL__Layer.html#gaabf77038901412b5b640149538ec5cbe" title="ezradio_hal_NirqLevel" alt="" coords="195,107,341,133"/>
-<area shape="rect" id="node11" href="$group__Touch.html#ga96801185fed6bc54edb1334680c00095" title="Check status of the touch panel. " alt="" coords="215,157,321,184"/>
-<area shape="rect" id="node13" href="$group__USB__HOST.html#ga62f99f2ed786c98d00935fc2fd140aaf" title="Wait for device connection. " alt="" coords="162,208,374,235"/>
-<area shape="rect" id="node9" href="$group__API__Layer.html#ga5e458f080841a7423743d53e2217d1e5" title="ezradio_configuration_init" alt="" coords="427,107,597,133"/>
-</map>

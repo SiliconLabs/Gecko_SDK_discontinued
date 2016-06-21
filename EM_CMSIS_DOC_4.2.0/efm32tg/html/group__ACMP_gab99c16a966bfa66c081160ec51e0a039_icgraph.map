@@ -1,5 +1,0 @@
-<map id="ACMP_CapsenseInit" name="ACMP_CapsenseInit">
-<area shape="rect" id="node3" href="$caplesense_8c.html#a78388fdc0a453879163ff3de37c6a6ec" title="Setup the ACMP. " alt="" coords="190,5,357,32"/>
-<area shape="rect" id="node7" href="$group__CapSense.html#ga9cc00a748bf5cab4ca2e987e07b17566" title="Initializes the capacitive sense system. " alt="" coords="219,56,327,83"/>
-<area shape="rect" id="node5" href="$group__CapSense.html#ga4a9a1233a70703ca91a6bc9fcf05ec19" title="Initializes the capacative sense system without LESENSE. " alt="" coords="406,5,527,32"/>
-</map>

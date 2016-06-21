@@ -1,5 +1,0 @@
-<map id="PCNT_Reset" name="PCNT_Reset">
-<area shape="rect" id="node3" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="377,5,495,32"/>
-<area shape="rect" id="node5" href="$group__CMU.html#gac0fede38cfa32965cc8ace2b51a14d5b" title="Select PCNTn clock. " alt="" coords="147,31,328,57"/>
-<area shape="rect" id="node8" href="$group__PCNT.html#gaa0a00b056f5f6404abd02de84c30d002" title="Set top buffer value. " alt="" coords="170,81,305,108"/>
-</map>

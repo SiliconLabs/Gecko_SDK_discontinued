@@ -155,6 +155,7 @@ C_SRC +=  \
 ../../../../../emlib/src/em_rtcc.c \
 ../../../../../emlib/src/em_usart.c \
 ../../../../../emlib/src/em_msc.c \
+../../../../../emlib/src/em_system.c \
 ../emode.c
 
 s_SRC += 

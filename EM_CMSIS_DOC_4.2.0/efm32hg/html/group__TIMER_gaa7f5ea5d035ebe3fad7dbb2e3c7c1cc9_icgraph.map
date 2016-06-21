@@ -1,5 +1,0 @@
-<map id="TIMER_IntDisable" name="TIMER_IntDisable">
-<area shape="rect" id="node3" href="$group__USTIMER.html#gae0ab9e930ee6cbd71061142c4ad4e298" title="Deinitialize USTIMER driver. " alt="" coords="176,5,291,32"/>
-<area shape="rect" id="node7" href="$group__USTIMER.html#ga5c7fa9c799b61638907d4f832a45e58b" title="Activate and initialize the hardware timer used to pace the 1 microsecond delay functions. " alt="" coords="183,56,283,83"/>
-<area shape="rect" id="node5" href="$group__API__Layer.html#gad7a48081868b00a765b488f47909396c" title="ezradio_reset" alt="" coords="339,31,439,57"/>
-</map>

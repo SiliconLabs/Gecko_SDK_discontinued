@@ -1,6 +1,0 @@
-<map id="KSZ8851SNL_SPI_Transmit" name="KSZ8851SNL_SPI_Transmit">
-<area shape="rect" id="node3" href="$group__ksz8851snl.html#ga3eda0b4b00ab2ec0a7c265329587cc88" title="Read data from the ethernet controller RX FIFO. " alt="" coords="246,5,423,32"/>
-<area shape="rect" id="node5" href="$group__ksz8851snl.html#ga8bf407a2b072a222c5053b39963ed165" title="Continue writing ethernet controller FIFO. " alt="" coords="245,56,424,83"/>
-<area shape="rect" id="node7" href="$group__ksz8851snl.html#ga06d01a766dd38a09f6cb657bf778b385" title="Start writing to the ethernet controller FIFO. " alt="" coords="245,107,424,149"/>
-<area shape="rect" id="node9" href="$group__ksz8851snl.html#ga194769a82e5a1c0ab03ea0923b7da2d0" title="Write ethernet controller register. " alt="" coords="232,173,437,200"/>
-</map>

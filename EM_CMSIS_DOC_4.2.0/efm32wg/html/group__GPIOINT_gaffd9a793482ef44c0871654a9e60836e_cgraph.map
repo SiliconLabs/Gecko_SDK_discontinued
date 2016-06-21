@@ -1,4 +1,0 @@
-<map id="GPIOINT_CallbackRegister" name="GPIOINT_CallbackRegister">
-<area shape="rect" id="node3" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="224,5,315,32"/>
-<area shape="rect" id="node5" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="226,56,313,83"/>
-</map>

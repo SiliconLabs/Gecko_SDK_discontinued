@@ -164,6 +164,7 @@ C_SRC +=  \
 ../../../../../reptile/glib/glib/glib_string.c \
 ../../../../../reptile/glib/glib/glib_font_normal_8x8.c \
 ../../../../../emlib/src/em_assert.c \
+../../../../../emlib/src/em_system.c \
 ../../../../../emlib/src/em_cmu.c \
 ../../../../../emlib/src/em_emu.c \
 ../../../../../emlib/src/em_gpio.c \

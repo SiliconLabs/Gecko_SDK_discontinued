@@ -1,8 +1,0 @@
-<map id="USBH_Device_TypeDef" name="USBH_Device_TypeDef">
-<area shape="rect" id="node11" href="$structUSBH__Ep__TypeDef.html" title="USB HOST endpoint status data. " alt="" coords="837,979,965,1005"/>
-<area shape="rect" id="node2" href="$structUSB__ConfigurationDescriptor__TypeDef.html" title="USB Configuration Descriptor. " alt="" coords="240,690,427,731"/>
-<area shape="rect" id="node13" href="$structUSB__EndpointDescriptor__TypeDef.html" title="USB Endpoint Descriptor. " alt="" coords="254,910,413,951"/>
-<area shape="rect" id="node29" href="$structUSB__Setup__TypeDef.html" title="USB Setup request package. " alt="" coords="264,1043,403,1069"/>
-<area shape="rect" id="node39" href="$structUSB__DeviceDescriptor__TypeDef.html" title="USB Device Descriptor. " alt="" coords="260,755,407,797"/>
-<area shape="rect" id="node36" href="$structUSB__InterfaceDescriptor__TypeDef.html" title="USB Interface Descriptor. " alt="" coords="253,323,414,365"/>
-</map>

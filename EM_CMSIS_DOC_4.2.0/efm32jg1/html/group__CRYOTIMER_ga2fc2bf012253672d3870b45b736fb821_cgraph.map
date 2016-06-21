@@ -1,4 +1,0 @@
-<map id="CRYOTIMER_Init" name="CRYOTIMER_Init">
-<area shape="rect" id="node3" href="$group__CRYOTIMER.html#gabe18934adcd131e47da8c492388c36e0" title="Enable/disable EM4 wakeup capability. " alt="" coords="171,5,378,32"/>
-<area shape="rect" id="node5" href="$group__BUS.html#gaf8574f14855448ecae32c5a9dd0c7164" title="Perform a single&#45;bit write operation on a peripheral register. " alt="" coords="427,5,546,32"/>
-</map>

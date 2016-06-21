@@ -1,5 +1,0 @@
-<map id="LESENSE_ScanModeSet" name="LESENSE_ScanModeSet">
-<area shape="rect" id="node3" href="$group__LESENSE.html#ga0a398212f9973311040dee0752bb587d" title="Initialize the LESENSE module. " alt="" coords="213,5,312,32"/>
-<area shape="rect" id="node5" href="$group__CapSense.html#ga9cf779d965cc198a603d60d01225b993" title="Setup the LESENSE for capavitive sensing. " alt="" coords="361,5,546,32"/>
-<area shape="rect" id="node7" href="$group__CapSense.html#ga4a9a1233a70703ca91a6bc9fcf05ec19" title="Initializes the capacative sense system without LESENSE. " alt="" coords="595,5,717,32"/>
-</map>

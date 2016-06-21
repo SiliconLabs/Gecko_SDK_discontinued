@@ -1,4 +1,0 @@
-<map id="CRYPTO_DData0Write260" name="CRYPTO_DData0Write260">
-<area shape="rect" id="node3" href="$group__CRYPTO.html#gabe780f35a77400c0caa255a2b09d6042" title="Write 256 bits of data to a DDATAX register in the CRYPTO module. " alt="" coords="224,5,365,32"/>
-<area shape="rect" id="node5" href="$group__CRYPTO.html#gaca41b63a70f98785f4ee47f5a7f2c8d4" title="Write a 128 bit value into a crypto register. " alt="" coords="413,5,571,32"/>
-</map>

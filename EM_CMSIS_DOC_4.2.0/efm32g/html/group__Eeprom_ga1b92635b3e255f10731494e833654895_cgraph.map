@@ -1,6 +1,0 @@
-<map id="EEPROM_Write" name="EEPROM_Write">
-<area shape="rect" id="node3" href="$eeprom_8c.html#aef96dc2e7cad63b532565057c7f0467c" title="Do acknowledge polling on EEPROM device. " alt="" coords="163,5,280,32"/>
-<area shape="rect" id="node5" href="$group__I2CSPM.html#ga076766b20012fb6a0cdaaf0f2c760795" title="Perform I2C transfer. " alt="" coords="328,31,451,57"/>
-<area shape="rect" id="node7" href="$group__I2C.html#gae2bf2ecc3d0c4f55e3511d4871b64b16" title="Prepare and start an I2C transfer (single master mode only). " alt="" coords="499,5,613,32"/>
-<area shape="rect" id="node9" href="$group__I2C.html#ga67983b3dbe7f028a97f765e421b3df56" title="Continue an initiated I2C transfer (single master mode only). " alt="" coords="662,31,759,57"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="USB_PrintErrorMsgString" name="USB_PrintErrorMsgString">
-<area shape="rect" id="node3" href="$group__USB__COMMON.html#gaedc267ca571518980b7f7f4392386844" title="Return an error message string for a given error code. " alt="" coords="219,5,376,32"/>
-<area shape="rect" id="node5" href="$group__USB__COMMON.html#ga43cf32af5653cb2cd27fb6729be245fb" title="Transmit &quot;printf&quot; formated data on the debug serial port. " alt="" coords="250,56,345,83"/>
-</map>

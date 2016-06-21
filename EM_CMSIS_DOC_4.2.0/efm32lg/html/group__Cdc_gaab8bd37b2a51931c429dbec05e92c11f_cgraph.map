@@ -1,9 +1,0 @@
-<map id="CDC_StateChangeEvent" name="CDC_StateChangeEvent">
-<area shape="rect" id="node3" href="$group__DMA.html#ga6b72fd4e3bcc36e68cca16e5fa243a11" title="Activate DMA basic cycle (used for memory&#45;peripheral transfers). " alt="" coords="211,5,341,32"/>
-<area shape="rect" id="node5" href="$group__USB__DEVICE.html#ga9e0a1cf705301d9e035feff27ea41cda" title="Start a read (OUT) transfer on an endpoint. " alt="" coords="402,56,491,83"/>
-<area shape="rect" id="node13" href="$group__USB__COMMON.html#gac2a406f16d989b04c4fc5b37d5c10b45" title="Start a timer. " alt="" coords="217,157,335,184"/>
-<area shape="rect" id="node17" href="$group__USB__COMMON.html#gab73c922427cf0d509788a8063451703f" title="Stop a timer. " alt="" coords="389,107,504,133"/>
-<area shape="rect" id="node7" href="$group__INT.html#gaa46adfbe58501552a0614c3f7adda6a5" title="Disable interrupts. " alt="" coords="572,107,663,133"/>
-<area shape="rect" id="node9" href="$group__INT.html#gafba0338f70b8fab23d8b5c00ec15df56" title="Enable interrupts. " alt="" coords="574,157,661,184"/>
-<area shape="rect" id="node11" href="$group__USB__DEVICE.html#gab4e55bb0aacaa90aab28a79e9b131b0f" title="Get current USB device state. " alt="" coords="552,56,683,83"/>
-</map>

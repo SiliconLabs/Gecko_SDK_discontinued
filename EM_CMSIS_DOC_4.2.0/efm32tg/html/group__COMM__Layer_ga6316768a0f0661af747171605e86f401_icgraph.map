@@ -1,5 +1,0 @@
-<map id="ezradio_comm_WriteData" name="ezradio_comm_WriteData">
-<area shape="rect" id="node3" href="$group__API__Layer.html#ga48c934c7d9a3a297087572137693cdf7" title="ezradio_write_ezconfig\l_array" alt="" coords="224,5,379,46"/>
-<area shape="rect" id="node7" href="$group__API__Layer.html#ga352edd05911a66d9fe2b2e7c11d2df22" title="ezradio_write_tx_fifo" alt="" coords="230,71,373,97"/>
-<area shape="rect" id="node5" href="$group__API__Layer.html#ga5e458f080841a7423743d53e2217d1e5" title="ezradio_configuration_init" alt="" coords="427,12,597,39"/>
-</map>

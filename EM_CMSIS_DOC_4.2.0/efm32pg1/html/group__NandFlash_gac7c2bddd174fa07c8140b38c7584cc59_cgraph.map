@@ -1,4 +1,0 @@
-<map id="NANDFLASH_ReadPage" name="NANDFLASH_ReadPage">
-<area shape="rect" id="node3" href="$group__NandFlash.html#ga439db746d35d38bd98b554084bd15907" title="Check if an address is valid for the nand flash device. " alt="" coords="209,5,381,32"/>
-<area shape="rect" id="node5" href="$group__NandFlash.html#ga5f05f548912d09981e531480b6802700" title="Check generated ECC against ECC read from device and correct data if possible. " alt="" coords="215,56,374,83"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="Si114xReset" name="Si114xReset">
-<area shape="rect" id="node3" href="$group__Si114x.html#ga68d719ca4b817a58e8014c9e826b390a" title="Implements 10ms delay. " alt="" coords="156,5,247,32"/>
-<area shape="rect" id="node5" href="$group__Si114x.html#ga85dcc599c9e3df8a22002f7ef5a3e5d8" title="Pauses autonomous measurements. " alt="" coords="147,56,255,83"/>
-<area shape="rect" id="node11" href="$group__Si114x.html#ga8d9e6e60e0ced326193208cdf976bbee" title="Writes to Si114x Register. " alt="" coords="311,107,465,133"/>
-<area shape="rect" id="node7" href="$group__Si114x.html#gaeae79629a9f5a41c75ba329fa056eeef" title="Reads from Si114x register. " alt="" coords="305,5,471,32"/>
-<area shape="rect" id="node9" href="$group__Si114x.html#ga734e022c8fda86b69a353b1012c59231" title="Implements 1ms delay. " alt="" coords="347,56,429,83"/>
-</map>

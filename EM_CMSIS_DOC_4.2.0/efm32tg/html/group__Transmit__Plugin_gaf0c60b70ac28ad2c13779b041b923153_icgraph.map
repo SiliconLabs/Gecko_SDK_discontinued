@@ -1,3 +1,0 @@
-<map id="ezradioStartTransmitSmart" name="ezradioStartTransmitSmart">
-<area shape="rect" id="node3" href="$group__Transmit__Plugin.html#gade85938593abc8d7c6246eeaa9536a61" title="Start a default transmission using the packet information previously set to radioHandle. Depending on the information in the radioHandle parameter the function decides which transmission function has to be called. " alt="" coords="233,5,415,32"/>
-</map>

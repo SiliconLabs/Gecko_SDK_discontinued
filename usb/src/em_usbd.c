@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file em_usbd.c
  * @brief USB protocol stack library API for EFM32/EZR32.
- * @version 4.2.0
+ * @version 4.2.1
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>

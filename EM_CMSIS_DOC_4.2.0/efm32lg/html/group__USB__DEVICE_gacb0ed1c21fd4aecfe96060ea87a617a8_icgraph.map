@@ -1,3 +1,0 @@
-<map id="USBD_UnStallEp" name="USBD_UnStallEp">
-<area shape="rect" id="node3" href="$group__Msd.html#gafd14b40b8d009c6341c92a35b5e9ad42" title="Called whenever a USB setup command is received. This function overrides standard CLEAR_FEATURE comma..." alt="" coords="168,5,291,32"/>
-</map>
