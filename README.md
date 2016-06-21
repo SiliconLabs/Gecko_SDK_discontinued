@@ -1,7 +1,7 @@
 Gecko SDK
 =========
 
-The Gecko SDK is software development kit developed by Silicon Labs for the [EFM32](http://www.silabs.com/products/mcu/32-bit/Pages/32-bit-microcontrollers.aspx) and [EZR32](http://www.silabs.com/products/wireless/proprietary/Pages/proprietary-wireless-protocols.aspx). It contains the basic software needed for development, covering everything from the low-level hardware abstraction layer (HAL) and peripheral drivers to communication stacks and example code.
+The Gecko SDK is software development kit developed by Silicon Labs for the [EFM32](http://www.silabs.com/products/mcu/32-bit/Pages/32-bit-microcontrollers.aspx), [EFR32](https://www.silabs.com/products/wireless/Pages/wireless-gecko-iot-connectivity-portfolio.aspx) and [EZR32](http://www.silabs.com/products/wireless/proprietary/Pages/proprietary-wireless-protocols.aspx). It contains the basic software needed for development, covering everything from the low-level hardware abstraction layer (HAL) and peripheral drivers to communication stacks and example code.
 The Gecko SDK is also part of the [Simplicity Studio](http://www.silabs.com/simplicity) toolsuite from Silicon Labs. Downloading Simplicity Studio also gives you access to a large range of tools, like Configurator and Energy Profiler together with access to all software and documentation.
 
 Documentation
@@ -13,11 +13,11 @@ For datasheets, reference manuals and other documentation items, download [Simpl
 About the folders
 -----------------
 
-The Gecko MCU SDK is a comprehensive suite of software, with everything needed for software development on a Gecko MCU (EFM32) or Wireless Gecko (EZR32), organized in an easy way to help with application development. It contains full software support, from register definitions to full-fledged examples.
+The Gecko MCU SDK is a comprehensive suite of software, with everything needed for software development on a Gecko MCU (EFM32) or Wireless Gecko (EFR32 and EZR32), organized in an easy way to help with application development. It contains full software support, from register definitions to full-fledged examples.
 The Gecko MCU SDK is organized into the following folders:
 * [CMSIS](CMSIS) — This folder contains the basic core definitions definitions and libraries needed to work with the Cortex-M CPUs
 * [Device](Device) — This folder contains the device specific register defnitions for our MCUs. It is written according to ARMs Cortex Microcontroller Software Interface Standard (CMSIS), and you have full control over every bit of the hardware using these defines.
-* [emlib](emlib) — This layer is the hardware abstraction layer (HAL), which gives control over most of the hardware, but a limited degree of abstraction is provided to reduce complexity and ease implementation. At this level, most of the functions are readily portable across the full range of Gecko devices, from Gecko MCUs (EFM32) to Wireless Geckos (EZR32).
+* [emlib](emlib) — This layer is the hardware abstraction layer (HAL), which gives control over most of the hardware, but a limited degree of abstraction is provided to reduce complexity and ease implementation. At this level, most of the functions are readily portable across the full range of Gecko devices, from Gecko MCUs (EFM32) to Wireless Geckos (EFR32 and EZR32).
 * [emdrv](emdrv) — These are full drivers for different peripherals, such as a SPI driver or a flash driver. They are easy to set up, give immediate access to the given functionality, and are fully portable across all Gecko devices.
 * [reptile](reptile) — Middleware components developed by Silicon Labs and ports of popular third-party middleware. These are full libraries available to use in an application, like graphics, file systems, real-time operating systems (RTOS), certification libraries (IEC-60335 Class B) and TCP/IP stacks. The third-party software can either be developed by companies like Segger or Micrium or be based on open source code like lwip and FatFS.
 * [util](util) — Middleware components developed third-parties. These are full libraries available to use in an application, ported to the Silicon Labs hardware. Currently the only middleware component available here is the mbedTLS from ARM.
@@ -28,7 +28,7 @@ This folder also contain **examples** that run on top of all this software to de
 Changelog
 ---------
 See the changlogs for the individual modules:
-* [Device Changelog](Device/Changes-CMSIS.txt)
+* [Device Changelog](Device/Changes-Device.txt)
 * [emlib Changelog](emlib/Changes_emlib.txt)
 * [emdrv Changelog](emdrv/Changes-emdrv.txt)
 * [usb Changelog](usb/Changes_usb.txt)
