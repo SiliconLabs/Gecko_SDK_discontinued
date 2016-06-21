@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ezradio_receive_plugin.c
  * @brief EzRadio receive plug-in managed by the plug-in manager if enabled.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -40,11 +40,11 @@
 #include "ezradio_plugin_manager.h"
 #include "ezradio_receive_plugin.h"
 
-#if ( defined EZRADIO_PLUGIN_RECEIVE )
+#if defined(EZRADIO_PLUGIN_RECEIVE)
 
 /// @cond DO_NOT_INCLUDE_WITH_DOXYGEN
 
-#if ( ( defined EZRADIO_PLUGIN_AUTO_ACK ) && ( defined EZRADIO_PLUGIN_TRANSMIT ) )
+#if defined( EZRADIO_PLUGIN_AUTO_ACK) && defined(EZRADIO_PLUGIN_TRANSMIT)
 Ecode_t ezradioTransmitAutoAck(EZRADIODRV_Handle_t radioHandle);
 #endif
 
@@ -113,7 +113,7 @@ Ecode_t ezradioHandleReceivePlugin( EZRADIODRV_Handle_t radioHandle, EZRADIODRV_
     ezradio_fifo_info(EZRADIO_CMD_FIFO_INFO_ARG_FIFO_RX_BIT, NULL);
     ezradioStartRx( radioHandle );
 
-#if ( ( defined EZRADIO_PLUGIN_AUTO_ACK ) && ( defined EZRADIO_PLUGIN_TRANSMIT ) )
+#if defined(EZRADIO_PLUGIN_AUTO_ACK) && defined(EZRADIO_PLUGIN_TRANSMIT)
     /* Transmit auto acknowledge packet if enabled */
     if (radioHandle->autoAck.ackMode  == ezradiodrvAutoAckSkipOne)
     {
@@ -136,4 +136,4 @@ Ecode_t ezradioHandleReceivePlugin( EZRADIODRV_Handle_t radioHandle, EZRADIODRV_
 
 /// @endcond
 
-#endif //#if ( defined EZRADIO_PLUGIN_RECEIVE )
+#endif //#if defined( EZRADIO_PLUGIN_RECEIVE )

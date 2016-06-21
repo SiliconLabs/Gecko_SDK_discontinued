@@ -1,4 +1,10 @@
 ================ Revision history ============================================
+4.3.0:
+- Fixed RTC and BURTC bug in FreeRTOS examples. RTC and BURTC counter was reset
+  before the counter value was read, leading to incorrect sleep durations.
+- uC/OS-III example now enables the statistics task by default, which makes
+  stack usage available in the IAR uC/OS-III plugin.
+
 4.2.1:
 - No changes.
 

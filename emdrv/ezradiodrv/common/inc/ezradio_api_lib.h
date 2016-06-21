@@ -5,7 +5,7 @@
  *
  * @note The ezradiodrv API is not settled entirely in the current relase.
  *
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -42,7 +42,7 @@ extern "C" {
 #endif
 
 /***************************************************************************//**
- * @addtogroup EM_Drivers
+ * @addtogroup emdrv
  * @{
  ******************************************************************************/
 
@@ -146,7 +146,7 @@ void ezradio_fifo_info_fast_read(ezradio_cmd_reply_t *ezradioReply);
 
 /** @} (end addtogroup API_Layer) */
 /** @} (end addtogroup EZRADIODRV) */
-/** @} (end addtogroup EM_Drivers) */
+/** @} (end addtogroup emdrv) */
 
 #ifdef __cplusplus
 }

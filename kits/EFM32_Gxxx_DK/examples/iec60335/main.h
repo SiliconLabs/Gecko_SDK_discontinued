@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief   main header code for applications based on Cortex M3
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -24,7 +24,7 @@
 * To run the example the following conditions are required:\n
 * -# HiTOP for ARM Cortex or similar version and Debugging interface
 * -# Hitex GCC 4.5.0 compiler for cortex
-* -# Evaluation hardware from Energy Micro populated with EFM232G890F128 device
+* -# Evaluation hardware from Silicon Labs populated with EFM232G890F128 device
 * -# knowledge of Cortex in general and the EFM device specificly
 * Several Projects are implemented for the following tool chains:
 * -# HiTOP for Cortex
@@ -35,13 +35,13 @@
 * during compilation and link process.
 * Special focus must be set to the configuration and CMSIS library extension.
 */
-void Reset(void); 
-/*! 
-* @defgroup IEC60335_TOOLS Library Tool functions 
+void Reset(void);
+/*!
+* @defgroup IEC60335_TOOLS Library Tool functions
 * @{
 * @brief the software includes functions to demonstrate the libraries capabilities\n
 * on the real hardware. The modules are fixed on\n
-* the Gecko Evalboard from Energy Micro.
+* the Gecko Evalboard from Silicon Labs.
 * @}
 * @defgroup IEC60335_CONFIG Library Configuration
 * @{

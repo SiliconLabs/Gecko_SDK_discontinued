@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file  ustimer.c
  * @brief Microsecond delay functions.
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -259,7 +259,7 @@ static void DelayTicksEM1( uint16_t ticks )
 
     /* The following lines costs 2.7us@48MHz and 7.5us@14MHz (measured with GG)*/
     TIMER_CompareSet( TIMER, 0,
-                      TIMER_CounterGet( TIMER ) + EFM32_MAX( minTicks, ticks ) );
+                      TIMER_CounterGet( TIMER ) + SL_MAX( minTicks, ticks ) );
     TIMER_IntClear( TIMER, TIMER_IFC_CC0 );
     TIMER_IntEnable( TIMER, TIMER_IEN_CC0 );
 
@@ -278,11 +278,12 @@ static void DelayTicksEM1( uint16_t ticks )
 /** @endcond */
 
 /******** THE REST OF THE FILE IS DOCUMENTATION ONLY !**********************//**
+ * @addtogroup emdrv
+ * @{
  * @addtogroup USTIMER
  * @{
 
-@page ustimer_doc USTIMER Microsecond delay timer module
-
+@details
    Implements microsecond delays.
 
    The delay is implemented using a hardware timer. @ref USTIMER_Init() must
@@ -360,4 +361,5 @@ int main( void )
 }
   @endverbatim
 
- * @}**************************************************************************/
+ * @} end group USTIMER *******************************************************
+ * @} end group emdrv ****************************************************/

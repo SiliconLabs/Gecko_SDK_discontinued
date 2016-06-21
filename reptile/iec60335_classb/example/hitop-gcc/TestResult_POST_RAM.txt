@@ -1,5 +1,5 @@
 RAM Test:
-Energy Micro IEC60355 class b test script log
+Silicon Labs IEC60355 class b test script log
 provides execution log of the POST RAM test function
 
 executed : 11:36:53, 11.07.2011

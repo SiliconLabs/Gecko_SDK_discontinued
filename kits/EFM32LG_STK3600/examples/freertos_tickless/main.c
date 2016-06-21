@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief FreeRTOS Tickless Demo for Energy Micro EFM32LG_STK3600 Starter Kit
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -33,7 +33,6 @@
 
 #define STACK_SIZE_FOR_TASK    (configMINIMAL_STACK_SIZE + 10)
 #define TASK_PRIORITY          (tskIDLE_PRIORITY + 1)
-#define DELAY ( 700 / portTICK_RATE_MS )
 
 /* Semaphores used by application to synchronize two tasks */
 xSemaphoreHandle sem;
@@ -41,28 +40,32 @@ xSemaphoreHandle sem;
 char text[8];
 /* Counter start value*/
 int count = 0;
+
 /**************************************************************************//**
  * @brief LcdPrint task which is showing numbers on the display
  * @param *pParameters pointer to parameters passed to the function
  *****************************************************************************/
 static void LcdPrint(void *pParameters)
 {
-  pParameters = pParameters;   /* to quiet warnings */
+  (void) pParameters;   /* to quiet warnings */
+
   for (;;)
   {
     /* Wait for semaphore, then display next number */
-   if (pdTRUE == xSemaphoreTake(sem, portMAX_DELAY)) {	
-    SegmentLCD_Write(text);
+    if (pdTRUE == xSemaphoreTake(sem, portMAX_DELAY))
+    {
+      SegmentLCD_Write(text);
     }
   }
 }
+
 /**************************************************************************//**
  * @brief Count task which is preparing next number to display
  * @param *pParameters pointer to parameters passed to the function
  *****************************************************************************/
 static void Count(void *pParameters)
 {
-  pParameters = pParameters;   /* to quiet warnings */
+  (void) pParameters;   /* to quiet warnings */
 
   for (;;)
   {
@@ -71,7 +74,7 @@ static void Count(void *pParameters)
     text[1] = count % 10 + '0';
     text[2] = '\0';
     xSemaphoreGive(sem);
-    vTaskDelay(DELAY);
+    vTaskDelay(pdMS_TO_TICKS(500));
   }
 }
 

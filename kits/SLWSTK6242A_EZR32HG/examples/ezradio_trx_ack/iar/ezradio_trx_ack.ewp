@@ -103,7 +103,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>EZR32HG320F64R63	SiliconLaboratories EZR32HG320F64R63</state>
+          <state>EZR32HG320F64R68	SiliconLaboratories EZR32HG320F64R68</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -146,7 +146,7 @@
         <debug>1</debug>
         <option>
           <name>CCDefines</name>
-          <state>EZR32HG320F64R63</state>
+          <state>EZR32HG320F64R68</state>
           <state>SL_WSTK6242A</state>
           <state>EZRADIO_DRIVER_EXTENDED_SUPPORT</state>
           <state>EZRADIO_DRIVER_FULL_SUPPORT</state>
@@ -297,7 +297,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ustimer\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ezradiodrv\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ezradiodrv\common\inc\si4x6x</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ezradiodrv\si4463\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ezradiodrv\si4468\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ezradiodrv\plugins\inc</state>
           <state>$PROJ_DIR$\..</state>
           <state>$PROJ_DIR$\..\config</state>
@@ -518,7 +518,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ustimer\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ezradiodrv\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ezradiodrv\common\inc\si4x6x</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ezradiodrv\si4463\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ezradiodrv\si4468\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ezradiodrv\plugins\inc</state>
           <state>$PROJ_DIR$\..</state>
           <state>$PROJ_DIR$\..\config</state>
@@ -934,7 +934,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>EZR32HG320F64R63	SiliconLaboratories EZR32HG320F64R63</state>
+          <state>EZR32HG320F64R68	SiliconLaboratories EZR32HG320F64R68</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -978,7 +978,7 @@
         <option>
           <name>CCDefines</name>
           <state>NDEBUG</state>
-          <state>EZR32HG320F64R63</state>
+          <state>EZR32HG320F64R68</state>
           <state>SL_WSTK6242A</state>
           <state>EZRADIO_DRIVER_EXTENDED_SUPPORT</state>
           <state>EZRADIO_DRIVER_FULL_SUPPORT</state>
@@ -1129,7 +1129,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ustimer\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ezradiodrv\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ezradiodrv\common\inc\si4x6x</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ezradiodrv\si4463\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ezradiodrv\si4468\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ezradiodrv\plugins\inc</state>
           <state>$PROJ_DIR$\..</state>
           <state>$PROJ_DIR$\..\config</state>
@@ -1350,7 +1350,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ustimer\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ezradiodrv\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ezradiodrv\common\inc\si4x6x</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ezradiodrv\si4463\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ezradiodrv\si4468\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emdrv\ezradiodrv\plugins\inc</state>
           <state>$PROJ_DIR$\..</state>
           <state>$PROJ_DIR$\..\config</state>

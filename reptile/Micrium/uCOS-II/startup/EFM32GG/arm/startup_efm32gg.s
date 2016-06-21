@@ -1,7 +1,7 @@
 ;/**************************************************************************//**
 ; * @file
 ; * @brief    CMSIS Core Device Startup File for
-; *           Energy Micro 'EFM32GG/LG' Device Series
+; *           Silicon Labs 'EFM32GG/LG' Device Series
 ; * @version 3.0.0
 ; * @date     03. February 2012
 ; *
@@ -21,7 +21,7 @@
 ; * CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
 ; *
 ; ******************************************************************************/
-; Energy Micro release version
+; Silicon Labs release version
 ; @version INTERNAL
 ;/*
 ;//-------- <<< Use Configuration Wizard in Context Menu >>> ------------------

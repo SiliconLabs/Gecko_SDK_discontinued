@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file em_usbdch9.c
  * @brief USB protocol stack library, USB chapter 9 command handler.
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -227,7 +227,7 @@ static int GetDescriptor( USBD_Device_TypeDef *pDev )
 
   if ( length )
   {
-    retVal = USBD_Write( 0, (void*)data, EFM32_MIN(length, p->wLength), NULL );
+    retVal = USBD_Write( 0, (void*)data, SL_MIN(length, p->wLength), NULL );
   }
 
   return retVal;

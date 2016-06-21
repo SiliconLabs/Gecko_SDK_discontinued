@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief Internal temperature sensor demo for SLSTK3401A_EFM32PG
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -110,7 +110,7 @@ static float ConvertToCelsius(int32_t adcSample)
                 & 0xFFF0)
                >> _DEVINFO_ADC0CAL3_TEMPREAD1V25_SHIFT);
 
-  if ((calTemp0 == 0xFF) || (calValue0) == 0xFFF)
+  if ((calTemp0 == 0xFF) || (calValue0 == 0xFFF))
   {
     /* The temperature sensor is not calibrated */
     return -100.0;

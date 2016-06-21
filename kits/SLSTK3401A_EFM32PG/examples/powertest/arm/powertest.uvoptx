@@ -242,6 +242,16 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>bsp</GroupName>
+          <Files>
+            <File>
+              <FileName>bsp_trace.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\common\bsp\bsp_trace.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>Source</GroupName>
           <Files>
             <File>

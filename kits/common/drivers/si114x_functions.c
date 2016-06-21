@@ -1,10 +1,10 @@
 /*************************************************************************//**
  * @file
  * @brief Si114x reusable functions
- * @version 4.2.1
+ * @version 4.3.0
  *****************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * This software is provided 'as-is', without any express or implied

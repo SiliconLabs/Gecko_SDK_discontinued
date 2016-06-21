@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief EFM32 Segment LCD Display driver
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -43,15 +43,14 @@
  *  -------3------
  * @endverbatim
  * E.g.: First text character bit pattern #3 (above) is
- *  Segment 1D for Display
- *  Location COM 3, BIT 0
+ * Segment 1D for Display
+ * Location COM 3, BIT 0
  *****************************************************************************/
 typedef struct
 {
   uint8_t com[14]; /**< LCD COM line (for multiplexing) */
   uint8_t bit[14]; /**< LCD bit number */
 } CHAR_TypeDef;
-
 
 /**************************************************************************//**
  * @brief Defines segment COM and BIT fields numeric display
@@ -81,13 +80,58 @@ typedef struct
 } ARING_TypeDef;
 
 /**************************************************************************//**
- * @brief Defines segment COM and BIT fields for A-wheel (suited for Anim)
+ * @brief Defines segment COM and BIT fields for Battery (suited for Anim)
  *****************************************************************************/
 typedef struct
 {
   uint8_t com[4]; /**< LCD COM line (for multiplexing) */
   uint8_t bit[4]; /**< LCD bit number */
 } BATTERY_TypeDef;
+
+/**************************************************************************//**
+ * @brief Defines segment COM and BIT fields for top and bottom row blocks.
+ * The bit pattern shown above for characters can be split into upper and lower
+ * portions for animation purposes. There are separate COM and BIT numbers
+ * which together represent a set of stacked blocks which can be shown on two
+ * rows in the segmented LCD screen.
+ *
+ * There are four blocks shown on the top row:
+ * @verbatim
+ *  -------0------
+ *
+ * |   \5  |6  /7 |
+ * |2   \  |  /   |1
+ *
+ *  --3---  ---4--
+ * @endverbatim
+ *
+ * There are four blocks shown on the bottom row :
+ * @verbatim
+ *  --3---  ---4--
+ *
+ * |    /  |  \5  |
+ * |2  /7  |6  \  |0
+ *
+ *  -------1------
+ * @endverbatim
+ *
+ * The upper row has four blocks which are placed directly above the four
+ * blocks on the lower row. Each block can be in one of three states:
+ * blank - outer five segments off, inner three segments off
+ * outer - outer five segments on,  inner three segments off
+ * inner - outer five segments off, inner three segments on
+ * full  - outer five segments on,  inner three segments on
+ *
+ * @verbatim
+ * Top row:    0 1 2 3 4 5 6 7
+ * Bottom row: 0 1 2 3 4 5 6 7
+ * @endverbatim
+ *****************************************************************************/
+typedef struct
+{
+  uint8_t com[8]; /**< LCD COM line (for multiplexing) */
+  uint8_t bit[8]; /**< LCD bit number */
+} Block_TypeDef;
 
 /**************************************************************************//**
  * @brief Defines prototype for all segments in display
@@ -99,6 +143,9 @@ typedef struct
   EM_TypeDef      EMode;        /**< Display energy mode */
   ARING_TypeDef   ARing;        /**< Display ring */
   BATTERY_TypeDef Battery;      /**< Display battery */
+  Block_TypeDef   TopBlocks[7]; /**< Display top blocks */
+  Block_TypeDef   BotBlocks[7]; /**< Display bottom blocks */
+
 } MCU_DISPLAY;
 
 /**************************************************************************//**
@@ -106,6 +153,13 @@ typedef struct
  *****************************************************************************/
 static const MCU_DISPLAY EFM_Display = EFM_DISPLAY_DEF;
 
+
+/**************************************************************************//**
+ * @brief Working instance of LCD display
+ *****************************************************************************/
+static void displayBlock(
+    SegmentLCD_BlockMode_TypeDef topMode[SEGMENT_LCD_NUM_BLOCK_COLUMNS],
+    SegmentLCD_BlockMode_TypeDef botMode[SEGMENT_LCD_NUM_BLOCK_COLUMNS]);
 
 /**************************************************************************//**
  * @brief
@@ -239,6 +293,17 @@ static const uint16_t EFM_Numbers[] = {
   0x0040  /* - */
 };
 
+/**************************************************************************//**
+ * @brief
+ * Defines highlighted segments for the block display
+ *****************************************************************************/
+static const uint16_t Blocks[] = {
+  0x0000, /* blank */
+  0x00E0, /* inner */
+  0x001F, /* outer */
+  0x00FF  /* full */
+};
+
 /** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 /* sign is last element of the table  */
 static const uint16_t signIndex = sizeof(EFM_Numbers)/sizeof(uint16_t) - 1 ;
@@ -330,6 +395,35 @@ void SegmentLCD_Battery(int batteryLevel)
       LCD_SegmentSet(com, bit, false);
     }
   }
+}
+
+
+/******************************************************************************
+ * @brief Display blocks on LCD display: blank, fill, outline, outline & fill
+ * @param topMode array of block modes for the top row with element zero
+ * representing the left-most column and element six representing the
+ * right-most column
+ * @param botMode array of block modes for the bottom row with element zero
+ * representing the left-most column and element six representing the
+ * right-most column
+ ******************************************************************************/
+void SegmentLCD_Block(
+    SegmentLCD_BlockMode_TypeDef topMode[SEGMENT_LCD_NUM_BLOCK_COLUMNS],
+    SegmentLCD_BlockMode_TypeDef botMode[SEGMENT_LCD_NUM_BLOCK_COLUMNS])
+{
+  /* If an update is in progress we must block, or there might be tearing */
+  LCD_SyncBusyDelay(0xFFFFFFFF);
+
+  /* Freeze LCD to avoid partial updates */
+  LCD_FreezeEnable(true);
+
+  /* Turn all segments off */
+  SegmentLCD_AlphaNumberOff();
+
+  displayBlock(topMode, botMode);
+
+  /* Enable update */
+  LCD_FreezeEnable(false);
 }
 
 
@@ -746,7 +840,7 @@ void SegmentLCD_UnsignedHex(uint16_t value)
  * @brief Write text on LCD display
  * @param string Text string to show on display
  *****************************************************************************/
-void SegmentLCD_Write(char *string)
+void SegmentLCD_Write(const char *string)
 {
   int      data, length, index;
   uint16_t bitfield;
@@ -797,3 +891,65 @@ void SegmentLCD_Write(char *string)
   /* Enable update */
   LCD_FreezeEnable(false);
 }
+
+/******************************************************************************
+ * @brief Display blocks on LCD display: blank, fill, outline, outline & fill
+ * @param topMode array of block modes for the top row with element zero
+ * representing the left-most column and element six representing the
+ * right-most column
+ * @param botMode array of block modes for the bottom row with element zero
+ * representing the left-most column and element six representing the
+ * right-most column
+ ******************************************************************************/
+static void displayBlock(
+    SegmentLCD_BlockMode_TypeDef topMode[SEGMENT_LCD_NUM_BLOCK_COLUMNS],
+    SegmentLCD_BlockMode_TypeDef botMode[SEGMENT_LCD_NUM_BLOCK_COLUMNS])
+{
+  int index;
+  int mode;
+  uint16_t bitfield;
+  uint32_t com, bit;
+  int      i;
+
+  /* Fill out all blocks in the top row of the display */
+  for (index = 0; index < SEGMENT_LCD_NUM_BLOCK_COLUMNS; index++)
+  {
+    mode = topMode[index];
+
+    /* Get segment bitmap for this block position */
+    bitfield = Blocks[mode];
+
+    for (i = 0; i < 8; i++)
+    {
+      if (bitfield & (1 << i))
+      {
+        bit = EFM_Display.TopBlocks[index].bit[i];
+        com = EFM_Display.TopBlocks[index].com[i];
+
+        // Turn on segment
+        LCD_SegmentSet(com, bit, true);
+      }
+    }
+  }
+  /* Fill out all blocks in the bottom row of the display */
+  for (index = 0; index < SEGMENT_LCD_NUM_BLOCK_COLUMNS; index++)
+  {
+    mode = botMode[index];
+
+    /* Get segment bitmap for this block position */
+    bitfield = Blocks[mode];
+
+    for (i = 0; i < 8; i++)
+    {
+      if (bitfield & (1 << i))
+      {
+        bit = EFM_Display.BotBlocks[index].bit[i];
+        com = EFM_Display.BotBlocks[index].com[i];
+
+        // Turn on segment
+        LCD_SegmentSet(com, bit, true);
+      }
+    }
+  }
+}
+

@@ -303,9 +303,9 @@
           <state>$PROJ_DIR$\..\..\..\..\..\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\Device\SiliconLabs\EFM32PG1B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\include\mbedtls</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\sl_crypto</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include\mbedtls</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto</state>
           <state>$PROJ_DIR$\..\..\..\..\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\config</state>
@@ -566,9 +566,9 @@
           <state>$PROJ_DIR$\..\..\..\..\..\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\Device\SiliconLabs\EFM32PG1B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\include\mbedtls</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\sl_crypto</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include\mbedtls</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto</state>
           <state>$PROJ_DIR$\..\..\..\..\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\config</state>
@@ -1259,9 +1259,9 @@
           <state>$PROJ_DIR$\..\..\..\..\..\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\Device\SiliconLabs\EFM32PG1B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\include\mbedtls</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\sl_crypto</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include\mbedtls</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto</state>
           <state>$PROJ_DIR$\..\..\..\..\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\config</state>
@@ -1518,9 +1518,9 @@
           <state>$PROJ_DIR$\..\..\..\..\..\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\Device\SiliconLabs\EFM32PG1B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\include\mbedtls</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\sl_crypto</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include\mbedtls</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto</state>
           <state>$PROJ_DIR$\..\..\..\..\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\config</state>
@@ -1546,8 +1546,8 @@
         <debug>0</debug>
         <option>
           <name>OOCOutputFormat</name>
-          <version>3</version>
-          <state>3</state>
+          <version>2</version>
+          <state>2</state>
         </option>
         <option>
           <name>OCOutputOverride</name>
@@ -1917,151 +1917,151 @@
   <group>
     <name>mbedtls</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\aes.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\aes.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\arc4.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\arc4.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\asn1parse.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\asn1parse.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\asn1write.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\asn1write.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\base64.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\base64.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\bignum.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\bignum.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\blowfish.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\blowfish.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\camellia.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\camellia.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\ccm.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\ccm.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\cipher.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\cipher.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\cipher_wrap.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\cipher_wrap.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\ctr_drbg.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\ctr_drbg.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\des.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\des.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\dhm.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\dhm.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\ecdh.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\ecdh.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\ecdsa.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\ecdsa.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\ecp.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\ecp.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\ecp_curves.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\ecp_curves.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\entropy.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\entropy.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\entropy_poll.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\entropy_poll.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\error.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\error.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\gcm.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\gcm.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\havege.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\havege.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\hmac_drbg.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\hmac_drbg.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\md.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\md.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\md2.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\md2.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\md4.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\md4.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\md5.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\md5.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\md_wrap.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\md_wrap.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\memory_buffer_alloc.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\memory_buffer_alloc.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\oid.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\oid.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\pem.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\pem.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\pk.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\pk.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\pk_wrap.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\pk_wrap.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\pkcs12.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\pkcs12.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\pkcs5.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\pkcs5.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\pkparse.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\pkparse.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\pkwrite.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\pkwrite.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\platform.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\platform.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\ripemd160.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\ripemd160.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\rsa.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\rsa.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\sha1.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\sha1.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\sha256.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\sha256.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\sha512.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\sha512.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\threading.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\threading.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\timing.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\timing.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\version.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\version.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\version_features.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\version_features.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\library\xtea.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\library\xtea.c</name>
     </file>
   </group>
   <group>
@@ -2094,16 +2094,16 @@
   <group>
     <name>sl_crypto</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\sl_crypto\sl_ecp.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\sl_ecp.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\sl_crypto\sl_aes.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\sl_aes.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\sl_crypto\sl_sha1.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\sl_sha1.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\mbedtls\sl_crypto\sl_sha256.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\sl_sha256.c</name>
     </file>
   </group>
   <group>

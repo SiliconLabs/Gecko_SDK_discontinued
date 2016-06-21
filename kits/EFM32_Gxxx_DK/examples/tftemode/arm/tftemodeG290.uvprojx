@@ -32,7 +32,7 @@
           <SFDFile></SFDFile>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
-          <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32G\Include;..\..\..\..\..\emlib\inc;..\..\..\..\common\drivers;..\..\..\..\common\bsp;..\..\..\config;..;..\..\..\..\..\reptile\glib</IncludePath>
+          <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32G\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\emdrv\common\inc;..\..\..\..\..\emdrv\config;..\..\..\..\..\emdrv\rtcdrv\inc;..\..\..\..\common\bsp;..\..\..\config;..;..\..\..\..\..\reptile\glib</IncludePath>
           <LibPath></LibPath>
           <RegisterFilePath></RegisterFilePath>
           <DBRegisterFilePath></DBRegisterFilePath>
@@ -344,9 +344,9 @@
             <uThumb>0</uThumb>
             <VariousControls>
               <MiscControls>--c99</MiscControls>
-              <Define>EFM32G290F128 DEBUG_EFM</Define>
+              <Define>EFM32G290F128 DEBUG_EFM RTCDRV_USE_LFRCO</Define>
               <Undefine></Undefine>
-              <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32G\Include;..\..\..\..\..\emlib\inc;..\..\..\..\common\drivers;..\..\..\..\common\bsp;..\..\..\config;..;..\..\..\..\..\reptile\glib</IncludePath>
+              <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32G\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\emdrv\common\inc;..\..\..\..\..\emdrv\config;..\..\..\..\..\emdrv\rtcdrv\inc;..\..\..\..\common\bsp;..\..\..\config;..;..\..\..\..\..\reptile\glib</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -361,7 +361,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32G\Include;..\..\..\..\..\emlib\inc;..\..\..\..\common\drivers;..\..\..\..\common\bsp;..\..\..\config;..;..\..\..\..\..\reptile\glib</IncludePath>
+              <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32G\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\emdrv\common\inc;..\..\..\..\..\emdrv\config;..\..\..\..\..\emdrv\rtcdrv\inc;..\..\..\..\common\bsp;..\..\..\config;..;..\..\..\..\..\reptile\glib</IncludePath>
             </VariousControls>
           </Aads>
           <LDads>
@@ -513,6 +513,11 @@
               <FilePath>..\..\..\..\..\emlib\src\em_gpio.c</FilePath>
             </File>
             <File>
+              <FileName>em_int.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\emlib\src\em_int.c</FilePath>
+            </File>
+            <File>
               <FileName>em_rtc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\emlib\src\em_rtc.c</FilePath>
@@ -558,9 +563,9 @@
           <GroupName>Drivers</GroupName>
           <Files>
             <File>
-              <FileName>rtcdrv.c</FileName>
+              <FileName>rtcdriver.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\common\drivers\rtcdrv.c</FilePath>
+              <FilePath>..\..\..\..\..\emdrv\rtcdrv\src\rtcdriver.c</FilePath>
             </File>
           </Files>
         </Group>

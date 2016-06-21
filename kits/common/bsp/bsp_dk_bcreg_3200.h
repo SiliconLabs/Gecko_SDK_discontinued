@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief Board Control register definitions
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -35,7 +35,7 @@ extern "C" {
 #endif
 
 /**************************************************************************//**
- * Defines FPGA register bank for Energy Micro Development Kit (DK) board,
+ * Defines FPGA register bank for Silicon Labs Development Kit (DK) board,
  * i.e. board control registers
  *****************************************************************************/
 #define BC_FLASH_BASE        0x80000000                                                          /**< FLASH memory base address */

@@ -103,7 +103,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>EZR32HG320F64R63	SiliconLaboratories EZR32HG320F64R63</state>
+          <state>EZR32HG320F64R68	SiliconLaboratories EZR32HG320F64R68</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -146,7 +146,7 @@
         <debug>1</debug>
         <option>
           <name>CCDefines</name>
-          <state>EZR32HG320F64R63</state>
+          <state>EZR32HG320F64R68</state>
           <state>GLIB_NO_DEFAULT_FONT</state>
         </option>
         <option>
@@ -912,7 +912,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>EZR32HG320F64R63	SiliconLaboratories EZR32HG320F64R63</state>
+          <state>EZR32HG320F64R68	SiliconLaboratories EZR32HG320F64R68</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -956,7 +956,7 @@
         <option>
           <name>CCDefines</name>
           <state>NDEBUG</state>
-          <state>EZR32HG320F64R63</state>
+          <state>EZR32HG320F64R68</state>
           <state>GLIB_NO_DEFAULT_FONT</state>
         </option>
         <option>

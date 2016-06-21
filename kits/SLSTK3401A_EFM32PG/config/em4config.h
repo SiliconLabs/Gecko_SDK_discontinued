@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file
  * @brief Provide configuration parameters for EM4 wakeup button.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -22,11 +22,11 @@
 #define EM4_WU_PB_EN        (1 << 17) /* GPIO_EM4WU1 = PF7 = pushbutton 1 */
 #define EM4_WU_PB_PIN       BSP_GPIO_PB1_PIN
 #define EM4_WU_PB_PORT      BSP_GPIO_PB1_PORT
-#define EM4_WU_PB_STR       "PB1"
+#define EM4_WU_PB_STR       "BTN1"
 
 #define EM4_NON_WU_PB          PB0
 #define EM4_NON_WU_PB_PIN      BSP_GPIO_PB0_PIN
 #define EM4_NON_WU_PB_PORT     BSP_GPIO_PB0_PORT
-#define EM4_NON_WU_PB_STR      "PB0"
+#define EM4_NON_WU_PB_STR      "BTN0"
 
 #endif /* __SILICON_LABS_EM4CONFIG_H__ */

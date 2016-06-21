@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file g_emodes.c
  * @brief Gecko energy mode setups (See Data Sheet Table 3.3)
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -225,7 +225,7 @@ void G_EM2_LfrcoRTC(void)
 
   // Make sure unwanted oscillators are disabled specifically for EM2 and LFRCO.
   CMU_OscillatorEnable(cmuOsc_LFXO, false, true);
-  
+
   // Enter EM2.
   EMU_EnterEM2(false);
 }

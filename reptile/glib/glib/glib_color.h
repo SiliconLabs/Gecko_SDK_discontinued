@@ -3,7 +3,7 @@
  * @brief Silicon Labs Graphics Library: Color Defines
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensensed under the Silabs License Agreement. See the file
@@ -170,7 +170,7 @@ extern "C" {
 #define GreenShift              8
 #define BlueMask                (0x000000FF)
 #define BlueShift               0
-    
+
 #ifdef __cplusplus
 }
 #endif

@@ -1,4 +1,11 @@
 ================ Revision history ============================================
+4.3.0:
+- Added driver for CPT112S TouchXpress Capacitive Touch Controller.
+- Fixed bug in NORFLASH programming algorithm.
+- Fixed incorrect TPIU prescaler calculation in bsp_trace.c for EFM32PG/JG.
+- Deprecated kits/common/drivers/rtcdrv.c/h, which is planned to be removed in
+  Gecko SDK 4.5.0. Please use emdrv/rtcdrv/src/rtcdriver.c instead.
+
 4.2.1:
 - No changes.
 

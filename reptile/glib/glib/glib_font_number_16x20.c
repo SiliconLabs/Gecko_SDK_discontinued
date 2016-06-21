@@ -3,7 +3,7 @@
 * @brief Silicon Labs Graphics Library: GLIB font number '0'-'9', ':' and ' ', 16x20 pixels
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensensed under the Silabs License Agreement. See the file
@@ -17,7 +17,7 @@
 #include <stdint.h>
 #include "glib.h"
 
-static const uint16_t GLIB_FontNumber16x20PixMap[] = 
+static const uint16_t GLIB_FontNumber16x20PixMap[] =
 {
   0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
   0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
@@ -41,9 +41,9 @@ static const uint16_t GLIB_FontNumber16x20PixMap[] =
   0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000
 };
 
-const GLIB_Font_t GLIB_FontNumber16x20 = {(void *)GLIB_FontNumber16x20PixMap, 
-                                          sizeof(GLIB_FontNumber16x20PixMap), 
-                                          sizeof(GLIB_FontNumber16x20PixMap[0]), 
+const GLIB_Font_t GLIB_FontNumber16x20 = {(void *)GLIB_FontNumber16x20PixMap,
+                                          sizeof(GLIB_FontNumber16x20PixMap),
+                                          sizeof(GLIB_FontNumber16x20PixMap[0]),
                                           12, 16, 20, 5, 0, NumbersOnlyFont};
-                                               
+
 

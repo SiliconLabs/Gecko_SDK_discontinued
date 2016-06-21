@@ -2,10 +2,10 @@
  * @file displayls013b7dh03config.h
  * @brief EFM32ZG_STK3200 specific configuration for the display driver for
  *        the Sharp Memory LCD model LS013B7DH03.
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -43,20 +43,16 @@
 #define LCD_AUTO_TOGGLE_PRS_ROUTE_LOC   PRS_ROUTE_LOCATION_LOC2
 #define LCD_AUTO_TOGGLE_PRS_ROUTE_PEN   PRS_ROUTE_CH2PEN
 
-#define LCD_PORT_EXTMODE          (0)  /* = gpioPortA on EFM32ZG_STK3200 */
-#define LCD_PIN_EXTMODE           (0)
-
-
 /*
  * Select how LCD polarity inversion should be handled:
  *
- * If POLARITY_INVERSION_EXTCOMIN is defined, the EXTMODE pin is set to HIGH,
- * and the polarity inversion is armed for every rising edge of the EXTCOMIN
+ * If POLARITY_INVERSION_EXTCOMIN is defined,
+ * the polarity inversion is armed for every rising edge of the EXTCOMIN
  * pin. The actual polarity inversion is triggered at the next transision of
  * SCS. This mode is recommended because it causes less CPU and SPI load than
  * the alternative mode, see below.
- * If POLARITY_INVERSION_EXTCOMIN is undefined, the EXTMODE pin is set to LOW,
- * and the polarity inversion is toggled by sending an SPI command. This mode
+ * If POLARITY_INVERSION_EXTCOMIN is undefined,
+ * the polarity inversion is toggled by sending an SPI command. This mode
  * causes more CPU and SPI load than using the EXTCOMIN pin mode.
  */
 #define POLARITY_INVERSION_EXTCOMIN

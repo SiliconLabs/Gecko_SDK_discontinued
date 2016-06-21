@@ -2,10 +2,10 @@
  * @file efm32wg840f128.h
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EFM32WG840F128
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -106,6 +106,7 @@ typedef enum IRQn
  *****************************************************************************/
 #define __MPU_PRESENT             1 /**< Presence of MPU  */
 #define __FPU_PRESENT             1 /**< Presence of FPU  */
+#define __VTOR_PRESENT            1 /**< Presence of VTOR register in SCB */
 #define __NVIC_PRIO_BITS          3 /**< NVIC interrupt priority bits */
 #define __Vendor_SysTickConfig    0 /**< Is 1 if different SysTick counter is used */
 

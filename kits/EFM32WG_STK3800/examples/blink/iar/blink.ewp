@@ -1522,8 +1522,8 @@
         <debug>0</debug>
         <option>
           <name>OOCOutputFormat</name>
-          <version>3</version>
-          <state>3</state>
+          <version>2</version>
+          <state>2</state>
         </option>
         <option>
           <name>OCOutputOverride</name>

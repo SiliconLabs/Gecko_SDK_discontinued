@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ezradio_auto_ack_plugin.h
  * @brief EzRadio auto acknowledge plug-in managed by the plug-in manager if enabled.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -39,7 +39,7 @@ extern "C" {
 #endif
 
 /***************************************************************************//**
- * @addtogroup EM_Drivers
+ * @addtogroup emdrv
  * @{
  ******************************************************************************/
 
@@ -60,7 +60,7 @@ extern "C" {
  * @{
  ******************************************************************************/
 
-#if ( ( defined EZRADIO_PLUGIN_AUTO_ACK ) && ( defined EZRADIO_PLUGIN_TRANSMIT ) && ( defined EZRADIO_PLUGIN_RECEIVE ) )
+#if defined(EZRADIO_PLUGIN_AUTO_ACK) && defined(EZRADIO_PLUGIN_TRANSMIT) && defined(EZRADIO_PLUGIN_RECEIVE)
 
 /// EzRadio auto acknowledge mode
 typedef enum EZRADIODRV_AutoAckMode
@@ -108,16 +108,16 @@ void ezradioSkipAutoAck(EZRADIODRV_AutoAckHandle_t *autoAckHandle);
   0,                                 /* Packet ID                   */  \
 },
 
-#else //#if ( ( defined EZRADIO_PLUGIN_AUTO_ACK ) && ( defined EZRADIO_PLUGIN_TRANSMIT ) && ( defined EZRADIO_PLUGIN_RECEIVE ) )
+#else //#if defined( EZRADIO_PLUGIN_AUTO_ACK ) && defined( EZRADIO_PLUGIN_TRANSMIT ) && defined( EZRADIO_PLUGIN_RECEIVE )
 
 #define EZRADIODRV_AUTO_ACK_PLUGIN_INIT_DEFAULT
 
-#endif //#if ( ( defined EZRADIO_PLUGIN_AUTO_ACK ) && ( defined EZRADIO_PLUGIN_TRANSMIT ) && ( defined EZRADIO_PLUGIN_RECEIVE ) )
+#endif //#if defined( EZRADIO_PLUGIN_AUTO_ACK ) && defined( EZRADIO_PLUGIN_TRANSMIT ) && defined( EZRADIO_PLUGIN_RECEIVE )
 
 /** @} (end addtogroup Auto_ACK_Plugin) */
 /** @} (end addtogroup Plugin_System) */
 /** @} (end addtogroup EZRADIODRV) */
-/** @} (end addtogroup EM_Drivers) */
+/** @} (end addtogroup emdrv) */
 
 #ifdef __cplusplus
 }

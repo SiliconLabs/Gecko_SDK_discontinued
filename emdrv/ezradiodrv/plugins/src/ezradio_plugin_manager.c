@@ -2,7 +2,7 @@
  * @file ezradio_plugin_manager.c
  * @brief This file contains the plug-in manager for the EZRadio and
  *        EZRadioPRO chip families.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -55,15 +55,15 @@ static const uint8_t Radio_Configuration_Data_Array[]  = \
 /* Radio interrupt receive flag */
 static bool    ezradioIrqReceived = false;
 
-#if ( defined EZRADIO_PLUGIN_TRANSMIT )
+#if defined( EZRADIO_PLUGIN_TRANSMIT )
 Ecode_t ezradioHandleTransmitPlugin( EZRADIODRV_Handle_t radioHandle, EZRADIODRV_ReplyHandle_t radioReplyHandle );
 #endif
 
-#if ( defined EZRADIO_PLUGIN_RECEIVE )
+#if defined( EZRADIO_PLUGIN_RECEIVE )
 Ecode_t ezradioHandleReceivePlugin( EZRADIODRV_Handle_t radioHandle, EZRADIODRV_ReplyHandle_t radioReplyHandle );
 #endif
 
-#if ( defined EZRADIO_PLUGIN_CRC_ERROR )
+#if defined( EZRADIO_PLUGIN_CRC_ERROR )
 Ecode_t ezradioHandleCrcErrorPlugin( EZRADIODRV_Handle_t radioHandle, EZRADIODRV_ReplyHandle_t radioReplyHandle );
 #endif
 
@@ -80,12 +80,10 @@ static void GPIO_EZRadio_INT_IRQHandler( uint8_t pin );
  *****************************************************************************/
 void ezradioInit( EZRADIODRV_Handle_t handle )
 {
-  uint16_t wDelay;
-
   (void)handle;
 
   /* Initialize radio GPIOs and SPI port */
-#if ( defined EZRADIO_PLUGIN_PTI )
+#if defined( EZRADIO_PLUGIN_PTI )
   ezradio_hal_GpioInit( GPIO_EZRadio_INT_IRQHandler, true );
 #else
   ezradio_hal_GpioInit( GPIO_EZRadio_INT_IRQHandler, false );
@@ -104,7 +102,12 @@ void ezradioInit( EZRADIODRV_Handle_t handle )
 #else
     printf("ERROR: Radio configuration failed!\n");
 #endif
-    for (wDelay = 0x7FFF; wDelay--; ) ;
+
+    USTIMER_Init();
+    /* Delay for 10ms time */
+    USTIMER_Delay( 10000u );
+    /* Deinit ustimer */
+    USTIMER_DeInit();
 
     /* Power Up the radio chip */
     ezradioPowerUp();
@@ -142,15 +145,15 @@ Ecode_t ezradioPluginManager( EZRADIODRV_Handle_t radioHandle )
     /* Read ITs, clear all pending ones */
     ezradio_get_int_status(0x0, 0x0, 0x0, radioReplyHandle);
 
-#if ( defined EZRADIO_PLUGIN_TRANSMIT )
+#if defined( EZRADIO_PLUGIN_TRANSMIT )
     ezradioHandleTransmitPlugin( radioHandle, radioReplyHandle );
 #endif
 
-#if ( defined EZRADIO_PLUGIN_RECEIVE )
+#if defined( EZRADIO_PLUGIN_RECEIVE )
     ezradioHandleReceivePlugin( radioHandle, radioReplyHandle );
 #endif
 
-#if ( defined EZRADIO_PLUGIN_CRC_ERROR )
+#if defined( EZRADIO_PLUGIN_CRC_ERROR )
     ezradioHandleCrcErrorPlugin( radioHandle, radioReplyHandle );
 #endif
 
@@ -164,13 +167,13 @@ Ecode_t ezradioPluginManager( EZRADIODRV_Handle_t radioHandle )
  *****************************************************************************/
 void ezradioResetTRxFifo(void)
 {
-#if ( defined EZRADIO_PLUGIN_RECEIVE )
+#if defined( EZRADIO_PLUGIN_RECEIVE )
   ezradio_fifo_info(EZRADIO_CMD_FIFO_INFO_ARG_FIFO_RX_BIT, NULL);
-#endif //#if ( defined EZRADIO_PLUGIN_RECEIVE )
+#endif //#if defined( EZRADIO_PLUGIN_RECEIVE )
 
-#if ( defined EZRADIO_PLUGIN_TRANSMIT )
+#if defined( EZRADIO_PLUGIN_TRANSMIT )
   ezradio_fifo_info(EZRADIO_CMD_FIFO_INFO_ARG_FIFO_TX_BIT, NULL);
-#endif //#if ( defined EZRADIO_PLUGIN_TRANSMIT )
+#endif //#if defined( EZRADIO_PLUGIN_TRANSMIT )
 }
 
 /// @cond DO_NOT_INCLUDE_WITH_DOXYGEN
@@ -205,11 +208,12 @@ static void GPIO_EZRadio_INT_IRQHandler( uint8_t pin )
 /// @endcond
 
 /******** THE REST OF THE FILE IS DOCUMENTATION ONLY !**********************//**
+ * @addtogroup emdrv
+ * @{
  * @addtogroup EZRADIODRV
  * @{
 
-@page ezradiodrv_doc EZRADIODRV EzRadio Peripheral Interface driver
-
+@details
   The source files for the EzRadio driver library resides in the
   emdrv/ezradiodrv folder. The file hierarchy is shown in the
   @ref ezradiodrv_file_list.
@@ -496,4 +500,5 @@ int main(void)
     advised to use higher level layers instead.
 
 
- * @}**************************************************************************/
+ * @} end group EZRADIODRV ****************************************************
+ * @} end group emdrv ****************************************************/

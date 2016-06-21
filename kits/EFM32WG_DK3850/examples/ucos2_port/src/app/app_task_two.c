@@ -23,37 +23,17 @@
 *
 * @file   app_task_two.c
 * @brief
-* @version 4.2.1
+* @version 4.3.0
 ******************************************************************************
 * @section License
-* <b>(C) Copyright 2013 Energy Micro AS, http://www.energymicro.com</b>
+* <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
 *******************************************************************************
 *
-* Permission is granted to anyone to use this software for any purpose,
-* including commercial applications, and to alter it and redistribute it
-* freely, subject to the following restrictions:
+* This file is licensed under the Silabs License Agreement. See the file
+* "Silabs_License_Agreement.txt" for details. Before using this software for
+* any purpose, you must agree to the terms of that agreement.
 *
-* 1. The origin of this software must not be misrepresented; you must not
-*    claim that you wrote the original software.
-* 2. Altered source versions must be plainly marked as such, and must not be
-*    misrepresented as being the original software.
-* 3. This notice may not be removed or altered from any source distribution.
-* 4. The source and compiled code may only be used on Energy Micro "EFM32"
-*    microcontrollers and "EFR4" radios.
-*
-* DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Energy Micro AS has no
-* obligation to support this Software. Energy Micro AS is providing the
-* Software "AS IS", with no express or implied warranties of any kind,
-* including, but not limited to, any implied warranties of merchantability
-* or fitness for any particular purpose or warranties against infringement
-* of any proprietary rights of a third party.
-*
-* Energy Micro AS will not be liable for any consequential, incidental, or
-* special damages, or any other relief, or for any claim by any third party,
-* arising from your use of this Software.
-*
-*********************************************************************************************************
-*/
+******************************************************************************/
 #include <includes.h>
 
 #define CHAR_BUFFER_SIZE 10
@@ -74,9 +54,7 @@
 */
 void APP_TaskTwo(void *p_arg)
 {
-  static char taskMsg[CHAR_BUFFER_SIZE]; /* buffer for received characters to be passed to TaskThree */
-  signed int  taskCharBuffer = -1; /* Character buffer for receiving */
-  unsigned char bufIndex = 0;
+  int taskChar;                   // Character received.
 
   (void)p_arg;  /* Note(1) */
 
@@ -84,23 +62,16 @@ void APP_TaskTwo(void *p_arg)
   { /* Task body, always written as an infinite loop  */
 
     /* Load character received on serial to character buffer */
-    taskCharBuffer = UART1_ReadChar();
+    taskChar = UART1_ReadChar();
 
     /* If the character in the buffer is valid... */
-    if ( (taskCharBuffer >= 32) && (taskCharBuffer < 128) )
+    if ( (taskChar >= 32) && (taskChar < 128) )
     {
-      /* ...cast and copy it to message buffer variable... */
-      taskMsg[bufIndex] = (char)taskCharBuffer;
-
-      /* ...and post the message to the mailbox */
-      if(OS_ERR_NONE != OSMboxPost(pSerialMsgObj, &taskMsg[bufIndex]))
+      /* Post the message to the mailbox */
+      if(OS_ERR_NONE != OSMboxPost(pSerialMsgObj, (void*)taskChar))
       {
         /* Error has occured, handle can be done here */
       }
-
-      bufIndex++;
-      if(bufIndex >= CHAR_BUFFER_SIZE)
-        bufIndex = 0;
     }
 
     /* Delay task for 1 system tick (uC/OS-II suspends this task and executes

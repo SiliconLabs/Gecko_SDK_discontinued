@@ -23,37 +23,17 @@
 *
 * @file   app.c
 * @brief
-* @version 4.2.1
+* @version 4.3.0
 ******************************************************************************
 * @section License
-* <b>(C) Copyright 2013 Energy Micro AS, http://www.energymicro.com</b>
+* <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
 *******************************************************************************
 *
-* Permission is granted to anyone to use this software for any purpose,
-* including commercial applications, and to alter it and redistribute it
-* freely, subject to the following restrictions:
+* This file is licensed under the Silabs License Agreement. See the file
+* "Silabs_License_Agreement.txt" for details. Before using this software for
+* any purpose, you must agree to the terms of that agreement.
 *
-* 1. The origin of this software must not be misrepresented; you must not
-*    claim that you wrote the original software.
-* 2. Altered source versions must be plainly marked as such, and must not be
-*    misrepresented as being the original software.
-* 3. This notice may not be removed or altered from any source distribution.
-* 4. The source and compiled code may only be used on Energy Micro "EFM32"
-*    microcontrollers and "EFR4" radios.
-*
-* DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Energy Micro AS has no
-* obligation to support this Software. Energy Micro AS is providing the
-* Software "AS IS", with no express or implied warranties of any kind,
-* including, but not limited to, any implied warranties of merchantability
-* or fitness for any particular purpose or warranties against infringement
-* of any proprietary rights of a third party.
-*
-* Energy Micro AS will not be liable for any consequential, incidental, or
-* special damages, or any other relief, or for any claim by any third party,
-* arising from your use of this Software.
-*
-*********************************************************************************************************
-*/
+******************************************************************************/
 
 /*
 *********************************************************************************************************
@@ -102,9 +82,6 @@ static  OS_Q   AppMsgQueue[MSG_Q_SIZE];
 static void App_TaskStart(void *p_arg);
 static void App_TaskCreate(void);
 static void App_MailboxCreate(void);
-
-/* Static function for energyAware Profiler */
-static void setupSWO(void);
 
 
 /*
@@ -155,7 +132,7 @@ int main(void)
   CHIP_Init();
 
   /* setup SW0 for energyAware Profiler */
-  setupSWO();
+  BSP_TraceSwoSetup();
 
   /* Initialize "uC/OS-III, The Real-Time Kernel".        */
   OSInit(&err);
@@ -225,9 +202,9 @@ static void App_TaskStart(void *p_arg)
   /* Initialize the uC/OS-III ticker                       */
   OS_CPU_SysTickInit(CMU_ClockFreqGet(cmuClock_CORE) / OS_CFG_TICK_RATE_HZ);
 
-#if (OS_TASK_STAT_EN > 0U)
+#if (OS_CFG_STAT_TASK_EN > 0U)
   /* Determine CPU capacity                               */
-  OSStatInit();
+  OSStatTaskCPUUsageInit(&err);
 #endif
 
   /* Create application tasks                             */
@@ -377,50 +354,3 @@ static void App_TaskCreate (void)
   }
 }
 
-
-/*
-*********************************************************************************************************
-*                                              setupSW0()
-*
-* Description : Setup SW0 for energyAware Profiler.
-*
-* Argument(s) : none.
-*
-* Return(s)   : none.
-*
-* Note(s)     : none.
-********************************************************************************************************
-*/
-static void setupSWO(void)
-{
-  uint32_t *dwt_ctrl = (uint32_t *) 0xE0001000;
-  uint32_t *tpiu_prescaler = (uint32_t *) 0xE0040010;
-  uint32_t *tpiu_protocol = (uint32_t *) 0xE00400F0;
-
-  CMU->HFPERCLKEN0 |= CMU_HFPERCLKEN0_GPIO;
-  /* Enable Serial wire output pin */
-  GPIO->ROUTE |= GPIO_ROUTE_SWOPEN;
-  /* Set location 1 */
-  GPIO->ROUTE = (GPIO->ROUTE & ~(_GPIO_ROUTE_SWLOCATION_MASK)) | GPIO_ROUTE_SWLOCATION_LOC1;
-  /* Enable output on pin */
-  GPIO->P[2].MODEH &= ~(_GPIO_P_MODEH_MODE15_MASK);
-  GPIO->P[2].MODEH |= GPIO_P_MODEH_MODE15_PUSHPULL;
-  /* Enable debug clock AUXHFRCO */
-  CMU->OSCENCMD = CMU_OSCENCMD_AUXHFRCOEN;
-
-  while(!(CMU->STATUS & CMU_STATUS_AUXHFRCORDY));
-
-  /* Enable trace in core debug */
-  CoreDebug->DHCSR |= 1;
-  CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
-
-  /* Enable PC and IRQ sampling output */
-  *dwt_ctrl = 0x400113FF;
-  /* Set TPIU prescaler to 16. */
-  *tpiu_prescaler = 0xf;
-  /* Set protocol to NRZ */
-  *tpiu_protocol = 2;
-  /* Unlock ITM and output data */
-  ITM->LAR = 0xC5ACCE55;
-  ITM->TCR = 0x10009;
-}

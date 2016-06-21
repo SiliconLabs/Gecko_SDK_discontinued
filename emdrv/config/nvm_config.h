@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file nvm_config.h
  * @brief NVM driver configuration
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -24,7 +24,7 @@ extern "C" {
 #endif
 
 /***************************************************************************//**
- * @addtogroup EM_Drivers
+ * @addtogroup emdrv
  * @{
  ******************************************************************************/
 
@@ -118,7 +118,7 @@ typedef struct
 NVM_Config_t const *NVM_ConfigGet(void);
 
 /** @} (end addtogroup NVM) */
-/** @} (end addtogroup EM_Drivers) */
+/** @} (end addtogroup emdrv) */
 
 #ifdef __cplusplus
 }

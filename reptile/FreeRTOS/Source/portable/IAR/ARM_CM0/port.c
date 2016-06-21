@@ -195,7 +195,7 @@ void vPortEndScheduler( void )
 void vPortYield( void )
 {
 	/* Set a PendSV to request a context switch. */
-	*(portNVIC_INT_CTRL) = portNVIC_PENDSVSET;
+	portNVIC_INT_CTRL_REG = portNVIC_PENDSVSET_BIT;
 
 	/* Barriers are normally not required but do ensure the code is completely
 	within the specified behaviour for the architecture. */
@@ -234,7 +234,7 @@ uint32_t ulPreviousMask;
 		if( xTaskIncrementTick() != pdFALSE )
 		{
 			/* Pend a context switch. */
-			*(portNVIC_INT_CTRL) = portNVIC_PENDSVSET;
+			portNVIC_INT_CTRL_REG = portNVIC_PENDSVSET_BIT;
 		}
 	}
 	portCLEAR_INTERRUPT_MASK_FROM_ISR( ulPreviousMask );

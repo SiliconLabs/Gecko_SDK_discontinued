@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file
  * @brief DMA control data block.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -17,6 +17,7 @@
 
 
 #include "em_device.h"
+#include "em_common.h"
 #include "dmactrl.h"
 
 #if ( ( DMA_CHAN_COUNT > 0 ) && ( DMA_CHAN_COUNT <= 4 ) )
@@ -37,16 +38,5 @@
 
 
 /** DMA control block array, requires proper alignment. */
-#if defined (__ICCARM__)
-#pragma data_alignment=DMACTRL_ALIGNMENT
-DMA_DESCRIPTOR_TypeDef dmaControlBlock[DMACTRL_CH_CNT * 2];
-
-#elif defined (__CC_ARM)
-DMA_DESCRIPTOR_TypeDef dmaControlBlock[DMACTRL_CH_CNT * 2] __attribute__ ((aligned(DMACTRL_ALIGNMENT)));
-
-#elif defined (__GNUC__)
-DMA_DESCRIPTOR_TypeDef dmaControlBlock[DMACTRL_CH_CNT * 2] __attribute__ ((aligned(DMACTRL_ALIGNMENT)));
-
-#else
-#error Undefined toolkit, need to define alignment
-#endif
+SL_ALIGN(DMACTRL_ALIGNMENT)
+DMA_DESCRIPTOR_TypeDef dmaControlBlock[DMACTRL_CH_CNT * 2] SL_ATTRIBUTE_ALIGN(DMACTRL_ALIGNMENT);

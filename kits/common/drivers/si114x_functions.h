@@ -1,20 +1,20 @@
 /*************************************************************************//**
  * @file
- * @brief Si114x function prototypes, structure and bit definitions   
- * @version 4.2.1
+ * @brief Si114x function prototypes, structure and bit definitions
+ * @version 4.3.0
  *****************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  ******************************************************************************
- * 
+ *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
  * arising from the use of this software.
- * 
+ *
  * Permission is granted to anyone to use this software for any purpose,
  * including commercial applications, and to alter it and redistribute it
  * freely, subject to the following restrictions:
- * 
+ *
  * 1. The origin of this software must not be misrepresented; you must not
  *    claim that you wrote the original software. If you use this software
  *    in a product, an acknowledgement in the product documentation would be
@@ -29,7 +29,7 @@
 #define SI114X_FUNCTIONS_H
 
 /***************************************************************************//**
- * @addtogroup Drivers
+ * @addtogroup kitdrv
  * @{
  ******************************************************************************/
 
@@ -51,9 +51,9 @@ extern "C" {
 /***************************************************************************//**
  * @brief SI114X_CAL_S Data Structure
  ******************************************************************************/
-typedef struct 
+typedef struct
 {
-    uint32_t    vispd_correction;  /**< VIS Photodiode Correction        */ 
+    uint32_t    vispd_correction;  /**< VIS Photodiode Correction        */
     uint32_t    irpd_correction;   /**< IR  Photodiode Correction        */
     uint32_t    adcrange_ratio;    /**< _RANGE Ratio                     */
     uint32_t    irsize_ratio;      /**< Large IR vs Small IR Ratio       */
@@ -65,17 +65,17 @@ typedef struct
  ***************   Functions Needed by Si114x_functions.c   ********************
  ******************************************************************************/
 
-int16_t Si114xWriteToRegister(HANDLE si114x_handle, 
-                              uint8_t address, 
+int16_t Si114xWriteToRegister(HANDLE si114x_handle,
+                              uint8_t address,
                               uint8_t value);
 int16_t Si114xReadFromRegister(HANDLE si114x_handle, uint8_t address);
-int16_t Si114xBlockWrite(HANDLE si114x_handle, 
-                         uint8_t  address, 
-                         uint8_t  length, 
+int16_t Si114xBlockWrite(HANDLE si114x_handle,
+                         uint8_t  address,
+                         uint8_t  length,
                          uint8_t* values);
-int16_t Si114xBlockRead(HANDLE si114x_handle, 
-                        uint8_t  address, 
-                        uint8_t  length, 
+int16_t Si114xBlockRead(HANDLE si114x_handle,
+                        uint8_t  address,
+                        uint8_t  length,
                         uint8_t* values);
 void delay_10ms(void);
 
@@ -149,10 +149,10 @@ int16_t si114x_set_ucoef(HANDLE si114x_handle,
 #define REG_PARAM_OUT             0x2E
 #define REG_PARAM_RD              0x2E
 #define REG_CHIP_STAT             0x30
-#define REG_UCOEF0                0x13  
+#define REG_UCOEF0                0x13
 #define REG_UCOEF1                0x14
-#define REG_UCOEF2                0x15  
-#define REG_UCOEF3                0x16  
+#define REG_UCOEF2                0x15
+#define REG_UCOEF3                0x16
 #define REG_MEAS_RATE_LSB         0x08
 #define REG_MEAS_RATE_MSB         0x09
 /// @endcond
@@ -200,7 +200,7 @@ int16_t si114x_set_ucoef(HANDLE si114x_handle,
  ******************************************************************************/
 /// @cond DOXYGEN_SHOULD_SKIP_THIS
 
-// REG_IRQ_CFG 
+// REG_IRQ_CFG
 #define  ICG_INTOE                0x01
 #define  ICG_INTMODE              0x02
 
@@ -264,7 +264,7 @@ int16_t si114x_set_ucoef(HANDLE si114x_handle,
 
 //
 // REG_PS_LED21   LED2 Current is upper nibble
-//                LED1 Current is lower nibble 
+//                LED1 Current is lower nibble
 //
 // REG_PS_LED3    LED3 Current is lower nibble
 #define LEDI_000                  0x00
@@ -295,9 +295,9 @@ int16_t si114x_set_ucoef(HANDLE si114x_handle,
 
 //
 // ADC Counters
-// PARAM_PS_ADC_COUNTER      
-// PARAM_ALSVIS_ADC_COUNTER  
-// PARAM_ALSIR_ADC_COUNTER  
+// PARAM_PS_ADC_COUNTER
+// PARAM_ALSVIS_ADC_COUNTER
+// PARAM_ALSIR_ADC_COUNTER
 //
 #define RECCNT_001                0x00
 #define RECCNT_007                0x10
@@ -311,7 +311,7 @@ int16_t si114x_set_ucoef(HANDLE si114x_handle,
 //
 // Proximity LED Selection
 // PARAM_PSLED12_SELECT  PS2 LED Choice is Upper Nibble
-//                       PS1 LED Choice is Lower Nibble 
+//                       PS1 LED Choice is Lower Nibble
 //
 // PARAM_PSLED3_SELECT   PS3 LED Choice is Lower Nibble
 //
@@ -333,8 +333,8 @@ int16_t si114x_set_ucoef(HANDLE si114x_handle,
 #define SEL_LED3_PS3              (LED3_EN)
 
 //
-// PARAM_PS_ENCODING  
-// When these bits are set the corresponding measurement 
+// PARAM_PS_ENCODING
+// When these bits are set the corresponding measurement
 // will report the least significant bits of the
 // ADC is used instead of the most significant bits
 #define PS1_LSB                   0x10
@@ -343,8 +343,8 @@ int16_t si114x_set_ucoef(HANDLE si114x_handle,
 #define PS_ENCODING_MASK          0x70
 
 //
-// PARAM_ALS_ENCODING 
-// When these bits are set the corresponding measurement 
+// PARAM_ALS_ENCODING
+// When these bits are set the corresponding measurement
 // will report the least significant bits of the
 // ADC is used instead of the most significant bits
 #define ALS_VIS_LSB               0x10
@@ -353,14 +353,14 @@ int16_t si114x_set_ucoef(HANDLE si114x_handle,
 #define ALS_ENCODING_MASK         0xCF
 
 //
-// PARAM_PS_ADC_MISC         
-// PARAM_ALS_VIS_ADC_MISC         
-// PARAM_ALS_IR_ADC_MISC         
+// PARAM_PS_ADC_MISC
+// PARAM_ALS_VIS_ADC_MISC
+// PARAM_ALS_IR_ADC_MISC
 //
 // PS_MODE_MEAS_MODE and NOT_PS_MEAS_MODE are applicable only
 // for PARAM_PS_ADC_MISC.
 //
-//    PS_MEAS_MODE is used to perform normal Proximity measurements. 
+//    PS_MEAS_MODE is used to perform normal Proximity measurements.
 //    While in this operatinal mode, it is possible to choose either
 //    the small IR photodiode or big IR photodiode. The big IR
 //    photodiode is the default for normal operation. The small IR
@@ -369,39 +369,39 @@ int16_t si114x_set_ucoef(HANDLE si114x_handle,
 //
 //    NOT_PS_MEAS_MODE can be applied to PARAM_PS_ADC_MISC.
 //
-//    This allows three PS channels to perform RAW ADC measurements 
+//    This allows three PS channels to perform RAW ADC measurements
 //    on any source (no irLED driven). These measurements will have no
-//    reference, and will have an offset of 0x4000 if the most 
-//    significant 16 bits of the 17-bit ADC is reported. Otherwise, 
-//    if the PARAM_xxx_ENCODING _LSB settings are set, then the 
-//    offset will be 0x8000 (due to bit shifting). 
+//    reference, and will have an offset of 0x4000 if the most
+//    significant 16 bits of the 17-bit ADC is reported. Otherwise,
+//    if the PARAM_xxx_ENCODING _LSB settings are set, then the
+//    offset will be 0x8000 (due to bit shifting).
 //
-//    When performing voltage measurements (INT, LED1, LED2, TEMP), 
+//    When performing voltage measurements (INT, LED1, LED2, TEMP),
 //    a separate VSS measurement should be subtracted from the reading.
 //
 //    When performing measurement with visible photodiode, first take
 //    a no-led measurement and subtract away the visible light measurement.
 //
-//    When performing an optical measurement using either two IR 
-//    photodiodes, one should subtract away the no-led measurement from 
+//    When performing an optical measurement using either two IR
+//    photodiodes, one should subtract away the no-led measurement from
 //    the IR measurement.
 //
 //    Note that the subtraction ordering is significant between
 //    taking visible light photodiode vs IR photodiode
 //    measurement. The raw ADC reading of visible light photodiode
-//    decreases with increasing light levels while the raw ADC reading 
+//    decreases with increasing light levels while the raw ADC reading
 //    of IR light photodiode increases with increasing light levels.
 //
 // HSIG_EN means 'high signal range enable'. The ADC would
 // be able to operate with higher light levels, but at the
-// expense of sensitivity. This setting can be used for 
+// expense of sensitivity. This setting can be used for
 // operation under direct sunlight.
 //
-// PARAM_PS_ADC_MISC, PARAM_ALSVIS_ADC_MISC and PARAM_ALSIR_ADC_MISC    
+// PARAM_PS_ADC_MISC, PARAM_ALSVIS_ADC_MISC and PARAM_ALSIR_ADC_MISC
 // can use HSIG_EN also.
-// 
 //
-#define NOT_PS_MEAS_MODE          0x00 
+//
+#define NOT_PS_MEAS_MODE          0x00
 #define PS_MEAS_MODE              0x04
 #define HSIG_EN                   0x20
 #define RANGE_EN                  0x20
@@ -411,14 +411,14 @@ int16_t si114x_set_ucoef(HANDLE si114x_handle,
 
 //
 // ADC Mux Settings
-// PARAM_PS1_ADC_MUX    See PARAM_PS_ADC_MISC also 
+// PARAM_PS1_ADC_MUX    See PARAM_PS_ADC_MISC also
 // PARAM_PS2_ADC_MUX    See PARAM_PS_ADC_MISC also
 // PARAM_PS3_ADC_MUX    See PARAM_PS_ADC_MISC also
 //
 // PARAM_VIS_ADC_MUX    MUX_ALS_VIS or MUX_NONE only
 // PARAM_IR_ADC_MUX     MUX_ALS_IR, MUX_PS_IR or MUX_NONE only
 // PARAM_AUX_ADC_MUX    MUX_VTEMP, MUX_LED1, MUX_LED2, MUX_INT
-//                      to use anything other than MUX_VTEMP, 
+//                      to use anything other than MUX_VTEMP,
 //                      ANA_IN_KEY should be unlocked first.
 //
 #define MUX_SMALL_IR              0x00
@@ -434,9 +434,9 @@ int16_t si114x_set_ucoef(HANDLE si114x_handle,
 
 //
 // ADC Dividers
-// PARAM_PS_ADC_GAIN       
-// PARAM_ALSVIS_ADC_GAIN  
-// PARAM_ALSIR_ADC_GAIN 
+// PARAM_PS_ADC_GAIN
+// PARAM_ALSVIS_ADC_GAIN
+// PARAM_ALSIR_ADC_GAIN
 //
 #define ADC_NORM                  0x00
 #define ADC_DIV2                  0x01
@@ -456,7 +456,7 @@ int16_t si114x_set_ucoef(HANDLE si114x_handle,
 #define HW_KEY_VAL0               0x17
 
 // Sleep Control
-// PARAM_SLEEP_CTRL 
+// PARAM_SLEEP_CTRL
 #define SLEEP_DISABLED            0x01
 
 // ANA_IN_KEY value

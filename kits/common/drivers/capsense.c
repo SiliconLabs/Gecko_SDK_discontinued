@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief Capacitive sense driver
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -297,7 +297,7 @@ void CAPSENSE_Init(void)
   CMU_ClockEnable(cmuClock_TIMER0, true);
   CMU_ClockEnable(cmuClock_TIMER1, true);
 #if defined(ACMP_CAPSENSE_CMUCLOCK)
-  CMU_ClockEnable(ACMP_CAPSENSE_CMUCLOCK, true);  
+  CMU_ClockEnable(ACMP_CAPSENSE_CMUCLOCK, true);
 #else
   CMU->HFPERCLKEN0 |= ACMP_CAPSENSE_CLKEN;
 #endif

@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file
  * @brief Board support package API definitions.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -30,6 +30,11 @@ extern "C" {
 
 /***************************************************************************//**
  * @addtogroup BSP
+ * @brief Board Support Package
+ * @details
+ *  The BSP provides an API for board controllers, I/O control for buttons,
+ *  LEDs, etc and trace control for EFM32, EZR32 and EFR32 kits.
+ *  
  * @{
  ******************************************************************************/
 /***************************************************************************//**

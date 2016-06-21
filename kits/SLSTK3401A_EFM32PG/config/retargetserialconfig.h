@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file
  * @brief Provide stdio retargeting configuration parameters.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -22,7 +22,7 @@
  *
  * When retargeting serial output the user can choose which peripheral
  * to use as the serial output device. This choice is made by configuring
- * one or more of the following defines: RETARGET_USART0, RETARGET_LEUART0, 
+ * one or more of the following defines: RETARGET_USART0, RETARGET_LEUART0,
  * RETARGET_VCOM.
  *
  * This table shows the supported configurations and the resulting serial
@@ -80,7 +80,7 @@
 #else
 #error "Illegal USART selection."
 #endif
-      
+
 #if defined(RETARGET_VCOM)
   #define RETARGET_PERIPHERAL_ENABLE()   \
     GPIO_PinModeSet(BSP_BCC_ENABLE_PORT, \

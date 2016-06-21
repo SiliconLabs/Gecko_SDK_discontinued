@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ezradio_pn9_plugin.h
  * @brief EzRadio PN9 plug-in managed by the plug-in manager if enabled.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -39,7 +39,7 @@ extern "C" {
 #endif
 
 /***************************************************************************//**
- * @addtogroup EM_Drivers
+ * @addtogroup emdrv
  * @{
  ******************************************************************************/
 
@@ -60,7 +60,7 @@ extern "C" {
  * @{
  ******************************************************************************/
 
-#if ( defined EZRADIO_PLUGIN_PN9 )
+#if defined( EZRADIO_PLUGIN_PN9 )
 
 /// EzRadio PN9 plug-in instance initialization and handler structure.
 typedef struct EZRADIODRV_Pn9Handle
@@ -77,14 +77,14 @@ Ecode_t ezradioStopPn9( void );
   0,                            /* Channel                          */  \
 },
 
-#else //#if ( defined EZRADIO_PLUGIN_PN9 )
+#else //#if defined( EZRADIO_PLUGIN_PN9 )
 #define EZRADIODRV_PN9_PLUGIN_INIT_DEFAULT
-#endif  //#if ( defined EZRADIO_PLUGIN_PN9 )
+#endif  //#if defined( EZRADIO_PLUGIN_PN9 )
 
 /** @} (end addtogroup PN9_Plugin) */
 /** @} (end addtogroup Plugin_System) */
 /** @} (end addtogroup EZRADIODRV) */
-/** @} (end addtogroup EM_Drivers) */
+/** @} (end addtogroup emdrv) */
 
 #ifdef __cplusplus
 }

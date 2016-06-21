@@ -1,19 +1,19 @@
 /*************************************************************************//**
  * @file Si114x_types.h
  * @brief Si114x types
- * @version 4.2.1
+ * @version 4.3.0
  *****************************************************************************
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  ******************************************************************************
- * 
+ *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
  * arising from the use of this software.
- * 
+ *
  * Permission is granted to anyone to use this software for any purpose,
  * including commercial applications, and to alter it and redistribute it
  * freely, subject to the following restrictions:
- * 
+ *
  * 1. The origin of this software must not be misrepresented; you must not
  *    claim that you wrote the original software. If you use this software
  *    in a product, an acknowledgement in the product documentation would be
@@ -28,7 +28,7 @@
 #define SI114X_TYPES
 
 /***************************************************************************//**
- * @addtogroup Drivers
+ * @addtogroup kitdrv
  * @{
  ******************************************************************************/
 
@@ -67,27 +67,27 @@ typedef s8                PT_BOOL;
 /**************************************************************************//**
  * @brief Si114x Sample Data Structure
  *
- * @details The SI114X_IRQ_SAMPLE Data is populated within a low-level 
- * interrupt handler. 
+ * @details The SI114X_IRQ_SAMPLE Data is populated within a low-level
+ * interrupt handler.
  *
- * **sequence** is not directly from the Si113x/4x, but rather, 
- * the low-level interrupt handler can increment a rolling counter 
- * whenever a sample is made. **sequence** is provided a convenience 
+ * **sequence** is not directly from the Si113x/4x, but rather,
+ * the low-level interrupt handler can increment a rolling counter
+ * whenever a sample is made. **sequence** is provided a convenience
  * to upper software layers.
  *
- * **timestamp** is not from the Si113x/4x directly. The low_level 
- * interrupt handler is expected to use any convenient time reference 
- * associated with the sample. This will allow the upper layers to 
+ * **timestamp** is not from the Si113x/4x directly. The low_level
+ * interrupt handler is expected to use any convenient time reference
+ * associated with the sample. This will allow the upper layers to
  * have a sense of time.
  *
- * **irqstat**, **vis**, **ir**, **ps1**, **ps2**, **ps3** and **aux** 
- * are directly from the Si113x/4x. Beginning with **irqstat**, 
+ * **irqstat**, **vis**, **ir**, **ps1**, **ps2**, **ps3** and **aux**
+ * are directly from the Si113x/4x. Beginning with **irqstat**,
  * these members are roughly in the order of I2C Registers 0x21 to 0x2D.
  *
  * @note **ps1**, **ps2** and **ps3** are not used by the Si1132.
  * @note **Si1132** reports UVINDEX in **aux**.
  *****************************************************************************/
-typedef struct 
+typedef struct
 {
     uint16_t  sequence;       /**< sequence number               */
     uint16_t  timestamp;      /**< 16-bit Timestamp to record    */
@@ -104,13 +104,6 @@ typedef struct
 /// @cond DOXYGEN_SHOULD_SKIP_THIS
 #define code
 #define xdata
-
-#define LSB 0
-#define MSB 1
-#define b0  0
-#define b1  1
-#define b2  2
-#define b3  3
 
 typedef union uu16
 {

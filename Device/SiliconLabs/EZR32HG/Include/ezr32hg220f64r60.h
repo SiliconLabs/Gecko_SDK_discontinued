@@ -2,10 +2,10 @@
  * @file ezr32hg220f64r60.h
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EZR32HG220F64R60
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,

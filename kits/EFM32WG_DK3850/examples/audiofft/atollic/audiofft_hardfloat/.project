@@ -84,6 +84,21 @@
   <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emlib/inc</locationURI>
 </link>
 <link>
+  <name>Include_Dependencies/cmsis_emdrv_common_inc</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emdrv/common/inc</locationURI>
+</link>
+<link>
+  <name>Include_Dependencies/cmsis_emdrv_config</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emdrv/config</locationURI>
+</link>
+<link>
+  <name>Include_Dependencies/cmsis_emdrv_rtcdrv_inc</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emdrv/rtcdrv/inc</locationURI>
+</link>
+<link>
   <name>Include_Dependencies/drivers</name>
   <type>2</type>
   <locationURI>$%7BPARENT-5-PROJECT_LOC%7D/common/drivers</locationURI>
@@ -127,6 +142,21 @@
   <name>Include_Dependencies/cmsis_emlib_inc</name>
   <type>2</type>
   <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emlib/inc</locationURI>
+</link>
+<link>
+  <name>Include_Dependencies/cmsis_emdrv_common_inc</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emdrv/common/inc</locationURI>
+</link>
+<link>
+  <name>Include_Dependencies/cmsis_emdrv_config</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emdrv/config</locationURI>
+</link>
+<link>
+  <name>Include_Dependencies/cmsis_emdrv_rtcdrv_inc</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emdrv/rtcdrv/inc</locationURI>
 </link>
 <link>
   <name>Include_Dependencies/drivers</name>
@@ -195,11 +225,6 @@
 			<locationURI>$%7BPARENT-5-PROJECT_LOC%7D/common/drivers/dmactrl.c</locationURI>
 		</link>
 		<link>
-			<name>Drivers/rtcdrv.c</name>
-			<type>1</type>
-			<locationURI>$%7BPARENT-5-PROJECT_LOC%7D/common/drivers/rtcdrv.c</locationURI>
-		</link>
-		<link>
 			<name>Drivers/tftdirect.c</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-5-PROJECT_LOC%7D/common/drivers/tftdirect.c</locationURI>
@@ -213,6 +238,11 @@
 			<name>Drivers/dmd_ssd2119_direct.c</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/reptile/glib/dmd/ssd2119/dmd_ssd2119_direct.c</locationURI>
+		</link>
+		<link>
+			<name>emdrv/rtcdriver.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emdrv/rtcdrv/src/rtcdriver.c</locationURI>
 		</link>
 		<link>
 			<name>DSP/arm_bitreversal.c</name>
@@ -283,6 +313,11 @@
 			<name>emlib/em_gpio.c</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emlib/src/em_gpio.c</locationURI>
+		</link>
+		<link>
+			<name>emlib/em_int.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emlib/src/em_int.c</locationURI>
 		</link>
 		<link>
 			<name>emlib/em_prs.c</name>
@@ -395,6 +430,54 @@
   </matcher>
 </filter>
 <filter>
+  <name>Include_Dependencies/cmsis_emdrv_common_inc</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/cmsis_emdrv_common_inc</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/cmsis_emdrv_config</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/cmsis_emdrv_config</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/cmsis_emdrv_rtcdrv_inc</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/cmsis_emdrv_rtcdrv_inc</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+<filter>
   <name>Include_Dependencies/drivers</name>
   <type>5</type>
   <matcher>
@@ -532,6 +615,54 @@
 </filter>
 <filter>
   <name>Include_Dependencies/cmsis_emlib_inc</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/cmsis_emdrv_common_inc</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/cmsis_emdrv_common_inc</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/cmsis_emdrv_config</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/cmsis_emdrv_config</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/cmsis_emdrv_rtcdrv_inc</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/cmsis_emdrv_rtcdrv_inc</name>
   <type>10</type>
   <matcher>
     <id>org.eclipse.ui.ide.multiFilter</id>

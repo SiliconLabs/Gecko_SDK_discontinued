@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file nvm_config.c
  * @brief NVM config implementation
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -14,9 +14,10 @@
  ******************************************************************************/
 
 #include <stddef.h>
+#include "em_common.h"
 #include "nvm.h"
 #include "nvm_config.h"
-   
+
 /*******************************************************************************
  ***********************   DATA SPECIFICATION START   **************************
  ******************************************************************************/
@@ -67,7 +68,7 @@ static NVM_Page_Table_t const nvmPages =
 
 /// @cond DO_NOT_INCLUDE_WITH_DOXYGEN
 
-/** The code below should not be changed. 
+/** The code below should not be changed.
  *
  *  Set the storage location in memory. This area should be reserved
  *  using the linker and needs to be aligned with the physical page
@@ -89,17 +90,17 @@ static NVM_Page_Table_t const nvmPages =
  */
 #define NUMBER_OF_USER_PAGES  (sizeof(nvmPages) / sizeof(NVM_Page_Descriptor_t))
 #define NUMBER_OF_PAGES (NVM_PAGES_SCRATCH + NUMBER_OF_USER_PAGES)
-   
+
 /// @endcond
 
+SL_ALIGN(NVM_PAGE_SIZE)
 #ifdef __ICCARM__
-#pragma data_alignment = NVM_PAGE_SIZE
 static const uint8_t nvmData[NVM_PAGE_SIZE * NUMBER_OF_PAGES] @ ".text";
 #else
-static const uint8_t nvmData[NVM_PAGE_SIZE * NUMBER_OF_PAGES] __attribute__ ((__aligned__(NVM_PAGE_SIZE))) = { 0xFF };
+static const uint8_t nvmData[NVM_PAGE_SIZE * NUMBER_OF_PAGES] SL_ATTRIBUTE_ALIGN(NVM_PAGE_SIZE) = { 0xFF };
 #endif
 
-static NVM_Config_t const nvmConfig = 
+static NVM_Config_t const nvmConfig =
 {
   &nvmPages,
   NUMBER_OF_PAGES,

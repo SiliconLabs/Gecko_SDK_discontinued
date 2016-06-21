@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief NAND Flash example for EFM32GG_STK3700 development kit
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -62,8 +62,8 @@ static char *argv[ MAXARGC ];
 
 /* NOTE: We assume that page size is 512 !! */
 #define BUF_SIZ 512
-EFM32_ALIGN(4)
-static uint8_t buffer[ 2 ][ BUF_SIZ ] __attribute__ ((aligned(4)));
+SL_ALIGN(4)
+static uint8_t buffer[ 2 ][ BUF_SIZ ] SL_ATTRIBUTE_ALIGN(4);
 
 static bool blankCheckPage( uint32_t addr, uint8_t *buffer );
 static void dump16( uint32_t addr, uint8_t *data );

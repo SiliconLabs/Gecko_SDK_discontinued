@@ -1,4 +1,10 @@
 ================ Revision history ============================================
+4.3.0:
+ - MCU/Radio device changed from EZR32HG320F64R63 to EZR32HG320F64R68.
+ - Updated ezradio default radio header files due to numerous bugfixes in the generator.
+ - Updated ezradio example according to the MCU/Radio device change.
+ - Added ezradio packet error rate example.
+
 4.2.1:
  - No changes.
 

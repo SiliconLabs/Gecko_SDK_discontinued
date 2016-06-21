@@ -3,7 +3,7 @@
  * @brief Silicon Labs Graphics Library: Polygon Drawing Routines
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensensed under the Silabs License Agreement. See the file
@@ -45,7 +45,7 @@
 
 EMSTATUS GLIB_drawPolygon(GLIB_Context_t *pContext,
                           uint32_t numPoints, int32_t *polyPoints)
-{  
+{
   EMSTATUS status;
   uint32_t drawnElements = 0;
   uint32_t point;
@@ -55,10 +55,10 @@ EMSTATUS GLIB_drawPolygon(GLIB_Context_t *pContext,
   int32_t startY;
   int32_t endX;
   int32_t endY;
-  
+
   /* Check arguments */
   if (pContext == NULL || polyPoints == NULL || numPoints < 2) return GLIB_ERROR_INVALID_ARGUMENT;
-  
+
   startX = *polyPoints++;
   startY = *polyPoints++;
   firstX = startX;

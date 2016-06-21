@@ -300,6 +300,11 @@
               <FilePath>..\..\..\..\..\emlib\src\em_gpio.c</FilePath>
             </File>
             <File>
+              <FileName>em_int.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\emlib\src\em_int.c</FilePath>
+            </File>
+            <File>
               <FileName>em_rtc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\emlib\src\em_rtc.c</FilePath>
@@ -345,9 +350,9 @@
           <GroupName>Drivers</GroupName>
           <Files>
             <File>
-              <FileName>rtcdrv.c</FileName>
+              <FileName>rtcdriver.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\common\drivers\rtcdrv.c</FilePath>
+              <FilePath>..\..\..\..\..\emdrv\rtcdrv\src\rtcdriver.c</FilePath>
             </File>
           </Files>
         </Group>

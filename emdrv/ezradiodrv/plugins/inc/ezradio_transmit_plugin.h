@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ezradio_transmit_plugin.h
  * @brief EzRadio transmit plug-in managed by the plug-in manager if enabled.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -39,7 +39,7 @@ extern "C" {
 #endif
 
 /***************************************************************************//**
- * @addtogroup EM_Drivers
+ * @addtogroup emdrv
  * @{
  ******************************************************************************/
 
@@ -63,7 +63,7 @@ extern "C" {
 // Transmit plugin related error codes
 #define ECODE_EMDRV_EZRADIODRV_TRANSMIT_FAILED          ( ECODE_EMDRV_EZRADIODRV_TRANSMIT_PLUGIN_BASE | 0x00000001 )   ///< Unable to start transmission.
 
-#if ( defined EZRADIO_PLUGIN_TRANSMIT )
+#if defined(EZRADIO_PLUGIN_TRANSMIT)
 
 /// EzRadio transmit packet length mode
 typedef enum EZRADIODRV_TransmitLengthMode
@@ -77,7 +77,7 @@ typedef enum EZRADIODRV_TransmitLengthMode
 typedef enum EZRADIODRV_TransmitPacketType
 {
   ezradiodrvPacketTypeNormal                    = 0,    ///< Normal packet type.
-#if ( ( defined EZRADIO_PLUGIN_AUTO_ACK ) && ( defined EZRADIO_PLUGIN_RECEIVE ) )
+#if defined(EZRADIO_PLUGIN_AUTO_ACK) && defined(EZRADIO_PLUGIN_RECEIVE)
   ezradiodrvPacketTypeAutoAck                   = 1,    ///< Auto acknowledge packet type.
 #endif
 } EZRADIODRV_TransmitPacketType_t;
@@ -120,27 +120,27 @@ Ecode_t ezradioStartTransmitDefault(EZRADIODRV_Handle_t radioHandle, uint8_t *pi
 Ecode_t ezradioStartTransmitSmart(EZRADIODRV_Handle_t radioHandle, EZRADIODRV_PacketLengthConfig_t pktLengthConf, uint8_t *pioRadioPacket);
 
 /// Configuration data for EzRadio transmit plug-in.
-#define EZRADIODRV_TRANSMIT_PLUGIN_INIT_DEFAULT                         \
-{                                    /* Packet TX                   */  \
-  NULL,                              /* CallBack                    */  \
-  {                                  /* Packet length config        */  \
-    ezradiodrvTransmitLenghtDefault, /* Default length mode         */  \
-    0,                               /* Packet length               */  \
-    {0,0,0,0,0}                      /* Field lengths               */  \
-  },                                                                    \
-  0,                                 /* Channel                     */  \
-  ezradiodrvPacketTypeNormal,        /* Packet type                 */  \
-  0,                                 /* Packet ID                   */  \
+#define EZRADIODRV_TRANSMIT_PLUGIN_INIT_DEFAULT                                \
+{                                           /* Packet TX                   */  \
+  NULL,                                     /* CallBack                    */  \
+  {                                         /* Packet length config        */  \
+    ezradiodrvTransmitLenghtDefault,        /* Default length mode         */  \
+    0,                                      /* Packet length               */  \
+    {0,0,0,0,0}                             /* Field lengths               */  \
+  },                                                                           \
+  RADIO_CONFIGURATION_DATA_CHANNEL_NUMBER,  /* Channel                     */  \
+  ezradiodrvPacketTypeNormal,               /* Packet type                 */  \
+  0,                                        /* Packet ID                   */  \
 },
 
-#else //#if ( defined EZRADIO_PLUGIN_TRANSMIT )
+#else //#if defined( EZRADIO_PLUGIN_TRANSMIT )
 #define EZRADIODRV_TRANSMIT_PLUGIN_INIT_DEFAULT
-#endif  //#if ( defined EZRADIO_PLUGIN_TRANSMIT )
+#endif  //#if defined( EZRADIO_PLUGIN_TRANSMIT )
 
 /** @} (end addtogroup Transmit_Plugin) */
 /** @} (end addtogroup Plugin_System) */
 /** @} (end addtogroup EZRADIODRV) */
-/** @} (end addtogroup EM_Drivers) */
+/** @} (end addtogroup emdrv) */
 
 #ifdef __cplusplus
 }

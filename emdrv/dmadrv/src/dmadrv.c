@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file dmadrv.c
  * @brief DMADRV API implementation.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -626,6 +626,80 @@ Ecode_t DMADRV_PeripheralMemoryPingPong(
                         cbUserParam );
 }
 #endif /* !defined( EMDRV_DMADRV_USE_NATIVE_API ) */
+
+/***************************************************************************//**
+ * @brief
+ *  Pause an ongoing DMA transfer.
+ *
+ * @param[in] channelId
+ *  The channel Id of the transfer to pause.
+ *
+ * @return
+ *  @ref ECODE_EMDRV_DMADRV_OK on success. On failure an appropriate
+ *  DMADRV @ref Ecode_t is returned.
+ ******************************************************************************/
+Ecode_t DMADRV_PauseTransfer( unsigned int channelId )
+{
+  if ( !initialized )
+  {
+    return ECODE_EMDRV_DMADRV_NOT_INITIALIZED;
+  }
+
+  if ( channelId > EMDRV_DMADRV_DMA_CH_COUNT )
+  {
+    return ECODE_EMDRV_DMADRV_PARAM_ERROR;
+  }
+
+  if ( chTable[ channelId ].allocated == false )
+  {
+    return ECODE_EMDRV_DMADRV_CH_NOT_ALLOCATED;
+  }
+
+#if defined( EMDRV_DMADRV_UDMA )
+  DMA_ChannelRequestEnable( channelId, false );
+#elif defined( EMDRV_DMADRV_LDMA )
+  LDMA_EnableChannelRequest( channelId, false );
+#endif
+
+  return ECODE_EMDRV_DMADRV_OK;
+}
+
+/***************************************************************************//**
+ * @brief
+ *  Resume an ongoing DMA transfer.
+ *
+ * @param[in] channelId
+ *  The channel Id of the transfer to resume.
+ *
+ * @return
+ *  @ref ECODE_EMDRV_DMADRV_OK on success. On failure an appropriate
+ *  DMADRV @ref Ecode_t is returned.
+ ******************************************************************************/
+Ecode_t DMADRV_ResumeTransfer( unsigned int channelId )
+{
+  if ( !initialized )
+  {
+    return ECODE_EMDRV_DMADRV_NOT_INITIALIZED;
+  }
+
+  if ( channelId > EMDRV_DMADRV_DMA_CH_COUNT )
+  {
+    return ECODE_EMDRV_DMADRV_PARAM_ERROR;
+  }
+
+  if ( chTable[ channelId ].allocated == false )
+  {
+    return ECODE_EMDRV_DMADRV_CH_NOT_ALLOCATED;
+  }
+
+#if defined( EMDRV_DMADRV_UDMA )
+  DMA_ChannelRequestEnable( channelId, true );
+#elif defined( EMDRV_DMADRV_LDMA )
+  LDMA_EnableChannelRequest( channelId, true );
+#endif
+
+  return ECODE_EMDRV_DMADRV_OK;
+}
 
 /***************************************************************************//**
  * @brief
@@ -1279,10 +1353,12 @@ static Ecode_t StartTransfer( DmaMode_t             mode,
 
 
 /******** THE REST OF THE FILE IS DOCUMENTATION ONLY !**********************//**
+ * @addtogroup emdrv
+ * @{
  * @addtogroup DMADRV
  * @{
 
-@page dmadrv_doc DMADRV Direct Memory Access
+@details
 
   @li @ref dmadrv_intro
   @li @ref dmadrv_conf
@@ -1426,4 +1502,5 @@ int main( void )
 }
   @endverbatim
 
- * @}**************************************************************************/
+ * @} end group DMADRV ********************************************************
+ * @} end group emdrv ****************************************************/

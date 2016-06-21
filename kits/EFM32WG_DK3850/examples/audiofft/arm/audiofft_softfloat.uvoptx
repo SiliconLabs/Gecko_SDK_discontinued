@@ -220,11 +220,6 @@
               <FilePath>..\..\..\..\common\drivers\dmactrl.c</FilePath>
             </File>
             <File>
-              <FileName>rtcdrv.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\common\drivers\rtcdrv.c</FilePath>
-            </File>
-            <File>
               <FileName>tftdirect.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\common\drivers\tftdirect.c</FilePath>
@@ -238,6 +233,16 @@
               <FileName>dmd_ssd2119_direct.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\reptile\glib\dmd\ssd2119\dmd_ssd2119_direct.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>emdrv</GroupName>
+          <Files>
+            <File>
+              <FileName>rtcdriver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\emdrv\rtcdrv\src\rtcdriver.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -318,6 +323,11 @@
               <FileName>em_gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\emlib\src\em_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>em_int.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\emlib\src\em_int.c</FilePath>
             </File>
             <File>
               <FileName>em_prs.c</FileName>

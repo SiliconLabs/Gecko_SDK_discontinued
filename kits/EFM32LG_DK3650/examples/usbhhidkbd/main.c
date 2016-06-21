@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file main.c
  * @brief USB host stack HID keyboard example project.
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -20,6 +20,7 @@
 #include "retargetserial.h"
 #include "em_usb.h"
 #include "usbkbdscancodes.h"
+#include <string.h>
 
 /**************************************************************************//**
  *
@@ -30,8 +31,8 @@
 
 /*** Typedef's and defines. ***/
 
-//#define DO_SUSPEND_CURRENT_TEST       /* For internal Energy Micro testing. */
-//#define DO_RESET_FROM_SUSPEND_TEST    /* For internal Energy Micro testing. */
+//#define DO_SUSPEND_CURRENT_TEST       /* For internal Silicon Labs testing. */
+//#define DO_RESET_FROM_SUSPEND_TEST    /* For internal Silicon Labs testing. */
 
 /* Timer indices. */
 #define KBD_LED_TIMER     0
@@ -45,7 +46,7 @@
 #define KBD_IN_REPORT_LEN 8     /* Length of keyboard interrupt IN report.*/
 
 /* USB HID Descriptor. */
-EFM32_PACK_START( 1 )
+SL_PACK_START(1)
 typedef struct
 {
   uint8_t   bLength;            /* Numeric expression that is the total size of the HID descriptor.       */
@@ -55,8 +56,8 @@ typedef struct
   uint8_t   bNumDescriptors;    /* Numeric expression specifying the number of class descriptors.         */
   uint8_t   bReportDescriptorType;  /* Constant name identifying type of class descriptor.                */
   uint16_t  wDescriptorLength;  /* Numeric expression that is the total size of the Report descriptor.    */
-} __attribute__ ((packed)) USB_HIDDescriptor_TypeDef;
-EFM32_PACK_END()
+} SL_ATTRIBUTE_PACKED USB_HIDDescriptor_TypeDef;
+SL_PACK_END()
 
 /*** Function prototypes. ***/
 
@@ -80,7 +81,7 @@ static USBH_Ep_TypeDef      ep;
 static volatile bool        ledTimerDone;
 static volatile bool        pollTimerDone;
 static volatile bool        suspendTimerDone;
-static bool                 keyReleased;
+static uint8_t              currentKeypressStatus[6];
 
 /**************************************************************************//**
  * @brief main - the entrypoint after reset.
@@ -133,7 +134,7 @@ int main( void )
         InitKbd();
 
         hidReport        = 0;
-        keyReleased      = true;
+        memset(currentKeypressStatus, 0, sizeof(currentKeypressStatus));
         ledTimerDone     = false;
         pollTimerDone    = false;
         suspendTimerDone = false;
@@ -159,12 +160,11 @@ int main( void )
             USBTIMER_Start( KBD_POLL_TIMER, ep.epDesc.bInterval, PollTimeout );
           }
 
-          /* Uncomment to test suspend current on connected device. */
           if ( suspendTimerDone )
           {
             suspendTimerDone = false;
 
-#if defined( DO_SUSPEND_CURRENT_TEST )      /* Internal Energy Micro testing. */
+#if defined( DO_SUSPEND_CURRENT_TEST )      /* Internal Silicon Labs testing. */
 
             /* Do a control transfer immediately before suspend. */
             hidReport = ( hidReport + 1 ) % 8;
@@ -279,23 +279,38 @@ static void ConsoleDebugInit( void )
 static void HidCheckKeyPress( void )
 {
   char c;
+  bool found;
+  unsigned i,j;
 
   if ( USBH_ReadB( &ep, tmpBuf, ep.epDesc.wMaxPacketSize, 3 )
        == KBD_IN_REPORT_LEN )
   {
-    if ( tmpBuf[ 2 ] )
+    // This loop handles n-key rollover (NKRO)
+    for (i=0;i<sizeof(currentKeypressStatus);i++)
     {
-      c = USB_HidScancodeToAscii( tmpBuf[ 2 ] );
-      if ( c && keyReleased )
+      c = tmpBuf[i+2];
+      if (c && (c != 0x01 /*Keyboard ErrorRollOver*/))
       {
-        putchar( c );
-        keyReleased = false;
+        found = false;
+        // Check if key is currently pressed
+        for (j=0;j<sizeof(currentKeypressStatus);j++)
+        {
+          if (c==currentKeypressStatus[j])
+          {
+            found = true;
+            break;
+          }
+        }
+        if (!found)
+        {
+          // New keypress, output on serialport
+          putchar(USB_HidScancodeToAscii(c));
+        }
       }
     }
-    else
+    if (c != 0x01 /*Keyboard ErrorRollOver*/)
     {
-      /* Key released report */
-      keyReleased = true;
+      memcpy(currentKeypressStatus, tmpBuf, sizeof(currentKeypressStatus));
     }
   }
 }

@@ -38,12 +38,10 @@ Purpose     : Config / System dependent externals for GUI
 #include "em_emu.h"
 #include "em_msc.h"
 #include "em_gpio.h"
-#include "rtcdrv.h"
 #include "em_rtc.h"
 #include "bsp.h"
 #include "LCDConf.h"
 #include "touch.h"
-#include "rtcdrv.h"
 
 #define JOYSTICK_DOWN  (1uL << 0)
 #define JOYSTICK_RIGHT (1uL << 1)

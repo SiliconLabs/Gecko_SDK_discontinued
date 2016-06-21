@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file nvm.h
  * @brief Non-Volatile Memory Wear-Leveling driver API
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -28,15 +28,13 @@ extern "C" {
 #endif
 
 /***************************************************************************//**
- * @addtogroup EM_Drivers
+ * @addtogroup emdrv
  * @{
  ******************************************************************************/
 
 /***************************************************************************//**
  * @addtogroup NVM
- * @brief NVM Non-volatile Memory Wear-Leveling driver, see
- *        @ref nvm_doc page for detailed
- *        documentation.
+ * @brief NVM Non-volatile Memory Wear-Leveling driver
  * @{
  ******************************************************************************/
 
@@ -87,7 +85,7 @@ uint32_t NVM_WearLevelGet(void);
 #endif
 
 /** @} (end defgroup NVM) */
-/** @} (end addtogroup EM_Drivers) */
+/** @} (end addtogroup emdrv) */
 
 #ifdef __cplusplus
 }

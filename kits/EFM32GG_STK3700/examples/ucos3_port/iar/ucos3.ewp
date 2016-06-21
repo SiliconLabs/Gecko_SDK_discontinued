@@ -1665,6 +1665,9 @@
     <file>
       <name>$PROJ_DIR$\..\..\..\..\common\bsp\bsp_stk_leds.c</name>
     </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\common\bsp\bsp_trace.c</name>
+    </file>
   </group>
   <group>
     <name>CMSIS</name>

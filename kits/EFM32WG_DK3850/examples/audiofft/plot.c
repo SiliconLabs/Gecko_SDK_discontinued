@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file   plot.c
  * @brief  Simple wrapper for some emWin functions.
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -80,7 +80,7 @@ static void DrawGraphAt(int xPos, int yPos, float* py) {
     val = (int16_t)f;
 
     /* Clip large values. */
-    pData[i] = GRAPH_HEIGHT - EFM32_MIN( val, GRAPH_HEIGHT - 5 );
+    pData[i] = GRAPH_HEIGHT - SL_MIN( val, GRAPH_HEIGHT - 5 );
   }
 
   /* Draw the actual graph. */
@@ -105,7 +105,7 @@ void PLOT_Init( int points )
 {
   int i;
 
-  numPoints = EFM32_MIN( points, MAX_POINTS );
+  numPoints = SL_MIN( points, MAX_POINTS );
 
   /* Calculate positions. */
   xPosGraph = (LCD_GetXSize() - GRAPH_WIDTH)  / 2;

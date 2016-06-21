@@ -2,10 +2,10 @@
  * @file
  * @brief Hardfault handler for Cortex-M3
  * @author Joseph Yiu, Frank Van Hooft, Silicon Labs
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -66,7 +66,7 @@ void HardFault_Handler(void)
 /**************************************************************************//**
  * @brief Exception handler for Cortex-M3 hard faults
  * @param[in] hardfault_args Stack frame location
- * @note  From Joseph Yiu, minor edits by FVH and Energy Micro AS.
+ * @note  From Joseph Yiu, minor edits by FVH and Silicon Labs AS.
  *        Hard fault handler in C
  *****************************************************************************/
 void HardFault_HandlerC(uint32_t *stack_pointer)

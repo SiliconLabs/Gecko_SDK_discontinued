@@ -55,7 +55,7 @@ DRESULT disk_ioctl (BYTE, BYTE, void*);
 #define CTRL_POWER			5	/* Get/Set power status */
 #define CTRL_LOCK			6	/* Lock/Unlock media removal */
 #define CTRL_EJECT			7	/* Eject media */
-#define CTRL_INVALIDATE 	8 /* Added by Energy Micro AS. */
+#define CTRL_INVALIDATE 	8 /* Added by Silicon Labs */
 
 
 /* MMC/SDC specific ioctl command */

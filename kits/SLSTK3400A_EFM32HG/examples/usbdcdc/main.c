@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file main.c
  * @brief USB CDC Serial Port adapter example project.
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -61,13 +61,15 @@ static const USBD_Init_TypeDef usbInitStruct =
 
 static DISPLAY_Device_t displayDevice;            /* Display device handle. */
 static volatile scrollDirection_t scrollDisplay;
-static char blank_image[ 128 * 16 ];
+static char blankImage[ 128 * 16 ];
 
 /**************************************************************************//**
  * @brief main - the entrypoint after reset.
  *****************************************************************************/
 int main(void)
 {
+  char const *currentImage, *nextImage;
+
   /* Chip errata */
   CHIP_Init();
 
@@ -83,8 +85,8 @@ int main(void)
     while( 1 );
   }
 
-  memset( (void*)blank_image, 0xFF, 128*16 );
-  displayDevice.pPixelMatrixDraw( &displayDevice, (void*)blank_image,
+  memset( (void*)blankImage, 0xFF, 128*16 );
+  displayDevice.pPixelMatrixDraw( &displayDevice, (void*)blankImage,
                                   /* start coloumn, width */
                                   0, displayDevice.geometry.width,
                                   /* start row, height */
@@ -105,14 +107,25 @@ int main(void)
   /*USBTIMER_DelayMs(1000);    */
   /*USBD_Connect();            */
 
-  scrollLcd( &displayDevice, scrollLeft, blank_image, usb_image );
+  scrollLcd( &displayDevice, scrollLeft, blankImage, usbDisconnectedImage );
+  currentImage = usbDisconnectedImage;
 
   for (;;)
   {
     if ( scrollDisplay != scrollOff )
     {
-      scrollLcd( &displayDevice, scrollDisplay, usb_image, usb_image );
+      if (USBD_GetUsbState() == USBD_STATE_CONFIGURED)
+      {
+        nextImage = usbConnectedImage;
+      }
+      else
+      {
+        nextImage = usbDisconnectedImage;
+      }
+
+      scrollLcd( &displayDevice, scrollDisplay, currentImage, nextImage );
       scrollDisplay = scrollOff;
+      currentImage = nextImage;
     }
   }
 }

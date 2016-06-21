@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="SLWSTK6240A_ezradio_trx_ack" kitCompatibility="com.silabs.kit.si32.wireless.wstk.ezr32hg.slwstk6240a" partCompatibility="com.silabs.mcu.si32.ezr32.ezr32hg.ezr32hg320f64r61" toolchainCompatibility="" sdkCompatibility="com.silabs.sdk.si32.efm32.sls:[2.0.0-3.0.0)" contentRoot="../">
+<project name="SLWSTK6240A_ezradio_trx_ack" kitCompatibility="com.silabs.kit.si32.wireless.wstk.ezr32hg.slwstk6240a" partCompatibility="com.silabs.mcu.si32.ezr32.ezr32hg.ezr32hg320f64r68" toolchainCompatibility="" sdkCompatibility="com.silabs.sdk.si32.efm32.sls:[2.0.0-3.0.0)" contentRoot="../">
   <module id="com.silabs.ide.si32.sdk.efm32.v2.kit">
     <exclude pattern=".*" />
   </module>

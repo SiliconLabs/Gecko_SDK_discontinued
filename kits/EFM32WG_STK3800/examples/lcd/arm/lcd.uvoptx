@@ -220,11 +220,6 @@
           <GroupName>Drivers</GroupName>
           <Files>
             <File>
-              <FileName>rtcdrv.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\common\drivers\rtcdrv.c</FilePath>
-            </File>
-            <File>
               <FileName>vddcheck.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\common\drivers\vddcheck.c</FilePath>

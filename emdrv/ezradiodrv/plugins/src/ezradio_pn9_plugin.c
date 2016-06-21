@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ezradio_pn9_plugin.c
  * @brief EzRadio PN9 plug-in managed by the plug-in manager if enabled.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -40,7 +40,7 @@
 #include "ezradio_plugin_manager.h"
 #include "ezradio_transmit_plugin.h"
 
-#if ( defined EZRADIO_PLUGIN_PN9 )
+#if defined( EZRADIO_PLUGIN_PN9 )
 
 /**************************************************************************//**
  * @brief Starts PN9 transmission with the radio configurations
@@ -92,4 +92,4 @@ Ecode_t ezradioStopPn9( void )
   return ECODE_EMDRV_EZRADIODRV_OK;
 }
 
-#endif //#if ( defined EZRADIO_PLUGIN_PN9 )
+#endif //#if defined( EZRADIO_PLUGIN_PN9 )

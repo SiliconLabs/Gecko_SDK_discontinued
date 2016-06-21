@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ecode.h
  * @brief Energy Aware drivers error code definitions.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -16,7 +16,27 @@
 #define __SILICON_LABS_ECODE_H__
 
 /***************************************************************************//**
- * @addtogroup EM_Drivers
+ * @defgroup emdrv EMDRV
+ * @brief energyAware drivers
+ * @details
+ *
+ *  EMDRV is a set of function specific high performance drivers for EFM32, EZR32 
+ *  and EFR32 on-chip peripherals. Drivers are typically DMA based and are using 
+ *  all available low-energy features. For most drivers, the API offers both 
+ *  synchronous and asynchronous functions. The APIs are fully reentrant and 
+ *  callback based.
+ *
+ *  Most drivers are compile-time configurable to allow the highest possible 
+ *  code size optimization for the application. Compile-time configuration is 
+ *  defined in *_config.h files. Templates for the configuration files can be 
+ *  found in emdrv\\config.
+ *
+ * @note
+ *	EMDRV APIs use Ecode_t to return status. 
+ * @n @n 
+ *  With the exception of ezradiodrv, EMDRV does not implement RF support.
+ *  Please refer to stack documentation for more information. 
+ *
  * @{
  ******************************************************************************/
 
@@ -48,6 +68,6 @@ typedef uint32_t Ecode_t;
 #define ECODE_EMDRV_CRYPTO_BASE     ( ECODE_EMDRV_BASE | 0x0000C000 ) ///< Base value for CRYPTO error codes.
 #define ECODE_EMDRV_TEMPDRV_BASE    ( ECODE_EMDRV_BASE | 0x0000D000 ) ///< Base value for TEMPDRV error codes.
 
-/** @} (end addtogroup EM_Drivers) */
+/** @} (end addtogroup emdrv) */
 
 #endif // __SILICON_LABS_ECODE_H__

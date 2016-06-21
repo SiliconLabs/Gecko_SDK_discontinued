@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file cdc.c
  * @brief USB Communication Device Class (CDC) driver.
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -98,11 +98,11 @@
 
 /* Calculate a timeout in ms corresponding to 5 char times on current     */
 /* baudrate. Minimum timeout is set to 10 ms.                             */
-#define CDC_RX_TIMEOUT    EFM32_MAX(10U, 50000 / (cdcLineCoding.dwDTERate))
+#define CDC_RX_TIMEOUT    SL_MAX(10U, 50000 / (cdcLineCoding.dwDTERate))
 
 /* The serial port LINE CODING data structure, used to carry information  */
 /* about serial port baudrate, parity etc. between host and device.       */
-EFM32_PACK_START(1)
+SL_PACK_START(1)
 typedef struct
 {
   uint32_t dwDTERate;               /** Baudrate                            */
@@ -110,8 +110,8 @@ typedef struct
   uint8_t  bParityType;             /** 0=None 1=Odd 2=Even 3=Mark 4=Space  */
   uint8_t  bDataBits;               /** 5, 6, 7, 8 or 16                    */
   uint8_t  dummy;                   /** To ensure size is a multiple of 4 bytes */
-} __attribute__ ((packed)) cdcLineCoding_TypeDef;
-EFM32_PACK_END()
+} SL_ATTRIBUTE_PACKED cdcLineCoding_TypeDef;
+SL_PACK_END()
 
 
 /*** Function prototypes. ***/
@@ -131,13 +131,13 @@ static void UartRxTimeout(void);
  * The LineCoding variable must be 4-byte aligned as it is used as USB
  * transmit and receive buffer.
  */
-EFM32_ALIGN(4)
-EFM32_PACK_START(1)
-static cdcLineCoding_TypeDef __attribute__ ((aligned(4))) cdcLineCoding =
+SL_ALIGN(4)
+SL_PACK_START(1)
+static cdcLineCoding_TypeDef SL_ATTRIBUTE_ALIGN(4) cdcLineCoding =
 {
   115200, 0, 0, 8, 0
 };
-EFM32_PACK_END()
+SL_PACK_END()
 
 STATIC_UBUF(usbRxBuffer0,  CDC_USB_RX_BUF_SIZ);   /* USB receive buffers.   */
 STATIC_UBUF(usbRxBuffer1,  CDC_USB_RX_BUF_SIZ);

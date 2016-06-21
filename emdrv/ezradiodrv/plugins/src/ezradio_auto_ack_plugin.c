@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ezradio_auto_ack_plugin.c
  * @brief EzRadio auto acknowledge plug-in managed by the plug-in manager if enabled.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -39,7 +39,7 @@
 #include "ezradio_api_lib_add.h"
 #include "ezradio_plugin_manager.h"
 
-#if ( ( defined EZRADIO_PLUGIN_AUTO_ACK ) && ( defined EZRADIO_PLUGIN_TRANSMIT ) && ( defined EZRADIO_PLUGIN_RECEIVE ) )
+#if defined(EZRADIO_PLUGIN_AUTO_ACK) && defined(EZRADIO_PLUGIN_TRANSMIT) && defined(EZRADIO_PLUGIN_RECEIVE)
 
 /**************************************************************************//**
  * @brief Enables auto acknowledge sending feature.
@@ -155,4 +155,4 @@ Ecode_t ezradioTransmitAutoAck(EZRADIODRV_Handle_t radioHandle)
 
 /// @endcond
 
-#endif //#if ( ( defined EZRADIO_PLUGIN_AUTO_ACK ) && ( defined EZRADIO_PLUGIN_TRANSMIT ) && ( defined EZRADIO_PLUGIN_RECEIVE ) )
+#endif //#if defined( EZRADIO_PLUGIN_AUTO_ACK ) && defined( EZRADIO_PLUGIN_TRANSMIT ) && defined( EZRADIO_PLUGIN_RECEIVE )

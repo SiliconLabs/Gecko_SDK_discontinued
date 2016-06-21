@@ -1,5 +1,5 @@
 FLASH Test:
-Energy Micro IEC60355 class b test script log
+Silicon Labs IEC60355 class b test script log
 provides execution log of the POST Flash test function
 
 executed : 11:38:36, 11.07.2011

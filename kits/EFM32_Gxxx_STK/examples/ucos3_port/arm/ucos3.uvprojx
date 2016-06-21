@@ -432,6 +432,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\..\common\bsp\bsp_stk_leds.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_trace.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\common\bsp\bsp_trace.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

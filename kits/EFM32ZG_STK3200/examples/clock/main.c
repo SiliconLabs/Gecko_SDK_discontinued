@@ -1,14 +1,14 @@
 /**************************************************************************//**
  * @file main.c
  * @brief Clock example for EFM32ZG-STK3200
- * @version 4.2.1
+ * @version 4.3.0
  *
  * This example shows how to optimize your code in order to drive
  * a graphical display in an energy friendly way.
  *
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -206,7 +206,7 @@ void fastForwardTime(void (*drawClock)(struct tm*, bool redraw))
     /* Keep updating the second counter while waiting */
     if (updateDisplay)
     {
-      time = localtime((time_t const *) &curTime);
+      time = gmtime((time_t const *) &curTime);
       drawClock(time, true);
     }
 
@@ -221,7 +221,7 @@ void fastForwardTime(void (*drawClock)(struct tm*, bool redraw))
       /* Increase time by 1 minute (60 seconds). */
       curTime += 60;
 
-      time = localtime((time_t const *) &curTime);
+      time = gmtime((time_t const *) &curTime);
       drawClock(time, true);
     }
     i++;
@@ -236,7 +236,7 @@ void fastForwardTime(void (*drawClock)(struct tm*, bool redraw))
 void analogClockShow(bool redraw)
 {
   /* Convert time format */
-  struct tm *time = localtime((time_t const *) &curTime);
+  struct tm *time = gmtime((time_t const *) &curTime);
 
   if (updateDisplay)
   {
@@ -280,7 +280,7 @@ void digitalClockUpdate(struct tm *time, bool redraw)
 void digitalClockShow(bool redraw)
 {
   /* Convert time format */
-  struct tm *time = localtime((time_t const *) &curTime);
+  struct tm *time = gmtime((time_t const *) &curTime);
 
   if (updateDisplay)
   {

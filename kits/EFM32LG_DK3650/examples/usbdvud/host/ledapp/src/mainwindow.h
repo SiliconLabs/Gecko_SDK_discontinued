@@ -22,6 +22,7 @@ public:
     uint8_t VendorUniqueGetLedsCmd( void );
     void ConnectUSBDevice( void );
     void DisconnectUSBDevice( void );
+    bool winEvent(MSG *msg, long *result);
 
     void LedClicked( int ledNo );
     Led *Led0,*Led1,*Led2,*Led3,*Led4;

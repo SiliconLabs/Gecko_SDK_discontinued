@@ -240,6 +240,11 @@
               <FilePath>..\..\..\..\..\emlib\src\em_assert.c</FilePath>
             </File>
             <File>
+              <FileName>em_system.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\emlib\src\em_system.c</FilePath>
+            </File>
+            <File>
               <FileName>em_cmu.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\emlib\src\em_cmu.c</FilePath>
@@ -279,25 +284,25 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\emlib\src\em_usart.c</FilePath>
             </File>
-            <File>
-              <FileName>em_msc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\emlib\src\em_msc.c</FilePath>
-            </File>
-            <File>
-              <FileName>em_system.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\emlib\src\em_system.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Source</GroupName>
           <Files>
             <File>
-              <FileName>emode.c</FileName>
+              <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\emode.c</FilePath>
+              <FilePath>..\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>lcd_setup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lcd_setup.c</FilePath>
+            </File>
+            <File>
+              <FileName>emodes.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\emodes.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ezradio_direct_receive_plugin.h
  * @brief EzRadio direct reception plug-in managed by the plug-in manager if enabled.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -39,7 +39,7 @@ extern "C" {
 #endif
 
 /***************************************************************************//**
- * @addtogroup EM_Drivers
+ * @addtogroup emdrv
  * @{
  ******************************************************************************/
 
@@ -60,7 +60,7 @@ extern "C" {
  * @{
  ******************************************************************************/
 
-#if ( defined EZRADIO_PLUGIN_DIRECT_RECEIVE )
+#if defined( EZRADIO_PLUGIN_DIRECT_RECEIVE )
 
 /// EzRadio direct rx plug-in instance initialization and handler structure.
 typedef struct EZRADIODRV_DirectRxHandle
@@ -77,14 +77,14 @@ Ecode_t ezradioStopDirectReceive( void );
   0,                            /* Channel                          */  \
 },
 
-#else //#if ( defined EZRADIO_PLUGIN_DIRECT_RECEIVE )
+#else //#if defined( EZRADIO_PLUGIN_DIRECT_RECEIVE )
 #define EZRADIODRV_DIRECT_RECEIVE_PLUGIN_INIT_DEFAULT
-#endif  //#if ( defined EZRADIO_PLUGIN_DIRECT_RECEIVE )
+#endif  //#if defined( EZRADIO_PLUGIN_DIRECT_RECEIVE )
 
 /** @} (end addtogroup Direct_Receive_Plugin) */
 /** @} (end addtogroup Plugin_System) */
 /** @} (end addtogroup EZRADIODRV) */
-/** @} (end addtogroup EM_Drivers) */
+/** @} (end addtogroup emdrv) */
 
 #ifdef __cplusplus
 }

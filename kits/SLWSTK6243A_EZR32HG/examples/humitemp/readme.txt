@@ -7,4 +7,4 @@ the Sharp Memory LCD display and the si7021 humidity and temperature sensor on t
 SLWSTK6243A_EZR32HG board.
 
 Board:  Silicon Labs SLWSTK6243A_EZR32HG Starter Kit
-Device: EZR32HG320F64R63
+Device: EZR32HG320F64R61

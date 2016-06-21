@@ -1,4 +1,8 @@
 ================ Revision history ============================================
+4.3.0:
+ - Updated ezradio default radio header files due to numerous bugfixes in the generator.
+ - Added ezradio packet error rate example.
+
 4.2.1:
  - No changes.
 

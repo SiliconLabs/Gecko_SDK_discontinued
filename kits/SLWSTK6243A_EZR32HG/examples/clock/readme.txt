@@ -18,4 +18,4 @@ The digital clock demonstrates the 16x20 font (including number characters
 only) of the textdisplay driver.
 
 Board:  Silicon Labs SLWSTK6243A_EZR32HG Starter Kit
-Device: EZR32HG320F64R63
+Device: EZR32HG320F64R61

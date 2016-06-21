@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_usbd.h
  * @brief USB protocol stack library API for EFM32/EZR32.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -59,6 +59,8 @@ int  USBDCH9_SetupCmd( USBD_Device_TypeDef *device );
 void USBDEP_Ep0Handler( USBD_Device_TypeDef *device );
 void USBDEP_EpHandler( uint8_t epAddr );
 
+void USBDINT_RemoteWakeup(void);
+
 __STATIC_INLINE void USBD_ActivateAllEps( bool forceIdle )
 {
   int i;
@@ -91,7 +93,7 @@ __STATIC_INLINE void USBD_ArmEp0( USBD_Ep_TypeDef *ep )
     }
 
     USBDHAL_SetEp0InDmaPtr( ep->buf );
-    USBDHAL_StartEp0In( EFM32_MIN( ep->remaining, ep->packetSize ),
+    USBDHAL_StartEp0In( SL_MIN( ep->remaining, ep->packetSize ),
                         dev->ep0MpsCode );
   }
   else
@@ -161,7 +163,7 @@ __STATIC_INLINE void USBD_ReArmEp0( USBD_Ep_TypeDef *ep )
 {
   if ( ep->in )
   {
-    USBDHAL_StartEp0In( EFM32_MIN( ep->remaining, ep->packetSize ),
+    USBDHAL_StartEp0In( SL_MIN( ep->remaining, ep->packetSize ),
                         dev->ep0MpsCode );
   }
   else

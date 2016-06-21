@@ -3,7 +3,7 @@
  * @brief Silicon Labs Graphics Library: GLIB font narrow 6x8
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensensed under the Silabs License Agreement. See the file
@@ -17,7 +17,7 @@
 #include <stdint.h>
 #include "glib.h"
 
-static const uint8_t GLIB_FontNarrow6x8PixMap[] = 
+static const uint8_t GLIB_FontNarrow6x8PixMap[] =
 {
   0x00, 0x04, 0x0a, 0x0a, 0x04, 0x03, 0x06, 0x06, 0x08, 0x02, 0x00, 0x00,
   0x00, 0x00, 0x00, 0x00, 0x0e, 0x04, 0x0e, 0x1f, 0x08, 0x1f, 0x0c, 0x1f,
@@ -88,9 +88,9 @@ static const uint8_t GLIB_FontNarrow6x8PixMap[] =
   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 };
 
-const GLIB_Font_t GLIB_FontNarrow6x8 = {(void *)GLIB_FontNarrow6x8PixMap, 
-                                        sizeof(GLIB_FontNarrow6x8PixMap), 
-                                        sizeof(GLIB_FontNarrow6x8PixMap[0]), 
+const GLIB_Font_t GLIB_FontNarrow6x8 = {(void *)GLIB_FontNarrow6x8PixMap,
+                                        sizeof(GLIB_FontNarrow6x8PixMap),
+                                        sizeof(GLIB_FontNarrow6x8PixMap[0]),
                                         100, 6, 8, 2, 0, FullFont};
-                                               
+
 

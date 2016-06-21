@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file  msdscsi.h
  * @brief SCSI interface for Mass Storage Devices (MSD).
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -18,7 +18,7 @@
 #define __MSDSCSI_H
 
 /***************************************************************************//**
- * @addtogroup Drivers
+ * @addtogroup kitdrv
  * @{
  ******************************************************************************/
 
@@ -53,7 +53,7 @@ extern "C" {
 /**************************************************************************//**
  * @brief SCSI Inquiry Command Descriptor Block (CDB) typedef.
  *****************************************************************************/
-EFM32_PACK_START(1)
+SL_PACK_START(1)
 typedef struct
 {
   uint8_t  OpCode;                /**< Command opcode.                        */
@@ -66,13 +66,13 @@ typedef struct
   uint8_t  PageCode;              /**< Pagecode.                              */
   uint16_t AllocationLength;      /**< Number of inquiry data bytes requested.*/
   uint8_t  Control;               /**< Control byte.                          */
-} __attribute__ ((packed)) MSDSCSI_Inquiry_TypeDef;
-EFM32_PACK_END()
+} SL_ATTRIBUTE_PACKED MSDSCSI_Inquiry_TypeDef;
+SL_PACK_END()
 
 /**************************************************************************//**
  * @brief SCSI Inquiry response data typedef.
  *****************************************************************************/
-EFM32_PACK_START(1)
+SL_PACK_START(1)
 typedef struct
 {
   struct
@@ -126,13 +126,13 @@ typedef struct
   uint8_t T10VendorId[ 8 ];         /**< T10 Vendor ID, 8 ASCII codes.        */
   uint8_t ProductId[ 16 ];          /**< Product ID, 16 ASCII codes.          */
   uint8_t ProductRevisionLevel[ 4 ]; /**< Product revision level, 4 ASCII codes.*/
-} __attribute__ ((packed)) MSDSCSI_InquiryData_TypeDef;
-EFM32_PACK_END()
+} SL_ATTRIBUTE_PACKED MSDSCSI_InquiryData_TypeDef;
+SL_PACK_END()
 
 /**************************************************************************//**
  * @brief SCSI Request Sense Command Descriptor Block (CDB) typedef.
  *****************************************************************************/
-EFM32_PACK_START(1)
+SL_PACK_START(1)
 typedef struct
 {
   uint8_t OpCode;                 /**< Command opcode.                        */
@@ -145,13 +145,13 @@ typedef struct
   uint8_t Reserved3;              /**< Reserved, expect 0.                    */
   uint8_t AllocationLength;       /**< Number of sense data bytes requested.  */
   uint8_t Control;                /**< Control byte.                          */
-} __attribute__ ((packed)) MSDSCSI_RequestSense_TypeDef;
-EFM32_PACK_END()
+} SL_ATTRIBUTE_PACKED MSDSCSI_RequestSense_TypeDef;
+SL_PACK_END()
 
 /**************************************************************************//**
  * @brief SCSI Request Sense response data typedef.
  *****************************************************************************/
-EFM32_PACK_START(1)
+SL_PACK_START(1)
 typedef struct
 {
   struct
@@ -181,13 +181,13 @@ typedef struct
   };
   uint8_t  SenseKeySpecific2;       /**< Sense key specific field.            */
   uint8_t  SenseKeySpecific3;       /**< Sense key specific field.            */
-} __attribute__ ((packed)) MSDSCSI_RequestSenseData_TypeDef;
-EFM32_PACK_END()
+} SL_ATTRIBUTE_PACKED MSDSCSI_RequestSenseData_TypeDef;
+SL_PACK_END()
 
 /**************************************************************************//**
  * @brief SCSI Read Capacity Command Descriptor Block (CDB) typedef.
  *****************************************************************************/
-EFM32_PACK_START(1)
+SL_PACK_START(1)
 typedef struct
 {
   uint8_t  OpCode;                /**< Command opcode.                  */
@@ -204,24 +204,24 @@ typedef struct
     uint8_t Reserved3 : 7;        /**< Reserved, expect 0.              */
   };
   uint8_t  Control;               /**< Control byte.                    */
-} __attribute__ ((packed)) MSDSCSI_ReadCapacity_TypeDef;
-EFM32_PACK_END()
+} SL_ATTRIBUTE_PACKED MSDSCSI_ReadCapacity_TypeDef;
+SL_PACK_END()
 
 /**************************************************************************//**
  * @brief SCSI Read Capacity response data typedef.
  *****************************************************************************/
-EFM32_PACK_START(1)
+SL_PACK_START(1)
 typedef struct
 {
   uint32_t LogicalBlockAddress; /**< Last Logical Block (sector) Address on media. */
   uint32_t LogicalBlockLength;  /**< Logical Block (sector) length in bytes.       */
-} __attribute__ ((packed)) MSDSCSI_ReadCapacityData_TypeDef;
-EFM32_PACK_END()
+} SL_ATTRIBUTE_PACKED MSDSCSI_ReadCapacityData_TypeDef;
+SL_PACK_END()
 
 /**************************************************************************//**
  * @brief SCSI Read 10 Command Descriptor Block (CDB) typedef.
  *****************************************************************************/
-EFM32_PACK_START(1)
+SL_PACK_START(1)
 typedef struct
 {
   uint8_t  OpCode;                /**< Command opcode.                        */
@@ -242,13 +242,13 @@ typedef struct
   };
   uint16_t TransferLength;        /**< Number of blocks (sectors) to transfer.*/
   uint8_t  Control;               /**< Control byte.                          */
-} __attribute__ ((packed)) MSDSCSI_Read10_TypeDef;
-EFM32_PACK_END()
+} SL_ATTRIBUTE_PACKED MSDSCSI_Read10_TypeDef;
+SL_PACK_END()
 
 /**************************************************************************//**
  * @brief SCSI Write 10 Command Descriptor Block (CDB) typedef.
  *****************************************************************************/
-EFM32_PACK_START(1)
+SL_PACK_START(1)
 typedef struct
 {
   uint8_t  OpCode;                /**< Command opcode.                        */
@@ -269,13 +269,13 @@ typedef struct
   };
   uint16_t TransferLength;        /**< Number of blocks (sectors) to transfer.*/
   uint8_t  Control;               /**< Control byte.                          */
-} __attribute__ ((packed)) MSDSCSI_Write10_TypeDef;
-EFM32_PACK_END()
+} SL_ATTRIBUTE_PACKED MSDSCSI_Write10_TypeDef;
+SL_PACK_END()
 
 /**************************************************************************//**
  * @brief SCSI Verify 10 Command Descriptor Block (CDB) typedef.
  *****************************************************************************/
-EFM32_PACK_START(1)
+SL_PACK_START(1)
 typedef struct
 {
   uint8_t  OpCode;                /**< Command opcode.                        */
@@ -296,13 +296,13 @@ typedef struct
   };
   uint16_t Verification;          /**< Number of blocks (sectors) to verify  .*/
   uint8_t  Control;               /**< Control byte.                          */
-} __attribute__ ((packed)) MSDSCSI_Verify10_TypeDef;
-EFM32_PACK_END()
+} SL_ATTRIBUTE_PACKED MSDSCSI_Verify10_TypeDef;
+SL_PACK_END()
 
 /**************************************************************************//**
  * @brief SCSI Start Stop Unit Command Descriptor Block (CDB) typedef.
  *****************************************************************************/
-EFM32_PACK_START(1)
+SL_PACK_START(1)
 typedef struct
 {
   uint8_t  OpCode;                /**< Command opcode.                        */
@@ -326,8 +326,8 @@ typedef struct
     uint8_t PowerCondition : 4;   /**< Power Condition field.                 */
   };
   uint8_t Control;                /**< Control byte.                          */
-} __attribute__ ((packed)) MSDSCSI_StartStopUnit_TypeDef;
-EFM32_PACK_END()
+} SL_ATTRIBUTE_PACKED MSDSCSI_StartStopUnit_TypeDef;
+SL_PACK_END()
 
 /*** MSDSCSI Function prototypes ***/
 

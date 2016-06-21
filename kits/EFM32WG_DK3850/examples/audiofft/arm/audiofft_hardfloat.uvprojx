@@ -32,7 +32,7 @@
           <SFDFile></SFDFile>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
-          <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32WG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\common\drivers;..\..\..\..\common\bsp;..\..\..\..\..\reptile\glib;..\..\..\..\..\reptile\emwin\inc;..\..\..\..\common\drivers\emwin\Dk3750;..\..\..\config</IncludePath>
+          <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32WG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\emdrv\common\inc;..\..\..\..\..\emdrv\config;..\..\..\..\..\emdrv\rtcdrv\inc;..\..\..\..\common\drivers;..\..\..\..\common\bsp;..\..\..\..\..\reptile\glib;..\..\..\..\..\reptile\emwin\inc;..\..\..\..\common\drivers\emwin\Dk3750;..\..\..\config</IncludePath>
           <LibPath></LibPath>
           <RegisterFilePath></RegisterFilePath>
           <DBRegisterFilePath></DBRegisterFilePath>
@@ -346,7 +346,7 @@
               <MiscControls>--c99</MiscControls>
               <Define>EFM32WG990F256 __FPU_PRESENT=1 ARM_MATH_CM4</Define>
               <Undefine></Undefine>
-              <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32WG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\common\drivers;..\..\..\..\common\bsp;..\..\..\..\..\reptile\glib;..\..\..\..\..\reptile\emwin\inc;..\..\..\..\common\drivers\emwin\Dk3750;..\..\..\config</IncludePath>
+              <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32WG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\emdrv\common\inc;..\..\..\..\..\emdrv\config;..\..\..\..\..\emdrv\rtcdrv\inc;..\..\..\..\common\drivers;..\..\..\..\common\bsp;..\..\..\..\..\reptile\glib;..\..\..\..\..\reptile\emwin\inc;..\..\..\..\common\drivers\emwin\Dk3750;..\..\..\config</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -361,7 +361,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32WG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\common\drivers;..\..\..\..\common\bsp;..\..\..\..\..\reptile\glib;..\..\..\..\..\reptile\emwin\inc;..\..\..\..\common\drivers\emwin\Dk3750;..\..\..\config</IncludePath>
+              <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32WG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\emdrv\common\inc;..\..\..\..\..\emdrv\config;..\..\..\..\..\emdrv\rtcdrv\inc;..\..\..\..\common\drivers;..\..\..\..\common\bsp;..\..\..\..\..\reptile\glib;..\..\..\..\..\reptile\emwin\inc;..\..\..\..\common\drivers\emwin\Dk3750;..\..\..\config</IncludePath>
             </VariousControls>
           </Aads>
           <LDads>
@@ -428,11 +428,6 @@
               <FilePath>..\..\..\..\common\drivers\dmactrl.c</FilePath>
             </File>
             <File>
-              <FileName>rtcdrv.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\common\drivers\rtcdrv.c</FilePath>
-            </File>
-            <File>
               <FileName>tftdirect.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\common\drivers\tftdirect.c</FilePath>
@@ -446,6 +441,16 @@
               <FileName>dmd_ssd2119_direct.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\reptile\glib\dmd\ssd2119\dmd_ssd2119_direct.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>emdrv</GroupName>
+          <Files>
+            <File>
+              <FileName>rtcdriver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\emdrv\rtcdrv\src\rtcdriver.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -526,6 +531,11 @@
               <FileName>em_gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\emlib\src\em_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>em_int.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\emlib\src\em_int.c</FilePath>
             </File>
             <File>
               <FileName>em_prs.c</FileName>

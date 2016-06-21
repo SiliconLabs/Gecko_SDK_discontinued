@@ -1,17 +1,35 @@
-#include <QMouseEvent>
+#define _WIN32_WINNT 0x0500
+#define _WIN32_WINDOWS 0x0500
+#define WINVER 0x0500
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "lusb0_usb.h"
 #include "qled.h"
 
+#include <QMouseEvent>
+
+#include <windows.h>
+#include <Dbt.h>
+#include <winuser.h>
+
+
 #define VND_GET_LEDS 0x10
 #define VND_SET_LED  0x11
+
+#define VALID_VUD_DEVICE(vid, pid)             \
+   ((((vid) == 0x2544) || ((vid) == 0x10C4))   \
+    && (((pid) == 0x0001) || ((pid) == 0x0008) || ((pid) == 0x000C)))
+
+// This GUID is defined by Microsoft
+static const GUID GUID_DEVINTERFACE_USB_DEVICE =
+{ 0xA5DCBF10L, 0x6530, 0x11D2, { 0x90, 0x1F, 0x00, 0xC0, 0x4F, 0xB9, 0x51, 0xED} };
 
 static usb_dev_handle *pDevH = NULL;  // USB device handle
 static struct usb_device *pDev;
 static struct usb_bus *pBus;
 static uint8_t leds;
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -26,6 +44,14 @@ MainWindow::MainWindow(QWidget *parent) :
   Led0 = new Led( this, 0, 260, 20, 50, 50 );
 
   ConnectUSBDevice();
+
+  // Register for USB device arrival/removal events.
+  DEV_BROADCAST_DEVICEINTERFACE_W dbi;
+  ZeroMemory( &dbi, sizeof(dbi) );
+  dbi.dbcc_size       = sizeof(dbi);
+  dbi.dbcc_devicetype = DBT_DEVTYP_DEVICEINTERFACE;
+  dbi.dbcc_classguid  = GUID_DEVINTERFACE_USB_DEVICE;
+  RegisterDeviceNotification((HANDLE)winId(), &dbi, DEVICE_NOTIFY_WINDOW_HANDLE);
 }
 
 MainWindow::~MainWindow()
@@ -38,9 +64,7 @@ void MainWindow::LedClicked( int ledNo )
 {
   QString s;
 
-  if ( leds & (1<<ledNo) )  VendorUniqueSetLedCmd( ledNo, 0 );
-  else                      VendorUniqueSetLedCmd( ledNo, 1 );
-
+  VendorUniqueSetLedCmd( ledNo, leds & (1<<ledNo) ? 0 : 1 );
   UpdateLedsOnForm();
   s = "Toggled Led ";
   s.append( ledNo + '0' );
@@ -66,7 +90,7 @@ void MainWindow::VendorUniqueSetLedCmd( int ledNo, int on )
 
 uint8_t MainWindow::VendorUniqueGetLedsCmd( void )
 {
-  uint8_t leds;
+  uint8_t leds = 0;
 
   if ( pDevH )
   {
@@ -89,16 +113,11 @@ void MainWindow::UpdateLedsOnForm( void )
 {
   leds = VendorUniqueGetLedsCmd();
 
-  if ( leds & 1 )   Led0->setValue( true );
-  else              Led0->setValue( false );
-  if ( leds & 2 )   Led1->setValue( true );
-  else              Led1->setValue( false );
-  if ( leds & 4 )   Led2->setValue( true );
-  else              Led2->setValue( false );
-  if ( leds & 8 )   Led3->setValue( true );
-  else              Led3->setValue( false );
-  if ( leds & 16 )  Led4->setValue( true );
-  else              Led4->setValue( false );
+  Led0->setValue( leds & 1 );
+  Led1->setValue( leds & 2 );
+  Led2->setValue( leds & 4 );
+  Led3->setValue( leds & 8 );
+  Led4->setValue( leds & 16 );
 }
 
 void MainWindow::ConnectUSBDevice( void )
@@ -113,11 +132,7 @@ void MainWindow::ConnectUSBDevice( void )
     {
       for ( pDev = pBus->devices; pDev; pDev = pDev->next)
       {
-        if ( ( ( pDev->descriptor.idVendor  == 0x2544 ) ||
-               ( pDev->descriptor.idVendor  == 0x10C4 )    ) &&
-             ( ( pDev->descriptor.idProduct == 0x0001 ) ||
-               ( pDev->descriptor.idProduct == 0x0008 ) ||
-               ( pDev->descriptor.idProduct == 0x000C )    )    )
+        if (VALID_VUD_DEVICE(pDev->descriptor.idVendor, pDev->descriptor.idProduct))
         {
           pDevH = usb_open( pDev );
           if ( pDevH )
@@ -162,7 +177,7 @@ found:
     }
     else
     {
-      ui->statusBar->showMessage( "EFM32 Vendor Unique Device found, click on LED's to toggle" );
+      ui->statusBar->showMessage( "EFM32 Vendor Unique Device attached, click on LED's to toggle" );
       leds = VendorUniqueGetLedsCmd();
       UpdateLedsOnForm();
     }
@@ -178,6 +193,46 @@ void MainWindow::DisconnectUSBDevice( void )
     usb_close( pDevH );
     pDevH = NULL;
   }
+}
+
+bool MainWindow::winEvent(MSG *msg, long *result)
+{
+  int vid, pid;
+  bool arrival;
+  char tmp[100];
+  Q_UNUSED( result );
+  DEV_BROADCAST_DEVICEINTERFACE *x;
+
+  if (msg->message == WM_DEVICECHANGE)
+  {
+    arrival = false;
+    switch (msg->wParam)
+    {
+      case DBT_DEVICEARRIVAL:
+        arrival = true;
+      case DBT_DEVICEREMOVECOMPLETE:
+        x = (DEV_BROADCAST_DEVICEINTERFACE*)msg->lParam;
+        vid = QString::fromWCharArray(x->dbcc_name).mid(12,4).toInt(NULL, 16);
+        pid = QString::fromWCharArray(x->dbcc_name).mid(21,4).toInt(NULL, 16);
+
+        if (VALID_VUD_DEVICE(vid, pid))
+        {
+          if (arrival)
+          {
+            ConnectUSBDevice();
+          }
+          else
+          {
+            pDevH = NULL;
+            UpdateLedsOnForm();
+            sprintf( tmp, "USB device with VID/PID 0x%04X/0x%04X removed", vid, pid);
+            ui->statusBar->showMessage(tmp);
+          }
+        }
+        break;
+    }
+  }
+  return false;
 }
 
 void Led::mousePressEvent( QMouseEvent *e )

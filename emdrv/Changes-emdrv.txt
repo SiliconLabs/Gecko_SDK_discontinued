@@ -1,4 +1,17 @@
 ================ Revision history ============================================
+4.3.0:
+ - UARTDRV: Added support for a new flow control mode which is using the built
+   in hardware flow control capabilities on platform 2 devices. The new flow
+   control mode is called "uartdrvFlowControlHwUart"
+ - UARTDRV: Fixed bug where tx bytes could be droppen when using the flow
+   control mode called "uartdrvFlowControlHw".
+ - SLEEP driver will no longer allow blocking of EM1 energy mode.
+ - EZRADIODRV now supports Si4468 radio based parts.
+ - Made ezradio_comm_GetResp non-blocker in EZRADIODRV.
+ - Made ezradio_comm_PollCTS non-blocker if used together with GPIO1 in EZRADIODRV.
+ - EZRADIODRV transmit and receive plugins use the generated channel number instead of the 0.
+ - EZRADIODRV now supports 4-wire SPI mode (not available for EZR32 based devices).
+
 4.2.1:
  - No changes.
 

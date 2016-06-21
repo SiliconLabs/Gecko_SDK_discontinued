@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file uartdrv.c
  * @brief UARTDRV API implementation.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -21,8 +21,12 @@
 #include "em_int.h"
 #include "em_usart.h"
 #include "uartdrv.h"
-#if defined(EMDRV_UARTDRV_HW_FLOW_CONTROL_ENABLE)
+#if (EMDRV_UARTDRV_HW_FLOW_CONTROL_ENABLE)
 #include "gpiointerrupt.h"
+#endif
+
+#if (EMDRV_UARTDRV_HW_FLOW_CONTROL_ENABLE) && defined(_USART_ROUTEPEN_CTSPEN_MASK)
+#define UART_HW_FLOW_CONTROL_SUPPORT
 #endif
 
 /// @cond DO_NOT_INCLUDE_WITH_DOXYGEN
@@ -84,16 +88,15 @@ static void HwFcManageClearToSend(uint8_t gpioPinNo)
      if ((HwFcGetClearToSendPin(handle) == uartdrvFlowControlOn) || handle->IgnoreRestrain)
       {
         handle->IgnoreRestrain = false;
-        handle->initData.port->CMD = USART_CMD_TXEN;
+        DMADRV_ResumeTransfer(handle->txDmaCh);
       }
       else
       {
-        handle->initData.port->CMD = USART_CMD_TXDIS;
+        DMADRV_PauseTransfer(handle->txDmaCh);
       }
     }
   }
 }
-
 
 static Ecode_t FcApplyState(UARTDRV_Handle_t handle)
 {
@@ -367,7 +370,10 @@ static bool ReceiveDmaComplete( unsigned int channel,
     FcApplyState(handle);
     #endif
     handle->rxDmaActive = false;
-    DisableReceiver(handle);
+    if (handle->initData.fcType != uartdrvFlowControlHwUart)
+    {
+      DisableReceiver(handle);
+    }
   }
   INT_Enable();
   return true;
@@ -388,6 +394,8 @@ static bool TransmitDmaComplete( unsigned int channel,
 
   handle = (UARTDRV_Handle_t)userParam;
   GetTailBuffer(handle->txQueue, &buffer);
+
+  EFM_ASSERT(buffer != NULL);
 
   buffer->transferStatus = ECODE_EMDRV_UARTDRV_OK;
   buffer->itemsRemaining = 0;
@@ -553,6 +561,11 @@ static Ecode_t ConfigGPIO(UARTDRV_Handle_t handle, bool enable)
       GPIO_PinModeSet(handle->initData.rtsPort, handle->initData.rtsPin, gpioModePushPull, 0);
       GPIO_IntConfig(handle->initData.ctsPort, handle->initData.ctsPin, true, true, true);
     }
+    else if (handle->initData.fcType == uartdrvFlowControlHwUart)
+    {
+      GPIO_PinModeSet(handle->initData.ctsPort, handle->initData.ctsPin, gpioModeInput, 0);
+      GPIO_PinModeSet(handle->initData.rtsPort, handle->initData.rtsPin, gpioModePushPull, 0);
+    }
     #endif
   }
   else
@@ -565,6 +578,11 @@ static Ecode_t ConfigGPIO(UARTDRV_Handle_t handle, bool enable)
       GPIO_PinModeSet(handle->initData.ctsPort, handle->initData.ctsPin, gpioModeDisabled, 0);
       GPIO_PinModeSet(handle->initData.rtsPort, handle->initData.rtsPin, gpioModeDisabled, 0);
       GPIO_IntConfig(handle->initData.ctsPort, handle->initData.ctsPin, true, true, false);
+    }
+    else if (handle->initData.fcType == uartdrvFlowControlHwUart)
+    {
+      GPIO_PinModeSet(handle->initData.ctsPort, handle->initData.ctsPin, gpioModeDisabled, 0);
+      GPIO_PinModeSet(handle->initData.rtsPort, handle->initData.rtsPin, gpioModeDisabled, 0);
     }
     #endif
   }
@@ -757,12 +775,28 @@ Ecode_t UARTDRV_Init(UARTDRV_Handle_t handle, UARTDRV_Init_t *initData)
 
   // Configure hardware flow control pins and interrupt vectors
   #if (EMDRV_UARTDRV_HW_FLOW_CONTROL_ENABLE)
-  GPIOINT_Init();
-  GPIOINT_CallbackRegister(initData->ctsPin, HwFcManageClearToSend);
-  handle->fcPeerState = uartdrvFlowControlOn;
-  handle->fcSelfState = uartdrvFlowControlOn;
-  handle->fcSelfCfg = uartdrvFlowControlAuto;
-  FcApplyState(handle);
+  if (initData->fcType == uartdrvFlowControlHwUart)
+  {
+    #if defined(UART_HW_FLOW_CONTROL_SUPPORT)
+    initData->port->ROUTEPEN |= USART_ROUTEPEN_CTSPEN | USART_ROUTEPEN_RTSPEN;
+    initData->port->CTRLX    |= USART_CTRLX_CTSEN;
+    initData->port->ROUTELOC1 = (initData->portLocationCts << _USART_ROUTELOC1_CTSLOC_SHIFT)
+                              | (initData->portLocationRts << _USART_ROUTELOC1_RTSLOC_SHIFT);
+    #else
+    // Attempting to use USART hardware flow control on a device that does not
+    // support it.
+    return ECODE_EMDRV_UARTDRV_PARAM_ERROR;
+    #endif
+  }
+  else
+  {
+    GPIOINT_Init();
+    GPIOINT_CallbackRegister(initData->ctsPin, HwFcManageClearToSend);
+    handle->fcPeerState = uartdrvFlowControlOn;
+    handle->fcSelfState = uartdrvFlowControlOn;
+    handle->fcSelfCfg = uartdrvFlowControlAuto;
+    FcApplyState(handle);
+  }
   #endif
 
   // Clear any false IRQ/DMA request
@@ -771,8 +805,16 @@ Ecode_t UARTDRV_Init(UARTDRV_Handle_t handle, UARTDRV_Init_t *initData)
   // Enable TX permanently as the TX circuit consumes very little energy.
   // RX is enabled on demand as the RX circuit consumes some energy due to
   // continuous (over)sampling.
-  USART_Enable(initData->port, usartEnableTx);
-
+  if (initData->fcType == uartdrvFlowControlHwUart)
+  {
+    // RX must be enabled permanently when using USART hw flow control
+    USART_Enable(initData->port, usartEnable);
+  }
+  else
+  {
+    USART_Enable(initData->port, usartEnableTx);
+  }
+  
   // Discard false frames and/or IRQs
   initData->port->CMD = USART_CMD_CLEARRX | USART_CMD_CLEARTX;
 
@@ -828,7 +870,10 @@ Ecode_t UARTDRV_DeInit(UARTDRV_Handle_t handle)
   CMU_ClockEnable(handle->uartClock, false);
 
   #if (EMDRV_UARTDRV_HW_FLOW_CONTROL_ENABLE)
-  GPIOINT_CallbackRegister(handle->initData.ctsPin, NULL);
+  if (handle->initData.fcType != uartdrvFlowControlHwUart)
+  {
+    GPIOINT_CallbackRegister(handle->initData.ctsPin, NULL);
+  }
   #endif
 
   DMADRV_FreeChannel( handle->txDmaCh );
@@ -1055,6 +1100,10 @@ UARTDRV_Status_t UARTDRV_GetTransmitStatus(UARTDRV_Handle_t handle,
 Ecode_t UARTDRV_FlowControlSet(UARTDRV_Handle_t handle, UARTDRV_FlowControlState_t state)
 {
   #if (EMDRV_UARTDRV_HW_FLOW_CONTROL_ENABLE)
+  if (handle->initData.fcType == uartdrvFlowControlHwUart)
+  {
+    return ECODE_EMDRV_UARTDRV_ILLEGAL_OPERATION;
+  }
   handle->fcSelfCfg = state;
   if (state != uartdrvFlowControlAuto)
   {
@@ -1268,8 +1317,11 @@ Ecode_t UARTDRV_Receive(UARTDRV_Handle_t handle,
     EnableReceiver(handle);
     StartReceiveDma(handle, queueBuffer);
     #if (EMDRV_UARTDRV_HW_FLOW_CONTROL_ENABLE)
-    handle->fcSelfState = uartdrvFlowControlOn;
-    FcApplyState(handle);
+    if (handle->initData.fcType != uartdrvFlowControlHwUart)
+    {
+      handle->fcSelfState = uartdrvFlowControlOn;
+      FcApplyState(handle);
+    }
     #endif
   } // else: started by ReceiveDmaComplete
 
@@ -1320,8 +1372,11 @@ Ecode_t UARTDRV_ReceiveB(UARTDRV_Handle_t handle,
   }
   EnableReceiver(handle);
   #if (EMDRV_UARTDRV_HW_FLOW_CONTROL_ENABLE)
-  handle->fcSelfState = uartdrvFlowControlOn;
-  FcApplyState(handle);
+  if (handle->initData.fcType != uartdrvFlowControlHwUart)
+  {
+    handle->fcSelfState = uartdrvFlowControlOn;
+    FcApplyState(handle);
+  }
   #endif
   StartReceiveDma(handle, queueBuffer);
   while(handle->rxDmaActive)
@@ -1374,7 +1429,12 @@ Ecode_t UARTDRV_Transmit(UARTDRV_Handle_t handle,
   }
   if (!(handle->txDmaActive))
   {
-    StartTransmitDma(handle, queueBuffer);
+    INT_Disable();
+    if(handle->txQueue->used > 0)
+    {
+      StartTransmitDma(handle, queueBuffer);
+    }
+    INT_Enable();
   } // else: started by TransmitDmaComplete
 
   return ECODE_EMDRV_UARTDRV_OK;
@@ -1432,11 +1492,12 @@ Ecode_t UARTDRV_TransmitB(UARTDRV_Handle_t handle,
 
 
 /******** THE REST OF THE FILE IS DOCUMENTATION ONLY !**********************//**
+ * @addtogroup emdrv
+ * @{
  * @addtogroup UARTDRV
  * @{
 
-@page uartdrv_doc UARTDRV Universal asynchronous receiver/transmitter driver
-
+@details
   The source files for the UART driver library resides in the
   emdrv/uartdrv folder, and are named uartdrv.c and uartdrv.h.
 
@@ -1628,4 +1689,5 @@ int main(void)
 
   @endverbatim
 
- * @}**************************************************************************/
+ * @} end group UARTDRV *******************************************************
+ * @} end group emdrv ****************************************************/

@@ -41,4 +41,4 @@ for the latest releases.
 License information for use of the source code is given at the top of
 all C files.
 
-(C) Copyright Silicon Laboratories Inc. 2015. All rights reserved.
+Copyright 2015 Silicon Laboratories, Inc.

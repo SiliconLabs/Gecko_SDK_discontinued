@@ -14,7 +14,6 @@
       <file file_name="../../../../common/bsp/bsp_trace.c"/>
     </folder>
     <folder Name="Drivers">
-      <file file_name="../../../../common/drivers/rtcdrv.c"/>
       <file file_name="../../../../common/drivers/vddcheck.c"/>
       <file file_name="../../../../common/drivers/segmentlcd.c"/>
     </folder>

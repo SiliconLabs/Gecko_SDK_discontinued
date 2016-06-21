@@ -41,6 +41,9 @@
 									<listOptionValue builtIn="false" value="../../../../../../../CMSIS/Include"/>
 									<listOptionValue builtIn="false" value="../../../../../../../Device/SiliconLabs/EFM32LG/Include"/>
 									<listOptionValue builtIn="false" value="../../../../../../../emlib/inc"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/common/inc"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/config"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/rtcdrv/inc"/>
 									<listOptionValue builtIn="false" value="../../../../../../common/drivers"/>
 									<listOptionValue builtIn="false" value="../../../../../../common/bsp"/>
 									<listOptionValue builtIn="false" value="../../../../../../../reptile/glib"/>
@@ -92,6 +95,9 @@
 									<listOptionValue builtIn="false" value="../../../../../../../CMSIS/Include"/>
 									<listOptionValue builtIn="false" value="../../../../../../../Device/SiliconLabs/EFM32LG/Include"/>
 									<listOptionValue builtIn="false" value="../../../../../../../emlib/inc"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/common/inc"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/config"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/rtcdrv/inc"/>
 									<listOptionValue builtIn="false" value="../../../../../../common/drivers"/>
 									<listOptionValue builtIn="false" value="../../../../../../common/bsp"/>
 									<listOptionValue builtIn="false" value="../../../../../../../reptile/glib"/>
@@ -160,6 +166,9 @@
 									<listOptionValue builtIn="false" value="../../../../../../../CMSIS/Include"/>
 									<listOptionValue builtIn="false" value="../../../../../../../Device/SiliconLabs/EFM32LG/Include"/>
 									<listOptionValue builtIn="false" value="../../../../../../../emlib/inc"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/common/inc"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/config"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/rtcdrv/inc"/>
 									<listOptionValue builtIn="false" value="../../../../../../common/drivers"/>
 									<listOptionValue builtIn="false" value="../../../../../../common/bsp"/>
 									<listOptionValue builtIn="false" value="../../../../../../../reptile/glib"/>
@@ -184,6 +193,9 @@
 									<listOptionValue builtIn="false" value="../../../../../../../CMSIS/Include"/>
 									<listOptionValue builtIn="false" value="../../../../../../../Device/SiliconLabs/EFM32LG/Include"/>
 									<listOptionValue builtIn="false" value="../../../../../../../emlib/inc"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/common/inc"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/config"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/rtcdrv/inc"/>
 									<listOptionValue builtIn="false" value="../../../../../../common/drivers"/>
 									<listOptionValue builtIn="false" value="../../../../../../common/bsp"/>
 									<listOptionValue builtIn="false" value="../../../../../../../reptile/glib"/>

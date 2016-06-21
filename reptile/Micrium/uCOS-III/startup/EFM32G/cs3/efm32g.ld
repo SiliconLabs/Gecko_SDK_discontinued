@@ -1,4 +1,4 @@
-/* Linker script for Energy Micro EFM32G
+/* Linker script for Silicon Labs EFM32G
  *
  * Version: Sourcery G++ 4.4-139 - Preview
  * Support: https://support.codesourcery.com/GNUToolchain/
@@ -18,7 +18,7 @@
 OUTPUT_FORMAT ("elf32-littlearm", "elf32-bigarm", "elf32-littlearm")
 ENTRY(__cs3_reset)
 SEARCH_DIR(.)
-GROUP(-lgcc -lc -lcs3 -lcs3unhosted) 
+GROUP(-lgcc -lc -lcs3 -lcs3unhosted)
 
 MEMORY
 {

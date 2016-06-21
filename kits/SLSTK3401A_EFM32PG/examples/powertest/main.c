@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief A very simple demonstration of different power modes.
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014-2015 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -21,6 +21,7 @@
 #include "em_wdog.h"
 #include "rtcdriver.h"
 #include "bspconfig.h"
+#include "bsp_trace.h"
 
 /** Counts 1ms timeTicks */
 static volatile uint32_t msTicks;
@@ -71,6 +72,9 @@ int main(void)
 
   /* Chip errata */
   CHIP_Init();
+
+  /* If first word of user data page is non-zero, enable Code Correlation trace */
+  BSP_TraceProfilerSetup();
 
   /* Init DCDC regulator and HFXO with kit specific parameters */
   EMU_DCDCInit(&dcdcInit);

@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file tempdrv.c
  * @brief TEMPDRV API implementation.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -484,7 +484,7 @@ static void updateInterrupts()
  ******************************************************************************/
 Ecode_t TEMPDRV_Init()
 {
-  uint8_t *DItemp, *DIemu;
+  uint32_t DItemp, DIemu;
 
   // Flag up
   TEMPDRV_InitState = true;
@@ -496,19 +496,20 @@ Ecode_t TEMPDRV_Init()
   lowCallback = &nullCallback;
 
   // Retrieve calibration data from DI page
-  DItemp = (uint8_t *) 0x0FE0810B;
-  DIemu = (uint8_t *) 0x0FE08204;
-  if ((*DItemp == 0xFF ) || (*DIemu == 0xFF))
+  DItemp = ((DEVINFO->CAL & _DEVINFO_CAL_TEMP_MASK) >> _DEVINFO_CAL_TEMP_SHIFT);
+  DIemu = ((DEVINFO->EMUTEMP & _DEVINFO_EMUTEMP_EMUTEMPROOM_MASK) >> _DEVINFO_EMUTEMP_EMUTEMPROOM_SHIFT);
+
+  if ((DItemp == 0xFFFFFFFF ) || (DIemu == 0xFFFFFFFF))
   {
     // Missing DI page calibration data, substitute fixed values
-    DItemp = &fallbackTEMP;
-    DIemu = &fallbackEMU;
+    DItemp = fallbackTEMP;
+    DIemu = fallbackEMU;
 
   }
 
   // calculate conversion offsets. Based on assumed slope of 5/8
-  calibrationEMU = (*DIemu) + ((5*(*DItemp))>>3);
-  calibrationTEMP = (*DItemp) + (8*(*DIemu)/5);
+  calibrationEMU = (DIemu) + ((5*(DItemp))/8);
+  calibrationTEMP = (DItemp) + (8*(DIemu)/5);
 
   errataInit();
 
@@ -705,9 +706,12 @@ Ecode_t TEMPDRV_UnregisterCallback(TEMPDRV_Callback_t callback)
 }
 
 /******** THE REST OF THE FILE IS DOCUMENTATION ONLY !**********************//**
+ * @addtogroup emdrv
+ * @{
+ * @addtogroup TEMPDRV
  * @{
 
-@page tempdrv_doc TEMPDRV temperature sensor driver
+@details
 
   The source files for the TEMP driver library resides in the
   emdrv/tempdrv folder, and are named tempdrv.c and tempdrv.h.
@@ -801,4 +805,5 @@ int main(void)
 }
   @endverbatim
 
- * @}**************************************************************************/
+ * @} end group TEMPDRV *******************************************************
+ * @} end group emdrv ****************************************************/

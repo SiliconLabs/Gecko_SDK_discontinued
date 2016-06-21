@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file tempdrv.h
  * @brief TEMPDRV API definition.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -43,14 +43,13 @@ extern "C" {
 #endif
 
 /***************************************************************************//**
- * @addtogroup EM_Drivers
+ * @addtogroup emdrv
  * @{
  ******************************************************************************/
 
 /***************************************************************************//**
  * @addtogroup TEMPDRV
- * @brief TEMPDRV Temperature sensor driver, see @ref tempdrv_doc page for 
- *        detailed documentation.
+ * @brief TEMPDRV Temperature sensor driver
  * @{
  ******************************************************************************/
 
@@ -114,7 +113,7 @@ Ecode_t TEMPDRV_RegisterCallback(int8_t temp,
 Ecode_t TEMPDRV_UnregisterCallback(TEMPDRV_Callback_t callback);
 
 /** @} (end addtogroup TEMPDRV) */
-/** @} (end addtogroup EM_Drivers) */
+/** @} (end addtogroup emdrv) */
 
 #ifdef __cplusplus
 }

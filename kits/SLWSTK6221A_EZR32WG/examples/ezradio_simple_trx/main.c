@@ -5,10 +5,10 @@
  * This example shows how to easily implement a simple trx code for your
  * controller using EZRadio or EZRadioPRO devices.
  *
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -121,7 +121,12 @@ static uint8_t radioRxPkt[EZRADIO_FIFO_SIZE];
 #endif //#if ( defined EZRADIO_PLUGIN_RECEIVE )
 
 /* RTC frequency */
+#if defined(_EZR32_HAPPY_FAMILY)
+#define APP_RTC_FREQ_HZ 4u
+#else
 #define APP_RTC_FREQ_HZ 9u
+#endif
+
 /* RTC timeout */
 #define APP_RTC_TIMEOUT_MS ( 1000u / APP_RTC_FREQ_HZ )
 
@@ -453,10 +458,10 @@ static void appPacketReceivedCallback ( EZRADIODRV_Handle_t handle, Ecode_t stat
     else
     {
       uint16_t rxData;
-      
+
       rxData =  (uint16_t)(radioRxPkt[APP_PKT_DATA_START]) << 8;
       rxData += (uint16_t)(radioRxPkt[APP_PKT_DATA_START+1]);
-      
+
       printf("-->Data RX: %05d\n", rxData);
     }
   }

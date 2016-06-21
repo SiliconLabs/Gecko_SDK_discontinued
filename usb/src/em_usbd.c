@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file em_usbd.c
  * @brief USB protocol stack library API for EFM32/EZR32.
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -19,6 +19,7 @@
 #if defined( USB_DEVICE )
 
 #include "em_cmu.h"
+#include "em_system.h"
 #include "em_usbtypes.h"
 #include "em_usbhal.h"
 #include "em_usbd.h"
@@ -221,6 +222,9 @@ int USBD_Init( const USBD_Init_TypeDef *p )
   USBD_Ep_TypeDef *ep;
   uint8_t txFifoNum;
   uint8_t *conf, *confEnd;
+#if defined( CMU_OSCENCMD_USHFRCOEN )
+  SYSTEM_ChipRevision_TypeDef chipRev;
+#endif
   USB_EndpointDescriptor_TypeDef *epd;
   USB_InterfaceDescriptor_TypeDef *id;
   uint32_t totalRxFifoSize, totalTxFifoSize, numInEps, numOutEps;
@@ -477,9 +481,24 @@ int USBD_Init( const USBD_Init_TypeDef *p )
   CMU->USBCRCTRL |= CMU_USBCRCTRL_EN;
 
   /* Turn on Low Energy Mode (LEM) features. */
-  USB->CTRL = USB_CTRL_LEMOSCCTRL_GATE
-              | USB_CTRL_LEMIDLEEN
-              | USB_CTRL_LEMPHYCTRL;
+  SYSTEM_ChipRevisionGet(&chipRev);
+  if ((chipRev.family == 5)
+      && (chipRev.major == 1)
+      && (chipRev.minor == 0))
+  {
+    /* First Happy Gecko chip revision did not have all LEM features enabled. */
+    USB->CTRL = USB_CTRL_LEMOSCCTRL_GATE
+                | USB_CTRL_LEMIDLEEN
+                | USB_CTRL_LEMPHYCTRL;
+  }
+  else
+  {
+    USB->CTRL = USB_CTRL_LEMOSCCTRL_GATE
+                | USB_CTRL_LEMIDLEEN
+                | USB_CTRL_LEMPHYCTRL
+                | USB_CTRL_LEMNAKEN
+                | USB_CTRL_LEMADDRMEN;
+  }
 #else
   CMU_ClockSelectSet( cmuClock_USBC, cmuSelect_HFCLK );
 #endif
@@ -640,11 +659,7 @@ int USBD_RemoteWakeup( void )
     return USB_STATUS_ILLEGAL;
   }
 
-  USBDHAL_SetRemoteWakeup();
-  INT_Enable();
-  USBTIMER_DelayMs( 10 );
-  INT_Disable();
-  USBDHAL_ClearRemoteWakeup();
+  USBDINT_RemoteWakeup();
   INT_Enable();
   return USB_STATUS_OK;
 }
@@ -1249,8 +1264,8 @@ extern int RETARGET_WriteChar(char c);
   @n Define device properties and fill in USB initstruct in
   <em>descriptors.h</em>: @n @n
   @verbatim
-EFM32_ALIGN(4)
-static const USB_DeviceDescriptor_TypeDef deviceDesc __attribute__ ((aligned(4))) =
+SL_ALIGN(4)
+static const USB_DeviceDescriptor_TypeDef deviceDesc SL_ATTRIBUTE_ALIGN(4)=
 {
   .bLength            = USB_DEVICE_DESCSIZE,
   .bDescriptorType    = USB_DEVICE_DESCRIPTOR,
@@ -1268,8 +1283,8 @@ static const USB_DeviceDescriptor_TypeDef deviceDesc __attribute__ ((aligned(4))
   .bNumConfigurations = 1
 };
 
-EFM32_ALIGN(4)
-static const uint8_t configDesc[] __attribute__ ((aligned(4)))=
+SL_ALIGN(4)
+static const uint8_t configDesc[] SL_ATTRIBUTE_ALIGN(4)=
 {
   // *** Configuration descriptor ***
   USB_CONFIG_DESCSIZE,            // bLength

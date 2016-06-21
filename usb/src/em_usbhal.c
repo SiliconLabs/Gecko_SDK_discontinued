@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file em_usbhal.c
  * @brief USB protocol stack library, low level USB peripheral access.
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -211,12 +211,12 @@ USB_Status_TypeDef USBDHAL_CoreInit( uint32_t totalRxFifoSize,
   USB->DCTL = ( USB->DCTL & ~DCTL_WO_BITMASK ) | USB_DCTL_IGNRFRMNUM;
 
   /* Set Rx FIFO size */
-  start = EFM32_MAX( totalRxFifoSize, MIN_EP_FIFO_SIZE_INWORDS );
+  start = SL_MAX( totalRxFifoSize, MIN_EP_FIFO_SIZE_INWORDS );
   USB->GRXFSIZ = ( start << _USB_GRXFSIZ_RXFDEP_SHIFT ) &
                  _USB_GRXFSIZ_RXFDEP_MASK;
 
   /* Set Tx EP0 FIFO size */
-  depth = EFM32_MAX( dev->ep[ 0 ].fifoSize, MIN_EP_FIFO_SIZE_INWORDS );
+  depth = SL_MAX( dev->ep[ 0 ].fifoSize, MIN_EP_FIFO_SIZE_INWORDS );
   USB->GNPTXFSIZ = ( ( depth << _USB_GNPTXFSIZ_NPTXFINEPTXF0DEP_SHIFT ) &
                      _USB_GNPTXFSIZ_NPTXFINEPTXF0DEP_MASK                 ) |
                    ( ( start << _USB_GNPTXFSIZ_NPTXFSTADDR_SHIFT ) &
@@ -234,7 +234,7 @@ USB_Status_TypeDef USBDHAL_CoreInit( uint32_t totalRxFifoSize,
         if ( ep->txFifoNum == j )           /* Is it correct FIFO number ? */
         {
           start += depth;
-          depth = EFM32_MAX( ep->fifoSize, MIN_EP_FIFO_SIZE_INWORDS );
+          depth = SL_MAX( ep->fifoSize, MIN_EP_FIFO_SIZE_INWORDS );
           USB_DIEPTXFS[ ep->txFifoNum - 1 ] =
                               ( depth << _USB_DIEPTXF1_INEPNTXFDEP_SHIFT   ) |
                               ( start &  _USB_DIEPTXF1_INEPNTXFSTADDR_MASK );

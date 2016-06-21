@@ -33,7 +33,7 @@ endif
 
 # Change path to the tools according to your system configuration
 # DO NOT add trailing whitespace chars, they do matter !
-WINDOWSCS  ?= GNU Tools ARM Embedded\4.9 2015q1
+WINDOWSCS  ?= GNU Tools ARM Embedded\5.2 2015q4
 LINUXCS    ?= /tool/arm/gcc-arm-none-eabi/4_8-2013q4
 
 RMDIRS     := rm -rf
@@ -43,6 +43,12 @@ ALLFILES   := /*.*
 NULLDEVICE := /dev/null
 SHELLNAMES := $(ComSpec)$(COMSPEC)
 PATHSEP    := /
+
+# Command output is hidden by default, it can be enabled by 
+# setting VERBOSE=true on the commandline.
+ifeq ($(VERBOSE),)
+  ECHO = @
+endif
 
 # Try autodetecting the environment
 ifeq ($(SHELLNAMES),)
@@ -213,26 +219,26 @@ release:  $(EXE_DIR)/$(PROJECTNAME).bin
 # Create objects from C SRC files
 $(OBJ_DIR)/%.o: %.c
 	@echo "Building file: $<"
-	$(CC) $(CFLAGS) $(INCLUDEPATHS) -c -o $@ $<
+	$(ECHO)$(CC) $(CFLAGS) $(INCLUDEPATHS) -c -o $@ $<
 
 # Assemble .s/.S files
 $(OBJ_DIR)/%.o: %.s
 	@echo "Assembling $<"
-	$(CC) $(ASMFLAGS) $(INCLUDEPATHS) -c -o $@ $<
+	$(ECHO)$(CC) $(ASMFLAGS) $(INCLUDEPATHS) -c -o $@ $<
 
 $(OBJ_DIR)/%.o: %.S
 	@echo "Assembling $<"
-	$(CC) $(ASMFLAGS) $(INCLUDEPATHS) -c -o $@ $<
+	$(ECHO)$(CC) $(ASMFLAGS) $(INCLUDEPATHS) -c -o $@ $<
 
 # Link
 $(EXE_DIR)/$(PROJECTNAME).out: $(OBJS)
 	@echo "Linking target: $@"
-	$(CC) $(LDFLAGS) $(OBJS) $(LIBS) -o $(EXE_DIR)/$(PROJECTNAME).out
+	$(ECHO)$(CC) $(LDFLAGS) $(OBJS) $(LIBS) -o $(EXE_DIR)/$(PROJECTNAME).out
 
 # Create binary file
 $(EXE_DIR)/$(PROJECTNAME).bin: $(EXE_DIR)/$(PROJECTNAME).out
-	@echo "Creating binary file"
-	$(OBJCOPY) -O binary $(EXE_DIR)/$(PROJECTNAME).out $(EXE_DIR)/$(PROJECTNAME).bin
+	@echo "Creating binary file: $@"
+	$(ECHO)$(OBJCOPY) -O binary $(EXE_DIR)/$(PROJECTNAME).out $(EXE_DIR)/$(PROJECTNAME).bin
 # Uncomment next line to produce assembly listing of entire program
 #	$(DUMP) -h -S -C $(EXE_DIR)/$(PROJECTNAME).out>$(LST_DIR)/$(PROJECTNAME)out.lst
 

@@ -1,7 +1,7 @@
 ;/**************************************************************************//**
-; * @file     
+; * @file
 ; * @brief    CMSIS Core Device Startup File for
-; *           Energy Micro 'EFM32GG/LG' Device Series
+; *           Silicon Labs 'EFM32GG/LG' Device Series
 ; * @version 3.0.0
 ; * @date     03. February 2012
 ; *
@@ -9,9 +9,9 @@
 ; * Copyright (C) 2012 ARM Limited. All rights reserved.
 ; *
 ; * @par
-; * ARM Limited (ARM) is supplying this software for use with Cortex-M 
-; * processor based microcontrollers.  This file can be freely distributed 
-; * within development tools that are supporting such ARM based processors. 
+; * ARM Limited (ARM) is supplying this software for use with Cortex-M
+; * processor based microcontrollers.  This file can be freely distributed
+; * within development tools that are supporting such ARM based processors.
 ; *
 ; * @par
 ; * THIS SOFTWARE IS PROVIDED "AS IS".  NO WARRANTIES, WHETHER EXPRESS, IMPLIED
@@ -21,7 +21,7 @@
 ; * CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
 ; *
 ; ******************************************************************************/
-; Energy Micro release version
+; Silicon Labs release version
 ; @version INTERNAL
 ;/*
 ;//-------- <<< Use Configuration Wizard in Context Menu >>> ------------------
@@ -275,13 +275,13 @@ EMU_IRQHandler
 ; User Initial Stack & Heap
 
                 IF      :DEF:__MICROLIB
-                
+
                 EXPORT  __initial_sp
                 EXPORT  __heap_base
                 EXPORT  __heap_limit
-                
+
                 ELSE
-                
+
                 IMPORT  __use_two_region_memory
                 EXPORT  __user_initial_stackheap
 

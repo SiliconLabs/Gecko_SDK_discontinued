@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file
  * @brief    CMSIS Core Device Startup File for
- *           Energy Micro 'EFM32GG/LG' Device Series
+ *           Silicon Labs 'EFM32GG/LG' Device Series
  ******************************************************************************
  *
  * Version: Sourcery G++ 4.4-180
@@ -20,7 +20,7 @@
  * they apply.
  *
  *******************************************************************************
- * Energy Micro release version
+ * Silicon Labs release version
  * @version 3.0.0
  ******************************************************************************/
 

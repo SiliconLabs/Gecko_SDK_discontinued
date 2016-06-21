@@ -35,13 +35,16 @@
 								<option id="com.atollic.truestudio.gcc.symbols.defined.1334387948" name="Defined symbols" superClass="com.atollic.truestudio.gcc.symbols.defined" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="EFM32G290F128"/>
 									<listOptionValue builtIn="false" value="DEBUG_EFM"/>
+									<listOptionValue builtIn="false" value="RTCDRV_USE_LFRCO"/>
 								</option>
 								<option id="com.atollic.truestudio.gcc.directories.select.584705502" name="Include path" superClass="com.atollic.truestudio.gcc.directories.select" valueType="includePath">
 									<listOptionValue builtIn="false" value="../../.."/>
 									<listOptionValue builtIn="false" value="../../../../../../../CMSIS/Include"/>
 									<listOptionValue builtIn="false" value="../../../../../../../Device/SiliconLabs/EFM32G/Include"/>
 									<listOptionValue builtIn="false" value="../../../../../../../emlib/inc"/>
-									<listOptionValue builtIn="false" value="../../../../../../common/drivers"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/common/inc"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/config"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/rtcdrv/inc"/>
 									<listOptionValue builtIn="false" value="../../../../../../common/bsp"/>
 									<listOptionValue builtIn="false" value="../../../../../config"/>
 									<listOptionValue builtIn="false" value="../../.."/>
@@ -82,13 +85,16 @@
 								<option id="com.atollic.truestudio.gpp.symbols.defined.1086526468" name="Defined symbols" superClass="com.atollic.truestudio.gpp.symbols.defined" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="EFM32G290F128"/>
 									<listOptionValue builtIn="false" value="DEBUG_EFM"/>
+									<listOptionValue builtIn="false" value="RTCDRV_USE_LFRCO"/>
 								</option>
 								<option id="com.atollic.truestudio.gpp.directories.select.1844534111" name="Include path" superClass="com.atollic.truestudio.gpp.directories.select" valueType="includePath">
 									<listOptionValue builtIn="false" value="../../.."/>
 									<listOptionValue builtIn="false" value="../../../../../../../CMSIS/Include"/>
 									<listOptionValue builtIn="false" value="../../../../../../../Device/SiliconLabs/EFM32G/Include"/>
 									<listOptionValue builtIn="false" value="../../../../../../../emlib/inc"/>
-									<listOptionValue builtIn="false" value="../../../../../../common/drivers"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/common/inc"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/config"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/rtcdrv/inc"/>
 									<listOptionValue builtIn="false" value="../../../../../../common/bsp"/>
 									<listOptionValue builtIn="false" value="../../../../../config"/>
 									<listOptionValue builtIn="false" value="../../.."/>
@@ -155,7 +161,9 @@
 									<listOptionValue builtIn="false" value="../../../../../../../CMSIS/Include"/>
 									<listOptionValue builtIn="false" value="../../../../../../../Device/SiliconLabs/EFM32G/Include"/>
 									<listOptionValue builtIn="false" value="../../../../../../../emlib/inc"/>
-									<listOptionValue builtIn="false" value="../../../../../../common/drivers"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/common/inc"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/config"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/rtcdrv/inc"/>
 									<listOptionValue builtIn="false" value="../../../../../../common/bsp"/>
 									<listOptionValue builtIn="false" value="../../../../../config"/>
 									<listOptionValue builtIn="false" value="../../.."/>
@@ -172,13 +180,16 @@
 								<option id="com.atollic.truestudio.gcc.symbols.defined.1096778882" superClass="com.atollic.truestudio.gcc.symbols.defined" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="EFM32G290F128"/>
 									<listOptionValue builtIn="false" value="DEBUG_EFM"/>
+									<listOptionValue builtIn="false" value="RTCDRV_USE_LFRCO"/>
 								</option>
 								<option id="com.atollic.truestudio.gcc.directories.select.262883779" superClass="com.atollic.truestudio.gcc.directories.select" valueType="includePath">
 									<listOptionValue builtIn="false" value="../../.."/>
 									<listOptionValue builtIn="false" value="../../../../../../../CMSIS/Include"/>
 									<listOptionValue builtIn="false" value="../../../../../../../Device/SiliconLabs/EFM32G/Include"/>
 									<listOptionValue builtIn="false" value="../../../../../../../emlib/inc"/>
-									<listOptionValue builtIn="false" value="../../../../../../common/drivers"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/common/inc"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/config"/>
+									<listOptionValue builtIn="false" value="../../../../../../../emdrv/rtcdrv/inc"/>
 									<listOptionValue builtIn="false" value="../../../../../../common/bsp"/>
 									<listOptionValue builtIn="false" value="../../../../../config"/>
 									<listOptionValue builtIn="false" value="../../.."/>

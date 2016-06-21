@@ -20,7 +20,7 @@ kits/SLWSTK6240A_EZR32HG/config
 
 kits/SLWSTK6240A_EZR32HG/examples
    Several example projects demonstrating various capabilities of the
-   EZR32HG320F64R61.
+   EZR32HG320F64R68.
    Project files for various IDEs/compilers are in subdirectories of
    each example. Use these as a starting point for your own development
    and prototyping of software.
@@ -39,4 +39,4 @@ for the latest releases.
 License information for use of the source code is given at the top of
 all C files.
 
-(C) Copyright Silicon Laboratories Inc. 2015. All rights reserved.
+Copyright 2015 Silicon Laboratories, Inc.

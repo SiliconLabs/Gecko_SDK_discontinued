@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief Touch example for EFM32GG_DK3750 development kit
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -387,8 +387,8 @@ static uint32_t getTouchChSample12bit( ADC_SingleInput_TypeDef ch )
   {
     value = readAdc();
     acc += value;
-    min = EFM32_MIN( min, value );
-    max = EFM32_MAX( max, value );
+    min = SL_MIN( min, value );
+    max = SL_MAX( max, value );
   }
   /* Throw away largest and smallest sample */
   acc = acc - min - max;

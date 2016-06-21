@@ -3,7 +3,7 @@
  * @brief NVM config definition
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -41,7 +41,7 @@ extern "C" {
 
 /** Include and activate the static wear leveling functionality */
 #define NVM_FEATURE_STATIC_WEAR_ENABLED              true
-  
+
 /** The threshold used to decide when to do static wear leveling */
 #define NVM_STATIC_WEAR_THRESHOLD                    100
 
@@ -59,7 +59,7 @@ extern "C" {
 
 /** define maximum number of flash pages that can be used as NVM */
 #define NVM_MAX_NUMBER_OF_PAGES                      32
-  
+
 /** Configure extra pages to allocate for data security and wear leveling.
     Minimum 1, but the more you add the better lifetime your system will have. */
 #define NVM_PAGES_SCRATCH                            3

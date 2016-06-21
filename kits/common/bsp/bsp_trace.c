@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief API for enabling SWO and ETM trace.
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -62,6 +62,8 @@ void BSP_TraceEtmSetup(void)
  *****************************************************************************/
 void BSP_TraceSwoSetup(void)
 {
+  uint32_t freq;
+  uint32_t div;
   /* Enable GPIO clock */
 #if defined( _CMU_HFPERCLKEN0_GPIO_MASK )
   CMU->HFPERCLKEN0 |= CMU_HFPERCLKEN0_GPIO;
@@ -99,8 +101,11 @@ void BSP_TraceSwoSetup(void)
   /* Enable PC and IRQ sampling output */
   DWT->CTRL = 0x400113FF;
 
-  /* Set TPIU prescaler to 16. */
-  TPI->ACPR = 15;
+  /* Set TPIU prescaler for the current AUX clock frequency. Round to closest.
+     Actual divider is TPI->ACPR + 1. */
+  freq = CMU_ClockFreqGet(cmuClock_AUX) + (875000 / 2);
+  div  = freq / 875000;
+  TPI->ACPR = div - 1;
 
   /* Set protocol to NRZ */
   TPI->SPPR = 2;

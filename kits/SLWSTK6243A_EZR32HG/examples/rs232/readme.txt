@@ -14,4 +14,4 @@ If the LEUART is used set terminal configuration to 9600-8-N-1.
 For the default VCOM communication mode, serial port settings are "dont care".
 
 Board:  Silicon Labs SLWSTK6243A_EZR32HG Starter Kit
-Device: EZR32HG320F64R63
+Device: EZR32HG320F64R61

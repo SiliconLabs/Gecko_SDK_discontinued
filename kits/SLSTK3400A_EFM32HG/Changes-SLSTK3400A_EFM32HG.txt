@@ -1,6 +1,9 @@
 ================ Revision history ============================================
+4.3.0:
+ - Added cpt007b and cpt112s capacitive touch examples.
+
 4.2.1:
- - No changes.
+ - Made changes to segmentlcdconfig.h file
 
 4.2.0:
  - No changes.

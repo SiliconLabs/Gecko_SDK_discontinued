@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief Board Control register definitions
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -35,7 +35,7 @@ extern "C" {
 #endif
 
 /**************************************************************************//**
- * Defines FPGA register bank for Energy Micro Development Kit board,
+ * Defines FPGA register bank for Silicon Labs Development Kit board,
  * i.e. board control registers
  *****************************************************************************/
 #define BC_REGISTER_BASE    0x80000000  /**< Board Controller registers base address */
@@ -101,7 +101,7 @@ typedef struct
   __IO uint16_t INTPCTRL;          /**< 0x48 - Interrupt pulse control */
   __IO uint16_t INTPLOW;           /**< 0x4A - Interrupt puls low period */
   __IO uint16_t INTPHIGH;          /**< 0x4C - Interrupt puls high period */
-  
+
   __IO uint16_t RESERVERD3[0x19];  /**< 0x50 - Reserved */
 
   __IO uint16_t BC_MBOX_TXCTRL;    /**< 0x80 - BC <-> EFM32 communication channel */

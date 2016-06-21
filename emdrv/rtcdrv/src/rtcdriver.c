@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file rtcdriver.c
  * @brief RTCDRV timer API implementation.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -75,6 +75,7 @@
 #define NVIC_CLEARPENDINGIRQ()        NVIC_ClearPendingIRQ( RTCC_IRQn )
 #define NVIC_DISABLEIRQ()             NVIC_DisableIRQ( RTCC_IRQn )
 #define NVIC_ENABLEIRQ()              NVIC_EnableIRQ( RTCC_IRQn )
+#define RTC_ONESHOT_TICK_ADJUST       0
 
 #else
 // To get the math correct we must have the MSB of the underlying 24bit
@@ -97,6 +98,8 @@
 #define NVIC_CLEARPENDINGIRQ()        NVIC_ClearPendingIRQ( RTC_IRQn )
 #define NVIC_DISABLEIRQ()             NVIC_DisableIRQ( RTC_IRQn )
 #define NVIC_ENABLEIRQ()              NVIC_EnableIRQ( RTC_IRQn )
+#define RTC_ONESHOT_TICK_ADJUST       1
+
 #endif
 
 // Maximum number of ticks per overflow period (not the maximum tick value)
@@ -546,6 +549,12 @@ Ecode_t RTCDRV_StartTimer(  RTCDRV_TimerID_t id,
       (timer[ id ].ticks * TICK_TIME_USEC);
     timer[ id ].periodicDriftUsec = TICK_TIME_USEC/2;
   }
+  else
+  {
+    // Compensate for the fact that CNT is normally COMP0+1 after a
+    // compare match event on some devices.
+    timer[ id ].ticks -= RTC_ONESHOT_TICK_ADJUST;
+  }
   // Add one tick in order to compensate if RTC is close to an increment event.
   timer[ id ].remaining = timer[ id ].ticks + 1;
   timer[ id ].running   = true;
@@ -573,7 +582,7 @@ Ecode_t RTCDRV_StartTimer(  RTCDRV_TimerID_t id,
 
     RTC_INTCLEAR( RTC_COMP_INT );
 
-    compVal = EFM32_MIN( timer[ id ].remaining, RTC_CLOSE_TO_MAX_VALUE );
+    compVal = SL_MIN( timer[ id ].remaining, RTC_CLOSE_TO_MAX_VALUE );
     RTC_COMPARESET( cnt + compVal );
 
     // Start the timer system by enabling the compare interrupt.
@@ -1057,7 +1066,7 @@ static void rescheduleRtc( uint32_t rtcCnt )
 
   rtcRunning = false;
   if ( min != UINT64_MAX ) {
-    min = EFM32_MIN( min, RTC_CLOSE_TO_MAX_VALUE );
+    min = SL_MIN( min, RTC_CLOSE_TO_MAX_VALUE );
 #if defined( RTCDRV_USE_RTC )
     if ( inTimerIRQ == false ) {
       lastStart = ( rtcCnt ) & RTC_COUNTER_MASK;
@@ -1087,11 +1096,12 @@ static void rescheduleRtc( uint32_t rtcCnt )
 /// @endcond
 
 /******** THE REST OF THE FILE IS DOCUMENTATION ONLY !**********************//**
+ * @addtogroup emdrv
+ * @{
  * @addtogroup RTCDRV
  * @{
 
-@page rtcdrv_doc RTCDRV Real Time Clock Timer driver
-
+@details
   The source files for the RTCDRV device driver library resides in the
   emdrv/rtcdrv folder, and are named rtcdriver.c and rtcdriver.h.
 
@@ -1242,4 +1252,5 @@ int main( void )
 }
   @endverbatim
 
- * @}**************************************************************************/
+ * @} end group RTCDRV ********************************************************
+ * @} end group emdrv ****************************************************/

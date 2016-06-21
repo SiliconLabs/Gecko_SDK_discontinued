@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file nvm_config.c
  * @brief NVM driver configuration
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -14,6 +14,7 @@
  ******************************************************************************/
 
 #include <stddef.h>
+#include "em_common.h"
 #include "nvm.h"
 #include "nvm_config.h"
 
@@ -190,12 +191,13 @@ NVM_Page_Table_t const nvmPages =
 
 /// @endcond
 
+SL_ALIGN(NVM_PAGE_SIZE)
 #ifdef __ICCARM__
-#pragma data_alignment = NVM_PAGE_SIZE
-static const uint8_t nvmData[NVM_PAGE_SIZE * NUMBER_OF_PAGES] @ ".text";   /**< Set storage size and location */
+/**< Set storage size and location */
+static const uint8_t nvmData[NVM_PAGE_SIZE * NUMBER_OF_PAGES] @ ".text";
 #else
-static const uint8_t nvmData[NVM_PAGE_SIZE * NUMBER_OF_PAGES] \
-  __attribute__ ((__aligned__(NVM_PAGE_SIZE))) = { 0xFF };                 /**< Set storage size and location */
+/**< Set storage size and location */
+static const uint8_t nvmData[NVM_PAGE_SIZE * NUMBER_OF_PAGES] SL_ATTRIBUTE_ALIGN(NVM_PAGE_SIZE) = { 0xFF };
 #endif
 
 

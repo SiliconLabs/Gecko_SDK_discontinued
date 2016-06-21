@@ -283,6 +283,9 @@
           <state>$PROJ_DIR$\..\..\..\..\..\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\Device\SiliconLabs\EFM32LG\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\common\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\rtcdrv\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\..\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\reptile\glib</state>
@@ -493,6 +496,9 @@
           <state>$PROJ_DIR$\..\..\..\..\..\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\Device\SiliconLabs\EFM32LG\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\common\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\rtcdrv\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\..\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\reptile\glib</state>
@@ -1091,6 +1097,9 @@
           <state>$PROJ_DIR$\..\..\..\..\..\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\Device\SiliconLabs\EFM32LG\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\common\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\rtcdrv\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\..\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\reptile\glib</state>
@@ -1301,6 +1310,9 @@
           <state>$PROJ_DIR$\..\..\..\..\..\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\Device\SiliconLabs\EFM32LG\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\common\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\rtcdrv\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\..\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\..\reptile\glib</state>
@@ -1644,9 +1656,6 @@
       <name>$PROJ_DIR$\..\..\..\..\common\drivers\dmactrl.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\common\drivers\rtcdrv.c</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\..\..\..\..\common\drivers\tftdirect.c</name>
     </file>
     <file>
@@ -1654,6 +1663,12 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\reptile\glib\dmd\ssd2119\dmd_ssd2119_direct.c</name>
+    </file>
+  </group>
+  <group>
+    <name>emdrv</name>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\emdrv\rtcdrv\src\rtcdriver.c</name>
     </file>
   </group>
   <group>
@@ -1702,6 +1717,9 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_gpio.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_int.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_prs.c</name>

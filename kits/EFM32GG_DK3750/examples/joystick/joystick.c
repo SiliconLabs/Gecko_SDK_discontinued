@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief Joystick interrupt example for EFM32GG_DK3750
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -128,6 +128,7 @@ int main(void)
     /* Quick flash to show we're alive */
     BSP_LedsSet(0xffff);
     Delay(20);
-    BSP_LedsSet(0x0000);
+    /* Restore leds according to joystick status. */
+    BSP_LedsSet(BSP_JoystickGet());
   }
 }

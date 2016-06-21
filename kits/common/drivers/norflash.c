@@ -4,10 +4,10 @@
  *        Spansion S29GL128P90FFIR13 is a 16MByte device organized in 128
  *        sectors of 128KBytes each. The module can easily be tailored to suit
  *        other NOR flash devices.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -241,8 +241,8 @@ int NORFLASH_Program(uint32_t addr, uint8_t *data, uint32_t count)
     sectorAddress = addr & ~(flashInfo.sectorSize - 1);
 
     /* Max 32 "words" at a time, must not cross sector boundary */
-    burst = EFM32_MIN(64U, sectorAddress + flashInfo.sectorSize - addr);
-    burst = EFM32_MIN(burst, count & 0xFFFFFFFE);
+    burst = SL_MIN(64U, sectorAddress + flashInfo.sectorSize - addr);
+    burst = SL_MIN(burst, count & 0xFFFFFFFE);
 
     status = flashWriteBuffer(sectorAddress, addr, (uint16_t*) data, burst);
 
@@ -471,7 +471,6 @@ static int flashPoll(uint32_t addr, uint16_t data)
   #define TOGGLE_BIT     0x40
   #define TIMEOUT_BIT    0x20
 
-  int      i = 0;
   uint16_t flashData1, flashData2, flashData3;
 
   if ((flashData1 = *(volatile uint16_t*) addr) == data)
@@ -501,6 +500,9 @@ static int flashPoll(uint32_t addr, uint16_t data)
       if (*(volatile uint16_t*) addr == data)
         return NORFLASH_STATUS_OK;
 
+      if (*(volatile uint16_t*) addr == data)
+        return NORFLASH_STATUS_OK;
+
       /* Code will typically end here if attempting to program a 0 to a 1 */
       flashReset();
       return NORFLASH_WRITE_FAILURE;
@@ -508,7 +510,6 @@ static int flashPoll(uint32_t addr, uint16_t data)
 
     flashData1 = flashData2;
     flashData2 = flashData3;
-    i++;
   }
   #undef TOGGLE_BIT
   #undef TIMEOUT_BIT

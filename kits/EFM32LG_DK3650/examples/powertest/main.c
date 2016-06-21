@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief A very simple demonstration of different power modes.
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -72,13 +72,13 @@ int main(void)
   /* Chip revision alignment and errata fixes */
   CHIP_Init();
 
-  /* If first word of user data page is non-zero, enable eA Profiler trace */
+  /* If first word of user data page is non-zero, enable Code Correlation trace */
   BSP_TraceProfilerSetup();
 
   /* Misc timers. */
   RTCDRV_Init();
   RTCDRV_AllocateTimer( &xTimerIdForWakeUp);
-  
+
   /* Watchdog setup - Use defaults, excepts for these :*/
   wInit.em2Run = true;
   wInit.em3Run = true;
@@ -158,7 +158,7 @@ int main(void)
   /* EM2 - 1 sec */
   RTCDRV_StartTimer( xTimerIdForWakeUp, rtcdrvTimerTypeOneshot, 1000, NULL, NULL);
   EMU_EnterEM2(true);
-  
+
   /* Start watchdog */
   WDOG_Init(&wInit);
 

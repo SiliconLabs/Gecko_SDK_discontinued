@@ -9,6 +9,10 @@ interval, the LCD is updated to reflect the current time. The animation
 feature is used to show the seconds. This is done by using the frame
 event counter to drive the animation feature every second.
 
+Time is set with pushbuttons PB0 and PB1.
+ - Pushing PB0 increments minute count.
+ - Pushing PB1 increments hour count.
+
 The VCMP is used to measure the input voltage on every wakeup. If the
 voltage drops too low, voltage boost is enabled on the LCD. This makes
 the LCD clear and readable even when running on low batteries.

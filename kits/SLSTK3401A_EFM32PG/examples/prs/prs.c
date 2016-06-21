@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief PRS Example for SLSTK3401A
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -135,12 +135,9 @@ int main(void)
   setupPcnt();
   setupNvic();
 
-  /* Enter EM2 with Cortex sleep-on-exit */
-  SCB->SCR |= SCB_SCR_SLEEPONEXIT_Msk;
-  EMU_EnterEM2(false);
-
-  /* With sleep-on-exit, all further code execution is
-     done in interrupt context only. Therefore, execution
-     should never arrive at this assertion. */
-  EFM_ASSERT(false);
+  /* Enter EM2 forever */
+  while(true)
+  {
+    EMU_EnterEM2(false);
+  }
 }

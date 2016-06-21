@@ -5,7 +5,7 @@
  * @version 1.0.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2012 Energy Micro AS, http://www.energymicro.com</b>
+ * <b>Copyright 2015 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -17,21 +17,19 @@
  * 2. Altered source versions must be plainly marked as such, and must not be
  *    misrepresented as being the original software.
  * 3. This notice may not be removed or altered from any source distribution.
- * 4. The source and compiled code may only be used on Energy Micro "EFM32"
- *    microcontrollers and "EFR4" radios.
  *
- * DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Energy Micro AS has no
- * obligation to support this Software. Energy Micro AS is providing the
+ * DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Silicon Labs has no
+ * obligation to support this Software. Silicon Labs is providing the
  * Software "AS IS", with no express or implied warranties of any kind,
  * including, but not limited to, any implied warranties of merchantability
  * or fitness for any particular purpose or warranties against infringement
  * of any proprietary rights of a third party.
  *
- * Energy Micro AS will not be liable for any consequential, incidental, or
+ * Silicon Labs will not be liable for any consequential, incidental, or
  * special damages, or any other relief, or for any claim by any third party,
  * arising from your use of this Software.
  *
- *****************************************************************************/
+ ******************************************************************************/
 
 #include <stdint.h>
 
@@ -144,7 +142,7 @@ err_t ksz8851snl_driver_output(struct netif *netif, struct pbuf *p)
 
   /* Tx must be done with interrupts disabled */
   INT_Disable();
-  
+
   /* Check for LwIP chained buffers */
   if (p->next)
   {
@@ -176,15 +174,15 @@ err_t ksz8851snl_driver_output(struct netif *netif, struct pbuf *p)
       LWIP_DEBUGF(NETIF_DEBUG | LWIP_DBG_LEVEL_WARNING, ("ksz8851snl_driver: Unable to send packet of size %u\n", p->len));
     }
   }
-  
+
   INT_Enable();
 
 #if ETH_PAD_SIZE
   pbuf_header(p, ETH_PAD_SIZE); /* reclaim the padding word */
 #endif
 
-  LINK_STATS_INC(link.xmit);  
-  
+  LINK_STATS_INC(link.xmit);
+
   return ERR_OK;
 }
 
@@ -204,12 +202,12 @@ void ksz8851snl_driver_input(struct netif *netif)
   err_t          err;
 
   EFM_ASSERT(netif != NULL);
-  
+
   INT_Disable();
   KSZ8851SNL_FrameCounterSet();
   INT_Enable();
-  
-  /* Process frames. LWIPDRIVER_LowLevelInput()/KSZ8851SNL_Receive() decrements the frame count. */  
+
+  /* Process frames. LWIPDRIVER_LowLevelInput()/KSZ8851SNL_Receive() decrements the frame count. */
   while (KSZ8851SNL_FrameCounterGet() > 0)
   {
     /* Frame Counter is decremented by KSZ8851SNL_Receive - some frames might be dropped due to errors */
@@ -245,13 +243,13 @@ void ksz8851snl_driver_input(struct netif *netif)
         p = NULL;
       }
       break;
-      
+
     case ETHTYPE_IPv6:
       LWIP_DEBUGF(NETIF_DEBUG | LWIP_DBG_LEVEL_WARNING, ("ksz8851snl_driver: IPv6 frame type is not supported. Frame ignored.\n"));
       pbuf_free(p);
       p = NULL;
       break;
-      
+
     default:
       LWIP_DEBUGF(NETIF_DEBUG | LWIP_DBG_LEVEL_WARNING, ("ksz8851snl_driver: Unsupported Ethernet type = 0x%04lX\n", (uint32_t) htons(ethhdr->type)));
       pbuf_free(p);
@@ -277,7 +275,7 @@ static struct pbuf *ksz8851snl_driver_low_level_input(struct netif *netif)
   EFM_ASSERT(netif != NULL);
   struct pbuf *p;
   uint16_t    frameLength;
-  
+
   /* We allocate a pbuf chain of pbufs from the pool. */
   p = pbuf_alloc(PBUF_RAW, PBUF_POOL_BUFSIZE, PBUF_POOL);
   if (p != NULL)
@@ -288,7 +286,7 @@ static struct pbuf *ksz8851snl_driver_low_level_input(struct netif *netif)
       p->len = frameLength;
       if (p->next == NULL)
       {
-        p->tot_len = frameLength;        
+        p->tot_len = frameLength;
       }
       LINK_STATS_INC(link.recv);
     }

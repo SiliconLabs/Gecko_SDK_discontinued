@@ -29,4 +29,4 @@ RADIO_USE_GENERATED_CONFIGURATION in ezradio_plugin_manager.h.
 For more information please refer to the Quick Start Guide of the application.
 
 Board:  Silicon Labs SLWSTK6240A_EZR32HG Development Kit
-Device: EZR32HG320F64R61
+Device: EZR32HG320F64R68

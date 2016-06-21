@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_usbh.c
  * @brief USB protocol stack library API for EFM32/EZR32.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -114,13 +114,13 @@ static void Timeout( int hcnum )
     }
     else
     {
-      ep->timeout -= EFM32_MIN( ep->timeout, ep->epDesc.bInterval );
+      ep->timeout -= SL_MIN( ep->timeout, ep->epDesc.bInterval );
       if ( ep->timeout )
       {
         /* Restart the channel */
         USBHHAL_HCStart( hcnum );
         USBTIMER_Start( hcnum + HOSTCH_TIMER_INDEX,
-                        EFM32_MIN( ep->timeout, ep->epDesc.bInterval ),
+                        SL_MIN( ep->timeout, ep->epDesc.bInterval ),
                         hcTimeoutFunc[ hcnum ] );
       }
       else
@@ -803,7 +803,7 @@ int USBH_GetStringB( USBH_Device_TypeDef *device, uint8_t *buf, int bufLen,
                     GET_DESCRIPTOR,                       /* bRequest      */
                     (USB_STRING_DESCRIPTOR << 8) | stringIndex,/* wValue   */
                     langID,                               /* wIndex        */
-                    EFM32_MIN( bufLen, 255 ),             /* wLength       */
+                    SL_MIN( bufLen, 255 ),                /* wLength       */
                     buf,                                  /* void* data    */
                     DEFAULT_CTRL_TIMEOUT );               /* int timeout   */
 
@@ -1110,7 +1110,7 @@ int USBH_PrintConfigurationDescriptor(
   maxLen -= config->bLength;
   if ( maxLen > 0 )
   {
-    remaining = EFM32_MIN( config->wTotalLength - config->bLength, maxLen );
+    remaining = SL_MIN( config->wTotalLength - config->bLength, maxLen );
     if ( remaining > 0 )
     {
       USB_PUTCHAR( '\n' );
@@ -1344,9 +1344,9 @@ USB_ConfigurationDescriptor_TypeDef *USBH_QGetConfigurationDescriptor(
       start = buf + sizeof( USBH_Device_TypeDef );
 
       /* Find end of avaiable data, NOTE: ep contains end of buf ! */
-      end = EFM32_MIN(
-          start + ((USB_ConfigurationDescriptor_TypeDef*)start)->wTotalLength,
-          (uint8_t*)(((USBH_Device_TypeDef*)buf)->ep));
+      end = SL_MIN(
+            start + ((USB_ConfigurationDescriptor_TypeDef*)start)->wTotalLength,
+            (uint8_t*)(((USBH_Device_TypeDef*)buf)->ep));
 
       /* Scan through, looking for correct configuration descriptor */
       i = 0;
@@ -1591,7 +1591,7 @@ int USBH_QueryDeviceB( uint8_t *buf, size_t bufsize, uint8_t deviceSpeed )
   /* Get the first 8 bytes of the device desc to figure out device EP0 size */
   if ( 8 != USBH_GetDeviceDescriptorB( device,
                                        &device->devDesc,
-                                       EFM32_MIN( 8U, bufsize ) ) )
+                                       SL_MIN( 8U, bufsize ) ) )
   {
     return USB_STATUS_REQ_ERR;
   }
@@ -1601,7 +1601,7 @@ int USBH_QueryDeviceB( uint8_t *buf, size_t bufsize, uint8_t deviceSpeed )
   if ( USB_DEVICE_DESCSIZE != USBH_GetDeviceDescriptorB(
                            device,
                            buf + sizeof( USBH_Device_TypeDef ),
-                           EFM32_MIN( (size_t)USB_DEVICE_DESCSIZE, bufsize ) ) )
+                           SL_MIN( (size_t)USB_DEVICE_DESCSIZE, bufsize ) ) )
   {
     return USB_STATUS_REQ_ERR;
   }
@@ -1612,8 +1612,8 @@ int USBH_QueryDeviceB( uint8_t *buf, size_t bufsize, uint8_t deviceSpeed )
   if ( USB_CONFIG_DESCSIZE != USBH_GetConfigurationDescriptorB(
                            device,
                            buf + sizeof( USBH_Device_TypeDef ),
-                           EFM32_MIN( (size_t)USB_CONFIG_DESCSIZE,
-                                      bufsize - (size_t)USB_DEVICE_DESCSIZE ),
+                           SL_MIN( (size_t)USB_CONFIG_DESCSIZE,
+                                   bufsize - (size_t)USB_DEVICE_DESCSIZE ),
                            0 ) )
   {
     return USB_STATUS_REQ_ERR;
@@ -1627,8 +1627,8 @@ int USBH_QueryDeviceB( uint8_t *buf, size_t bufsize, uint8_t deviceSpeed )
        USBH_GetConfigurationDescriptorB(
                            device,
                            buf + sizeof( USBH_Device_TypeDef ),
-                           EFM32_MIN( device->confDesc.wTotalLength,
-                                      bufsize - sizeof( USBH_Device_TypeDef )),
+                           SL_MIN( device->confDesc.wTotalLength,
+                                   bufsize - sizeof( USBH_Device_TypeDef )),
                            0 ) )
   {
     return USB_STATUS_REQ_ERR;
@@ -1741,7 +1741,7 @@ int USBH_Read( USBH_Ep_TypeDef *ep, void *data, int byteCount, int timeout,
   if ( ep->type == USB_EPTYPE_INTR )
   {
     if ( timeout )
-      timeout = EFM32_MIN( timeout, ep->epDesc.bInterval );
+      timeout = SL_MIN( timeout, ep->epDesc.bInterval );
     else
       timeout = ep->epDesc.bInterval;
   }
@@ -2366,7 +2366,7 @@ int USBH_Write( USBH_Ep_TypeDef *ep, void *data, int byteCount,
   if ( ep->type == USB_EPTYPE_INTR )
   {
     if ( timeout )
-      timeout = EFM32_MIN( timeout, ep->epDesc.bInterval );
+      timeout = SL_MIN( timeout, ep->epDesc.bInterval );
     else
       timeout = ep->epDesc.bInterval;
   }

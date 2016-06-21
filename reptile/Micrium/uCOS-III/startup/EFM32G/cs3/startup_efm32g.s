@@ -15,7 +15,7 @@
  * the new terms are clearly indicated on the first page of each file where
  * they apply.
  *
- * Energy Micro release version
+ * Silicon Labs release version
  * @version 1.2.1-INTERNAL
  */
         .section ".cs3.interrupt_vector", "ax"
@@ -121,16 +121,16 @@ _IRQHandlerinterrupt:
         .globl  SVC_Handler
         .set    SVC_Handler, _IRQHandlerinterrupt
         .weak   DebugMon_Handler
-        .globl  DebugMon_Handler        
+        .globl  DebugMon_Handler
         .set    DebugMon_Handler, _IRQHandlerinterrupt
         .weak   Reserved13_Handler
         .globl  Reserved13_Handler
         .set    Reserved13_Handler, _IRQHandlerinterrupt
-        .weak   OS_CPU_PendSVHandler  
+        .weak   OS_CPU_PendSVHandler
         .globl  OS_CPU_PendSVHandler
         .set    OS_CPU_PendSVHandler, _IRQHandlerinterrupt
         .weak   OS_CPU_SysTickHandler
-        .globl  OS_CPU_SysTickHandler 
+        .globl  OS_CPU_SysTickHandler
         .set    OS_CPU_SysTickHandler, _IRQHandlerinterrupt
         .weak   DMA_IRQHandler
         .globl  DMA_IRQHandler

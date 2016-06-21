@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file nvm.c
  * @brief Non-Volatile Memory Wear-Leveling driver API implementation
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -1610,11 +1610,12 @@ static Ecode_t NVM_StaticWearCheck(void)
 
 
 /******** THE REST OF THE FILE IS DOCUMENTATION ONLY !**********************//**
+ * @addtogroup emdrv
+ * @{
  * @addtogroup NVM
  * @{
 
-@page nvm_doc NVM Non-volatile Memory Wear-Leveling driver
-
+@details
   @li @ref nvm_intro
   @li @ref nvm_conf
   @li @ref nvm_api
@@ -1790,5 +1791,5 @@ static Ecode_t NVM_StaticWearCheck(void)
 
   @endverbatim
 
- * @}**************************************************************************/
-
+ * @} end group NVM ***********************************************************
+ * @} end group emdrv ****************************************************/

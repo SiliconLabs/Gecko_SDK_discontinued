@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ezradio_crcerror_plugin.h
  * @brief EzRadio CRC error plug-in managed by the plug-in manager if enabled.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -39,7 +39,7 @@ extern "C" {
 #endif
 
 /***************************************************************************//**
- * @addtogroup EM_Drivers
+ * @addtogroup emdrv
  * @{
  ******************************************************************************/
 
@@ -60,7 +60,7 @@ extern "C" {
  * @{
  ******************************************************************************/
 
-#if ( defined EZRADIO_PLUGIN_CRC_ERROR )
+#if defined( EZRADIO_PLUGIN_CRC_ERROR )
 
 /// EzRadio CRC error packet receive plug-in instance initialization and handler structure.
 typedef struct EZRADIODRV_PacketCrcErrorHandle
@@ -74,16 +74,16 @@ typedef struct EZRADIODRV_PacketCrcErrorHandle
   NULL,                         /* CallBack                         */  \
 },
 
-#else //#if ( defined EZRADIO_PLUGIN_CRC_ERROR )
+#else //#if defined( EZRADIO_PLUGIN_CRC_ERROR )
 
 #define EZRADIODRV_CRC_ERROR_PLUGIN_INIT_DEFAULT
 
-#endif //#if ( defined EZRADIO_PLUGIN_CRC_ERROR )
+#endif //#if defined( EZRADIO_PLUGIN_CRC_ERROR )
 
 /** @} (end addtogroup CRC_Error_Plugin) */
 /** @} (end addtogroup Plugin_System) */
 /** @} (end addtogroup EZRADIODRV) */
-/** @} (end addtogroup EM_Drivers) */
+/** @} (end addtogroup emdrv) */
 
 #ifdef __cplusplus
 }

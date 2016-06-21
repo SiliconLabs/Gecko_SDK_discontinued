@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file  msdd.c
  * @brief Mass Storage class Device (MSD) driver.
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -95,9 +95,9 @@ static int            XferBotDataIndirectCallback(USB_Status_TypeDef status, uin
 STATIC_UBUF(cbw, USB_FS_BULK_EP_MAXSIZE);
 static MSDBOT_CBW_TypeDef *pCbw = (MSDBOT_CBW_TypeDef*) &cbw;
 
-EFM32_ALIGN(4)
+SL_ALIGN(4)
 /* Storage for one CSW */
-static MSDBOT_CSW_TypeDef csw __attribute__ ((aligned(4)));
+static MSDBOT_CSW_TypeDef csw SL_ATTRIBUTE_ALIGN(4);
 static MSDBOT_CSW_TypeDef *pCsw = &csw;
 
 STATIC_UBUF(mediaBuffer, MEDIA_BUFSIZ);  /* Intermediate media storage buffer */
@@ -112,8 +112,8 @@ static bool turResponse = true;         // Response on TEST UNIT READY command.
 /**************************************************************************//**
  * @brief Preformated SCSI INQUIRY response data structure.
  *****************************************************************************/
-EFM32_ALIGN(4)
-static const MSDSCSI_InquiryData_TypeDef InquiryData __attribute__ ((aligned(4))) =
+SL_ALIGN(4)
+static const MSDSCSI_InquiryData_TypeDef InquiryData SL_ATTRIBUTE_ALIGN(4) =
 {
   { .PeripheralDeviceType = 0, .PeripheralQualifier = 0 }, /* Block device  */
   { .Reserved1            = 0, .Removable           = 1 },
@@ -144,8 +144,8 @@ static const MSDSCSI_InquiryData_TypeDef InquiryData __attribute__ ((aligned(4))
  *   Preformated SCSI REQUEST SENSE response data structure.
  *   Used when no error condition exists in the SCSI device server.
  *****************************************************************************/
-EFM32_ALIGN(4)
-static const MSDSCSI_RequestSenseData_TypeDef NoSenseData __attribute__ ((aligned(4))) =
+SL_ALIGN(4)
+static const MSDSCSI_RequestSenseData_TypeDef NoSenseData SL_ATTRIBUTE_ALIGN(4) =
 {
   { .ResponseCode = 0x70, .Valid = 0 },
   .Obsolete = 0,
@@ -167,8 +167,8 @@ static const MSDSCSI_RequestSenseData_TypeDef NoSenseData __attribute__ ((aligne
  *   Used when host has issued an unsupported SCSI command, or when an
  *   invalid field in a SCSI command descriptor block (CDB) is detected.
  *****************************************************************************/
-EFM32_ALIGN(4)
-static const MSDSCSI_RequestSenseData_TypeDef IllegalSenseData __attribute__ ((aligned(4))) =
+SL_ALIGN(4)
+static const MSDSCSI_RequestSenseData_TypeDef IllegalSenseData SL_ATTRIBUTE_ALIGN(4) =
 {
   { .ResponseCode = 0x70, .Valid = 0 },
   .Obsolete = 0,
@@ -252,7 +252,7 @@ bool MSDD_Handler(void)
   case MSDD_ACCESS_INDIRECT:
     if (pCmdStatus->xferLen)
     {
-      len = EFM32_MIN(pCmdStatus->xferLen, pCmdStatus->maxBurst);
+      len = SL_MIN(pCmdStatus->xferLen, pCmdStatus->maxBurst);
 
       msdState = MSDD_IDLE;
       if (pCmdStatus->direction)
@@ -663,8 +663,8 @@ static void ProcessScsiCdb(void)
   MSDSCSI_Verify10_TypeDef      *cbV10;
   MSDSCSI_StartStopUnit_TypeDef *cbSSU;
 
-  EFM32_ALIGN(4)
-  static MSDSCSI_ReadCapacityData_TypeDef ReadCapData __attribute__ ((aligned(4)));
+  SL_ALIGN(4)
+  static MSDSCSI_ReadCapacityData_TypeDef ReadCapData SL_ATTRIBUTE_ALIGN(4);
 
   pCmdStatus->valid    = false;
   pCmdStatus->xferType = XFER_MEMORYMAPPED;
@@ -681,8 +681,8 @@ static void ProcessScsiCdb(void)
       pCmdStatus->valid     = true;
       pCmdStatus->direction = MSD_DIR_DATA_IN;
       pCmdStatus->pData     = (uint8_t*) &InquiryData;
-      pCmdStatus->xferLen   = EFM32_MIN(SCSI_INQUIRYDATA_LEN,
-                                        __REV16(cbI->AllocationLength));
+      pCmdStatus->xferLen   = SL_MIN(SCSI_INQUIRYDATA_LEN,
+                                     __REV16(cbI->AllocationLength));
     }
     break;
 
@@ -695,8 +695,8 @@ static void ProcessScsiCdb(void)
       pCmdStatus->valid     = true;
       pCmdStatus->direction = MSD_DIR_DATA_IN;
       pCmdStatus->pData     = (uint8_t*) pSenseData;
-      pCmdStatus->xferLen   = EFM32_MIN(SCSI_REQUESTSENSEDATA_LEN,
-                                        cbRS->AllocationLength);
+      pCmdStatus->xferLen   = SL_MIN(SCSI_REQUESTSENSEDATA_LEN,
+                                     cbRS->AllocationLength);
       pSenseData = (MSDSCSI_RequestSenseData_TypeDef*) &NoSenseData;
     }
     break;
@@ -840,7 +840,7 @@ static void XferBotData(uint32_t length)
   else
   {
     UsbXferBotData(pCmdStatus->pData,
-                   EFM32_MIN(length, pCmdStatus->maxBurst),
+                   SL_MIN(length, pCmdStatus->maxBurst),
                    XferBotDataCallback);
   }
 }
@@ -877,7 +877,7 @@ static int XferBotDataCallback(USB_Status_TypeDef status,
   {
     pCmdStatus->pData += xferred;
     UsbXferBotData(pCmdStatus->pData,
-                   EFM32_MIN(pCmdStatus->xferLen, pCmdStatus->maxBurst),
+                   SL_MIN(pCmdStatus->xferLen, pCmdStatus->maxBurst),
                    XferBotDataCallback);
   }
   else

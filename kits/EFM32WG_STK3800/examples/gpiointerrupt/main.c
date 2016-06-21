@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief Simple GPIO interrupt dispatcher Demo for EFM32WG_STK3800
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -51,7 +51,7 @@ void gpioSetup(void)
 
   /* Initialize GPIO interrupt dispatcher */
   GPIOINT_Init();
-  
+
   /* Configure PB9 and PB10 as input */
   GPIO_PinModeSet(gpioPortB, 9, gpioModeInput, 0);
   GPIO_PinModeSet(gpioPortB, 10, gpioModeInput, 0);

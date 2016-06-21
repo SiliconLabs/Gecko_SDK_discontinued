@@ -22,6 +22,7 @@
       <file file_name="../../../../../emlib/src/em_int.c"/>
       <file file_name="../../../../../emlib/src/em_prs.c"/>
       <file file_name="../../../../../emlib/src/em_rtc.c"/>
+      <file file_name="../../../../../emlib/src/em_system.c"/>
       <file file_name="../../../../../emlib/src/em_timer.c"/>
       <file file_name="../../../../../emlib/src/em_usart.c"/>
     </folder>

@@ -27,7 +27,7 @@ The CDC COM port function.
 Implements an USB CDC based virtual COM port. USART1 on the DK is used as the
 physical COM port. Any data sent to the virtual CDC COM port is transmitted on
 USART1. Any data received on USART1 is transmitted to the virtual port.
-USART1 is available on the STK EXT port. EXT pin 4 is Tx, pin 6 is Rx.
+USART1 is available on the STK EXP port. EXP pin 4 is Tx, pin 6 is Rx.
 NOTE: This is a TTL level USART, DO NOT CONNECT DIRECTLY TO RS232 PORTS !
 
 The HID keyboard function.

@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief SPI interface API for KSZ8851SNL Ethernet controller
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -92,7 +92,7 @@ static void KSZ8851SNL_SPI_Transmit(int numBytes, const uint8_t * data)
    * DMADRV_MAX_XFER_COUNT (1024 on EFM32GG990F1024)
    */
   do {
-    int count  = EFM32_MIN(remaining, DMADRV_MAX_XFER_COUNT);
+    int count  = SL_MIN(remaining, DMADRV_MAX_XFER_COUNT);
     result     = SPIDRV_MTransmitB(spiHandle, data, count);
     remaining -= count;
     data      += count;
@@ -122,7 +122,7 @@ static void KSZ8851SNL_SPI_Receive(int numBytes, uint8_t * buffer)
    * DMADRV_MAX_XFER_COUNT (1024 on EFM32GG990F1024)
    */
   do {
-    int count  = EFM32_MIN(remaining, DMADRV_MAX_XFER_COUNT);
+    int count  = SL_MIN(remaining, DMADRV_MAX_XFER_COUNT);
     result     = SPIDRV_MReceiveB(spiHandle, buffer, count);
     remaining -= count;
     buffer    += count;

@@ -3,10 +3,10 @@
  * @brief Micrel KSZ8851SNL Ethernet controller example
  *    This example demonstrates use of the Micrel KSZ8851SNL MAC+PHY available on
  *    DK3650. lwIP and a simple web server is implemented.
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -110,7 +110,7 @@ void GPIO_EVEN_IRQHandler(void)
 
   /* Clear GPIO interrupt */
   GPIO_IntClear(1 << BSP_GPIO_INT_PIN);
-  
+
   /* Get and clear board controller interrupt flags */
   bcFlags = BSP_InterruptFlagsGet();
   BSP_InterruptFlagsClear(bcFlags);
@@ -467,7 +467,7 @@ int main(void)
 
   /* Initialize DK board register access over EBI */
   BSP_Init(BSP_INIT_DK_EBI);
-  
+
   /* Enable SPI interface for ethernet control */
   BSP_PeripheralAccess(BSP_ETH, true);
 

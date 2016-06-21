@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file uartdrv.h
  * @brief UARTDRV API definition.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -28,15 +28,13 @@ extern "C" {
 #endif
 
 /***************************************************************************//**
- * @addtogroup EM_Drivers
+ * @addtogroup emdrv
  * @{
  ******************************************************************************/
 
 /***************************************************************************//**
  * @addtogroup UARTDRV
- * @brief UARTDRV Universal asynchronous receiver/transmitter driver, see
- *        @ref uartdrv_doc page for detailed
- *        documentation.
+ * @brief UARTDRV Universal asynchronous receiver/transmitter driver
  * @{
  ******************************************************************************/
 
@@ -70,9 +68,10 @@ typedef uint32_t UARTDRV_Status_t;    ///< UART status return type
 /// Flow Control method
 typedef enum UARTDRV_FlowControlType
 {
-  uartdrvFlowControlNone  = 0,       ///< None
-  uartdrvFlowControlSw    = 1,       ///< Software XON/XOFF
-  uartdrvFlowControlHw    = 2        ///< nRTS/nCTS hardware handshake
+  uartdrvFlowControlNone   = 0,   ///< None
+  uartdrvFlowControlSw     = 1,   ///< Software XON/XOFF
+  uartdrvFlowControlHw     = 2,   ///< nRTS/nCTS hardware handshake
+  uartdrvFlowControlHwUart = 3    ///< The UART peripheral controls nRTS/nCTS
 } UARTDRV_FlowControlType_t;
 
 /// Flow Control state
@@ -118,21 +117,21 @@ typedef void (*UARTDRV_Callback_t)(struct UARTDRV_HandleData *handle,
 /// UART transfer buffer
 typedef struct
 {
-  uint8_t *data;                         ///< Transfer data buffer
-  UARTDRV_Count_t transferCount;         ///< Transfer item count
-  UARTDRV_Count_t itemsRemaining;        ///< Transfer items remaining
-  UARTDRV_Callback_t callback;           ///< Completion callback
-  Ecode_t transferStatus;                ///< Completion status of transfer operation
+  uint8_t *data;                           ///< Transfer data buffer
+  UARTDRV_Count_t transferCount;           ///< Transfer item count
+  volatile UARTDRV_Count_t itemsRemaining; ///< Transfer items remaining
+  UARTDRV_Callback_t callback;             ///< Completion callback
+  Ecode_t transferStatus;                  ///< Completion status of transfer operation
 } UARTDRV_Buffer_t;
 
 /// Transfer operation FIFO queue typedef
 typedef struct
 {
-  uint16_t head;                         ///< Index of next byte to send.
-  uint16_t tail;                         ///< Index of where to enqueue next message.
-  uint16_t used;                         ///< Number of bytes queued.
-  const uint16_t size;                   ///< Size of FIFO.
-  UARTDRV_Buffer_t fifo[];               ///< FIFO of queue data.
+  volatile uint16_t head;                  ///< Index of next byte to send.
+  volatile uint16_t tail;                  ///< Index of where to enqueue next message.
+  volatile uint16_t used;                  ///< Number of bytes queued.
+  const uint16_t size;                     ///< Size of FIFO.
+  UARTDRV_Buffer_t fifo[];                 ///< FIFO of queue data.
 } UARTDRV_Buffer_FifoQueue_t;
 
 /// Macros to define fifo and buffer queues, can't use a typedef becuase the size
@@ -182,6 +181,10 @@ typedef struct
   uint8_t                    rtsPin;            ///< RTS pin number
   UARTDRV_Buffer_FifoQueue_t *rxQueue;          ///< Receive operation queue
   UARTDRV_Buffer_FifoQueue_t *txQueue;          ///< Transmit operation queue
+#if defined( _USART_ROUTELOC1_MASK )
+  uint8_t                    portLocationCts;   ///< Location number for UART CTS pin.
+  uint8_t                    portLocationRts;   ///< Location number for UART RTS pin.
+#endif
 } UARTDRV_Init_t;
 
 /// UART driver instance handle data structure.
@@ -270,7 +273,7 @@ Ecode_t UARTDRV_FlowControlSet(UARTDRV_Handle_t handle, UARTDRV_FlowControlState
 Ecode_t UARTDRV_FlowControlIgnoreRestrain(UARTDRV_Handle_t handle);
 
 /** @} (end addtogroup UARTDRV) */
-/** @} (end addtogroup EM_Drivers) */
+/** @} (end addtogroup emdrv) */
 
 #ifdef __cplusplus
 }

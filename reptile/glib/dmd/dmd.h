@@ -4,7 +4,7 @@
  * @version x.xx
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensensed under the Silabs License Agreement. See the file
@@ -111,9 +111,9 @@ EMSTATUS DMD_setClippingArea(uint16_t xStart, uint16_t yStart,
                              uint16_t width, uint16_t height);
 EMSTATUS DMD_writeData(uint16_t x, uint16_t y,
                        const uint8_t data[], uint32_t numPixels);
-EMSTATUS DMD_writeDataRLE(uint16_t x, uint16_t y, uint16_t xlen, uint16_t ylen, 
+EMSTATUS DMD_writeDataRLE(uint16_t x, uint16_t y, uint16_t xlen, uint16_t ylen,
                           const uint8_t *data);
-EMSTATUS DMD_writeDataRLEFade(uint16_t x, uint16_t y, uint16_t xlen, uint16_t ylen, 
+EMSTATUS DMD_writeDataRLEFade(uint16_t x, uint16_t y, uint16_t xlen, uint16_t ylen,
 			      const uint8_t *data,
 			      int red, int green, int blue, int weight);
 EMSTATUS DMD_readData(uint16_t x, uint16_t y,

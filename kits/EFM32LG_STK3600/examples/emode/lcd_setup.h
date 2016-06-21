@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file lcd_setup.h
  * @brief Setup LCD for energy mode demo, header file
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>

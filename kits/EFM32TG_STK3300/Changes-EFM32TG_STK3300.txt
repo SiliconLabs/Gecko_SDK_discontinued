@@ -1,6 +1,12 @@
 ================ Revision history ============================================
+4.3.0:
+- Fixed RTC and BURTC bug in FreeRTOS examples. RTC and BURTC counter was reset
+  before the counter value was read, leading to incorrect sleep durations.
+- Fixed ucos example, drop fewer chars when doing "console" input.
+- Added cpt007b capacitive touch example.
+
 4.2.1:
-- No changes.
+- Made changes to segmentlcdconfig.h file
 
 4.2.0:
 - No changes.

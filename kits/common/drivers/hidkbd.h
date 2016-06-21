@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file hidkbd.h
  * @brief USB Human Interface Devices (HID) class keyboard driver.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -16,7 +16,7 @@
 #define __SILICON_LABS_HIDKBD_H__
 
 /***************************************************************************//**
- * @addtogroup Drivers
+ * @addtogroup kitdrv
  * @{
  ******************************************************************************/
 
@@ -34,15 +34,15 @@ extern "C" {
 #endif
 
 /** HID keyboard input report definition. */
-EFM32_PACK_START( 1 )
+SL_PACK_START(1)
 typedef struct
 {
   uint8_t modifier; /**< Key modifier byte as defined in HID spec. section "8.3  Report Format for Array Items". */
   uint8_t reserved; /**< Reserved, should be set to zero. */
   uint8_t key[ 6 ]; /**< Array of 6 key array indices, key index codes are defined in the "Keyboard page" section
                          of "USB HID Usage Tables document", also refer to usbkbdscancodes.c. */
-} __attribute__ ((packed)) HIDKBD_KeyReport_t;
-EFM32_PACK_END()
+} SL_ATTRIBUTE_PACKED HIDKBD_KeyReport_t;
+SL_PACK_END()
 
 /**************************************************************************//**
  * @brief

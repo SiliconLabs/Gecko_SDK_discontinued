@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file  msdh.c
  * @brief Host side implementation of Mass Storage class Device (MSD) interface.
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -24,6 +24,8 @@
 #define DEV_ADDR    1                 /* USB bus address    */
 #define BULK_OUT    &ep[ epOutIndex ] /* Endpoint "handles" */
 #define BULK_IN     &ep[ epInIndex  ]
+#define SCSI_INQUIRY_RETRIES       10 // Retries during MSDH_Init()
+#define SCSI_TESTUNITREADY_RETRIES 10 // Retries during MSDH_Init()
 
 static void PrintDeviceStrings(uint8_t *buf);
 static bool QualifyDevice(uint8_t *buf);
@@ -58,14 +60,14 @@ static int                 epInIndex;
  ******************************************************************************/
 bool MSDH_Init(uint8_t *usbDeviceInfo, int usbDeviceInfoSize)
 {
-  EFM32_ALIGN(4)
-  MSDSCSI_InquiryData_TypeDef inquiryData  __attribute__ ((aligned(4)));
+  SL_ALIGN(4)
+  MSDSCSI_InquiryData_TypeDef inquiryData  SL_ATTRIBUTE_ALIGN(4);
 
-  EFM32_ALIGN(4)
-  MSDSCSI_ReadCapacityData_TypeDef capacityData __attribute__ ((aligned(4)));
+  SL_ALIGN(4)
+  MSDSCSI_ReadCapacityData_TypeDef capacityData SL_ATTRIBUTE_ALIGN(4);
 
-  EFM32_ALIGN(4)
-  MSDSCSI_RequestSenseData_TypeDef reqSenseData __attribute__ ((aligned(4)));
+  SL_ALIGN(4)
+  MSDSCSI_RequestSenseData_TypeDef reqSenseData SL_ATTRIBUTE_ALIGN(4);
 
   bool ready;
   int  result, i;
@@ -80,7 +82,9 @@ bool MSDH_Init(uint8_t *usbDeviceInfo, int usbDeviceInfoSize)
 
   /* Check if a valid MSD device (will activate device if OK). */
   if (!QualifyDevice(usbDeviceInfo))
+  {
     return false;
+  }
 
   /* Initialize MSD SCSI module. */
   if (!MSDSCSI_Init(BULK_OUT, BULK_IN))
@@ -89,15 +93,24 @@ bool MSDH_Init(uint8_t *usbDeviceInfo, int usbDeviceInfoSize)
     return false;
   }
 
-  /* Do a SCSI Inquiry to get some info from the device. */
-  if (!MSDSCSI_Inquiry(&inquiryData))
+  // Do a SCSI Inquiry to get some info from the device.
+  // Some devices are slow to get started, do a couple of retries before
+  // giving up.
+  i = 0;
+  do
   {
-    /* Do one retry. */
-    if (!MSDSCSI_Inquiry(&inquiryData))
+    ready = MSDSCSI_Inquiry(&inquiryData);
+    if (!ready)
     {
-      USB_PRINTF("\nMSD SCSI Inquiry failed.");
-      return false;
+      USBTIMER_DelayMs(500);
     }
+    i++;
+  } while (!ready && i < SCSI_INQUIRY_RETRIES);
+
+  if (!ready)
+  {
+    USB_PRINTF("\nMSD SCSI Inquiry failed.");
+    return false;
   }
 
   memcpy(usbDeviceInfo, &inquiryData.T10VendorId, sizeof(inquiryData.T10VendorId));
@@ -115,7 +128,9 @@ bool MSDH_Init(uint8_t *usbDeviceInfo, int usbDeviceInfoSize)
   /* Is it a block device ? */
   if ((inquiryData.PeripheralQualifier != 0) ||
       (inquiryData.PeripheralDeviceType != 0))
+  {
     return false;
+  }
 
   /* Wait for upto 5 seconds for device to become ready. */
   i = 0;
@@ -124,9 +139,11 @@ bool MSDH_Init(uint8_t *usbDeviceInfo, int usbDeviceInfoSize)
     result = MSDSCSI_RequestSense(&reqSenseData);
     ready  = MSDSCSI_TestUnitReady();
     if (!ready)
+    {
       USBTIMER_DelayMs(500);
+    }
     i++;
-  } while (!ready && i < 10 && result);
+  } while (!ready && i < SCSI_TESTUNITREADY_RETRIES && result);
 
   if (!result)
   {
@@ -170,8 +187,8 @@ bool MSDH_Init(uint8_t *usbDeviceInfo, int usbDeviceInfoSize)
  ******************************************************************************/
 bool MSDH_GetSectorCount(uint32_t *sectorCount)
 {
-  EFM32_ALIGN(4)
-  MSDSCSI_ReadCapacityData_TypeDef capacityData __attribute__ ((aligned(4)));
+  SL_ALIGN(4)
+  MSDSCSI_ReadCapacityData_TypeDef capacityData SL_ATTRIBUTE_ALIGN(4);
 
   if (!MSDSCSI_ReadCapacity(&capacityData))
     return false;
@@ -193,8 +210,8 @@ bool MSDH_GetSectorCount(uint32_t *sectorCount)
  ******************************************************************************/
 bool MSDH_GetSectorSize(uint16_t *sectorSize)
 {
-  EFM32_ALIGN(4)
-  MSDSCSI_ReadCapacityData_TypeDef capacityData __attribute__ ((aligned(4)));
+  SL_ALIGN(4)
+  MSDSCSI_ReadCapacityData_TypeDef capacityData SL_ATTRIBUTE_ALIGN(4);
 
   if (!MSDSCSI_ReadCapacity(&capacityData))
     return false;
@@ -219,8 +236,8 @@ bool MSDH_GetSectorSize(uint16_t *sectorSize)
  ******************************************************************************/
 bool MSDH_GetBlockSize(uint32_t *blockSize)
 {
-  EFM32_ALIGN(4)
-  MSDSCSI_ReadCapacityData_TypeDef capacityData __attribute__ ((aligned(4)));
+  SL_ALIGN(4)
+  MSDSCSI_ReadCapacityData_TypeDef capacityData SL_ATTRIBUTE_ALIGN(4);
 
   if (!MSDSCSI_ReadCapacity(&capacityData))
     return false;

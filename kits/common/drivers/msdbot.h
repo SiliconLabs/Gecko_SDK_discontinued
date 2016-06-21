@@ -2,10 +2,10 @@
  * @file  msdbot.h
  * @brief Definitions for the Bulk Only Transport protocol of
  *        USB Mass Storage devices.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -19,7 +19,7 @@
 #define __MSDBOT_H
 
 /***************************************************************************//**
- * @addtogroup Drivers
+ * @addtogroup kitdrv
  * @{
  ******************************************************************************/
 
@@ -48,7 +48,7 @@ extern "C" {
 /**************************************************************************//**
  * @brief Bulk Only Transport (BOT) Command Block Wrapper (CBW) typedef.
  *****************************************************************************/
-EFM32_PACK_START(1)
+SL_PACK_START(1)
 typedef struct
 {
   uint32_t dCBWSignature;           /**< The CBW signature (ascii USBC). */
@@ -83,21 +83,21 @@ typedef struct
     uint8_t bCBWCBLength;           /**< SCSI CDB length.                */
   };
   uint8_t CBWCB[ 16 ];              /**< SCSI CDB.                       */
-} __attribute__ ((packed)) MSDBOT_CBW_TypeDef;
-EFM32_PACK_END()
+} SL_ATTRIBUTE_PACKED MSDBOT_CBW_TypeDef;
+SL_PACK_END()
 
 /**************************************************************************//**
  * @brief Bulk Only Transport (BOT) Command Status Wrapper (CSW) typedef.
  *****************************************************************************/
-EFM32_PACK_START(1)
+SL_PACK_START(1)
 typedef struct
 {
   uint32_t dCSWSignature;           /**< The CSW signature (ascii USBS). */
   uint32_t dCSWTag;                 /**< The CSW tag.                    */
   uint32_t dCSWDataResidue;         /**< BOT transfer residue count.     */
   uint8_t  bCSWStatus;              /**< BOT command execution result.   */
-} __attribute__ ((packed)) MSDBOT_CSW_TypeDef;
-EFM32_PACK_END()
+} SL_ATTRIBUTE_PACKED MSDBOT_CSW_TypeDef;
+SL_PACK_END()
 
 /** @brief MSDBOT status enumerator. */
 typedef enum

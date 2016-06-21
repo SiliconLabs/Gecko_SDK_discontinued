@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file textdisplay.h
  * @brief Text display interface
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -22,7 +22,7 @@
 #include "emstatus.h"
 
 /***************************************************************************//**
- * @addtogroup Drivers
+ * @addtogroup kitdrv
  * @{
  ******************************************************************************/
 
@@ -78,7 +78,7 @@ typedef struct TEXTDISPLAY_Config_t
                                  display. Scrolling mode will consume more
                                  memory because the lines will have to be
                                  stored in memory. */
-  
+
   bool  lfToCrLf;           /**< Enable or disable LF to CR+LF conversion. */
 } TEXTDISPLAY_Config_t;
 
@@ -93,7 +93,7 @@ EMSTATUS TEXTDISPLAY_Delete      (TEXTDISPLAY_Handle_t  handle);
 EMSTATUS TEXTDISPLAY_WriteChar   (TEXTDISPLAY_Handle_t  handle,
                                   char                  c);
 EMSTATUS TEXTDISPLAY_WriteString (TEXTDISPLAY_Handle_t  handle,
-                                  char*                 str);
+                                  const char*           str);
 EMSTATUS TEXTDISPLAY_LfToCrLf    (TEXTDISPLAY_Handle_t  handle,
                                   bool                  on);
 

@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file
  * @brief Provide BSP (board support package) configuration parameters.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -62,14 +62,12 @@
   false,        /* Disable auto-start and select on RAC wakeup */               \
   _CMU_HFXOSTARTUPCTRL_CTUNE_DEFAULT,                                           \
   0x142,        /* Steady-state CTUNE for STK boards without load caps */       \
-  _CMU_HFXOSTARTUPCTRL_REGISHWARM_DEFAULT,                                      \
   _CMU_HFXOSTEADYSTATECTRL_REGISH_DEFAULT,                                      \
   _CMU_HFXOSTARTUPCTRL_IBTRIMXOCORE_DEFAULT,                                    \
   0x7,          /* Recommended steady-state osc core bias current */            \
   0x6,          /* Recommended peak detection threshold */                      \
   _CMU_HFXOTIMEOUTCTRL_SHUNTOPTTIMEOUT_DEFAULT,                                 \
   0xA,          /* Recommended peak detection timeout  */                       \
-  _CMU_HFXOTIMEOUTCTRL_WARMSTEADYTIMEOUT_DEFAULT,                               \
   _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_DEFAULT,                                   \
   _CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_DEFAULT,                                  \
 }

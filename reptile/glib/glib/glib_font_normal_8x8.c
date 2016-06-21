@@ -3,7 +3,7 @@
  * @brief Silicon Labs Graphics Library: GLIB font normal 8x8
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensensed under the Silabs License Agreement. See the file
@@ -17,7 +17,7 @@
 #include <stdint.h>
 #include "glib.h"
 
-static const uint8_t GLIB_FontNormal8x8PixMap[] = 
+static const uint8_t GLIB_FontNormal8x8PixMap[] =
 {
   0x00, 0x18, 0x6c, 0x6c, 0x10, 0xce, 0x38, 0x08, 0x60, 0x0c, 0x00, 0x00,
   0x00, 0x00, 0x00, 0x00, 0x7c, 0x30, 0x7c, 0x7c, 0xc6, 0xfe, 0x7c, 0xfe,
@@ -88,9 +88,9 @@ static const uint8_t GLIB_FontNormal8x8PixMap[] =
   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 };
 
-const GLIB_Font_t GLIB_FontNormal8x8 = {(void *)GLIB_FontNormal8x8PixMap, 
+const GLIB_Font_t GLIB_FontNormal8x8 = {(void *)GLIB_FontNormal8x8PixMap,
                                         sizeof(GLIB_FontNormal8x8PixMap),
-                                        sizeof(GLIB_FontNormal8x8PixMap[0]), 
+                                        sizeof(GLIB_FontNormal8x8PixMap[0]),
                                         100, 8, 8, 2, 0, FullFont};
-                                               
+
 

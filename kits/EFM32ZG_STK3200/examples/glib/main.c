@@ -1,14 +1,14 @@
 /**************************************************************************//**
  * @file main.c
  * @brief GLIB example for EFM32ZG-STK3200
- * @version 4.2.1
+ * @version 4.3.0
  *
  * This example shows how to optimize your code in order to drive
  * a graphical display in an energy friendly way.
  *
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file

@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file   plot.c
  * @brief  Simple wrapper for some emWin functions.
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -125,7 +125,7 @@ void PLOT_DisplayInit( void )
 
 static void formatToneInt(char *buf, int len, int val)
 {
-  if ( val == 0 )    
+  if ( val == 0 )
     snprintf(buf, len, "  %1d", val );
   else if ( val < -9 )
     snprintf(buf, len, "%2d", val );
@@ -133,8 +133,8 @@ static void formatToneInt(char *buf, int len, int val)
     snprintf(buf, len, " %1d", val );
   else if ( val > 9 )
     snprintf(buf, len, "+%2d", val );
-  else 
-    snprintf(buf, len, " %+1d", val );  
+  else
+    snprintf(buf, len, " %+1d", val );
 }
 
 /**************************************************************************//**
@@ -160,9 +160,9 @@ void PLOT_DisplayUpdate( void )
   /* Bass and treble (text). */
   formatToneInt(bufL, 4, (bass - TONE_CENTER) * 2);
   PLOT_Puts( bufL, GUI_BASS_XPOS, GUI_BASS_YPOS );
-  
+
   formatToneInt(bufL, 4, (treble - TONE_CENTER) * 2);
-  PLOT_Puts( bufL, GUI_TREBLE_XPOS, GUI_TREBLE_YPOS );  
+  PLOT_Puts( bufL, GUI_TREBLE_XPOS, GUI_TREBLE_YPOS );
 
   /* Volume & Balance (graphical). */
   if ( volume == 0 )
@@ -254,7 +254,7 @@ void PLOT_VolumeBar( float level, int lowerRightXpos )
   float f;
 
   f = fabsf( level );
-  f = EFM32_MIN( f, GUI_BAR_RANGE_dB );
+  f = SL_MIN( f, GUI_BAR_RANGE_dB );
   f = GUI_BAR_MAX_HEIGHT - (( f * GUI_BAR_MAX_HEIGHT ) / GUI_BAR_RANGE_dB );
   i = (int)f;
 

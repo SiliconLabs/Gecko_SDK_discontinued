@@ -41,6 +41,7 @@ Purpose     : Shows how to create a radial menu with motion support
 #include "em_ebi.h"
 #include "em_dma.h"
 #include "em_emu.h"
+#include "em_common.h"
 
 /*********************************************************************
 *
@@ -3565,12 +3566,8 @@ static void _CopyBuffer(int LayerIndex, int IndexSrc, int IndexDst)
 };
 
 /* definition of DMA control block - it must be properly aligned */
-#ifdef __ICCARM__
-#pragma data_alignment = 256
-static DMA_DESCRIPTOR_TypeDef controlBlock[2];
-#else
-static DMA_DESCRIPTOR_TypeDef controlBlock[2] __attribute__ ((aligned (256)));
-#endif
+SL_ALIGN(256)
+static DMA_DESCRIPTOR_TypeDef controlBlock[2] SL_ATTRIBUTE_ALIGN(256);
 
 static DMA_Init_TypeDef dmaInit = {0, controlBlock};
 DMA_CfgChannel_TypeDef chanCfg = {false, true, 0, NULL};

@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ezradio_direct_receive_plugin.c
  * @brief EzRadio direct reception plug-in managed by the plug-in manager if enabled.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -40,7 +40,7 @@
 #include "ezradio_plugin_manager.h"
 #include "ezradio_transmit_plugin.h"
 
-#if ( defined EZRADIO_PLUGIN_DIRECT_RECEIVE )
+#if defined( EZRADIO_PLUGIN_DIRECT_RECEIVE )
 
 /**************************************************************************//**
  * @brief Starts direct reception with the radio configurations
@@ -86,4 +86,4 @@ Ecode_t ezradioStopDirectReceive( void )
   return ECODE_EMDRV_EZRADIODRV_OK;
 }
 
-#endif //#if ( defined EZRADIO_PLUGIN_DIRECT_RECEIVE )
+#endif //#if defined( EZRADIO_PLUGIN_DIRECT_RECEIVE )

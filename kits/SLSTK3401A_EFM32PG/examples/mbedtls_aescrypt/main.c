@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief AES-256 encryption example program
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -81,12 +81,12 @@ static int hextext2bin(uint8_t *binbuf, unsigned int binbuflen, const char *hexs
             /* Reached end of string? */
             if (!tmp)
               goto done;
-            
+
             if (tmp > '9')
             {
                 /* Ensure uppercase hex */
                 tmp &= ~0x20;
-                
+
                 val |= ((tmp - 'A') + 10) << (4 * i);
             }
             else
@@ -131,7 +131,7 @@ static void timestamp_init(void)
     /* Enable trace in core debug */
     CoreDebug->DHCSR |= CoreDebug_DHCSR_C_DEBUGEN_Msk;
     CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
-    
+
     /* Unlock ITM and output data */
     ITM->LAR = 0xC5ACCE55;
     ITM->TCR = 0x10009 | ITM_TCR_DWTENA_Pos;
@@ -142,7 +142,7 @@ static void timestamp_init(void)
 }
 
 /**************************************************************************//**
- * @brief  Get clock cycle timestamp 
+ * @brief  Get clock cycle timestamp
  *****************************************************************************/
 static inline uint32_t clk_timestamp_get(void)
 {
@@ -156,7 +156,7 @@ int main( void )
 {
     EMU_DCDCInit_TypeDef dcdcInit = EMU_DCDCINIT_STK_DEFAULT;
     CMU_HFXOInit_TypeDef hfxoInit = CMU_HFXOINIT_STK_DEFAULT;
-    int ret;  
+    int ret;
     int i, n;
     int mode = 0, lastn;
     size_t keylen = 256/8;
@@ -167,7 +167,7 @@ int main( void )
     unsigned char buffer[64];
     unsigned char diff;
     char initphrase[16];
-    
+
     mbedtls_aes_context aes_ctx;
     mbedtls_md_context_t sha_ctx;
 
@@ -205,6 +205,7 @@ int main( void )
     }
 
     memset(message, 0, sizeof(message));
+    memset(initphrase, 0, sizeof(initphrase));
     memset(IV, 0, sizeof(IV));
     memset(key, 0, sizeof(key));
     memset(digest, 0, sizeof(digest));
@@ -225,7 +226,7 @@ int main( void )
         {
             mode = MODE_ENCRYPT;
             max_message_size = MAX_MESSAGE_SIZE_ENCRYPTION;
-            
+
             printf("Thanks. Please type a short phrase to be used as input to "
                    "generate the initial vector of the encryption: ");
             p = initphrase;
@@ -251,18 +252,18 @@ int main( void )
         {
             mode = MODE_DECRYPT;
             max_message_size = MAX_MESSAGE_SIZE_DECRYPTION;
-            
+
             printf("Thanks. Please send the message (ciphertext) to be "
                    "decrypted. The format must be:\n");
         }
     }
-    
+
     printf("Initial Vector(16 bytes) | Ciphertext | "
            "Message Digest Tag(32 bytes)\n");
 
     p = message;
     message_size = 0;
-    
+
     while ( message_size < max_message_size )
     {
         n = getchar();
@@ -279,11 +280,11 @@ int main( void )
 
     /* Newline after plain text message input, and ciphertext. */
     printf( "\n" );
-    
+
     if( mode == MODE_ENCRYPT )
     {
         char hexbuf[2*TAG_SIZE + 1];
-        
+
         /*
          * Generate the initialization vector as:
          * IV = SHA-256( message_size || initphrase )[0..15]
@@ -292,7 +293,7 @@ int main( void )
             buffer[i] = (unsigned char)( message_size >> ( i << 3 ) );
 
         p = initphrase;
-        
+
         mbedtls_md_starts( &sha_ctx );
         mbedtls_md_update( &sha_ctx, buffer, 8 );
         mbedtls_md_update( &sha_ctx, (unsigned char*)p, strlen(initphrase) );
@@ -346,12 +347,12 @@ int main( void )
 
             memset (buffer, 0, AES_BLOCK_SIZE);
             memcpy (buffer, p, n);
-            
+
             for( i = 0; i < AES_BLOCK_SIZE; i++ )
                 buffer[i] = (unsigned char)( buffer[i] ^ IV[i] );
-            
+
             mbedtls_aes_crypt_ecb( &aes_ctx, MBEDTLS_AES_ENCRYPT, buffer, buffer );
-            
+
             mbedtls_md_hmac_update( &sha_ctx, buffer, AES_BLOCK_SIZE );
 
             bin2hextext( hexbuf, buffer, AES_BLOCK_SIZE );
@@ -455,7 +456,7 @@ int main( void )
 
         /* Newline after printing plaintext. */
         printf( "\n" );
-        
+
         /*
          * Verify the message authentication code.
          */

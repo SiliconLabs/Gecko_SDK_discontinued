@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file  msdscsi.c
  * @brief SCSI interface for Mass Storage Devices (MSD).
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -62,8 +62,8 @@
  * @brief Default Command Block Wrapper (CBW) data for
  *        SCSI Inquiry command.
  *****************************************************************************/
-EFM32_ALIGN(4)
-static const char cbwInquiry[ CBW_LEN ] __attribute__ ((aligned(4))) =
+SL_ALIGN(4)
+static const char cbwInquiry[ CBW_LEN ] SL_ATTRIBUTE_ALIGN(4) =
 {
   'U',          'S',                  'B',  'C',  /* CBW Signature                     */
   0x12,                         0x34, 0x56, 0x78, /* CBW Tag                           */
@@ -81,8 +81,8 @@ static const char cbwInquiry[ CBW_LEN ] __attribute__ ((aligned(4))) =
  * @brief Default Command Block Wrapper (CBW) data for
  *        SCSI Read Capacity command.
  *****************************************************************************/
-EFM32_ALIGN(4)
-static const char cbwReadCap[ CBW_LEN ] __attribute__ ((aligned(4))) =
+SL_ALIGN(4)
+static const char cbwReadCap[ CBW_LEN ] SL_ATTRIBUTE_ALIGN(4) =
 {
   'U',        'S',  'B',  'C',  /* CBW Signature                     */
   0x12,       0x34, 0x56, 0x78, /* CBW Tag                           */
@@ -100,8 +100,8 @@ static const char cbwReadCap[ CBW_LEN ] __attribute__ ((aligned(4))) =
  * @brief Default Command Block Wrapper (CBW) data for
  *        SCSI Request Sense command.
  *****************************************************************************/
-EFM32_ALIGN(4)
-static const char cbwRs[ CBW_LEN ] __attribute__ ((aligned(4))) =
+SL_ALIGN(4)
+static const char cbwRs[ CBW_LEN ] SL_ATTRIBUTE_ALIGN(4) =
 {
   'U',                       'S',  'B',  'C',  /* CBW Signature                     */
   0x12,                      0x34, 0x56, 0x78, /* CBW Tag                           */
@@ -120,8 +120,8 @@ static const char cbwRs[ CBW_LEN ] __attribute__ ((aligned(4))) =
  * @brief Default Command Block Wrapper (CBW) data for
  *        SCSI Test Unit Ready command.
  *****************************************************************************/
-EFM32_ALIGN(4)
-static const char cbwTur[ CBW_LEN ] __attribute__ ((aligned(4))) =
+SL_ALIGN(4)
+static const char cbwTur[ CBW_LEN ] SL_ATTRIBUTE_ALIGN(4) =
 {
   'U',                 'S',  'B',  'C',  /* CBW Signature                     */
   0x12,                0x34, 0x56, 0x78, /* CBW Tag                           */
@@ -212,8 +212,8 @@ bool MSDSCSI_Inquiry(MSDSCSI_InquiryData_TypeDef *data)
  ******************************************************************************/
 bool MSDSCSI_Read10(uint32_t lba, uint16_t sectors, void *data)
 {
-  EFM32_ALIGN(4)
-  MSDBOT_CBW_TypeDef cbw __attribute__ ((aligned(4))) = CBW_SCSI_READ10_INIT_DEFAULT;
+  SL_ALIGN(4)
+  MSDBOT_CBW_TypeDef cbw SL_ATTRIBUTE_ALIGN(4) = CBW_SCSI_READ10_INIT_DEFAULT;
 
   MSDSCSI_Read10_TypeDef *cb = (MSDSCSI_Read10_TypeDef*) &cbw.CBWCB;
 
@@ -306,8 +306,8 @@ bool MSDSCSI_TestUnitReady(void)
  ******************************************************************************/
 bool MSDSCSI_Write10(uint32_t lba, uint16_t sectors, const void *data)
 {
-  EFM32_ALIGN(4)
-  MSDBOT_CBW_TypeDef cbw __attribute__ ((aligned(4))) = CBW_SCSI_WRITE10_INIT_DEFAULT;
+  SL_ALIGN(4)
+  MSDBOT_CBW_TypeDef cbw SL_ATTRIBUTE_ALIGN(4) = CBW_SCSI_WRITE10_INIT_DEFAULT;
 
   MSDSCSI_Write10_TypeDef *cb = (MSDSCSI_Write10_TypeDef*) &cbw.CBWCB;
 

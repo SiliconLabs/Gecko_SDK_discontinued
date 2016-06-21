@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file gg_emodes.h
  * @brief Leopard Gecko energy mode setups (See Data Sheet Table 3.4), header file
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>

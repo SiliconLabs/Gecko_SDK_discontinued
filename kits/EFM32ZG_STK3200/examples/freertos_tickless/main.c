@@ -1,11 +1,11 @@
 /**************************************************************************//**
  * @file
- * @brief FreeRTOS Tickless:  Energy Micro EFM32ZG_STK3200 Starter Kit
+ * @brief FreeRTOS Tickless:  Silicon Labs EFM32ZG_STK3200 Starter Kit
 
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -33,8 +33,6 @@
 #define STACK_SIZE_FOR_TASK   ( configMINIMAL_STACK_SIZE + 10 )
 #define TASK_PRIORITY         ( tskIDLE_PRIORITY + 1 )
 #define DELAY_PRIORITY        ( tskIDLE_PRIORITY + 2 )
-#define DELAY                 ( 3000 / portTICK_RATE_MS )
-#define DELAY_ONE_SEC         ( 1000 / portTICK_RATE_MS )
 
 /* Variables used to display pictures on display */
 static int numImages = sizeof (image_bits) / BYTES_PER_FRAME;
@@ -100,7 +98,7 @@ static void DrawPicture(void *pParameters)
   for (;;)
   {
     /* Delay between changing pictures */
-    vTaskDelay(DELAY);
+    vTaskDelay(pdMS_TO_TICKS(3000));
 
     /* Output new image on Memory LCD */
     oldImage = newImage;
@@ -158,7 +156,7 @@ static void RepeatCallbackTask(void *pParameters)
     {
       (*repeatCallback)(repeatCallbackParameter);
     }
-    vTaskDelay(DELAY_ONE_SEC/repeatCallbackFrequency);
+    vTaskDelay(pdMS_TO_TICKS(1000)/repeatCallbackFrequency);
   }
 }
 

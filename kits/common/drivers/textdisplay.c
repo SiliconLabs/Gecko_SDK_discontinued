@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file textdisplay.c
  * @brief Provide stdio retargeting to the text display interface.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -73,16 +73,16 @@ typedef struct TEXTDISPLAY_Device_t
   int               displayDeviceNo;    /* Display device number to initialize
                                            test display on. */
   DISPLAY_Device_t  displayDevice;      /* Display properties. */
-  
+
   unsigned int      columns;            /* Number of columns to use. */
   unsigned int      lines;              /* Number of lines to use. */
-  
+
   bool              scrollEnable;       /* Enable/disable scrolling mode on the
                                            text display. Scrolling mode will
                                            consume more memory because the lines
                                            lines will have to be stored in
                                            memory. */
-  
+
   bool                     lfToCrLf;    /**< Enable or disable LF to CR+LF
                                            conversion. */
 
@@ -165,7 +165,7 @@ static TEXTDISPLAY_CharBuffers_t charBufferTbl[TEXTDISPLAY_DEVICES_MAX] =
       charBufferDevice2,
       charArrayDevice2
     },
-#endif    
+#endif
 #if (TEXTDISPLAY_DEVICES_MAX == 4)
     {
       TEXTDISPLAY_DEVICE_3_LINES,
@@ -173,7 +173,7 @@ static TEXTDISPLAY_CharBuffers_t charBufferTbl[TEXTDISPLAY_DEVICES_MAX] =
       charBufferDevice3,
       charArrayDevice3
     },
-#endif    
+#endif
   };
 
 
@@ -258,7 +258,7 @@ EMSTATUS TEXTDISPLAY_New(TEXTDISPLAY_Config_t  *config,
                          textdisplay->lineBuffer,
                          textdisplay->displayDevice.geometry.width,
                          FONT_HEIGHT);
-                                                      
+
     if (DISPLAY_EMSTATUS_OK != status)
       return status;
   }
@@ -291,13 +291,13 @@ EMSTATUS TEXTDISPLAY_New(TEXTDISPLAY_Config_t  *config,
   for (i=0; i<textdisplay->lines; i++)
     textdisplay->charArray[i] =
       textdisplay->charBuffer + textdisplay->columns * i;
-  
+
   /* Initialize color for text */
   /* Use \b for red text (bell/warning) */
   textdisplay->rgbColor[0]       = 0xff;
   textdisplay->rgbColor[1]       = 0xff;
   textdisplay->rgbColor[2]       = 0xff;
-  
+
   /* Clear character buffer */
   TextdisplayClear(textdisplay);
 
@@ -339,7 +339,7 @@ EMSTATUS TEXTDISPLAY_Delete(TEXTDISPLAY_Handle_t  handle)
     textdisplay->displayDeviceNo = -1;
 
     textdisplay->initialized = false;
-   
+
     return TEXTDISPLAY_EMSTATUS_OK;
   }
 
@@ -362,9 +362,9 @@ EMSTATUS TEXTDISPLAY_LfToCrLf(TEXTDISPLAY_Handle_t  handle,
                               bool                  on)
 {
   TEXTDISPLAY_Device_t*  textdisplay = (TEXTDISPLAY_Device_t*) handle;
-  
+
   textdisplay->lfToCrLf = on;
-  
+
   return TEXTDISPLAY_EMSTATUS_OK;
 }
 
@@ -395,7 +395,7 @@ EMSTATUS TEXTDISPLAY_WriteChar(TEXTDISPLAY_Handle_t  handle,
     textdisplay->updateMode = TEXTDISPLAY_UPDATE_MODE_LINE;
   }
   else
-  {      
+  {
     textdisplay->updateMode = TEXTDISPLAY_UPDATE_MODE_CHAR;
   }
 
@@ -452,7 +452,7 @@ EMSTATUS TEXTDISPLAY_WriteChar(TEXTDISPLAY_Handle_t  handle,
  * @return  EMSTATUS code of the operation.
  *****************************************************************************/
 EMSTATUS TEXTDISPLAY_WriteString(TEXTDISPLAY_Handle_t  handle,
-                                 char*                 str)
+                                 const char*           str)
 {
   TEXTDISPLAY_Device_t*  textdisplay = (TEXTDISPLAY_Device_t*) handle;
   EMSTATUS               status;
@@ -471,7 +471,7 @@ EMSTATUS TEXTDISPLAY_WriteString(TEXTDISPLAY_Handle_t  handle,
     textdisplay->updateMode = TEXTDISPLAY_UPDATE_MODE_LINE;
   }
   else
-  {      
+  {
     textdisplay->updateMode = TEXTDISPLAY_UPDATE_MODE_CHAR;
   }
 
@@ -688,7 +688,7 @@ static bool TextdisplayEscapeSequence(TEXTDISPLAY_Device_t* textdisplay,
            mode to none. */
         anyMatch = true;
         textdisplay->updateMode = TEXTDISPLAY_UPDATE_MODE_NONE;
-      
+
         /* Full match? */
         if (len == strlen(escapeSequences[seqNo]))
         {
@@ -733,7 +733,7 @@ static bool TextdisplayEscapeSequence(TEXTDISPLAY_Device_t* textdisplay,
         break;
       }
     }
-    
+
     if (false == anyMatch)
     {
       /* No match found. Clear escape sequence and return false. */
@@ -749,7 +749,7 @@ static bool TextdisplayEscapeSequence(TEXTDISPLAY_Device_t* textdisplay,
       textdisplay->updateMode = TEXTDISPLAY_UPDATE_MODE_NONE;
       return true;
     }
-    
+
     return anyMatch;
   }
 }
@@ -778,7 +778,7 @@ static void TextdisplayCharAdd(TEXTDISPLAY_Device_t* textdisplay,
   case '\r':  /* check for CR */
     textdisplay->xpos = 0;
     return;
-    
+
   case '\n':  /* check for LF */
     textdisplay->ypos = textdisplay->ypos + 1;
     textdisplay->xpos = 0;
@@ -864,7 +864,7 @@ static void TextdisplayCharAdd(TEXTDISPLAY_Device_t* textdisplay,
       TextdisplayClear(textdisplay);
     }
   }
-  textdisplay->charArray[textdisplay->ypos][textdisplay->xpos] = 
+  textdisplay->charArray[textdisplay->ypos][textdisplay->xpos] =
     c - FONT_ASCII_START;
 
   textdisplay->xpos = textdisplay->xpos + 1;
@@ -903,7 +903,7 @@ static EMSTATUS TextdisplayLineDraw(TEXTDISPLAY_Device_t*  textdisplay,
       case DISPLAY_COLOUR_MODE_MONOCHROME:
         rowPtr[x] = pixelBits;
         break;
-    
+
       case DISPLAY_COLOUR_MODE_MONOCHROME_INVERSE:
         rowPtr[x] = ~pixelBits;
         break;
@@ -956,7 +956,7 @@ static EMSTATUS TextdisplayLineDraw(TEXTDISPLAY_Device_t*  textdisplay,
     rowPtr +=
       textdisplay->displayDevice.geometry.stride / (sizeof(FontBits_t) * 8) ;
   }
-  
+
   return
     textdisplay->displayDevice.pPixelMatrixDraw(&textdisplay->displayDevice,
                                                 textdisplay->lineBuffer,
@@ -1079,7 +1079,7 @@ static EMSTATUS TextdisplayUpdate(TEXTDISPLAY_Device_t*  textdisplay)
 
 @n @section textdisplay_doc TextDisplay Library
 
-  The source code of the TEXTDISPLAY module is implemented in 
+  The source code of the TEXTDISPLAY module is implemented in
   kits/common/drivers/textdisplay.c and textdisplay.h.
 
   @li @ref textdisplay_intro

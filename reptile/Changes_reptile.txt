@@ -1,4 +1,11 @@
 ================ Revision history ============================================
+4.3.0:
+ - FreeRTOS: Updated the IAR portmacro.h file for Cortex-M0 to make it similar
+   to the other portmacro.h files. Renaming portNVIC_ macros to match the other
+   ports.
+ - Improved SI114x Heart Rate Monitoring library.
+ - mbedtls moved to util\third_party\mbedtls.
+
 4.2.1:
  - No changes.
 

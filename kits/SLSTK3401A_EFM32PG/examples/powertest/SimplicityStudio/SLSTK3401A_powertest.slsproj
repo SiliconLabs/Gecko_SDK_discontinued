@@ -19,7 +19,7 @@
     <include pattern="Drivers(/.*){0,1}/rtcdriver.c" />
   </module>
   <module id="com.silabs.ide.si32.sdk.efm32.v2.common.bsp">
-    <exclude pattern=".*" />
+    <include pattern="BSP/bsp_trace.c" />
   </module>
   <module id="com.silabs.ide.si32.sdk.efm32.v2.common.drivers">
     <exclude pattern=".*" />

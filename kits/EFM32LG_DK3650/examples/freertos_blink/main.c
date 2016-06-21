@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief FreeRTOS Blink Demo for Energy Micro EFM32LG-DK3650 Development Kit
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -51,7 +51,7 @@ static void LedBlink(void *pParameters)
 {
   TaskParams_t     * pData = (TaskParams_t*) pParameters;
   const portTickType delay = pData->delay;
-  
+
   for (;;)
   {
     BSP_LedToggle(pData->ledNo);
@@ -85,8 +85,8 @@ int main(void)
   BSP_LedSet(1);
 
   /* Parameters value for taks*/
-  static TaskParams_t parametersToTask1 = { 1000 / portTICK_RATE_MS, 0 };
-  static TaskParams_t parametersToTask2 = { 500 / portTICK_RATE_MS, 1 };
+  static TaskParams_t parametersToTask1 = { pdMS_TO_TICKS(1000), 0 };
+  static TaskParams_t parametersToTask2 = { pdMS_TO_TICKS(500), 1 };
 
   /*Create two task for blinking leds*/
   xTaskCreate( LedBlink, (const char *) "LedBlink1", STACK_SIZE_FOR_TASK, &parametersToTask1, TASK_PRIORITY, NULL);

@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief Energy Mode example for EFM32_G2xx_DK development kit
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -25,7 +25,7 @@
 #include "bsp_trace.h"
 /* Address Mapped TFT mode initialization code */
 #include "tftamapped.h"
-#include "rtcdrv.h"
+#include "rtcdriver.h"
 /* Graphics library */
 #include "glib/glib.h"
 
@@ -310,6 +310,8 @@ void Demo_EM2(void)
  *****************************************************************************/
 void Demo_EM2_RTC(void)
 {
+  RTCDRV_TimerID_t timerid;
+  
   /* Disable systick timer */
   SysTick->CTRL  = 0;
 
@@ -322,13 +324,19 @@ void Demo_EM2_RTC(void)
   CMU->LFACLKEN0    = 0x00000000;
   CMU->LFBCLKEN0    = 0x00000000;
 
-  /* LFRCO will be enabled by RTCDRV_Trigger below */
+  /* LFRCO will be enabled by RTCDRV_Init below */
+  
+  /* Enable RTC driver */
+  RTCDRV_Init();
+
+  /* Allocate timer instance */
+  RTCDRV_AllocateTimer( &timerid );
 
   /* Enter Energy Mode 2 - this will never wake up */
   while(1)
   {
     /* Wake up every 2nd second */
-    RTCDRV_Trigger(2000, NULL);
+    RTCDRV_StartTimer(timerid, rtcdrvTimerTypeOneshot, 2000, NULL, 0);
     EMU_EnterEM2(false);
   }
 }

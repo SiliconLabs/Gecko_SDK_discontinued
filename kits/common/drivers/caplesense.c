@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief Capacitive sense driver
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -12,9 +12,6 @@
  * any purpose, you must agree to the terms of that agreement.
  *
  ******************************************************************************/
-
-
-
 
 /* EM header files */
 #include "em_device.h"
@@ -173,7 +170,7 @@ void CAPLESENSE_setupACMP(void)
  *****************************************************************************/
 void CAPLESENSE_setupLESENSE(bool sleep)
 {
-  uint8_t     i;
+  uint8_t     i,j;
   static bool init = true;
 
   /* Array for storing the calibration values. */
@@ -320,9 +317,17 @@ void CAPLESENSE_setupLESENSE(bool sleep)
     while (!(LESENSE->STATUS & LESENSE_STATUS_BUFHALFFULL)) ;
 
     /* Read out steady state values from LESENSE for calibration. */
-    for (i = 0U; i < CAPLESENSE_NUMOF_SLIDERS; i++)
+    for (i = 0U, j = 0U; j < LESENSE_CHANNELS; j++)
     {
-      capsenseCalibrateVals[i] = LESENSE_ScanResultDataBufferGet(i) - CAPLESENSE_SENSITIVITY_OFFS;
+      if (channelsInUse[j])
+      {
+        if (i < CAPLESENSE_NUMOF_SLIDERS)
+        {
+          capsenseCalibrateVals[i] = LESENSE_ScanResultDataBufferGet(j)
+                                     - CAPLESENSE_SENSITIVITY_OFFS;
+        }
+        i++;
+      }
     }
 
     /* Set calibration values. */

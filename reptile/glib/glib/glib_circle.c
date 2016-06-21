@@ -3,7 +3,7 @@
  * @brief Silicon Labs Graphics Library: Circle Drawing Routines
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensensed under the Silabs License Agreement. See the file
@@ -87,12 +87,12 @@ EMSTATUS GLIB_drawPartialCircle(GLIB_Context_t *pContext, int32_t xCenter,
   EMSTATUS status;
   int32_t x = 0;
   int32_t y = radius;
-  int32_t d = 1 - radius; 
+  int32_t d = 1 - radius;
   uint32_t drawnElements = 0;
-  
+
   /* Check arguments */
   if (pContext == NULL) return GLIB_ERROR_INVALID_ARGUMENT;
-  
+
   /* Draw initial circle points */
   status = GLIB_drawPartialCirclePoints(pContext, xCenter, yCenter, x, y, bitMask);
   if (status > GLIB_ERROR_NOTHING_TO_DRAW) return status;
@@ -100,7 +100,7 @@ EMSTATUS GLIB_drawPartialCircle(GLIB_Context_t *pContext, int32_t xCenter,
 
   /* Loops through all points from 0 to 45 degrees (1 octant) of the circle
    * (0 is defined straight upward) */
-  while (x < y) {    
+  while (x < y) {
     if (d < 0) {
       d += 2 * x + 1;
     } else {
@@ -147,7 +147,7 @@ EMSTATUS GLIB_drawCircleFilled(GLIB_Context_t *pContext, int32_t xCenter,
   int32_t y = radius;
   int32_t d = 1 - radius;
   uint32_t drawnElements = 0;
-  
+
   /* Check arguments */
   if (pContext == NULL) return GLIB_ERROR_INVALID_ARGUMENT;
 
@@ -158,7 +158,7 @@ EMSTATUS GLIB_drawCircleFilled(GLIB_Context_t *pContext, int32_t xCenter,
 
   /* Loops through all points from 0 to 45 degrees of the circle
    * (0 is defined straight upward) */
-  while (x < y) {        
+  while (x < y) {
     if (d < 0) {
       d += 2 * x + 1;
     } else {
@@ -182,7 +182,7 @@ EMSTATUS GLIB_drawCircleFilled(GLIB_Context_t *pContext, int32_t xCenter,
     status = GLIB_drawLineH(pContext, xCenter - y, yCenter - x, xCenter + y);
     if (status > GLIB_ERROR_NOTHING_TO_DRAW) return status;
     if (status == GLIB_OK) drawnElements++;
-    
+
     x++;
   }
   return ((drawnElements == 0) ? GLIB_ERROR_NOTHING_TO_DRAW : GLIB_OK);
@@ -225,21 +225,21 @@ static EMSTATUS GLIB_drawPartialCirclePoints(GLIB_Context_t *pContext,
 
   /* Draw the circle points using 8-way symmetry */
   int32_t  xOffsets[] = {y, x, -x, -y, -y, -x, x, y};
-  int32_t  yOffsets[] = {-x, -y, -y, -x, x, y, y, x};  
-  
+  int32_t  yOffsets[] = {-x, -y, -y, -x, x, y, y, x};
+
   i = 0;
   while (bitMask)
   {
     /* Pixel in i+1. octant */
     if (bitMask & 0x1)
     {
-      status = GLIB_drawPixel(pContext, xCenter + xOffsets[i], yCenter + yOffsets[i]);  
+      status = GLIB_drawPixel(pContext, xCenter + xOffsets[i], yCenter + yOffsets[i]);
       if (status > GLIB_ERROR_NOTHING_TO_DRAW) return status;
       if (status == GLIB_OK) drawnElements++;
     }
     bitMask >>= 1;
     i++;
-  }  
+  }
   return ((drawnElements == 0) ? GLIB_ERROR_NOTHING_TO_DRAW : GLIB_OK);
 }
 

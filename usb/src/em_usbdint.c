@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file em_usbdint.c
  * @brief USB protocol stack library, USB device peripheral interrupt handlers.
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -46,6 +46,7 @@ static void ProcessOepData               ( USBD_Ep_TypeDef *ep );
 /* Variables and prototypes for USB powerdown (suspend) functionality. */
 static bool UsbPowerDown( void );
 static bool UsbPowerUp( void );
+static void RestoreEpCtrlRegisters(void);
 
 volatile bool USBD_poweredDown = false;
 
@@ -234,6 +235,12 @@ static void Handle_USB_GINTSTS_IEPINT( void )
 
   DEBUG_USB_INT_HI_PUTCHAR( 'i' );
 
+  // If we came here from suspended state, set correct state
+  if (USBD_GetUsbState() == USBD_STATE_SUSPENDED)
+  {
+    USBD_SetUsbState( dev->savedState );
+  }
+
   epint = USBDHAL_GetAllInEpInts();
   for ( epnum = 0,                epmask = 1;
         epnum <= MAX_NUM_IN_EPS;
@@ -297,6 +304,12 @@ static void Handle_USB_GINTSTS_OEPINT( void )
   USBD_Ep_TypeDef *ep;
 
   DEBUG_USB_INT_HI_PUTCHAR( 'o' );
+
+  // If we came here from suspended state, set correct state
+  if (USBD_GetUsbState() == USBD_STATE_SUSPENDED)
+  {
+    USBD_SetUsbState( dev->savedState );
+  }
 
   epint = USBDHAL_GetAllOutEpInts();
   for ( epnum = 0,                epmask = 1;
@@ -648,15 +661,6 @@ static bool UsbPowerDown( void )
  */
 static bool UsbPowerUp( void )
 {
-#if ( NUM_EP_USED > 0 ) || ( FIFO_CNT > 0 )
-  int i;
-#endif
-#if ( NUM_EP_USED > 0 )
-  int epNum;
-  uint32_t tmp;
-  USBD_Ep_TypeDef *ep;
-#endif
-
   if ( USBD_poweredDown )
   {
     USBD_poweredDown = false;
@@ -687,47 +691,7 @@ static bool UsbPowerUp( void )
     USB->GUSBCFG = x_USB_GUSBCFG;
     USB->DCFG    = x_USB_DCFG;
 
-#if ( FIFO_CNT > 0 )
-    for ( i = 0; i < FIFO_CNT; i++ )
-    {
-      USB_DIEPTXFS[ i ] = x_USB_DIEPTXFS[ i ];
-    }
-#endif
-
-#if ( NUM_EP_USED > 0 )
-    for ( i = 0; i < NUM_EP_USED; i++ )
-    {
-      ep = &dev->ep[ i+1 ];
-      epNum = ep->num;
-
-      tmp = x_USB_EP_CTL[ i ] &
-            ~( USB_DIEP_CTL_CNAK       | USB_DIEP_CTL_SNAK       |
-               USB_DIEP_CTL_SETD0PIDEF | USB_DIEP_CTL_SETD1PIDOF   );
-
-      if ( x_USB_EP_CTL[ i ] & USB_DIEP_CTL_DPIDEOF )
-        tmp |= USB_DIEP_CTL_SETD1PIDOF;
-      else
-        tmp |= USB_DIEP_CTL_SETD0PIDEF;
-
-      if ( x_USB_EP_CTL[ i ] & USB_DIEP_CTL_NAKSTS )
-        tmp |= USB_DIEP_CTL_SNAK;
-      else
-        tmp |= USB_DIEP_CTL_CNAK;
-
-      if ( ep->in )
-      {
-        USB_DINEPS[ epNum ].CTL     = tmp;
-        USB_DINEPS[ epNum ].TSIZ    = x_USB_EP_TSIZ[    i ];
-        USB_DINEPS[ epNum ].DMAADDR = x_USB_EP_DMAADDR[ i ];
-      }
-      else
-      {
-        USB_DOUTEPS[ epNum ].CTL     = tmp;
-        USB_DOUTEPS[ epNum ].TSIZ    = x_USB_EP_TSIZ[    i ];
-        USB_DOUTEPS[ epNum ].DMAADDR = x_USB_EP_DMAADDR[ i ];
-      }
-    }
-#endif
+    RestoreEpCtrlRegisters();
 
     USB->PCGCCTL   = x_USB_PCGCCTL;
     USB->DOEPMSK   = x_USB_DOEPMSK;
@@ -754,6 +718,171 @@ static bool UsbPowerUp( void )
   return false;
 }
 #endif /* if ( USB_PWRSAVE_MODE ) */
+
+/*
+ * Drive resume signalling on USB bus,
+ * exit USB core partial powerdown mode if necessary.
+ */
+void USBDINT_RemoteWakeup(void)
+{
+#if (USB_PWRSAVE_MODE)
+
+  if (USBD_poweredDown)
+  {
+    USBD_poweredDown = false;
+    DEBUG_USB_INT_LO_PUTCHAR('|');
+
+    // Restore HF clock if we just woke up from EM2.
+#if defined( CMU_OSCENCMD_USHFRCOEN )
+    if ( ( CMU->STATUS & CMU_STATUS_USHFRCOENS ) == 0 )
+    {
+      CMU->OSCENCMD = ( cmuStatus
+                        & ( CMU_STATUS_AUXHFRCOENS | CMU_STATUS_HFXOENS ) )
+                      | CMU_OSCENCMD_USHFRCOEN;
+    }
+#else
+    if ( ( CMU->STATUS & CMU_STATUS_HFXOENS ) == 0 )
+    {
+      CMU->OSCENCMD = cmuStatus
+                      & ( CMU_STATUS_AUXHFRCOENS | CMU_STATUS_HFXOENS );
+    }
+#endif
+
+#if !defined( USB_CORECLK_HFRCO ) || !defined( CMU_OSCENCMD_USHFRCOEN )
+    // Switch HFCLK from HFRCO to HFXO.
+    CMU_ClockSelectSet( cmuClock_HF, cmuSelect_HFXO );
+#endif
+
+    // Select 48MHz for USBC clock.
+#if defined( CMU_OSCENCMD_USHFRCOEN )
+    CMU->CMD = CMU_CMD_USBCCLKSEL_USHFRCO;
+    while ( ( CMU->STATUS & CMU_STATUS_USBCUSHFRCOSEL ) == 0 ){}
+#else
+    CMU->CMD = CMU_CMD_USBCCLKSEL_HFCLKNODIV;
+    while ( ( CMU->STATUS & CMU_STATUS_USBCHFCLKSEL ) == 0 ){}
+#endif
+
+    // Exit partial powerdown mode.
+    USB->PCGCCTL &= ~USB_PCGCCTL_STOPPCLK;
+    USB->PCGCCTL &= ~(USB_PCGCCTL_PWRCLMP | USB_PCGCCTL_RSTPDWNMODULE);
+
+    /* Restore USB core registers. */
+    USB->GUSBCFG = x_USB_GUSBCFG;
+    USB->DCFG    = x_USB_DCFG;
+
+    // Turn on resume signalling.
+    USB->DCTL = x_USB_DCTL | USB_DCTL_RMTWKUPSIG;
+
+    USBTIMER_DelayMs(2);
+    USB->GINTSTS = 0xFFFFFFFF;        // Clear all pending interrupt flags.
+
+    RestoreEpCtrlRegisters();
+
+    USB->DOEPMSK   = x_USB_DOEPMSK;
+    USB->DIEPMSK   = x_USB_DIEPMSK;
+    USB->DAINTMSK  = x_USB_DAINTMSK;
+    USB->GNPTXFSIZ = x_USB_GNPTXFSIZ;
+    USB->GRXFSIZ   = x_USB_GRXFSIZ;
+    USB->GAHBCFG   = x_USB_GAHBCFG;
+#if defined(_USB_GOTGCTL_MASK)
+    USB->GOTGCTL   = x_USB_GOTGCTL;
+#endif
+    USB->GINTMSK   = x_USB_GINTMSK;
+
+#if ( USB_PWRSAVE_MODE & USB_PWRSAVE_MODE_ENTEREM2 )
+    // Make sure we won't reenter EM2 on an eventual interrupt exit.
+    SCB->SCR &= ~(SCB_SCR_SLEEPDEEP_Msk | SCB_SCR_SLEEPONEXIT_Msk);
+#endif
+
+    INT_Enable();
+    USBTIMER_DelayMs( 10 );
+    INT_Disable();
+
+    USBDHAL_ClearRemoteWakeup();
+    // Setup EP0 for new commands.
+    USBDHAL_StartEp0Setup( dev );
+    USBDHAL_Ep0Activate( dev->ep0MpsCode );
+  }
+  else
+  {
+#endif // if (USB_PWRSAVE_MODE)
+    USBDHAL_SetRemoteWakeup();
+
+    INT_Enable();
+    USBTIMER_DelayMs( 10 );
+    INT_Disable();
+
+    USBDHAL_ClearRemoteWakeup();
+#if (USB_PWRSAVE_MODE)
+  }
+#endif
+}
+
+#if (USB_PWRSAVE_MODE)
+static void RestoreEpCtrlRegisters(void)
+{
+#if ( NUM_EP_USED > 0 ) || ( FIFO_CNT > 0 )
+  int i;
+#endif
+#if ( NUM_EP_USED > 0 )
+  int epNum;
+  uint32_t tmp;
+  USBD_Ep_TypeDef *ep;
+#endif
+
+#if (FIFO_CNT > 0)
+  for (i = 0; i < FIFO_CNT; i++)
+  {
+    USB_DIEPTXFS[i] = x_USB_DIEPTXFS[i];
+  }
+#endif
+
+#if (NUM_EP_USED > 0)
+  for (i = 0; i < NUM_EP_USED; i++)
+  {
+    ep = &dev->ep[i+1];
+    epNum = ep->num;
+
+    tmp = x_USB_EP_CTL[i]
+          & ~(USB_DIEP_CTL_CNAK
+              | USB_DIEP_CTL_SNAK
+              | USB_DIEP_CTL_SETD0PIDEF
+              | USB_DIEP_CTL_SETD1PIDOF);
+
+    if (x_USB_EP_CTL[i] & USB_DIEP_CTL_DPIDEOF)
+    {
+      tmp |= USB_DIEP_CTL_SETD1PIDOF;
+    }
+    else
+    {
+      tmp |= USB_DIEP_CTL_SETD0PIDEF;
+    }
+
+    if (x_USB_EP_CTL[i] & USB_DIEP_CTL_NAKSTS)
+    {
+      tmp |= USB_DIEP_CTL_SNAK;
+    }
+    else
+    {
+      tmp |= USB_DIEP_CTL_CNAK;
+    }
+
+    if (ep->in)
+    {
+      USB_DINEPS[epNum].CTL     = tmp;
+      USB_DINEPS[epNum].TSIZ    = x_USB_EP_TSIZ[i];
+      USB_DINEPS[epNum].DMAADDR = x_USB_EP_DMAADDR[i];
+    }
+    else
+    {
+      USB_DOUTEPS[epNum].CTL     = tmp;
+      USB_DOUTEPS[epNum].TSIZ    = x_USB_EP_TSIZ[i];
+      USB_DOUTEPS[epNum].DMAADDR = x_USB_EP_DMAADDR[i];
+    }
+  }
+#endif
+}
+#endif // if (USB_PWRSAVE_MODE)
 
 #if defined( USB_DOEP0INT_STUPPKTRCVD )
 static void HandleOutEpIntr( uint32_t status, USBD_Ep_TypeDef *ep )

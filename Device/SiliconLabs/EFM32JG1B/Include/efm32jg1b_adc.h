@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file efm32jg1b_adc.h
  * @brief EFM32JG1B_ADC register and bit field definitions
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -52,7 +52,7 @@ typedef struct
   __IO uint32_t SCANINPUTSEL;    /**< Input Selection register for Scan mode  */
   __IO uint32_t SCANNEGSEL;      /**< Negative Input select register for Scan  */
   __IO uint32_t CMPTHR;          /**< Compare Threshold Register  */
-  __IO uint32_t BIASPROG;        /**< Bias Programming Register for various analog blocks used in ADC operation  */
+  __IO uint32_t BIASPROG;        /**< Bias Programming Register for various analog blocks used in ADC operation.  */
   __IO uint32_t CAL;             /**< Calibration Register  */
   __I uint32_t  IF;              /**< Interrupt Flag Register  */
   __IO uint32_t IFS;             /**< Interrupt Flag Set Register  */
@@ -180,12 +180,12 @@ typedef struct
 /* Bit fields for ADC CMD */
 #define _ADC_CMD_RESETVALUE                                0x00000000UL                        /**< Default value for ADC_CMD */
 #define _ADC_CMD_MASK                                      0x0000000FUL                        /**< Mask for ADC_CMD */
-#define ADC_CMD_SINGLESTART                                (0x1UL << 0)                        /**< Single Conversion Start */
+#define ADC_CMD_SINGLESTART                                (0x1UL << 0)                        /**< Single Channel Conversion Start */
 #define _ADC_CMD_SINGLESTART_SHIFT                         0                                   /**< Shift value for ADC_SINGLESTART */
 #define _ADC_CMD_SINGLESTART_MASK                          0x1UL                               /**< Bit mask for ADC_SINGLESTART */
 #define _ADC_CMD_SINGLESTART_DEFAULT                       0x00000000UL                        /**< Mode DEFAULT for ADC_CMD */
 #define ADC_CMD_SINGLESTART_DEFAULT                        (_ADC_CMD_SINGLESTART_DEFAULT << 0) /**< Shifted mode DEFAULT for ADC_CMD */
-#define ADC_CMD_SINGLESTOP                                 (0x1UL << 1)                        /**< Single Conversion Stop */
+#define ADC_CMD_SINGLESTOP                                 (0x1UL << 1)                        /**< Single Channel Conversion Stop */
 #define _ADC_CMD_SINGLESTOP_SHIFT                          1                                   /**< Shift value for ADC_SINGLESTOP */
 #define _ADC_CMD_SINGLESTOP_MASK                           0x2UL                               /**< Bit mask for ADC_SINGLESTOP */
 #define _ADC_CMD_SINGLESTOP_DEFAULT                        0x00000000UL                        /**< Mode DEFAULT for ADC_CMD */
@@ -204,7 +204,7 @@ typedef struct
 /* Bit fields for ADC STATUS */
 #define _ADC_STATUS_RESETVALUE                             0x00000000UL                             /**< Default value for ADC_STATUS */
 #define _ADC_STATUS_MASK                                   0x00031F03UL                             /**< Mask for ADC_STATUS */
-#define ADC_STATUS_SINGLEACT                               (0x1UL << 0)                             /**< Single Conversion Active */
+#define ADC_STATUS_SINGLEACT                               (0x1UL << 0)                             /**< Single Channel Conversion Active */
 #define _ADC_STATUS_SINGLEACT_SHIFT                        0                                        /**< Shift value for ADC_SINGLEACT */
 #define _ADC_STATUS_SINGLEACT_MASK                         0x1UL                                    /**< Bit mask for ADC_SINGLEACT */
 #define _ADC_STATUS_SINGLEACT_DEFAULT                      0x00000000UL                             /**< Mode DEFAULT for ADC_STATUS */
@@ -214,7 +214,7 @@ typedef struct
 #define _ADC_STATUS_SCANACT_MASK                           0x2UL                                    /**< Bit mask for ADC_SCANACT */
 #define _ADC_STATUS_SCANACT_DEFAULT                        0x00000000UL                             /**< Mode DEFAULT for ADC_STATUS */
 #define ADC_STATUS_SCANACT_DEFAULT                         (_ADC_STATUS_SCANACT_DEFAULT << 1)       /**< Shifted mode DEFAULT for ADC_STATUS */
-#define ADC_STATUS_SINGLEREFWARM                           (0x1UL << 8)                             /**< Single Reference Warmed Up */
+#define ADC_STATUS_SINGLEREFWARM                           (0x1UL << 8)                             /**< Single Channel Reference Warmed Up */
 #define _ADC_STATUS_SINGLEREFWARM_SHIFT                    8                                        /**< Shift value for ADC_SINGLEREFWARM */
 #define _ADC_STATUS_SINGLEREFWARM_MASK                     0x100UL                                  /**< Bit mask for ADC_SINGLEREFWARM */
 #define _ADC_STATUS_SINGLEREFWARM_DEFAULT                  0x00000000UL                             /**< Mode DEFAULT for ADC_STATUS */
@@ -288,7 +288,7 @@ typedef struct
 #define _ADC_SINGLECTRL_REF_1V25                           0x00000000UL                               /**< Mode 1V25 for ADC_SINGLECTRL */
 #define _ADC_SINGLECTRL_REF_2V5                            0x00000001UL                               /**< Mode 2V5 for ADC_SINGLECTRL */
 #define _ADC_SINGLECTRL_REF_VDD                            0x00000002UL                               /**< Mode VDD for ADC_SINGLECTRL */
-#define _ADC_SINGLECTRL_REF_5VDIFF                         0x00000003UL                               /**< Mode 5VDIFF for ADC_SINGLECTRL */
+#define _ADC_SINGLECTRL_REF_5V                             0x00000003UL                               /**< Mode 5V for ADC_SINGLECTRL */
 #define _ADC_SINGLECTRL_REF_EXTSINGLE                      0x00000004UL                               /**< Mode EXTSINGLE for ADC_SINGLECTRL */
 #define _ADC_SINGLECTRL_REF_2XEXTDIFF                      0x00000005UL                               /**< Mode 2XEXTDIFF for ADC_SINGLECTRL */
 #define _ADC_SINGLECTRL_REF_2XVDD                          0x00000006UL                               /**< Mode 2XVDD for ADC_SINGLECTRL */
@@ -297,7 +297,7 @@ typedef struct
 #define ADC_SINGLECTRL_REF_1V25                            (_ADC_SINGLECTRL_REF_1V25 << 5)            /**< Shifted mode 1V25 for ADC_SINGLECTRL */
 #define ADC_SINGLECTRL_REF_2V5                             (_ADC_SINGLECTRL_REF_2V5 << 5)             /**< Shifted mode 2V5 for ADC_SINGLECTRL */
 #define ADC_SINGLECTRL_REF_VDD                             (_ADC_SINGLECTRL_REF_VDD << 5)             /**< Shifted mode VDD for ADC_SINGLECTRL */
-#define ADC_SINGLECTRL_REF_5VDIFF                          (_ADC_SINGLECTRL_REF_5VDIFF << 5)          /**< Shifted mode 5VDIFF for ADC_SINGLECTRL */
+#define ADC_SINGLECTRL_REF_5V                              (_ADC_SINGLECTRL_REF_5V << 5)              /**< Shifted mode 5V for ADC_SINGLECTRL */
 #define ADC_SINGLECTRL_REF_EXTSINGLE                       (_ADC_SINGLECTRL_REF_EXTSINGLE << 5)       /**< Shifted mode EXTSINGLE for ADC_SINGLECTRL */
 #define ADC_SINGLECTRL_REF_2XEXTDIFF                       (_ADC_SINGLECTRL_REF_2XEXTDIFF << 5)       /**< Shifted mode 2XEXTDIFF for ADC_SINGLECTRL */
 #define ADC_SINGLECTRL_REF_2XVDD                           (_ADC_SINGLECTRL_REF_2XVDD << 5)           /**< Shifted mode 2XVDD for ADC_SINGLECTRL */
@@ -472,7 +472,7 @@ typedef struct
 #define _ADC_SINGLECTRL_POSSEL_IO0                         0x000000E5UL                               /**< Mode IO0 for ADC_SINGLECTRL */
 #define _ADC_SINGLECTRL_POSSEL_IO1                         0x000000E6UL                               /**< Mode IO1 for ADC_SINGLECTRL */
 #define _ADC_SINGLECTRL_POSSEL_VSP                         0x000000E7UL                               /**< Mode VSP for ADC_SINGLECTRL */
-#define _ADC_SINGLECTRL_POSSEL_SP0                         0x000000F2UL                               /**< Mode SP0 for ADC_SINGLECTRL */
+#define _ADC_SINGLECTRL_POSSEL_OPA2                        0x000000F2UL                               /**< Mode OPA2 for ADC_SINGLECTRL */
 #define _ADC_SINGLECTRL_POSSEL_TEMP                        0x000000F3UL                               /**< Mode TEMP for ADC_SINGLECTRL */
 #define _ADC_SINGLECTRL_POSSEL_DAC0OUT0                    0x000000F4UL                               /**< Mode DAC0OUT0 for ADC_SINGLECTRL */
 #define _ADC_SINGLECTRL_POSSEL_TESTP                       0x000000F5UL                               /**< Mode TESTP for ADC_SINGLECTRL */
@@ -480,6 +480,7 @@ typedef struct
 #define _ADC_SINGLECTRL_POSSEL_SP2                         0x000000F7UL                               /**< Mode SP2 for ADC_SINGLECTRL */
 #define _ADC_SINGLECTRL_POSSEL_DAC0OUT1                    0x000000F8UL                               /**< Mode DAC0OUT1 for ADC_SINGLECTRL */
 #define _ADC_SINGLECTRL_POSSEL_SUBLSB                      0x000000F9UL                               /**< Mode SUBLSB for ADC_SINGLECTRL */
+#define _ADC_SINGLECTRL_POSSEL_OPA3                        0x000000FAUL                               /**< Mode OPA3 for ADC_SINGLECTRL */
 #define _ADC_SINGLECTRL_POSSEL_DEFAULT                     0x000000FFUL                               /**< Mode DEFAULT for ADC_SINGLECTRL */
 #define _ADC_SINGLECTRL_POSSEL_VSS                         0x000000FFUL                               /**< Mode VSS for ADC_SINGLECTRL */
 #define ADC_SINGLECTRL_POSSEL_APORT0XCH0                   (_ADC_SINGLECTRL_POSSEL_APORT0XCH0 << 8)   /**< Shifted mode APORT0XCH0 for ADC_SINGLECTRL */
@@ -650,7 +651,7 @@ typedef struct
 #define ADC_SINGLECTRL_POSSEL_IO0                          (_ADC_SINGLECTRL_POSSEL_IO0 << 8)          /**< Shifted mode IO0 for ADC_SINGLECTRL */
 #define ADC_SINGLECTRL_POSSEL_IO1                          (_ADC_SINGLECTRL_POSSEL_IO1 << 8)          /**< Shifted mode IO1 for ADC_SINGLECTRL */
 #define ADC_SINGLECTRL_POSSEL_VSP                          (_ADC_SINGLECTRL_POSSEL_VSP << 8)          /**< Shifted mode VSP for ADC_SINGLECTRL */
-#define ADC_SINGLECTRL_POSSEL_SP0                          (_ADC_SINGLECTRL_POSSEL_SP0 << 8)          /**< Shifted mode SP0 for ADC_SINGLECTRL */
+#define ADC_SINGLECTRL_POSSEL_OPA2                         (_ADC_SINGLECTRL_POSSEL_OPA2 << 8)         /**< Shifted mode OPA2 for ADC_SINGLECTRL */
 #define ADC_SINGLECTRL_POSSEL_TEMP                         (_ADC_SINGLECTRL_POSSEL_TEMP << 8)         /**< Shifted mode TEMP for ADC_SINGLECTRL */
 #define ADC_SINGLECTRL_POSSEL_DAC0OUT0                     (_ADC_SINGLECTRL_POSSEL_DAC0OUT0 << 8)     /**< Shifted mode DAC0OUT0 for ADC_SINGLECTRL */
 #define ADC_SINGLECTRL_POSSEL_TESTP                        (_ADC_SINGLECTRL_POSSEL_TESTP << 8)        /**< Shifted mode TESTP for ADC_SINGLECTRL */
@@ -658,6 +659,7 @@ typedef struct
 #define ADC_SINGLECTRL_POSSEL_SP2                          (_ADC_SINGLECTRL_POSSEL_SP2 << 8)          /**< Shifted mode SP2 for ADC_SINGLECTRL */
 #define ADC_SINGLECTRL_POSSEL_DAC0OUT1                     (_ADC_SINGLECTRL_POSSEL_DAC0OUT1 << 8)     /**< Shifted mode DAC0OUT1 for ADC_SINGLECTRL */
 #define ADC_SINGLECTRL_POSSEL_SUBLSB                       (_ADC_SINGLECTRL_POSSEL_SUBLSB << 8)       /**< Shifted mode SUBLSB for ADC_SINGLECTRL */
+#define ADC_SINGLECTRL_POSSEL_OPA3                         (_ADC_SINGLECTRL_POSSEL_OPA3 << 8)         /**< Shifted mode OPA3 for ADC_SINGLECTRL */
 #define ADC_SINGLECTRL_POSSEL_DEFAULT                      (_ADC_SINGLECTRL_POSSEL_DEFAULT << 8)      /**< Shifted mode DEFAULT for ADC_SINGLECTRL */
 #define ADC_SINGLECTRL_POSSEL_VSS                          (_ADC_SINGLECTRL_POSSEL_VSS << 8)          /**< Shifted mode VSS for ADC_SINGLECTRL */
 #define _ADC_SINGLECTRL_NEGSEL_SHIFT                       16                                         /**< Shift value for ADC_NEGSEL */
@@ -1159,7 +1161,7 @@ typedef struct
 #define _ADC_SCANCTRL_REF_1V25                             0x00000000UL                        /**< Mode 1V25 for ADC_SCANCTRL */
 #define _ADC_SCANCTRL_REF_2V5                              0x00000001UL                        /**< Mode 2V5 for ADC_SCANCTRL */
 #define _ADC_SCANCTRL_REF_VDD                              0x00000002UL                        /**< Mode VDD for ADC_SCANCTRL */
-#define _ADC_SCANCTRL_REF_5VDIFF                           0x00000003UL                        /**< Mode 5VDIFF for ADC_SCANCTRL */
+#define _ADC_SCANCTRL_REF_5V                               0x00000003UL                        /**< Mode 5V for ADC_SCANCTRL */
 #define _ADC_SCANCTRL_REF_EXTSINGLE                        0x00000004UL                        /**< Mode EXTSINGLE for ADC_SCANCTRL */
 #define _ADC_SCANCTRL_REF_2XEXTDIFF                        0x00000005UL                        /**< Mode 2XEXTDIFF for ADC_SCANCTRL */
 #define _ADC_SCANCTRL_REF_2XVDD                            0x00000006UL                        /**< Mode 2XVDD for ADC_SCANCTRL */
@@ -1168,7 +1170,7 @@ typedef struct
 #define ADC_SCANCTRL_REF_1V25                              (_ADC_SCANCTRL_REF_1V25 << 5)       /**< Shifted mode 1V25 for ADC_SCANCTRL */
 #define ADC_SCANCTRL_REF_2V5                               (_ADC_SCANCTRL_REF_2V5 << 5)        /**< Shifted mode 2V5 for ADC_SCANCTRL */
 #define ADC_SCANCTRL_REF_VDD                               (_ADC_SCANCTRL_REF_VDD << 5)        /**< Shifted mode VDD for ADC_SCANCTRL */
-#define ADC_SCANCTRL_REF_5VDIFF                            (_ADC_SCANCTRL_REF_5VDIFF << 5)     /**< Shifted mode 5VDIFF for ADC_SCANCTRL */
+#define ADC_SCANCTRL_REF_5V                                (_ADC_SCANCTRL_REF_5V << 5)         /**< Shifted mode 5V for ADC_SCANCTRL */
 #define ADC_SCANCTRL_REF_EXTSINGLE                         (_ADC_SCANCTRL_REF_EXTSINGLE << 5)  /**< Shifted mode EXTSINGLE for ADC_SCANCTRL */
 #define ADC_SCANCTRL_REF_2XEXTDIFF                         (_ADC_SCANCTRL_REF_2XEXTDIFF << 5)  /**< Shifted mode 2XEXTDIFF for ADC_SCANCTRL */
 #define ADC_SCANCTRL_REF_2XVDD                             (_ADC_SCANCTRL_REF_2XVDD << 5)      /**< Shifted mode 2XVDD for ADC_SCANCTRL */
@@ -1218,7 +1220,6 @@ typedef struct
 #define _ADC_SCANCTRLX_VREFSEL_VDDXWATT                    0x00000001UL                                    /**< Mode VDDXWATT for ADC_SCANCTRLX */
 #define _ADC_SCANCTRLX_VREFSEL_VREFPWATT                   0x00000002UL                                    /**< Mode VREFPWATT for ADC_SCANCTRLX */
 #define _ADC_SCANCTRLX_VREFSEL_VREFP                       0x00000003UL                                    /**< Mode VREFP for ADC_SCANCTRLX */
-#define _ADC_SCANCTRLX_VREFSEL_VENTROPY                    0x00000004UL                                    /**< Mode VENTROPY for ADC_SCANCTRLX */
 #define _ADC_SCANCTRLX_VREFSEL_VREFPNWATT                  0x00000005UL                                    /**< Mode VREFPNWATT for ADC_SCANCTRLX */
 #define _ADC_SCANCTRLX_VREFSEL_VREFPN                      0x00000006UL                                    /**< Mode VREFPN for ADC_SCANCTRLX */
 #define _ADC_SCANCTRLX_VREFSEL_VBGRLOW                     0x00000007UL                                    /**< Mode VBGRLOW for ADC_SCANCTRLX */
@@ -1227,7 +1228,6 @@ typedef struct
 #define ADC_SCANCTRLX_VREFSEL_VDDXWATT                     (_ADC_SCANCTRLX_VREFSEL_VDDXWATT << 0)          /**< Shifted mode VDDXWATT for ADC_SCANCTRLX */
 #define ADC_SCANCTRLX_VREFSEL_VREFPWATT                    (_ADC_SCANCTRLX_VREFSEL_VREFPWATT << 0)         /**< Shifted mode VREFPWATT for ADC_SCANCTRLX */
 #define ADC_SCANCTRLX_VREFSEL_VREFP                        (_ADC_SCANCTRLX_VREFSEL_VREFP << 0)             /**< Shifted mode VREFP for ADC_SCANCTRLX */
-#define ADC_SCANCTRLX_VREFSEL_VENTROPY                     (_ADC_SCANCTRLX_VREFSEL_VENTROPY << 0)          /**< Shifted mode VENTROPY for ADC_SCANCTRLX */
 #define ADC_SCANCTRLX_VREFSEL_VREFPNWATT                   (_ADC_SCANCTRLX_VREFSEL_VREFPNWATT << 0)        /**< Shifted mode VREFPNWATT for ADC_SCANCTRLX */
 #define ADC_SCANCTRLX_VREFSEL_VREFPN                       (_ADC_SCANCTRLX_VREFSEL_VREFPN << 0)            /**< Shifted mode VREFPN for ADC_SCANCTRLX */
 #define ADC_SCANCTRLX_VREFSEL_VBGRLOW                      (_ADC_SCANCTRLX_VREFSEL_VBGRLOW << 0)           /**< Shifted mode VBGRLOW for ADC_SCANCTRLX */
@@ -1718,7 +1718,7 @@ typedef struct
 
 /* Bit fields for ADC BIASPROG */
 #define _ADC_BIASPROG_RESETVALUE                           0x00000000UL                             /**< Default value for ADC_BIASPROG */
-#define _ADC_BIASPROG_MASK                                 0x0000100FUL                             /**< Mask for ADC_BIASPROG */
+#define _ADC_BIASPROG_MASK                                 0x0001100FUL                             /**< Mask for ADC_BIASPROG */
 #define _ADC_BIASPROG_ADCBIASPROG_SHIFT                    0                                        /**< Shift value for ADC_ADCBIASPROG */
 #define _ADC_BIASPROG_ADCBIASPROG_MASK                     0xFUL                                    /**< Bit mask for ADC_ADCBIASPROG */
 #define _ADC_BIASPROG_ADCBIASPROG_DEFAULT                  0x00000000UL                             /**< Mode DEFAULT for ADC_BIASPROG */
@@ -1735,11 +1735,20 @@ typedef struct
 #define ADC_BIASPROG_ADCBIASPROG_SCALE8                    (_ADC_BIASPROG_ADCBIASPROG_SCALE8 << 0)  /**< Shifted mode SCALE8 for ADC_BIASPROG */
 #define ADC_BIASPROG_ADCBIASPROG_SCALE16                   (_ADC_BIASPROG_ADCBIASPROG_SCALE16 << 0) /**< Shifted mode SCALE16 for ADC_BIASPROG */
 #define ADC_BIASPROG_ADCBIASPROG_SCALE32                   (_ADC_BIASPROG_ADCBIASPROG_SCALE32 << 0) /**< Shifted mode SCALE32 for ADC_BIASPROG */
-#define ADC_BIASPROG_VFAULTCLR                             (0x1UL << 12)                            /**< Set Vfault_clr flag */
+#define ADC_BIASPROG_VFAULTCLR                             (0x1UL << 12)                            /**< Clear VREFOF flag */
 #define _ADC_BIASPROG_VFAULTCLR_SHIFT                      12                                       /**< Shift value for ADC_VFAULTCLR */
 #define _ADC_BIASPROG_VFAULTCLR_MASK                       0x1000UL                                 /**< Bit mask for ADC_VFAULTCLR */
 #define _ADC_BIASPROG_VFAULTCLR_DEFAULT                    0x00000000UL                             /**< Mode DEFAULT for ADC_BIASPROG */
 #define ADC_BIASPROG_VFAULTCLR_DEFAULT                     (_ADC_BIASPROG_VFAULTCLR_DEFAULT << 12)  /**< Shifted mode DEFAULT for ADC_BIASPROG */
+#define ADC_BIASPROG_GPBIASACC                             (0x1UL << 16)                            /**< Accuracy setting for the system bias during ADC operation */
+#define _ADC_BIASPROG_GPBIASACC_SHIFT                      16                                       /**< Shift value for ADC_GPBIASACC */
+#define _ADC_BIASPROG_GPBIASACC_MASK                       0x10000UL                                /**< Bit mask for ADC_GPBIASACC */
+#define _ADC_BIASPROG_GPBIASACC_DEFAULT                    0x00000000UL                             /**< Mode DEFAULT for ADC_BIASPROG */
+#define _ADC_BIASPROG_GPBIASACC_HIGHACC                    0x00000000UL                             /**< Mode HIGHACC for ADC_BIASPROG */
+#define _ADC_BIASPROG_GPBIASACC_LOWACC                     0x00000001UL                             /**< Mode LOWACC for ADC_BIASPROG */
+#define ADC_BIASPROG_GPBIASACC_DEFAULT                     (_ADC_BIASPROG_GPBIASACC_DEFAULT << 16)  /**< Shifted mode DEFAULT for ADC_BIASPROG */
+#define ADC_BIASPROG_GPBIASACC_HIGHACC                     (_ADC_BIASPROG_GPBIASACC_HIGHACC << 16)  /**< Shifted mode HIGHACC for ADC_BIASPROG */
+#define ADC_BIASPROG_GPBIASACC_LOWACC                      (_ADC_BIASPROG_GPBIASACC_LOWACC << 16)   /**< Shifted mode LOWACC for ADC_BIASPROG */
 
 /* Bit fields for ADC CAL */
 #define _ADC_CAL_RESETVALUE                                0x40784078UL                            /**< Default value for ADC_CAL */
@@ -1822,7 +1831,7 @@ typedef struct
 #define _ADC_IF_SCANCMP_MASK                               0x20000UL                         /**< Bit mask for ADC_SCANCMP */
 #define _ADC_IF_SCANCMP_DEFAULT                            0x00000000UL                      /**< Mode DEFAULT for ADC_IF */
 #define ADC_IF_SCANCMP_DEFAULT                             (_ADC_IF_SCANCMP_DEFAULT << 17)   /**< Shifted mode DEFAULT for ADC_IF */
-#define ADC_IF_VREFOV                                      (0x1UL << 24)                     /**< VREF OverVoltage Interrupt Flag */
+#define ADC_IF_VREFOV                                      (0x1UL << 24)                     /**< VREF Over Voltage Interrupt Flag */
 #define _ADC_IF_VREFOV_SHIFT                               24                                /**< Shift value for ADC_VREFOV */
 #define _ADC_IF_VREFOV_MASK                                0x1000000UL                       /**< Bit mask for ADC_VREFOV */
 #define _ADC_IF_VREFOV_DEFAULT                             0x00000000UL                      /**< Mode DEFAULT for ADC_IF */

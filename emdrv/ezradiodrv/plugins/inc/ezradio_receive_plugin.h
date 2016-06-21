@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ezradio_receive_plugin.h
  * @brief EzRadio transmit plug-in managed by the plug-in manager if enabled.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -39,7 +39,7 @@ extern "C" {
 #endif
 
 /***************************************************************************//**
- * @addtogroup EM_Drivers
+ * @addtogroup emdrv
  * @{
  ******************************************************************************/
 
@@ -60,7 +60,7 @@ extern "C" {
  * @{
  ******************************************************************************/
 
-#if ( defined EZRADIO_PLUGIN_RECEIVE )
+#if defined( EZRADIO_PLUGIN_RECEIVE )
 
 /// EzRadio receive plug-in instance initialization and handler structure.
 typedef struct EZRADIODRV_PacketRxHandle
@@ -74,23 +74,23 @@ typedef struct EZRADIODRV_PacketRxHandle
 Ecode_t ezradioStartRx(EZRADIODRV_Handle_t radioHandle);
 
 /// Configuration data for EzRadio receive plug-in.
-#define EZRADIODRV_RECEIVE_PLUGIN_INIT_DEFAULT                          \
-{                               /* Packet RX                        */  \
-  NULL,                         /* CallBack                         */  \
-  0,                            /* Channel                          */  \
-  NULL,                         /* Packet buffer                    */  \
+#define EZRADIODRV_RECEIVE_PLUGIN_INIT_DEFAULT                                \
+{                                             /* Packet RX                */  \
+  NULL,                                       /* CallBack                 */  \
+  RADIO_CONFIGURATION_DATA_CHANNEL_NUMBER,    /* Channel                  */  \
+  NULL,                                       /* Packet buffer            */  \
 },
 
-#else //#if ( defined EZRADIO_PLUGIN_RECEIVE )
+#else //#if defined( EZRADIO_PLUGIN_RECEIVE )
 
 #define EZRADIODRV_RECEIVE_PLUGIN_INIT_DEFAULT
 
-#endif //#if ( defined EZRADIO_PLUGIN_RECEIVE )
+#endif //#if defined( EZRADIO_PLUGIN_RECEIVE )
 
 /** @} (end addtogroup Receive_Plugin) */
 /** @} (end addtogroup Plugin_System) */
 /** @} (end addtogroup EZRADIODRV) */
-/** @} (end addtogroup EM_Drivers) */
+/** @} (end addtogroup emdrv) */
 
 #ifdef __cplusplus
 }

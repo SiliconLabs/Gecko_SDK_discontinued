@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file displayconfigapp.h
  * @brief Display application specific configuration file.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -50,7 +50,7 @@
 /* Enable or disable adding Carriage Return (CR) to Line Feed (LF) characters
    on the text display. */
 #define RETARGETTEXTDISPLAY_LINE_FEED_MODE  (true)
-   
+
 /* On EFM32ZG_STK3200, the DISPLAY driver Platform Abstraction Layer (PAL)
    uses the RTC to time and toggle the EXTCOMIN pin of the Sharp memory
    LCD per default. However, the clock example wants to use the RTC to

@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file spidrv.h
  * @brief SPIDRV API definition.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -31,15 +31,13 @@ extern "C" {
 #endif
 
 /***************************************************************************//**
- * @addtogroup EM_Drivers
+ * @addtogroup emdrv
  * @{
  ******************************************************************************/
 
 /***************************************************************************//**
  * @addtogroup SPIDRV
- * @brief SPIDRV Serial Peripheral Interface module, see
- *        @ref spidrv_doc page for detailed
- *        documentation.
+ * @brief SPIDRV Serial Peripheral Interface module
  * @{
  ******************************************************************************/
 
@@ -583,7 +581,7 @@ Ecode_t   SPIDRV_STransmitB(  SPIDRV_Handle_t handle,
                               int timeoutMs );
 
 /** @} (end addtogroup SPIDRV) */
-/** @} (end addtogroup EM_Drivers) */
+/** @} (end addtogroup emdrv) */
 
 #ifdef __cplusplus
 }

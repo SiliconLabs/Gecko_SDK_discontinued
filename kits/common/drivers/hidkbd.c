@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file hidkbd.c
  * @brief USB Human Interface Devices (HID) class keyboard driver.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -63,8 +63,8 @@
     the HIDKBD_KeyReport_t typedef, and an output report with 3 bits
     for controlling NumLock, CapsLock and ScrollLock keyboard LED's
 */
-EFM32_ALIGN(4)
-const char HIDKBD_ReportDescriptor[ 69 ] __attribute__ ((aligned(4)))=
+SL_ALIGN(4)
+const char HIDKBD_ReportDescriptor[ 69 ] SL_ATTRIBUTE_ALIGN(4)=
 {
     0x05, 0x01,                    // USAGE_PAGE (Generic Desktop)
     0x09, 0x06,                    // USAGE (Keyboard)
@@ -111,12 +111,12 @@ static void                     *hidDescriptor = NULL;
 static HIDKBD_SetReportFunc_t   setReportFunc = NULL;
 
 /* The last keyboard report sent to host. */
-EFM32_ALIGN(4)
-static HIDKBD_KeyReport_t lastSentReport __attribute__ ((aligned(4)));
+SL_ALIGN(4)
+static HIDKBD_KeyReport_t lastSentReport SL_ATTRIBUTE_ALIGN(4);
 
 /* The last keyboard report reported to the driver. */
-EFM32_ALIGN(4)
-static HIDKBD_KeyReport_t lastKnownReport __attribute__ ((aligned(4)));
+SL_ALIGN(4)
+static HIDKBD_KeyReport_t lastKnownReport SL_ATTRIBUTE_ALIGN(4);
 
 static bool QueueEmpty( void );
 static bool QueueFull( void );
@@ -248,7 +248,7 @@ int HIDKBD_SetupCmd( const USB_Setup_TypeDef *setup )
       if ( ( setup->wValue >> 8 ) == USB_HID_REPORT_DESCRIPTOR )
       {
         USBD_Write( 0, (void*)HIDKBD_ReportDescriptor,
-                    EFM32_MIN(sizeof(HIDKBD_ReportDescriptor), setup->wLength),
+                    SL_MIN(sizeof(HIDKBD_ReportDescriptor), setup->wLength),
                     NULL );
         retVal = USB_STATUS_OK;
       }
@@ -256,7 +256,7 @@ int HIDKBD_SetupCmd( const USB_Setup_TypeDef *setup )
       {
         /* The HID descriptor might be misaligned ! */
         memcpy( hidDesc, hidDescriptor, USB_HID_DESCSIZE );
-        USBD_Write( 0, hidDesc, EFM32_MIN(USB_HID_DESCSIZE, setup->wLength),
+        USBD_Write( 0, hidDesc, SL_MIN(USB_HID_DESCSIZE, setup->wLength),
                     NULL );
         retVal = USB_STATUS_OK;
       }

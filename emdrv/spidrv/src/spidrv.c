@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file spidrv.c
  * @brief SPIDRV API implementation.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -1925,11 +1925,12 @@ static Ecode_t WaitForIdleLine( SPIDRV_Handle_t handle )
 /// @endcond
 
 /******** THE REST OF THE FILE IS DOCUMENTATION ONLY !**********************//**
+ * @addtogroup emdrv
+ * @{
  * @addtogroup SPIDRV
  * @{
 
-@page spidrv_doc SPIDRV Serial Peripheral Interface driver
-
+@details
   The source files for the SPI driver library resides in the
   emdrv/spidrv folder, and are named spidrv.c and spidrv.h.
 
@@ -2059,4 +2060,5 @@ int main( void )
 }
   @endverbatim
 
- * @}**************************************************************************/
+ * @} end group SPIDRV ********************************************************
+ * @} end group emdrv ****************************************************/

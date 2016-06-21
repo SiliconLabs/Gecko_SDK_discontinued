@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file  ustimer.h
  * @brief Microsecond delay function API definition.
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -24,14 +24,13 @@ extern "C" {
 #endif
 
 /***************************************************************************//**
- * @addtogroup EM_Drivers
+ * @addtogroup emdrv
  * @{
  ******************************************************************************/
 
 /***************************************************************************//**
  * @addtogroup USTIMER
- * @brief USTIMER Microsecond delay timer module, see @ref ustimer_doc page
- *        for detailed documentation.
+ * @brief USTIMER Microsecond delay timer module
  * @{
  ******************************************************************************/
 

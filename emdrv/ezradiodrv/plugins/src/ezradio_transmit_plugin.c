@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ezradio_transmit_plugin.c
  * @brief EzRadio transmit plug-in managed by the plug-in manager if enabled.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -42,13 +42,13 @@
 #include "ezradio_plugin_manager.h"
 #include "ezradio_transmit_plugin.h"
 
-#if ( defined EZRADIO_PLUGIN_TRANSMIT )
+#if defined( EZRADIO_PLUGIN_TRANSMIT )
 
 /// @cond DO_NOT_INCLUDE_WITH_DOXYGEN
 
 static Ecode_t ezradioStartTx(EZRADIODRV_Handle_t radioHandle, bool updateFields, EZRADIODRV_PacketLengthConfig_t pktLengthConf, uint8_t *pioRadioPacket);
 
-#if ( ( defined EZRADIO_PLUGIN_AUTO_ACK ) && ( defined EZRADIO_PLUGIN_RECEIVE ) )
+#if defined(EZRADIO_PLUGIN_AUTO_ACK) && defined(EZRADIO_PLUGIN_RECEIVE)
 Ecode_t ezradioHandleAutoAckPlugin( EZRADIODRV_Handle_t radioHandle, EZRADIODRV_ReplyHandle_t radioReplyHandle );
 #endif
 
@@ -265,7 +265,7 @@ Ecode_t ezradioHandleTransmitPlugin( EZRADIODRV_Handle_t radioHandle, EZRADIODRV
 
   if ( radioReplyHandle->GET_INT_STATUS.PH_PEND & EZRADIO_CMD_GET_INT_STATUS_REP_PH_PEND_PACKET_SENT_PEND_BIT )
   {
-#if ( ( defined EZRADIO_PLUGIN_AUTO_ACK ) && ( defined EZRADIO_PLUGIN_RECEIVE ) )
+#if defined(EZRADIO_PLUGIN_AUTO_ACK) && defined(EZRADIO_PLUGIN_RECEIVE)
     /* Handle auto acknowledge packet if enabled */
     if ( (radioHandle->packetTx.pktType == ezradiodrvPacketTypeAutoAck) &&
          (radioHandle->autoAck.ackMode  == ezradiodrvAutoAckImmediate) )
@@ -273,7 +273,7 @@ Ecode_t ezradioHandleTransmitPlugin( EZRADIODRV_Handle_t radioHandle, EZRADIODRV
       ezradioHandleAutoAckPlugin(radioHandle, radioReplyHandle);
     }
     else
-#endif //#if ( ( defined EZRADIO_PLUGIN_AUTO_ACK ) && ( defined EZRADIO_PLUGIN_RECEIVE ) )
+#endif //#if defined(EZRADIO_PLUGIN_AUTO_ACK) && defined(EZRADIO_PLUGIN_RECEIVE)
     if ( radioHandle->packetTx.userCallback != NULL )
     {
       radioHandle->packetTx.userCallback( radioHandle, ECODE_EMDRV_EZRADIODRV_OK );
@@ -372,4 +372,4 @@ static Ecode_t ezradioStartTx(EZRADIODRV_Handle_t radioHandle, bool updateFields
 
 /// @endcond
 
-#endif //#if ( defined EZRADIO_PLUGIN_TRANSMIT )
+#endif //#if defined( EZRADIO_PLUGIN_TRANSMIT )

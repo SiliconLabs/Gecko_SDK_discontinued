@@ -4,24 +4,12 @@
  * @version 1.0.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2010 Energy Micro AS, http://www.energymicro.com</b>
+ * <b>Copyright 2015 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
- * This source code is the property of Energy Micro AS. The source and compiled
- * code may only be used on Energy Micro "EFM32" microcontrollers.
- *
- * This copyright notice may not be removed from the source code nor changed.
- *
- * DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Energy Micro AS has no
- * obligation to support this Software. Energy Micro AS is providing the
- * Software "AS IS", with no express or implied warranties of any kind,
- * including, but not limited to, any implied warranties of merchantability
- * or fitness for any particular purpose or warranties against infringement
- * of any proprietary rights of a third party.
- *
- * Energy Micro AS will not be liable for any consequential, incidental, or
- * special damages, or any other relief, or for any claim by any third party,
- * arising from your use of this Software.
+ * This file is licensed under the Silabs License Agreement. See the file
+ * "Silabs_License_Agreement.txt" for details. Before using this software for
+ * any purpose, you must agree to the terms of that agreement.
  *
  ******************************************************************************/
 
@@ -49,7 +37,7 @@ NVIC_Type*           NVIC_Register    = (NVIC_Type*)    NVIC_BASE;
 SCB_Type*            SCB_Register     = (SCB_Type*)     SCB_BASE;
 RMU_TypeDef*         RMU_Register     = (RMU_TypeDef*)  RMU_BASE;
 WDOG_TypeDef*        WDOG_Register    = (WDOG_TypeDef*) WDOG_BASE;
-#define RTC          RTC_Register           
+#define RTC          RTC_Register
 #define CMU          CMU_Register
 #define TIMER0       TIMER0_Register
 #define SysTick      SysTick_Register

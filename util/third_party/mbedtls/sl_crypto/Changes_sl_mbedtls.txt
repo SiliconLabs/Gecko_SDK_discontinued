@@ -1,0 +1,34 @@
+================ Revision history ============================================
+4.3.0:
+ - Updated to mbedtls-2.2.0 including EC JPAKE support.
+ - sl_aes.c:
+   In mbedtls_aes_setkey_enc and mbedtls_aes_setkey_dec change return value to
+   MBEDTLS_ERR_AES_INVALID_KEY_LENGTH when key length is not 128 or 256 bits.
+   In mbedtls_aes_crypt_cfb128 added support for data lengths not dividable
+   with 16 (AES block size), by using software (no crypto) implementation.
+   In mbedtls_aes_crypt_cfb8 return errors from mbedtls_aes_crypt_ecb.
+ - library/bignum.c:
+   In mbedtls_mpi_sub_abs and mbedtls_mpi_mul_mpi copy to and use local
+   variables only if necessary.
+ - library/ecp.c:
+   In ecp_modp call halResetWatchdog #ifdef MBEDTLS_HAVE_HAL_WATCHDOG_TIMER
+   for Thread stack integration.
+ - library/aes.c:
+   In mbedtls_aes_self_test allow failure when setting 192 bit keys which is
+   not supported by CRYPTO.
+ - library/gcm.c:
+   In mbedtls_gcm_self_test allow failure when setting 192 bit keys which is
+   not supported by CRYPTO.
+ - library/x509.c and x509_crt.c:
+   Excluded code when MBEDTLS_FS_IO is defined which is not supported on
+   Silicon Labs devices.
+ - Added sl_timing.c and timing_alt.h in order to compiler modules depending on
+   MBEDTLS_TIMING_C. The user should #define MBEDTLS_TIMING_ALT in order to
+   compile.
+ 
+4.2.1:
+ - No changes.
+
+4.2.0:
+ - First version including support for mbedtls 2.0.0 and CRYPTO acceleration of
+   AES (sl_aes.c), ECC (sl_ecp.c), SHA1 (sl_sha1.c) and SHA256 (sl_sha256.c).

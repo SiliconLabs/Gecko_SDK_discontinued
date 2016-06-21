@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file descriptors.h
  * @brief USB descriptors for MSD device example project.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -14,8 +14,8 @@
  ******************************************************************************/
 #include "descriptors.h"
 
-EFM32_ALIGN(4)
-const USB_DeviceDescriptor_TypeDef USBDESC_deviceDesc __attribute__ ((aligned(4)))=
+SL_ALIGN(4)
+const USB_DeviceDescriptor_TypeDef USBDESC_deviceDesc SL_ATTRIBUTE_ALIGN(4)=
 {
   .bLength            = USB_DEVICE_DESCSIZE,
   .bDescriptorType    = USB_DEVICE_DESCRIPTOR,
@@ -33,8 +33,8 @@ const USB_DeviceDescriptor_TypeDef USBDESC_deviceDesc __attribute__ ((aligned(4)
   .bNumConfigurations = 1
 };
 
-EFM32_ALIGN(4)
-const uint8_t USBDESC_configDesc[] __attribute__ ((aligned(4)))=
+SL_ALIGN(4)
+const uint8_t USBDESC_configDesc[] SL_ATTRIBUTE_ALIGN(4)=
 {
   /*** Configuration descriptor ***/
   USB_CONFIG_DESCSIZE,    /* bLength                                   */

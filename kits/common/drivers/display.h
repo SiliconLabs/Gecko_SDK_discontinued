@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file display.h
  * @brief Display device interface
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -24,7 +24,7 @@
 #include "displayconfigall.h"
 
 /***************************************************************************//**
- * @addtogroup Drivers
+ * @addtogroup kitdrv
  * @{
  ******************************************************************************/
 
@@ -126,11 +126,11 @@ typedef struct DISPLAY_Device_t
                                     unsigned int  height,
                                     DISPLAY_PixelMatrix_t  *pixelMatrix
                                     );
-  
+
   /** Frees a pixelMatrix buffer */
   EMSTATUS (*pPixelMatrixFree) (struct DISPLAY_Device_t* device,
                                 DISPLAY_PixelMatrix_t pixelMatrix);
-  
+
   /** Copies the contents of the specified pixelMatrix buffer to the display
       device. */
   EMSTATUS (*pPixelMatrixDraw) (struct DISPLAY_Device_t* device,
@@ -142,18 +142,18 @@ typedef struct DISPLAY_Device_t
 #endif
                                 unsigned int startRow,
                                 unsigned int height);
-  
+
   /** Clears a pixelMatrix buffer by setting all pixels to black. */
   EMSTATUS (*pPixelMatrixClear) (struct DISPLAY_Device_t* device,
                                  DISPLAY_PixelMatrix_t pixelMatrix,
                                  unsigned int width,
                                  unsigned int height
                                  );
-  
+
   /** Refreshes the display device driver after system change, like changing
       a clock frequency of some related device. */
   EMSTATUS (*pDriverRefresh) (struct DISPLAY_Device_t* device);
-  
+
 } DISPLAY_Device_t;
 
 

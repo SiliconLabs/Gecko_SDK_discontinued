@@ -1,5 +1,5 @@
 Register Test:
-Energy Micro IEC60355 class b test script log
+Silicon Labs IEC60355 class b test script log
 provides execution log of the BIST register Stack Pointer (SP) test function
 
 executed : 11:17:58, 11.07.2011

@@ -148,6 +148,7 @@
           <name>CCDefines</name>
           <state>EFM32G290F128</state>
           <state>DEBUG_EFM</state>
+          <state>RTCDRV_USE_LFRCO</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -283,7 +284,9 @@
           <state>$PROJ_DIR$\..\..\..\..\..\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\Device\SiliconLabs\EFM32G\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\common\drivers</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\common\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\rtcdrv\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\config</state>
           <state>$PROJ_DIR$\..</state>
@@ -492,7 +495,9 @@
           <state>$PROJ_DIR$\..\..\..\..\..\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\Device\SiliconLabs\EFM32G\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\common\drivers</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\common\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\rtcdrv\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\config</state>
           <state>$PROJ_DIR$\..</state>
@@ -954,6 +959,7 @@
           <state>NDEBUG</state>
           <state>EFM32G290F128</state>
           <state>DEBUG_EFM</state>
+          <state>RTCDRV_USE_LFRCO</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -1089,7 +1095,9 @@
           <state>$PROJ_DIR$\..\..\..\..\..\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\Device\SiliconLabs\EFM32G\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\common\drivers</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\common\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\rtcdrv\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\config</state>
           <state>$PROJ_DIR$\..</state>
@@ -1298,7 +1306,9 @@
           <state>$PROJ_DIR$\..\..\..\..\..\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\Device\SiliconLabs\EFM32G\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emlib\inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\common\drivers</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\common\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\config</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\rtcdrv\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\config</state>
           <state>$PROJ_DIR$\..</state>
@@ -1691,6 +1701,9 @@
       <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_gpio.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_int.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_rtc.c</name>
     </file>
     <file>
@@ -1718,7 +1731,7 @@
   <group>
     <name>Drivers</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\common\drivers\rtcdrv.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\emdrv\rtcdrv\src\rtcdriver.c</name>
     </file>
   </group>
 

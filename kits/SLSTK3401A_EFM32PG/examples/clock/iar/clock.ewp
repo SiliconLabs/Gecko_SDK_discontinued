@@ -12,7 +12,7 @@
       <name>General</name>
       <archiveVersion>3</archiveVersion>
       <data>
-        <version>22</version>
+        <version>24</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -26,11 +26,6 @@
         <option>
           <name>ListPath</name>
           <state>clock\Debug\List</state>
-        </option>
-        <option>
-          <name>Variant</name>
-          <version>20</version>
-          <state>40</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -59,11 +54,6 @@
           <state>0</state>
         </option>
         <option>
-          <name>FPU</name>
-          <version>2</version>
-          <state>5</state>
-        </option>
-        <option>
           <name>OGCoreOrChip</name>
           <state>1</state>
         </option>
@@ -87,7 +77,7 @@
         </option>
         <option>
           <name>OGLastSavedByProductVersion</name>
-          <state>6.70.1.5793</state>
+          <state>7.50.1.10270</state>
         </option>
         <option>
           <name>GeneralEnableMisra</name>
@@ -136,13 +126,8 @@
           <state>$TOOLKIT_DIR$\INC\c\DLib_Config_Normal.h</state>
         </option>
         <option>
-          <name>GFPUCoreSlave</name>
-          <version>20</version>
-          <state>40</state>
-        </option>
-        <option>
           <name>GBECoreSlave</name>
-          <version>20</version>
+          <version>22</version>
           <state>40</state>
         </option>
         <option>
@@ -157,13 +142,41 @@
           <name>GRuntimeLibThreads</name>
           <state>0</state>
         </option>
+        <option>
+          <name>CoreVariant</name>
+          <version>22</version>
+          <state>39</state>
+        </option>
+        <option>
+          <name>GFPUDeviceSlave</name>
+          <state>EFM32PG1B200F256GM48	SiliconLaboratories EFM32PG1B200F256GM48</state>
+        </option>
+        <option>
+          <name>FPU2</name>
+          <version>0</version>
+          <state>4</state>
+        </option>
+        <option>
+          <name>NrRegs</name>
+          <version>0</version>
+          <state>1</state>
+        </option>
+        <option>
+          <name>NEON</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>GFPUCoreSlave2</name>
+          <version>22</version>
+          <state>39</state>
+        </option>
       </data>
     </settings>
     <settings>
       <name>ICCARM</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>29</version>
+        <version>31</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -230,7 +243,7 @@
         <option>
           <name>CCAllowList</name>
           <version>1</version>
-          <state>0000000</state>
+          <state>00000000</state>
         </option>
         <option>
           <name>CCDebugInfo</name>
@@ -250,7 +263,7 @@
         </option>
         <option>
           <name>IExtraOptions</name>
-          
+          <state></state>
         </option>
         <option>
           <name>CCLangConformance</name>
@@ -308,7 +321,6 @@
           <state>$PROJ_DIR$\..\..\..\..\..\kits\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\config</state>
           <state>$PROJ_DIR$\..</state>
-
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -409,6 +421,15 @@
           <name>CCNoLiteralPool</name>
           <state>0</state>
         </option>
+        <option>
+          <name>CCOptStrategySlave</name>
+          <version>0</version>
+          <state>0</state>
+        </option>
+        <option>
+          <name>CCGuardCalls</name>
+          <state>1</state>
+        </option>
       </data>
     </settings>
     <settings>
@@ -418,6 +439,10 @@
         <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
+        <option>
+          <name>AsmNoLiteralPool</name>
+          <state>0</state>
+        </option>
         <option>
           <name>AObjPrefix</name>
           <state>1</state>
@@ -571,7 +596,6 @@
           <state>$PROJ_DIR$\..\..\..\..\..\kits\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\config</state>
           <state>$PROJ_DIR$\..</state>
-
         </option>
         <option>
           <name>AExtraOptionsCheckV2</name>
@@ -592,8 +616,8 @@
         <debug>1</debug>
         <option>
           <name>OOCOutputFormat</name>
-          <version>2</version>
-          <state>2</state>
+          <version>3</version>
+          <state>3</state>
         </option>
         <option>
           <name>OCOutputOverride</name>
@@ -619,6 +643,7 @@
       <data>
         <extensions></extensions>
         <cmdline></cmdline>
+        <hasPrio>0</hasPrio>
       </data>
     </settings>
     <settings>
@@ -755,7 +780,7 @@
         </option>
         <option>
           <name>IlinkExtraOptions</name>
-          
+          <state></state>
         </option>
         <option>
           <name>IlinkLowLevelInterfaceSlave</name>
@@ -961,7 +986,7 @@
       <name>General</name>
       <archiveVersion>3</archiveVersion>
       <data>
-        <version>22</version>
+        <version>24</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
@@ -975,11 +1000,6 @@
         <option>
           <name>ListPath</name>
           <state>clock\Release\List</state>
-        </option>
-        <option>
-          <name>Variant</name>
-          <version>20</version>
-          <state>0</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -1008,11 +1028,6 @@
           <state>0</state>
         </option>
         <option>
-          <name>FPU</name>
-          <version>2</version>
-          <state>5</state>
-        </option>
-        <option>
           <name>OGCoreOrChip</name>
           <state>1</state>
         </option>
@@ -1036,7 +1051,7 @@
         </option>
         <option>
           <name>OGLastSavedByProductVersion</name>
-          <state>6.70.1.5793</state>
+          <state>7.50.1.10270</state>
         </option>
         <option>
           <name>GeneralEnableMisra</name>
@@ -1085,13 +1100,8 @@
           <state>$TOOLKIT_DIR$\INC\c\DLib_Config_Normal.h</state>
         </option>
         <option>
-          <name>GFPUCoreSlave</name>
-          <version>20</version>
-          <state>40</state>
-        </option>
-        <option>
           <name>GBECoreSlave</name>
-          <version>20</version>
+          <version>22</version>
           <state>40</state>
         </option>
         <option>
@@ -1106,13 +1116,41 @@
           <name>GRuntimeLibThreads</name>
           <state>0</state>
         </option>
+        <option>
+          <name>CoreVariant</name>
+          <version>22</version>
+          <state>39</state>
+        </option>
+        <option>
+          <name>GFPUDeviceSlave</name>
+          <state>EFM32PG1B200F256GM48	SiliconLaboratories EFM32PG1B200F256GM48</state>
+        </option>
+        <option>
+          <name>FPU2</name>
+          <version>0</version>
+          <state>4</state>
+        </option>
+        <option>
+          <name>NrRegs</name>
+          <version>0</version>
+          <state>1</state>
+        </option>
+        <option>
+          <name>NEON</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>GFPUCoreSlave2</name>
+          <version>22</version>
+          <state>39</state>
+        </option>
       </data>
     </settings>
     <settings>
       <name>ICCARM</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>29</version>
+        <version>31</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
@@ -1184,7 +1222,7 @@
         <option>
           <name>CCAllowList</name>
           <version>1</version>
-          <state>1111111</state>
+          <state>11111110</state>
         </option>
         <option>
           <name>CCDebugInfo</name>
@@ -1204,7 +1242,7 @@
         </option>
         <option>
           <name>IExtraOptions</name>
-          
+          <state></state>
         </option>
         <option>
           <name>CCLangConformance</name>
@@ -1262,7 +1300,6 @@
           <state>$PROJ_DIR$\..\..\..\..\..\kits\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\config</state>
           <state>$PROJ_DIR$\..</state>
-
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -1359,13 +1396,22 @@
           <name>CCNoLiteralPool</name>
           <state>0</state>
         </option>
+        <option>
+          <name>CCOptStrategySlave</name>
+          <version>0</version>
+          <state>1</state>
+        </option>
+        <option>
+          <name>CCGuardCalls</name>
+          <state>1</state>
+        </option>
       </data>
     </settings>
     <settings>
       <name>AARM</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>7</version>
+        <version>9</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
@@ -1521,7 +1567,6 @@
           <state>$PROJ_DIR$\..\..\..\..\..\kits\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\config</state>
           <state>$PROJ_DIR$\..</state>
-
         </option>
         <option>
           <name>AExtraOptionsCheckV2</name>
@@ -1530,6 +1575,10 @@
         <option>
           <name>AExtraOptionsV2</name>
           <state></state>
+        </option>
+        <option>
+          <name>AsmNoLiteralPool</name>
+          <state>0</state>
         </option>
       </data>
     </settings>
@@ -1569,6 +1618,7 @@
       <data>
         <extensions></extensions>
         <cmdline></cmdline>
+        <hasPrio>0</hasPrio>
       </data>
     </settings>
     <settings>
@@ -1705,7 +1755,7 @@
         </option>
         <option>
           <name>IlinkExtraOptions</name>
-          
+          <state></state>
         </option>
         <option>
           <name>IlinkLowLevelInterfaceSlave</name>
@@ -1913,55 +1963,25 @@
   <group>
     <name>Drivers</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\kits\common\drivers\display.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\common\drivers\display.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\kits\common\drivers\displayls013b7dh03.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\common\drivers\displayls013b7dh03.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\kits\common\drivers\displaypalemlib.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\common\drivers\displaypalemlib.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\kits\common\drivers\retargetio.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\common\drivers\retargetio.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\kits\common\drivers\retargettextdisplay.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\common\drivers\retargettextdisplay.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\kits\common\drivers\textdisplay.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\common\drivers\textdisplay.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\kits\common\drivers\udelay.c</name>
-    </file>
-  </group>
-  <group>
-    <name>glib</name>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\glib\dmd\display\dmd_display.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\glib\glib\glib.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\glib\glib\glib_bitmap.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\glib\glib\glib_circle.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\glib\glib\glib_line.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\glib\glib\glib_rectangle.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\glib\glib\glib_string.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\glib\glib\glib_font_narrow_6x8.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\reptile\glib\glib\glib_font_number_16x20.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\common\drivers\udelay.c</name>
     </file>
   </group>
   <group>
@@ -1998,15 +2018,44 @@
     </file>
   </group>
   <group>
-    <name>Source</name>
+    <name>glib</name>
     <file>
-      <name>$PROJ_DIR$\..\main.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\glib\dmd\display\dmd_display.c</name>
     </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\glib\glib\glib.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\glib\glib\glib_bitmap.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\glib\glib\glib_circle.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\glib\glib\glib_font_narrow_6x8.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\glib\glib\glib_font_number_16x20.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\glib\glib\glib_line.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\glib\glib\glib_rectangle.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\reptile\glib\glib\glib_string.c</name>
+    </file>
+  </group>
+  <group>
+    <name>Source</name>
     <file>
       <name>$PROJ_DIR$\..\analog_clock.c</name>
     </file>
+    <file>
+      <name>$PROJ_DIR$\..\main.c</name>
+    </file>
   </group>
-
 </project>
 
 

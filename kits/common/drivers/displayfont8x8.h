@@ -1,11 +1,11 @@
 /***************************************************************************//**
  * @file displayfont8x8.h
  * @brief 8x8 font with all characters
- *        
- * @version 4.2.1
+ *
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -25,7 +25,7 @@
 typedef uint8_t FontBits_t;
 
 static const FontBits_t chars_8x8_bits[] =
-{ 
+{
   0x00, 0x18, 0x6c, 0x6c, 0x10, 0xce, 0x38, 0x08, 0x60, 0x0c, 0x00, 0x00,
   0x00, 0x00, 0x00, 0x00, 0x7c, 0x30, 0x7c, 0x7c, 0xc6, 0xfe, 0x7c, 0xfe,
   0x7c, 0x7c, 0x00, 0x00, 0x70, 0x00, 0x1c, 0x7c, 0x7c, 0x7c, 0x7e, 0x7c,

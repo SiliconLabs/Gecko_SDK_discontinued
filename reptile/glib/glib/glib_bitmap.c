@@ -3,7 +3,7 @@
  * @brief Silicon Labs Graphics Library: Bitmap Drawing Routines
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensensed under the Silabs License Agreement. See the file
@@ -63,8 +63,8 @@ EMSTATUS GLIB_drawBitmap(GLIB_Context_t *pContext, int32_t x, int32_t y,
   if (status != DMD_OK) return status;
 
   /* Reset driver clipping area to GLIB clipping region */
-  return DMD_setClippingArea(pContext->clippingRegion.xMin, 
-                               pContext->clippingRegion.yMin, 
-                               pContext->clippingRegion.xMin + pContext->clippingRegion.xMax + 1, 
+  return DMD_setClippingArea(pContext->clippingRegion.xMin,
+                               pContext->clippingRegion.yMin,
+                               pContext->clippingRegion.xMin + pContext->clippingRegion.xMax + 1,
                                pContext->clippingRegion.yMin + pContext->clippingRegion.yMax + 1);
 }

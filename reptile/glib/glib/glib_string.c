@@ -3,7 +3,7 @@
  * @brief Silicon Labs Graphics Library: String Drawing Routines
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensensed under the Silabs License Agreement. See the file
@@ -60,12 +60,12 @@ EMSTATUS GLIB_drawChar(GLIB_Context_t *pContext, char myChar, int32_t x, int32_t
   uint16_t currentRow;
   uint16_t xOffset;
   uint32_t drawnElements = 0;
-                       
+
   /* Check arguments */
   if (pContext == NULL) return GLIB_ERROR_INVALID_ARGUMENT;
 
   /* Check input char */
-  if ((myChar < ' ') || (myChar > '~')) return GLIB_ERROR_INVALID_CHAR; 
+  if ((myChar < ' ') || (myChar > '~')) return GLIB_ERROR_INVALID_CHAR;
 
   /* Sets the index in the font array */
   if (pContext->font.class == NumbersOnlyFont) {
@@ -78,55 +78,55 @@ EMSTATUS GLIB_drawChar(GLIB_Context_t *pContext, char myChar, int32_t x, int32_t
     }
   } else { /* FullFont class */
     fontIdx = myChar - ' ';
-  }  
-  
+  }
+
   if (fontIdx > (pContext->font.cntOfMapElements - 1)) {
     return GLIB_ERROR_INVALID_CHAR;
-  }  
-  
+  }
+
   /* Loop through the rows and draw the font */
-  pPixMap8 = (uint8_t *)pContext->font.pFontPixMap;     
-  pPixMap16 = (uint16_t *)pContext->font.pFontPixMap;     
-  pPixMap32 = (uint32_t *)pContext->font.pFontPixMap;      
-    
+  pPixMap8 = (uint8_t *)pContext->font.pFontPixMap;
+  pPixMap16 = (uint16_t *)pContext->font.pFontPixMap;
+  pPixMap32 = (uint32_t *)pContext->font.pFontPixMap;
+
   for (row = 0; row < pContext->font.fontHeight; row++) {
-    
+
     switch (pContext->font.sizeOfMapElement) {
       case 1:
-        currentRow = pPixMap8[fontIdx];        
+        currentRow = pPixMap8[fontIdx];
         break;
-        
+
       case 2:
-        currentRow = pPixMap16[fontIdx];    
+        currentRow = pPixMap16[fontIdx];
         break;
-        
+
       default:
-        currentRow = pPixMap32[fontIdx];         
-    }  
-    
+        currentRow = pPixMap32[fontIdx];
+    }
+
     for (xOffset = 0; xOffset < pContext->font.fontWidth; ++xOffset) {
       /* Bit 1 means draw, Bit 0 means do not draw */
-      if (currentRow & 0x1) {        
-        status = GLIB_drawPixel(pContext, x + xOffset, y + row);    
+      if (currentRow & 0x1) {
+        status = GLIB_drawPixel(pContext, x + xOffset, y + row);
         if (status > GLIB_ERROR_NOTHING_TO_DRAW) return status;
         if (status == GLIB_OK) drawnElements++;
       }
       else if (opaque) {
         /* Draw background pixel */
-        status = GLIB_drawPixelColor(pContext, x + xOffset, y + row, pContext->backgroundColor);    
+        status = GLIB_drawPixelColor(pContext, x + xOffset, y + row, pContext->backgroundColor);
         if (status > GLIB_ERROR_NOTHING_TO_DRAW) return status;
         if (status == GLIB_OK) drawnElements++;
       }
       currentRow >>= 1;
     }
-    
+
     /* Handle character spacing */
     for (; xOffset < pContext->font.fontWidth + pContext->font.charSpacing; ++xOffset) {
       if (opaque) {
         /* Draw background pixel */
-        status = GLIB_drawPixelColor(pContext, x + xOffset, y + row, pContext->backgroundColor);    
+        status = GLIB_drawPixelColor(pContext, x + xOffset, y + row, pContext->backgroundColor);
         if (status > GLIB_ERROR_NOTHING_TO_DRAW) return status;
-        if (status == GLIB_OK) drawnElements++;  
+        if (status == GLIB_OK) drawnElements++;
       }
     }
 
@@ -162,21 +162,21 @@ EMSTATUS GLIB_drawChar(GLIB_Context_t *pContext, char myChar, int32_t x, int32_t
 
 EMSTATUS GLIB_drawString(GLIB_Context_t *pContext, char* pString, uint32_t sLength,
                          int32_t x0, int32_t y0, bool opaque)
-{  
+{
   EMSTATUS status;
   uint32_t drawnElements = 0;
   uint32_t stringIndex;
-  int32_t x, y;  
-  
+  int32_t x, y;
+
   /* Check arguments */
   if (pContext == NULL || pString == NULL) {
     return GLIB_ERROR_INVALID_ARGUMENT;
   }
-  
+
   if (pContext->font.class == InvalidFont) {
     return GLIB_ERROR_INVALID_CHAR;
   }
- 
+
   x = x0;
   y = y0;
 
@@ -221,17 +221,17 @@ EMSTATUS GLIB_setFont(GLIB_Context_t *pContext, GLIB_Font_t *pFont)
 {
   /* Check arguments */
   if (pContext == NULL) {
-    return GLIB_ERROR_INVALID_ARGUMENT; 
+    return GLIB_ERROR_INVALID_ARGUMENT;
   }
-  
+
   if (pFont == NULL)
   {
     memset(&pContext->font, 0, sizeof(GLIB_Font_t));
-    return GLIB_ERROR_INVALID_ARGUMENT; 
-  } 
+    return GLIB_ERROR_INVALID_ARGUMENT;
+  }
   else
   {
     memcpy(&pContext->font, pFont, sizeof(GLIB_Font_t));
     return GLIB_OK;
-  }  
+  }
 }

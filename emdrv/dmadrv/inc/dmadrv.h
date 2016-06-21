@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file dmadrv.h
  * @brief DMADRV API definition.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -38,7 +38,7 @@ extern "C" {
 #endif
 
 /***************************************************************************//**
- * @addtogroup EM_Drivers
+ * @addtogroup emdrv
  * @{
  ******************************************************************************/
 
@@ -516,6 +516,8 @@ Ecode_t DMADRV_LdmaStartTransfer(
 
 #endif /* !defined( EMDRV_DMADRV_USE_NATIVE_API ) */
 
+Ecode_t DMADRV_PauseTransfer( unsigned int channelId );
+Ecode_t DMADRV_ResumeTransfer( unsigned int channelId );
 Ecode_t DMADRV_StopTransfer( unsigned int channelId );
 Ecode_t DMADRV_TransferActive( unsigned int channelId, bool *active );
 Ecode_t DMADRV_TransferCompletePending( unsigned int channelId, bool *pending );
@@ -524,7 +526,7 @@ Ecode_t DMADRV_TransferRemainingCount( unsigned int channelId,
                                        int *remaining );
 
 /** @} (end addtogroup DMADRV) */
-/** @} (end addtogroup EM_Drivers) */
+/** @} (end addtogroup emdrv) */
 
 #ifdef __cplusplus
 }

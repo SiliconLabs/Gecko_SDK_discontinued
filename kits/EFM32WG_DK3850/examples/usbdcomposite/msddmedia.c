@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file  msddmedia.c
  * @brief Media interface for Mass Storage class Device (MSD).
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -47,7 +47,7 @@
   #endif
 
   #define MEDIA_SIZE (96*1024)
-  EFM32_ALIGN(4)
+  SL_ALIGN(4)
   static uint8_t storage[ MEDIA_SIZE ];
 
 #elif ( MSD_MEDIA == MSD_PSRAM_MEDIA )

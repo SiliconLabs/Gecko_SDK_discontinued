@@ -1632,9 +1632,6 @@
   <group>
     <name>Drivers</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\common\drivers\rtcdrv.c</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\..\..\..\..\common\drivers\vddcheck.c</name>
     </file>
     <file>

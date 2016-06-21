@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ezradio_direct_transmit_plugin.h
  * @brief EzRadio direct transmission plug-in managed by the plug-in manager if enabled.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -39,7 +39,7 @@ extern "C" {
 #endif
 
 /***************************************************************************//**
- * @addtogroup EM_Drivers
+ * @addtogroup emdrv
  * @{
  ******************************************************************************/
 
@@ -60,7 +60,7 @@ extern "C" {
  * @{
  ******************************************************************************/
 
-#if ( defined EZRADIO_PLUGIN_DIRECT_TRANSMIT )
+#if defined( EZRADIO_PLUGIN_DIRECT_TRANSMIT )
 
 /// EzRadio direct tx plug-in instance initialization and handler structure.
 typedef struct EZRADIODRV_DirectTxHandle
@@ -77,14 +77,14 @@ Ecode_t ezradioStopDirectTransmit( void );
   0,                            /* Channel                          */  \
 },
 
-#else //#if ( defined EZRADIO_PLUGIN_DIRECT_TRANSMIT )
+#else //#if defined( EZRADIO_PLUGIN_DIRECT_TRANSMIT )
 #define EZRADIODRV_DIRECT_TRANSMIT_PLUGIN_INIT_DEFAULT
-#endif  //#if ( defined EZRADIO_PLUGIN_DIRECT_TRANSMIT )
+#endif  //#if defined( EZRADIO_PLUGIN_DIRECT_TRANSMIT )
 
 /** @} (end addtogroup Direct_Transmit_Plugin) */
 /** @} (end addtogroup Plugin_System) */
 /** @} (end addtogroup EZRADIODRV) */
-/** @} (end addtogroup EM_Drivers) */
+/** @} (end addtogroup emdrv) */
 
 #ifdef __cplusplus
 }

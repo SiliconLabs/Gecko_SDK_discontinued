@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file uartdrv_config.h
  * @brief UARTDRV configuration file.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -16,7 +16,7 @@
 #define __SILICON_LABS_UARTDRV_CONFIG_H__
 
 /***************************************************************************//**
- * @addtogroup EM_Drivers
+ * @addtogroup emdrv
  * @{
  ******************************************************************************/
 
@@ -56,6 +56,6 @@
 #endif
 
 /** @} (end addtogroup UARTDRV) */
-/** @} (end addtogroup EM_Drivers) */
+/** @} (end addtogroup emdrv) */
 
 #endif /* __SILICON_LABS_UARTDRV_CONFIG_H__ */

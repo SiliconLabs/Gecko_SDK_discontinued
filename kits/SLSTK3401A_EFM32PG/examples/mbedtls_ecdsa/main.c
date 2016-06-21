@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file
  * @brief ECDSA example program
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -82,7 +82,7 @@ static void clk_timestamp_init(void)
     /* Enable trace in core debug */
     CoreDebug->DHCSR |= CoreDebug_DHCSR_C_DEBUGEN_Msk;
     CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
-    
+
     /* Unlock ITM and output data */
     ITM->LAR = 0xC5ACCE55;
     ITM->TCR = 0x10009 | ITM_TCR_DWTENA_Pos;
@@ -126,7 +126,7 @@ int main( void )
 
     /* Enable timestamping */
     clk_timestamp_init();
-    
+
     /* Initialize LEUART/USART and map LF to CRLF */
     RETARGET_SerialInit();
     RETARGET_SerialCrLf(1);

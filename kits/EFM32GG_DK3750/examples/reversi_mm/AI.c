@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file
  * @brief Gecko Artificial Intelligence for the game of Reversi
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -55,13 +55,13 @@ static int* _py;
  */
 int32_t valuePieces(BOARD* pBoard, int player) {
   int32_t sum = 0;
-  
+
   for (int y = 1; y <= 8; y++) {
     for (int x = 1; x <= 8; x++) {
       _safe[x][y] = false;
     }
   }
-  
+
   int corners = 0;
   corners += pBoard->aCells[0][0] == player;
   corners += pBoard->aCells[7][0] == player;
@@ -100,7 +100,7 @@ int32_t valuePieces(BOARD* pBoard, int player) {
       if (!changed) break;
     }
   }
-  
+
   /* Now add the value of the unsafe pieces. */
   for (int y = 0; y < 8; y++) {
     int yCorner = y<4 ? 0 : 7;
@@ -134,7 +134,7 @@ int32_t eval(BOARD* pBoard) {
   pBoard->ActPlayer = 2;
   int movesB = _CalcValidMoves(pBoard);
   pBoard->ActPlayer = ActPlayer;
-  
+
   if (movesA==0 && movesB==0) {
     /* The game is over */
     pBoard->ActPlayer = 1;
@@ -150,13 +150,13 @@ int32_t eval(BOARD* pBoard) {
       return score - WINNING_BONUS;
     }
   }
-  
+
   /* A high number of possible moves is very valuable */
   int32_t value = VALUE_OF_A_MOVE_POSSIBILITY * (movesA - movesB);
-  
+
   value += valuePieces(pBoard, 1);
   value -= valuePieces(pBoard, 2);
-  
+
   return value;
 }
 
@@ -168,7 +168,7 @@ int32_t descend(int depth, int32_t alpha, int32_t beta, bool firstMove) {
   if (depth == 0) {
     return eval(pBoard);
   }
-  
+
   int moves = _CalcValidMoves(pBoard);
   if (moves == 0) {
       /* The player has to pass */
@@ -179,7 +179,7 @@ int32_t descend(int depth, int32_t alpha, int32_t beta, bool firstMove) {
         return eval(pBoard);
       }
   }
-  
+
   bool maximize = pBoard->ActPlayer == 1;
   for (int i=0; i<60; ++i) {
     /* Try the possible moves in order from most attractive to least attractive
@@ -231,7 +231,7 @@ char _PlayerAI_SmartGecko(const BOARD* pBoard, int* px, int* py) {
   *py = -1;
   _px = px;
   _py = py;
-  
+
   int freeTiles = 0;
   for (int y = 0; y < 8; y++) {
     for (int x = 0; x < 8; x++) {
@@ -240,13 +240,13 @@ char _PlayerAI_SmartGecko(const BOARD* pBoard, int* px, int* py) {
       }
     }
   }
-  
+
   int depth = DEPTH;
   if (freeTiles <= END_GAME_DEPTH) {
     /* In the end game, we expand the search depth. */
     depth = freeTiles;
   }
-  
+
   _boardStack[depth] = *pBoard;
   descend(depth, -INFINITY, INFINITY, true);
   if (*px == -1) {

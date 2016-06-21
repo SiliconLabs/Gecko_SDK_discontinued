@@ -5,24 +5,12 @@
  * @version 1.0.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2010 Energy Micro AS, http://www.energymicro.com</b>
+ * <b>Copyright 2015 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
- * This source code is the property of Energy Micro AS. The source and compiled
- * code may only be used on Energy Micro "EFM32" microcontrollers.
- *
- * This copyright notice may not be removed from the source code nor changed.
- *
- * DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Energy Micro AS has no
- * obligation to support this Software. Energy Micro AS is providing the
- * Software "AS IS", with no express or implied warranties of any kind,
- * including, but not limited to, any implied warranties of merchantability
- * or fitness for any particular purpose or warranties against infringement
- * of any proprietary rights of a third party.
- *
- * Energy Micro AS will not be liable for any consequential, incidental, or
- * special damages, or any other relief, or for any claim by any third party,
- * arising from your use of this Software.
+ * This file is licensed under the Silabs License Agreement. See the file
+ * "Silabs_License_Agreement.txt" for details. Before using this software for
+ * any purpose, you must agree to the terms of that agreement.
  *
  ******************************************************************************/
 
@@ -78,7 +66,7 @@ extern "C"
  * @brief   private function referenced by POST and BIST tests
  * @param   startAddr   start address in RAM memory (>0x20000000)
  * @param   size        size of RAM to check in bytes (<RAM_MEM_SIZE)
- * @param   block_sel   selection of RAM block to check, valid values are 
+ * @param   block_sel   selection of RAM block to check, valid values are
  *                  BLOCK_SEL_CORE for direct RAM access
  *                  BLOCK_SEL_PLINK for peripherals (ignoring size and startAddr)
  * @return passed or failed. See \link #testResult_enum testResult_t \endlink.
@@ -92,7 +80,7 @@ testResult_t IEC60335_ClassB_RAMtest(uint32_t startAddrs, uint32_t size, uint8_t
  * @brief	POST public function testing the complete RAM
  * @return  passed or failed. See \link #testResult_enum testResult_t \endlink.
  * The function calls IEC60335_ClassB_RAMtest() with all available RAM memory as parameter.
- * The stack area is excluded from this test in fact there is no relevant stack 
+ * The stack area is excluded from this test in fact there is no relevant stack
  * depth expected at the POST test.
  */
 extern testResult_t IEC60335_ClassB_RAMtest_POST(void);

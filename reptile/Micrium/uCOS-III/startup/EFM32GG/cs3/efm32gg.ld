@@ -1,4 +1,4 @@
-/* Linker script for Energy Micro EFM32GG/LG
+/* Linker script for Silicon Labs EFM32GG/LG
  *
  * Version: Sourcery CodeBench Lite 2011.09-69
  * Support: https://support.codesourcery.com/GNUToolchain/

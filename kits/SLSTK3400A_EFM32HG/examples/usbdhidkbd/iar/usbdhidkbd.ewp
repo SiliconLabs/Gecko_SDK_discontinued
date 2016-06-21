@@ -1668,6 +1668,9 @@
       <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_rtc.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_system.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\..\..\..\..\emlib\src\em_timer.c</name>
     </file>
     <file>

@@ -36,7 +36,7 @@ Purpose     : Config / System dependent externals for GUI
 #include "em_emu.h"
 #include "em_msc.h"
 #include "em_gpio.h"
-#include "rtcdrv.h"
+#include "rtcdriver.h"
 #include "bsp.h"
 #include "LCDConf.h"
 
@@ -47,7 +47,7 @@ Purpose     : Config / System dependent externals for GUI
 volatile int OS_TimeMS;   /* System millisecond counter */
 bool aemMode = false;     /* Flag to see if display is in AEM mode */
 volatile bool rtcFlag;    /* Flag used by the RTC timing routines */
-
+RTCDRV_TimerID_t timerid;
 
 /**************************************************************************//**
  * @brief Callback used for the RTC.
@@ -56,8 +56,10 @@ volatile bool rtcFlag;    /* Flag used by the RTC timing routines */
  *   necessary for the correct timing to make sure that
  *   the wake-up source is the RTC.
  *****************************************************************************/
-void RTC_TimeOutHandler(void)
+void RTC_TimeOutHandler(RTCDRV_TimerID_t id, void *user)
 {
+  (void) id;
+  (void) user;
   rtcFlag = false;
 }
 
@@ -120,7 +122,8 @@ void GUI_X_Delay(int ms) {
 
   /* Start RTC counter */
   rtcFlag = true;
-  RTCDRV_Trigger(ms, RTC_TimeOutHandler);
+
+  RTCDRV_StartTimer(timerid, rtcdrvTimerTypeOneshot, ms, RTC_TimeOutHandler, 0);
 
   /* The rtcFlag variable is set in the RTC interrupt routine using the callback
    * RTC_TimeOutHandler. This makes sure that the elapsed time is correct. */
@@ -142,7 +145,14 @@ void GUI_X_Delay(int ms) {
 *     If not required, leave this routine blank.
 */
 
-void GUI_X_Init(void) { }
+void GUI_X_Init(void)
+{
+  /* Enable RTC driver */
+  RTCDRV_Init();
+
+  /* Allocate timer instance */
+  RTCDRV_AllocateTimer( &timerid );
+}
 
 
 /*********************************************************************

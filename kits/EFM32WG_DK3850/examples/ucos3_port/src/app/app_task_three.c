@@ -23,37 +23,17 @@
 *
 * @file   app_task_three.c
 * @brief
-* @version 4.2.1
+* @version 4.3.0
 ******************************************************************************
 * @section License
-* <b>(C) Copyright 2013 Energy Micro AS, http://www.energymicro.com</b>
+* <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
 *******************************************************************************
 *
-* Permission is granted to anyone to use this software for any purpose,
-* including commercial applications, and to alter it and redistribute it
-* freely, subject to the following restrictions:
+* This file is licensed under the Silabs License Agreement. See the file
+* "Silabs_License_Agreement.txt" for details. Before using this software for
+* any purpose, you must agree to the terms of that agreement.
 *
-* 1. The origin of this software must not be misrepresented; you must not
-*    claim that you wrote the original software.
-* 2. Altered source versions must be plainly marked as such, and must not be
-*    misrepresented as being the original software.
-* 3. This notice may not be removed or altered from any source distribution.
-* 4. The source and compiled code may only be used on Energy Micro "EFM32"
-*    microcontrollers and "EFR4" radios.
-*
-* DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Energy Micro AS has no
-* obligation to support this Software. Energy Micro AS is providing the
-* Software "AS IS", with no express or implied warranties of any kind,
-* including, but not limited to, any implied warranties of merchantability
-* or fitness for any particular purpose or warranties against infringement
-* of any proprietary rights of a third party.
-*
-* Energy Micro AS will not be liable for any consequential, incidental, or
-* special damages, or any other relief, or for any claim by any third party,
-* arising from your use of this Software.
-*
-*********************************************************************************************************
-*/
+******************************************************************************/
 #include <includes.h>
 
 
@@ -87,7 +67,7 @@ void APP_TaskThree(void *p_arg)
 
   char indxChar;
   char MsgSize;
-  char *pMsgContent;
+  int  msgContent;
   static char taskStringBuffer[APPDEF_LCD_TXT_SIZE+1U] = {'u','C','/','O','S','-','3','\0'};
 
   (void)p_arg; /* Note(1) */
@@ -96,15 +76,15 @@ void APP_TaskThree(void *p_arg)
   { /* Task body, always written as an infinite loop  */
 
     /* Non-blocking reception of a message */
-    pMsgContent = OSQPend((OS_Q         *) pSerialQueObj,
-                          (OS_TICK       ) 0U,
-                          (OS_OPT        ) OS_OPT_PEND_NON_BLOCKING,
-                          (OS_MSG_SIZE  *)&MsgSize,
-                          (CPU_TS       *) 0U,
-                          (OS_ERR       *)&err);
+    msgContent = (int)OSQPend((OS_Q         *) pSerialQueObj,
+                              (OS_TICK       ) 0U,
+                              (OS_OPT        ) OS_OPT_PEND_NON_BLOCKING,
+                              (OS_MSG_SIZE  *)&MsgSize,
+                              (CPU_TS       *) 0U,
+                              (OS_ERR       *)&err);
 
     /* If a valid message was received... */
-    if ((void *)0 != pMsgContent)
+    if (err == OS_ERR_NONE)
     {
       /* ...shift left the whole string by one... */
       for (indxChar = 0; indxChar < APPDEF_LCD_TXT_SIZE; indxChar++)
@@ -113,7 +93,7 @@ void APP_TaskThree(void *p_arg)
       }
 
       /* ...and concatenate the new character to the end. */
-      taskStringBuffer[APPDEF_LCD_TXT_SIZE-1] = *pMsgContent;
+      taskStringBuffer[APPDEF_LCD_TXT_SIZE-1] = (char)msgContent;
 
       /* Write the string on display */
       printf("\rBuffer: %s", taskStringBuffer);

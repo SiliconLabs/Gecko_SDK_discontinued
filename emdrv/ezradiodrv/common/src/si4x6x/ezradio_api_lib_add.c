@@ -2,7 +2,7 @@
  * @file si4x6x/ezradio_api_lib_add.c
  * @brief This file contains the additional API library for the listed members of
  * the EZRadioPRO family: Si4460_revC2A, Si4461_revC2A, Si4463_revC2A.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>

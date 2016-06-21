@@ -2,13 +2,13 @@
  * @file main.c
  * @brief EZRadio trx example with auto acknowledge option enabled.
  *
- * This example shows how to easily implement a trx code with auto acknowledge 
+ * This example shows how to easily implement a trx code with auto acknowledge
  * option for your controller using EZRadio or EZRadioPRO devices.
  *
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -93,7 +93,7 @@ static void appAutoAckTransmittedCallback ( EZRADIODRV_Handle_t handle, Ecode_t 
 /* Length of the actual data in the Tx packet */
 #define APP_TX_PKT_DATA_LENGTH   2u
 
-/* Length of the actual data in the Tx packet */
+/* Length of the actual data in the ACK packet */
 #define APP_AUTO_ACK_PKT_DATA_LENGTH   3u
 
 /* Rx packet data array */
@@ -412,7 +412,7 @@ int main(void)
           /* Add data cntr as the data to be sent to the packet */
           radioTxPkt[APP_PKT_DATA_START]   = (uint8_t)( ((uint16_t)appDataCntr) >> 8 );
           radioTxPkt[APP_PKT_DATA_START+1] = (uint8_t)( ((uint16_t)appDataCntr) & 0x00FF );
-          
+
           /* Note: The following line issues the auto acknowledge feature to skip
            *       one session.
            *        - Should be used for links where both nodes transmits ACK packets,
@@ -497,7 +497,7 @@ static void appPacketReceivedCallback ( EZRADIODRV_Handle_t handle, Ecode_t stat
     else
     {
       uint16_t rxData;
-      
+
       rxData =  (uint16_t)(radioRxPkt[APP_PKT_DATA_START]) << 8;
       rxData += (uint16_t)(radioRxPkt[APP_PKT_DATA_START+1]);
 

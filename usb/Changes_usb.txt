@@ -1,4 +1,9 @@
 ================ Revision history ============================================
+4.3.0:
+ - Implemented USB remote wakeup when usb peripheral is in partial power down
+   mode.
+ - Fixed usb state error when exiting SUSPENDED state after a remote wakeup.
+
 4.2.1:
  - No changes.
 

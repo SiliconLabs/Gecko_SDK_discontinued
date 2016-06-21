@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ezradio_crcerror_plugin.c
  * @brief EzRadio CRC error plug-in managed by the plug-in manager if enabled.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -41,7 +41,7 @@
 #include "ezradio_plugin_manager.h"
 #include "ezradio_receive_plugin.h"
 
-#if ( defined EZRADIO_PLUGIN_CRC_ERROR )
+#if defined( EZRADIO_PLUGIN_CRC_ERROR )
 
 /// @cond DO_NOT_INCLUDE_WITH_DOXYGEN
 //  Note: These are internal routines used by ezradio plugin manager.
@@ -81,4 +81,4 @@ Ecode_t ezradioHandleCrcErrorPlugin( EZRADIODRV_Handle_t radioHandle, EZRADIODRV
 
 /// @endcond
 
-#endif //#if ( defined EZRADIO_PLUGIN_CRC_ERROR )
+#endif //#if defined( EZRADIO_PLUGIN_CRC_ERROR )

@@ -1,5 +1,5 @@
 Register Test:
-Energy Micro IEC60355 class b test script log
+Silicon Labs IEC60355 class b test script log
 provides execution log of the POST register test function
 
 executed : 11:14:06, 11.07.2011

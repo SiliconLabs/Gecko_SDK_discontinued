@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file sleep.c
  * @brief Energy Modes management driver.
- * @version 4.2.1
+ * @version 4.3.0
  * @details
  * This is a energy modes management module consisting of sleep.c and sleep.h
  * source files. The main purpose of the module is to ease energy
@@ -20,7 +20,7 @@
  *
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -28,7 +28,6 @@
  * any purpose, you must agree to the terms of that agreement.
  *
  ******************************************************************************/
-
 
 /* Chip specific header file(s). */
 #include "em_device.h"
@@ -44,7 +43,7 @@
 #include <stdlib.h>
 
 /***************************************************************************//**
- * @addtogroup EM_Drivers
+ * @addtogroup emdrv
  * @{
  ******************************************************************************/
 
@@ -57,7 +56,7 @@
  * optimization with a simple API. The module allows the system to always sleep
  * in the lowest possible energy mode. Users could set up callbacks that are
  * being called before and after each and every sleep. A counting semaphore is
- * available for each low energy mode (EM1/EM2/EM3) to protect certain system
+ * available for each low energy mode (EM2/EM3) to protect certain system
  * states from being corrupted. This semaphore has limit set to maximum 255 locks.
  * @{
  ******************************************************************************/
@@ -68,21 +67,17 @@
 
 /** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 
-/* Number of low energy modes (EM1, EM2, EM3). Note: EM4 sleep/wakeup is handled
+/* Number of low energy modes (EM2 and EM3). Note: EM4 sleep/wakeup is handled
  * differently therefore it is not part of the list! */
-#define SLEEP_NUMOF_LOW_ENERGY_MODES    3U
-
-
+#define SLEEP_NUMOF_LOW_ENERGY_MODES    2U
 
 /*******************************************************************************
  ******************************   TYPEDEFS   ***********************************
  ******************************************************************************/
 
-
 /*******************************************************************************
  ******************************   CONSTANTS   **********************************
  ******************************************************************************/
-
 
 /*******************************************************************************
  *******************************   STATICS   ***********************************
@@ -93,8 +88,8 @@ static SLEEP_CbFuncPtr_t sleepCallback  = NULL;
 static SLEEP_CbFuncPtr_t wakeUpCallback = NULL;
 
 /* Sleep block counter array representing the nested sleep blocks for the low
- * energy modes (EM1/EM2/EM3). Array index 0 corresponds to EM1, 1 to EM2 and 2
- * to EM3 accordingly.
+ * energy modes (EM2/EM3). Array index 0 corresponds to EM2 and index 1
+ * to EM3.
  *
  * Note:
  * - EM4 sleep/wakeup is handled differently therefore it is not part of the
@@ -106,8 +101,7 @@ static uint8_t sleepBlockCnt[SLEEP_NUMOF_LOW_ENERGY_MODES];
  ******************************   PROTOTYPES   *********************************
  ******************************************************************************/
 
-static void SLEEP_EnterEMx(SLEEP_EnergyMode_t eMode);
-//static SLEEP_EnergyMode_t SLEEP_LowestEnergyModeGet(void);
+static void enterEMx(SLEEP_EnergyMode_t eMode);
 
 /** @endcond */
 
@@ -143,11 +137,15 @@ void SLEEP_Init(SLEEP_CbFuncPtr_t pSleepCb, SLEEP_CbFuncPtr_t pWakeUpCb)
   /* Reset sleep block counters. Note: not using for() saves code! */
   sleepBlockCnt[0U] = 0U;
   sleepBlockCnt[1U] = 0U;
-  sleepBlockCnt[2U] = 0U;
 
-#if (SLEEP_EM4_WAKEUP_CALLBACK_ENABLED == true) && defined(RMU_RSTCAUSE_EM4WURST)
+#if (SLEEP_EM4_WAKEUP_CALLBACK_ENABLED == true) \
+    && (defined(RMU_RSTCAUSE_EM4WURST) || defined(RMU_RSTCAUSE_EM4RST))
   /* Check if the Init() happened after an EM4 reset. */
+#if defined(RMU_RSTCAUSE_EM4WURST)
   if (RMU_ResetCauseGet() & RMU_RSTCAUSE_EM4WURST)
+#elif defined(RMU_RSTCAUSE_EM4RST)
+  if (RMU_ResetCauseGet() & RMU_RSTCAUSE_EM4RST)
+#endif
   {
     /* Clear the cause of the reset. */
     RMU_ResetCauseClear();
@@ -159,7 +157,6 @@ void SLEEP_Init(SLEEP_CbFuncPtr_t pSleepCb, SLEEP_CbFuncPtr_t pWakeUpCb)
   }
 #endif
 }
-
 
 /***************************************************************************//**
  * @brief
@@ -175,7 +172,6 @@ void SLEEP_Init(SLEEP_CbFuncPtr_t pSleepCb, SLEEP_CbFuncPtr_t pWakeUpCb)
  *
  * @return
  *   Energy Mode that was entered. Possible values:
- *   @li sleepEM0
  *   @li sleepEM1
  *   @li sleepEM2
  *   @li sleepEM3
@@ -190,7 +186,7 @@ SLEEP_EnergyMode_t SLEEP_Sleep(void)
 
   if ((allowedEM >= sleepEM1) && (allowedEM <= sleepEM3))
   {
-    SLEEP_EnterEMx(allowedEM);
+    enterEMx(allowedEM);
   }
   else
   {
@@ -199,9 +195,8 @@ SLEEP_EnergyMode_t SLEEP_Sleep(void)
 
   INT_Enable();
 
-  return(allowedEM);
+  return allowedEM;
 }
-
 
 /***************************************************************************//**
  * @brief
@@ -224,7 +219,7 @@ void SLEEP_ForceSleepInEM4(void)
 #endif
 
   /* Request entering to EM4. */
-  SLEEP_EnterEMx(sleepEM4);
+  enterEMx(sleepEM4);
 }
 
 /***************************************************************************//**
@@ -248,25 +243,27 @@ void SLEEP_ForceSleepInEM4(void)
  *
  * @param[in] eMode
  *   Energy mode to begin to block. Possible values:
- *   @li sleepEM1 - Begin to block the system from being set to EM1 (and EM2..4).
- *   @li sleepEM2 - Begin to block the system from being set to EM2 (and EM3/EM4).
- *   @li sleepEM3 - Begin to block the system from being set to EM3 (and EM4).
+ *   @li sleepEM2 - Begin to block the system from being set to EM2/EM3/EM4.
+ *   @li sleepEM3 - Begin to block the system from being set to EM3/EM4.
  ******************************************************************************/
 void SLEEP_SleepBlockBegin(SLEEP_EnergyMode_t eMode)
 {
-  EFM_ASSERT((eMode >= sleepEM1) && (eMode < sleepEM4));
-  EFM_ASSERT((sleepBlockCnt[(uint8_t) eMode - 1U]) < 255U);
+  EFM_ASSERT((eMode >= sleepEM2) && (eMode < sleepEM4));
+  EFM_ASSERT((sleepBlockCnt[eMode - 2U]) < 255U);
 
-  /* Increase the sleep block counter of the selected energy mode. */
-  sleepBlockCnt[(uint8_t) eMode - 1U]++;
+  if ((eMode == sleepEM2) || (eMode == sleepEM3))
+  {
+    /* Increase the sleep block counter of the selected energy mode. */
+    sleepBlockCnt[eMode - 2U]++;
 
 #if (SLEEP_HW_LOW_ENERGY_BLOCK_ENABLED == true)
-  /* Block EM2/EM3 sleep if the EM2 block begins. */
-  if (eMode == sleepEM2)
-  {
-    EMU_EM2Block();
-  }
+    /* Block EM2/EM3 sleep if the EM2 block begins. */
+    if (eMode == sleepEM2)
+    {
+      EMU_EM2Block();
+    }
 #endif
+  }
 }
 
 /***************************************************************************//**
@@ -283,36 +280,38 @@ void SLEEP_SleepBlockBegin(SLEEP_EnergyMode_t eMode)
  *
  *   Example:\code
  *      // at start all energy modes are allowed
- *      SLEEP_SleepBlockBegin(sleepEM2); // EM2, EM3, EM4 are blocked
- *      SLEEP_SleepBlockBegin(sleepEM1); // EM1, EM2, EM3, EM4 are blocked
- *      SLEEP_SleepBlockBegin(sleepEM1); // EM1, EM2, EM3, EM4 are blocked
- *      SLEEP_SleepBlockEnd(sleepEM2);   // still EM1, EM2, EM3, EM4 are blocked
- *      SLEEP_SleepBlockEnd(sleepEM1);   // still EM1, EM2, EM3, EM4 are blocked
- *      SLEEP_SleepBlockEnd(sleepEM1);   // all energy modes are allowed now\endcode
+ *      SLEEP_SleepBlockBegin(sleepEM3); // EM3 and EM4 are blocked
+ *      SLEEP_SleepBlockBegin(sleepEM2); // EM2, EM3 and EM4 are blocked
+ *      SLEEP_SleepBlockBegin(sleepEM2); // EM2, EM3 and EM4 are blocked
+ *      SLEEP_SleepBlockEnd(sleepEM3);   // EM2, EM3 and EM4 are still blocked
+ *      SLEEP_SleepBlockEnd(sleepEM2);   // EM2, EM3 and EM4 are still blocked
+ *      SLEEP_SleepBlockEnd(sleepEM2);   // all energy modes are allowed now\endcode
  *
  * @param[in] eMode
  *   Energy mode to end to block. Possible values:
- *   @li sleepEM1 - End to block the system from being set to EM1 (and EM2..4).
- *   @li sleepEM2 - End to block the system from being set to EM2 (and EM3/EM4).
- *   @li sleepEM3 - End to block the system from being set to EM3 (and EM4).
+ *   @li sleepEM2 - End to block the system from being set to EM2/EM3/EM4.
+ *   @li sleepEM3 - End to block the system from being set to EM3/EM4.
  ******************************************************************************/
 void SLEEP_SleepBlockEnd(SLEEP_EnergyMode_t eMode)
 {
-  EFM_ASSERT((eMode >= sleepEM1) && (eMode < sleepEM4));
+  EFM_ASSERT((eMode >= sleepEM2) && (eMode < sleepEM4));
 
-  /* Decrease the sleep block counter of the selected energy mode. */
-  if (sleepBlockCnt[(uint8_t) eMode - 1U] > 0U)
+  if ((eMode == sleepEM2) || (eMode == sleepEM3))
   {
-    sleepBlockCnt[(uint8_t) eMode - 1U]--;
-  }
+    /* Decrease the sleep block counter of the selected energy mode. */
+    if (sleepBlockCnt[eMode - 2U] > 0U)
+    {
+      sleepBlockCnt[eMode - 2U]--;
+    }
 
 #if (SLEEP_HW_LOW_ENERGY_BLOCK_ENABLED == true)
-  /* Check if the EM2/EM3 block should be unblocked in the EMU. */
-  if (0U == sleepBlockCnt[(uint8_t) sleepEM2 - 1U])
-  {
-    EMU_EM2UnBlock();
-  }
+    /* Check if the EM2/EM3 block should be unblocked in the EMU. */
+    if (0U == sleepBlockCnt[sleepEM2 - 2U])
+    {
+      EMU_EM2UnBlock();
+    }
 #endif
+  }
 }
 
 /***************************************************************************//**
@@ -325,26 +324,21 @@ void SLEEP_SleepBlockEnd(SLEEP_EnergyMode_t eMode)
  *
  * @return
  *   Lowest energy mode that the system can be set to. Possible values:
- *   @li sleepEM0
  *   @li sleepEM1
  *   @li sleepEM2
  *   @li sleepEM3
  ******************************************************************************/
 SLEEP_EnergyMode_t SLEEP_LowestEnergyModeGet(void)
 {
-  SLEEP_EnergyMode_t tmpLowestEM = sleepEM0;
+  SLEEP_EnergyMode_t tmpLowestEM = sleepEM1;
 
   /* Check which is the lowest energy mode that the system can be set to. */
-  if (0U == sleepBlockCnt[(uint8_t) sleepEM1 - 1U])
+  if (0U == sleepBlockCnt[sleepEM2 - 2U])
   {
-    tmpLowestEM = sleepEM1;
-    if (0U == sleepBlockCnt[(uint8_t) sleepEM2 - 1U])
+    tmpLowestEM = sleepEM2;
+    if (0U == sleepBlockCnt[sleepEM3 - 2U])
     {
-      tmpLowestEM = sleepEM2;
-      if (0U == sleepBlockCnt[(uint8_t) sleepEM3 - 1U])
-      {
-        tmpLowestEM = sleepEM3;
-      }
+      tmpLowestEM = sleepEM3;
     }
   }
 
@@ -375,7 +369,7 @@ SLEEP_EnergyMode_t SLEEP_LowestEnergyModeGet(void)
  *   checks for the cause of the reset and calls the wakeup callback if the
  *   reset was a wakeup from EM4.
  ******************************************************************************/
-static void SLEEP_EnterEMx(SLEEP_EnergyMode_t eMode)
+static void enterEMx(SLEEP_EnergyMode_t eMode)
 {
   EFM_ASSERT((eMode > sleepEM0) && (eMode <= sleepEM4));
 
@@ -389,30 +383,25 @@ static void SLEEP_EnterEMx(SLEEP_EnergyMode_t eMode)
   /* Enter the requested energy mode. */
   switch (eMode)
   {
-  case sleepEM1:
-  {
-    EMU_EnterEM1();
-  } break;
+    case sleepEM1:
+      EMU_EnterEM1();
+      break;
 
-  case sleepEM2:
-  {
-    EMU_EnterEM2(true);
-  } break;
+    case sleepEM2:
+      EMU_EnterEM2(true);
+      break;
 
-  case sleepEM3:
-  {
-    EMU_EnterEM3(true);
-  } break;
+    case sleepEM3:
+      EMU_EnterEM3(true);
+      break;
 
-  case sleepEM4:
-  {
-    EMU_EnterEM4();
-  } break;
+    case sleepEM4:
+      EMU_EnterEM4();
+      break;
 
-  default:
-  {
-    /* Don't do anything, stay in EM0. */
-  } break;
+    default:
+      /* Don't do anything, stay in EM0. */
+      break;
   }
 
   /* Call the callback after waking up from sleep. */
@@ -424,4 +413,4 @@ static void SLEEP_EnterEMx(SLEEP_EnergyMode_t eMode)
 /** @endcond */
 
 /** @} (end addtogroup SLEEP */
-/** @} (end addtogroup EM_Drivers) */
+/** @} (end addtogroup emdrv) */

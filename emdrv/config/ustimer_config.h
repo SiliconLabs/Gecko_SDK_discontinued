@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ustimer_config.h
  * @brief USTIMER configuration file.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -16,7 +16,7 @@
 #define __SILICON_LABS_USTIMER_CONFIG_H__
 
 /***************************************************************************//**
- * @addtogroup EM_Drivers
+ * @addtogroup emdrv
  * @{
  ******************************************************************************/
 
@@ -29,6 +29,6 @@
 #define USTIMER_TIMER USTIMER_TIMER0
 
 /** @} (end addtogroup USTIMER) */
-/** @} (end addtogroup EM_Drivers) */
+/** @} (end addtogroup emdrv) */
 
 #endif /* __SILICON_LABS_USTIMER_CONFIG_H__ */

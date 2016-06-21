@@ -1,9 +1,9 @@
 /**************************************************************************//**
  * @brief Implementation specific functions for HRM code
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -70,7 +70,7 @@ int si114xSetupDebug(HANDLE si114x_handle, void *si114x_debug)
 int si114xOutputDebugMessage(HANDLE si114x_handle, char *message)
 {
   uint16_t i;
-  uint8_t message_buffer[((99)+3)&~3] __attribute__ ((aligned(4)));
+  uint8_t message_buffer[((99)+3)&~3] SL_ATTRIBUTE_ALIGN(4);
   uint8_t *Message_Buffer[1] = {message_buffer};
   (void) si114x_handle;
   message_buffer[0] = 0x10;

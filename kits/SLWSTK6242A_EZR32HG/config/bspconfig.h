@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file
  * @brief Provide BSP (board support package) configuration parameters.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -20,7 +20,7 @@
 #define BSP_NET
 #define BSP_WSTK
 #define BSP_WSTK_BRD4001    // WSTK mainboard
-#define BSP_WSTK_BRD4543A   // MCU/Radio plug-in board
+#define BSP_WSTK_BRD4543B   // MCU/Radio plug-in board
 
 #define BSP_BCC_LEUART      LEUART0
 #define BSP_BCC_CLK         cmuClock_LEUART0

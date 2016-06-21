@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file ezr32hg_usb.h
  * @brief EZR32HG_USB register and bit field definitions
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -129,7 +129,7 @@ typedef struct
 
 /* Bit fields for USB CTRL */
 #define _USB_CTRL_RESETVALUE                       0x00000020UL                           /**< Default value for USB_CTRL */
-#define _USB_CTRL_MASK                             0x033302B2UL                           /**< Mask for USB_CTRL */
+#define _USB_CTRL_MASK                             0x03330EB2UL                           /**< Mask for USB_CTRL */
 #define USB_CTRL_DMPUAP                            (0x1UL << 1)                           /**< DMPU Active Polarity */
 #define _USB_CTRL_DMPUAP_SHIFT                     1                                      /**< Shift value for USB_DMPUAP */
 #define _USB_CTRL_DMPUAP_MASK                      0x2UL                                  /**< Bit mask for USB_DMPUAP */
@@ -163,6 +163,16 @@ typedef struct
 #define _USB_CTRL_LEMIDLEEN_MASK                   0x200UL                                /**< Bit mask for USB_LEMIDLEEN */
 #define _USB_CTRL_LEMIDLEEN_DEFAULT                0x00000000UL                           /**< Mode DEFAULT for USB_CTRL */
 #define USB_CTRL_LEMIDLEEN_DEFAULT                 (_USB_CTRL_LEMIDLEEN_DEFAULT << 9)     /**< Shifted mode DEFAULT for USB_CTRL */
+#define USB_CTRL_LEMNAKEN                          (0x1UL << 10)                          /**< Low Energy Mode on OUT NAK Enable */
+#define _USB_CTRL_LEMNAKEN_SHIFT                   10                                     /**< Shift value for USB_LEMNAKEN */
+#define _USB_CTRL_LEMNAKEN_MASK                    0x400UL                                /**< Bit mask for USB_LEMNAKEN */
+#define _USB_CTRL_LEMNAKEN_DEFAULT                 0x00000000UL                           /**< Mode DEFAULT for USB_CTRL */
+#define USB_CTRL_LEMNAKEN_DEFAULT                  (_USB_CTRL_LEMNAKEN_DEFAULT << 10)     /**< Shifted mode DEFAULT for USB_CTRL */
+#define USB_CTRL_LEMADDRMEN                        (0x1UL << 11)                          /**< Low Energy Mode on Device Address Mismatch Enable */
+#define _USB_CTRL_LEMADDRMEN_SHIFT                 11                                     /**< Shift value for USB_LEMADDRMEN */
+#define _USB_CTRL_LEMADDRMEN_MASK                  0x800UL                                /**< Bit mask for USB_LEMADDRMEN */
+#define _USB_CTRL_LEMADDRMEN_DEFAULT               0x00000000UL                           /**< Mode DEFAULT for USB_CTRL */
+#define USB_CTRL_LEMADDRMEN_DEFAULT                (_USB_CTRL_LEMADDRMEN_DEFAULT << 11)   /**< Shifted mode DEFAULT for USB_CTRL */
 #define USB_CTRL_VREGDIS                           (0x1UL << 16)                          /**< Voltage Regulator Disable */
 #define _USB_CTRL_VREGDIS_SHIFT                    16                                     /**< Shift value for USB_VREGDIS */
 #define _USB_CTRL_VREGDIS_MASK                     0x10000UL                              /**< Bit mask for USB_VREGDIS */

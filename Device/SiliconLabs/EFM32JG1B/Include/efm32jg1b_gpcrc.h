@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file efm32jg1b_gpcrc.h
  * @brief EFM32JG1B_GPCRC register and bit field definitions
- * @version 4.2.1
+ * @version 4.3.0
  ******************************************************************************
  * @section License
- * <b>Copyright 2015 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -87,7 +87,11 @@ typedef struct
 #define _GPCRC_CTRL_BITREVERSE_SHIFT                    9                                        /**< Shift value for GPCRC_BITREVERSE */
 #define _GPCRC_CTRL_BITREVERSE_MASK                     0x200UL                                  /**< Bit mask for GPCRC_BITREVERSE */
 #define _GPCRC_CTRL_BITREVERSE_DEFAULT                  0x00000000UL                             /**< Mode DEFAULT for GPCRC_CTRL */
+#define _GPCRC_CTRL_BITREVERSE_NORMAL                   0x00000000UL                             /**< Mode NORMAL for GPCRC_CTRL */
+#define _GPCRC_CTRL_BITREVERSE_REVERSED                 0x00000001UL                             /**< Mode REVERSED for GPCRC_CTRL */
 #define GPCRC_CTRL_BITREVERSE_DEFAULT                   (_GPCRC_CTRL_BITREVERSE_DEFAULT << 9)    /**< Shifted mode DEFAULT for GPCRC_CTRL */
+#define GPCRC_CTRL_BITREVERSE_NORMAL                    (_GPCRC_CTRL_BITREVERSE_NORMAL << 9)     /**< Shifted mode NORMAL for GPCRC_CTRL */
+#define GPCRC_CTRL_BITREVERSE_REVERSED                  (_GPCRC_CTRL_BITREVERSE_REVERSED << 9)   /**< Shifted mode REVERSED for GPCRC_CTRL */
 #define GPCRC_CTRL_BYTEREVERSE                          (0x1UL << 10)                            /**< Byte Reverse Mode */
 #define _GPCRC_CTRL_BYTEREVERSE_SHIFT                   10                                       /**< Shift value for GPCRC_BYTEREVERSE */
 #define _GPCRC_CTRL_BYTEREVERSE_MASK                    0x400UL                                  /**< Bit mask for GPCRC_BYTEREVERSE */

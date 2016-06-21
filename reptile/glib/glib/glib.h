@@ -3,7 +3,7 @@
  * @brief Silicon Labs Graphics Library
  ******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensensed under the Silabs License Agreement. See the file
@@ -57,7 +57,7 @@ extern "C" {
 /** Invalid file */
 #define GLIB_ERROR_INVALID_FILE                 (ECODE_GLIB_BASE | 0x0009)
 
-  
+
 /** @struct __GLIB_Font_t_Class
  *  @brief Font classes
  */
@@ -65,7 +65,7 @@ typedef enum __GLIB_Font_Class
 {
   InvalidFont = 0,
   FullFont,
-  NumbersOnlyFont,  
+  NumbersOnlyFont,
 } GLIB_Font_Class;
 
 
@@ -76,16 +76,16 @@ typedef struct __GLIB_Font_t
 {
   void *pFontPixMap;
   uint16_t cntOfMapElements;
-  uint8_t sizeOfMapElement;  
+  uint8_t sizeOfMapElement;
   uint8_t fontRowOffset;
-  uint8_t fontWidth;  
+  uint8_t fontWidth;
   uint8_t fontHeight;
   uint8_t lineSpacing;
   uint8_t charSpacing;
   GLIB_Font_Class class;
 } GLIB_Font_t;
-  
-  
+
+
 /** @struct __GLIB_Rectangle_t
  *  @brief Rectangle structure
  */
@@ -110,7 +110,7 @@ typedef struct __GLIB_Context_t
 {
   /** Pointer to the dimensions of the display */
   const DMD_DisplayGeometry *pDisplayGeometry;
- 
+
   /** Background color */
   uint32_t backgroundColor;
 
@@ -119,7 +119,7 @@ typedef struct __GLIB_Context_t
 
   /** Clipping rectangle */
   GLIB_Rectangle_t clippingRegion;
-  
+
   /** Font definition */
   GLIB_Font_t font;
 

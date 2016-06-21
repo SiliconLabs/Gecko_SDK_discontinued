@@ -185,6 +185,11 @@
 			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emlib/src/em_rtc.c</locationURI>
 		</link>
 		<link>
+			<name>emlib/em_system.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emlib/src/em_system.c</locationURI>
+		</link>
+		<link>
 			<name>emlib/em_timer.c</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/emlib/src/em_timer.c</locationURI>

@@ -113,8 +113,8 @@ extern "C" {
 #endif
 #if (  (configSLEEP_MODE == 2 ) && ( configUSE_TICKLESS_IDLE == 1 || configUSE_SLEEP_MODE_IN_IDLE == 1 ) )
 /* When we use EM2 or EM3 System clock has got low frequency,
- * so we reduce Tick rate to 100 Hz and 40 Hz, which give more clock cycles between ticks*/
-#define configTICK_RATE_HZ    ( 100 )
+ * so we reduce Tick rate to 128 Hz and 40 Hz, which give more clock cycles between ticks*/
+#define configTICK_RATE_HZ    ( 128 )
 #elif (  ( configSLEEP_MODE == 3 ) && ( configUSE_TICKLESS_IDLE == 1 || configUSE_SLEEP_MODE_IN_IDLE == 1 ) )
 #define configTICK_RATE_HZ    ( 40 )
 #else

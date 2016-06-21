@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file retargettextdisplay.c
  * @brief Provide stdio retargeting to text display interface.
- * @version 4.2.1
+ * @version 4.3.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -52,13 +52,13 @@ EMSTATUS RETARGET_TextDisplayInit(void)
 
   /* Query that the specified DISPLAY device is available.  */
   status = DISPLAY_DeviceGet(RETARGETTEXTDISPLAY_DISPLAY_NO, &displayDevice);
-  
+
   if (DISPLAY_EMSTATUS_OK == status)
   {
     textDisplayConfig.displayDeviceNo  = RETARGETTEXTDISPLAY_DISPLAY_NO;
     textDisplayConfig.scrollEnable     = RETARGETTEXTDISPLAY_SCROLL_MODE;
     textDisplayConfig.lfToCrLf         = RETARGETTEXTDISPLAY_LINE_FEED_MODE;
-  
+
     status = TEXTDISPLAY_New(&textDisplayConfig, &textDisplayHandle);
 
 #if !defined(__CROSSWORKS_ARM) && defined(__GNUC__)
@@ -137,7 +137,7 @@ EMSTATUS RETARGET_WriteString(char*   str)
 
 @n @section retargettextdisplay_doc Retarget TextDisplay Module
 
-  The source code of the RETARGETTEXTDISPLAY module is implemented in 
+  The source code of the RETARGETTEXTDISPLAY module is implemented in
   kits/common/drivers/retargettextdisplay.c and retargettextdisplay.h.
 
   @li @ref retargettextdisplay_intro

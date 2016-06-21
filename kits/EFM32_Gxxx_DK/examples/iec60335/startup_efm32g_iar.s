@@ -1,7 +1,7 @@
 ;/**************************************************************************//**
 ; * @file
 ; * @brief    CMSIS Core Device Startup File
-; *           Energy Micro EFM32G Device Series
+; *           Silicon Labs EFM32G Device Series
 ; * @version 3.0.1
 ; * @date     30. January 2012
 ; *
