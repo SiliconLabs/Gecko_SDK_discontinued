@@ -2,7 +2,7 @@
  * @file efm32g890f32.h
  * @brief CMSIS Cortex-M3 Peripheral Access Layer Header File
  *        for EFM EFM32G890F32
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>

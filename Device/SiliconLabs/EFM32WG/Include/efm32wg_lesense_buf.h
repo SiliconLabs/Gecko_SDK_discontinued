@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efm32wg_lesense_buf.h
  * @brief EFM32WG_LESENSE_BUF register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -38,7 +38,7 @@
  *****************************************************************************/
 typedef struct
 {
-  __IO uint32_t DATA; /**< Scan results  */
+  __IOM uint32_t DATA; /**< Scan results  */
 } LESENSE_BUF_TypeDef;
 
 /** @} End of group Parts */

@@ -359,7 +359,7 @@
             <NoWarn>0</NoWarn>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define></Define>
+              <Define>EZR32LG330F256R55 DEBUG_EFM</Define>
               <Undefine></Undefine>
               <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EZR32LG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\common\bsp;..\..\..\config</IncludePath>
             </VariousControls>

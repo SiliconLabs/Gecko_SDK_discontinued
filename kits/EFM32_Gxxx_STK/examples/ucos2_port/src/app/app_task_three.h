@@ -23,7 +23,7 @@
 *
 * @file   app_task_three.h
 * @brief
-* @version 4.3.0
+* @version 4.4.0
 ******************************************************************************
 * @section License
 * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -40,6 +40,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
 /*
 *********************************************************************************************************
 *                                            INCLUDE FILES
@@ -57,6 +58,5 @@ void APP_TaskThree(void *Ptr_Arg);
 #ifdef __cplusplus
 }
 #endif
-
 
 #endif /* end of __APP_TASK_THREE_H */

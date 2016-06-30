@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file system_efm32pg1b.h
  * @brief CMSIS Cortex-M3/M4 System Layer for EFM32 devices.
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -62,7 +62,7 @@ void PendSV_Handler(void);
 void SysTick_Handler(void);
 
 void EMU_IRQHandler(void);
-void WDOG_IRQHandler(void);
+void WDOG0_IRQHandler(void);
 void LDMA_IRQHandler(void);
 void GPIO_EVEN_IRQHandler(void);
 void TIMER0_IRQHandler(void);

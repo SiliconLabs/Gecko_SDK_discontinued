@@ -303,9 +303,10 @@
           <state>$PROJ_DIR$\..\..\..\..\..\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\Device\SiliconLabs\EFM32PG1B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include\mbedtls</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\include</state>
           <state>$PROJ_DIR$\..\..\..\..\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\config</state>
@@ -566,9 +567,10 @@
           <state>$PROJ_DIR$\..\..\..\..\..\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\Device\SiliconLabs\EFM32PG1B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include\mbedtls</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\include</state>
           <state>$PROJ_DIR$\..\..\..\..\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\config</state>
@@ -1259,9 +1261,10 @@
           <state>$PROJ_DIR$\..\..\..\..\..\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\Device\SiliconLabs\EFM32PG1B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include\mbedtls</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\include</state>
           <state>$PROJ_DIR$\..\..\..\..\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\config</state>
@@ -1518,9 +1521,10 @@
           <state>$PROJ_DIR$\..\..\..\..\..\CMSIS\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\Device\SiliconLabs\EFM32PG1B\Include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\emlib\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\emdrv\common\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\include\mbedtls</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\include</state>
           <state>$PROJ_DIR$\..\..\..\..\common\bsp</state>
           <state>$PROJ_DIR$\..\..\..\..\common\drivers</state>
           <state>$PROJ_DIR$\..\..\..\config</state>
@@ -2094,16 +2098,16 @@
   <group>
     <name>sl_crypto</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\sl_ecp.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\sl_ecp.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\sl_aes.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\sl_aes.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\sl_sha1.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\sl_sha1.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\sl_sha256.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\sl_sha256.c</name>
     </file>
   </group>
   <group>

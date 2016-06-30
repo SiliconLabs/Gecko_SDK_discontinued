@@ -2,7 +2,7 @@
  * @file efm32jg1b200f256gm32.h
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EFM32JG1B200F256GM32
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -31,8 +31,8 @@
  *
  *****************************************************************************/
 
-#ifndef SILICON_LABS_EFM32JG1B200F256GM32_H
-#define SILICON_LABS_EFM32JG1B200F256GM32_H
+#ifndef EFM32JG1B200F256GM32_H
+#define EFM32JG1B200F256GM32_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -107,10 +107,12 @@ typedef enum IRQn
 ******************************************************************************/
 
 /** Part family */
-#define _EFM32_JADE_FAMILY              1 /**< JADE Gecko MCU Family  */
-#define _EFM_DEVICE                       /**< Silicon Labs EFM-type microcontroller */
-#define _SILICON_LABS_32B_PLATFORM_2      /**< Silicon Labs platform name */
-#define _SILICON_LABS_32B_PLATFORM      2 /**< Silicon Labs platform name */
+#define _EFM32_JADE_FAMILY                    1 /**< JADE Gecko MCU Family  */
+#define _EFM_DEVICE                             /**< Silicon Labs EFM-type microcontroller */
+#define _SILICON_LABS_32B_PLATFORM_2            /**< Silicon Labs platform name */
+#define _SILICON_LABS_32B_PLATFORM            2 /**< Silicon Labs platform name */
+#define _SILICON_LABS_32B_PLATFORM_2_GEN_1      /**< Platform 2, generation 1 */
+#define _SILICON_LABS_32B_PLATFORM_2_GEN      1 /**< Platform 2, generation 1 */
 
 /* If part number is not defined as compiler option, define it */
 #if !defined(EFM32JG1B200F256GM32)
@@ -416,4 +418,4 @@ typedef enum IRQn
 #ifdef __cplusplus
 }
 #endif
-#endif /* SILICON_LABS_EFM32JG1B200F256GM32_H */
+#endif /* EFM32JG1B200F256GM32_H */

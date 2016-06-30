@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_usbh.c
  * @brief USB protocol stack library API for EFM32/EZR32.
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -140,15 +140,6 @@ static void Timeout( int hcnum )
  * @brief
  *   Assign a host channel to a given endpoint.
  *
- * @param[in] ep
- *   Pointer to a @ref USBH_Ep_TypeDef data structure.
- *
- * @param[in] hcnum
- *   Host channel number (0..).
- *
- * @return
- *   @ref USB_STATUS_OK on success, else an appropriate error code.
- *
  * @details
  *   After assigning a host channel to an endpoint, all subsequent transfers
  *   to the endpoint will use the given host channel. Several endpoints can
@@ -156,6 +147,16 @@ static void Timeout( int hcnum )
  *   transfers can only be performed on endpoints assigned to different host
  *   channels.  @n The default endpoint (EP0) is assigned to host channels 0
  *   and 1 by the host stack.
+ *
+ * @param[in] ep
+ *   Pointer to a @ref USBH_Ep_TypeDef data structure.
+ *
+ * @param[in] hcnum
+ *   Host channel number (0..).
+ *
+ * @return
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBH_AssignHostChannel( USBH_Ep_TypeDef *ep, uint8_t hcnum )
 {
@@ -241,7 +242,8 @@ int USBH_AssignHostChannel( USBH_Ep_TypeDef *ep, uint8_t hcnum )
  *   is needed. See @ref USB_XferCompleteCb_TypeDef.
  *
  * @return
- *   @ref USB_STATUS_OK on success, else an appropriate error code.
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBH_ControlMsg( USBH_Ep_TypeDef *ep,
                      uint8_t bmRequestType,
@@ -822,17 +824,18 @@ int USBH_GetStringB( USBH_Device_TypeDef *device, uint8_t *buf, int bufLen,
  * @brief
  *   Initialize host protocol stack data structures.
  *
- * @param[in] p
- *   Pointer to initialization structure. See @ref USBH_Init_TypeDef.
- *
  * @details
  *   Host stack internal data structures are initialized, no actions will be
  *   performed on the USB port. Use this function once before starting USB
  *   host operation. USB operation is initated with
  *   @ref USBH_WaitForDeviceConnectionB().
  *
+ * @param[in] p
+ *   Pointer to initialization structure. See @ref USBH_Init_TypeDef.
+ *
  * @return
- *   @ref USB_STATUS_OK on success, else an appropriate error code.
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBH_Init( const USBH_Init_TypeDef *p )
 {
@@ -877,6 +880,15 @@ int USBH_Init( const USBH_Init_TypeDef *p )
  *   Populate device and endpoint data structures with data retrieved during
  *   device enumeration.
  *
+ * @details
+ *   Use this function prior to moving a device out of default state.
+ *   The application itself must allocate device and endpoint structures.
+ *   Data from a prior call to @ref USBH_QueryDeviceB() must be passed in input
+ *   parameter @em buf. The device speed can be determined with
+ *   @ref USBH_GetPortSpeed() for devices directly attached to the USB port.
+ *   Devices attached via a hub must retrieve this information by querying the
+ *   hub.
+ *
  * @param[in] device
  *   Pointer to a @ref USBH_Device_TypeDef data structure.
  *
@@ -893,14 +905,9 @@ int USBH_Init( const USBH_Init_TypeDef *p )
  * @param[in] deviceSpeed
  *   @ref PORT_FULL_SPEED or @ref PORT_LOW_SPEED.
  *
- * @details
- *   Use this function prior to moving a device out of default state.
- *   The application itself must allocate device and endpoint structures.
- *   Data from a prior call to @ref USBH_QueryDeviceB() must be passed in input
- *   parameter @em buf. The device speed can be determined with
- *   @ref USBH_GetPortSpeed() for devices directly attached to the USB port.
- *   Devices attached via a hub must retrieve this information by querying the
- *   hub.
+ * @return
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBH_InitDeviceData( USBH_Device_TypeDef *device,
                          const uint8_t *buf,
@@ -977,7 +984,8 @@ int USBH_InitDeviceData( USBH_Device_TypeDef *device,
  *   When returning the device will appear to be disconnected.
  *
  * @return
- *   @ref USB_STATUS_OK on success, else an appropriate error code.
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBH_PortReset( void )
 {
@@ -1007,7 +1015,8 @@ int USBH_PortReset( void )
  *   Drive resume signalling on the USB port.
  *
  * @return
- *   @ref USB_STATUS_OK on success, else an appropriate error code.
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBH_PortResume( void )
 {
@@ -1081,6 +1090,10 @@ int USBH_PortVbusOn( bool on )
  *
  * @param[in] maxLen
  *   The size of the data buffer passed as input parameter @em config.
+ *
+ * @return
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBH_PrintConfigurationDescriptor(
                             const USB_ConfigurationDescriptor_TypeDef *config,
@@ -1138,6 +1151,10 @@ int USBH_PrintConfigurationDescriptor(
  *
  * @param[in] device
  *   Pointer to a @ref USB_DeviceDescriptor_TypeDef data structure.
+ *
+ * @return
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBH_PrintDeviceDescriptor( const USB_DeviceDescriptor_TypeDef *device )
 {
@@ -1180,6 +1197,10 @@ int USBH_PrintDeviceDescriptor( const USB_DeviceDescriptor_TypeDef *device )
  *
  * @param[in] endpoint
  *   Pointer to a @ref USB_EndpointDescriptor_TypeDef data structure.
+ *
+ * @return
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBH_PrintEndpointDescriptor(
                             const USB_EndpointDescriptor_TypeDef *endpoint )
@@ -1215,6 +1236,10 @@ int USBH_PrintEndpointDescriptor(
  *
  * @param[in] interface
  *   Pointer to a @ref USB_InterfaceDescriptor_TypeDef data structure.
+ *
+ * @return
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBH_PrintInterfaceDescriptor(
                             const USB_InterfaceDescriptor_TypeDef *interface )
@@ -1557,6 +1582,11 @@ USB_InterfaceDescriptor_TypeDef *USBH_QGetInterfaceDescriptor(
  *   Will request both the device descriptor and the entire configuration
  *   descriptor from the device at USB address 0.
  *
+ * @details
+ *   The device speed can be determined with @ref USBH_GetPortSpeed() for
+ *   devices directly attached to the USB port. Devices attached via a hub
+ *   must retrieve this information by querying the hub.
+ *
  * @note
  *   This function is normally used to retrieve the data needed by
  *   @ref USBH_InitDeviceData().
@@ -1574,10 +1604,9 @@ USB_InterfaceDescriptor_TypeDef *USBH_QGetInterfaceDescriptor(
  * @param[in] deviceSpeed
  *   @ref PORT_FULL_SPEED or @ref PORT_LOW_SPEED.
  *
- * @details
- *   The device speed can be determined with @ref USBH_GetPortSpeed() for
- *   devices directly attached to the USB port. Devices attached via a hub
- *   must retrieve this information by querying the hub.
+ * @return
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBH_QueryDeviceB( uint8_t *buf, size_t bufsize, uint8_t deviceSpeed )
 {
@@ -1667,7 +1696,8 @@ int USBH_QueryDeviceB( uint8_t *buf, size_t bufsize, uint8_t deviceSpeed )
  *   is needed. See @ref USB_XferCompleteCb_TypeDef.
  *
  * @return
- *   @ref USB_STATUS_OK on success, else an appropriate error code.
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBH_Read( USBH_Ep_TypeDef *ep, void *data, int byteCount, int timeout,
                USB_XferCompleteCb_TypeDef callback )
@@ -1836,7 +1866,8 @@ int USBH_ReadB( USBH_Ep_TypeDef *ep, void *data, int byteCount, int timeout )
  *   The new device address. Provide a value between 0 and 127.
  *
  * @return
- *   @ref USB_STATUS_OK on success, else an appropriate error code.
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBH_SetAddressB( USBH_Device_TypeDef *device, uint8_t deviceAddress )
 {
@@ -1892,7 +1923,8 @@ int USBH_SetAddressB( USBH_Device_TypeDef *device, uint8_t deviceAddress )
  *   The alternate interface setting value.
  *
  * @return
- *   @ref USB_STATUS_OK on success, else an appropriate error code.
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBH_SetAltInterfaceB( USBH_Device_TypeDef *device,
                            uint8_t interfaceIndex, uint8_t alternateSetting )
@@ -1951,7 +1983,8 @@ int USBH_SetAltInterfaceB( USBH_Device_TypeDef *device,
  *   device->confDesc.bConfigurationValue
  *
  * @return
- *   @ref USB_STATUS_OK on success, else an appropriate error code.
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBH_SetConfigurationB( USBH_Device_TypeDef *device, uint8_t configValue )
 {
@@ -2004,7 +2037,8 @@ int USBH_SetConfigurationB( USBH_Device_TypeDef *device, uint8_t configValue )
  *   Pointer to a @ref USBH_Ep_TypeDef data structure.
  *
  * @return
- *   @ref USB_STATUS_OK on success, else an appropriate error code.
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBH_StallEpB( USBH_Ep_TypeDef *ep )
 {
@@ -2063,7 +2097,8 @@ void USBH_Stop( void )
  *   Pointer to a @ref USBH_Ep_TypeDef data structure.
  *
  * @return
- *   @ref USB_STATUS_OK on success, else an appropriate error code.
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBH_UnStallEpB( USBH_Ep_TypeDef *ep )
 {
@@ -2292,7 +2327,8 @@ int USBH_WaitForDeviceConnectionB( uint8_t *buf, int timeoutInSeconds )
  *   is needed. See @ref USB_XferCompleteCb_TypeDef.
  *
  * @return
- *   @ref USB_STATUS_OK on success, else an appropriate error code.
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBH_Write( USBH_Ep_TypeDef *ep, void *data, int byteCount,
                 int timeout, USB_XferCompleteCb_TypeDef callback )
@@ -2448,39 +2484,39 @@ int USBH_WriteB( USBH_Ep_TypeDef *ep, void *data, int byteCount, int timeout )
 
 @page usb_host USB host stack library
 
-  The source files for the USB host stack resides in the usb directory
-  and follows the naming convention: em_usbh<em>nnn</em>.c/h.
+ The source files for the USB host stack resides in the usb directory
+ and follows the naming convention: em_usbh<em>nnn</em>.c/h.
 
-  @li @ref usb_host_intro
-  @li @ref usb_host_getting_started
-  @li @ref usb_host_api
-  @li @ref usb_host_conf
+ @li @ref usb_host_intro
+ @li @ref usb_host_getting_started
+ @li @ref usb_host_api
+ @li @ref usb_host_conf
 
 
 @n @section usb_host_intro Introduction
 
-  The USB host protocol stack provides an API which makes it possible to
-  create USB hosts with a minimum of effort. The host stack supports control,
-  bulk and interrupt transfers.
+ The USB host protocol stack provides an API which makes it possible to
+ create USB hosts with a minimum of effort. The host stack supports control,
+ bulk and interrupt transfers.
 
-  The stack is highly configurable to suit various needs, it does also contain
-  useful debugging features together with several demonstration projects to
-  get you started fast.
+ The stack is highly configurable to suit various needs, it does also contain
+ useful debugging features together with several demonstration projects to
+ get you started fast.
 
-  We recommend that you read through this documentation, then proceed to build
-  and test a few example projects before you start designing your own USB host
-  applications.
+ We recommend that you read through this documentation, then proceed to build
+ and test a few example projects before you start designing your own USB host
+ applications.
 
 @n @section usb_host_getting_started Getting started
 
-  To use an USB device, its pratical to divide the initial steps needed into :
-  @li @ref usb_device_connection
-  @li @ref usb_device_enumeration
+ To use an USB device, its pratical to divide the initial steps needed into :
+ @li @ref usb_device_connection
+ @li @ref usb_device_enumeration
 
-  @n @subsection usb_device_connection Device connection
+ @n @subsection usb_device_connection Device connection
 
-    This framework can be used to establish a device connection.
-    @verbatim
+  This framework can be used to establish a device connection.
+  @verbatim
 
 // Initialize USB host stack
 USBH_Init( &is );
@@ -2504,10 +2540,10 @@ for (;;)
   USBH_Stop();
 }@endverbatim
 
-  @n @subsection usb_device_enumeration Device enumeration and configuration
+ @n @subsection usb_device_enumeration Device enumeration and configuration
 
-    This framework can be used to enumerate and activate the device.
-    @verbatim
+  This framework can be used to enumerate and activate the device.
+  @verbatim
 
   // Enumerate device, retrieve device and configuration descriptors from device
   USBH_QueryDeviceB( tmpBuf, sizeof( tmpBuf ), USBH_GetPortSpeed() );
@@ -2540,207 +2576,208 @@ for (;;)
 
 @n @section usb_host_api The host stack API
 
-  @li @ref usb_host_apiintro
-  @li @ref usb_host_init
-  @li @ref usb_host_transfer
-  @li @ref usb_host_ch9
-  @li @ref usb_host_port
-  @li @ref usb_host_enum
-  @li @ref usb_host_print
+ @li @ref usb_host_apiintro
+ @li @ref usb_host_init
+ @li @ref usb_host_transfer
+ @li @ref usb_host_ch9
+ @li @ref usb_host_port
+ @li @ref usb_host_enum
+ @li @ref usb_host_print
 
-  @n @subsection usb_host_apiintro Introduction
-    This section contains brief descriptions of all functions in the API. You will
-    find detailed information on input and output parameters and return values by
-    clicking on the hyperlinked function names. It is also a good idea to study
-    the code in the USB demonstration projects.
+ @n @subsection usb_host_apiintro Introduction
+  This section contains brief descriptions of all functions in the API. You will
+  find detailed information on input and output parameters and return values by
+  clicking on the hyperlinked function names. It is also a good idea to study
+  the code in the USB demonstration projects.
 
-    Your application code must include one header file: @em em_usb.h.
+  Your application code must include one header file: @em em_usb.h.
 
-    The functions in the API come in two flavours, they are either blocking or
-    non-blocking. The blocking functions have an uppercase letter B at the end
-    of the function name. Blocking functions can not be called when interrupts
-    are disabled. Note that all API callback functions are called from within
-    the USB peripheral interrupt handler with interrupts disabled.
+  The functions in the API come in two flavours, they are either blocking or
+  non-blocking. The blocking functions have an uppercase letter B at the end
+  of the function name. Blocking functions can not be called when interrupts
+  are disabled. Note that all API callback functions are called from within
+  the USB peripheral interrupt handler with interrupts disabled.
 
-    The USB stack use a hardware timer to keep track of time. TIMER0 is the
-    default choice, refer to @ref usb_host_conf for other possibilities.
-    Your application must not use the selected timer.
+  The USB stack use a hardware timer to keep track of time. TIMER0 is the
+  default choice, refer to @ref usb_host_conf for other possibilities.
+  Your application must not use the selected timer.
 
-    <b>Pitfalls:</b>@n
-      An USB peripheral will fill host receive buffers in quantities of WORD's
-      (4 bytes). When allocating storage for receive buffers, round size up to
-      next WORD boundary. If it is possible that a device will send more data
-      than host expects, round buffer size up to the next multiple of
-      maxpacket size for the relevant endpoint to avoid buffer overflow. @n
-      Transmit and receive buffers must also be WORD aligned. Macros are available
-      for allocating buffers, see @ref UBUF and @ref STATIC_UBUF.
+  <b>Pitfalls:</b>@n
+    An USB peripheral will fill host receive buffers in quantities of WORD's
+    (4 bytes). When allocating storage for receive buffers, round size up to
+    next WORD boundary. If it is possible that a device will send more data
+    than host expects, round buffer size up to the next multiple of
+    maxpacket size for the relevant endpoint to avoid buffer overflow. @n
+    Transmit and receive buffers must also be WORD aligned. Macros are available
+    for allocating buffers, see @ref UBUF and @ref STATIC_UBUF.
 
-      Transmit buffers passed to non-blocking transfer functions must be
-      statically allocated because these functions do not have their own buffers.
-      The data in the transmit buffers must be valid until the transfer completes,
-      times out or fails.
+    Transmit buffers passed to non-blocking transfer functions must be
+    statically allocated because these functions do not have their own buffers.
+    The data in the transmit buffers must be valid until the transfer completes,
+    times out or fails.
 
-  @n @subsection usb_host_init Top level control functions
-    @ref USBH_Init() @n
-      Initial host stack initialization, call once in start of main().
+ @n @subsection usb_host_init Top level control functions
+  @ref USBH_Init() @n
+    Initial host stack initialization, call once in start of main().
 
-    @ref USBH_Stop() @n
-      Terminates host operation, turns off VBUS.
+  @ref USBH_Stop() @n
+    Terminates host operation, turns off VBUS.
 
-    @ref USBH_WaitForDeviceConnectionB() @n
-      Wait for device connection with optional timeout.
+  @ref USBH_WaitForDeviceConnectionB() @n
+    Wait for device connection with optional timeout.
 
-    @ref USBH_AssignHostChannel() @n
-      Associate a device endpoint with a host channel.
+  @ref USBH_AssignHostChannel() @n
+    Associate a device endpoint with a host channel.
 
-  @n @subsection usb_host_transfer USB transfer functions
-    @ref USBH_ControlMsg(), @ref USBH_ControlMsgB() @n
-      Perform a non-blocking or blocking USB control message transfer.
+ @n @subsection usb_host_transfer USB transfer functions
+  @ref USBH_ControlMsg(), @ref USBH_ControlMsgB() @n
+    Perform a non-blocking or blocking USB control message transfer.
 
-    @ref USBH_Read(), @ref USBH_ReadB() @n
-      Perform a non-blocking or blocking USB IN data transfer. Data direction is
-      @em from device @em to host.
+  @ref USBH_Read(), @ref USBH_ReadB() @n
+    Perform a non-blocking or blocking USB IN data transfer. Data direction is
+    @em from device @em to host.
 
-    @ref USBH_Write(), @ref USBH_WriteB() @n
-      Perform a non-blocking or blocking USB OUT data transfer. Data direction is
-      @em from host @em to device.
+  @ref USBH_Write(), @ref USBH_WriteB() @n
+    Perform a non-blocking or blocking USB OUT data transfer. Data direction is
+    @em from host @em to device.
 
-  @n @subsection usb_host_ch9 USB Chapter 9 support functions
-    All Chapter 9 support functions are blocking with a timeout of 1 second.
+ @n @subsection usb_host_ch9 USB Chapter 9 support functions
+  All Chapter 9 support functions are blocking with a timeout of 1 second.
 
-    @ref USBH_GetConfigurationDescriptorB() @n
-      Read a configuration descriptor from a device.
+  @ref USBH_GetConfigurationDescriptorB() @n
+    Read a configuration descriptor from a device.
 
-    @ref USBH_GetDeviceDescriptorB() @n
-      Read a device descriptor from a device.
+  @ref USBH_GetDeviceDescriptorB() @n
+    Read a device descriptor from a device.
 
-    @ref USBH_GetStringB() @n
-      Read a string descriptor from a device.
+  @ref USBH_GetStringB() @n
+    Read a string descriptor from a device.
 
-    @ref USBH_SetAddressB() @n
-      Set new USB device address on device currently on USB address 0.
+  @ref USBH_SetAddressB() @n
+    Set new USB device address on device currently on USB address 0.
 
-    @ref USBH_SetAltInterfaceB() @n
-      Set alternate interface on a device.
+  @ref USBH_SetAltInterfaceB() @n
+    Set alternate interface on a device.
 
-    @ref USBH_SetConfigurationB() @n
-      Set device configuration.
+  @ref USBH_SetConfigurationB() @n
+    Set device configuration.
 
-    @ref USBH_StallEpB(), @ref USBH_UnStallEpB() @n
-      These functions stalls or un-stalls an endpoint. Uses USB standard
-      requests SET_FEATURE and CLEAR_FEATURE.
+  @ref USBH_StallEpB(), @ref USBH_UnStallEpB() @n
+    These functions stalls or un-stalls an endpoint. Uses USB standard
+    requests SET_FEATURE and CLEAR_FEATURE.
 
-  @n @subsection usb_host_port Host port control functions
+ @n @subsection usb_host_port Host port control functions
 
-    @ref USBH_DeviceConnected() @n
-      Check if a device is connected on the USB host port.
+  @ref USBH_DeviceConnected() @n
+    Check if a device is connected on the USB host port.
 
-    @ref USBH_GetPortSpeed() @n
-      Get the bus speed (low speed or full speed) of the device currently
-      connected to the USB host port.
+  @ref USBH_GetPortSpeed() @n
+    Get the bus speed (low speed or full speed) of the device currently
+    connected to the USB host port.
 
-    @ref USBH_PortReset() @n
-      Drive reset signalling on the USB host port.
+  @ref USBH_PortReset() @n
+    Drive reset signalling on the USB host port.
 
-    @ref USBH_PortResume() @n
-      Drive resume signalling on the USB host port.
+  @ref USBH_PortResume() @n
+    Drive resume signalling on the USB host port.
 
-    @ref USBH_PortSuspend() @n
-      Set the USB host port in suspend mode.
+  @ref USBH_PortSuspend() @n
+    Set the USB host port in suspend mode.
 
-  @n @subsection usb_host_enum Enumeration and query functions
-      @ref USBH_QueryDeviceB() @n
-        This function will read the device and configuration descriptors
-        from a device at USB address 0. The application must allocate a buffer
-        of sufficent size to hold the data. This data buffer can later be
-        used by all USBH_Q<em>xxx</em> functions to retrieve pointers to
-        any descriptor within any configuration descriptor. Data retrieved
-        by this function must also be passed to @htmlonly USBH_InitDeviceData()
-        @endhtmlonly before normal device communication can start.
-        Ref. section @ref usb_device_enumeration.
+ @n @subsection usb_host_enum Enumeration and query functions
 
-      @ref USBH_QGetConfigurationDescriptor() @n
-        Get a pointer to a given configuration descriptor. Parses through a
-        data buffer which must have been previously populated by a call to
-        @htmlonly USBH_QueryDeviceB() @endhtmlonly.
+  @ref USBH_QueryDeviceB() @n
+   This function will read the device and configuration descriptors
+   from a device at USB address 0. The application must allocate a buffer
+   of sufficent size to hold the data. This data buffer can later be
+   used by all USBH_Q<em>xxx</em> functions to retrieve pointers to
+   any descriptor within any configuration descriptor. Data retrieved
+   by this function must also be passed to @htmlonly USBH_InitDeviceData()
+   @endhtmlonly before normal device communication can start.
+   Ref. section @ref usb_device_enumeration.
 
-      @ref USBH_QGetDeviceDescriptor() @n
-        Get a pointer to the device descriptor. Parses through a data buffer
-        which must have been previously populated by a call to @htmlonly
-        USBH_QueryDeviceB() @endhtmlonly.
+  @ref USBH_QGetConfigurationDescriptor() @n
+   Get a pointer to a given configuration descriptor. Parses through a
+   data buffer which must have been previously populated by a call to
+   @htmlonly USBH_QueryDeviceB(). @endhtmlonly
 
-      @ref USBH_QGetEndpointDescriptor() @n
-        Get a pointer to a given endpoint descriptor within a given interface
-        within a given configuration. Parses through a data buffer which must
-        have been previously populated by a call to @htmlonly USBH_QueryDeviceB().
-        @endhtmlonly
+  @ref USBH_QGetDeviceDescriptor() @n
+   Get a pointer to the device descriptor. Parses through a data buffer
+   which must have been previously populated by a call to @htmlonly
+   USBH_QueryDeviceB(). @endhtmlonly
 
-      @ref USBH_QGetInterfaceDescriptor() @n
-        Get a pointer to an interface descriptor within a given configuration.
-        Parses through a data buffer which must have been previously populated
-        by a call to @htmlonly USBH_QueryDeviceB() @endhtmlonly.
+  @ref USBH_QGetEndpointDescriptor() @n
+   Get a pointer to a given endpoint descriptor within a given interface
+   within a given configuration. Parses through a data buffer which must
+   have been previously populated by a call to @htmlonly USBH_QueryDeviceB().
+   @endhtmlonly
 
-      @ref USBH_InitDeviceData() @n
-        Populates device and endpoint data structures with data which must
-        have been retrieved from a device by a call to
-        @htmlonly USBH_QueryDeviceB() @endhtmlonly.
-        The application must allocate and provide device and endpoint data
-        structures to the host stack.
-        After this function is called the device and endpoint data structures
-        can be used as parameters (@em handles) to other API functions as needed.
+  @ref USBH_QGetInterfaceDescriptor() @n
+   Get a pointer to an interface descriptor within a given configuration.
+   Parses through a data buffer which must have been previously populated
+   by a call to @htmlonly USBH_QueryDeviceB(). @endhtmlonly
 
-  @n @subsection usb_host_print Utility functions
+  @ref USBH_InitDeviceData() @n
+   Populates device and endpoint data structures with data which must
+   have been retrieved from a device by a call to
+   @htmlonly USBH_QueryDeviceB() @endhtmlonly.
+   The application must allocate and provide device and endpoint data
+   structures to the host stack.
+   After this function is called the device and endpoint data structures
+   can be used as parameters (@em handles) to other API functions as needed.
 
-      @ref USBH_PrintString() @n
-        Print an USB string descriptor on the debug serial port with optional leader
-        and trailer strings.
+ @n @subsection usb_host_print Utility functions
 
-      @ref USBH_PrintConfigurationDescriptor(),
-      @ref USBH_PrintDeviceDescriptor(),
-      @ref USBH_PrintEndpointDescriptor(),
-      @ref USBH_PrintInterfaceDescriptor() @n
-        Pretty print descriptors on the debug serial port.
+  @ref USBH_PrintString() @n
+    Print an USB string descriptor on the debug serial port with optional leader
+    and trailer strings.
 
-      USB_PUTCHAR() @n Transmit a single char on the debug serial port.
+  @ref USBH_PrintConfigurationDescriptor(),
+  @ref USBH_PrintDeviceDescriptor(),
+  @ref USBH_PrintEndpointDescriptor(),
+  @ref USBH_PrintInterfaceDescriptor() @n
+    Pretty print descriptors on the debug serial port.
 
-      USB_PUTS() @n Transmit a zero terminated string on the debug serial port.
+  USB_PUTCHAR() @n Transmit a single char on the debug serial port.
 
-      USB_PRINTF() @n Transmit "printf" formated data on the debug serial port.
+  USB_PUTS() @n Transmit a zero terminated string on the debug serial port.
 
-      USB_GetErrorMsgString() @n Return an error message string for a given
-      error code.
+  USB_PRINTF() @n Transmit "printf" formated data on the debug serial port.
 
-      USB_PrintErrorMsgString() @n Format and print a text string given an
-      error code, prepends an optional user supplied leader string.
+  USB_GetErrorMsgString() @n Return an error message string for a given
+  error code.
 
-      USBTIMER_DelayMs() @n Active wait millisecond delay function. Can also be
-      used inside interrupt handlers.
+  USB_PrintErrorMsgString() @n Format and print a text string given an
+  error code, prepends an optional user supplied leader string.
 
-      USBTIMER_DelayUs() @n Active wait microsecond delay function. Can also be
-      used inside interrupt handlers.
+  USBTIMER_DelayMs() @n Active wait millisecond delay function. Can also be
+  used inside interrupt handlers.
 
-      USBTIMER_Init() @n Initialize the timer system. Called by @htmlonly
-      USBH_Init(), @endhtmlonly but your application must call it again to
-      reinitialize whenever you change the HFPERCLK frequency.
+  USBTIMER_DelayUs() @n Active wait microsecond delay function. Can also be
+  used inside interrupt handlers.
 
-      USBTIMER_Start() @n Start a timer. You can configure the USB device stack
-      to provide any number of timers. The timers have 1 ms resolution, your
-      application is notified of timeout by means of a callback.
+  USBTIMER_Init() @n Initialize the timer system. Called by @htmlonly
+  USBH_Init(), @endhtmlonly but your application must call it again to
+  reinitialize whenever you change the HFPERCLK frequency.
 
-      USBTIMER_Stop() @n Stop a timer.
+  USBTIMER_Start() @n Start a timer. You can configure the USB device stack
+  to provide any number of timers. The timers have 1 ms resolution, your
+  application is notified of timeout by means of a callback.
+
+  USBTIMER_Stop() @n Stop a timer.
 
 @n @section usb_host_conf Configuring the host stack
 
-  Your application must provide a header file named @em usbconfig.h. This file
-  must contain the following \#define's:@n @n
-  @verbatim
+ Your application must provide a header file named @em usbconfig.h. This file
+ must contain the following \#define's:@n @n
+ @verbatim
 #define USB_HOST         // Compile the stack for host mode.
 #define NUM_HC_USED n    // Your application use 'n' host channels in addition
                          // to channels 0 and 1 which are assigned by the
                          // host stack for device endpoint 0 communication. @endverbatim
 
-  @n @em usbconfig.h may define the following items: @n @n
-  @verbatim
+ @n @em usbconfig.h may define the following items: @n @n
+ @verbatim
 #define NUM_APP_TIMERS n // Your application needs 'n' timers
 
 #define DEBUG_USB_API    // Turn on API debug diagnostics.
@@ -2759,31 +2796,31 @@ extern int RETARGET_WriteChar(char c);
                               // corresponding to TIMER0, TIMER1, ...
                               // If not specified, TIMER0 is used @endverbatim
 
-  @n You are strongly encouraged to start application development with DEBUG_USB_API
-  turned on. When DEBUG_USB_API is turned on and USER_PUTCHAR is defined, useful
-  debugging information will be output on the development kit serial port.
-  Compiling with the DEBUG_EFM_USER flag will also enable all asserts
-  in both @em emlib and in the USB stack. If asserts are enabled and
-  USER_PUTCHAR defined, assert texts will be output on the serial port.
+ @n You are strongly encouraged to start application development with DEBUG_USB_API
+ turned on. When DEBUG_USB_API is turned on and USER_PUTCHAR is defined, useful
+ debugging information will be output on the development kit serial port.
+ Compiling with the DEBUG_EFM_USER flag will also enable all asserts
+ in both @em emlib and in the USB stack. If asserts are enabled and
+ USER_PUTCHAR defined, assert texts will be output on the serial port.
 
-  You application must include @em retargetserial.c if DEBUG_USB_API is defined
-  and @em retargetio.c if USB_USE_PRINTF is defined.
-  These files reside in the @em drivers
-  directory in the software package for your development board.
+ You application must include @em retargetserial.c if DEBUG_USB_API is defined
+ and @em retargetio.c if USB_USE_PRINTF is defined.
+ These files reside in the @em drivers
+ directory in the software package for your development board.
 
-  @n The host stack can be configured to monitor a GPIO input pin for detection
-  of VBUS overcurrent or short circuit conditions. The stack will by default
-  use pin 2 on PortE and low polarity for this purpose.
-  Override by using the following three \#define's:
-  @n @n @verbatim
+ @n The host stack can be configured to monitor a GPIO input pin for detection
+ of VBUS overcurrent or short circuit conditions. The stack will by default
+ use pin 2 on PortE and low polarity for this purpose.
+ Override by using the following three \#define's:
+ @n @n @verbatim
 #define USB_VBUSOVRCUR_PORT       gpioPortB       // The port
 #define USB_VBUSOVRCUR_PIN        7               // The pin number within the port
 #define USB_VBUSOVRCUR_POLARITY   USB_VBUSOVRCUR_POLARITY_LOW @endverbatim
 
-  Select any GPIO port for <b>USB_VBUSOVRCUR_PORT</b> or
-  <b>USB_VBUSOVRCUR_PORT_NONE</b> if no overcurrent circuitry in the hw design.
-  For <b>USB_VBUSOVRCUR_POLARITY</b> use <b>USB_VBUSOVRCUR_POLARITY_LOW</b>
-  or <b>USB_VBUSOVRCUR_POLARITY_HIGH</b>.
+ Select any GPIO port for <b>USB_VBUSOVRCUR_PORT</b> or
+ <b>USB_VBUSOVRCUR_PORT_NONE</b> if no overcurrent circuitry in the hw design.
+ For <b>USB_VBUSOVRCUR_POLARITY</b> use <b>USB_VBUSOVRCUR_POLARITY_LOW</b>
+ or <b>USB_VBUSOVRCUR_POLARITY_HIGH</b>.
 
  * @}**************************************************************************/
 

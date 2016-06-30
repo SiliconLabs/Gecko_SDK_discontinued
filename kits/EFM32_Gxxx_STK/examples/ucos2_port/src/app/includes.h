@@ -23,7 +23,7 @@
 *
 * @file   includes.h
 * @brief
-* @version 4.3.0
+* @version 4.4.0
 ******************************************************************************
 * @section License
 * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -92,6 +92,7 @@ extern "C" {
 *********************************************************************************************************
 */
 #include <bsp.h>
+#include <bsp_trace.h>
 #include <segmentlcd.h>
 
 
@@ -121,8 +122,6 @@ extern "C" {
 *                                          MACRO DEFINITIONS
 *********************************************************************************************************
 */
-/* Uncomment this macro definition if USART0 is connected to your STK board! */
- #define USART_CONNECTED
 
 
 /*
@@ -131,8 +130,8 @@ extern "C" {
 *********************************************************************************************************
 */
 
-/* declaration of global mailbox object for inter-task communication */
-extern OS_EVENT *pSerialMsgObj;
+/* declaration of global queue object for inter-task communication */
+extern OS_EVENT *pSerialQueObj;
 
 
 #endif /* end of OS_MASTER_FILE */

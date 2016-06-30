@@ -23,7 +23,7 @@
 *
 * @file   app.c
 * @brief
-* @version 4.3.0
+* @version 4.4.0
 ******************************************************************************
 * @section License
 * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -219,12 +219,6 @@ static void App_TaskStart(void *p_arg)
   /* Write welcome message on LCD                         */
   SegmentLCD_Write("uC/OS-3");
 
-/* As USART connectors are not available on the STK by default,
- * therefore printf() functions are turned off.
- * Uncomment the macro definition in includes.h if serial
- * is connected to your STK board (USART1 or LEUART0)!    */
-#ifdef USART_CONNECTED
-
   /* Initialize serial port                               */
   RETARGET_SerialInit();
   RETARGET_SerialCrLf(1);
@@ -254,8 +248,6 @@ static void App_TaskStart(void *p_arg)
   printf("\nTask3: Receives message from Task2 and writes it on LCD and serial.");
   printf("\n*****************************************************************************\n");
   printf("\nStart typing...\n");
-
-#endif /* end of #ifndef USART_CONNECTED */
 
   /* Suspend this task as it is only used once in one Reset cycle */
   OSTaskSuspend(&AppTaskStartTCB, &err);

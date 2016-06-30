@@ -2,7 +2,7 @@
  * @file displayfont6x8.h
  * @brief 6x8 font with all characters
  *
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>

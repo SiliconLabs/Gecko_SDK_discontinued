@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efr32bg1p_fpueh.h
  * @brief EFR32BG1P_FPUEH register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -40,11 +40,11 @@
  *****************************************************************************/
 typedef struct
 {
-  __I uint32_t  IF;  /**< Interrupt Flag Register  */
-  __IO uint32_t IFS; /**< Interrupt Flag Set Register  */
-  __IO uint32_t IFC; /**< Interrupt Flag Clear Register  */
-  __IO uint32_t IEN; /**< Interrupt Enable Register  */
-} FPUEH_TypeDef;     /** @} */
+  __IM uint32_t  IF;  /**< Interrupt Flag Register  */
+  __IOM uint32_t IFS; /**< Interrupt Flag Set Register  */
+  __IOM uint32_t IFC; /**< Interrupt Flag Clear Register  */
+  __IOM uint32_t IEN; /**< Interrupt Enable Register  */
+} FPUEH_TypeDef;      /** @} */
 
 /**************************************************************************//**
  * @defgroup EFR32BG1P_FPUEH_BitFields

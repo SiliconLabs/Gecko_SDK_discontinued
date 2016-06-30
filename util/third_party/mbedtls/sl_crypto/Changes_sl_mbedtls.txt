@@ -1,4 +1,29 @@
 ================ Revision history ============================================
+4.4.0:
+ - Added CMAC support with a Silicon Labs specific API (slcl_cmac.c).
+   CMAC is not covered by the standard mbedtls interface.
+   The CMAC plugin use the CRYPTO hardware module for acceleration.
+ - Added CCM plugin (slcl_ccm.c) with CRYPTO hardware acceleration and
+   optimized CCM functions for BLE (mbedtls_ccm_encrypt_and_tag_ble and
+   mbedtls_ccm_auth_decrypt_ble).
+ - Added CRYPTO preemption support in the following plugins:
+   slcl_aes.c, slcl_ccm.c, slcl_cmac.c, slcl_ecp.c, slcl_sha1.c and
+   slcl_sha256.c.
+ - Added support for alternative CRYPTO critical region implementations
+   (for the CRYPTO preemption support).
+ - Added support for asynchronous (non-blocking) API calls in the following
+   plugins: slcl_aes.c, slcl_ccm.c and slcl_cmac.c. 
+ - Added support for moving data with BUFC and DMA (to/from CRYPTO registers)
+   in the following plugins: slcl_aes.c and slcl_ccm.c.
+ - In order to support error codes in new SIlicon Labs specific APIs
+   extended error code interface of the standard mbedtls by using the full
+   32-bit integer range, see details in mbedtls_ecode.h.
+ - Added support for AES module on EFM32GG (Giant Gecko) in slcl_aes.c.
+   Compile with MBEDTLS_SLCL_PLUGINS in order to enable EFM32GG support.
+
+4.3.1:
+ - No changes.
+
 4.3.0:
  - Updated to mbedtls-2.2.0 including EC JPAKE support.
  - sl_aes.c:
@@ -25,7 +50,7 @@
  - Added sl_timing.c and timing_alt.h in order to compiler modules depending on
    MBEDTLS_TIMING_C. The user should #define MBEDTLS_TIMING_ALT in order to
    compile.
- 
+
 4.2.1:
  - No changes.
 

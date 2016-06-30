@@ -688,7 +688,11 @@ cleanup:
 /*
  * Set a group using well-known domain parameters
  */
+#if defined( MBEDTLS_ECP_GROUP_LOAD_ALT )
+int _mbedtls_ecp_group_load( mbedtls_ecp_group *grp, mbedtls_ecp_group_id id )
+#else
 int mbedtls_ecp_group_load( mbedtls_ecp_group *grp, mbedtls_ecp_group_id id )
+#endif
 {
     mbedtls_ecp_group_free( grp );
 

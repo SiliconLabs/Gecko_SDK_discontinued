@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_crypto.c
  * @brief Cryptography accelerator peripheral API
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -407,7 +407,7 @@ void CRYPTO_SHA_1(CRYPTO_TypeDef *             crypto,
                   CRYPTO_SHA1_Digest_TypeDef   msgDigest)
 {
   uint32_t  temp;
-  int       len;
+  uint32_t  len;
   int       blockLen;
   uint32_t  shaBlock[CRYPTO_SHA1_BLOCK_SIZE_IN_32BIT_WORDS]=
   {
@@ -537,7 +537,7 @@ void CRYPTO_SHA_256(CRYPTO_TypeDef *             crypto,
                     CRYPTO_SHA256_Digest_TypeDef msgDigest)
 {
   uint32_t  temp;
-  int       len;
+  uint32_t  len;
   int       blockLen;
   uint32_t  shaBlock[CRYPTO_SHA256_BLOCK_SIZE_IN_32BIT_WORDS]=
   {

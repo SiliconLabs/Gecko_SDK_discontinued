@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efr32mg1v_rmu.h
  * @brief EFR32MG1V_RMU register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -40,12 +40,12 @@
  *****************************************************************************/
 typedef struct
 {
-  __IO uint32_t CTRL;     /**< Control Register  */
-  __I uint32_t  RSTCAUSE; /**< Reset Cause Register  */
-  __IO uint32_t CMD;      /**< Command Register  */
-  __IO uint32_t RST;      /**< Reset Control Register  */
-  __IO uint32_t LOCK;     /**< Configuration Lock Register  */
-} RMU_TypeDef;            /** @} */
+  __IOM uint32_t CTRL;     /**< Control Register  */
+  __IM uint32_t  RSTCAUSE; /**< Reset Cause Register  */
+  __IOM uint32_t CMD;      /**< Command Register  */
+  __IOM uint32_t RST;      /**< Reset Control Register  */
+  __IOM uint32_t LOCK;     /**< Configuration Lock Register  */
+} RMU_TypeDef;             /** @} */
 
 /**************************************************************************//**
  * @defgroup EFR32MG1V_RMU_BitFields

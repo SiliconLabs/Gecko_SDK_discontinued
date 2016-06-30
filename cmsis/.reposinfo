@@ -1,0 +1,4 @@
+reposname = s039_cmsisv3
+type = software
+repospath = /repos/s039_cmsisv3.git
+desc = CMSIS version 3 file structure

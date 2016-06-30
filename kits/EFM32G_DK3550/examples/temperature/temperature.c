@@ -6,7 +6,7 @@
  *   remember to enable by pressing AEM-button to KEYS: EFM.
  * @par Usage
  * @li Joystick Push toggles Celsius/Fahrenheit display mode.
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>

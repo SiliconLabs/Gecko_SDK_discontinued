@@ -23,7 +23,7 @@
 *
 * @file   app_task_two.c
 * @brief
-* @version 4.3.0
+* @version 4.4.0
 ******************************************************************************
 * @section License
 * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -53,25 +53,13 @@
 */
 void APP_TaskTwo(void *p_arg)
 {
-/* As USART connectors are not available on the STK by default,
- * therefore printf() functions are turned off.
- * Uncomment the macro definition in includes.h if serial
- * is connected to your STK board (USART1 or LEUART0)!    */
-#ifdef USART_CONNECTED
   int taskChar;                   // Character received.
-#endif /* end of #ifndef USART_CONNECTED */
 
   (void)p_arg;  /* Note(1) */
   OS_ERR err = OS_ERR_NONE;
 
   while (1)
   { /* Task body, always written as an infinite loop  */
-
-/* As USART connectors are not available on the STK by default,
- * therefore printf() functions are turned off.
- * Uncomment the macro definition in includes.h if serial
- * is connected to your STK board (USART1 or LEUART0)!    */
-#ifdef USART_CONNECTED
 
     /* Load character received on serial (USART0) to character buffer */
     taskChar = RETARGET_ReadChar();
@@ -91,8 +79,6 @@ void APP_TaskTwo(void *p_arg)
         /* Error has occured, handle can be done here */
       }
     }
-
-#endif /* end of #ifndef USART_CONNECTED */
 
     /* Delay task for 1 system tick (uC/OS-III suspends this task and executes
      * the next most important task) */

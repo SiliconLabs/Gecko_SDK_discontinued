@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_msc.c
  * @brief Flash controller (MSC) Peripheral API
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -56,6 +56,16 @@
 #define WORDS_PER_DATA_PHASE (FLASH_SIZE < (512 * 1024) ? 1 : 2)
 #else
 #define WORDS_PER_DATA_PHASE (1)
+#endif
+
+/* Fix for errata FLASH_E201 - Potential program failure after Power On */
+#if defined( _EFM32_JADE_FAMILY )        \
+    || defined( _EFM32_PEARL_FAMILY )    \
+    || defined( _EFR32_BLUE_FAMILY )     \
+    || defined( _EFR32_FLEX_FAMILY )     \
+    || defined( _EFR32_MIGHTY_FAMILY )   \
+    || defined( _EFR32_ZAPPY_FAMILY )
+#define ERRATA_FIX_FLASH_E201_EN
 #endif
 
 typedef enum {
@@ -658,6 +668,24 @@ MSC_Status_TypeDef MSC_WriteWordI(uint32_t *address,
     wordCount += pageWords;
     pData += pageWords;
   }
+
+#if defined( ERRATA_FIX_FLASH_E201_EN )
+  /* Fix for errata FLASH_E201 - Potential program failure after Power On.
+   *
+   * Check if the first word was programmed correctly. If a failure is detected
+   * then retry programming of the first word.
+   *
+   * Full description of errata can be found in the errata document */
+  pData = (uint32_t *) data;
+  if (*address != *pData)
+  {
+    retval = MSC_LoadVerifyAddress(address);
+    if (mscReturnOk == retval)
+    {
+      retval = MSC_LoadWriteData(pData, 1, writeStrategy);
+    }
+  }
+#endif
 
   /* Disable writing to the MSC */
   MSC->WRITECTRL &= ~MSC_WRITECTRL_WREN;

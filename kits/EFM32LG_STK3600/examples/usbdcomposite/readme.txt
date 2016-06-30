@@ -24,7 +24,7 @@ are specified.
 
 The CDC COM port function.
 ==========================
-Implements an USB CDC based virtual COM port. USART1 on the DK is used as the
+Implements an USB CDC based virtual COM port. USART1 on the STK is used as the
 physical COM port. Any data sent to the virtual CDC COM port is transmitted on
 USART1. Any data received on USART1 is transmitted to the virtual port.
 USART1 is available on the STK EXT port. EXT pin 4 is Tx, pin 6 is Rx.
@@ -48,7 +48,7 @@ insertion, or you can open "Device Manager", left click on one of functions
 of the new composite device (marked with yellow exclamation mark) and
 select "Update Driver Software...".
 After libusb is installed you can start EFM32-LedApp.exe to control leds on
-the DK.
+the STK.
 
 Similarly for the CDC function, direct Windows to look for a driver in the
 folder where you have your copy of the "EFM32-Cdc.inf" file (same folder as
@@ -59,12 +59,16 @@ as a "Ports" device in Device Manager, double-click it, select the
 "Port Settings" tab and maybe the "Advanced..." button to set serial port
 properties.
 
-
 Some versions of Windows wont allow you to install unsigned drivers. If you
-suspect this, reboot the PC and repeatedly push F8 during boot until the boot
-menu appears. Select the "Disable Driver Signature Enforcement" option.
-You should now be able to install unsigned drivers.
-
+suspect this, reboot the PC into "Disable Driver Signature Enforcement" mode.
+Win7:
+Repeatedly push F8 during boot until the boot menu appears.
+Select the "Disable Driver Signature Enforcement" option.
+Win10:
+Start Menu->Power button->Hold Shift key down and select Restart.
+When computer has restarted into the options menu, select:
+Troubleshoot->Advanced Option->Startup Settings->Restart->Disable driver signature enforcement
+You should now be able to install an unsigned driver.
 
 Board:  Silicon Labs EFM32LG-STK3600 Development Kit
 Device: EFM32LG990F256

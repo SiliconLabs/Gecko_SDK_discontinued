@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_dac.h
  * @brief Digital to Analog Converter (DAC) peripheral API
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>

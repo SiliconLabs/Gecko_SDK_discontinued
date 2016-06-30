@@ -1,4 +1,10 @@
 ================ Revision history ============================================
+4.4.0:
+- Improved NORFLASH programming algorithm.
+
+4.3.1:
+- No changes.
+
 4.3.0:
 - Added driver for CPT112S TouchXpress Capacitive Touch Controller.
 - Fixed bug in NORFLASH programming algorithm.

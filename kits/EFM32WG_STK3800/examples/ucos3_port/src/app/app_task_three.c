@@ -23,7 +23,7 @@
 *
 * @file   app_task_three.c
 * @brief
-* @version 4.3.0
+* @version 4.4.0
 ******************************************************************************
 * @section License
 * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -66,16 +66,10 @@ void APP_TaskThree(void *p_arg)
   OS_ERR err = OS_ERR_NONE;
   static int  ringPos = 0;
 
-/* As USART connectors are not available on the STK by default,
- * therefore printf() functions are turned off.
- * Uncomment the macro definition in includes.h if serial
- * is connected to your STK board (USART1 or LEUART0)!    */
-#ifdef USART_CONNECTED
   char indxChar;
   char MsgSize;
   int  msgContent;
   static char taskStringBuffer[APPDEF_LCD_TXT_SIZE+1U] = {'u','C','/','O','S','-','3','\0'};
-#endif /* end of #ifndef USART_CONNECTED */
 
 
   (void)p_arg; /* Note(1) */
@@ -94,12 +88,6 @@ void APP_TaskThree(void *p_arg)
 
     /* Turn updated ring segment on                   */
     SegmentLCD_ARing(ringPos, 1);
-
-/* As USART connectors are not available on the STK by default,
- * therefore printf() functions are turned off.
- * Uncomment the macro definition in includes.h if serial
- * is connected to your STK board (USART1 or LEUART0)!    */
-#ifdef USART_CONNECTED
 
     /* Non-blocking reception of a message */
     msgContent = (int)OSQPend((OS_Q         *) pSerialQueObj,
@@ -127,7 +115,6 @@ void APP_TaskThree(void *p_arg)
       /* Write the string on LCD */
       SegmentLCD_Write(taskStringBuffer);
     }
-#endif /* end of #ifndef USART_CONNECTED */
 
     /* Delay with 100msec                             */
     OSTimeDlyHMSM(0U, 0U, 0U, 100U, (OS_OPT_TIME_DLY | OS_OPT_TIME_HMSM_STRICT), &err);

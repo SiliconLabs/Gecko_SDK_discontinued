@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_emu.c
  * @brief Energy Management Unit (EMU) Peripheral API
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -101,12 +101,22 @@
 #if defined( _EFM32_HAPPY_FAMILY )
 #define ERRATA_FIX_EMU_E108_EN
 #endif
+
+/* Fix for errata EMU_E208 - Occasional Full Reset After Exiting EM4H */
+#if defined( _EFM32_JADE_FAMILY )        \
+    || defined( _EFM32_PEARL_FAMILY )    \
+    || defined( _EFR32_BLUE_FAMILY )     \
+    || defined( _EFR32_FLEX_FAMILY )     \
+    || defined( _EFR32_MIGHTY_FAMILY )   \
+    || defined( _EFR32_ZAPPY_FAMILY )
+#define ERRATA_FIX_EMU_E208_EN
+#endif
 /** @endcond */
 
 
 #if defined( _EMU_DCDCCTRL_MASK )
 /* DCDCTODVDD output range min/max */
-#define PWRCFG_DCDCTODVDD_VMIN          1200
+#define PWRCFG_DCDCTODVDD_VMIN          1800
 #define PWRCFG_DCDCTODVDD_VMAX          3000
 typedef enum
 {
@@ -137,6 +147,7 @@ static uint16_t cmuHfclkStatus;
 #endif
 #if defined( _EMU_DCDCCTRL_MASK )
 static uint16_t dcdcMaxCurrent_mA;
+static uint16_t dcdcEm01LoadCurrent_mA;
 static EMU_DcdcLnReverseCurrentControl_TypeDef dcdcReverseCurrentControl;
 #endif
 
@@ -214,6 +225,18 @@ static void emuRestore(void)
       /* Wait for HFXO to stabilize */
       while (!(CMU->STATUS & CMU_STATUS_HFXORDY))
         ;
+#if defined( _CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_MASK )
+      if (BUS_RegMaskedRead(&CMU->HFXOCTRL,
+                            _CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_MASK)
+          == CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_AUTOCMD)
+      {
+        while (BUS_RegMaskedRead(&CMU->STATUS,
+                                _CMU_STATUS_HFXOSHUNTOPTRDY_MASK
+                                | _CMU_STATUS_HFXOPEAKDETRDY_MASK)
+               != (CMU_STATUS_HFXOSHUNTOPTRDY | CMU_STATUS_HFXOPEAKDETRDY))
+          ;
+      }
+#endif
       CMU->HFCLKSEL = CMU_HFCLKSEL_HF_HFXO;
       break;
 
@@ -647,6 +670,30 @@ void EMU_EnterEM4(void)
   /* Make sure register write lock is disabled */
   EMU_Unlock();
 
+#if defined( _EMU_EM4CTRL_MASK )
+  if ((EMU->EM4CTRL & _EMU_EM4CTRL_EM4STATE_MASK) == EMU_EM4CTRL_EM4STATE_EM4S)
+  {
+    uint32_t dcdcMode = EMU->DCDCCTRL & _EMU_DCDCCTRL_DCDCMODE_MASK;
+    if (dcdcMode == EMU_DCDCCTRL_DCDCMODE_LOWNOISE
+        || dcdcMode == EMU_DCDCCTRL_DCDCMODE_LOWPOWER)
+    {
+      /* DCDC is not supported in EM4S so we switch DCDC to bypass mode before
+       * entering EM4S */
+      EMU_DCDCModeSet(emuDcdcMode_Bypass);
+    }
+  }
+#endif
+
+#if defined( _EMU_EM4CTRL_MASK ) && defined( ERRATA_FIX_EMU_E208_EN )
+  if (EMU->EM4CTRL & EMU_EM4CTRL_EM4STATE_EM4H)
+  {
+    /* Fix for errata EMU_E208 - Occasional Full Reset After Exiting EM4H.
+     * Full description of errata fix can be found in the errata document. */
+    *(volatile uint32_t *)(EMU_BASE + 0x190) = 0x0000ADE8UL;
+    *(volatile uint32_t *)(EMU_BASE + 0x198) |= (0x1UL << 7);
+  }
+#endif
+
 #if defined( ERRATA_FIX_EMU_E108_EN )
   /* Fix for errata EMU_E108 - High Current Consumption on EM4 Entry. */
   __disable_irq();
@@ -673,6 +720,35 @@ void EMU_EnterEM4(void)
 #endif
 }
 
+#if defined( _EMU_EM4CTRL_MASK )
+/***************************************************************************//**
+ * @brief
+ *   Enter energy mode 4 hibernate (EM4H).
+ *
+ * @note
+ *   Retention of clocks and GPIO in EM4 can be configured using
+ *   @ref EMU_EM4Init before calling this function.
+ ******************************************************************************/
+void EMU_EnterEM4H(void)
+{
+  BUS_RegBitWrite(&EMU->EM4CTRL, _EMU_EM4CTRL_EM4STATE_SHIFT, 1);
+  EMU_EnterEM4();
+}
+
+/***************************************************************************//**
+ * @brief
+ *   Enter energy mode 4 shutoff (EM4S).
+ *
+ * @note
+ *   Retention of clocks and GPIO in EM4 can be configured using
+ *   @ref EMU_EM4Init before calling this function.
+ ******************************************************************************/
+void EMU_EnterEM4S(void)
+{
+  BUS_RegBitWrite(&EMU->EM4CTRL, _EMU_EM4CTRL_EM4STATE_SHIFT, 0);
+  EMU_EnterEM4();
+}
+#endif
 
 /***************************************************************************//**
  * @brief
@@ -809,11 +885,11 @@ void EMU_EM4Init(EMU_EM4Init_TypeDef *em4Init)
                | _EMU_EM4CTRL_EM4STATE_MASK
                | _EMU_EM4CTRL_EM4IORETMODE_MASK);
 
-     em4ctrl |= (em4Init->retainLfxo     ? EMU_EM4CTRL_RETAINLFXO : 0)
-                | (em4Init->retainLfrco  ? EMU_EM4CTRL_RETAINLFRCO : 0)
-                | (em4Init->retainUlfrco ? EMU_EM4CTRL_RETAINULFRCO : 0)
-                | (em4Init->em4State     ? EMU_EM4CTRL_EM4STATE_EM4H : 0)
-                | (em4Init->pinRetentionMode);
+  em4ctrl |= (em4Init->retainLfxo     ? EMU_EM4CTRL_RETAINLFXO : 0)
+              | (em4Init->retainLfrco  ? EMU_EM4CTRL_RETAINLFRCO : 0)
+              | (em4Init->retainUlfrco ? EMU_EM4CTRL_RETAINULFRCO : 0)
+              | (em4Init->em4State     ? EMU_EM4CTRL_EM4STATE_EM4H : 0)
+              | (em4Init->pinRetentionMode);
 
   EMU->EM4CTRL = em4ctrl;
 #endif
@@ -1297,22 +1373,27 @@ bool EMU_DCDCInit(EMU_DCDCInit_TypeDef *dcdcInit)
     EFM_ASSERT(dcdcInit->em01LoadCurrent_mA <= 200);
   }
 
-  /* EM2/3/4 current above 1mA is not supported */
-  EFM_ASSERT(dcdcInit->em234LoadCurrent_uA <= 1000);
+  /* EM2/3/4 current above 10mA is not supported */
+  EFM_ASSERT(dcdcInit->em234LoadCurrent_uA <= 10000);
 
   /* Decode LP comparator bias for EM2/3/4 */
-  if (dcdcInit->em234LoadCurrent_uA <= 10)
+  if (dcdcInit->em234LoadCurrent_uA < 75)
   {
     lpCmpBiasSel  = EMU_DCDCMISCCTRL_LPCMPBIAS_BIAS0;
   }
-  else if (dcdcInit->em234LoadCurrent_uA <= 100)
+  else if (dcdcInit->em234LoadCurrent_uA < 500)
   {
     lpCmpBiasSel  = EMU_DCDCMISCCTRL_LPCMPBIAS_BIAS1;
   }
-  else
+  else if (dcdcInit->em234LoadCurrent_uA < 2500)
   {
     lpCmpBiasSel  = EMU_DCDCMISCCTRL_LPCMPBIAS_BIAS2;
   }
+  else
+  {
+    lpCmpBiasSel  = EMU_DCDCMISCCTRL_LPCMPBIAS_BIAS3;
+  }
+
 
   /* ==== THESE NEXT STEPS ARE STRONGLY ORDER DEPENDENT ==== */
 
@@ -1328,10 +1409,11 @@ bool EMU_DCDCInit(EMU_DCDCInit_TypeDef *dcdcInit)
         => Updates DCDCLNFREQCTRL_RCOBAND */
   ValidatedConfigSet();
 
-  /* 3. Updated static current limits user data.
+  /* 3. Updated static currents and limits user data.
         Limiters are updated in EMU_DCDCOptimizeSlice() */
   userCurrentLimitsSet(dcdcInit->maxCurrent_mA,
                        dcdcInit->reverseCurrentControl);
+  dcdcEm01LoadCurrent_mA = dcdcInit->em01LoadCurrent_mA;
 
   /* 4. Optimize LN slice based on given user input load current
         <= Depends on DCDCMISCCTRL_LNFORCECCM and DCDCLNFREQCTRL_RCOBAND
@@ -1672,6 +1754,9 @@ void EMU_DCDCLnRcoBandSet(EMU_DcdcLnRcoBand_TypeDef band)
 
   EMU->DCDCLNFREQCTRL = (EMU->DCDCLNFREQCTRL & ~_EMU_DCDCLNFREQCTRL_RCOBAND_MASK)
                          | (band << _EMU_DCDCLNFREQCTRL_RCOBAND_SHIFT);
+
+  /* Update slice configuration as this depends on the RCO band. */
+  EMU_DCDCOptimizeSlice(dcdcEm01LoadCurrent_mA);
 }
 
 /***************************************************************************//**

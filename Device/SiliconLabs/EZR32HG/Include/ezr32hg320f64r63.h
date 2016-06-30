@@ -2,7 +2,7 @@
  * @file ezr32hg320f64r63.h
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EZR32HG320F64R63
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>

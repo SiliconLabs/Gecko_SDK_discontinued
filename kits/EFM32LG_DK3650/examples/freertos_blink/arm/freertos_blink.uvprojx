@@ -359,7 +359,7 @@
             <NoWarn>0</NoWarn>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define></Define>
+              <Define>EFM32LG990F256 RVDS_ARMCM3_LM3S102 DEBUG_EFM</Define>
               <Undefine></Undefine>
               <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32LG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\emdrv\sleep\inc;..\..\..\..\common\bsp;..;..\..\..\..\..\reptile\FreeRTOS\Source\include;..\..\..\..\..\reptile\FreeRTOS\Source\portable\RVDS\ARM_CM3;..\..\..\config</IncludePath>
             </VariousControls>

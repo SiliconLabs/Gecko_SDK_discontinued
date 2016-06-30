@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efm32pg1b_dma_descriptor.h
  * @brief EFM32PG1B_DMA_DESCRIPTOR register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -39,12 +39,12 @@
  *****************************************************************************/
 typedef struct
 {
-  /* Note! Use of double __IO (volatile) qualifier to ensure that both */
+  /* Note! Use of double __IOM (volatile) qualifier to ensure that both */
   /* pointer and referenced memory are declared volatile. */
-  __IO uint32_t    CTRL;       /**< DMA control register */
-  __IO void * __IO SRC;        /**< DMA source address */
-  __IO void * __IO DST;        /**< DMA destination address */
-  __IO void * __IO LINK;       /**< DMA link address */
+  __IOM uint32_t     CTRL;     /**< DMA control register */
+  __IOM void * __IOM SRC;      /**< DMA source address */
+  __IOM void * __IOM DST;      /**< DMA destination address */
+  __IOM void * __IOM LINK;     /**< DMA link address */
 } DMA_DESCRIPTOR_TypeDef;      /**< @} */
 
 /** @} End of group Parts */

@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file nvm_config.c
  * @brief NVM driver configuration
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -150,7 +150,7 @@ NVM_Page_t const myPage6 =
 };
 
 /* Register all pages into the page table.
- * Assosiate each page to the page ID, and define the type of page. */
+ * Associate each page to the page ID, and define the type of page. */
 NVM_Page_Table_t const nvmPages =
 {
 /*{ Page ID,   Page pointer, Page type}, */

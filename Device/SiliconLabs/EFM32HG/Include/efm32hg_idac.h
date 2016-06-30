@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efm32hg_idac.h
  * @brief EFM32HG_IDAC register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -40,11 +40,11 @@
  *****************************************************************************/
 typedef struct
 {
-  __IO uint32_t CTRL;       /**< Control Register  */
-  __IO uint32_t CURPROG;    /**< Current Programming Register  */
-  __IO uint32_t CAL;        /**< Calibration Register  */
-  __IO uint32_t DUTYCONFIG; /**< Duty Cycle Configauration Register  */
-} IDAC_TypeDef;             /** @} */
+  __IOM uint32_t CTRL;       /**< Control Register  */
+  __IOM uint32_t CURPROG;    /**< Current Programming Register  */
+  __IOM uint32_t CAL;        /**< Calibration Register  */
+  __IOM uint32_t DUTYCONFIG; /**< Duty Cycle Configauration Register  */
+} IDAC_TypeDef;              /** @} */
 
 /**************************************************************************//**
  * @defgroup EFM32HG_IDAC_BitFields

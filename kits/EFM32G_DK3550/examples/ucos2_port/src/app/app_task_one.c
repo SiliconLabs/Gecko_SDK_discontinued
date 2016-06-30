@@ -23,7 +23,7 @@
 *
 * @file   app_task_one.c
 * @brief
-* @version 4.3.0
+* @version 4.4.0
 ******************************************************************************
 * @section License
 * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -56,7 +56,6 @@ void APP_TaskOne(void *p_arg)
 {
   static INT32U ledPos = 0; /* LED position variable  */
 
-
   (void)p_arg; /* Note(1) */
 
   while (1)
@@ -73,9 +72,5 @@ void APP_TaskOne(void *p_arg)
     {
       ledPos = 0; /* 3bit overflow */
     }
-
-    /* Delay task for 1 system tick (uC/OS-II suspends this task and executes
-     * the next most important task) */
-    OSTimeDly(1);
   }
 }

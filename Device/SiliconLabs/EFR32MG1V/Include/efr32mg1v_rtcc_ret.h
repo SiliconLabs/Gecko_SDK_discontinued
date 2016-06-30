@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efr32mg1v_rtcc_ret.h
  * @brief EFR32MG1V_RTCC_RET register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -38,7 +38,7 @@
  *****************************************************************************/
 typedef struct
 {
-  __IO uint32_t REG; /**< Retention register  */
+  __IOM uint32_t REG; /**< Retention register  */
 } RTCC_RET_TypeDef;
 
 /** @} End of group Parts */

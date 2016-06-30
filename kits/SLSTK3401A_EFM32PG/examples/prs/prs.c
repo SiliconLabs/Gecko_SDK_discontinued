@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file
  * @brief PRS Example for SLSTK3401A
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -101,10 +101,7 @@ static void setupGpio(void)
 
   /* Configure pin I/O - BTN0 on PF6 */
   GPIO_PinModeSet(gpioPortF, 6, gpioModeInput, 1);
-  GPIO->EXTIPSELL   = (GPIO->EXTIPSELL & ~_GPIO_EXTIPSELL_EXTIPSEL6_MASK)
-                       | GPIO_EXTIPSELL_EXTIPSEL6_PORTF;
-  GPIO->EXTIPINSELL = (GPIO->EXTIPINSELL & ~_GPIO_EXTIPINSELL_EXTIPINSEL6_MASK)
-                       | GPIO_EXTIPINSELL_EXTIPINSEL6_PIN6;
+  GPIO_ExtIntConfig(gpioPortF, 6, 6, false, false, false);
 }
 
 static void prsToggle(void)

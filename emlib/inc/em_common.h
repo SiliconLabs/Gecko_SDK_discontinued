@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_common.h
  * @brief General purpose utilities.
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -126,7 +126,7 @@ extern "C" {
 /** Macro for aligning a variable.
  *  @n Use this macro before the variable definition.
  *  @n X denotes the storage alignment value in bytes.
- *  @n To be gcc compatibele use SL_ATTRIBUTE_ALIGN(X) before the ; on normal
+ *  @n To be gcc compatible use SL_ATTRIBUTE_ALIGN(X) before the ; on normal
  *  variables. Use SL_ATTRIBUTE_ALIGN(X) before the opening { on struct variables.
  */
 #define SL_ALIGN(X)

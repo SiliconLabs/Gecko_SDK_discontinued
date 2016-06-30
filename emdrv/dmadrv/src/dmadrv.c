@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file dmadrv.c
  * @brief DMADRV API implementation.
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -227,7 +227,7 @@ Ecode_t DMADRV_FreeChannel( unsigned int channelId )
     return ECODE_EMDRV_DMADRV_NOT_INITIALIZED;
   }
 
-  if ( channelId > EMDRV_DMADRV_DMA_CH_COUNT )
+  if ( channelId >= EMDRV_DMADRV_DMA_CH_COUNT )
   {
     return ECODE_EMDRV_DMADRV_PARAM_ERROR;
   }
@@ -341,7 +341,7 @@ Ecode_t DMADRV_LdmaStartTransfer( int                channelId,
     return ECODE_EMDRV_DMADRV_NOT_INITIALIZED;
   }
 
-  if ( channelId > EMDRV_DMADRV_DMA_CH_COUNT )
+  if ( channelId >= EMDRV_DMADRV_DMA_CH_COUNT )
   {
     return ECODE_EMDRV_DMADRV_PARAM_ERROR;
   }
@@ -645,7 +645,7 @@ Ecode_t DMADRV_PauseTransfer( unsigned int channelId )
     return ECODE_EMDRV_DMADRV_NOT_INITIALIZED;
   }
 
-  if ( channelId > EMDRV_DMADRV_DMA_CH_COUNT )
+  if ( channelId >= EMDRV_DMADRV_DMA_CH_COUNT )
   {
     return ECODE_EMDRV_DMADRV_PARAM_ERROR;
   }
@@ -682,7 +682,7 @@ Ecode_t DMADRV_ResumeTransfer( unsigned int channelId )
     return ECODE_EMDRV_DMADRV_NOT_INITIALIZED;
   }
 
-  if ( channelId > EMDRV_DMADRV_DMA_CH_COUNT )
+  if ( channelId >= EMDRV_DMADRV_DMA_CH_COUNT )
   {
     return ECODE_EMDRV_DMADRV_PARAM_ERROR;
   }
@@ -719,7 +719,7 @@ Ecode_t DMADRV_StopTransfer( unsigned int channelId )
     return ECODE_EMDRV_DMADRV_NOT_INITIALIZED;
   }
 
-  if ( channelId > EMDRV_DMADRV_DMA_CH_COUNT )
+  if ( channelId >= EMDRV_DMADRV_DMA_CH_COUNT )
   {
     return ECODE_EMDRV_DMADRV_PARAM_ERROR;
   }
@@ -759,7 +759,7 @@ Ecode_t DMADRV_TransferActive( unsigned int channelId, bool *active )
     return ECODE_EMDRV_DMADRV_NOT_INITIALIZED;
   }
 
-  if ( ( channelId > EMDRV_DMADRV_DMA_CH_COUNT )
+  if ( ( channelId >= EMDRV_DMADRV_DMA_CH_COUNT )
        || ( active == NULL ) )
   {
     return ECODE_EMDRV_DMADRV_PARAM_ERROR;
@@ -811,7 +811,7 @@ Ecode_t DMADRV_TransferCompletePending( unsigned int channelId, bool *pending )
     return ECODE_EMDRV_DMADRV_NOT_INITIALIZED;
   }
 
-  if ( ( channelId > EMDRV_DMADRV_DMA_CH_COUNT )
+  if ( ( channelId >= EMDRV_DMADRV_DMA_CH_COUNT )
        || ( pending == NULL ) )
   {
     return ECODE_EMDRV_DMADRV_PARAM_ERROR;
@@ -868,7 +868,7 @@ Ecode_t DMADRV_TransferDone( unsigned int channelId, bool *done )
     return ECODE_EMDRV_DMADRV_NOT_INITIALIZED;
   }
 
-  if ( ( channelId > EMDRV_DMADRV_DMA_CH_COUNT )
+  if ( ( channelId >= EMDRV_DMADRV_DMA_CH_COUNT )
        || ( done == NULL ) )
   {
     return ECODE_EMDRV_DMADRV_PARAM_ERROR;
@@ -935,7 +935,7 @@ Ecode_t DMADRV_TransferRemainingCount( unsigned int channelId,
     return ECODE_EMDRV_DMADRV_NOT_INITIALIZED;
   }
 
-  if ( ( channelId > EMDRV_DMADRV_DMA_CH_COUNT )
+  if ( ( channelId >= EMDRV_DMADRV_DMA_CH_COUNT )
        || ( remaining == NULL ) )
   {
     return ECODE_EMDRV_DMADRV_PARAM_ERROR;
@@ -1105,7 +1105,7 @@ static Ecode_t StartTransfer( DmaMode_t             mode,
     return ECODE_EMDRV_DMADRV_NOT_INITIALIZED;
   }
 
-  if ( ( channelId > EMDRV_DMADRV_DMA_CH_COUNT )
+  if ( ( channelId >= EMDRV_DMADRV_DMA_CH_COUNT )
        || ( buf0 == NULL )
        || ( buf1 == NULL )
        || ( len > DMADRV_MAX_XFER_COUNT )
@@ -1273,7 +1273,7 @@ static Ecode_t StartTransfer( DmaMode_t             mode,
     return ECODE_EMDRV_DMADRV_NOT_INITIALIZED;
   }
 
-  if ( ( channelId > EMDRV_DMADRV_DMA_CH_COUNT )
+  if ( ( channelId >= EMDRV_DMADRV_DMA_CH_COUNT )
        || ( buf0 == NULL )
        || ( buf1 == NULL )
        || ( len > DMADRV_MAX_XFER_COUNT )

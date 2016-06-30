@@ -23,7 +23,7 @@
 *
 * @file   app_task_three.c
 * @brief
-* @version 4.3.0
+* @version 4.4.0
 ******************************************************************************
 * @section License
 * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -63,16 +63,11 @@
 */
 void APP_TaskThree(void *p_arg)
 {
-/* As USART connectors are not available on the STK by default,
- * therefore printf() functions are turned off.
- * Uncomment the macro definition in includes.h if serial
- * is connected to your STK board (USART1 or LEUART0)!    */
-#ifdef USART_CONNECTED
-  static char taskStringBuffer[APPDEF_LCD_TXT_SIZE+1U] = {'u','C','/','O','S','-','2','\0'};
-  char indxChar;
-  int  msgContent;
-#endif /* end of #ifndef USART_CONNECTED */
-  static int  ringPos = 0;
+  char text[APPDEF_LCD_TXT_SIZE+1U] = {'u','C','/','O','S','-','2','\0'};
+  int i;
+  int msgContent;
+  int ringPos = 0;
+  INT8U err;
 
   (void)p_arg; /* Note(1) */
 
@@ -91,41 +86,27 @@ void APP_TaskThree(void *p_arg)
     /* Turn updated ring segment on                   */
     SegmentLCD_ARing(ringPos, 1);
 
-/* As USART connectors are not available on the STK by default,
- * therefore printf() functions are turned off.
- * Uncomment the macro definition in includes.h if serial
- * is connected to your STK board (USART1 or LEUART0)!    */
-#ifdef USART_CONNECTED
-    msgContent = (int)OSMboxAccept(pSerialMsgObj);
+    msgContent = (int)OSQPend(pSerialQueObj, 1, &err);
 
     if ((void*)0 != (void*)msgContent)
     {
       /* Shift left the whole string by one... */
-      for (indxChar = 0; indxChar < APPDEF_LCD_TXT_SIZE; indxChar++)
+      for (i = 0; i < APPDEF_LCD_TXT_SIZE; i++)
       {
-        taskStringBuffer[indxChar] = taskStringBuffer[indxChar+1];
+        text[i] = text[i+1];
       }
 
       /* ...and concatenate the new character to the end */
-      taskStringBuffer[APPDEF_LCD_TXT_SIZE-1] = (char)msgContent;
+      text[APPDEF_LCD_TXT_SIZE-1] = (char)msgContent;
 
       /* Write the string on serial port      */
-      printf("\nBuffer: %s", taskStringBuffer);
+      printf("\nBuffer: %s", text);
 
       /* Write the string on LCD */
-      SegmentLCD_Write(taskStringBuffer);
+      SegmentLCD_Write(text);
     }
-#endif /* end of #ifndef USART_CONNECTED */
 
-
-
-
-    /* Delay with 100msec                           */
+    /* Delay with 100 ms */
     OSTimeDlyHMSM(0, 0, 0, 100);
-
-
-    /* Delay task for 1 system tick (uC/OS-II suspends this task and executes
-     * the next most important task) */
-    OSTimeDly(1);
   }
 }

@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_usb.h
  * @brief USB protocol stack library API for EFM32/EZR32.
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -39,6 +39,7 @@ extern "C" {
 #pragma anon_unions
 #endif
 
+#if defined(USB_HOST)
 /***************************************************************************//**
  * @addtogroup USB
  * @brief USB HOST and DEVICE protocol stacks.
@@ -51,6 +52,20 @@ extern "C" {
  *        and @ref usb_host pages for device and host library documentation.
  * @{
  ******************************************************************************/
+#else
+/***************************************************************************//**
+ * @addtogroup USB
+ * @brief USB DEVICE protocol stack.
+ * @{
+ ******************************************************************************/
+
+/***************************************************************************//**
+ * @addtogroup USB_COMMON
+ * @brief Common parts for both HOST and DEVICE USB stacks, see @ref usb_device
+ *        pages for device library documentation.
+ * @{
+ ******************************************************************************/
+#endif
 
 #define SILABS_USB_VID          0x10C4          /**< Silicon Labs Vendor ID, supplied by USB-IF.       */
 
@@ -536,7 +551,7 @@ SL_PACK_END()
  * @return
  *   The char transmitted.
  ******************************************************************************/
-int  USB_PUTCHAR(char c);
+int USB_PUTCHAR(char c);
 
 /***************************************************************************//**
  * @brief
@@ -565,8 +580,11 @@ void USB_PUTS(const char *p);
  *
  * @param[in] format
  *   Format string (as in printf). No floating point format support.
+ *
+ * @return
+ *   Number of chars transmitted.
  ******************************************************************************/
-int  USB_PRINTF(const char *format, ...);
+int USB_PRINTF(const char *format, ...);
 
 /** @} (end addtogroup USB_COMMON) */
 #endif /* defined(DOXY_DOC_ONLY) */
@@ -655,7 +673,7 @@ int  USB_PRINTF(const char *format, ...);
  * @return
  *   @ref USB_STATUS_OK on success, else an appropriate error code.
  ******************************************************************************/
-typedef int  (*USB_XferCompleteCb_TypeDef)(USB_Status_TypeDef status, uint32_t xferred, uint32_t remaining);
+typedef int (*USB_XferCompleteCb_TypeDef)(USB_Status_TypeDef status, uint32_t xferred, uint32_t remaining);
 
 /***************************************************************************//**
  * @brief
@@ -757,7 +775,7 @@ typedef bool (*USBD_IsSelfPoweredCb_TypeDef)(void);
  * @return
  *  An appropriate status/error code. See @ref USB_Status_TypeDef.
  ******************************************************************************/
-typedef int  (*USBD_SetupCmdCb_TypeDef)(const USB_Setup_TypeDef *setup);
+typedef int (*USBD_SetupCmdCb_TypeDef)(const USB_Setup_TypeDef *setup);
 
 /** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 struct USBD_Callbacks_TypeDef;

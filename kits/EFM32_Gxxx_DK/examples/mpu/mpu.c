@@ -3,7 +3,7 @@
  * @brief MPU example for EFM32_G2xx_DK and EFM32_G8xx_DK.
  *        Connect a terminal application with baudrate 9600-8-N-1
  *        on serial port B of the kit to run the demo.
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>

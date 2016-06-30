@@ -132,9 +132,10 @@ INCLUDEPATHS += \
 -I../../../../../CMSIS/Include \
 -I../../../../../Device/SiliconLabs/EFM32PG1B/Include \
 -I../../../../../emlib/inc \
+-I../../../../../emdrv/common/inc \
 -I../../../../../util/third_party/mbedtls/include \
 -I../../../../../util/third_party/mbedtls/include/mbedtls \
--I../../../../../util/third_party/mbedtls/sl_crypto \
+-I../../../../../util/third_party/mbedtls/sl_crypto/include \
 -I../../../../common/bsp \
 -I../../../../common/drivers \
 -I../../../config \
@@ -203,10 +204,10 @@ C_SRC +=  \
 ../../../../../emlib/src/em_gpio.c \
 ../../../../../emlib/src/em_int.c \
 ../../../../../emlib/src/em_usart.c \
-../../../../../util/third_party/mbedtls/sl_crypto/sl_ecp.c \
-../../../../../util/third_party/mbedtls/sl_crypto/sl_aes.c \
-../../../../../util/third_party/mbedtls/sl_crypto/sl_sha1.c \
-../../../../../util/third_party/mbedtls/sl_crypto/sl_sha256.c \
+../../../../../util/third_party/mbedtls/sl_crypto/src/sl_ecp.c \
+../../../../../util/third_party/mbedtls/sl_crypto/src/sl_aes.c \
+../../../../../util/third_party/mbedtls/sl_crypto/src/sl_sha1.c \
+../../../../../util/third_party/mbedtls/sl_crypto/src/sl_sha256.c \
 ../../../../common/drivers/retargetio.c \
 ../../../../common/drivers/retargetserial.c \
 ../main.c \

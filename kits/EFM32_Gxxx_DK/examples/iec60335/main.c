@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file main.c
  * @brief main code for applications for IEC60335 verification on EFM32 devices.
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>

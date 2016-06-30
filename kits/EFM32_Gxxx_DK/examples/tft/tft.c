@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file
  * @brief TFT example for EFM32_G2xx_DK using EBI access
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>

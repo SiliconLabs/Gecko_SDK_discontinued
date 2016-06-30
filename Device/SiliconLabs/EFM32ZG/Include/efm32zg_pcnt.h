@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efm32zg_pcnt.h
  * @brief EFM32ZG_PCNT register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -40,25 +40,25 @@
  *****************************************************************************/
 typedef struct
 {
-  __IO uint32_t CTRL;         /**< Control Register  */
-  __IO uint32_t CMD;          /**< Command Register  */
-  __I uint32_t  STATUS;       /**< Status Register  */
-  __I uint32_t  CNT;          /**< Counter Value Register  */
-  __I uint32_t  TOP;          /**< Top Value Register  */
-  __IO uint32_t TOPB;         /**< Top Value Buffer Register  */
-  __I uint32_t  IF;           /**< Interrupt Flag Register  */
-  __IO uint32_t IFS;          /**< Interrupt Flag Set Register  */
-  __IO uint32_t IFC;          /**< Interrupt Flag Clear Register  */
-  __IO uint32_t IEN;          /**< Interrupt Enable Register  */
-  __IO uint32_t ROUTE;        /**< I/O Routing Register  */
+  __IOM uint32_t CTRL;         /**< Control Register  */
+  __IOM uint32_t CMD;          /**< Command Register  */
+  __IM uint32_t  STATUS;       /**< Status Register  */
+  __IM uint32_t  CNT;          /**< Counter Value Register  */
+  __IM uint32_t  TOP;          /**< Top Value Register  */
+  __IOM uint32_t TOPB;         /**< Top Value Buffer Register  */
+  __IM uint32_t  IF;           /**< Interrupt Flag Register  */
+  __IOM uint32_t IFS;          /**< Interrupt Flag Set Register  */
+  __IOM uint32_t IFC;          /**< Interrupt Flag Clear Register  */
+  __IOM uint32_t IEN;          /**< Interrupt Enable Register  */
+  __IOM uint32_t ROUTE;        /**< I/O Routing Register  */
 
-  __IO uint32_t FREEZE;       /**< Freeze Register  */
-  __I uint32_t  SYNCBUSY;     /**< Synchronization Busy Register  */
+  __IOM uint32_t FREEZE;       /**< Freeze Register  */
+  __IM uint32_t  SYNCBUSY;     /**< Synchronization Busy Register  */
 
-  uint32_t      RESERVED0[1]; /**< Reserved for future use **/
-  __IO uint32_t AUXCNT;       /**< Auxiliary Counter Value Register  */
-  __IO uint32_t INPUT;        /**< PCNT Input Register  */
-} PCNT_TypeDef;               /** @} */
+  uint32_t       RESERVED0[1]; /**< Reserved for future use **/
+  __IOM uint32_t AUXCNT;       /**< Auxiliary Counter Value Register  */
+  __IOM uint32_t INPUT;        /**< PCNT Input Register  */
+} PCNT_TypeDef;                /** @} */
 
 /**************************************************************************//**
  * @defgroup EFM32ZG_PCNT_BitFields

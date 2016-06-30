@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efm32pg1b_adc.h
  * @brief EFM32PG1B_ADC register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -40,41 +40,41 @@
  *****************************************************************************/
 typedef struct
 {
-  __IO uint32_t CTRL;            /**< Control Register  */
-  uint32_t      RESERVED0[1];    /**< Reserved for future use **/
-  __IO uint32_t CMD;             /**< Command Register  */
-  __I uint32_t  STATUS;          /**< Status Register  */
-  __IO uint32_t SINGLECTRL;      /**< Single Channel Control Register  */
-  __IO uint32_t SINGLECTRLX;     /**< Single Channel Control Register continued  */
-  __IO uint32_t SCANCTRL;        /**< Scan Control Register  */
-  __IO uint32_t SCANCTRLX;       /**< Scan Control Register continued  */
-  __IO uint32_t SCANMASK;        /**< Scan Sequence Input Mask Register  */
-  __IO uint32_t SCANINPUTSEL;    /**< Input Selection register for Scan mode  */
-  __IO uint32_t SCANNEGSEL;      /**< Negative Input select register for Scan  */
-  __IO uint32_t CMPTHR;          /**< Compare Threshold Register  */
-  __IO uint32_t BIASPROG;        /**< Bias Programming Register for various analog blocks used in ADC operation.  */
-  __IO uint32_t CAL;             /**< Calibration Register  */
-  __I uint32_t  IF;              /**< Interrupt Flag Register  */
-  __IO uint32_t IFS;             /**< Interrupt Flag Set Register  */
-  __IO uint32_t IFC;             /**< Interrupt Flag Clear Register  */
-  __IO uint32_t IEN;             /**< Interrupt Enable Register  */
-  __I uint32_t  SINGLEDATA;      /**< Single Conversion Result Data  */
-  __I uint32_t  SCANDATA;        /**< Scan Conversion Result Data  */
-  __I uint32_t  SINGLEDATAP;     /**< Single Conversion Result Data Peek Register  */
-  __I uint32_t  SCANDATAP;       /**< Scan Sequence Result Data Peek Register  */
-  uint32_t      RESERVED1[4];    /**< Reserved for future use **/
-  __I uint32_t  SCANDATAX;       /**< Scan Sequence Result Data + Data Source Register  */
-  __I uint32_t  SCANDATAXP;      /**< Scan Sequence Result Data + Data Source Peek Register  */
+  __IOM uint32_t CTRL;            /**< Control Register  */
+  uint32_t       RESERVED0[1];    /**< Reserved for future use **/
+  __IOM uint32_t CMD;             /**< Command Register  */
+  __IM uint32_t  STATUS;          /**< Status Register  */
+  __IOM uint32_t SINGLECTRL;      /**< Single Channel Control Register  */
+  __IOM uint32_t SINGLECTRLX;     /**< Single Channel Control Register continued  */
+  __IOM uint32_t SCANCTRL;        /**< Scan Control Register  */
+  __IOM uint32_t SCANCTRLX;       /**< Scan Control Register continued  */
+  __IOM uint32_t SCANMASK;        /**< Scan Sequence Input Mask Register  */
+  __IOM uint32_t SCANINPUTSEL;    /**< Input Selection register for Scan mode  */
+  __IOM uint32_t SCANNEGSEL;      /**< Negative Input select register for Scan  */
+  __IOM uint32_t CMPTHR;          /**< Compare Threshold Register  */
+  __IOM uint32_t BIASPROG;        /**< Bias Programming Register for various analog blocks used in ADC operation.  */
+  __IOM uint32_t CAL;             /**< Calibration Register  */
+  __IM uint32_t  IF;              /**< Interrupt Flag Register  */
+  __IOM uint32_t IFS;             /**< Interrupt Flag Set Register  */
+  __IOM uint32_t IFC;             /**< Interrupt Flag Clear Register  */
+  __IOM uint32_t IEN;             /**< Interrupt Enable Register  */
+  __IM uint32_t  SINGLEDATA;      /**< Single Conversion Result Data  */
+  __IM uint32_t  SCANDATA;        /**< Scan Conversion Result Data  */
+  __IM uint32_t  SINGLEDATAP;     /**< Single Conversion Result Data Peek Register  */
+  __IM uint32_t  SCANDATAP;       /**< Scan Sequence Result Data Peek Register  */
+  uint32_t       RESERVED1[4];    /**< Reserved for future use **/
+  __IM uint32_t  SCANDATAX;       /**< Scan Sequence Result Data + Data Source Register  */
+  __IM uint32_t  SCANDATAXP;      /**< Scan Sequence Result Data + Data Source Peek Register  */
 
-  uint32_t      RESERVED2[3];    /**< Reserved for future use **/
-  __I uint32_t  APORTREQ;        /**< APORT Request Status Register  */
-  __I uint32_t  APORTCONFLICT;   /**< APORT BUS Request Status Register  */
-  __I uint32_t  SINGLEFIFOCOUNT; /**< Single FIFO Count Register  */
-  __I uint32_t  SCANFIFOCOUNT;   /**< Scan FIFO Count Register  */
-  __IO uint32_t SINGLEFIFOCLEAR; /**< Single FIFO Clear Register  */
-  __IO uint32_t SCANFIFOCLEAR;   /**< Scan FIFO Clear Register  */
-  __IO uint32_t APORTMASTERDIS;  /**< APORT Bus Master Disable Register  */
-} ADC_TypeDef;                   /** @} */
+  uint32_t       RESERVED2[3];    /**< Reserved for future use **/
+  __IM uint32_t  APORTREQ;        /**< APORT Request Status Register  */
+  __IM uint32_t  APORTCONFLICT;   /**< APORT Conflict Status Register  */
+  __IM uint32_t  SINGLEFIFOCOUNT; /**< Single FIFO Count Register  */
+  __IM uint32_t  SCANFIFOCOUNT;   /**< Scan FIFO Count Register  */
+  __IOM uint32_t SINGLEFIFOCLEAR; /**< Single FIFO Clear Register  */
+  __IOM uint32_t SCANFIFOCLEAR;   /**< Scan FIFO Clear Register  */
+  __IOM uint32_t APORTMASTERDIS;  /**< APORT Bus Master Disable Register  */
+} ADC_TypeDef;                    /** @} */
 
 /**************************************************************************//**
  * @defgroup EFM32PG1B_ADC_BitFields
@@ -1048,7 +1048,7 @@ typedef struct
 #define ADC_SINGLECTRLX_VREFSEL_VREFPNWATT                 (_ADC_SINGLECTRLX_VREFSEL_VREFPNWATT << 0)        /**< Shifted mode VREFPNWATT for ADC_SINGLECTRLX */
 #define ADC_SINGLECTRLX_VREFSEL_VREFPN                     (_ADC_SINGLECTRLX_VREFSEL_VREFPN << 0)            /**< Shifted mode VREFPN for ADC_SINGLECTRLX */
 #define ADC_SINGLECTRLX_VREFSEL_VBGRLOW                    (_ADC_SINGLECTRLX_VREFSEL_VBGRLOW << 0)           /**< Shifted mode VBGRLOW for ADC_SINGLECTRLX */
-#define ADC_SINGLECTRLX_VREFATTFIX                         (0x1UL << 3)                                      /**< Enable 1/3 scaling on VREF */
+#define ADC_SINGLECTRLX_VREFATTFIX                         (0x1UL << 3)                                      /**< Enable fixed scaling on VREF */
 #define _ADC_SINGLECTRLX_VREFATTFIX_SHIFT                  3                                                 /**< Shift value for ADC_VREFATTFIX */
 #define _ADC_SINGLECTRLX_VREFATTFIX_MASK                   0x8UL                                             /**< Bit mask for ADC_VREFATTFIX */
 #define _ADC_SINGLECTRLX_VREFATTFIX_DEFAULT                0x00000000UL                                      /**< Mode DEFAULT for ADC_SINGLECTRLX */
@@ -1231,7 +1231,7 @@ typedef struct
 #define ADC_SCANCTRLX_VREFSEL_VREFPNWATT                   (_ADC_SCANCTRLX_VREFSEL_VREFPNWATT << 0)        /**< Shifted mode VREFPNWATT for ADC_SCANCTRLX */
 #define ADC_SCANCTRLX_VREFSEL_VREFPN                       (_ADC_SCANCTRLX_VREFSEL_VREFPN << 0)            /**< Shifted mode VREFPN for ADC_SCANCTRLX */
 #define ADC_SCANCTRLX_VREFSEL_VBGRLOW                      (_ADC_SCANCTRLX_VREFSEL_VBGRLOW << 0)           /**< Shifted mode VBGRLOW for ADC_SCANCTRLX */
-#define ADC_SCANCTRLX_VREFATTFIX                           (0x1UL << 3)                                    /**< Enable fixed 1/3 scaling on VREF */
+#define ADC_SCANCTRLX_VREFATTFIX                           (0x1UL << 3)                                    /**< Enable fixed scaling on VREF */
 #define _ADC_SCANCTRLX_VREFATTFIX_SHIFT                    3                                               /**< Shift value for ADC_VREFATTFIX */
 #define _ADC_SCANCTRLX_VREFATTFIX_MASK                     0x8UL                                           /**< Bit mask for ADC_VREFATTFIX */
 #define _ADC_SCANCTRLX_VREFATTFIX_DEFAULT                  0x00000000UL                                    /**< Mode DEFAULT for ADC_SCANCTRLX */
@@ -1801,22 +1801,22 @@ typedef struct
 #define _ADC_IF_SCAN_MASK                                  0x2UL                             /**< Bit mask for ADC_SCAN */
 #define _ADC_IF_SCAN_DEFAULT                               0x00000000UL                      /**< Mode DEFAULT for ADC_IF */
 #define ADC_IF_SCAN_DEFAULT                                (_ADC_IF_SCAN_DEFAULT << 1)       /**< Shifted mode DEFAULT for ADC_IF */
-#define ADC_IF_SINGLEOF                                    (0x1UL << 8)                      /**< Single Result Overflow Interrupt Flag */
+#define ADC_IF_SINGLEOF                                    (0x1UL << 8)                      /**< Single FIFO Overflow Interrupt Flag */
 #define _ADC_IF_SINGLEOF_SHIFT                             8                                 /**< Shift value for ADC_SINGLEOF */
 #define _ADC_IF_SINGLEOF_MASK                              0x100UL                           /**< Bit mask for ADC_SINGLEOF */
 #define _ADC_IF_SINGLEOF_DEFAULT                           0x00000000UL                      /**< Mode DEFAULT for ADC_IF */
 #define ADC_IF_SINGLEOF_DEFAULT                            (_ADC_IF_SINGLEOF_DEFAULT << 8)   /**< Shifted mode DEFAULT for ADC_IF */
-#define ADC_IF_SCANOF                                      (0x1UL << 9)                      /**< Scan Result Overflow Interrupt Flag */
+#define ADC_IF_SCANOF                                      (0x1UL << 9)                      /**< Scan FIFO Overflow Interrupt Flag */
 #define _ADC_IF_SCANOF_SHIFT                               9                                 /**< Shift value for ADC_SCANOF */
 #define _ADC_IF_SCANOF_MASK                                0x200UL                           /**< Bit mask for ADC_SCANOF */
 #define _ADC_IF_SCANOF_DEFAULT                             0x00000000UL                      /**< Mode DEFAULT for ADC_IF */
 #define ADC_IF_SCANOF_DEFAULT                              (_ADC_IF_SCANOF_DEFAULT << 9)     /**< Shifted mode DEFAULT for ADC_IF */
-#define ADC_IF_SINGLEUF                                    (0x1UL << 10)                     /**< Single Result Underflow Interrupt Flag */
+#define ADC_IF_SINGLEUF                                    (0x1UL << 10)                     /**< Single FIFO Underflow Interrupt Flag */
 #define _ADC_IF_SINGLEUF_SHIFT                             10                                /**< Shift value for ADC_SINGLEUF */
 #define _ADC_IF_SINGLEUF_MASK                              0x400UL                           /**< Bit mask for ADC_SINGLEUF */
 #define _ADC_IF_SINGLEUF_DEFAULT                           0x00000000UL                      /**< Mode DEFAULT for ADC_IF */
 #define ADC_IF_SINGLEUF_DEFAULT                            (_ADC_IF_SINGLEUF_DEFAULT << 10)  /**< Shifted mode DEFAULT for ADC_IF */
-#define ADC_IF_SCANUF                                      (0x1UL << 11)                     /**< Scan Result Underflow Interrupt Flag */
+#define ADC_IF_SCANUF                                      (0x1UL << 11)                     /**< Scan FIFO Underflow Interrupt Flag */
 #define _ADC_IF_SCANUF_SHIFT                               11                                /**< Shift value for ADC_SCANUF */
 #define _ADC_IF_SCANUF_MASK                                0x800UL                           /**< Bit mask for ADC_SCANUF */
 #define _ADC_IF_SCANUF_DEFAULT                             0x00000000UL                      /**< Mode DEFAULT for ADC_IF */

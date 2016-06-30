@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file em_usbd.c
  * @brief USB protocol stack library API for EFM32/EZR32.
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -64,6 +64,10 @@ void USBD_AbortAllTransfers( void )
  *
  * @param[in] epAddr
  *   The address of the endpoint to abort.
+ *
+ * @return
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBD_AbortTransfer( int epAddr )
 {
@@ -214,7 +218,8 @@ const char *USBD_GetUsbStateName( USBD_State_TypeDef state )
  *   Pointer to device initialization struct. See @ref USBD_Init_TypeDef.
  *
  * @return
- *   @ref USB_STATUS_OK on success, else an appropriate error code.
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBD_Init( const USBD_Init_TypeDef *p )
 {
@@ -559,7 +564,8 @@ int USBD_Init( const USBD_Init_TypeDef *p )
  *   is needed. See @ref USB_XferCompleteCb_TypeDef.
  *
  * @return
- *   @ref USB_STATUS_OK on success, else an appropriate error code.
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBD_Read( int epAddr, void *data, int byteCount,
                USB_XferCompleteCb_TypeDef callback )
@@ -645,7 +651,8 @@ int USBD_Read( int epAddr, void *data, int byteCount,
  *   handler.
  *
  * @return
- *   @ref USB_STATUS_OK on success, else an appropriate error code.
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBD_RemoteWakeup( void )
 {
@@ -718,7 +725,8 @@ void USBD_SetUsbState( USBD_State_TypeDef newState )
  *   The address of the endpoint to stall.
  *
  * @return
- *   @ref USB_STATUS_OK on success, else an appropriate error code.
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBD_StallEp( int epAddr )
 {
@@ -779,7 +787,8 @@ void USBD_Stop( void )
  *   The address of the endpoint to un-stall.
  *
  * @return
- *   @ref USB_STATUS_OK on success, else an appropriate error code.
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBD_UnStallEp( int epAddr )
 {
@@ -830,7 +839,8 @@ int USBD_UnStallEp( int epAddr )
  *   is needed. See @ref USB_XferCompleteCb_TypeDef.
  *
  * @return
- *   @ref USB_STATUS_OK on success, else an appropriate error code.
+ *   @ref USB_STATUS_OK on success, else an appropriate error code enumerated
+ *   in @ref USB_Status_TypeDef.
  ******************************************************************************/
 int USBD_Write( int epAddr, void *data, int byteCount,
                 USB_XferCompleteCb_TypeDef callback )

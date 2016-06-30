@@ -6,7 +6,7 @@
 /*                                                                     */
 /* Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com     */
 /*                                                                     */
-/* Version 4.3.0 */
+/* Version 4.4.0 */
 /*                                                                     */
 
 MEMORY

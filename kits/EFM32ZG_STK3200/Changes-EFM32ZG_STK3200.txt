@@ -1,4 +1,10 @@
 ================ Revision history ============================================
+4.4.0:
+- New Capacitive Sense example using the new cap sense library (cslib).
+
+4.3.1:
+- No changes.
+
 4.3.0:
 - Fixed RTC and BURTC bug in FreeRTOS examples. RTC and BURTC counter was reset
   before the counter value was read, leading to incorrect sleep durations.

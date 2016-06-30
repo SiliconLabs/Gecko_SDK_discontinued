@@ -23,7 +23,7 @@
 *
 * @file   app_task_two.c
 * @brief
-* @version 4.3.0
+* @version 4.4.0
 ******************************************************************************
 * @section License
 * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -35,10 +35,6 @@
 *
 ******************************************************************************/
 #include <includes.h>
-
-
-#define APPDEF_LCD_TXT_SIZE  7
-
 
 /*
 *********************************************************************************************************
@@ -57,9 +53,7 @@
 */
 void APP_TaskTwo(void *p_arg)
 {
-  static char taskMsg; /* Received character to be passed to TaskThree */
-  int  taskCharBuffer; /* Character buffer for receiving */
-
+  int taskChar;                   // Character received.
 
   (void)p_arg;  /* Note(1) */
 
@@ -67,18 +61,15 @@ void APP_TaskTwo(void *p_arg)
   { /* Task body, always written as an infinite loop  */
 
     /* Load character received on serial to character buffer */
-    taskCharBuffer = getchar();
+    taskChar = getchar();
 
     /* If the character in the buffer is valid... */
-    if (taskCharBuffer != -1)
+    if (taskChar != -1)
     {
-      /* ...cast and copy it to message buffer variable... */
-      taskMsg = (char)taskCharBuffer;
-
-      /* ...and post the message to the mailbox */
-      if(OS_ERR_NONE != OSMboxPost(pSerialMsgObj, &taskMsg))
+      /* Post the message to the mailbox */
+      if (OS_ERR_NONE != OSQPost(pSerialQueObj, (void*)taskChar))
       {
-        /* Error has occured, handle can be done here */
+        /* Error can be handled here */
       }
     }
 

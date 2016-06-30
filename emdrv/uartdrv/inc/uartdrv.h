@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file uartdrv.h
  * @brief UARTDRV API definition.
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
- * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
+ * <b>Copyright 2016 Silicon Laboratories, Inc, http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -13,11 +13,13 @@
  *
  ******************************************************************************/
 
-#ifndef __SILICON_LABS_UARTDRV_H__
-#define __SILICON_LABS_UARTDRV_H__
+#ifndef UARTDRV_H
+#define UARTDRV_H
 
 #include "em_device.h"
 #include "em_usart.h"
+#include "em_leuart.h"
+#include "em_gpio.h"
 #include "em_cmu.h"
 #include "ecode.h"
 #include "uartdrv_config.h"
@@ -51,19 +53,21 @@ extern "C" {
 #define ECODE_EMDRV_UARTDRV_PARITY_ERROR      (ECODE_EMDRV_UARTDRV_BASE | 0x0000000C) ///< UART parity error frame. Data is ignored.
 #define ECODE_EMDRV_UARTDRV_FRAME_ERROR       (ECODE_EMDRV_UARTDRV_BASE | 0x0000000D) ///< UART frame error. Data is ignored.
 #define ECODE_EMDRV_UARTDRV_DMA_ALLOC_ERROR   (ECODE_EMDRV_UARTDRV_BASE | 0x0000000E) ///< Unable to allocated DMA channels.
+#define ECODE_EMDRV_UARTDRV_CLOCK_ERROR       (ECODE_EMDRV_UARTDRV_BASE | 0x0000000F) ///< Unable to set desired baudrate.
 
-/// @cond DO_NOT_INCLUDE_WITH_DOXYGEN
-#if defined(UART_PRESENT) && defined(USART_PRESENT)
-#define UART_NUM_PORTS  (UART_COUNT + USART_COUNT)
-#elif defined(UART_PRESENT)
-#define UART_NUM_PORTS  (UART_COUNT)
-#else
-#define UART_NUM_PORTS  (USART_COUNT)
-#endif
-/// @endcond
+// UARTDRV status codes
+#define UARTDRV_STATUS_RXEN     (1 << 0)  ///< Receiver is enabled
+#define UARTDRV_STATUS_TXEN     (1 << 1)  ///< Transmitter is enabled
+#define UARTDRV_STATUS_RXBLOCK  (1 << 3)  ///< Receiver is blocked; incoming frames will be discarded
+#define UARTDRV_STATUS_TXTRI    (1 << 4)  ///< Transmitter is tristated
+#define UARTDRV_STATUS_TXC      (1 << 5)  ///< Transmit operation is complete, no more data is available in the transmit buffer and shift register
+#define UARTDRV_STATUS_TXBL     (1 << 6)  ///< Transmit buffer is empty
+#define UARTDRV_STATUS_RXDATAV  (1 << 7)  ///< Data is available in receive buffer
+#define UARTDRV_STATUS_RXFULL   (1 << 8)  ///< Receive buffer is full
+#define UARTDRV_STATUS_TXIDLE   (1 << 13) ///< Transmitter is idle
 
 typedef uint32_t UARTDRV_Count_t;     ///< UART transfer count
-typedef uint32_t UARTDRV_Status_t;    ///< UART status return type
+typedef uint32_t UARTDRV_Status_t;    ///< UART status return type. Bitfield of UARTDRV_STATUS_* values.
 
 /// Flow Control method
 typedef enum UARTDRV_FlowControlType
@@ -89,6 +93,15 @@ typedef enum UARTDRV_AbortType
   uartdrvAbortReceive = 2,           ///< Abort current and queued receive operations
   uartdrvAbortAll = 3                ///< Abort all current and queued operations
 } UARTDRV_AbortType_t;
+
+/// @cond DO_NOT_INCLUDE_WITH_DOXYGEN
+/// Type of UART peripheral
+typedef enum UARTDRV_UartType
+{
+  uartdrvUartTypeUart = 0,         ///< USART/UART peripheral
+  uartdrvUartTypeLeuart = 1         ///< LEUART peripheral
+} UARTDRV_UartType_t;
+/// @endcond
 
 struct UARTDRV_HandleData;
 
@@ -140,7 +153,7 @@ typedef struct
 typedef struct {                        \
   uint16_t head;                        \
   uint16_t tail;                        \
-  uint16_t used;                        \
+  volatile uint16_t used;               \
   const uint16_t size;                  \
   UARTDRV_Buffer_t fifo[qSize];         \
 } _##qName;                             \
@@ -185,16 +198,51 @@ typedef struct
   uint8_t                    portLocationCts;   ///< Location number for UART CTS pin.
   uint8_t                    portLocationRts;   ///< Location number for UART RTS pin.
 #endif
-} UARTDRV_Init_t;
+} UARTDRV_InitUart_t;
+
+/// @cond DO_NOT_INCLUDE_WITH_DOXYGEN
+/// Deprecated UART driver instance initialization structure alias
+/// @deprecated This struct is deprecated. Use UARTDRV_InitUart_t instead.
+typedef UARTDRV_InitUart_t UARTDRV_Init_t;
+/// @endcond
+
+/// LEUART driver instance initialization structure.
+/// This data structure contains a number of UARTDRV configuration options
+/// required for driver instance initialization.
+/// This struct is passed to @ref UARTDRV_InitLeuart() when initializing a UARTDRV
+/// instance.
+typedef struct
+{
+  LEUART_TypeDef             *port;             ///< The peripheral used for LEUART
+  uint32_t                   baudRate;          ///< UART baud rate
+#if defined( _LEUART_ROUTELOC0_MASK )
+  uint8_t                    portLocationTx;    ///< Location number for LEUART Tx pin.
+  uint8_t                    portLocationRx;    ///< Location number for LEUART Rx pin.
+#else
+  uint8_t                    portLocation;      ///< Location number for LEUART pins
+#endif
+  LEUART_Stopbits_TypeDef    stopBits;          ///< Number of stop bits
+  LEUART_Parity_TypeDef      parity;            ///< Parity configuration
+  UARTDRV_FlowControlType_t  fcType;            ///< Flow control mode
+  GPIO_Port_TypeDef          ctsPort;           ///< CTS pin port number
+  uint8_t                    ctsPin;            ///< CTS pin number
+  GPIO_Port_TypeDef          rtsPort;           ///< RTS pin port number
+  uint8_t                    rtsPin;            ///< RTS pin number
+  UARTDRV_Buffer_FifoQueue_t *rxQueue;          ///< Receive operation queue
+  UARTDRV_Buffer_FifoQueue_t *txQueue;          ///< Transmit operation queue
+} UARTDRV_InitLeuart_t;
 
 /// UART driver instance handle data structure.
 /// The handle is allocated by the application using UARTDRV. There may be
 /// several concurrent driver instances in an application. The application must
-/// not modify the contents of this handle.
+/// not modify the contents of this handle, and should not depend on its values.
 typedef struct UARTDRV_HandleData
 {
   /// @cond DO_NOT_INCLUDE_WITH_DOXYGEN
-  UARTDRV_Init_t             initData;          // Driver instance initialization data
+  union peripheral {
+    USART_TypeDef * uart;
+    LEUART_TypeDef * leuart;
+  } peripheral;
   unsigned int               txDmaCh;           // DMA ch assigned to Tx
   unsigned int               rxDmaCh;           // DMA ch assigned to Rx
   DMADRV_PeripheralSignal_t  txDmaSignal;       // DMA Tx trigger source signal
@@ -202,25 +250,39 @@ typedef struct UARTDRV_HandleData
   UARTDRV_FlowControlState_t fcSelfState;       // Current flow control state of self
   UARTDRV_FlowControlState_t fcSelfCfg;         // Flow control override configuration of self
   UARTDRV_FlowControlState_t fcPeerState;       // Current flow control state of peer
-  bool                       IgnoreRestrain;    // Transmit does not respect uartdrvFlowControlOff
-  GPIO_Port_TypeDef          rxPort;            // RX pin port number
-  uint8_t                    rxPin;             // RX pin number
   GPIO_Port_TypeDef          txPort;            // TX pin port number
-  uint8_t                    txPin;             // RTS pin number
+  GPIO_Port_TypeDef          rxPort;            // RX pin port number
+  GPIO_Port_TypeDef          ctsPort;           // CTS pin port number
+  GPIO_Port_TypeDef          rtsPort;           // RTS pin port number
+  uint8_t                    txPin;             // TX pin number
+  uint8_t                    rxPin;             // RX pin number
+  uint8_t                    ctsPin;            // CTS pin number
+  uint8_t                    rtsPin;            // RTS pin number
   CMU_Clock_TypeDef          uartClock;         // Clock source select
   UARTDRV_Buffer_FifoQueue_t *rxQueue;          // Receive operation queue
   UARTDRV_Buffer_FifoQueue_t *txQueue;          // Transmit operation queue
   volatile bool              rxDmaActive;       // Receive DMA is currently active
   volatile bool              txDmaActive;       // Transmit DMA is currently active
+  volatile uint8_t           txDmaPaused;       // Transmit DMA pause counter
+  bool                       IgnoreRestrain;    // Transmit does not respect uartdrvFlowControlOff
+  bool                       hasTransmitted;    // Whether the handle has transmitted data
+  UARTDRV_FlowControlType_t  fcType;            // Flow control mode
+  UARTDRV_UartType_t         type;              // Type of UART
   /// @endcond
 } UARTDRV_HandleData_t;
 
 /// Handle pointer
 typedef UARTDRV_HandleData_t * UARTDRV_Handle_t;
 
-Ecode_t UARTDRV_Init(UARTDRV_Handle_t handle, UARTDRV_Init_t *initData);
+Ecode_t UARTDRV_InitUart(UARTDRV_Handle_t handle,
+                         const UARTDRV_InitUart_t * initData);
+
+Ecode_t UARTDRV_InitLeuart(UARTDRV_Handle_t handle,
+                           const UARTDRV_InitLeuart_t * initData);
 
 Ecode_t UARTDRV_DeInit(UARTDRV_Handle_t handle);
+
+UARTDRV_Status_t UARTDRV_GetPeripheralStatus(UARTDRV_Handle_t handle);
 
 UARTDRV_Status_t UARTDRV_GetReceiveStatus(UARTDRV_Handle_t handle,
                                           uint8_t **buffer,
@@ -259,10 +321,14 @@ Ecode_t UARTDRV_ForceTransmit(UARTDRV_Handle_t handle,
                               UARTDRV_Count_t count);
 
 UARTDRV_Count_t UARTDRV_ForceReceive(UARTDRV_Handle_t handle,
-                                      uint8_t *data,
-                                      UARTDRV_Count_t maxLength);
+                                     uint8_t *data,
+                                     UARTDRV_Count_t maxLength);
 
 Ecode_t UARTDRV_Abort(UARTDRV_Handle_t handle, UARTDRV_AbortType_t type);
+
+Ecode_t UARTDRV_PauseTransmit(UARTDRV_Handle_t handle);
+
+Ecode_t UARTDRV_ResumeTransmit(UARTDRV_Handle_t handle);
 
 UARTDRV_FlowControlState_t UARTDRV_FlowControlGetSelfStatus(UARTDRV_Handle_t handle);
 
@@ -270,7 +336,35 @@ UARTDRV_FlowControlState_t UARTDRV_FlowControlGetPeerStatus(UARTDRV_Handle_t han
 
 Ecode_t UARTDRV_FlowControlSet(UARTDRV_Handle_t handle, UARTDRV_FlowControlState_t state);
 
+Ecode_t UARTDRV_FlowControlSetPeerStatus(UARTDRV_Handle_t handle, UARTDRV_FlowControlState_t state);
+
 Ecode_t UARTDRV_FlowControlIgnoreRestrain(UARTDRV_Handle_t handle);
+
+
+// --------------------------------
+// Deprecated functions
+
+/***************************************************************************//**
+ * @brief
+ *    Initialize a U(S)ART driver instance.
+ *
+ * @deprecated
+ *    This function is deprecated. Use @ref UARTDRV_InitUart() instead.
+ *
+ * @param[out] handle  Pointer to a UARTDRV handle, refer to @ref
+ *                     UARTDRV_Handle_t.
+ *
+ * @param[in] initData Pointer to an initialization data structure,
+ *                     refer to @ref UARTDRV_InitUart_t.
+ *
+ * @return
+ *    @ref ECODE_EMDRV_UARTDRV_OK on success. On failure an appropriate
+ *    UARTDRV @ref Ecode_t is returned.
+ ******************************************************************************/
+__STATIC_INLINE Ecode_t UARTDRV_Init(UARTDRV_Handle_t handle, UARTDRV_InitUart_t *initData)
+{
+  return UARTDRV_InitUart(handle, initData);
+}
 
 /** @} (end addtogroup UARTDRV) */
 /** @} (end addtogroup emdrv) */
@@ -278,4 +372,4 @@ Ecode_t UARTDRV_FlowControlIgnoreRestrain(UARTDRV_Handle_t handle);
 #ifdef __cplusplus
 }
 #endif
-#endif // __SILICON_LABS_UARTDRV_H__
+#endif // UARTDRV_H

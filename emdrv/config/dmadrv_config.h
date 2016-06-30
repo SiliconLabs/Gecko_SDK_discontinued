@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file dmadrv_config.h
  * @brief DMADRV configuration file.
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -32,7 +32,7 @@
 #ifndef EMDRV_DMADRV_DMA_IRQ_PRIORITY
 #define EMDRV_DMADRV_DMA_IRQ_PRIORITY 4
 #endif
-   
+
 /// DMADRV DMA channel priority configuration option.
 /// Set DMA channel priority. Range 0..EMDRV_DMADRV_DMA_CH_COUNT.
 /// On LDMA, this will configure channel 0 to CH_PRIORITY - 1 as fixed priority,

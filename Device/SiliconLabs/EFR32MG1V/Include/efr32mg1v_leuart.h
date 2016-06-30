@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efr32mg1v_leuart.h
  * @brief EFR32MG1V_LEUART register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -40,32 +40,32 @@
  *****************************************************************************/
 typedef struct
 {
-  __IO uint32_t CTRL;         /**< Control Register  */
-  __IO uint32_t CMD;          /**< Command Register  */
-  __I uint32_t  STATUS;       /**< Status Register  */
-  __IO uint32_t CLKDIV;       /**< Clock Control Register  */
-  __IO uint32_t STARTFRAME;   /**< Start Frame Register  */
-  __IO uint32_t SIGFRAME;     /**< Signal Frame Register  */
-  __I uint32_t  RXDATAX;      /**< Receive Buffer Data Extended Register  */
-  __I uint32_t  RXDATA;       /**< Receive Buffer Data Register  */
-  __I uint32_t  RXDATAXP;     /**< Receive Buffer Data Extended Peek Register  */
-  __IO uint32_t TXDATAX;      /**< Transmit Buffer Data Extended Register  */
-  __IO uint32_t TXDATA;       /**< Transmit Buffer Data Register  */
-  __I uint32_t  IF;           /**< Interrupt Flag Register  */
-  __IO uint32_t IFS;          /**< Interrupt Flag Set Register  */
-  __IO uint32_t IFC;          /**< Interrupt Flag Clear Register  */
-  __IO uint32_t IEN;          /**< Interrupt Enable Register  */
-  __IO uint32_t PULSECTRL;    /**< Pulse Control Register  */
+  __IOM uint32_t CTRL;         /**< Control Register  */
+  __IOM uint32_t CMD;          /**< Command Register  */
+  __IM uint32_t  STATUS;       /**< Status Register  */
+  __IOM uint32_t CLKDIV;       /**< Clock Control Register  */
+  __IOM uint32_t STARTFRAME;   /**< Start Frame Register  */
+  __IOM uint32_t SIGFRAME;     /**< Signal Frame Register  */
+  __IM uint32_t  RXDATAX;      /**< Receive Buffer Data Extended Register  */
+  __IM uint32_t  RXDATA;       /**< Receive Buffer Data Register  */
+  __IM uint32_t  RXDATAXP;     /**< Receive Buffer Data Extended Peek Register  */
+  __IOM uint32_t TXDATAX;      /**< Transmit Buffer Data Extended Register  */
+  __IOM uint32_t TXDATA;       /**< Transmit Buffer Data Register  */
+  __IM uint32_t  IF;           /**< Interrupt Flag Register  */
+  __IOM uint32_t IFS;          /**< Interrupt Flag Set Register  */
+  __IOM uint32_t IFC;          /**< Interrupt Flag Clear Register  */
+  __IOM uint32_t IEN;          /**< Interrupt Enable Register  */
+  __IOM uint32_t PULSECTRL;    /**< Pulse Control Register  */
 
-  __IO uint32_t FREEZE;       /**< Freeze Register  */
-  __I uint32_t  SYNCBUSY;     /**< Synchronization Busy Register  */
+  __IOM uint32_t FREEZE;       /**< Freeze Register  */
+  __IM uint32_t  SYNCBUSY;     /**< Synchronization Busy Register  */
 
-  uint32_t      RESERVED0[3]; /**< Reserved for future use **/
-  __IO uint32_t ROUTEPEN;     /**< I/O Routing Pin Enable Register  */
-  __IO uint32_t ROUTELOC0;    /**< I/O Routing Location Register  */
-  uint32_t      RESERVED1[2]; /**< Reserved for future use **/
-  __IO uint32_t INPUT;        /**< LEUART Input Register  */
-} LEUART_TypeDef;             /** @} */
+  uint32_t       RESERVED0[3]; /**< Reserved for future use **/
+  __IOM uint32_t ROUTEPEN;     /**< I/O Routing Pin Enable Register  */
+  __IOM uint32_t ROUTELOC0;    /**< I/O Routing Location Register  */
+  uint32_t       RESERVED1[2]; /**< Reserved for future use **/
+  __IOM uint32_t INPUT;        /**< LEUART Input Register  */
+} LEUART_TypeDef;              /** @} */
 
 /**************************************************************************//**
  * @defgroup EFR32MG1V_LEUART_BitFields

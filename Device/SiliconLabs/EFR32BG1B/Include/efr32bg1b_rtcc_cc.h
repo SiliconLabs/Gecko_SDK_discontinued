@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efr32bg1b_rtcc_cc.h
  * @brief EFR32BG1B_RTCC_CC register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -38,10 +38,10 @@
  *****************************************************************************/
 typedef struct
 {
-  __IO uint32_t CTRL; /**< CC Channel Control Register  */
-  __IO uint32_t CCV;  /**< Capture/Compare Value Register  */
-  __IO uint32_t TIME; /**< Capture/Compare Time Register  */
-  __IO uint32_t DATE; /**< Capture/Compare Date Register  */
+  __IOM uint32_t CTRL; /**< CC Channel Control Register  */
+  __IOM uint32_t CCV;  /**< Capture/Compare Value Register  */
+  __IOM uint32_t TIME; /**< Capture/Compare Time Register  */
+  __IOM uint32_t DATE; /**< Capture/Compare Date Register  */
 } RTCC_CC_TypeDef;
 
 /** @} End of group Parts */

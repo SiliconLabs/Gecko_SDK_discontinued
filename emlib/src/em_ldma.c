@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_ldma.c
  * @brief Direct memory access (LDMA) module peripheral API
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -415,8 +415,7 @@ void LDMA_StartTransfer(  int ch,
   LDMA->CTRL = tmp;
 
   BUS_RegMaskedClear(&LDMA->CHDONE, chMask);  /* Clear the done flag.     */
-  LDMA->LINKLOAD = chMask;                    /* Enable descriptor load.  */
-  BUS_RegMaskedSet(&LDMA->CHEN, chMask);      /* Enable channel.          */
+  LDMA->LINKLOAD = chMask;      /* Start transfer by loading descriptor.  */
 
   /* Critical region end. */
   INT_Enable();

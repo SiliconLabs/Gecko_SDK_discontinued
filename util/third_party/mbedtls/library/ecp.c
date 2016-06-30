@@ -53,10 +53,11 @@
 #include <string.h>
 
 #if defined(MBEDTLS_ECP_DEVICE_ALT)
+#include "sl_crypto.h"
 #include <stdbool.h>
 extern bool mbedtls_ecp_device_grp_capable( const mbedtls_ecp_group *grp );
 extern int  mbedtls_ecp_device_init( const mbedtls_ecp_group *grp );
-extern void mbedtls_ecp_device_deinit( const mbedtls_ecp_group *grp );
+extern int  mbedtls_ecp_device_deinit( const mbedtls_ecp_group *grp );
 
 #if defined(MBEDTLS_ECP_DOUBLE_JAC_ALT)
 extern int ecp_device_double_jac( const mbedtls_ecp_group *grp,
@@ -306,6 +307,7 @@ void mbedtls_ecp_point_init( mbedtls_ecp_point *pt )
     mbedtls_mpi_init( &pt->Z );
 }
 
+#if !defined( MBEDTLS_ECP_GROUP_INIT_ALT )
 /*
  * Initialize (the components of) a group
  */
@@ -316,6 +318,7 @@ void mbedtls_ecp_group_init( mbedtls_ecp_group *grp )
 
     memset( grp, 0, sizeof( mbedtls_ecp_group ) );
 }
+#endif /* #if !defined( MBEDTLS_ECP_GROUP_INIT_ALT ) */
 
 /*
  * Initialize (the components of) a key pair
@@ -1258,7 +1261,7 @@ static int ecp_precompute_comb( const mbedtls_ecp_group *grp,
                                 mbedtls_ecp_point T[], const mbedtls_ecp_point *P,
                                 unsigned char w, size_t d )
 {
-    int ret;
+    int ret, ret_alt = 0;
     unsigned char i, k;
     size_t j;
     mbedtls_ecp_point *cur, *TT[COMB_MAX_PRE - 1];
@@ -1309,13 +1312,17 @@ static int ecp_precompute_comb( const mbedtls_ecp_group *grp,
 cleanup:
     
 #if defined(MBEDTLS_ECP_DEVICE_ALT)
-    if (mbedtls_ecp_device_grp_capable( grp ))
+    if (
+#if defined( MBEDTLS_ERR_DEVICE_BUSY )
+        (ret != MBEDTLS_ERR_DEVICE_BUSY) &&
+#endif
+         (mbedtls_ecp_device_grp_capable( grp ) ) )
     {
-        mbedtls_ecp_device_deinit( grp );
+        ret_alt = mbedtls_ecp_device_deinit( grp );
     }
 #endif
 
-    return( ret );
+    return( ret ? ret : ret_alt );
 }
 
 /*
@@ -1357,7 +1364,7 @@ static int ecp_mul_comb_core( const mbedtls_ecp_group *grp, mbedtls_ecp_point *R
                               int (*f_rng)(void *, unsigned char *, size_t),
                               void *p_rng )
 {
-    int ret;
+    int ret, ret_alt = 0;
     mbedtls_ecp_point Txi;
     size_t i;
 
@@ -1388,15 +1395,19 @@ static int ecp_mul_comb_core( const mbedtls_ecp_group *grp, mbedtls_ecp_point *R
 cleanup:
 
 #if defined(MBEDTLS_ECP_DEVICE_ALT)
-    if (mbedtls_ecp_device_grp_capable( grp ))
+    if (
+#if defined( MBEDTLS_ERR_DEVICE_BUSY )
+        (ret != MBEDTLS_ERR_DEVICE_BUSY) &&
+#endif
+         (mbedtls_ecp_device_grp_capable( grp ) ) )
     {
-        mbedtls_ecp_device_deinit( grp );
+        ret_alt = mbedtls_ecp_device_deinit( grp );
     }
 #endif
 
     mbedtls_ecp_point_free( &Txi );
 
-    return( ret );
+    return( ret ? ret : ret_alt );
 }
 
 /*
@@ -1408,7 +1419,7 @@ static int ecp_mul_comb( mbedtls_ecp_group *grp, mbedtls_ecp_point *R,
                          int (*f_rng)(void *, unsigned char *, size_t),
                          void *p_rng )
 {
-    int ret;
+    int ret, ret_alt = 0;
     unsigned char w, m_is_odd, p_eq_g, pre_len, i;
     size_t d;
     unsigned char k[COMB_MAX_D + 1];
@@ -1511,9 +1522,13 @@ static int ecp_mul_comb( mbedtls_ecp_group *grp, mbedtls_ecp_point *R,
 cleanup:
 
 #if defined(MBEDTLS_ECP_DEVICE_ALT)
-    if (mbedtls_ecp_device_grp_capable( grp ))
+    if (
+#if defined( MBEDTLS_ERR_DEVICE_BUSY )
+        (ret != MBEDTLS_ERR_DEVICE_BUSY) &&
+#endif
+         (mbedtls_ecp_device_grp_capable( grp ) ) )
     {
-        mbedtls_ecp_device_deinit( grp );
+        ret_alt = mbedtls_ecp_device_deinit( grp );
     }
 #endif
 
@@ -1530,7 +1545,7 @@ cleanup:
     if( ret != 0 )
         mbedtls_ecp_point_free( R );
 
-    return( ret );
+    return( ret ? ret : ret_alt );
 }
 
 #endif /* ECP_SHORTWEIERSTRASS */
@@ -1832,7 +1847,7 @@ int mbedtls_ecp_muladd( mbedtls_ecp_group *grp, mbedtls_ecp_point *R,
              const mbedtls_mpi *m, const mbedtls_ecp_point *P,
              const mbedtls_mpi *n, const mbedtls_ecp_point *Q )
 {
-    int ret;
+    int ret, ret_alt = 0;
     mbedtls_ecp_point mP;
 
     if( ecp_get_type( grp ) != ECP_TYPE_SHORT_WEIERSTRASS )
@@ -1856,15 +1871,19 @@ int mbedtls_ecp_muladd( mbedtls_ecp_group *grp, mbedtls_ecp_point *R,
 cleanup:
     
 #if defined(MBEDTLS_ECP_DEVICE_ALT)
-    if (mbedtls_ecp_device_grp_capable( grp ))
+    if (
+#if defined( MBEDTLS_ERR_DEVICE_BUSY )
+        (ret != MBEDTLS_ERR_DEVICE_BUSY) &&
+#endif
+         (mbedtls_ecp_device_grp_capable( grp ) ) )
     {
-        mbedtls_ecp_device_deinit( grp );
+        ret_alt = mbedtls_ecp_device_deinit( grp );
     }
 #endif
 
     mbedtls_ecp_point_free( &mP );
 
-    return( ret );
+    return( ret ? ret : ret_alt );
 }
 
 

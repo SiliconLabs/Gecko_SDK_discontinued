@@ -34,6 +34,8 @@
 #include MBEDTLS_CONFIG_FILE
 #endif
 
+#if !defined(MBEDTLS_CCM_ALT)
+
 #if defined(MBEDTLS_CCM_C)
 
 #include "mbedtls/ccm.h"
@@ -462,3 +464,5 @@ int mbedtls_ccm_self_test( int verbose )
 #endif /* MBEDTLS_SELF_TEST && MBEDTLS_AES_C */
 
 #endif /* MBEDTLS_CCM_C */
+
+#endif /* #if !defined(MBEDTLS_CCM_ALT) */

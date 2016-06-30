@@ -1,4 +1,11 @@
 ================ Revision history ============================================
+4.4.0:
+ - New USB examples using new USBXpress library.
+ - New Capacitive Sense example using the new cap sense library (cslib).
+
+4.3.1:
+ - No changes.
+
 4.3.0:
  - Added cpt007b and cpt112s capacitive touch examples.
 

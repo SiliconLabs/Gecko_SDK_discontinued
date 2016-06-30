@@ -2,7 +2,7 @@
  * @file startup_efr32bg1b.c
  * @brief CMSIS Compatible EFR32BG1B startup file in C.
  *        Should be used with GCC 'GNU Tools ARM Embedded'
- * @version 4.3.0
+ * @version 4.4.0
  * Date:    12 June 2014
  *
  */

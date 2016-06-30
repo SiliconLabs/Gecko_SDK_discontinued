@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efm32gg_lesense_ch.h
  * @brief EFM32GG_LESENSE_CH register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -38,10 +38,10 @@
  *****************************************************************************/
 typedef struct
 {
-  __IO uint32_t TIMING;       /**< Scan configuration  */
-  __IO uint32_t INTERACT;     /**< Scan configuration  */
-  __IO uint32_t EVAL;         /**< Scan configuration  */
-  uint32_t      RESERVED0[1]; /**< Reserved future */
+  __IOM uint32_t TIMING;       /**< Scan configuration  */
+  __IOM uint32_t INTERACT;     /**< Scan configuration  */
+  __IOM uint32_t EVAL;         /**< Scan configuration  */
+  uint32_t       RESERVED0[1]; /**< Reserved future */
 } LESENSE_CH_TypeDef;
 
 /** @} End of group Parts */

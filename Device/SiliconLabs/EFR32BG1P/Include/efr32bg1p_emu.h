@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efr32bg1p_emu.h
  * @brief EFR32BG1P_EMU register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -40,48 +40,48 @@
  *****************************************************************************/
 typedef struct
 {
-  __IO uint32_t CTRL;            /**< Control Register  */
-  __I uint32_t  STATUS;          /**< Status Register  */
-  __IO uint32_t LOCK;            /**< Configuration Lock Register  */
-  __IO uint32_t RAM0CTRL;        /**< Memory Control Register  */
-  __IO uint32_t CMD;             /**< Command Register  */
+  __IOM uint32_t CTRL;            /**< Control Register  */
+  __IM uint32_t  STATUS;          /**< Status Register  */
+  __IOM uint32_t LOCK;            /**< Configuration Lock Register  */
+  __IOM uint32_t RAM0CTRL;        /**< Memory Control Register  */
+  __IOM uint32_t CMD;             /**< Command Register  */
 
-  uint32_t      RESERVED0[1];    /**< Reserved for future use **/
-  __IO uint32_t EM4CTRL;         /**< EM4 Control Register  */
-  __IO uint32_t TEMPLIMITS;      /**< Temperature limits for interrupt generation  */
-  __I uint32_t  TEMP;            /**< Value of last temperature measurement  */
-  __I uint32_t  IF;              /**< Interrupt Flag Register  */
-  __IO uint32_t IFS;             /**< Interrupt Flag Set Register  */
-  __IO uint32_t IFC;             /**< Interrupt Flag Clear Register  */
-  __IO uint32_t IEN;             /**< Interrupt Enable Register  */
-  __IO uint32_t PWRLOCK;         /**< Regulator and Supply Lock Register  */
-  __IO uint32_t PWRCFG;          /**< Power Configuration Register.  */
-  __IO uint32_t PWRCTRL;         /**< Power Control Register.  */
-  __IO uint32_t DCDCCTRL;        /**< DCDC Control  */
+  uint32_t       RESERVED0[1];    /**< Reserved for future use **/
+  __IOM uint32_t EM4CTRL;         /**< EM4 Control Register  */
+  __IOM uint32_t TEMPLIMITS;      /**< Temperature limits for interrupt generation  */
+  __IM uint32_t  TEMP;            /**< Value of last temperature measurement  */
+  __IM uint32_t  IF;              /**< Interrupt Flag Register  */
+  __IOM uint32_t IFS;             /**< Interrupt Flag Set Register  */
+  __IOM uint32_t IFC;             /**< Interrupt Flag Clear Register  */
+  __IOM uint32_t IEN;             /**< Interrupt Enable Register  */
+  __IOM uint32_t PWRLOCK;         /**< Regulator and Supply Lock Register  */
+  __IOM uint32_t PWRCFG;          /**< Power Configuration Register. This is no longer used  */
+  __IOM uint32_t PWRCTRL;         /**< Power Control Register.  */
+  __IOM uint32_t DCDCCTRL;        /**< DCDC Control  */
 
-  uint32_t      RESERVED1[2];    /**< Reserved for future use **/
-  __IO uint32_t DCDCMISCCTRL;    /**< DCDC Miscellaneous Control Register  */
-  __IO uint32_t DCDCZDETCTRL;    /**< DCDC Power Train NFET Zero Current Detector Control Register  */
-  __IO uint32_t DCDCCLIMCTRL;    /**< DCDC Power Train PFET Current Limiter Control Register  */
+  uint32_t       RESERVED1[2];    /**< Reserved for future use **/
+  __IOM uint32_t DCDCMISCCTRL;    /**< DCDC Miscellaneous Control Register  */
+  __IOM uint32_t DCDCZDETCTRL;    /**< DCDC Power Train NFET Zero Current Detector Control Register  */
+  __IOM uint32_t DCDCCLIMCTRL;    /**< DCDC Power Train PFET Current Limiter Control Register  */
 
-  uint32_t      RESERVED2[1];    /**< Reserved for future use **/
-  __IO uint32_t DCDCLNVCTRL;     /**< DCDC Low Noise Voltage Register  */
-  __IO uint32_t DCDCTIMING;      /**< DCDC Controller Timing Value Register  */
-  __IO uint32_t DCDCLPVCTRL;     /**< DCDC Low Power Voltage Register  */
+  uint32_t       RESERVED2[1];    /**< Reserved for future use **/
+  __IOM uint32_t DCDCLNVCTRL;     /**< DCDC Low Noise Voltage Register  */
+  __IOM uint32_t DCDCTIMING;      /**< DCDC Controller Timing Value Register  */
+  __IOM uint32_t DCDCLPVCTRL;     /**< DCDC Low Power Voltage Register  */
 
-  uint32_t      RESERVED3[1];    /**< Reserved for future use **/
-  __IO uint32_t DCDCLPCTRL;      /**< DCDC Low Power Control Register  */
-  __IO uint32_t DCDCLNFREQCTRL;  /**< DCDC Low Noise Controller Frequency Control  */
+  uint32_t       RESERVED3[1];    /**< Reserved for future use **/
+  __IOM uint32_t DCDCLPCTRL;      /**< DCDC Low Power Control Register  */
+  __IOM uint32_t DCDCLNFREQCTRL;  /**< DCDC Low Noise Controller Frequency Control  */
 
-  uint32_t      RESERVED4[1];    /**< Reserved for future use **/
-  __I uint32_t  DCDCSYNC;        /**< DCDC Read Status Register  */
+  uint32_t       RESERVED4[1];    /**< Reserved for future use **/
+  __IM uint32_t  DCDCSYNC;        /**< DCDC Read Status Register  */
 
-  uint32_t      RESERVED5[5];    /**< Reserved for future use **/
-  __IO uint32_t VMONAVDDCTRL;    /**< VMON AVDD Channel Control  */
-  __IO uint32_t VMONALTAVDDCTRL; /**< Alternate VMON AVDD Channel Control  */
-  __IO uint32_t VMONDVDDCTRL;    /**< VMON DVDD Channel Control  */
-  __IO uint32_t VMONIO0CTRL;     /**< VMON IOVDD0 Channel Control  */
-} EMU_TypeDef;                   /** @} */
+  uint32_t       RESERVED5[5];    /**< Reserved for future use **/
+  __IOM uint32_t VMONAVDDCTRL;    /**< VMON AVDD Channel Control  */
+  __IOM uint32_t VMONALTAVDDCTRL; /**< Alternate VMON AVDD Channel Control  */
+  __IOM uint32_t VMONDVDDCTRL;    /**< VMON DVDD Channel Control  */
+  __IOM uint32_t VMONIO0CTRL;     /**< VMON IOVDD0 Channel Control  */
+} EMU_TypeDef;                    /** @} */
 
 /**************************************************************************//**
  * @defgroup EFR32BG1P_EMU_BitFields
@@ -236,7 +236,7 @@ typedef struct
 #define _EMU_TEMPLIMITS_TEMPHIGH_MASK                0xFF00UL                                /**< Bit mask for EMU_TEMPHIGH */
 #define _EMU_TEMPLIMITS_TEMPHIGH_DEFAULT             0x000000FFUL                            /**< Mode DEFAULT for EMU_TEMPLIMITS */
 #define EMU_TEMPLIMITS_TEMPHIGH_DEFAULT              (_EMU_TEMPLIMITS_TEMPHIGH_DEFAULT << 8) /**< Shifted mode DEFAULT for EMU_TEMPLIMITS */
-#define EMU_TEMPLIMITS_EM4WUEN                       (0x1UL << 16)                           /**< Enable EM4 Wakeup due to low/high temerature */
+#define EMU_TEMPLIMITS_EM4WUEN                       (0x1UL << 16)                           /**< Enable EM4 Wakeup due to low/high temperature */
 #define _EMU_TEMPLIMITS_EM4WUEN_SHIFT                16                                      /**< Shift value for EMU_EM4WUEN */
 #define _EMU_TEMPLIMITS_EM4WUEN_MASK                 0x10000UL                               /**< Bit mask for EMU_EM4WUEN */
 #define _EMU_TEMPLIMITS_EM4WUEN_DEFAULT              0x00000000UL                            /**< Mode DEFAULT for EMU_TEMPLIMITS */
@@ -838,7 +838,7 @@ typedef struct
 
 /* Bit fields for EMU DCDCTIMING */
 #define _EMU_DCDCTIMING_RESETVALUE                   0x0FF1F8FFUL                                  /**< Default value for EMU_DCDCTIMING */
-#define _EMU_DCDCTIMING_MASK                         0x6FF1F8FFUL                                  /**< Mask for EMU_DCDCTIMING */
+#define _EMU_DCDCTIMING_MASK                         0x7FF1F8FFUL                                  /**< Mask for EMU_DCDCTIMING */
 #define _EMU_DCDCTIMING_LPINITWAIT_SHIFT             0                                             /**< Shift value for EMU_LPINITWAIT */
 #define _EMU_DCDCTIMING_LPINITWAIT_MASK              0xFFUL                                        /**< Bit mask for EMU_LPINITWAIT */
 #define _EMU_DCDCTIMING_LPINITWAIT_DEFAULT           0x000000FFUL                                  /**< Mode DEFAULT for EMU_DCDCTIMING */
@@ -856,6 +856,11 @@ typedef struct
 #define _EMU_DCDCTIMING_BYPWAIT_MASK                 0xFF00000UL                                   /**< Bit mask for EMU_BYPWAIT */
 #define _EMU_DCDCTIMING_BYPWAIT_DEFAULT              0x000000FFUL                                  /**< Mode DEFAULT for EMU_DCDCTIMING */
 #define EMU_DCDCTIMING_BYPWAIT_DEFAULT               (_EMU_DCDCTIMING_BYPWAIT_DEFAULT << 20)       /**< Shifted mode DEFAULT for EMU_DCDCTIMING */
+#define EMU_DCDCTIMING_PWMRETIME                     (0x1UL << 28)                                 /**< Low Noise Controller retiming mode */
+#define _EMU_DCDCTIMING_PWMRETIME_SHIFT              28                                            /**< Shift value for EMU_PWMRETIME */
+#define _EMU_DCDCTIMING_PWMRETIME_MASK               0x10000000UL                                  /**< Bit mask for EMU_PWMRETIME */
+#define _EMU_DCDCTIMING_PWMRETIME_DEFAULT            0x00000000UL                                  /**< Mode DEFAULT for EMU_DCDCTIMING */
+#define EMU_DCDCTIMING_PWMRETIME_DEFAULT             (_EMU_DCDCTIMING_PWMRETIME_DEFAULT << 28)     /**< Shifted mode DEFAULT for EMU_DCDCTIMING */
 #define _EMU_DCDCTIMING_DUTYSCALE_SHIFT              29                                            /**< Shift value for EMU_DUTYSCALE */
 #define _EMU_DCDCTIMING_DUTYSCALE_MASK               0x60000000UL                                  /**< Bit mask for EMU_DUTYSCALE */
 #define _EMU_DCDCTIMING_DUTYSCALE_DEFAULT            0x00000000UL                                  /**< Mode DEFAULT for EMU_DCDCTIMING */
@@ -885,7 +890,7 @@ typedef struct
 #define _EMU_DCDCLPCTRL_LPCMPHYSSEL_MASK             0xF000UL                                     /**< Bit mask for EMU_LPCMPHYSSEL */
 #define _EMU_DCDCLPCTRL_LPCMPHYSSEL_DEFAULT          0x00000007UL                                 /**< Mode DEFAULT for EMU_DCDCLPCTRL */
 #define EMU_DCDCLPCTRL_LPCMPHYSSEL_DEFAULT           (_EMU_DCDCLPCTRL_LPCMPHYSSEL_DEFAULT << 12)  /**< Shifted mode DEFAULT for EMU_DCDCLPCTRL */
-#define EMU_DCDCLPCTRL_LPVREFDUTYEN                  (0x1UL << 24)                                /**< Lp mode duty cycling enable */
+#define EMU_DCDCLPCTRL_LPVREFDUTYEN                  (0x1UL << 24)                                /**< LP mode duty cycling enable */
 #define _EMU_DCDCLPCTRL_LPVREFDUTYEN_SHIFT           24                                           /**< Shift value for EMU_LPVREFDUTYEN */
 #define _EMU_DCDCLPCTRL_LPVREFDUTYEN_MASK            0x1000000UL                                  /**< Bit mask for EMU_LPVREFDUTYEN */
 #define _EMU_DCDCLPCTRL_LPVREFDUTYEN_DEFAULT         0x00000000UL                                 /**< Mode DEFAULT for EMU_DCDCLPCTRL */

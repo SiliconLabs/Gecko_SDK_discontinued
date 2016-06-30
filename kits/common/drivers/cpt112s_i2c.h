@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file
  * @brief Driver for retrieving capsense button and slider inputs from CPT112S
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>

@@ -359,7 +359,7 @@
             <NoWarn>0</NoWarn>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define></Define>
+              <Define>EFM32LG990F256</Define>
               <Undefine></Undefine>
               <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32LG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\common\drivers;..\..\..\..\common\bsp;..\..\..\config;..\src\bsp;..\src\app;..\..\..\..\..\reptile\Micrium\uCOS-II\uC-CPU;..\..\..\..\..\reptile\Micrium\uCOS-II\uC-LIB;..\..\..\..\..\reptile\Micrium\uCOS-II\uCOS-II\Source;..\..\..\..\..\reptile\Micrium\uCOS-II\uC-CPU\ARM-Cortex-M3\RealView;..\..\..\..\..\reptile\Micrium\uCOS-II\uCOS-II\Ports\ARM-Cortex-M3\Generic\RealView</IncludePath>
             </VariousControls>

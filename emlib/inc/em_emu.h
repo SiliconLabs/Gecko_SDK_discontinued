@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_emu.h
  * @brief Energy management unit (EMU) peripheral API
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -466,6 +466,10 @@ void EMU_EM4Init(EMU_EM4Init_TypeDef *em4Init);
 void EMU_EnterEM2(bool restore);
 void EMU_EnterEM3(bool restore);
 void EMU_EnterEM4(void);
+#if defined( _EMU_EM4CTRL_MASK )
+void EMU_EnterEM4H(void);
+void EMU_EnterEM4S(void);
+#endif
 void EMU_MemPwrDown(uint32_t blocks);
 void EMU_UpdateOscConfig(void);
 #if defined( BU_PRESENT )

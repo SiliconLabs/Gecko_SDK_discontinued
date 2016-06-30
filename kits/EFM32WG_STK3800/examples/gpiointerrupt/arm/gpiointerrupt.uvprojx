@@ -359,7 +359,7 @@
             <NoWarn>0</NoWarn>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define></Define>
+              <Define>EFM32WG990F256 DEBUG_EFM</Define>
               <Undefine></Undefine>
               <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32WG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\emdrv\gpiointerrupt\inc;..\..\..\..\common\bsp;..\..\..\config</IncludePath>
             </VariousControls>

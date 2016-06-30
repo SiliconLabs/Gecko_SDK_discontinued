@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file nvm_hal.c
  * @brief Non-Volatile Memory Wear-Leveling driver HAL implementation
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -43,13 +43,29 @@
            SCB_CCR_UNALIGN_TRP and reads the word as bytes if set to avoid
            generating a unaligned access trap.
  *****************************************************************************/
-static uint32_t readUnalignedWord(uint8_t *addr)
+static uint32_t readUnalignedWord(volatile uint8_t *addr)
 {
-  /* Check if the unaligned access trap is enabled */
+  /* Check if the unaligned access trap is enabled. */
   if (SCB->CCR & SCB_CCR_UNALIGN_TRP_Msk)
   {
-    /* Read word as bytes (always aligned) */
-    return (*(addr + 3) << 24) | (*(addr + 2) << 16) | (*(addr + 1) << 8) | *addr;
+    /* Read word as bytes (always aligned).
+     *
+     * Note that gcc with -O3 will optimize this into a single ldr instruction
+     * because it knows that the Cortex-M3 is able to load unaligned words.
+     * This will fail on the Cortex-M3 if the SCB_CCR_UNALIGNE_TRP is set.
+     * There are two ways to get gcc to issue byte loads instead of word loads.
+     *
+     *  1. Specify addr to be volatile
+     *  2. Specify -mno-unaligned-access as an option to gcc
+     *
+     * We choose to implement #1 because it does not depend on modifying build
+     * scripts.
+     */
+    uint8_t b0 = *addr++;
+    uint8_t b1 = *addr++;
+    uint8_t b2 = *addr++;
+    uint8_t b3 = *addr++;
+    return (b3 << 24) | (b2 << 16) | (b1 << 8) | b0;
   }
   else
   {

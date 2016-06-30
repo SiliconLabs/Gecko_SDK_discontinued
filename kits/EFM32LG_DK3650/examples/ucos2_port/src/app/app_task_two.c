@@ -23,7 +23,7 @@
 *
 * @file   app_task_two.c
 * @brief
-* @version 4.3.0
+* @version 4.4.0
 ******************************************************************************
 * @section License
 * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -36,7 +36,6 @@
 ******************************************************************************/
 #include <includes.h>
 
-#define CHAR_BUFFER_SIZE 10
 /*
 *********************************************************************************************************
 *                                         APP_TaskTwo()
@@ -68,9 +67,9 @@ void APP_TaskTwo(void *p_arg)
     if ( (taskChar >= 32) && (taskChar < 128) )
     {
       /* Post the message to the mailbox */
-      if(OS_ERR_NONE != OSMboxPost(pSerialMsgObj, (void*)taskChar))
+      if (OS_ERR_NONE != OSQPost(pSerialQueObj, (void*)taskChar))
       {
-        /* Error has occured, handle can be done here */
+        /* Error can be handled here */
       }
     }
 

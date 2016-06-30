@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efm32g_dma_ch.h
  * @brief EFM32G_DMA_CH register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -38,7 +38,7 @@
  *****************************************************************************/
 typedef struct
 {
-  __IO uint32_t CTRL; /**< Channel Control Register  */
+  __IOM uint32_t CTRL; /**< Channel Control Register  */
 } DMA_CH_TypeDef;
 
 /** @} End of group Parts */

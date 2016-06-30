@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ecode.h
  * @brief Energy Aware drivers error code definitions.
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -20,22 +20,22 @@
  * @brief energyAware drivers
  * @details
  *
- *  EMDRV is a set of function specific high performance drivers for EFM32, EZR32 
- *  and EFR32 on-chip peripherals. Drivers are typically DMA based and are using 
- *  all available low-energy features. For most drivers, the API offers both 
- *  synchronous and asynchronous functions. The APIs are fully reentrant and 
+ *  EMDRV is a set of function specific high performance drivers for EFM32, EZR32
+ *  and EFR32 on-chip peripherals. Drivers are typically DMA based and are using
+ *  all available low-energy features. For most drivers, the API offers both
+ *  synchronous and asynchronous functions. The APIs are fully reentrant and
  *  callback based.
  *
- *  Most drivers are compile-time configurable to allow the highest possible 
- *  code size optimization for the application. Compile-time configuration is 
- *  defined in *_config.h files. Templates for the configuration files can be 
+ *  Most drivers are compile-time configurable to allow the highest possible
+ *  code size optimization for the application. Compile-time configuration is
+ *  defined in *_config.h files. Templates for the configuration files can be
  *  found in emdrv\\config.
  *
  * @note
- *	EMDRV APIs use Ecode_t to return status. 
- * @n @n 
+ *	EMDRV APIs use Ecode_t to return status.
+ * @n @n
  *  With the exception of ezradiodrv, EMDRV does not implement RF support.
- *  Please refer to stack documentation for more information. 
+ *  Please refer to stack documentation for more information.
  *
  * @{
  ******************************************************************************/

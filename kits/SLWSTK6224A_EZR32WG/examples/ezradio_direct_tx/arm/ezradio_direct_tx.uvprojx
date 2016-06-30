@@ -359,7 +359,7 @@
             <NoWarn>0</NoWarn>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define></Define>
+              <Define>EZR32WG330F256R63 SL_WSTK6224A EZRADIO_DRIVER_EXTENDED_SUPPORT EZRADIO_DRIVER_FULL_SUPPORT</Define>
               <Undefine></Undefine>
               <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EZR32WG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\kits\common\drivers;..\..\..\..\..\reptile\glib;..\..\..\..\..\kits\common\bsp;..\..\..\config;..\..\..\..\..\emdrv\common\inc;..\..\..\..\..\emdrv\dmadrv\inc;..\..\..\..\..\emdrv\gpiointerrupt\inc;..\..\..\..\..\emdrv\rtcdrv\inc;..\..\..\..\..\emdrv\spidrv\inc;..\..\..\..\..\emdrv\ustimer\inc;..\..\..\..\..\emdrv\ezradiodrv\common\inc;..\..\..\..\..\emdrv\ezradiodrv\common\inc\si4x6x;..\..\..\..\..\emdrv\ezradiodrv\si4463\inc;..\..\..\..\..\emdrv\ezradiodrv\plugins\inc;..;..\config;..\config\RadioConfig</IncludePath>
             </VariousControls>

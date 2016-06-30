@@ -23,7 +23,7 @@
 *
 * @file   app.c
 * @brief
-* @version 4.3.0
+* @version 4.4.0
 ******************************************************************************
 * @section License
 * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -42,17 +42,13 @@
 */
 #include <includes.h>
 
-
 /*
 *********************************************************************************************************
-*                                      EXTERNAL GLOBAL VARIABLES
+*                                           MACRO DEFINITIONS
 *********************************************************************************************************
 */
-
-/* definition of global mailbox object for inter-task communication
- * extern declaration in includes.h */
-OS_EVENT *pSerialMsgObj;
-
+/* Message queue size */
+#define MSG_Q_SIZE  10U
 
 /*
 *********************************************************************************************************
@@ -63,6 +59,8 @@ static OS_STK App_TaskOneStk[APP_CFG_TASK_ONE_STK_SIZE];
 static OS_STK App_TaskTwoStk[APP_CFG_TASK_TWO_STK_SIZE];
 static OS_STK App_TaskThreeStk[APP_CFG_TASK_THREE_STK_SIZE];
 
+/* Message queue */
+static void * AppMsgQueue[MSG_Q_SIZE];
 
 /*
 *********************************************************************************************************
@@ -72,8 +70,14 @@ static OS_STK App_TaskThreeStk[APP_CFG_TASK_THREE_STK_SIZE];
 static void App_TaskCreate (void);
 static void App_MailboxCreate(void);
 
-/* static function for energyAware Profiler */
-static void setupSWO(void);
+/*
+*********************************************************************************************************
+*                                      EXTERNAL GLOBAL VARIABLES
+*********************************************************************************************************
+*/
+/* Definition of global mailbox object for inter-task communication
+ * extern declaration in includes.h */
+OS_EVENT * pSerialQueObj;
 
 
 /*
@@ -109,7 +113,7 @@ int main(void)
   CHIP_Init();
 
   /* setup SW0 for energyAware Profiler */
-  setupSWO();
+  BSP_TraceSwoSetup();
 
   /* Initialize BSP functions                             */
   BSPOS_Init();
@@ -118,40 +122,34 @@ int main(void)
   OSInit();
 
   /* Initialize the uC/OS-II ticker                       */
-   OS_CPU_SysTickInit(CMU_ClockFreqGet(cmuClock_HFPER)/OS_TICKS_PER_SEC);
+  OS_CPU_SysTickInit(CMU_ClockFreqGet(cmuClock_HFPER)/OS_TICKS_PER_SEC);
 
- #if (OS_TASK_STAT_EN > 0)
+#if (OS_TASK_STAT_EN > 0)
    /* Determine CPU capacity                               */
-   OSStatInit();
- #endif
+  OSStatInit();
+#endif
 
-   /* Create application tasks                             */
-   App_TaskCreate();
+  /* Create application tasks                             */
+  App_TaskCreate();
 
-   /* Create application mailboxes                         */
-   App_MailboxCreate();
+  /* Create application mailboxes                         */
+  App_MailboxCreate();
 
-   /* Initialize LCD                                       */
-   SegmentLCD_Init(true);
+  /* Initialize LCD                                       */
+  SegmentLCD_Init(true);
 
-   /* Turn gecko symbol ON                                 */
-   SegmentLCD_Symbol(LCD_SYMBOL_GECKO, 1);
+  /* Turn gecko symbol ON                                 */
+  SegmentLCD_Symbol(LCD_SYMBOL_GECKO, 1);
 
-   /* Turn EFM32 symbol ON                                 */
-   SegmentLCD_Symbol(LCD_SYMBOL_EFM32, 1);
+  /* Turn EFM32 symbol ON                                 */
+  SegmentLCD_Symbol(LCD_SYMBOL_EFM32, 1);
 
-   /* Write welcome message on LCD                         */
-   SegmentLCD_Write("uC/OS-2");
+  /* Write welcome message on LCD                         */
+  SegmentLCD_Write("uC/OS-2");
 
-/* As USART connectors are not available on the STK by default,
- * therefore printf() functions are turned off.
- * Uncomment the macro definition in includes.h if serial
- * is connected to your STK board (USART1 or LEUART0)!    */
- #ifdef USART_CONNECTED
-
-   /* Initialize                                          */
-   RETARGET_SerialInit();
-   RETARGET_SerialCrLf(1);
+  /* Initialize serial port                               */
+  RETARGET_SerialInit();
+  RETARGET_SerialCrLf(1);
 
   osVersion3 = OSVersion();
   osVersion1 = osVersion3 / 10000;
@@ -160,26 +158,24 @@ int main(void)
   osVersion3 -= osVersion2 * 100;
   osVersion3 %= 100;
 
-   /* Write welcome message on serial                     */
-   printf("\n*****************************************************************************");
-   printf("\n                uC/OS-II v%d.%02d.%02d on Silicon Labs EFM32TG STK             ",
+  /* Write welcome message on serial                     */
+  printf("\n*****************************************************************************");
+  printf("\n                uC/OS-II v%d.%02d.%02d on Silicon Labs EFM32TG STK             ",
          osVersion1, osVersion2, osVersion3 );
-   printf("\n                               Demo Application                              \n");
-   printf("\n                                   uC/OS-II                                  ");
-   printf("\n                           \"The real time kernel\"                            ");
-   printf("\n                               www.micrium.com                               ");
-   printf("\n\n                                is running on                              ");
-   printf("\n\n                             Silicon Labs EFM32                              ");
-   printf("\n            \"The world's most energy friendly microcontrollers\"              ");
-   printf("\n                              www.silabs.com                                 \n");
-   printf("\nDescription:");
-   printf("\nTask1: LED blink task");
-   printf("\nTask2: Receives characters from serial and posts message to Task3");
-   printf("\nTask3: Receives message from Task2 and writes it on LCD and serial ");
-   printf("\n*****************************************************************************\n");
-   printf("\nStart typing...\n");
-
- #endif /* end of #ifndef USART_CONNECTED */
+  printf("\n                               Demo Application                              \n");
+  printf("\n                                   uC/OS-II                                  ");
+  printf("\n                           \"The real time kernel\"                            ");
+  printf("\n                               www.micrium.com                               ");
+  printf("\n\n                                is running on                              ");
+  printf("\n\n                             Silicon Labs EFM32                              ");
+  printf("\n            \"The world's most energy friendly microcontrollers\"              ");
+  printf("\n                              www.silabs.com                                 \n");
+  printf("\nDescription:");
+  printf("\nTask1: LED blink task");
+  printf("\nTask2: Receives characters from serial and posts message to Task3");
+  printf("\nTask3: Receives message from Task2 and writes it on LCD and serial ");
+  printf("\n*****************************************************************************\n");
+  printf("\nStart typing...\n");
 
   /* Start multitasking (i.e. give control to uC/OS-II).  */
   OSStart();
@@ -188,6 +184,7 @@ int main(void)
    * code execution reached this point                    */
   while(1) ;
 }
+
 /*
 *********************************************************************************************************
 *                                      App_MailboxCreate()
@@ -203,9 +200,15 @@ int main(void)
 */
 static void App_MailboxCreate (void)
 {
-  /* Create mailbox object for messaging received serial data between tasks */
-  pSerialMsgObj = OSMboxCreate((void *)0);
+  /* Create message queue for messaging received serial data between tasks */
+  pSerialQueObj = OSQCreate(AppMsgQueue, MSG_Q_SIZE);
 
+  /* Error check */
+  if (pSerialQueObj == (OS_EVENT *)0)
+  {
+    /* Error during message queue initialization */
+    while (1U);
+  }
 }
 
 
@@ -266,52 +269,4 @@ static void App_TaskCreate (void)
   OSTaskNameSet(APP_CFG_TASK_TWO_PRIO, "Two", &err);
   OSTaskNameSet(APP_CFG_TASK_TWO_PRIO, "Three", &err);
 #endif
-}
-
-
-/*
-*********************************************************************************************************
-*                                              setupSW0()
-*
-* Description : Setup SW0 for energyAware Profiler.
-*
-* Argument(s) : none.
-*
-* Return(s)   : none.
-*
-* Note(s)     : none.
-*********************************************************************************************************
-*/
-static void setupSWO(void)
-{
-  uint32_t *dwt_ctrl = (uint32_t *) 0xE0001000;
-  uint32_t *tpiu_prescaler = (uint32_t *) 0xE0040010;
-  uint32_t *tpiu_protocol = (uint32_t *) 0xE00400F0;
-
-  CMU->HFPERCLKEN0 |= CMU_HFPERCLKEN0_GPIO;
-  /* Enable Serial wire output pin */
-  GPIO->ROUTE |= GPIO_ROUTE_SWOPEN;
-  /* Set location 1 */
-  GPIO->ROUTE = (GPIO->ROUTE & ~(_GPIO_ROUTE_SWLOCATION_MASK)) | GPIO_ROUTE_SWLOCATION_LOC1;
-  /* Enable output on pin */
-  GPIO->P[2].MODEH &= ~(_GPIO_P_MODEH_MODE15_MASK);
-  GPIO->P[2].MODEH |= GPIO_P_MODEH_MODE15_PUSHPULL;
-  /* Enable debug clock AUXHFRCO */
-  CMU->OSCENCMD = CMU_OSCENCMD_AUXHFRCOEN;
-
-  while(!(CMU->STATUS & CMU_STATUS_AUXHFRCORDY));
-
-  /* Enable trace in core debug */
-  CoreDebug->DHCSR |= 1;
-  CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
-
-  /* Enable PC and IRQ sampling output */
-  *dwt_ctrl = 0x400113FF;
-  /* Set TPIU prescaler to 16. */
-  *tpiu_prescaler = 0xf;
-  /* Set protocol to NRZ */
-  *tpiu_protocol = 2;
-  /* Unlock ITM and output data */
-  ITM->LAR = 0xC5ACCE55;
-  ITM->TCR = 0x10009;
 }

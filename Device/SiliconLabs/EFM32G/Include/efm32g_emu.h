@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efm32g_emu.h
  * @brief EFM32G_EMU register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -40,12 +40,12 @@
  *****************************************************************************/
 typedef struct
 {
-  __IO uint32_t CTRL;         /**< Control Register  */
-  __IO uint32_t MEMCTRL;      /**< Memory Control Register  */
-  __IO uint32_t LOCK;         /**< Configuration Lock Register  */
-  uint32_t      RESERVED0[6]; /**< Reserved for future use **/
-  __IO uint32_t AUXCTRL;      /**< Auxiliary Control Register  */
-} EMU_TypeDef;                /** @} */
+  __IOM uint32_t CTRL;         /**< Control Register  */
+  __IOM uint32_t MEMCTRL;      /**< Memory Control Register  */
+  __IOM uint32_t LOCK;         /**< Configuration Lock Register  */
+  uint32_t       RESERVED0[6]; /**< Reserved for future use **/
+  __IOM uint32_t AUXCTRL;      /**< Auxiliary Control Register  */
+} EMU_TypeDef;                 /** @} */
 
 /**************************************************************************//**
  * @defgroup EFM32G_EMU_BitFields

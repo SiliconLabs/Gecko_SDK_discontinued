@@ -60,12 +60,16 @@ as a "Ports" device in Device Manager, double-click it, select the
 "Port Settings" tab and maybe the "Advanced..." button to set serial port
 properties.
 
-
 Some versions of Windows wont allow you to install unsigned drivers. If you
-suspect this, reboot the PC and repeatedly push F8 during boot until the boot
-menu appears. Select the "Disable Driver Signature Enforcement" option.
-You should now be able to install unsigned drivers.
-
+suspect this, reboot the PC into "Disable Driver Signature Enforcement" mode.
+Win7:
+Repeatedly push F8 during boot until the boot menu appears.
+Select the "Disable Driver Signature Enforcement" option.
+Win10:
+Start Menu->Power button->Hold Shift key down and select Restart.
+When computer has restarted into the options menu, select:
+Troubleshoot->Advanced Option->Startup Settings->Restart->Disable driver signature enforcement
+You should now be able to install an unsigned driver.
 
 Board:  Silicon Labs EFM32GG-DK3750 Development Kit
 Device: EFM32GG990F1024

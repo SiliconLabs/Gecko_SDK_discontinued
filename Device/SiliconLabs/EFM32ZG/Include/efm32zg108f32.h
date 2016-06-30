@@ -2,7 +2,7 @@
  * @file efm32zg108f32.h
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EFM32ZG108F32
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -214,35 +214,35 @@ typedef enum IRQn
  *****************************************************************************/
 typedef struct
 {
-  __I uint32_t   STATUS;         /**< DMA Status Registers  */
-  __O uint32_t   CONFIG;         /**< DMA Configuration Register  */
-  __IO uint32_t  CTRLBASE;       /**< Channel Control Data Base Pointer Register  */
-  __I uint32_t   ALTCTRLBASE;    /**< Channel Alternate Control Data Base Pointer Register  */
-  __I uint32_t   CHWAITSTATUS;   /**< Channel Wait on Request Status Register  */
-  __O uint32_t   CHSWREQ;        /**< Channel Software Request Register  */
-  __IO uint32_t  CHUSEBURSTS;    /**< Channel Useburst Set Register  */
-  __O uint32_t   CHUSEBURSTC;    /**< Channel Useburst Clear Register  */
-  __IO uint32_t  CHREQMASKS;     /**< Channel Request Mask Set Register  */
-  __O uint32_t   CHREQMASKC;     /**< Channel Request Mask Clear Register  */
-  __IO uint32_t  CHENS;          /**< Channel Enable Set Register  */
-  __O uint32_t   CHENC;          /**< Channel Enable Clear Register  */
-  __IO uint32_t  CHALTS;         /**< Channel Alternate Set Register  */
-  __O uint32_t   CHALTC;         /**< Channel Alternate Clear Register  */
-  __IO uint32_t  CHPRIS;         /**< Channel Priority Set Register  */
-  __O uint32_t   CHPRIC;         /**< Channel Priority Clear Register  */
+  __IM uint32_t  STATUS;         /**< DMA Status Registers  */
+  __OM uint32_t  CONFIG;         /**< DMA Configuration Register  */
+  __IOM uint32_t CTRLBASE;       /**< Channel Control Data Base Pointer Register  */
+  __IM uint32_t  ALTCTRLBASE;    /**< Channel Alternate Control Data Base Pointer Register  */
+  __IM uint32_t  CHWAITSTATUS;   /**< Channel Wait on Request Status Register  */
+  __OM uint32_t  CHSWREQ;        /**< Channel Software Request Register  */
+  __IOM uint32_t CHUSEBURSTS;    /**< Channel Useburst Set Register  */
+  __OM uint32_t  CHUSEBURSTC;    /**< Channel Useburst Clear Register  */
+  __IOM uint32_t CHREQMASKS;     /**< Channel Request Mask Set Register  */
+  __OM uint32_t  CHREQMASKC;     /**< Channel Request Mask Clear Register  */
+  __IOM uint32_t CHENS;          /**< Channel Enable Set Register  */
+  __OM uint32_t  CHENC;          /**< Channel Enable Clear Register  */
+  __IOM uint32_t CHALTS;         /**< Channel Alternate Set Register  */
+  __OM uint32_t  CHALTC;         /**< Channel Alternate Clear Register  */
+  __IOM uint32_t CHPRIS;         /**< Channel Priority Set Register  */
+  __OM uint32_t  CHPRIC;         /**< Channel Priority Clear Register  */
   uint32_t       RESERVED0[3];   /**< Reserved for future use **/
-  __IO uint32_t  ERRORC;         /**< Bus Error Clear Register  */
+  __IOM uint32_t ERRORC;         /**< Bus Error Clear Register  */
 
   uint32_t       RESERVED1[880]; /**< Reserved for future use **/
-  __I uint32_t   CHREQSTATUS;    /**< Channel Request Status  */
+  __IM uint32_t  CHREQSTATUS;    /**< Channel Request Status  */
   uint32_t       RESERVED2[1];   /**< Reserved for future use **/
-  __I uint32_t   CHSREQSTATUS;   /**< Channel Single Request Status  */
+  __IM uint32_t  CHSREQSTATUS;   /**< Channel Single Request Status  */
 
   uint32_t       RESERVED3[121]; /**< Reserved for future use **/
-  __I uint32_t   IF;             /**< Interrupt Flag Register  */
-  __IO uint32_t  IFS;            /**< Interrupt Flag Set Register  */
-  __IO uint32_t  IFC;            /**< Interrupt Flag Clear Register  */
-  __IO uint32_t  IEN;            /**< Interrupt Enable register  */
+  __IM uint32_t  IF;             /**< Interrupt Flag Register  */
+  __IOM uint32_t IFS;            /**< Interrupt Flag Set Register  */
+  __IOM uint32_t IFC;            /**< Interrupt Flag Clear Register  */
+  __IOM uint32_t IEN;            /**< Interrupt Enable register  */
 
   uint32_t       RESERVED4[60];  /**< Reserved registers */
   DMA_CH_TypeDef CH[4];          /**< Channel registers */
@@ -259,42 +259,42 @@ typedef struct
  *****************************************************************************/
 typedef struct
 {
-  __IO uint32_t CTRL;         /**< CMU Control Register  */
-  __IO uint32_t HFCORECLKDIV; /**< High Frequency Core Clock Division Register  */
-  __IO uint32_t HFPERCLKDIV;  /**< High Frequency Peripheral Clock Division Register  */
-  __IO uint32_t HFRCOCTRL;    /**< HFRCO Control Register  */
-  __IO uint32_t LFRCOCTRL;    /**< LFRCO Control Register  */
-  __IO uint32_t AUXHFRCOCTRL; /**< AUXHFRCO Control Register  */
-  __IO uint32_t CALCTRL;      /**< Calibration Control Register  */
-  __IO uint32_t CALCNT;       /**< Calibration Counter Register  */
-  __IO uint32_t OSCENCMD;     /**< Oscillator Enable/Disable Command Register  */
-  __IO uint32_t CMD;          /**< Command Register  */
-  __IO uint32_t LFCLKSEL;     /**< Low Frequency Clock Select Register  */
-  __I uint32_t  STATUS;       /**< Status Register  */
-  __I uint32_t  IF;           /**< Interrupt Flag Register  */
-  __IO uint32_t IFS;          /**< Interrupt Flag Set Register  */
-  __IO uint32_t IFC;          /**< Interrupt Flag Clear Register  */
-  __IO uint32_t IEN;          /**< Interrupt Enable Register  */
-  __IO uint32_t HFCORECLKEN0; /**< High Frequency Core Clock Enable Register 0  */
-  __IO uint32_t HFPERCLKEN0;  /**< High Frequency Peripheral Clock Enable Register 0  */
-  uint32_t      RESERVED0[2]; /**< Reserved for future use **/
-  __I uint32_t  SYNCBUSY;     /**< Synchronization Busy Register  */
-  __IO uint32_t FREEZE;       /**< Freeze Register  */
-  __IO uint32_t LFACLKEN0;    /**< Low Frequency A Clock Enable Register 0  (Async Reg)  */
-  uint32_t      RESERVED1[1]; /**< Reserved for future use **/
-  __IO uint32_t LFBCLKEN0;    /**< Low Frequency B Clock Enable Register 0 (Async Reg)  */
+  __IOM uint32_t CTRL;         /**< CMU Control Register  */
+  __IOM uint32_t HFCORECLKDIV; /**< High Frequency Core Clock Division Register  */
+  __IOM uint32_t HFPERCLKDIV;  /**< High Frequency Peripheral Clock Division Register  */
+  __IOM uint32_t HFRCOCTRL;    /**< HFRCO Control Register  */
+  __IOM uint32_t LFRCOCTRL;    /**< LFRCO Control Register  */
+  __IOM uint32_t AUXHFRCOCTRL; /**< AUXHFRCO Control Register  */
+  __IOM uint32_t CALCTRL;      /**< Calibration Control Register  */
+  __IOM uint32_t CALCNT;       /**< Calibration Counter Register  */
+  __IOM uint32_t OSCENCMD;     /**< Oscillator Enable/Disable Command Register  */
+  __IOM uint32_t CMD;          /**< Command Register  */
+  __IOM uint32_t LFCLKSEL;     /**< Low Frequency Clock Select Register  */
+  __IM uint32_t  STATUS;       /**< Status Register  */
+  __IM uint32_t  IF;           /**< Interrupt Flag Register  */
+  __IOM uint32_t IFS;          /**< Interrupt Flag Set Register  */
+  __IOM uint32_t IFC;          /**< Interrupt Flag Clear Register  */
+  __IOM uint32_t IEN;          /**< Interrupt Enable Register  */
+  __IOM uint32_t HFCORECLKEN0; /**< High Frequency Core Clock Enable Register 0  */
+  __IOM uint32_t HFPERCLKEN0;  /**< High Frequency Peripheral Clock Enable Register 0  */
+  uint32_t       RESERVED0[2]; /**< Reserved for future use **/
+  __IM uint32_t  SYNCBUSY;     /**< Synchronization Busy Register  */
+  __IOM uint32_t FREEZE;       /**< Freeze Register  */
+  __IOM uint32_t LFACLKEN0;    /**< Low Frequency A Clock Enable Register 0  (Async Reg)  */
+  uint32_t       RESERVED1[1]; /**< Reserved for future use **/
+  __IOM uint32_t LFBCLKEN0;    /**< Low Frequency B Clock Enable Register 0 (Async Reg)  */
 
-  uint32_t      RESERVED2[1]; /**< Reserved for future use **/
-  __IO uint32_t LFAPRESC0;    /**< Low Frequency A Prescaler Register 0 (Async Reg)  */
-  uint32_t      RESERVED3[1]; /**< Reserved for future use **/
-  __IO uint32_t LFBPRESC0;    /**< Low Frequency B Prescaler Register 0  (Async Reg)  */
-  uint32_t      RESERVED4[1]; /**< Reserved for future use **/
-  __IO uint32_t PCNTCTRL;     /**< PCNT Control Register  */
+  uint32_t       RESERVED2[1]; /**< Reserved for future use **/
+  __IOM uint32_t LFAPRESC0;    /**< Low Frequency A Prescaler Register 0 (Async Reg)  */
+  uint32_t       RESERVED3[1]; /**< Reserved for future use **/
+  __IOM uint32_t LFBPRESC0;    /**< Low Frequency B Prescaler Register 0  (Async Reg)  */
+  uint32_t       RESERVED4[1]; /**< Reserved for future use **/
+  __IOM uint32_t PCNTCTRL;     /**< PCNT Control Register  */
 
-  uint32_t      RESERVED5[1]; /**< Reserved for future use **/
-  __IO uint32_t ROUTE;        /**< I/O Routing Register  */
-  __IO uint32_t LOCK;         /**< Configuration Lock Register  */
-} CMU_TypeDef;                /** @} */
+  uint32_t       RESERVED5[1]; /**< Reserved for future use **/
+  __IOM uint32_t ROUTE;        /**< I/O Routing Register  */
+  __IOM uint32_t LOCK;         /**< Configuration Lock Register  */
+} CMU_TypeDef;                 /** @} */
 
 #include "efm32zg_timer_cc.h"
 #include "efm32zg_timer.h"
@@ -309,9 +309,9 @@ typedef struct
  *****************************************************************************/
 typedef struct
 {
-  __IO uint32_t  SWPULSE;      /**< Software Pulse Register  */
-  __IO uint32_t  SWLEVEL;      /**< Software Level Register  */
-  __IO uint32_t  ROUTE;        /**< I/O Routing Register  */
+  __IOM uint32_t SWPULSE;      /**< Software Pulse Register  */
+  __IOM uint32_t SWLEVEL;      /**< Software Level Register  */
+  __IOM uint32_t ROUTE;        /**< I/O Routing Register  */
 
   uint32_t       RESERVED0[1]; /**< Reserved registers */
   PRS_CH_TypeDef CH[4];        /**< Channel registers */

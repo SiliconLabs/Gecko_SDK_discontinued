@@ -20,8 +20,14 @@ insertion, or you can open "Device Manager", left click on the new device and
 select "Update Driver Software...".
 
 Some versions of Windows wont allow you to install unsigned drivers. If you
-suspect this, reboot the PC and repeatedly push F8 during boot until the boot
-menu appears. Select the "Disable Driver Signature Enforcement" option.
+suspect this, reboot the PC into "Disable Driver Signature Enforcement" mode.
+Win7:
+Repeatedly push F8 during boot until the boot menu appears.
+Select the "Disable Driver Signature Enforcement" option.
+Win10:
+Start Menu->Power button->Hold Shift key down and select Restart.
+When computer has restarted into the options menu, select:
+Troubleshoot->Advanced Option->Startup Settings->Restart->Disable driver signature enforcement
 You should now be able to install an unsigned driver.
 
 When a driver is succesfully installed, the device will be listed as a "Ports"

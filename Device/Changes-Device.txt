@@ -1,5 +1,18 @@
 ================ Revision history ============================================
+4.4.0:
+ - Added support for sub GHz EFR devices.
+ - Added support for BGM121 (EFR32BG1X232FXXXGM56) module.
+ - Fixed bug in USB_GRXSTSR_FN on Giant/Leopard/Wonder families.
+   The bit field was not correctly placed in the register.
+
+4.3.1:
+ - The "SECURITY" Peripheral Register Block has been renamed to "AESCCM" to
+   avoid naming collisions.
+ - If the name MPU_BASE is already defined, it is undefined in the Device
+   header such that the CMSIS Core definitions can be used.
+
 4.3.0:
+ - Use ARM CMSIS version 4.5.0.
  - Renamed some bitfields in ADC for Pearl/Jade/EFR's.
  - Added usb LEMNAK and LEMADDR low power modes on Happy Gecko devices.
  - SystemHFClockGet() is now calculating the frequency taking the HFCLK or
@@ -18,7 +31,7 @@
 
 4.1.0:
  - Added device headers for new families EZR32HG (EZR Happy Gecko), EFM32JG
-   (Jade Gecko) and EFM32PG (Pearl Gecko)
+   (Jade Gecko) and EFM32PG (Pearl Gecko).
  - Bugfixes in EZR32 LG and WG system/startup files.
  - Added support for new EZR32HG family.
 

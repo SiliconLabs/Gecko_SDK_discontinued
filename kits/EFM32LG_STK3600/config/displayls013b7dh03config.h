@@ -2,7 +2,7 @@
  * @file display_ls013b7dh03.h
  * @brief EFM32LG_STK3600 specific configuration for the display driver for
  *        the Sharp Memory LCD model LS013B7DH03.
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>

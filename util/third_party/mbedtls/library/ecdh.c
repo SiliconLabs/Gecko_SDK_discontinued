@@ -82,6 +82,7 @@ cleanup:
     return( ret );
 }
 
+#if !defined( MBEDTLS_ECDH_INIT_ALT )
 /*
  * Initialize context
  */
@@ -89,6 +90,7 @@ void mbedtls_ecdh_init( mbedtls_ecdh_context *ctx )
 {
     memset( ctx, 0, sizeof( mbedtls_ecdh_context ) );
 }
+#endif /* #if !defined( MBEDTLS_ECDH_INIT_ALT ) */
 
 /*
  * Free context

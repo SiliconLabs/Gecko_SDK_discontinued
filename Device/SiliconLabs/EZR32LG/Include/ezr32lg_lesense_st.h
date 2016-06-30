@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file ezr32lg_lesense_st.h
  * @brief EZR32LG_LESENSE_ST register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -38,8 +38,8 @@
  *****************************************************************************/
 typedef struct
 {
-  __IO uint32_t TCONFA; /**< State transition configuration A  */
-  __IO uint32_t TCONFB; /**< State transition configuration B  */
+  __IOM uint32_t TCONFA; /**< State transition configuration A  */
+  __IOM uint32_t TCONFB; /**< State transition configuration B  */
 } LESENSE_ST_TypeDef;
 
 /** @} End of group Parts */

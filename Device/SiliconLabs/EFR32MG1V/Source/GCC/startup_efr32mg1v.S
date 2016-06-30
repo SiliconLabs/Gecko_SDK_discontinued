@@ -1,7 +1,7 @@
 /* @file startup_efr32mg1v.S
  * @brief startup file for Silicon Labs EFR32MG1V devices.
  *        For use with GCC for ARM Embedded Processors
- * @version 4.3.0
+ * @version 4.4.0
  * Date:    12 June 2014
  *
  */

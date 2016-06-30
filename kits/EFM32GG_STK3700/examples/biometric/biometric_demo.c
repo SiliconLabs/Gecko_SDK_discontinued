@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file
  * @brief Demo for EFM32WG_STK3800 and Biometric Sensor EXP
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>

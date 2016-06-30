@@ -12,7 +12,7 @@
  *
  *
  * @endverbatim
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -44,7 +44,13 @@
 #ifndef EM_DEVICE_H
 #define EM_DEVICE_H
 
-#if defined(EFR32MG1V132F256GM32)
+#if defined(EFR32MG1V131F256GM32)
+#include "efr32mg1v131f256gm32.h"
+
+#elif defined(EFR32MG1V131F256GM48)
+#include "efr32mg1v131f256gm48.h"
+
+#elif defined(EFR32MG1V132F256GM32)
 #include "efr32mg1v132f256gm32.h"
 
 #elif defined(EFR32MG1V132F256GM48)

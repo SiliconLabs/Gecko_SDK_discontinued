@@ -54,6 +54,12 @@
  * Note that mbed TLS does not provide a control channel or (multiple) session
  * handling without additional work from the developer.
  *
+ * @section mainpage_sl_plugins Silicon Labs CRYPTO Hardware Acceleration Plugins
+ *
+ * Silicon Labs plugins utilizing CRYPTO hardware acceleration are provided in this
+ * module. These plugins and their configurations are documented in
+ * @ref sl_crypto and @ref sl_crypto_config.
+ *
  * @section mainpage_examples Examples
  *
  * Example server setup:

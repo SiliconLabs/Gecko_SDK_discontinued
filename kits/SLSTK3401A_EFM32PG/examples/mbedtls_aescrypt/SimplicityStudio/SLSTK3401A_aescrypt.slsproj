@@ -14,6 +14,10 @@
     <include pattern="emlib/em_gpio.c" />
     <include pattern="emlib/em_int.c" />
     <include pattern="emlib/em_usart.c" />
+    <include pattern="emlib/em_crypto.c" />
+  </module>
+  <module id="com.silabs.ide.si32.sdk.efm32.v2.common.emdrv">
+    <exclude pattern=".*" />
   </module>
   <module id="com.silabs.ide.si32.sdk.efm32.v2.common.bsp">
     <exclude pattern=".*" />
@@ -83,10 +87,12 @@
   </module>
   <macroDefinition name="DEBUG_EFM" languageCompatibility="c cpp" />
   <macroDefinition name="RETARGET_VCOM" />
-  <macroDefinition name="MBEDTLS_CONFIG_FILE" value='"config-aescrypt.h"' />
+  <macroDefinition name="MBEDTLS_CONFIG_FILE" value='"config-sl-crypto-all-acceleration.h"' />
   <file name="readme.txt" uri="readme.txt" />
+  <includePath uri="../../../../util/third_party/mbedtls/configs" />
   <includePath uri="." />
   <folder name="test">
     <file name="main.c" uri="main.c" />
   </folder>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -fomit-frame-pointer "/>
 </project>

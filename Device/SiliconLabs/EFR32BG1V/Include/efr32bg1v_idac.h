@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efr32bg1v_idac.h
  * @brief EFR32BG1V_IDAC register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -40,22 +40,22 @@
  *****************************************************************************/
 typedef struct
 {
-  __IO uint32_t CTRL;          /**< Control Register  */
-  __IO uint32_t CURPROG;       /**< Current Programming Register  */
-  uint32_t      RESERVED0[1];  /**< Reserved for future use **/
-  __IO uint32_t DUTYCONFIG;    /**< Duty Cycle Configauration Register  */
+  __IOM uint32_t CTRL;          /**< Control Register  */
+  __IOM uint32_t CURPROG;       /**< Current Programming Register  */
+  uint32_t       RESERVED0[1];  /**< Reserved for future use **/
+  __IOM uint32_t DUTYCONFIG;    /**< Duty Cycle Configauration Register  */
 
-  uint32_t      RESERVED1[2];  /**< Reserved for future use **/
-  __I uint32_t  STATUS;        /**< Status Register  */
-  uint32_t      RESERVED2[1];  /**< Reserved for future use **/
-  __I uint32_t  IF;            /**< Interrupt Flag Register  */
-  __IO uint32_t IFS;           /**< Interrupt Flag Set Register  */
-  __IO uint32_t IFC;           /**< Interrupt Flag Clear Register  */
-  __IO uint32_t IEN;           /**< Interrupt Enable Register  */
-  uint32_t      RESERVED3[1];  /**< Reserved for future use **/
-  __I uint32_t  APORTREQ;      /**< APORT Request Status Register  */
-  __I uint32_t  APORTCONFLICT; /**< APORT Request Status Register  */
-} IDAC_TypeDef;                /** @} */
+  uint32_t       RESERVED1[2];  /**< Reserved for future use **/
+  __IM uint32_t  STATUS;        /**< Status Register  */
+  uint32_t       RESERVED2[1];  /**< Reserved for future use **/
+  __IM uint32_t  IF;            /**< Interrupt Flag Register  */
+  __IOM uint32_t IFS;           /**< Interrupt Flag Set Register  */
+  __IOM uint32_t IFC;           /**< Interrupt Flag Clear Register  */
+  __IOM uint32_t IEN;           /**< Interrupt Enable Register  */
+  uint32_t       RESERVED3[1];  /**< Reserved for future use **/
+  __IM uint32_t  APORTREQ;      /**< APORT Request Status Register  */
+  __IM uint32_t  APORTCONFLICT; /**< APORT Request Status Register  */
+} IDAC_TypeDef;                 /** @} */
 
 /**************************************************************************//**
  * @defgroup EFR32BG1V_IDAC_BitFields

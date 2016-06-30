@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file
  * @brief Board Controller Communications (BCC) definitions
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -238,38 +238,41 @@ void BSP_BccPinsEnable( bool enable )
     /* Configure GPIO pin for UART RX */
     GPIO_PinModeSet( BSP_BCC_RXPORT, BSP_BCC_RXPIN, gpioModeInput, 1 );
 
-    /* Enable the switch that enables UART communication. */
-    GPIO_PinModeSet( BSP_BCC_ENABLE_PORT, BSP_BCC_ENABLE_PIN, gpioModePushPull, 1 );
-
-    #if defined( BSP_BCC_LEUART )
+#if defined(BSP_BCC_ENABLE_PORT)
+      /* Enable the switch that enables UART communication. */
+      GPIO_PinModeSet( BSP_BCC_ENABLE_PORT, BSP_BCC_ENABLE_PIN, gpioModePushPull, 1 );
+#endif 
+     
+#if defined( BSP_BCC_LEUART )
     BSP_BCC_LEUART->ROUTE |= LEUART_ROUTE_RXPEN | LEUART_ROUTE_TXPEN | BSP_BCC_LOCATION;
-    #else
+#else
 
-      #if defined( USART_ROUTEPEN_TXPEN )
+#if defined( USART_ROUTEPEN_TXPEN )
     BSP_BCC_USART->ROUTEPEN = USART_ROUTEPEN_TXPEN | USART_ROUTEPEN_RXPEN;
     BSP_BCC_USART->ROUTELOC0 =
       ( BSP_BCC_USART->ROUTELOC0 &
         ~( _USART_ROUTELOC0_TXLOC_MASK | _USART_ROUTELOC0_RXLOC_MASK ) )
       | ( BSP_BCC_TX_LOCATION  << _USART_ROUTELOC0_TXLOC_SHIFT  )
       | ( BSP_BCC_RX_LOCATION  << _USART_ROUTELOC0_RXLOC_SHIFT  );
-      #else
+#else
     BSP_BCC_USART->ROUTE |= USART_ROUTE_RXPEN | USART_ROUTE_TXPEN | BSP_BCC_LOCATION;
-      #endif
-    #endif
+#endif
+#endif
   }
   else
   {
+#if defined(BSP_BCC_ENABLE_PORT)
     GPIO_PinModeSet( BSP_BCC_ENABLE_PORT, BSP_BCC_ENABLE_PIN, gpioModeDisabled, 0 );
-
-    #if defined( BSP_BCC_LEUART )
+#endif
+#if defined( BSP_BCC_LEUART )
       BSP_BCC_LEUART->ROUTE &= ~(LEUART_ROUTE_RXPEN | LEUART_ROUTE_TXPEN);
-    #else
-      #if defined( USART_ROUTEPEN_TXPEN )
+#else
+#if defined( USART_ROUTEPEN_TXPEN )
       BSP_BCC_USART->ROUTEPEN &= ~(USART_ROUTEPEN_TXPEN | USART_ROUTEPEN_RXPEN);
-      #else
+#else
       BSP_BCC_USART->ROUTE &= ~(USART_ROUTE_RXPEN | USART_ROUTE_TXPEN);
-      #endif
-    #endif
+#endif
+#endif
 
     GPIO_PinModeSet( BSP_BCC_TXPORT, BSP_BCC_TXPIN, gpioModeDisabled, 0 );
 

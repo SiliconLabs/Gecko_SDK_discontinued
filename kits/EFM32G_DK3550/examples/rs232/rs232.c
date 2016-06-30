@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file
  * @brief UART/LEUART/RS232 example for EFM32G_DK3550 development kit
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>

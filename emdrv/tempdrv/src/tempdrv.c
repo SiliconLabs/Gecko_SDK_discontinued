@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file tempdrv.c
  * @brief TEMPDRV API implementation.
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -499,12 +499,12 @@ Ecode_t TEMPDRV_Init()
   DItemp = ((DEVINFO->CAL & _DEVINFO_CAL_TEMP_MASK) >> _DEVINFO_CAL_TEMP_SHIFT);
   DIemu = ((DEVINFO->EMUTEMP & _DEVINFO_EMUTEMP_EMUTEMPROOM_MASK) >> _DEVINFO_EMUTEMP_EMUTEMPROOM_SHIFT);
 
-  if ((DItemp == 0xFFFFFFFF ) || (DIemu == 0xFFFFFFFF))
+  if ((DItemp == (_DEVINFO_CAL_TEMP_MASK >> _DEVINFO_CAL_TEMP_SHIFT)) 
+   || (DIemu == (_DEVINFO_EMUTEMP_EMUTEMPROOM_MASK >> _DEVINFO_EMUTEMP_EMUTEMPROOM_SHIFT)))
   {
     // Missing DI page calibration data, substitute fixed values
     DItemp = fallbackTEMP;
     DIemu = fallbackEMU;
-
   }
 
   // calculate conversion offsets. Based on assumed slope of 5/8

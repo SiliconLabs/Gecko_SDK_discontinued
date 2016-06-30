@@ -104,6 +104,17 @@ void mbedtls_sha256_finish( mbedtls_sha256_context *ctx, unsigned char output[32
 /* Internal use */
 void mbedtls_sha256_process( mbedtls_sha256_context *ctx, const unsigned char data[64] );
 
+/**
+ * \brief          Output = SHA-256( input buffer )
+ *
+ * \param input    buffer holding the  data
+ * \param ilen     length of the input data
+ * \param output   SHA-224/256 checksum result
+ * \param is224    0 = use SHA256, 1 = use SHA224
+ */
+void mbedtls_sha256( const unsigned char *input, size_t ilen,
+           unsigned char output[32], int is224 );
+
 #ifdef __cplusplus
 }
 #endif
@@ -115,17 +126,6 @@ void mbedtls_sha256_process( mbedtls_sha256_context *ctx, const unsigned char da
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-/**
- * \brief          Output = SHA-256( input buffer )
- *
- * \param input    buffer holding the  data
- * \param ilen     length of the input data
- * \param output   SHA-224/256 checksum result
- * \param is224    0 = use SHA256, 1 = use SHA224
- */
-void mbedtls_sha256( const unsigned char *input, size_t ilen,
-           unsigned char output[32], int is224 );
 
 /**
  * \brief          Checkup routine

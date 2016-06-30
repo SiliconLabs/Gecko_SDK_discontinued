@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efr32mg1p_af_ports.h
  * @brief EFR32MG1P_AF_PORTS register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>

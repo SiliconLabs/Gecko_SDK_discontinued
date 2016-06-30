@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file
  * @brief uC/OS-II example - Board Support Package (BSP) header
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -13,13 +13,12 @@
  *
  ******************************************************************************/
 
-#ifndef  __BSP_PRESENT_H
-#define  __BSP_PRESENT_H
+#ifndef  __BSPOS_PRESENT_H
+#define  __BSPOS_PRESENT_H
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-
 
 /*******************************************************************************
  *****************************   INCLUDE FILES   *******************************
@@ -35,4 +34,4 @@ void BSPOS_Init(void);
 }
 #endif
 
-#endif  /* end of __BSP_PRESENT_H */
+#endif  /* end of __BSPOS_PRESENT_H */

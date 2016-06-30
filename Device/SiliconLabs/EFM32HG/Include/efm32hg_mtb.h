@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efm32hg_mtb.h
  * @brief EFM32HG_MTB register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -40,11 +40,11 @@
  *****************************************************************************/
 typedef struct
 {
-  __IO uint32_t POSITION; /**< MTB Trace Position Register.  */
-  __IO uint32_t MASTER;   /**< MTB Trace Control Register  */
-  __IO uint32_t FLOW;     /**< MTB Trace Flow Register  */
-  __IO uint32_t BASE;     /**< MTB Trace Base Register  */
-} MTB_TypeDef;            /** @} */
+  __IOM uint32_t POSITION; /**< MTB Trace Position Register.  */
+  __IOM uint32_t MASTER;   /**< MTB Trace Control Register  */
+  __IOM uint32_t FLOW;     /**< MTB Trace Flow Register  */
+  __IOM uint32_t BASE;     /**< MTB Trace Base Register  */
+} MTB_TypeDef;             /** @} */
 
 /**************************************************************************//**
  * @defgroup EFM32HG_MTB_BitFields

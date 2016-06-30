@@ -238,8 +238,6 @@ static const GUI_WIDGET_CREATE_INFO _aDialogIntro[] = {
 /* Text shown in the DialogIntro dialog */
 static const char * _apDialogIntro[] = {
   "This sample demonstrates GRAPH widget usage.",
-  "With very little effort there is possibility",
-  "to create functional user interface.",
   "Press the <Start> button to run example,",
   "or <Calibrate> to calibrate touch panel."
 };
@@ -763,7 +761,6 @@ static void _cbCallback(WM_MESSAGE * pMsg) {
 *
 *       MainTask
 */
-int main(void);
 int main(void) {
 
   GUI_Init();

@@ -2,7 +2,7 @@
  * @file ezr32wg330f64r60.h
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EZR32WG330F64R60
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>

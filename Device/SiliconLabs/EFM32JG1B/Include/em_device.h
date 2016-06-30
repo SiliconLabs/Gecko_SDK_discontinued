@@ -12,7 +12,7 @@
  *
  *
  * @endverbatim
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -50,6 +50,9 @@
 #elif defined(EFM32JG1B100F256GM32)
 #include "efm32jg1b100f256gm32.h"
 
+#elif defined(EFM32JG1B100F256IM32)
+#include "efm32jg1b100f256im32.h"
+
 #elif defined(EFM32JG1B200F128GM32)
 #include "efm32jg1b200f128gm32.h"
 
@@ -61,6 +64,12 @@
 
 #elif defined(EFM32JG1B200F256GM48)
 #include "efm32jg1b200f256gm48.h"
+
+#elif defined(EFM32JG1B200F256IM32)
+#include "efm32jg1b200f256im32.h"
+
+#elif defined(EFM32JG1B200F256IM48)
+#include "efm32jg1b200f256im48.h"
 
 #else
 #error "em_device.h: PART NUMBER undefined"

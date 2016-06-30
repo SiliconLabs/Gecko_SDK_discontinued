@@ -23,7 +23,7 @@
 *
 * @file   includes.h
 * @brief
-* @version 4.3.0
+* @version 4.4.0
 ******************************************************************************
 * @section License
 * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -83,6 +83,7 @@ extern "C" {
 #include  "app_task_three.h"
 #include  "app_cfg.h"
 #include  "bspos.h"
+#include  "retargetserial.h"
 
 
 /*
@@ -90,8 +91,9 @@ extern "C" {
 *                                      Silicon Labs HEADER FILES
 *********************************************************************************************************
 */
-#include "bsp.h"
-#include "segmentlcd.h"
+#include <bsp.h>
+#include <bsp_trace.h>
+#include <segmentlcd.h>
 
 
 /*
@@ -107,12 +109,20 @@ extern "C" {
 #include <em_usart.h>
 #include <em_chip.h>
 
+
 /*
 *********************************************************************************************************
 *                                       Silicon Labs DRIVER FILES
 *********************************************************************************************************
 */
-#include <retargetserial.h>
+
+
+/*
+*********************************************************************************************************
+*                                          MACRO DEFINITIONS
+*********************************************************************************************************
+*/
+
 
 /*
 *********************************************************************************************************
@@ -120,8 +130,8 @@ extern "C" {
 *********************************************************************************************************
 */
 
-/* declaration of global mailbox object for inter-task communication */
-extern OS_EVENT *pSerialMsgObj;
+/* declaration of global queue object for inter-task communication */
+extern OS_EVENT *pSerialQueObj;
 
 
 #endif /* end of OS_MASTER_FILE */
@@ -129,6 +139,5 @@ extern OS_EVENT *pSerialMsgObj;
 #ifdef __cplusplus
 }
 #endif
-
 
 #endif /* end of __INCLUDES_H (do not include header files after this!) */

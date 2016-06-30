@@ -23,7 +23,7 @@
 *
 * @file   app_task_two.c
 * @brief
-* @version 4.3.0
+* @version 4.4.0
 ******************************************************************************
 * @section License
 * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -35,7 +35,6 @@
 *
 ******************************************************************************/
 #include <includes.h>
-
 
 /*
 *********************************************************************************************************
@@ -54,37 +53,25 @@
 */
 void APP_TaskTwo(void *p_arg)
 {
-/* As USART connectors are not available on the STK by default,
- * therefore printf() functions are turned off.
- * Uncomment the macro definition in includes.h if serial
- * is connected to your STK board (USART1 or LEUART0)!    */
-#ifdef USART_CONNECTED
   int taskChar;                   // Character received.
-#endif /* end of #ifndef USART_CONNECTED */
 
   (void)p_arg;  /* Note(1) */
 
   while (1)
   { /* Task body, always written as an infinite loop  */
 
-/* As USART connectors are not available on the STK by default,
- * therefore printf() functions are turned off.
- * Uncomment the macro definition in includes.h if serial
- * is connected to your STK board (USART1 or LEUART0)!    */
-#ifdef USART_CONNECTED
     /* Load character received on serial to character buffer */
     taskChar = getchar();
 
     /* If the character in the buffer is valid... */
     if (taskChar != -1)
     {
-      /* ...and post the message to the mailbox */
-      if(OS_ERR_NONE != OSMboxPost(pSerialMsgObj, (void*)taskChar))
+      /* Post the message to the mailbox */
+      if (OS_ERR_NONE != OSQPost(pSerialQueObj, (void*)taskChar))
       {
-        /* Error has occured, handle can be done here */
+        /* Error can be handled here */
       }
     }
-#endif /* end of #ifndef USART_CONNECTED */
 
     /* Delay task for 1 system tick (uC/OS-II suspends this task and executes
      * the next most important task) */

@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file
  * @brief Basic TFT Direct drive example for EFM32GG990F1024/EFM32GG_DK3750
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>

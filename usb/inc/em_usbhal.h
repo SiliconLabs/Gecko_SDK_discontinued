@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_usbhal.h
  * @brief USB protocol stack library, low level USB peripheral access.
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>

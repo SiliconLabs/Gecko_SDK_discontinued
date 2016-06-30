@@ -2,7 +2,7 @@
  * @file em_usart.c
  * @brief Universal synchronous/asynchronous receiver/transmitter (USART/UART)
  *   Peripheral API
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -306,8 +306,11 @@ uint32_t USART_BaudrateCalc(uint32_t refFreq,
   uint64_t quotient;
   uint32_t br;
 
+  /* Out of bound clkdiv ? */
+  EFM_ASSERT(clkdiv <= _USART_CLKDIV_DIV_MASK);
+
   /* Mask out unused bits */
-  clkdiv &= _USART_CLKDIV_MASK;
+  clkdiv &= _USART_CLKDIV_DIV_MASK;
 
   /* We want to use integer division to avoid forcing in float division */
   /* utils, and yet keep rounding effect errors to a minimum. */
@@ -387,8 +390,11 @@ uint32_t USART_BaudrateCalc(uint32_t refFreq,
    * variable names.
    */
 
-  /* Divisor will never exceed max 32 bit value since clkdiv <= 0xFFFFF8 */
-  /* and 'oversample' has been reduced to <= 3. */
+  /*
+   * Divisor will never exceed max 32 bit value since
+   * clkdiv <= _USART_CLKDIV_DIV_MASK (currently 0x1FFFC0 or 0x7FFFF8)
+   * and 'oversample' has been reduced to <= 3.
+   */
   divisor = oversample * (256 + clkdiv);
 
   quotient  = refFreq / divisor;
@@ -497,12 +503,14 @@ void USART_BaudrateSyncSet(USART_TypeDef *usart, uint32_t refFreq, uint32_t baud
   }
 
 #if defined(_USART_CLKDIV_DIV_MASK) && (_USART_CLKDIV_DIV_MASK >= 0x7FFFF8UL)
-  /* Calculate and set CLKDIV without fractional bits */
-  clkdiv = 2 * baudrate;
-  clkdiv = (0x100ULL * (uint64_t)refFreq) / clkdiv;
+  /* Calculate CLKDIV with fractional bits */
+  clkdiv = (128ULL*refFreq)/baudrate - 256;
 
-  /* Round up by not subtracting 256 and mask off fractional part */
-  clkdiv &= ~0xFF;
+  /*
+   * Make sure we dont use fractional bits, do normal integer rounding when
+   * discarding fractional bits.
+   */
+  clkdiv = ((clkdiv + 128)/256) << 8;
 #else
   /* Calculate and set CLKDIV with fractional bits */
   clkdiv  = 2 * refFreq;

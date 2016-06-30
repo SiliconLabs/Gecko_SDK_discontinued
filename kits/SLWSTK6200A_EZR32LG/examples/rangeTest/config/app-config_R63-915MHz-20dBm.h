@@ -2,7 +2,7 @@
  * @file app-config_R63-915MHz-20dBm.h
  * @brief Range Test application configuration for SLWSTK6202A/SLWSTK6222A kit.
  *
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>

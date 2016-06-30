@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file displayls013b7dh03.c
  * @brief Display driver for the Sharp Memory LCD LS013B7DH03
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -178,8 +178,9 @@ EMSTATUS DISPLAY_Ls013b7dh03Init(void)
 #if defined( LCD_PORT_EXTMODE )
   PAL_GpioPinModeSet(LCD_PORT_EXTMODE, LCD_PIN_EXTMODE, palGpioModePushPull,0);
 #endif
+#if defined (LCD_PORT_EXTCOMIN)
   PAL_GpioPinModeSet(LCD_PORT_EXTCOMIN,LCD_PIN_EXTCOMIN,palGpioModePushPull,0);
-
+#endif
 #ifdef PAL_TIMER_REPEAT_FUNCTION
   /* If the platform specifies to use a timer repeat function we should
      register the DisplayPolarityInverse to be called every second in
@@ -355,9 +356,10 @@ static EMSTATUS DisplayPolarityInverse (void)
 {
 #ifdef POLARITY_INVERSION_EXTCOMIN
 
+#if defined(LCD_PORT_EXTCOMIN)
   /* Toggle extcomin gpio */
   PAL_GpioPinOutToggle( LCD_PORT_EXTCOMIN, LCD_PIN_EXTCOMIN );
-
+#endif
 #else /* POLARITY_INVERSION_EXTCOMIN */
 
   /* Send a packet with inverted com */

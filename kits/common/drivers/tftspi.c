@@ -2,7 +2,7 @@
  * @file
  * @brief EFM32GG_DK3750, SPI controller implementation for SSD2119 display
  *        interface when using Generic/Direct Drive mode
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>

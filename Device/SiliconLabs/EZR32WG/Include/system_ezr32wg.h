@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file system_ezr32wg.h
  * @brief CMSIS Cortex-M4 System Layer for EZR32WG devices.
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>

@@ -361,7 +361,7 @@
             <NoWarn>0</NoWarn>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define></Define>
+              <Define>EZR32HG320F64R68 DEBUG_EFM</Define>
               <Undefine></Undefine>
               <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EZR32HG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\common\bsp;..\..\..\..\common\drivers;..\..\..\config</IncludePath>
             </VariousControls>

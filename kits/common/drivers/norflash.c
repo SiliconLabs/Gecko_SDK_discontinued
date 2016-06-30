@@ -4,7 +4,7 @@
  *        Spansion S29GL128P90FFIR13 is a 16MByte device organized in 128
  *        sectors of 128KBytes each. The module can easily be tailored to suit
  *        other NOR flash devices.
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -473,16 +473,18 @@ static int flashPoll(uint32_t addr, uint16_t data)
 
   uint16_t flashData1, flashData2, flashData3;
 
-  if ((flashData1 = *(volatile uint16_t*) addr) == data)
-    return NORFLASH_STATUS_OK;
+  flashData1 = *(volatile uint16_t*) addr;
+  flashData2 = *(volatile uint16_t*) addr;
 
-  if ((flashData2 = *(volatile uint16_t*) addr) == data)
+  if ((flashData1 == data)
+      && (flashData2 == data))
+  {
     return NORFLASH_STATUS_OK;
+  }
 
   while (1)
   {
-    if ((flashData3 = *(volatile uint16_t*) addr) == data)
-      return NORFLASH_STATUS_OK;
+    flashData3 = *(volatile uint16_t*) addr;
 
     if ((((flashData1 ^ flashData2) & TOGGLE_BIT) == TOGGLE_BIT) &&
         (((flashData2 ^ flashData3) & TOGGLE_BIT) == TOGGLE_BIT) &&
@@ -496,12 +498,12 @@ static int flashPoll(uint32_t addr, uint16_t data)
     if ((((flashData1 ^ flashData2) & TOGGLE_BIT) != TOGGLE_BIT) ||
         (((flashData2 ^ flashData3) & TOGGLE_BIT) != TOGGLE_BIT))
     {
-      /* DQ6 has stopped toggling */
+      /* DQ6 has stopped toggling, do at least two reads. */
+      *(volatile uint16_t*) addr;
       if (*(volatile uint16_t*) addr == data)
+      {
         return NORFLASH_STATUS_OK;
-
-      if (*(volatile uint16_t*) addr == data)
-        return NORFLASH_STATUS_OK;
+      }
 
       /* Code will typically end here if attempting to program a 0 to a 1 */
       flashReset();

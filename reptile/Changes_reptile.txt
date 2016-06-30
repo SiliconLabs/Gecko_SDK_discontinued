@@ -1,4 +1,11 @@
 ================ Revision history ============================================
+4.4.0:
+ - Added Capacitive Sensing Library (CSLIB)
+ - Added USBXpress Library v5.0
+
+4.3.1:
+ - No changes.
+
 4.3.0:
  - FreeRTOS: Updated the IAR portmacro.h file for Cortex-M0 to make it similar
    to the other portmacro.h files. Renaming portNVIC_ macros to match the other

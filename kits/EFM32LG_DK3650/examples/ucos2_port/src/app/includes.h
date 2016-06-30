@@ -23,7 +23,7 @@
 *
 * @file   includes.h
 * @brief
-* @version 4.3.0
+* @version 4.4.0
 ******************************************************************************
 * @section License
 * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -127,8 +127,8 @@ extern "C" {
 *********************************************************************************************************
 */
 
-/* declaration of global mailbox object for inter-task communication */
-extern OS_EVENT *pSerialMsgObj;
+/* declaration of global queue object for inter-task communication */
+extern OS_EVENT *pSerialQueObj;
 
 
 #endif /* end of OS_MASTER_FILE */

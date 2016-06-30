@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_crypto.h
  * @brief Cryptography accelerator peripheral API
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -1161,7 +1161,14 @@ __STATIC_INLINE uint32_t CRYPTO_IntGet(CRYPTO_TypeDef *crypto)
  ******************************************************************************/
 __STATIC_INLINE uint32_t CRYPTO_IntGetEnabled(CRYPTO_TypeDef *crypto)
 {
-  return crypto->IF & crypto->IEN;
+  uint32_t tmp;
+
+  /* Store IEN in temporary variable in order to define explicit order
+   * of volatile accesses. */
+  tmp = crypto->IEN;
+
+  /* Bitwise AND of pending and enabled interrupts */
+  return crypto->IF & tmp;
 }
 
 /***************************************************************************//**

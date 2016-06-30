@@ -23,7 +23,7 @@
 *
 * @file   app_task_two.h
 * @brief
-* @version 4.3.0
+* @version 4.4.0
 ******************************************************************************
 * @section License
 * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -53,12 +53,10 @@ extern "C" {
 *                                         FUNCTION PROTOTYPES
 *********************************************************************************************************
 */
+void APP_TaskTwo(void *Ptr_Arg);
+
 #ifdef __cplusplus
 }
 #endif
-
-void APP_TaskTwo(void *Ptr_Arg);
-
-
 
 #endif /* end of __APP_TASK_TWO_H */

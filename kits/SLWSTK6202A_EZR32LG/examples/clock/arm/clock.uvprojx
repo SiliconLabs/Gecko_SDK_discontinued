@@ -359,7 +359,7 @@
             <NoWarn>0</NoWarn>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define></Define>
+              <Define>EZR32LG330F256R63</Define>
               <Undefine></Undefine>
               <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EZR32LG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\kits\common\drivers;..\..\..\..\..\reptile\glib;..\..\..\..\..\reptile\glib\glib;..\..\..\..\..\reptile\glib\dmd;..\..\..\..\..\kits\common\bsp;..\..\..\config;..</IncludePath>
             </VariousControls>

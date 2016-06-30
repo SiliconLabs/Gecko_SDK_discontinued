@@ -21,6 +21,11 @@
  *  This file is part of mbed TLS (https://tls.mbed.org)
  */
 
+/**
+ * @addtogroup sl_crypto_config 
+ * @{
+ */
+
 /*
  * This set of compile-time options may be used to enable
  * or disable features selectively, and reduce the global
@@ -2507,5 +2512,7 @@
 #endif
 
 #include "check_config.h"
+
+/** @} (end addtogroup sl_crypto_config) */
 
 #endif /* MBEDTLS_CONFIG_H */

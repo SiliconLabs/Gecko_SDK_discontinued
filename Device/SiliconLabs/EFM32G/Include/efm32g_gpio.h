@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efm32g_gpio.h
  * @brief EFM32G_GPIO register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -43,18 +43,18 @@ typedef struct
   GPIO_P_TypeDef P[6];          /**< Port configuration bits */
 
   uint32_t       RESERVED0[10]; /**< Reserved for future use **/
-  __IO uint32_t  EXTIPSELL;     /**< External Interrupt Port Select Low Register  */
-  __IO uint32_t  EXTIPSELH;     /**< External Interrupt Port Select High Register  */
-  __IO uint32_t  EXTIRISE;      /**< External Interrupt Rising Edge Trigger Register  */
-  __IO uint32_t  EXTIFALL;      /**< External Interrupt Falling Edge Trigger Register  */
-  __IO uint32_t  IEN;           /**< Interrupt Enable Register  */
-  __I uint32_t   IF;            /**< Interrupt Flag Register  */
-  __IO uint32_t  IFS;           /**< Interrupt Flag Set Register  */
-  __IO uint32_t  IFC;           /**< Interrupt Flag Clear Register  */
+  __IOM uint32_t EXTIPSELL;     /**< External Interrupt Port Select Low Register  */
+  __IOM uint32_t EXTIPSELH;     /**< External Interrupt Port Select High Register  */
+  __IOM uint32_t EXTIRISE;      /**< External Interrupt Rising Edge Trigger Register  */
+  __IOM uint32_t EXTIFALL;      /**< External Interrupt Falling Edge Trigger Register  */
+  __IOM uint32_t IEN;           /**< Interrupt Enable Register  */
+  __IM uint32_t  IF;            /**< Interrupt Flag Register  */
+  __IOM uint32_t IFS;           /**< Interrupt Flag Set Register  */
+  __IOM uint32_t IFC;           /**< Interrupt Flag Clear Register  */
 
-  __IO uint32_t  ROUTE;         /**< I/O Routing Register  */
-  __IO uint32_t  INSENSE;       /**< Input Sense Register  */
-  __IO uint32_t  LOCK;          /**< Configuration Lock Register  */
+  __IOM uint32_t ROUTE;         /**< I/O Routing Register  */
+  __IOM uint32_t INSENSE;       /**< Input Sense Register  */
+  __IOM uint32_t LOCK;          /**< Configuration Lock Register  */
 } GPIO_TypeDef;                 /** @} */
 
 /**************************************************************************//**

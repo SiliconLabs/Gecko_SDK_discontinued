@@ -9,7 +9,7 @@
  * @li PB1 Saves the number to the userpage
  *
  *
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>

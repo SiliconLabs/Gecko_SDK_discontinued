@@ -2,7 +2,7 @@
  * @file efr32fg1v132f32gm48.h
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EFR32FG1V132F32GM48
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -31,8 +31,8 @@
  *
  *****************************************************************************/
 
-#ifndef SILICON_LABS_EFR32FG1V132F32GM48_H
-#define SILICON_LABS_EFR32FG1V132F32GM48_H
+#ifndef EFR32FG1V132F32GM48_H
+#define EFR32FG1V132F32GM48_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -109,10 +109,12 @@ typedef enum IRQn
 ******************************************************************************/
 
 /** Part family */
-#define _EFR32_FLEX_FAMILY              1 /**< FLEX Gecko RF SoC Family  */
-#define _EFR_DEVICE                       /**< Silicon Labs EFR-type RF SoC */
-#define _SILICON_LABS_32B_PLATFORM_2      /**< Silicon Labs platform name */
-#define _SILICON_LABS_32B_PLATFORM      2 /**< Silicon Labs platform name */
+#define _EFR32_FLEX_FAMILY                    1 /**< FLEX Gecko RF SoC Family  */
+#define _EFR_DEVICE                             /**< Silicon Labs EFR-type RF SoC */
+#define _SILICON_LABS_32B_PLATFORM_2            /**< Silicon Labs platform name */
+#define _SILICON_LABS_32B_PLATFORM            2 /**< Silicon Labs platform name */
+#define _SILICON_LABS_32B_PLATFORM_2_GEN_1      /**< Platform 2, generation 1 */
+#define _SILICON_LABS_32B_PLATFORM_2_GEN      1 /**< Platform 2, generation 1 */
 
 /* If part number is not defined as compiler option, define it */
 #if !defined(EFR32FG1V132F32GM48)
@@ -423,4 +425,4 @@ typedef enum IRQn
 #ifdef __cplusplus
 }
 #endif
-#endif /* SILICON_LABS_EFR32FG1V132F32GM48_H */
+#endif /* EFR32FG1V132F32GM48_H */

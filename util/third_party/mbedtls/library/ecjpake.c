@@ -951,6 +951,9 @@ static int ecjpake_lgc( void *p, unsigned char *out, size_t len )
     return( 0 );
 }
 
+#ifdef TEST_ASSERT
+#undef TEST_ASSERT
+#endif
 #define TEST_ASSERT( x )    \
     do {                    \
         if( x )             \

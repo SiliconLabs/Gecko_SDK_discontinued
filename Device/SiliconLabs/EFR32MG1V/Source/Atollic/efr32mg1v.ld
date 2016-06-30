@@ -10,7 +10,7 @@
 **
 **  Target      : Silicon Labs EFR32MG1V devices.
 **
-**  Version     : 4.3.0
+**  Version     : 4.4.0
 **
 **  Environment : Atollic TrueSTUDIO(R)
 **
@@ -30,7 +30,7 @@
 ENTRY(Reset_Handler)
 
 /* Highest address of the user mode stack */
-_estack = 0x20008000;    /* end of RAM */
+_estack = 0x20007C00;    /* end of RAM */
 
 /* Generate a link error if heap and stack do not fit into RAM */
 _Min_Heap_Size = 0;      /* required amount of heap  */
@@ -40,7 +40,7 @@ _Min_Stack_Size = 0x400; /* required amount of stack */
 MEMORY
 {
   FLASH (rx)      : ORIGIN = 0x00000000, LENGTH = 262144
-  RAM (xrw)       : ORIGIN = 0x20000000, LENGTH = 32768
+  RAM (xrw)       : ORIGIN = 0x20000000, LENGTH = 31744
 }
 
 /* Define output sections */

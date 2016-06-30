@@ -359,7 +359,7 @@
             <NoWarn>0</NoWarn>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define></Define>
+              <Define>EFM32WG990F256 DEBUG_EFM ENERGY_AWARE __HEAP_SIZE=0x800 __STACK_SIZE=0x1000</Define>
               <Undefine></Undefine>
               <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32WG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\reptile\emwin\inc;..\..\..\..\..\reptile\glib;..\..\..\..\common\drivers;..\..\..\..\common\drivers\emwin\Dk3750;..\..\..\..\common\bsp;..\..\..\config</IncludePath>
             </VariousControls>

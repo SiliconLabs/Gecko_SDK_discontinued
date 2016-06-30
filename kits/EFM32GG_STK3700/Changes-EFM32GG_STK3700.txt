@@ -1,4 +1,14 @@
 ================ Revision history ============================================
+4.4.0:
+- New USB examples using new USBXpress library.
+- New Capacitive Sense example using the new cap sense library (cslib).
+- uC/OS-II example switch from using mailbox to using a queue to send
+  characters from the serial port to the display. Using a mailbox could lead
+  to characters dropped when typing fast.
+
+4.3.1:
+- No changes.
+
 4.3.0:
 - Fixed RTC and BURTC bug in FreeRTOS examples. RTC and BURTC counter was reset
   before the counter value was read, leading to incorrect sleep durations.

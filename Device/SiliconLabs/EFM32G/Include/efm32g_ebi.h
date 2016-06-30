@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efm32g_ebi.h
  * @brief EFM32G_EBI register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -40,13 +40,13 @@
  *****************************************************************************/
 typedef struct
 {
-  __IO uint32_t CTRL;       /**< Control Register  */
-  __IO uint32_t ADDRTIMING; /**< Address Timing Register  */
-  __IO uint32_t RDTIMING;   /**< Read Timing Register  */
-  __IO uint32_t WRTIMING;   /**< Write Timing Register  */
-  __IO uint32_t POLARITY;   /**< Polarity Register  */
-  __IO uint32_t ROUTE;      /**< I/O Routing Register  */
-} EBI_TypeDef;              /** @} */
+  __IOM uint32_t CTRL;       /**< Control Register  */
+  __IOM uint32_t ADDRTIMING; /**< Address Timing Register  */
+  __IOM uint32_t RDTIMING;   /**< Read Timing Register  */
+  __IOM uint32_t WRTIMING;   /**< Write Timing Register  */
+  __IOM uint32_t POLARITY;   /**< Polarity Register  */
+  __IOM uint32_t ROUTE;      /**< I/O Routing Register  */
+} EBI_TypeDef;               /** @} */
 
 /**************************************************************************//**
  * @defgroup EFM32G_EBI_BitFields

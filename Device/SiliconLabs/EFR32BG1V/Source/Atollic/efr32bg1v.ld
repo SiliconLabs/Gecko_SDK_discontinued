@@ -10,7 +10,7 @@
 **
 **  Target      : Silicon Labs EFR32BG1V devices.
 **
-**  Version     : 4.3.0
+**  Version     : 4.4.0
 **
 **  Environment : Atollic TrueSTUDIO(R)
 **

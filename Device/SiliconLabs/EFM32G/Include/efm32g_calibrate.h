@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file efm32g_calibrate.h
  * @brief EFM32G_CALIBRATE register and bit field definitions
- * @version 4.3.0
+ * @version 4.4.0
  ******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -41,9 +41,9 @@
 
 typedef struct
 {
-  __I uint32_t ADDRESS; /**< Address of calibration register */
-  __I uint32_t VALUE;   /**< Default value for calibration register */
-} CALIBRATE_TypeDef;    /** @} */
+  __IM uint32_t ADDRESS; /**< Address of calibration register */
+  __IM uint32_t VALUE;   /**< Default value for calibration register */
+} CALIBRATE_TypeDef;     /** @} */
 
 /** @} End of group Parts */
 

@@ -1,4 +1,10 @@
 ================ Revision history ============================================
+4.4.0:
+ - New Capacitive Sense example using the new cap sense library (cslib).
+
+4.3.1:
+ - No changes.
+
 4.3.0:
  - emode example updated.
  - Added cpt007b and cpt112s capacitive touch examples.

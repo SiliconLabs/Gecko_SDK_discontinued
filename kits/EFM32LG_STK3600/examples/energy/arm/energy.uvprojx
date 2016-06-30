@@ -359,7 +359,7 @@
             <NoWarn>0</NoWarn>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define></Define>
+              <Define>EFM32LG990F256</Define>
               <Undefine></Undefine>
               <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32LG\Include;..\..\..\..\..\emlib\inc;..\..\..\..\common\drivers;..\..\..\..\common\bsp;..\..\..\config</IncludePath>
             </VariousControls>

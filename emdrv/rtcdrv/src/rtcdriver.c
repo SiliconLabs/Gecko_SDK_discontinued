@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file rtcdriver.c
  * @brief RTCDRV timer API implementation.
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -704,8 +704,8 @@ Ecode_t RTCDRV_StopTimer( RTCDRV_TimerID_t id )
  ******************************************************************************/
 Ecode_t RTCDRV_TimeRemaining( RTCDRV_TimerID_t id, uint32_t *timeRemaining )
 {
-  uint64_t tmp;
-  uint32_t timeLeft, currentCnt, lastRtcStart;
+  uint64_t ticksLeft;
+  uint32_t currentCnt, lastRtcStart;
 
   // Check if valid timer ID.
   if ( id >= EMDRV_RTCDRV_NUM_TIMERS ) {
@@ -730,7 +730,7 @@ Ecode_t RTCDRV_TimeRemaining( RTCDRV_TimerID_t id, uint32_t *timeRemaining )
     return ECODE_EMDRV_RTCDRV_TIMER_NOT_RUNNING;
   }
 
-  timeLeft     = timer[ id ].remaining;
+  ticksLeft    = timer[ id ].remaining;
   currentCnt   = RTC_COUNTERGET();
   lastRtcStart = lastStart;
   INT_Enable();
@@ -738,14 +738,13 @@ Ecode_t RTCDRV_TimeRemaining( RTCDRV_TimerID_t id, uint32_t *timeRemaining )
   // Get number of RTC clock ticks elapsed since last RTC reschedule.
   currentCnt = TIMEDIFF( currentCnt, lastRtcStart );
 
-  if ( currentCnt > timeLeft ) {
-    timeLeft = 0;
+  if ( currentCnt > ticksLeft ) {
+    ticksLeft = 0;
   } else {
-    timeLeft -= currentCnt;
+    ticksLeft -= currentCnt;
   }
 
-  tmp = TICKS_TO_MSEC( timeLeft );
-  *timeRemaining = tmp;
+  *timeRemaining = TICKS_TO_MSEC( ticksLeft );
 
   return ECODE_EMDRV_RTCDRV_OK;
 }

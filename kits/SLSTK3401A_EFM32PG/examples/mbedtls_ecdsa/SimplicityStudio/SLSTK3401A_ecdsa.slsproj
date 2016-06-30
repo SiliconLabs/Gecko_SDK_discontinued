@@ -16,6 +16,9 @@
     <include pattern="emlib/em_int.c" />
     <include pattern="emlib/em_usart.c" />
   </module>
+  <module id="com.silabs.ide.si32.sdk.efm32.v2.common.emdrv">
+    <exclude pattern=".*" />
+  </module>
   <module id="com.silabs.ide.si32.sdk.efm32.v2.common.bsp">
     <exclude pattern=".*" />
   </module>
@@ -94,4 +97,5 @@
     <file name="dummy_entropy.c" uri="dummy_entropy.c" />
   </folder>
   <toolOption toolId="iar.arm.toolchain.linker.v5.4.0" optionId="iar.arm.toolchain.linker.option.icfFile.v5.4.0" value="${workspace_loc:/${ProjName}/ecdsa.icf}"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -fomit-frame-pointer "/>
 </project>

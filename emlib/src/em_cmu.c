@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_cmu.c
  * @brief Clock management unit (CMU) Peripheral API
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
@@ -38,6 +38,7 @@
 #include "em_bus.h"
 #include "em_emu.h"
 #include "em_system.h"
+#include "em_common.h"
 
 /***************************************************************************//**
  * @addtogroup emlib
@@ -98,6 +99,9 @@
 
 #if defined( _CMU_AUXHFRCOCTRL_FREQRANGE_MASK )
 static CMU_AUXHFRCOFreq_TypeDef auxHfrcoFreq = cmuAUXHFRCOFreq_19M0Hz;
+#endif
+#if defined( _CMU_STATUS_HFXOSHUNTOPTRDY_MASK )
+#define HFXO_INVALID_TRIM   (~_CMU_HFXOTRIMSTATUS_MASK)
 #endif
 
 /** @endcond */
@@ -426,6 +430,24 @@ static void flashWaitStateMax(void)
 {
   flashWaitStateControl(SystemMaxCoreClockGet());
 }
+
+
+#if defined(_CMU_HFXOSTEADYSTATECTRL_REGISHUPPER_MASK)
+/***************************************************************************//**
+ * @brief
+ *   Return upper value for CMU_HFXOSTEADYSTATECTRL_REGISH
+ ******************************************************************************/
+static uint32_t getRegIshUpperVal(uint32_t steadyStateRegIsh)
+{
+  uint32_t regIshUpper;
+  const uint32_t upperMax = _CMU_HFXOSTEADYSTATECTRL_REGISHUPPER_MASK
+                            >> _CMU_HFXOSTEADYSTATECTRL_REGISHUPPER_SHIFT;
+  /* Add 3 as specified in register description for CMU_HFXOSTEADYSTATECTRL_REGISHUPPER. */
+  regIshUpper = SL_MIN(steadyStateRegIsh + 3, upperMax);
+  regIshUpper <<= _CMU_HFXOSTEADYSTATECTRL_REGISHUPPER_SHIFT;
+  return regIshUpper;
+}
+#endif
 
 
 /***************************************************************************//**
@@ -2118,6 +2140,7 @@ CMU_Select_TypeDef CMU_ClockSelectGet(CMU_Clock_TypeDef clock)
 #endif
       break;
 
+#if defined( _CMU_LFCLKSEL_MASK ) || defined( _CMU_LFACLKSEL_MASK )
     case CMU_LFACLKSEL_REG:
 #if defined( _CMU_LFCLKSEL_MASK )
       switch (CMU->LFCLKSEL & _CMU_LFCLKSEL_LFA_MASK)
@@ -2148,9 +2171,8 @@ CMU_Select_TypeDef CMU_ClockSelectGet(CMU_Clock_TypeDef clock)
 #endif
           break;
       }
-#endif /* _CMU_LFCLKSEL_MASK */
 
-#if defined( _CMU_LFACLKSEL_MASK )
+#elif defined( _CMU_LFACLKSEL_MASK )
       switch (CMU->LFACLKSEL & _CMU_LFACLKSEL_LFA_MASK)
       {
         case CMU_LFACLKSEL_LFA_LFRCO:
@@ -2177,7 +2199,9 @@ CMU_Select_TypeDef CMU_ClockSelectGet(CMU_Clock_TypeDef clock)
       }
 #endif
       break;
+#endif /* _CMU_LFCLKSEL_MASK || _CMU_LFACLKSEL_MASK */
 
+#if defined( _CMU_LFCLKSEL_MASK ) || defined( _CMU_LFBCLKSEL_MASK )
     case CMU_LFBCLKSEL_REG:
 #if defined( _CMU_LFCLKSEL_MASK )
       switch (CMU->LFCLKSEL & _CMU_LFCLKSEL_LFB_MASK)
@@ -2214,9 +2238,8 @@ CMU_Select_TypeDef CMU_ClockSelectGet(CMU_Clock_TypeDef clock)
 #endif
           break;
       }
-#endif /* _CMU_LFCLKSEL_MASK */
 
-#if defined( _CMU_LFBCLKSEL_MASK )
+#elif defined( _CMU_LFBCLKSEL_MASK )
       switch (CMU->LFBCLKSEL & _CMU_LFBCLKSEL_LFB_MASK)
       {
         case CMU_LFBCLKSEL_LFB_LFRCO:
@@ -2241,6 +2264,7 @@ CMU_Select_TypeDef CMU_ClockSelectGet(CMU_Clock_TypeDef clock)
       }
 #endif
       break;
+#endif /* _CMU_LFCLKSEL_MASK || _CMU_LFBCLKSEL_MASK */
 
 #if defined( _CMU_LFCLKSEL_LFC_MASK )
     case CMU_LFCCLKSEL_REG:
@@ -2302,11 +2326,8 @@ CMU_Select_TypeDef CMU_ClockSelectGet(CMU_Clock_TypeDef clock)
           ret = cmuSelect_AUXHFRCO;
           break;
       }
-#else
-      ret = cmuSelect_AUXHFRCO;
-#endif /* CMU_DBGCLKSEL_DBG */
 
-#if defined( _CMU_CTRL_DBGCLK_MASK )
+#elif defined( _CMU_CTRL_DBGCLK_MASK )
       switch(CMU->CTRL & _CMU_CTRL_DBGCLK_MASK)
       {
         case CMU_CTRL_DBGCLK_AUXHFRCO:
@@ -2321,7 +2342,6 @@ CMU_Select_TypeDef CMU_ClockSelectGet(CMU_Clock_TypeDef clock)
       ret = cmuSelect_AUXHFRCO;
 #endif
       break;
-
 
 #if defined( USB_PRESENT )
     case CMU_USBCCLKSEL_REG:
@@ -2818,7 +2838,6 @@ void CMU_ClockSelectSet(CMU_Clock_TypeDef clock, CMU_Select_TypeDef ref)
 #endif
 }
 
-
 /**************************************************************************//**
  * @brief
  *   CMU low frequency register synchronization freeze control.
@@ -3153,14 +3172,13 @@ void CMU_HFRCOStartupDelaySet(uint32_t delay)
 #endif
 
 
-#if defined( _CMU_HFXOCTRL_AUTOSTARTRDYSELRAC_MASK )
+#if defined( _CMU_HFXOCTRL_AUTOSTARTEM0EM1_MASK )
 /***************************************************************************//**
  * @brief
  *   Enable or disable HFXO autostart
  *
- * @param[in] enRACStartSel
- *   If true, HFXO is automatically started and selected upon RAC wakeup.
- *   If false, HFXO is not started or selected automatically upon RAC wakeup.
+ * @param[in] userSel
+ *   Additional user specified enable bit.
  *
  * @param[in] enEM0EM1Start
  *   If true, HFXO is automatically started upon entering EM0/EM1 entry from
@@ -3174,25 +3192,41 @@ void CMU_HFRCOStartupDelaySet(uint32_t delay)
  *   If false, HFXO is not started or selected automatically when entering
  *   EM0/EM1.
  ******************************************************************************/
-void CMU_HFXOAutostartEnable(bool enRACStartSel,
+void CMU_HFXOAutostartEnable(uint32_t userSel,
                              bool enEM0EM1Start,
                              bool enEM0EM1StartSel)
 {
+  uint32_t hfxoFreq;
   uint32_t hfxoCtrl;
-  hfxoCtrl = CMU->HFXOCTRL & ~(_CMU_HFXOCTRL_AUTOSTARTRDYSELRAC_MASK
+
+  /* Mask supported enable bits. */
+#if defined( _CMU_HFXOCTRL_AUTOSTARTRDYSELRAC_MASK )
+  userSel &= _CMU_HFXOCTRL_AUTOSTARTRDYSELRAC_MASK;
+#else
+  userSel = 0;
+#endif
+
+  hfxoCtrl = CMU->HFXOCTRL & ~( userSel
                               | _CMU_HFXOCTRL_AUTOSTARTEM0EM1_MASK
                               | _CMU_HFXOCTRL_AUTOSTARTSELEM0EM1_MASK);
 
-  hfxoCtrl |= (enRACStartSel ? CMU_HFXOCTRL_AUTOSTARTRDYSELRAC : 0)
+  hfxoCtrl |= userSel
               | (enEM0EM1Start ? CMU_HFXOCTRL_AUTOSTARTEM0EM1 : 0)
               | (enEM0EM1StartSel ? CMU_HFXOCTRL_AUTOSTARTSELEM0EM1 : 0);
 
   CMU->HFXOCTRL = hfxoCtrl;
+
+  /* Set wait-states for HFXO if automatic start and select is configured. */
+  if (userSel || enEM0EM1StartSel)
+  {
+    hfxoFreq = SystemHFXOClockGet();
+    flashWaitStateControl(hfxoFreq);
+    setHfLeConfig(hfxoFreq, CMU_MAX_FREQ_HFLE);
+  }
 }
-#endif /* _CMU_HFXOCTRL_AUTOSTARTRDYSELRAC_MASK */
+#endif
 
 
-#if defined( _CMU_HFXOCTRL_MASK )
 /**************************************************************************//**
  * @brief
  *   Set HFXO control registers
@@ -3205,40 +3239,41 @@ void CMU_HFXOAutostartEnable(bool enRACStartSel,
  * @param[in] hfxoInit
  *    HFXO setup parameters
  *****************************************************************************/
-void CMU_HFXOInit(CMU_HFXOInit_TypeDef *hfxoInit)
+void CMU_HFXOInit(const CMU_HFXOInit_TypeDef *hfxoInit)
 {
-  uint32_t ishReg;
-  uint32_t ishMax;
-
   /* Do not disable HFXO if it is currently selected as HF/Core clock */
   EFM_ASSERT(CMU_ClockSelectGet(cmuClock_HF) != cmuSelect_HFXO);
 
   /* HFXO must be disabled before reconfiguration */
-  CMU_OscillatorEnable(cmuOsc_HFXO, false, false);
+  CMU_OscillatorEnable(cmuOsc_HFXO, false, true);
+
+#if defined( _CMU_HFXOCTRL_MASK )
+  /* Verify that the deprecated autostart fields are not used,
+   * @ref CMU_HFXOAutostartEnable must be used instead. */
+  EFM_ASSERT(!(hfxoInit->autoStartEm01
+              || hfxoInit->autoSelEm01
+              || hfxoInit->autoStartSelOnRacWakeup));
+
+  uint32_t mode = CMU_HFXOCTRL_MODE_XTAL;
+
+  /* AC coupled external clock not supported */
+  EFM_ASSERT(hfxoInit->mode != cmuOscMode_AcCoupled);
+  if (hfxoInit->mode == cmuOscMode_External)
+  {
+    mode = CMU_HFXOCTRL_MODE_EXTCLK;
+  }
 
   /* Apply control settings */
   BUS_RegMaskedWrite(&CMU->HFXOCTRL,
-                     _CMU_HFXOCTRL_LOWPOWER_MASK
-#if defined( _CMU_HFXOCTRL_AUTOSTARTRDYSELRAC_MASK )
-                     | _CMU_HFXOCTRL_AUTOSTARTRDYSELRAC_MASK
-#endif
-                     | _CMU_HFXOCTRL_AUTOSTARTEM0EM1_MASK
-                     | _CMU_HFXOCTRL_AUTOSTARTSELEM0EM1_MASK,
-                     (hfxoInit->lowPowerMode
-                      ? CMU_HFXOCTRL_LOWPOWER : 0)
-#if defined( _CMU_HFXOCTRL_AUTOSTARTRDYSELRAC_MASK )
-                     | (hfxoInit->autoStartSelOnRacWakeup
-                        ? CMU_HFXOCTRL_AUTOSTARTRDYSELRAC : 0)
-#endif
-                     | (hfxoInit->autoStartEm01
-                        ? CMU_HFXOCTRL_AUTOSTARTEM0EM1 : 0)
-                     | (hfxoInit->autoSelEm01
-                        ? CMU_HFXOCTRL_AUTOSTARTSELEM0EM1 : 0));
+                     _CMU_HFXOCTRL_LOWPOWER_MASK | _CMU_HFXOCTRL_MODE_MASK,
+                     (hfxoInit->lowPowerMode ? CMU_HFXOCTRL_LOWPOWER : 0) | mode);
 
   /* Set XTAL tuning parameters */
 
-  /* Set peak detection threshold in CMU_HFXOCTRL1_PEAKDETTHR[2:0] (hidden). */
-  BUS_RegMaskedWrite((volatile uint32_t *)0x400E4028, 0x7, hfxoInit->thresholdPeakDetect);
+  /* Set peak detection threshold */
+  BUS_RegMaskedWrite(&CMU->HFXOCTRL1,
+                     _CMU_HFXOCTRL1_PEAKDETTHR_MASK,
+                     hfxoInit->thresholdPeakDetect);
 
   /* Set tuning for startup and steady state */
   BUS_RegMaskedWrite(&CMU->HFXOSTARTUPCTRL,
@@ -3248,15 +3283,6 @@ void CMU_HFXOInit(CMU_HFXOInit_TypeDef *hfxoInit)
                       << _CMU_HFXOSTARTUPCTRL_CTUNE_SHIFT)
                      | (hfxoInit->xoCoreBiasTrimStartup
                         << _CMU_HFXOSTARTUPCTRL_IBTRIMXOCORE_SHIFT));
-
-  /* Adjust CMU_HFXOSTEADYSTATECTRL_REGISHUPPER according to regIshSteadyState.
-     Saturate at max value. Please see the reference manual page 433 and Section
-     12.5.10 CMU_HFXOSTEADYSTATECTRL for more details. */
-  ishReg = hfxoInit->regIshSteadyState + 3;
-  ishMax = _CMU_HFXOSTEADYSTATECTRL_REGISHUPPER_MASK
-            >> _CMU_HFXOSTEADYSTATECTRL_REGISHUPPER_SHIFT;
-  ishReg = ishReg > ishMax ? ishMax : ishReg;
-  ishReg <<= _CMU_HFXOSTEADYSTATECTRL_REGISHUPPER_SHIFT;
 
   BUS_RegMaskedWrite(&CMU->HFXOSTEADYSTATECTRL,
                      _CMU_HFXOSTEADYSTATECTRL_CTUNE_MASK
@@ -3269,7 +3295,7 @@ void CMU_HFXOInit(CMU_HFXOInit_TypeDef *hfxoInit)
                         << _CMU_HFXOSTEADYSTATECTRL_REGISH_SHIFT)
                      | (hfxoInit->xoCoreBiasTrimSteadyState
                         << _CMU_HFXOSTEADYSTATECTRL_IBTRIMXOCORE_SHIFT)
-                     | ishReg);
+                     | getRegIshUpperVal(hfxoInit->regIshSteadyState));
 
   /* Set timeouts */
   BUS_RegMaskedWrite(&CMU->HFXOTIMEOUTCTRL,
@@ -3285,8 +3311,18 @@ void CMU_HFXOInit(CMU_HFXOInit_TypeDef *hfxoInit)
                         << _CMU_HFXOTIMEOUTCTRL_STEADYTIMEOUT_SHIFT)
                      | (hfxoInit->timeoutStartup
                         << _CMU_HFXOTIMEOUTCTRL_STARTUPTIMEOUT_SHIFT));
-}
+#else
+  BUS_RegMaskedWrite(&CMU->CTRL,
+                     _CMU_CTRL_HFXOTIMEOUT_MASK
+                     | _CMU_CTRL_HFXOBOOST_MASK
+                     | _CMU_CTRL_HFXOMODE_MASK
+                     | _CMU_CTRL_HFXOGLITCHDETEN_MASK,
+                     (hfxoInit->timeout << _CMU_CTRL_HFXOTIMEOUT_SHIFT)
+                     | (hfxoInit->boost << _CMU_CTRL_HFXOBOOST_SHIFT)
+                     | (hfxoInit->mode << _CMU_CTRL_HFXOMODE_SHIFT)
+                     | (hfxoInit->glitchDetector ? CMU_CTRL_HFXOGLITCHDETEN : 0));
 #endif
+}
 
 
 /***************************************************************************//**
@@ -3339,7 +3375,6 @@ void CMU_LCDClkFDIVSet(uint32_t div)
 }
 
 
-#if defined( _CMU_LFXOCTRL_MASK )
 /**************************************************************************//**
  * @brief
  *   Set LFXO control registers
@@ -3352,7 +3387,7 @@ void CMU_LCDClkFDIVSet(uint32_t div)
  * @param[in] lfxoInit
  *    LFXO setup parameters
  *****************************************************************************/
-void CMU_LFXOInit(CMU_LFXOInit_TypeDef *lfxoInit)
+void CMU_LFXOInit(const CMU_LFXOInit_TypeDef *lfxoInit)
 {
   /* Do not disable LFXO if it is currently selected as HF/Core clock */
   EFM_ASSERT(CMU_ClockSelectGet(cmuClock_HF) != cmuSelect_LFXO);
@@ -3360,15 +3395,32 @@ void CMU_LFXOInit(CMU_LFXOInit_TypeDef *lfxoInit)
   /* LFXO must be disabled before reconfiguration */
   CMU_OscillatorEnable(cmuOsc_LFXO, false, false);
 
+#if defined( _CMU_LFXOCTRL_MASK )
   BUS_RegMaskedWrite(&CMU->LFXOCTRL,
                      _CMU_LFXOCTRL_TUNING_MASK
                      | _CMU_LFXOCTRL_GAIN_MASK
-                     | _CMU_LFXOCTRL_TIMEOUT_MASK,
+                     | _CMU_LFXOCTRL_TIMEOUT_MASK
+                     | _CMU_LFXOCTRL_MODE_MASK,
                      (lfxoInit->ctune << _CMU_LFXOCTRL_TUNING_SHIFT)
                      | (lfxoInit->gain << _CMU_LFXOCTRL_GAIN_SHIFT)
-                     | (lfxoInit->timeout << _CMU_LFXOCTRL_TIMEOUT_SHIFT));
-}
+                     | (lfxoInit->timeout << _CMU_LFXOCTRL_TIMEOUT_SHIFT)
+                     | (lfxoInit->mode << _CMU_LFXOCTRL_MODE_SHIFT));
+#else
+  bool cmuBoost  = (lfxoInit->boost & 0x2);
+  BUS_RegMaskedWrite(&CMU->CTRL,
+                     _CMU_CTRL_LFXOTIMEOUT_MASK
+                     | _CMU_CTRL_LFXOBOOST_MASK
+                     | _CMU_CTRL_LFXOMODE_MASK,
+                     (lfxoInit->timeout << _CMU_CTRL_LFXOTIMEOUT_SHIFT)
+                     | ((cmuBoost ? 1 : 0) << _CMU_CTRL_LFXOBOOST_SHIFT)
+                     | (lfxoInit->mode << _CMU_CTRL_LFXOMODE_SHIFT));
 #endif
+
+#if defined( _EMU_AUXCTRL_REDLFXOBOOST_MASK )
+  bool emuReduce = (lfxoInit->boost & 0x1);
+  BUS_RegBitWrite(&EMU->AUXCTRL, _EMU_AUXCTRL_REDLFXOBOOST_SHIFT, emuReduce ? 1 : 0);
+#endif
+}
 
 
 /***************************************************************************//**
@@ -3401,6 +3453,10 @@ void CMU_OscillatorEnable(CMU_Osc_TypeDef osc, bool enable, bool wait)
 #if defined( _SILICON_LABS_32B_PLATFORM_2 )
   uint32_t ensBitPos;
 #endif
+#if defined( _CMU_STATUS_HFXOSHUNTOPTRDY_MASK )
+  uint32_t hfxoTrimStatus;
+#endif
+
   uint32_t enBit;
   uint32_t disBit;
 
@@ -3472,6 +3528,26 @@ void CMU_OscillatorEnable(CMU_Osc_TypeDef osc, bool enable, bool wait)
 
   if (enable)
   {
+ #if defined( _CMU_HFXOCTRL_MASK )
+    bool firstHfxoEnable = false;
+
+    /* Enabling the HFXO for the first time requires special handling. We use the 
+     * PEAKDETSHUTOPTMODE field of the HFXOCTRL register to see if this is the 
+     * first time the HFXO is enabled. */
+    if ((osc == cmuOsc_HFXO) && 
+        ((CMU->HFXOCTRL & (_CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_MASK)) 
+         == CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_AUTOCMD))
+    {
+      firstHfxoEnable = true;
+      /* First time we enable an external clock we should switch to CMD mode to make sure that 
+       * we only do SCO and not PDA tuning. */
+      if ((CMU->HFXOCTRL & (_CMU_HFXOCTRL_MODE_MASK)) == CMU_HFXOCTRL_MODE_EXTCLK)
+      {
+        CMU->HFXOCTRL = (CMU->HFXOCTRL & ~_CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_MASK)
+                        | CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_CMD;
+      }
+    }
+#endif
     CMU->OSCENCMD = enBit;
 
 #if defined( _SILICON_LABS_32B_PLATFORM_2 )
@@ -3486,18 +3562,28 @@ void CMU_OscillatorEnable(CMU_Osc_TypeDef osc, bool enable, bool wait)
     {
       while (!BUS_RegBitRead(&CMU->STATUS, rdyBitPos));
 #if defined( _CMU_STATUS_HFXOSHUNTOPTRDY_MASK )
-      /* Wait for shunt current optimization to complete */
-      if ((osc == cmuOsc_HFXO)
-          && (BUS_RegMaskedRead(&CMU->HFXOCTRL,
-                                _CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_MASK)
-              == CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_AUTOCMD))
+      if ((osc == cmuOsc_HFXO) && firstHfxoEnable)
       {
-        while (!BUS_RegBitRead(&CMU->STATUS, _CMU_STATUS_HFXOSHUNTOPTRDY_SHIFT))
+        if ((CMU->HFXOCTRL & _CMU_HFXOCTRL_MODE_MASK) == CMU_HFXOCTRL_MODE_EXTCLK)
         {
+          /* External clock mode should only do shunt current optimization. */
+          CMU_OscillatorTuningOptimize(cmuOsc_HFXO, cmuHFXOTuningMode_ShuntCommand, true);
         }
-        /* Assert on failed peak detection. Incorrect HFXO initialization parameters
-           caused startup to fail. Please review parameters. */
-        EFM_ASSERT(BUS_RegBitRead(&CMU->STATUS, _CMU_STATUS_HFXOPEAKDETRDY_SHIFT));
+        else
+        {
+          /* Wait for peak detection and shunt current optimization to complete. */
+          CMU_OscillatorTuningWait(cmuOsc_HFXO, cmuHFXOTuningMode_Auto);
+        }
+
+        /* Disable the HFXO again to apply the trims. Apply trim from HFXOTRIMSTATUS
+           when disabled. */
+        hfxoTrimStatus = CMU_OscillatorTuningGet(cmuOsc_HFXO);
+        CMU_OscillatorEnable(cmuOsc_HFXO, false, true);
+        CMU_OscillatorTuningSet(cmuOsc_HFXO, hfxoTrimStatus);
+
+        /* Restart in CMD mode. */
+        CMU->OSCENCMD = enBit;
+        while (!BUS_RegBitRead(&CMU->STATUS, rdyBitPos));
       }
 #endif
     }
@@ -3528,6 +3614,7 @@ void CMU_OscillatorEnable(CMU_Osc_TypeDef osc, bool enable, bool wait)
  *   @li #cmuOsc_LFRCO
  *   @li #cmuOsc_HFRCO
  *   @li #cmuOsc_AUXHFRCO
+ *   @li #cmuOsc_HFXO if CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE is defined
  *
  * @return
  *   The oscillator frequency tuning setting in use.
@@ -3553,6 +3640,13 @@ uint32_t CMU_OscillatorTuningGet(CMU_Osc_TypeDef osc)
             >> _CMU_AUXHFRCOCTRL_TUNING_SHIFT;
       break;
 
+#if defined( _CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_MASK )
+    case cmuOsc_HFXO:
+      ret = CMU->HFXOTRIMSTATUS & ( _CMU_HFXOTRIMSTATUS_REGISH_MASK
+                                  | _CMU_HFXOTRIMSTATUS_IBTRIMXOCORE_MASK);
+      break;
+#endif
+
     default:
       EFM_ASSERT(0);
       ret = 0;
@@ -3570,19 +3664,25 @@ uint32_t CMU_OscillatorTuningGet(CMU_Osc_TypeDef osc)
  * @note
  *   Oscillator tuning is done during production, and the tuning value is
  *   automatically loaded after a reset. Changing the tuning value from the
- *   calibrated value is for more advanced use.
+ *   calibrated value is for more advanced use. Certain oscillators also have
+ *   build-in tuning optimization.
  *
  * @param[in] osc
  *   Oscillator to set tuning value for, one of:
  *   @li #cmuOsc_LFRCO
  *   @li #cmuOsc_HFRCO
  *   @li #cmuOsc_AUXHFRCO
+ *   @li #cmuOsc_HFXO if PEAKDETSHUNTOPTMODE is available. Note that CMD mode is set.
  *
  * @param[in] val
  *   The oscillator frequency tuning setting to use.
  ******************************************************************************/
 void CMU_OscillatorTuningSet(CMU_Osc_TypeDef osc, uint32_t val)
 {
+#if defined( _CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_MASK )
+  uint32_t regIshUpper;
+#endif
+
   switch (osc)
   {
     case cmuOsc_LFRCO:
@@ -3622,11 +3722,137 @@ void CMU_OscillatorTuningSet(CMU_Osc_TypeDef osc, uint32_t val)
                           | (val << _CMU_AUXHFRCOCTRL_TUNING_SHIFT);
       break;
 
+#if defined( _CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_MASK )
+    case cmuOsc_HFXO:
+
+      /* Do set PEAKDETSHUNTOPTMODE or HFXOSTEADYSTATECTRL if HFXO is enabled */
+      EFM_ASSERT(!(CMU->STATUS & CMU_STATUS_HFXOENS));
+
+      /* Switch to command mode. Automatic SCO and PDA calibration is not done
+         at the next enable. Set user REGISH, REGISHUPPER and IBTRIMXOCORE. */
+      CMU->HFXOCTRL = (CMU->HFXOCTRL & ~_CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_MASK)
+                      | CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_CMD;
+
+      regIshUpper = getRegIshUpperVal((val & _CMU_HFXOSTEADYSTATECTRL_REGISH_MASK)
+                                      >> _CMU_HFXOSTEADYSTATECTRL_REGISH_SHIFT);
+
+      BUS_RegMaskedWrite(&CMU->HFXOSTEADYSTATECTRL,
+                         _CMU_HFXOSTEADYSTATECTRL_REGISH_MASK
+                         | _CMU_HFXOSTEADYSTATECTRL_IBTRIMXOCORE_MASK
+                         | _CMU_HFXOSTEADYSTATECTRL_REGISHUPPER_MASK,
+                         val | regIshUpper);
+      break;
+#endif
+
     default:
       EFM_ASSERT(0);
       break;
   }
 }
+
+#if defined( _CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_MASK )
+/***************************************************************************//**
+ * @brief
+ *   Wait for oscillator tuning optimization.
+ *
+ * @param[in] osc
+ *   Oscillator to set tuning value for, one of:
+ *   @li #cmuOsc_HFXO
+ *
+ * @param[in] mode
+ *   Tuning optimization mode.
+ *
+ * @return
+ *   Returns false on invalid parameters or oscillator error status.
+ ******************************************************************************/
+bool CMU_OscillatorTuningWait(CMU_Osc_TypeDef osc,
+                              CMU_HFXOTuningMode_TypeDef mode)
+{
+  EFM_ASSERT(osc == cmuOsc_HFXO);
+  uint32_t waitFlags;
+
+  /* Currently implemented for HFXO with PEAKDETSHUNTOPTMODE only */
+  (void)osc;
+
+  if (BUS_RegMaskedRead(&CMU->HFXOCTRL, _CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_MASK)
+      == CMU_HFXOCTRL_PEAKDETSHUNTOPTMODE_AUTOCMD)
+  {
+    waitFlags = CMU_STATUS_HFXOSHUNTOPTRDY | CMU_STATUS_HFXOPEAKDETRDY;
+  }
+  else
+  {
+    /* Set wait flags for each command and wait */
+    switch (mode)
+    {
+      case cmuHFXOTuningMode_ShuntCommand:
+        waitFlags = CMU_STATUS_HFXOSHUNTOPTRDY;
+        break;
+
+      case cmuHFXOTuningMode_Auto:
+        /* Fall through */
+      case cmuHFXOTuningMode_PeakShuntCommand:
+        waitFlags = CMU_STATUS_HFXOSHUNTOPTRDY | CMU_STATUS_HFXOPEAKDETRDY;
+        break;
+
+      default:
+        waitFlags = _CMU_STATUS_MASK;
+        EFM_ASSERT(false);
+    }
+  }
+  while ((CMU->STATUS & waitFlags) != waitFlags);
+
+  /* Check error flags */
+  if (waitFlags & CMU_STATUS_HFXOPEAKDETRDY)
+  {
+    return (CMU->IF & CMU_IF_HFXOPEAKDETERR ? true : false);
+  }
+  return true;
+}
+
+
+/***************************************************************************//**
+ * @brief
+ *   Start and optionally wait for oscillator tuning optimization.
+ *
+ * @param[in] osc
+ *   Oscillator to set tuning value for, one of:
+ *   @li #cmuOsc_HFXO
+ *
+ * @param[in] mode
+ *   Tuning optimization mode.
+ *
+ * @param[in] wait
+ *   Wait for tuning optimization to complete.
+ *   true - wait for tuning optimization to complete.
+ *   false - return without waiting.
+ *
+ * @return
+ *   Returns false on invalid parameters or oscillator error status.
+ ******************************************************************************/
+bool CMU_OscillatorTuningOptimize(CMU_Osc_TypeDef osc,
+                                  CMU_HFXOTuningMode_TypeDef mode,
+                                  bool wait)
+{
+  switch (osc)
+  {
+    case cmuOsc_HFXO:
+      if (mode)
+      {
+        /* Clear error flag before command write */
+        CMU->IFC = CMU_IFC_HFXOPEAKDETERR;
+        CMU->CMD = mode;
+      }
+      if (wait)
+      {
+        return CMU_OscillatorTuningWait(osc, mode);
+      }
+
+    default:
+      EFM_ASSERT(false);
+  }
+  return true;
+}
+#endif
 
 
 /**************************************************************************//**

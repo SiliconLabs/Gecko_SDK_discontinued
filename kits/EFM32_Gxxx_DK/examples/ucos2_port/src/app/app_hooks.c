@@ -23,7 +23,7 @@
 *
 * @file   app_hooks.c
 * @brief
-* @version 4.3.0
+* @version 4.4.0
 ******************************************************************************
 * @section License
 * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -100,7 +100,7 @@ void App_TaskDelHook(OS_TCB *ptcb)
 #if OS_VERSION >= 251
 void App_TaskIdleHook(void)
 {
-  /* Go to EnergyMode1                                 */
+  /* Go to Energy Mode 1 depending on application      */
   EMU_EnterEM1();
 }
 #endif

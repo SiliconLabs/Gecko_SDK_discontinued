@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file tempdrv_config.h
  * @brief TEMPDRV configuration file.
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -52,7 +52,7 @@
 #define TEMPDRV_EM4WAKEUP false
 #endif
 
-// Allow TEMPDRV to define the EMU_IRQ_Handler. Enable if EMU_IRQ_Handler is 
+// Allow TEMPDRV to define the EMU_IRQ_Handler. Enable if EMU_IRQ_Handler is
 // defined elsewhere.
 #ifndef EMU_CUSTOM_IRQ_HANDLER
 #define EMU_CUSTOM_IRQ_HANDLER false

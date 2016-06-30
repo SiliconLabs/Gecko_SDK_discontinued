@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ezradio_receive_plugin.h
  * @brief EzRadio transmit plug-in managed by the plug-in manager if enabled.
- * @version 4.3.0
+ * @version 4.4.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>

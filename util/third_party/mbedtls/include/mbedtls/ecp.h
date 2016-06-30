@@ -37,6 +37,13 @@
 #define MBEDTLS_ERR_ECP_INVALID_KEY                       -0x4C80  /**< Invalid private or public key. */
 #define MBEDTLS_ERR_ECP_SIG_LEN_MISMATCH                  -0x4C00  /**< Signature is valid but shorter than the user-supplied length. */
 
+#if defined( MBEDTLS_ECP_ALT )
+
+#include "ecp_alt.h"
+
+#else  /* #if defined( MBEDTLS_ECP_ALT ) */
+
+// Regular implementation
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -665,5 +672,7 @@ int mbedtls_ecp_self_test( int verbose );
 #ifdef __cplusplus
 }
 #endif
+
+#endif /* #else of #if defined( MBEDTLS_ECP_ALT ) */
 
 #endif /* ecp.h */

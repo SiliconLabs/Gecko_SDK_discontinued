@@ -23,7 +23,7 @@
 *
 * @file   includes.h
 * @brief
-* @version 4.3.0
+* @version 4.4.0
 ******************************************************************************
 * @section License
 * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -125,10 +125,6 @@ extern "C" {
 *                                          MACRO DEFINITIONS
 *********************************************************************************************************
 */
-/* Uncomment this macro definition if USART is connected to your STK board! */
-/* USART1 or LEUART0 can be used. Both are accessible through expansion connector. */
-/* USART choice is configured in retargetserial.c.*/
- #define USART_CONNECTED
 
 
 /*

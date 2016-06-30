@@ -32,7 +32,7 @@
           <SFDFile></SFDFile>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
-          <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32PG1B\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\util\third_party\mbedtls\include;..\..\..\..\..\util\third_party\mbedtls\include\mbedtls;..\..\..\..\..\util\third_party\mbedtls\sl_crypto;..\..\..\..\common\bsp;..\..\..\..\common\drivers;..\..\..\config;..</IncludePath>
+          <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32PG1B\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\emdrv\common\inc;..\..\..\..\..\util\third_party\mbedtls\configs;..\..\..\..\..\util\third_party\mbedtls\include;..\..\..\..\..\util\third_party\mbedtls\include\mbedtls;..\..\..\..\..\util\third_party\mbedtls\sl_crypto\include;..\..\..\..\common\bsp;..\..\..\..\common\drivers;..\..\..\config;..</IncludePath>
           <LibPath></LibPath>
           <RegisterFilePath></RegisterFilePath>
           <DBRegisterFilePath></DBRegisterFilePath>
@@ -344,10 +344,10 @@
             <uThumb>0</uThumb>
             <uC99>1</uC99>
             <VariousControls>
-              <MiscControls> -DMBEDTLS_CONFIG_FILE='"config-aescrypt.h"'</MiscControls>
+              <MiscControls> -DMBEDTLS_CONFIG_FILE='"config-sl-crypto-all-acceleration.h"'</MiscControls>
               <Define>EFM32PG1B200F256GM48 DEBUG_EFM RETARGET_VCOM</Define>
               <Undefine></Undefine>
-              <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32PG1B\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\util\third_party\mbedtls\include;..\..\..\..\..\util\third_party\mbedtls\include\mbedtls;..\..\..\..\..\util\third_party\mbedtls\sl_crypto;..\..\..\..\common\bsp;..\..\..\..\common\drivers;..\..\..\config;..</IncludePath>
+              <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32PG1B\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\emdrv\common\inc;..\..\..\..\..\util\third_party\mbedtls\configs;..\..\..\..\..\util\third_party\mbedtls\include;..\..\..\..\..\util\third_party\mbedtls\include\mbedtls;..\..\..\..\..\util\third_party\mbedtls\sl_crypto\include;..\..\..\..\common\bsp;..\..\..\..\common\drivers;..\..\..\config;..</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -360,9 +360,9 @@
             <NoWarn>0</NoWarn>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define></Define>
+              <Define>EFM32PG1B200F256GM48 DEBUG_EFM RETARGET_VCOM</Define>
               <Undefine></Undefine>
-              <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32PG1B\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\util\third_party\mbedtls\include;..\..\..\..\..\util\third_party\mbedtls\include\mbedtls;..\..\..\..\..\util\third_party\mbedtls\sl_crypto;..\..\..\..\common\bsp;..\..\..\..\common\drivers;..\..\..\config;..</IncludePath>
+              <IncludePath>..\;..\..\..\..\..\CMSIS\Include;..\..\..\..\..\Device\SiliconLabs\EFM32PG1B\Include;..\..\..\..\..\emlib\inc;..\..\..\..\..\emdrv\common\inc;..\..\..\..\..\util\third_party\mbedtls\configs;..\..\..\..\..\util\third_party\mbedtls\include;..\..\..\..\..\util\third_party\mbedtls\include\mbedtls;..\..\..\..\..\util\third_party\mbedtls\sl_crypto\include;..\..\..\..\common\bsp;..\..\..\..\common\drivers;..\..\..\config;..</IncludePath>
             </VariousControls>
           </Aads>
           <LDads>
@@ -656,22 +656,22 @@
             <File>
               <FileName>sl_aes.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\util\third_party\mbedtls\sl_crypto\sl_aes.c</FilePath>
+              <FilePath>..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\sl_aes.c</FilePath>
             </File>
             <File>
               <FileName>sl_ecp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\util\third_party\mbedtls\sl_crypto\sl_ecp.c</FilePath>
+              <FilePath>..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\sl_ecp.c</FilePath>
             </File>
             <File>
               <FileName>sl_sha1.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\util\third_party\mbedtls\sl_crypto\sl_sha1.c</FilePath>
+              <FilePath>..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\sl_sha1.c</FilePath>
             </File>
             <File>
               <FileName>sl_sha256.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\util\third_party\mbedtls\sl_crypto\sl_sha256.c</FilePath>
+              <FilePath>..\..\..\..\..\util\third_party\mbedtls\sl_crypto\src\sl_sha256.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -712,6 +712,11 @@
               <FileName>em_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\emlib\src\em_usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>em_crypto.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\emlib\src\em_crypto.c</FilePath>
             </File>
           </Files>
         </Group>
