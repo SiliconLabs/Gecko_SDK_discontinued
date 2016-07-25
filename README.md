@@ -10,6 +10,28 @@ Documentation
 Full API documentation is available in the [Gecko_SDK_Doc](https://github.com/SiliconLabs/Gecko_SDK_Doc) repository, hosted on [GitHub pages](http://siliconlabs.github.io/Gecko_SDK_Doc/), and within Simplicity Studio by clicking the *Software Documentation* tile.  
 For datasheets, reference manuals and other documentation items, download [Simplicity Studio](http://www.silabs.com/simplicity) or head over to the [document library](http://www.silabs.com/support/pages/document-library.aspx?p=MCUs--32-bit).
 
+Download/Versions
+-----------------
+
+To download the complete Gecko SDK as one packed zip-file, head over to the [releases](https://github.com/SiliconLabs/Gecko_SDK/releases) section. Here you will find all the different versions downloadable as a zip-file or compressed tarball. Just scroll down to the version/release you want and find the *Source code* link under the *Downloads* section.
+
+Importing into Simplicity Studio
+--------------------------------
+
+To import the downloaded version of the Gecko SDK into Simplicity Studio, follow the steps below:
+
+1. Extract the zip-file
+2. Open Simplicity Studio
+3. Click settings
+4. Browse to Simplicity Studio -> SDKs
+5. Click *Add...*
+6. Browse to the location of the extracted SDK
+7. Make sure the EFM32 SDK is selected and press *OK*
+8. You can now create *Software Examples* from this SDK version
+
+![Visual guide on how to import SDK into Simplicity Studio](https://github.com/SiliconLabs/Gecko_SDK/raw/master/Gecko_SDK_SS_import.png)
+
+
 About the folders
 -----------------
 
