@@ -38,7 +38,7 @@ About the folders
 The Gecko MCU SDK is a comprehensive suite of software, with everything needed for software development on a Gecko MCU (EFM32) or Wireless Gecko (EFR32 and EZR32), organized in an easy way to help with application development. It contains full software support, from register definitions to full-fledged examples.
 The Gecko MCU SDK is organized into the following folders:
 * [.studio] (.studio) — This folder contains metadata information for Simplicity Studio.
-* [platform/cmsis](platform/cmsis) — This folder contains the basic core definitions definitions and libraries needed to work with the Cortex-M CPUs
+* [platform/cmsis](platform/CMSIS) — This folder contains the basic core definitions definitions and libraries needed to work with the Cortex-M CPUs
 * [platform/Device](platform/Device) — This folder contains the device specific register defnitions for our MCUs. It is written according to ARMs Cortex Microcontroller Software Interface Standard (CMSIS), and you have full control over every bit of the hardware using these defines.
 * [platform/emlib](platform/emlib) — This layer is the hardware abstraction layer (HAL), which gives control over most of the hardware, but a limited degree of abstraction is provided to reduce complexity and ease implementation. At this level, most of the functions are readily portable across the full range of Gecko devices, from Gecko MCUs (EFM32) to Wireless Geckos (EFR32 and EZR32).
 * [platform/emdrv](platform/emdrv) — These are full drivers for different peripherals, such as a SPI driver or a flash driver. They are easy to set up, give immediate access to the given functionality, and are fully portable across all Gecko devices.
