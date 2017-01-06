@@ -48,7 +48,6 @@
 
 #include "cryptodrv_internal.h"
 #include "em_crypto.h"
-#include "em_bitband.h"
 
 #include "mbedtls/aes.h"
 

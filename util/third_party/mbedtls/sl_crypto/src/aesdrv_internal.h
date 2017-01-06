@@ -79,14 +79,14 @@ Ecode_t AESDRV_DeInit(AESDRV_Context_t*  pAesdrvContext);
  * @param[in] pAesdrvContext
  *   AESDRV device context.
  *  
- * @param[in] aesDeviceInstance
+ * @param[in] devno
  *   AES/CRYPTO hardware device instance to use.
  *  
  * @return
  *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
  ******************************************************************************/
 Ecode_t AESDRV_SetDeviceInstance(AESDRV_Context_t*  pAesdrvContext,
-                                 int                aesDeviceInstance);
+                                 unsigned int       devno);
   
 /***************************************************************************//**
  * @brief

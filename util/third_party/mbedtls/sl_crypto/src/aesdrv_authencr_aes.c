@@ -33,7 +33,6 @@
 #include "aesdrv_authencr.h"
 #include "aesdrv_common_aes.h"
 #include "em_aes.h"
-#include "em_bitband.h"
 #include "em_assert.h"
 #include "string.h"
 
@@ -293,7 +292,8 @@ static Ecode_t aesdrv_CCM_MICCompute(AESDRV_Context_t* pAesdrvContext,
                                      const bool        encrypt)
 {
   uint32_t tmpBuf[4];
-  uint32_t * pTag = (uint32_t*)pAuthTag;
+  uint32_t tmpCtrl;
+  uint32_t *pTag = (uint32_t*)pAuthTag;
   uint32_t lm;
   uint32_t la;
   Ecode_t  status = ECODE_OK;
@@ -322,16 +322,17 @@ static Ecode_t aesdrv_CCM_MICCompute(AESDRV_Context_t* pAesdrvContext,
 
   /* Disable AES functionality - auto start after writing to XORDATA. Writing
    * to XORDATA will just do XOR. */
-  BITBAND_Peripheral(&AES->CTRL, _AES_CTRL_XORSTART_SHIFT, 0);
-
+  tmpCtrl = AES->CTRL;
+  AES->CTRL = tmpCtrl & (~AES_CTRL_XORSTART);
+  
   /* AES_DATA register contains MIC which is not CTR encrypted. Xor already
    * calculated CTR cipher block with clear MIC. After that operation AES_DATA
    * contains proper MIC.*/
   aesdrv_CCM_XorDataWrite(tmpBuf);
-
+  
   /* Reenable auto AES start after writing to XORDATA. */
-  BITBAND_Peripheral(&AES->CTRL, _AES_CTRL_XORSTART_SHIFT, 1);
-
+  AES->CTRL = tmpCtrl;
+  
   /* Read out 16 byte long authentication tag. */
   aesdrv_CCM_DataRevRead(tmpBuf);
 

@@ -1,4 +1,12 @@
 ================ Revision history ============================================
+5.0.0:
+ - Added basic support for Series 1 Configuration 2 devices (EFR32MG12, etc.)
+ - Bugfix: The asynchronous callback of mbedtls_ccm_auth_decrypt and
+   mbedtls_cmac_verify_tag reported incorrect error codes when authentication
+   verification fails.
+ - Bugfix: In asynchronous mode, the output buffer of mbedtls_ccm_auth_decrypt
+   was not properly cleared when authentication verification fails.
+
 4.4.0:
  - Added CMAC support with a Silicon Labs specific API (slcl_cmac.c).
    CMAC is not covered by the standard mbedtls interface.
@@ -12,7 +20,7 @@
  - Added support for alternative CRYPTO critical region implementations
    (for the CRYPTO preemption support).
  - Added support for asynchronous (non-blocking) API calls in the following
-   plugins: slcl_aes.c, slcl_ccm.c and slcl_cmac.c. 
+   plugins: slcl_aes.c, slcl_ccm.c and slcl_cmac.c.
  - Added support for moving data with BUFC and DMA (to/from CRYPTO registers)
    in the following plugins: slcl_aes.c and slcl_ccm.c.
  - In order to support error codes in new SIlicon Labs specific APIs

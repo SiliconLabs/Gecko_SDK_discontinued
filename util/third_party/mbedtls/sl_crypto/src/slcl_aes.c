@@ -45,6 +45,7 @@
 #include "mbedtls/aes.h"
 #include "sl_crypto.h"
 #include "aesdrv_internal.h"
+#include "cryptodrv_internal.h"
 #include <string.h>
 
 #define AES_BLOCKSIZE    ( 16 )
@@ -86,7 +87,7 @@ void mbedtls_aes_free( mbedtls_aes_context *ctx )
  * Set the device instance of an AES context.
  */
 int mbedtls_aes_set_device_instance(mbedtls_aes_context *ctx,
-                                    int                 devno)
+                                    unsigned int         devno)
 {
 #if defined(AES_COUNT) && (AES_COUNT > 0)
     (void) ctx;
@@ -99,27 +100,9 @@ int mbedtls_aes_set_device_instance(mbedtls_aes_context *ctx,
 #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
     if (devno > CRYPTO_COUNT)
         return( MBEDTLS_ERR_AES_INVALID_PARAM );
-  
-#if (CRYPTO_COUNT > 1)
-    switch( devno )
-    {
-    case 0:
-        ctx->aesdrv_ctx.cryptodrvContext.crypto = CRYPTO0;
-        break;
-    case 1:
-        ctx->aesdrv_ctx.cryptodrvContext.crypto = CRYPTO1;
-        break;
-    default:
-        return( MBEDTLS_ERR_AES_INVALID_PARAM );
-    }
-#else
-#if defined( CRYPTO0 )
-    ctx->aesdrv_ctx.cryptodrvContext.crypto = CRYPTO0;
-#else
-    ctx->aesdrv_ctx.cryptodrvContext.crypto = CRYPTO;
-#endif
-#endif
-    return( 0 );
+
+    return cryptodrvSetDeviceInstance( &ctx->aesdrv_ctx.cryptodrvContext,
+                                       devno );
 #endif /* #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) */
 }
 

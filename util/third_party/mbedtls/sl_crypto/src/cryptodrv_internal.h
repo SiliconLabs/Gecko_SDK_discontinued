@@ -45,6 +45,22 @@ extern "C" {
 
 /***************************************************************************//**
  * @brief
+ *   Select which CRYPTO device instance to use in CRYPTO context.
+ *
+ * @param pCryptoContext
+ *  Pointer to CRYPTO context.
+ *
+ * @param devno
+ *  CRYPTO device instance number.
+ *
+ * @return
+ *   0 if OK, or -1 if device number is invalid.
+ ******************************************************************************/
+int cryptodrvSetDeviceInstance(CRYPTODRV_Context_t* pCryptodrvContext,
+                               unsigned int         devno);
+
+/***************************************************************************//**
+ * @brief
  *   Write a 128 bit value (optionally unaligned) into a crypto register.
  *
  * @note
@@ -287,15 +303,13 @@ Ecode_t CRYPTODRV_ExitCriticalRegion (CRYPTODRV_Context_t* pCryptodrvContext);
 __STATIC_INLINE
 Ecode_t CRYPTODRV_Arbitrate (CRYPTODRV_Context_t* pCryptodrvContext)
 {
-  (void) pCryptodrvContext;
-  CMU->HFBUSCLKEN0 |= CMU_HFBUSCLKEN0_CRYPTO;
+  CMU->HFBUSCLKEN0 |= pCryptodrvContext->device->clk;
   return ECODE_OK;
 }
 __STATIC_INLINE
 Ecode_t CRYPTODRV_Release (CRYPTODRV_Context_t* pCryptodrvContext)
 {
-  (void) pCryptodrvContext;
-  CMU->HFBUSCLKEN0 &= ~CMU_HFBUSCLKEN0_CRYPTO;
+  CMU->HFBUSCLKEN0 &= ~pCryptodrvContext->device->clk;
   return ECODE_OK;
 }
 __STATIC_INLINE

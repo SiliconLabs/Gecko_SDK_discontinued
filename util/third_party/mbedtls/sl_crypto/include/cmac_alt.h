@@ -111,7 +111,7 @@ void mbedtls_cmac_init( mbedtls_cmac_context *ctx );
  *   0 if success. Error code if failure, see \ref cmac.h.
  ******************************************************************************/
 int mbedtls_cmac_set_device_instance(mbedtls_cmac_context* ctx,
-                                    int                  devno);
+                                     unsigned int          devno);
 
 #if defined( MBEDTLS_INCLUDE_ASYNCH_API )
 /**
@@ -143,7 +143,7 @@ int mbedtls_cmac_set_device_instance(mbedtls_cmac_context* ctx,
 int mbedtls_cmac_set_asynch( mbedtls_cmac_context *ctx,
                              mbedtls_cmac_asynch_context *asynch_ctx,
                              mbedtls_asynch_callback asynch_callback,
-                             void* asynch_callback_user_arg );
+                             void* user_arg );
 #endif /* #if defined( MBEDTLS_INCLUDE_ASYNCH_API ) */
 
 /**

@@ -30,7 +30,9 @@
 #include "cryptodrv_internal.h"
 #include "dmadrv.h"
 #include "em_crypto.h"
+#if defined(BUFC_PRESENT)
 #include "em_bufc.h"
+#endif
 #include "em_assert.h"
 #include <string.h>
 
@@ -98,12 +100,9 @@ Ecode_t AESDRV_Init(AESDRV_Context_t* pAesdrvContext)
 
   /* Disable authentication tag optimization */
   pAesdrvContext->authTagOptimize         = false;
-  
-#if (CRYPTO_COUNT > 1)
-  pAesdrvContext->cryptodrvContext.crypto = CRYPTO0;
-#else
-  pAesdrvContext->cryptodrvContext.crypto = CRYPTO;
-#endif
+
+  /* Set default CRYPTO device instance to use. */
+  cryptodrvSetDeviceInstance(&pAesdrvContext->cryptodrvContext, 0);
 
   /* Set I/O mode to mcu core. */
   return AESDRV_SetIoMode(pAesdrvContext, aesdrvIoModeCore, 0);
@@ -175,31 +174,11 @@ Ecode_t AESDRV_DeInit(AESDRV_Context_t* pAesdrvContext)
  *   Please refer to aesdrv.h for detailed description.
  */
 Ecode_t AESDRV_SetDeviceInstance(AESDRV_Context_t*  pAesdrvContext,
-                                 int                aesDeviceInstance)
+                                 unsigned int       devno)
 {
-  if (aesDeviceInstance >= CRYPTO_COUNT)
-    return MBEDTLS_ECODE_AESDRV_INVALID_PARAM;
-  
-#if (CRYPTO_COUNT > 1)
-  switch( aesDeviceInstance )
-  {
-  case 0:
-    pAesdrvContext->cryptodrvContext.crypto = CRYPTO0;
-    break;
-  case 1:
-    pAesdrvContext->cryptodrvContext.crypto = CRYPTO1;
-    break;
-  default:
-    return MBEDTLS_ECODE_AESDRV_INVALID_PARAM;
-  }
-#else
-#if defined( CRYPTO0 )
-  pAesdrvContext->cryptodrvContext.crypto = CRYPTO0;
-#else
-  pAesdrvContext->cryptodrvContext.crypto = CRYPTO;
-#endif
-#endif
-  return ECODE_OK;
+  /* Set default CRYPTO device instance to use. */
+  return cryptodrvSetDeviceInstance(&pAesdrvContext->cryptodrvContext,
+                                    devno);
 }
 
 /*
@@ -223,14 +202,14 @@ Ecode_t AESDRV_SetKey(AESDRV_Context_t* pAesdrvContext,
 
   if (32==keyLength)
   {
-    CRYPTO_KeyBufWrite(pCryptodrvContext->crypto,
+    CRYPTO_KeyBufWrite(pCryptodrvContext->device->crypto,
                        (uint32_t*)pKey, cryptoKey256Bits);
   }
   else
   {
     if (16==keyLength)
     {
-      CRYPTO_KeyBufWrite(pCryptodrvContext->crypto,
+      CRYPTO_KeyBufWrite(pCryptodrvContext->device->crypto,
                          (uint32_t*)pKey, cryptoKey128Bits);
     }
     else
@@ -306,6 +285,39 @@ Ecode_t AESDRV_SetAsynchMode
 #endif /* #if defined(MBEDTLS_INCLUDE_ASYNCH_API) */
 
 /*
+ *   Check if ioMode is valid for crypto device of context.
+ */
+bool aesdrvIoModeValid
+(
+ AESDRV_Context_t*        pAesdrvContext,
+ AESDRV_IoMode_t          ioMode
+ )
+{
+  if (ioMode != aesdrvIoModeBufc)
+  {
+    return true;
+  }
+  else
+  {
+#if (CRYPTO_COUNT == 1)
+    (void) pAesdrvContext;
+    return true;
+#elif (CRYPTO_COUNT == 2)
+    if ( pAesdrvContext->cryptodrvContext.device->crypto == CRYPTO1 )
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+#else
+#error Unsupported CRYPTO_COUNT.
+#endif
+  }
+}
+ 
+/*
  *   Setup CRYPTO I/O mode.
  *   Please refer to aesdrv.h for detailed description.
  */
@@ -320,6 +332,11 @@ Ecode_t AESDRV_SetIoMode
 #if !defined(BUFC_PRESENT)
   (void) ioModeSpecific;
 #endif
+
+  if (aesdrvIoModeValid(pAesdrvContext, ioMode) == false)
+  {
+    return MBEDTLS_ECODE_AESDRV_NOT_SUPPORTED;
+  }
   
   /* Start by reseting any previous settings, if applicable. */
   if ( ioMode != pAesdrvContext->ioMode )
@@ -340,50 +357,55 @@ Ecode_t AESDRV_SetIoMode
 #endif
         break;
     }
-  }
 
-  /* Set requested I/O mode now. */
-  switch( ioMode )
-  {
-  case aesdrvIoModeCore:
-    /* Do nothing. Just continue without hitting default label which signals
-       error.*/
-    break;
+    /* Set requested I/O mode now. */
+    switch( ioMode )
+    {
+    case aesdrvIoModeCore:
+      /* Do nothing. Just continue without hitting default label which signals
+         error.*/
+      break;
     
-  case aesdrvIoModeBufc:
+    case aesdrvIoModeBufc:
 #if defined(BUFC_PRESENT)
-  {
-    BUFC_Init_TypeDef      bufcInit = BUFC_INIT_DEFAULT;
-
-    /* Make sure BUFC clock is running. */
-    CMU->HFRADIOCLKEN0 |= CMU_HFRADIOCLKEN0_BUFC;
-    
-    BUFC_Init(&bufcInit);
-
-    aesdrvBufcInit(pAesdrvContext, ioModeSpecific->bufcConfig.bufId);
-  }
+    {
+      BUFC_Init_TypeDef      bufcInit = BUFC_INIT_DEFAULT;
+      
+      /* Make sure BUFC clock is running. */
+#if defined (CMU_HFRADIOCLKEN0_BUFC)
+      CMU->HFRADIOCLKEN0 |= CMU_HFRADIOCLKEN0_BUFC;
+#endif
+#if defined (CMU_HFRADIOALTCLKEN0_BUFC)
+      CMU->HFRADIOALTCLKEN0 |= CMU_HFRADIOALTCLKEN0_BUFC;
+#endif
+      
+      BUFC_Init(&bufcInit);
+      
+      aesdrvBufcInit(pAesdrvContext, ioModeSpecific->bufcConfig.bufId);
+    }
 #else
     retval = MBEDTLS_ECODE_AESDRV_NOT_SUPPORTED;
 #endif
     break;
-  case aesdrvIoModeDma:
+    case aesdrvIoModeDma:
 #if defined( MBEDTLS_INCLUDE_IO_MODE_DMA )
-    /* Start by reseting previous settings.*/
-    aesdrvDmaReset(pAesdrvContext);
-    retval = aesdrvDmaInit(pAesdrvContext);
+      /* Start by reseting previous settings.*/
+      aesdrvDmaReset(pAesdrvContext);
+      retval = aesdrvDmaInit(pAesdrvContext);
 #else
-    retval = MBEDTLS_ECODE_AESDRV_NOT_SUPPORTED;
+      retval = MBEDTLS_ECODE_AESDRV_NOT_SUPPORTED;
 #endif
-    break;
-    
-  default:
-    retval = MBEDTLS_ECODE_AESDRV_NOT_SUPPORTED;
-  }
+      break;
+      
+    default:
+      retval = MBEDTLS_ECODE_AESDRV_NOT_SUPPORTED;
+    }
 
-  if (ECODE_OK == retval)
-  {
-    /* If success we store the I/O mode for later references. */
-    pAesdrvContext->ioMode = ioMode;
+    if (ECODE_OK == retval)
+    {
+      /* If success we store the I/O mode for later references. */
+      pAesdrvContext->ioMode = ioMode;
+    }
   }
   
   return retval;
@@ -397,6 +419,9 @@ void AESDRV_HwIoSetup(AESDRV_Context_t* pAesdrvContext,
                       uint32_t          authDataLength,
                       uint32_t          textLength)
 {
+#if !defined( MBEDTLS_INCLUDE_IO_MODE_DMA )
+  (void)pAesdrvContext; (void)pData; (void)authDataLength; (void)textLength;
+#endif
   switch (pAesdrvContext->ioMode)
   {
   case aesdrvIoModeBufc:
@@ -459,7 +484,8 @@ static void aesdrvBufcSetup(AESDRV_Context_t* pAesdrvContext,
                             uint32_t          authDataLength)
 {
   uint8_t         bufId  = pAesdrvContext->ioModeSpecific.bufcConfig.bufId;
-  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.crypto;
+  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.device->crypto;
+  uint32_t        ctrl;
 
   EFM_ASSERT(bufId != AESDRV_UTILS_BUFC_BUFFER_NOT_SET);
   
@@ -470,10 +496,11 @@ static void aesdrvBufcSetup(AESDRV_Context_t* pAesdrvContext,
   BUFC->BUF[bufId].WRITEOFFSET = 2048 + (authDataLength);
   BUFC->BUF[bufId].CMD = BUFC_BUF_CMD_PREFETCH;
 
-  crypto->CTRL &= ~_CRYPTO_CTRL_READBUFSEL_MASK;
-  crypto->CTRL &= ~_CRYPTO_CTRL_WRITEBUFSEL_MASK;
-  crypto->CTRL |= bufId << _CRYPTO_CTRL_READBUFSEL_SHIFT
+  ctrl  = crypto->CTRL;
+  ctrl &= ~_CRYPTO_CTRL_READBUFSEL_MASK & ~_CRYPTO_CTRL_WRITEBUFSEL_MASK;
+  ctrl |= bufId << _CRYPTO_CTRL_READBUFSEL_SHIFT
     | bufId << _CRYPTO_CTRL_WRITEBUFSEL_SHIFT;
+  crypto->CTRL = ctrl;
 }
 #endif
 
@@ -575,20 +602,21 @@ static void aesdrvDmaSetup(AESDRV_Context_t* pAesdrvContext,
 {
   uint8_t * _authData = (uint8_t*)pData;
   uint8_t * _textData = (uint8_t*)((uint32_t)pData + authDataLength);
-  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.crypto;
+  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.device->crypto;
   AESDRV_DmaConfig_t* dmaConfig = &pAesdrvContext->ioModeSpecific.dmaConfig;
   uint16_t lenIn, lenOut;
+  uint32_t seqctrl;
     
   /* Ensure that dma for crypto was initialized. */
   EFM_ASSERT((dmaConfig->dmaChIn != AESDRV_UTILS_DMA_CHANNEL_NOT_SET) &&
              (dmaConfig->dmaChOut != AESDRV_UTILS_DMA_CHANNEL_NOT_SET));
 
   crypto->CTRL &= (~_CRYPTO_CTRL_DMA0RSEL_MASK) & (~_CRYPTO_CTRL_DMA1RSEL_MASK);
-  crypto->SEQCTRL &= ~_CRYPTO_SEQCTRL_DMA0SKIP_MASK;
-  crypto->SEQCTRL |= (uint32_t)_authData % 4 << _CRYPTO_SEQCTRL_DMA0SKIP_SHIFT;
-  crypto->SEQCTRL &= ~_CRYPTO_SEQCTRLB_DMA0PRESB_MASK;
+  seqctrl  = crypto->SEQCTRL;
+  seqctrl &= (~_CRYPTO_SEQCTRL_DMA0SKIP_MASK) & (~_CRYPTO_SEQCTRL_DMA0PRESA_MASK);
+  seqctrl |= (uint32_t)_authData % 4 << _CRYPTO_SEQCTRL_DMA0SKIP_SHIFT;
+  crypto->SEQCTRL = seqctrl;
   crypto->SEQCTRLB |= CRYPTO_SEQCTRLB_DMA0PRESB;
-
   aesdrvDmaAddrLenGet((uint8_t **)&_authData,
                        (uint8_t **)&_textData,
                        authDataLength,
@@ -597,7 +625,7 @@ static void aesdrvDmaSetup(AESDRV_Context_t* pAesdrvContext,
   
   DMADRV_MemoryPeripheral( dmaConfig->dmaChIn,
 #ifdef EMDRV_DMADRV_LDMA
-                           dmadrvPeripheralSignal_CRYPTO_DATA0WR,
+                           pAesdrvContext->cryptodrvContext.device->dmaReqSigChIn,
 #else
 #error "UDMA + CRYPTO is a non-exisiting combination"
 #endif
@@ -612,7 +640,7 @@ static void aesdrvDmaSetup(AESDRV_Context_t* pAesdrvContext,
   if (textLength)
   {
     DMADRV_PeripheralMemory( dmaConfig->dmaChOut,
-                             dmadrvPeripheralSignal_CRYPTO_DATA0RD,
+                             pAesdrvContext->cryptodrvContext.device->dmaReqSigChOut,
                              (void *)_textData,
                              (void*)&crypto->DATA0,
                              true,

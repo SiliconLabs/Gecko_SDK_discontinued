@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="STK3800_lightsensefft_hardfloat" boardCompatibility="brd2400a" partCompatibility=".*efm32wg990f256.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <includePath uri="../../../../../platform/CMSIS/DSP_Lib/Source/CommonTables" />
+  <includePath uri="../../../../../platform/CMSIS/DSP_Lib/Source/StatisticsFunctions" />
+  <includePath uri="../../../../../platform/CMSIS/DSP_Lib/Source/ComplexMathFunctions" />
+  <includePath uri="../../../../../platform/CMSIS/DSP_Lib/Source/TransformFunctions" />
+  <includePath uri="." />
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_adc.c" />
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_dma.c" />
+    <include pattern="emlib/em_ebi.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_lcd.c" />
+    <include pattern="emlib/em_prs.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_timer.c" />
+    <include pattern="emlib/em_usart.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <include pattern="BSP/bsp_bcc.c" />
+    <include pattern="BSP/bsp_stk.c" />
+    <include pattern="BSP/bsp_trace.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <include pattern="Drivers/dmactrl.c" />
+    <include pattern="Drivers/segmentlcd.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <macroDefinition name="__FPU_PRESENT" value="1" />
+  <macroDefinition name="ARM_MATH_CM4" />
+  <libraryFile name="m" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+  <folder name="DSP">
+    <file name="arm_bitreversal.c" uri="../../../../../platform/CMSIS/DSP_Lib/Source/TransformFunctions/arm_bitreversal.c" />
+    <file name="arm_cfft_radix4_f32.c" uri="../../../../../platform/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_f32.c" />
+    <file name="arm_cfft_radix4_init_f32.c" uri="../../../../../platform/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_init_f32.c" />
+    <file name="arm_rfft_f32.c" uri="../../../../../platform/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_f32.c" />
+    <file name="arm_rfft_init_f32.c" uri="../../../../../platform/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_init_f32.c" />
+    <file name="arm_cmplx_mag_f32.c" uri="../../../../../platform/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_f32.c" />
+    <file name="arm_max_f32.c" uri="../../../../../platform/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_f32.c" />
+    <file name="arm_common_tables.c" uri="../../../../../platform/CMSIS/DSP_Lib/Source/CommonTables/arm_common_tables.c" />
+  </folder>
+  <folder name="src">
+    <file name="lightsensefft.c" uri="lightsensefft.c" />
+  </folder>
+</project>

@@ -101,7 +101,7 @@ void mbedtls_sha1_free( mbedtls_sha1_context *ctx );
  *   0 if success. Error code if failure, see \ref sha1.h.
  ******************************************************************************/
 int mbedtls_sha1_set_device_instance(mbedtls_sha1_context* ctx,
-                                    int                    devno);
+                                    unsigned int           devno);
 #endif /* #if defined( MBEDTLS_SLCL_PLUGINS ) */
   
 /**

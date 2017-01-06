@@ -47,6 +47,7 @@
 #include "mbedtls/aes.h"
 #include "sl_crypto.h"
 #include "aesdrv_internal.h"
+#include "cryptodrv_internal.h"
 #include "em_assert.h"
 #include <string.h>
 
@@ -108,7 +109,7 @@ int mbedtls_cmac_setkey( mbedtls_cmac_context *ctx,
  * Set the device instance of an CMAC context.
  */
 int mbedtls_cmac_set_device_instance(mbedtls_cmac_context *ctx,
-                                    int                 devno)
+                                    unsigned int           devno)
 {
 #if defined(AES_COUNT) && (AES_COUNT > 0)
     (void) ctx;
@@ -122,28 +123,9 @@ int mbedtls_cmac_set_device_instance(mbedtls_cmac_context *ctx,
     if (devno > CRYPTO_COUNT)
         return( MBEDTLS_ERR_CMAC_BAD_INPUT );
   
-#if (CRYPTO_COUNT > 1)
-    switch( devno )
-    {
-    case 0:
-        ctx->aesdrv_ctx.cryptodrvContext.crypto = CRYPTO0;
-        break;
-    case 1:
-        ctx->aesdrv_ctx.cryptodrvContext.crypto = CRYPTO1;
-        break;
-    default:
-        return( MBEDTLS_ERR_CMAC_BAD_INPUT );
-    }
-#else
-#if defined( CRYPTO0 )
-    ctx->aesdrv_ctx.cryptodrvContext.crypto = CRYPTO0;
-#else
-    ctx->aesdrv_ctx.cryptodrvContext.crypto = CRYPTO;
-#endif
-#endif
+    return cryptodrvSetDeviceInstance( &ctx->aesdrv_ctx.cryptodrvContext,
+                                       devno );
 #endif /* #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) */
-  
-    return( 0 );
 }
 
 #if defined( MBEDTLS_INCLUDE_ASYNCH_API )

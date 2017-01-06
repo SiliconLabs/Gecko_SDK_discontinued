@@ -128,7 +128,7 @@ void mbedtls_aes_free( mbedtls_aes_context *ctx );
  *   0 if success. Error code if failure, see \ref aes.h.
  ******************************************************************************/
 int mbedtls_aes_set_device_instance(mbedtls_aes_context *ctx,
-                                    int                 devno);
+                                    unsigned int         devno);
 
 #if defined( MBEDTLS_INCLUDE_ASYNCH_API )
 /**
@@ -160,7 +160,7 @@ int mbedtls_aes_set_device_instance(mbedtls_aes_context *ctx,
 int mbedtls_aes_set_asynch( mbedtls_aes_context *ctx,
                             mbedtls_aes_asynch_context *asynch_ctx,
                             mbedtls_asynch_callback asynch_callback,
-                            void* asynch_callback_user_arg );
+                            void* user_arg );
 
 #endif /* #if defined( MBEDTLS_INCLUDE_ASYNCH_API ) */
   
@@ -179,14 +179,14 @@ int mbedtls_aes_set_asynch( mbedtls_aes_context *ctx,
  *   I/O mode (Core CPU, DMA or BUFC).
  *  
  * \param[in] specific
- *   I/O mode specific configuration \ref mbedtls_aes_io_mode_specific.
+ *   I/O mode specific configuration \ref mbedtls_device_io_mode_specific.
  *  
  * \warning
  *   If BUFC is selected (\ref MBEDTLS_DEVICE_IO_MODE_BUFC), this function does
  *   not enable the BUFC clock and does not do any global BUFC initialization.
  *   I.e. the user is responsible for performing BUFC initialization prior to
  *   calling this function.
- *   If DMA is selected (\ref MBEDTLS_DEVICE_IO_MODE_DMA), this function
+ *   If DMA is selected (\ref MBEDTLS_INCLUDE_IO_MODE_DMA), this function
  *   performs full DMA driver initialization by calling DMADRV_Init
  *   (non-destructive) and allocates DMA channel resources to be used by CCM.
  *

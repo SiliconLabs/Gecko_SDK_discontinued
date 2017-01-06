@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SLWSTK6200A_ezradio_direct_tx" boardCompatibility="brd4502a" partCompatibility=".*ezr32lg330f256r60.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <includePath uri="config/RadioConfig" />
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_dma.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_pcnt.c" />
+    <include pattern="emlib/em_prs.c" />
+    <include pattern="emlib/em_rtc.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_timer.c" />
+    <include pattern="emlib/em_usart.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emdrv">
+    <include pattern="Drivers(/.*){0,1}/dmadrv.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_api_lib.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_comm.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_hal.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_api_lib_add.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_plugin_manager.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_transmit_plugin.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_receive_plugin.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_crcerror_plugin.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_auto_ack_plugin.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_unmod_carrier_plugin.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_pn9_plugin.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_direct_transmit_plugin.c" />
+    <include pattern="Drivers(/.*){0,1}/ezradio_direct_receive_plugin.c" />
+    <include pattern="Drivers(/.*){0,1}/gpiointerrupt.c" />
+    <include pattern="Drivers(/.*){0,1}/rtcdriver.c" />
+    <include pattern="Drivers(/.*){0,1}/spidrv.c" />
+    <include pattern="Drivers(/.*){0,1}/ustimer.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <include pattern="Drivers/display.c" />
+    <include pattern="Drivers/displayls013b7dh03.c" />
+    <include pattern="Drivers/displaypalemlib.c" />
+    <include pattern="Drivers/dmactrl.c" />
+    <include pattern="Drivers/retargetio.c" />
+    <include pattern="Drivers/retargettextdisplay.c" />
+    <include pattern="Drivers/textdisplay.c" />
+    <include pattern="Drivers/udelay.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.glib">
+    <exclude pattern=".*" />
+  </module>
+  <macroDefinition name="SL_WSTK6200A" />
+  <macroDefinition name="EZRADIO_DRIVER_EXTENDED_SUPPORT" />
+  <macroDefinition name="EZRADIO_DRIVER_FULL_SUPPORT" />
+  <includePath uri="studio:/project/RadioConfig" />
+  <includePath uri="." />
+  <includePath uri="config" />
+  <includePath uri="config/RadioConfig" />
+  <folder name="src">
+    <file name="main.c" uri="main.c" />
+    <file name="displayconfigapp.h" uri="config/displayconfigapp.h" />
+    <file name="dmadrv_config.h" uri="config/dmadrv_config.h" />
+    <file name="rtcdrv_config.h" uri="config/rtcdrv_config.h" />
+    <file name="spidrv_config.h" uri="config/spidrv_config.h" />
+    <file name="ustimer_config.h" uri="config/ustimer_config.h" />
+  </folder>
+  <folder name="RadioConfig">
+    <file name="radio-configurator_SLWSTK6200A.isc" uri="config/RadioConfig/radio-configurator_SLWSTK6200A.isc" />
+  </folder>
+<property key="category" value="Radio Evaluation Examples"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.size"/>
+</project>

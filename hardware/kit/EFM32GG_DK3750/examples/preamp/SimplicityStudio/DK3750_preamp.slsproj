@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="DK3750_preamp" boardCompatibility="brd3600a" partCompatibility=".*efm32gg990f1024.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_adc.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_dac.c" />
+    <include pattern="emlib/em_dma.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_ebi.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_prs.c" />
+    <include pattern="emlib/em_rtc.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_timer.c" />
+    <include pattern="emlib/em_usart.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emdrv">
+    <include pattern="Drivers(/.*){0,1}/rtcdriver.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <include pattern="BSP/bsp_dk_3201.c" />
+    <include pattern="BSP/bsp_dk_leds.c" />
+    <include pattern="BSP/bsp_trace.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <include pattern="Drivers/dmactrl.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <macroDefinition name="DEBUG_EFM" languageCompatibility="c cpp" />
+  <includePath uri="." />
+  <folder name="src">
+    <file name="preamp.c" uri="preamp.c" />
+  </folder>
+</project>

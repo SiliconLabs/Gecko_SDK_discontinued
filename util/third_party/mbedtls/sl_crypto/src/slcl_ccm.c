@@ -43,6 +43,7 @@
 #include "mbedtls/aes.h"
 #include "sl_crypto.h"
 #include "aesdrv_internal.h"
+#include "cryptodrv_internal.h"
 #include "em_assert.h"
 #include <string.h>
 
@@ -101,40 +102,22 @@ int mbedtls_ccm_setkey( mbedtls_ccm_context *ctx,
  * Set the device instance of an CCM context.
  */
 int mbedtls_ccm_set_device_instance(mbedtls_ccm_context *ctx,
-                                    int                 devno)
+                                    unsigned int         devno)
 {
 #if defined(AES_COUNT) && (AES_COUNT > 0)
-  (void) ctx;
-  if ((devno > AES_COUNT) || (devno != 0))
-    return( MBEDTLS_ERR_CCM_BAD_INPUT );
-  else
-    return( 0 );
+    (void) ctx;
+    if ((devno > AES_COUNT) || (devno != 0))
+        return( MBEDTLS_ERR_CCM_BAD_INPUT );
+    else
+        return( 0 );
 #endif
   
 #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
-  if (devno > CRYPTO_COUNT)
-    return( MBEDTLS_ERR_CCM_BAD_INPUT );
+    if (devno > CRYPTO_COUNT)
+        return( MBEDTLS_ERR_CCM_BAD_INPUT );
   
-#if (CRYPTO_COUNT > 1)
-  switch( devno )
-  {
-  case 0:
-    ctx->aesdrv_ctx.cryptodrvContext.crypto = CRYPTO0;
-    break;
-  case 1:
-    ctx->aesdrv_ctx.cryptodrvContext.crypto = CRYPTO1;
-    break;
-  default:
-    return( MBEDTLS_ERR_CCM_BAD_INPUT );
-  }
-#else
-#if defined( CRYPTO0 )
-  ctx->aesdrv_ctx.cryptodrvContext.crypto = CRYPTO0;
-#else
-  ctx->aesdrv_ctx.cryptodrvContext.crypto = CRYPTO;
-#endif
-#endif
-  return( 0 );
+    return cryptodrvSetDeviceInstance( &ctx->aesdrv_ctx.cryptodrvContext,
+                                       devno );
 #endif /* #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) */
 }
 

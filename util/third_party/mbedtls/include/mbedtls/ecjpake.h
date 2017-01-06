@@ -63,8 +63,8 @@ typedef enum {
  * (KeyExchange) as defined by the Thread spec.
  *
  * In order to benefit from this symmetry, we choose a different naming
- * convetion from the Thread v1.0 spec. Correspondance is indicated in the
- * description as a pair C: <client name>, S: <server name>
+ * convention from the Thread v1.0 spec. Correspondance is indicated in the
+ * description as a pair C: \<client name\>, S: \<server name\>
  */
 typedef struct
 {

@@ -34,6 +34,9 @@
 
 #include "mbedtls_ecode.h"
 #include "em_crypto.h"
+#if defined( MBEDTLS_INCLUDE_IO_MODE_DMA )
+#include "dmadrv.h"
+#endif
 #include <stdint.h>
 #include <stdbool.h>
 
@@ -87,12 +90,30 @@ typedef struct
  ******************************************************************************/
 typedef void (*CRYPTODRV_AsynchCallback_t)(void* userArgument);
 
+/** CRYPTO device structure. */
+typedef struct
+{
+  CRYPTO_TypeDef*              crypto;         /**< CRYPTO hw instance */
+  IRQn_Type                    irqn;           /**< CRYPTO irq number */
+  uint32_t                     clk;            /**< CRYPTO clock */
+#if defined( MBEDTLS_CRYPTO_DEVICE_PREEMPTION )
+  void*                        pCryptoOwner;   /**< Pointer to pointer of
+                                                  CRYPTO unit owner */
+  uint32_t*                    pNvicIser;      /**< Pointer to storage
+                                                  of NVIC ISER values. */
+#endif
+#if defined( MBEDTLS_INCLUDE_IO_MODE_DMA )
+  DMADRV_PeripheralSignal_t    dmaReqSigChIn; /**< DMA req signal channel in */
+  DMADRV_PeripheralSignal_t    dmaReqSigChOut;/**< DMA req signal channel out */
+#endif
+} CRYPTO_Device_t;
+
 /** CRYPTODRV operation context. */
 typedef struct
 {
-  CRYPTO_TypeDef*            crypto;         /**< CRYPTO hw instance */
+  const CRYPTO_Device_t*     device;         /**< CRYPTO hw instance */
   
-#if defined( MBEDTLS_CRYPTO_DEVICE_PREEMPTION)
+#if defined( MBEDTLS_CRYPTO_DEVICE_PREEMPTION )
   
   CRYPTO_Context_t           cryptoContext;  /**< CRYPTO hw context */
   bool                       aborted;        /**< 'true' if an ongoing CRYPTO

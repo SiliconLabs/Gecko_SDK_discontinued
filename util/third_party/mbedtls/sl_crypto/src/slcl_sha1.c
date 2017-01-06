@@ -86,36 +86,14 @@ void mbedtls_sha1_free( mbedtls_sha1_context *ctx )
  * Set the device instance of an SHA context.
  */
 int mbedtls_sha1_set_device_instance(mbedtls_sha1_context *ctx,
-                                     int                  devno)
+                                     unsigned int          devno)
 {
-    CRYPTODRV_Context_t* cryptodrv_ctx = &ctx->cryptodrv_ctx;
-    
 #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
     if (devno > CRYPTO_COUNT)
         return( MBEDTLS_ERR_SHA1_BAD_INPUT );
   
-#if (CRYPTO_COUNT > 1)
-    switch( devno )
-    {
-    case 0:
-        cryptodrv_ctx->crypto = CRYPTO0;
-        break;
-    case 1:
-        cryptodrv_ctx->crypto = CRYPTO1;
-        break;
-    default:
-        return( MBEDTLS_ERR_SHA1_BAD_INPUT );
-    }
-#else
-#if defined( CRYPTO0 )
-    cryptodrv_ctx->crypto = CRYPTO0;
-#else
-    cryptodrv_ctx->crypto = CRYPTO;
-#endif
-#endif
+    return cryptodrvSetDeviceInstance( &ctx->cryptodrv_ctx, devno );
 #endif /* #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) */
-  
-    return( 0 );
 }
 
 /**
@@ -186,7 +164,7 @@ void mbedtls_sha1_clone( mbedtls_sha1_context *dst,
 int mbedtls_sha1_starts( mbedtls_sha1_context *ctx )
 {
     CRYPTODRV_Context_t* cryptodrv_ctx = &ctx->cryptodrv_ctx;
-    CRYPTO_TypeDef* crypto = cryptodrv_ctx->crypto;
+    CRYPTO_TypeDef* crypto = cryptodrv_ctx->device->crypto;
     uint32_t init_state[8];
     Ecode_t ecode;
 
@@ -251,7 +229,7 @@ int mbedtls_sha1_starts( mbedtls_sha1_context *ctx )
 void mbedtls_sha1_process( mbedtls_sha1_context *ctx, const unsigned char data[64] )
 {
     CRYPTODRV_Context_t* cryptodrv_ctx = &ctx->cryptodrv_ctx;
-    CRYPTO_TypeDef* crypto = cryptodrv_ctx->crypto;
+    CRYPTO_TypeDef* crypto = cryptodrv_ctx->device->crypto;
     Ecode_t ecode;
     
     ecode = CRYPTODRV_EnterCriticalRegion( cryptodrv_ctx );
@@ -334,7 +312,7 @@ void mbedtls_sha1_finish( mbedtls_sha1_context *ctx, unsigned char output[20] )
     uint32_t high, low;
     unsigned char msglen[8];
     CRYPTODRV_Context_t* cryptodrv_ctx = &ctx->cryptodrv_ctx;
-    CRYPTO_TypeDef* crypto = cryptodrv_ctx->crypto;
+    CRYPTO_TypeDef* crypto = cryptodrv_ctx->device->crypto;
     Ecode_t ecode;
 
     high = ( ctx->total[0] >> 29 )

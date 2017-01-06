@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SLWSTK6200A_clock" boardCompatibility="brd4502a" partCompatibility=".*ezr32lg330f256r60.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_pcnt.c" />
+    <include pattern="emlib/em_prs.c" />
+    <include pattern="emlib/em_rtc.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_usart.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <include pattern="Drivers/display.c" />
+    <include pattern="Drivers/displayls013b7dh03.c" />
+    <include pattern="Drivers/displaypalemlib.c" />
+    <include pattern="Drivers/retargetio.c" />
+    <include pattern="Drivers/retargettextdisplay.c" />
+    <include pattern="Drivers/textdisplay.c" />
+    <include pattern="Drivers/udelay.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.glib">
+    <include pattern="Graphics/dmd_display.c" />
+    <include pattern="Graphics/glib.c" />
+    <include pattern="Graphics/glib_bitmap.c" />
+    <include pattern="Graphics/glib_circle.c" />
+    <include pattern="Graphics/glib_line.c" />
+    <include pattern="Graphics/glib_rectangle.c" />
+    <include pattern="Graphics/glib_string.c" />
+    <include pattern="Graphics/glib_font_normal_8x8.c" />
+  </module>
+  <libraryFile name="m" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+  <includePath uri="." />
+  <folder name="src">
+    <file name="main.c" uri="main.c" />
+    <file name="analog_clock.c" uri="analog_clock.c" />
+  </folder>
+<property key="category" value="MCU Examples"/>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.size"/>
+</project>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="STKXXX_touch" boardCompatibility="brd2001a" partCompatibility=".*efm32g890f128.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_acmp.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_rtc.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_lcd.c" />
+    <include pattern="emlib/em_usart.c" />
+    <include pattern="emlib/em_vcmp.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emdrv">
+    <include pattern="Drivers(/.*){0,1}/rtcdriver.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <include pattern="BSP/bsp_bcc.c" />
+    <include pattern="BSP/bsp_stk.c" />
+    <include pattern="BSP/bsp_trace.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <include pattern="Drivers/vddcheck.c" />
+    <include pattern="Drivers/segmentlcd.c" />
+    <include pattern="Drivers/capsense.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <includePath uri="." />
+  <folder name="src">
+    <file name="touchdemo.c" uri="touchdemo.c" />
+  </folder>
+</project>

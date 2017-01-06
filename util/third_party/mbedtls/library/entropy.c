@@ -67,6 +67,7 @@ void mbedtls_entropy_init( mbedtls_entropy_context *ctx )
 #if defined(MBEDTLS_ENTROPY_SHA512_ACCUMULATOR)
     mbedtls_sha512_starts( &ctx->accumulator, 0 );
 #else
+    mbedtls_sha256_init( &ctx->accumulator );
     mbedtls_sha256_starts( &ctx->accumulator, 0 );
 #endif
 #if defined(MBEDTLS_HAVEGE_C)
@@ -320,7 +321,7 @@ int mbedtls_entropy_func( void *data, unsigned char *output, size_t len )
     /*
      * Reset accumulator and counters and recycle existing entropy
      */
-    memset( &ctx->accumulator, 0, sizeof( mbedtls_sha256_context ) );
+    mbedtls_sha256_init( &ctx->accumulator );
     mbedtls_sha256_starts( &ctx->accumulator, 0 );
     mbedtls_sha256_update( &ctx->accumulator, buf, MBEDTLS_ENTROPY_BLOCK_SIZE );
 

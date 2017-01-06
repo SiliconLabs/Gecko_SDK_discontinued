@@ -117,23 +117,14 @@ typedef enum
   cipherModeNone,
   cipherModeBlockCipher, /**< Basic AES block cipher modes (CBC, CFB etc.) */
   cipherModeCcm,         /**< CCM and CCM* - Counter Mode with CBC-MAC */
-  cipherModeCcmBle,      /**< CCM optimized for BLE, @ref AESDRV_CCMBLE. */
+  cipherModeCcmBle,      /**< CCM optimized for BLE. */
   cipherModeCmac,        /**< Cipher-based Message Authentication Code -
                             variation of CBC-MAC, equivalent to OMAC1 */
   cipherModeGcm          /**< Galois/Counter mode including message
                             authentication code (GMAC).*/
 } AESDRV_CipherMode_t;
 
-/** AESDRV Context structures. The asynchronous context structures must be
-    allocated by the user and the pointer must be provided to the
-    @ref AESDRV_SetAsynchMode API function in order to setup asynchronous
-    (non-blocking) operation, since the AESDRV cannot use the stack for
-    asynchronous operation. The @p cipherMode and @p pAsynchContext
-    parameters must must match each other. The member parameters are for
-    internal use in AESDRV, and store intermediate values while the
-    hardware is processing. The user should not write to the member
-    parameters, and in general there should be no need to read the member
-    parameters. */
+/** AESDRV Context structures.*/
 
 /** Context structure for asynchronous basic AES block cipher operations. */
 typedef struct
@@ -179,16 +170,10 @@ typedef struct
 
 #endif /* #if defined(MBEDTLS_INCLUDE_ASYNCH_API) */
   
-/** Main AESDRV context structure. The user must allocate the context
-    structure prior to any AESDRV API call, and provide the pointer to the
-    @ref AESDRV_Init API function in order to initialize the context for
-    further API calls. In general, the user should not write directly
-    to the member parameters. Instead the values should be set via the
-    AESDRV_SetXXX API functions. */
-
 #if ( defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) )
 #include "cryptodrv.h"
 
+/* Main AESDRV context structure. */
 typedef struct
 {
   CRYPTODRV_Context_t     cryptodrvContext; /**< CRYPTO driver context */

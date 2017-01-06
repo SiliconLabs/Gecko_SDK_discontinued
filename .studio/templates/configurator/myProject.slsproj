@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="hwconf_Project" partCompatibility="" toolchainCompatibility="" contentRoot=".">
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_system.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part" />
+  <module id="com.silabs.sdk.exx32.board" />
+  <folder name="src">
+    <file name="main.c" uri="main.c" />
+  </folder>
+  <includePath languageCompatibility="c asm" uri="unresolved:$%7BProjDirPath%7D/inc/"/>
+</project>

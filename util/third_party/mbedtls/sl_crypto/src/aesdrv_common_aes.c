@@ -126,11 +126,11 @@ Ecode_t AESDRV_SetKey(AESDRV_Context_t* pAesdrvContext,
  *   Please refer to aesdrv.h for detailed description.
  */
 Ecode_t AESDRV_SetDeviceInstance(AESDRV_Context_t*  pAesdrvContext,
-                                 int                aesDeviceInstance)
+                                 unsigned int       devno)
 {
   (void) pAesdrvContext; /* Multiple instances not supported for AES module. */
   
-  if (aesDeviceInstance >= AES_COUNT)
+  if (devno >= AES_COUNT)
     return MBEDTLS_ECODE_AESDRV_INVALID_PARAM;
   else
     return ECODE_OK;

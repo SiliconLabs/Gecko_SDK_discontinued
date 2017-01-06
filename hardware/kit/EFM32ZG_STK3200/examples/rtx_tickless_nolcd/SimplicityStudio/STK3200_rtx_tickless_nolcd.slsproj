@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="STK3200_rtx_tickless_nolcd" boardCompatibility="brd2010a" partCompatibility=".*efm32zg222f32.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <includePath uri="." />
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_rtc.c" />
+    <include pattern="emlib/em_system.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.RTX">
+    <exclude pattern=".*" />
+  </module>
+  <folder name="src">
+    <file name="rtx_tickless.c" uri="rtx_tickless.c" />
+    <file name="RTX_Conf_CM.c" uri="RTX_Conf_CM.c" />
+  </folder>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.base" optionId="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -fomit-frame-pointer "/>
+</project>

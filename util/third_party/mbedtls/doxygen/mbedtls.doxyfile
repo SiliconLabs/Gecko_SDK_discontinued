@@ -775,7 +775,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = ./../../util/third_party/mbedtls/doxygen/input ./../../util/third_party/mbedtls/sl_crypto/doxygen ./../../util/third_party/mbedtls/include/mbedtls ./../../util/third_party/mbedtls/sl_crypto/include ./../../util/third_party/mbedtls/configs/config-sl-crypto-all-acceleration.h
+INPUT                  = ./../../../util/third_party/mbedtls/doxygen/input ./../../../util/third_party/mbedtls/sl_crypto/doxygen ./../../../util/third_party/mbedtls/include/mbedtls ./../../../util/third_party/mbedtls/sl_crypto/include ./../../../util/third_party/mbedtls/configs/config-sl-crypto-all-acceleration.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -1988,7 +1988,7 @@ SEARCH_INCLUDES        = YES
 # preprocessor.
 # This tag requires that the tag SEARCH_INCLUDES is set to YES.
 
-INCLUDE_PATH           = ./../../util/third_party/mbedtls/configs
+INCLUDE_PATH           = ./../../../util/third_party/mbedtls/configs
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the
@@ -2020,10 +2020,7 @@ PREDEFINED             = WIN32 \
                          HAVE_GETTIMEOFDAY \
                          MBEDTLS_CONFIG_FILE=config-sl-crypto-all-acceleration.h \
                          CRYPTO_COUNT=1 \
-                         DOXY_DOC_ONLY \
-                         MBEDTLS_SLCL_PLUGINS \
-                         MBEDTLS_ECP_ALT \
-                         MBEDTLS_TIMING_ALT 
+                         DOXY_DOC_ONLY
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The

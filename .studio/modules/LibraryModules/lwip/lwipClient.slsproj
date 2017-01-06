@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project id="com.silabs.sdk.exx32.external.lwip" label="lwIP" contentRoot="$(sdkInstallationPath:default())/util/third_party/lwIP">
+  <property key="category" value="efm32|Third party"/>
+  <includePath uri="lwip/src/api" />
+  <includePath uri="lwip/src/core" />
+  <includePath uri="lwip/src/core/ipv4" />
+  <includePath uri="lwip/src/core/ipv6" />
+  <includePath uri="lwip/src/include" />
+  <includePath uri="lwip/src/include/ipv4" />
+  <includePath uri="lwip/src/include/ipv6" />
+  <includePath uri="lwip/src/include/ipv4/lwip" />
+  <includePath uri="lwip/src/include/ipv6/lwip" />
+  <includePath uri="lwip/src/include/lwip" />
+  <includePath uri="lwip/src/netif" />
+  <includePath uri="lwip/src/netif/ppp" />
+  <includePath uri="lwip-contrib/apps/chargen" />
+  <includePath uri="lwip-contrib/apps/httpserver" />
+  <includePath uri="lwip-contrib/apps/httpserver_raw" />
+  <includePath uri="lwip-contrib/apps/netbios" />
+  <includePath uri="lwip-contrib/apps/netio" />
+  <includePath uri="lwip-contrib/apps/ping" />
+  <includePath uri="lwip-contrib/apps/rtp" />
+  <includePath uri="lwip-contrib/apps/shell" />
+  <includePath uri="lwip-contrib/apps/smtp" />
+  <includePath uri="lwip-contrib/apps/smtp_private_mib" />
+  <includePath uri="lwip-contrib/apps/sntp" />
+  <includePath uri="lwip-contrib/apps/socket_examples" />
+  <includePath uri="lwip-contrib/apps/tcpecho" />
+  <includePath uri="lwip-contrib/apps/tcpecho_raw" />
+  <includePath uri="lwip-contrib/apps/udpecho" />
+  <includePath uri="lwip-contrib/ports/efm32/" />
+  <includePath uri="lwip-contrib/ports/efm32/include" />
+  <includePath uri="lwip-contrib/ports/efm32/include/arch" />
+  <folder name="lwIP" uri="lwip/src/api" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP" uri="lwip/src/core" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP" uri="lwip/src/core/ipv6" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP" uri="lwip/src/core/ipv4" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP" uri="lwip/src/core/snmp" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP" uri="lwip/src/netif" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP" uri="lwip/src/netif/ppp" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP_apps" uri="lwip-contrib/apps/chargen" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP_apps" uri="lwip-contrib/apps/httpserver" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP_apps" uri="lwip-contrib/apps/httpserver_raw" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP_apps" uri="lwip-contrib/apps/netbios" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP_apps" uri="lwip-contrib/apps/netio" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP_apps" uri="lwip-contrib/apps/ping" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP_apps" uri="lwip-contrib/apps/rtp" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP_apps" uri="lwip-contrib/apps/shell" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP_apps" uri="lwip-contrib/apps/smtp" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP_apps" uri="lwip-contrib/apps/smtp_private_mib" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP_apps" uri="lwip-contrib/apps/sntp" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP_apps" uri="lwip-contrib/apps/socket_examples" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP_apps" uri="lwip-contrib/apps/tcpecho" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP_apps" uri="lwip-contrib/apps/tcpecho_raw" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="lwIP_apps" uri="lwip-contrib/apps/udpecho" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="Drivers" uri="lwip-contrib/ports/efm32" includeAllFiles="true" includeAllFolders="false" />
+</project>

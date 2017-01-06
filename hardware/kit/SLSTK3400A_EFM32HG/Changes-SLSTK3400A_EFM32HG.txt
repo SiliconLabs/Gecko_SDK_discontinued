@@ -1,0 +1,43 @@
+================ Revision history ============================================
+5.0.0:
+ - Added USB Mass Storage Device example.
+ - Added leuart example.
+ - Added SPI example.
+
+4.4.0
+ - New USB examples using new USBXpress library.
+ - New Capacitive Sense example using the new cap sense library (cslib).
+
+4.3.1:
+ - No changes.
+
+4.3.0:
+ - Added cpt007b and cpt112s capacitive touch examples.
+
+4.2.1:
+ - Made changes to segmentlcdconfig.h file
+
+4.2.0:
+ - No changes.
+
+4.1.1:
+ - No changes.
+
+4.1.0:
+ - No changes.
+
+4.0.0:
+ - Maintenance release.
+
+3.20.13:
+ - Updated Simplicity Studio project files.
+
+3.20.12:
+ - Added humitemp example.
+
+3.20.10:
+ - USB usbdhidkbd example has been energy optimized.
+ - All USB examples use new Low Energy Modes (LEM).
+
+3.20.9:
+ - Initial revision.

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project id="com.silabs.sdk.exx32.external.mbedtls" label="mbedTLS" contentRoot="$(sdkInstallationPath:default())/util/third_party/mbedtls">
+  <property key="category" value="efm32|Third party"/>
+  <includePath uri="configs" />
+  <includePath uri="include" />
+  <includePath uri="include/mbedtls" />
+  <includePath uri="sl_crypto/include" />
+  <folder name="mbedtls" uri="library" includeAllFiles="true" includeAllFolders="false" />
+  <folder name="sl_crypto" uri="sl_crypto/src" includeAllFiles="true" includeAllFolders="false" />
+</project>

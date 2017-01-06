@@ -1,0 +1,28 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<model:MDescriptors xmlns:model="http://www.silabs.com/ss/Studio.ecore">
+  <descriptors label="Empty C Project" description="" name="cExeProject">
+    <properties key="type" value="template"/>
+    <properties key="projectFilePaths" value="templates/empty_project/empty_project.slsproj"/>
+    <properties key="partCompatibility" value="mcu.arm.*"/>
+    <properties key="initiallyOpenedResource" value="src/main.c"/>
+  </descriptors>
+  <descriptors label="Empty C Project" description="" name="staticLibProject">
+    <properties key="type" value="template"/>
+    <properties key="projectFilePaths" value="templates/empty_project/empty_project.slsproj"/>
+    <properties key="partCompatibility" value="mcu.arm.*"/>
+    <properties key="initiallyOpenedResource" value="src/main.c"/>
+		<properties key="defaultName" value="staticLibrary"/>
+  </descriptors>
+  <descriptors label="Empty C++ Project" description="" name="cppExeProject">
+    <properties key="type" value="template"/>
+    <properties key="projectFilePaths" value="templates/empty_cxx_project/empty_cxx_project.slsproj"/>
+    <properties key="partCompatibility" value="mcu.arm.*"/>
+    <properties key="initiallyOpenedResource" value="src/main.cpp"/>
+  </descriptors>
+  <descriptors label="EFM32 Configurator Project" description="" name="hardwareConfiguratorProject">
+    <properties key="type" value="template"/>
+    <properties key="projectFilePaths" value="templates/configurator/myProject.slsproj"/>
+    <properties key="partCompatibility" value="mcu.arm.*"/>
+    <properties key="initiallyOpenedResource" value="src/main.c"/>
+  </descriptors>
+</model:MDescriptors>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project id="com.silabs.sdk.exx32.external.cslib" label="cslib" contentRoot="$(sdkInstallationPath:default())/platform/middleware/cslib">
+  <property key="category" value="efm32|Middleware"/>
+
+  <includePath uri="inc" />
+
+  <!-- IAR library files-->
+  <libraryFile uri="lib/libCSLIB_M0_IAR.a" partCompatibility="::ARMCore==CORTEX_M0+" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+  <libraryFile uri="lib/libCSLIB_M3_4_IAR.a" partCompatibility="-::ARMCore==CORTEX_M0+" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+
+  <!-- gcc library files -->
+  <libraryFile uri="lib/libCSLIB_M0_gcc.a" partCompatibility="::ARMCore==CORTEX_M0+" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+  <libraryFile uri="lib/libCSLIB_M3_4_gcc.a" partCompatibility="-::ARMCore==CORTEX_M0+" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+</project>

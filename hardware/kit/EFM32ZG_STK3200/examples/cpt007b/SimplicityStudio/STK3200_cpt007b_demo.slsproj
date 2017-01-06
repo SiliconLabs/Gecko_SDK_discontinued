@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="STK3200_cpt007b_demo" boardCompatibility="brd2010a" partCompatibility=".*efm32zg222f32.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_lcd.c" />
+    <include pattern="emlib/em_prs.c" />
+    <include pattern="emlib/em_rtc.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_usart.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <include pattern="Drivers/display.c" />
+    <include pattern="Drivers/displayls013b7dh03.c" />
+    <include pattern="Drivers/displaypalemlib.c" />
+    <include pattern="Drivers/udelay.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.glib">
+    <exclude pattern=".*" />
+  </module>
+  <macroDefinition name="DEBUG_EFM" languageCompatibility="c cpp" />
+  <includePath uri="." />
+  <includePath uri="Drivers" />
+  <includePath uri="img" />
+  <folder name="img">
+    <file name="out_disable.xbm" uri="img/out_disable.xbm" />
+    <file name="out_on.xbm" uri="img/out_on.xbm" />
+    <file name="out_off.xbm" uri="img/out_off.xbm" />
+  </folder>
+  <folder name="src">
+    <file name="cpt007b_demo.c" uri="cpt007b_demo.c" />
+    <file name="displayconfigapp.h" uri="displayconfigapp.h" />
+    <file name="gpio.c" uri="Drivers/gpio.c" />
+    <file name="gpio.h" uri="Drivers/gpio.h" />
+    <file name="lcd.c" uri="Drivers/lcd.c" />
+    <file name="lcd.h" uri="Drivers/lcd.h" />
+    <file name="render.c" uri="Drivers/render.c" />
+    <file name="render.h" uri="Drivers/render.h" />
+  </folder>
+</project>

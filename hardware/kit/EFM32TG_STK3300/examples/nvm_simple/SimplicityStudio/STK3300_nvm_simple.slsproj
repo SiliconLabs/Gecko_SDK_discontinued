@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="STK3300_nvm_simple" boardCompatibility="brd2100a" partCompatibility=".*efm32tg840f32.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_msc.c" />
+    <include pattern="emlib/em_lcd.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emdrv">
+    <include pattern="Drivers(/.*){0,1}/nvm.c" />
+    <include pattern="Drivers(/.*){0,1}/nvm_hal.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <include pattern="BSP/bsp_trace.c" />
+    <include pattern="BSP/bsp_stk_leds.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <include pattern="Drivers/segmentlcd.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <macroDefinition name="DEBUG_EFM" languageCompatibility="c cpp" />
+  <includePath uri="." />
+  <folder name="src">
+    <file name="main.c" uri="main.c" />
+    <file name="nvm_config.c" uri="nvm_config.c" />
+  </folder>
+</project>

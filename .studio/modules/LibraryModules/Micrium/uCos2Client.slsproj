@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project id="com.silabs.sdk.exx32.external.uCos2" label="Micrium uC/OS II" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" contentRoot="$(sdkInstallationPath:default())/util/third_party/micrium/uCOS-II">
+  <property key="category" value="efm32|Third party"/>
+  <includePath uri="uC-CPU" />
+  <includePath uri="uC-LIB" />
+  <includePath uri="uCOS-II/Source" />
+  <includePath uri="uC-CPU/ARM-Cortex-M3/IAR" partCompatibility="::ARMCore==CORTEX_M3" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+  <includePath uri="uCOS-II/Ports/ARM-Cortex-M3/Generic/IAR" partCompatibility="::ARMCore==CORTEX_M3" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+  <includePath uri="uC-CPU/ARM-Cortex-M4/IAR" partCompatibility="::ARMCore==CORTEX_M4F" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+  <includePath uri="uCOS-II/Ports/ARM-Cortex-M4/Generic/IAR" partCompatibility="::ARMCore==CORTEX_M4F" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+  <folder name="CMSIS">
+    <folder name="$(partFamilyName:toUpper)">
+      <file name="startup_iar_efm32g.s" uri="startup/EFM32G/iar/startup_efm32g.s" partCompatibility="mcu.arm.efm32.g" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+      <file name="startup_iar_efm32gg.s" uri="startup/EFM32GG/iar/startup_efm32gg.s" partCompatibility="mcu.arm.efm32.gg" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+      <file name="startup_iar_efm32lg.s" uri="startup/Efm32lg/iar/startup_efm32lg.s" partCompatibility="mcu.arm.efm32.lg" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+      <file name="startup_iar_efm32tg.s" uri="startup/EFM32TG/iar/startup_efm32tg.s" partCompatibility="mcu.arm.efm32.tg" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+      <file name="startup_iar_efm32wg.s" uri="startup/Efm32wg/iar/startup_efm32wg.s" partCompatibility="mcu.arm.efm32.wg" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+    </folder>
+  </folder>
+  <folder name="uC-CPU">
+    <folder name="$(partFamilyName:toUpper)">
+      <file name="cpu_core.c" uri="uC-CPU/cpu_core.c" partCompatibility="mcu.arm.efm32.wg mcu.arm.efm32.g mcu.arm.efm32.gg mcu.arm.efm32.lg mcu.arm.efm32.tg" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+      <file name="cpu_c.c" uri="uC-CPU/ARM-Cortex-M3/IAR/cpu_c.c" partCompatibility="::ARMCore==CORTEX_M3" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+      <file name="cpu_a.asm" uri="uC-CPU/ARM-Cortex-M3/IAR/cpu_a.asm" partCompatibility="::ARMCore==CORTEX_M3" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+      <file name="cpu_c.c" uri="uC-CPU/ARM-Cortex-M4/IAR/cpu_c.c" partCompatibility="::ARMCore==CORTEX_M4F" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+      <file name="cpu_a.asm" uri="uC-CPU/ARM-Cortex-M4/IAR/cpu_a.asm" partCompatibility="::ARMCore==CORTEX_M4F" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+    </folder>
+  </folder>
+  <folder name="uC-LIB">
+    <folder name="$(partFamilyName:toUpper)">
+      <file name="lib_mem_a.asm" uri="uC-LIB/Ports/ARM-Cortex-M3/IAR/lib_mem_a.asm" partCompatibility="::ARMCore==CORTEX_M3" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+      <file name="lib_mem_a.asm" uri="uC-LIB/Ports/ARM-Cortex-M4/IAR/lib_mem_a.asm" partCompatibility="::ARMCore==CORTEX_M4F" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+    </folder>
+  </folder>
+  <folder name="uC-OS-II">
+    <folder name="$(partFamilyName:toUpper)" uri="uCOS-II/Source" />
+    <folder name="$(partFamilyName:toUpper)">
+      <file name="os_dbg.c" uri="uCOS-II/Ports/ARM-Cortex-M3/Generic/IAR/os_dbg.c" partCompatibility="::ARMCore==CORTEX_M3" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+      <file name="os_cpu_c.c" uri="uCOS-II/Ports/ARM-Cortex-M3/Generic/IAR/os_cpu_c.c" partCompatibility="::ARMCore==CORTEX_M3" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+      <file name="os_cpu_a.asm" uri="uCOS-II/Ports/ARM-Cortex-M3/Generic/IAR/os_cpu_a.asm" partCompatibility="::ARMCore==CORTEX_M3" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+      <file name="os_dbg.c" uri="uCOS-II/Ports/ARM-Cortex-M4/Generic/IAR/os_dbg.c" partCompatibility="::ARMCore==CORTEX_M4F" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+      <file name="os_cpu_c.c" uri="uCOS-II/Ports/ARM-Cortex-M4/Generic/IAR/os_cpu_c.c" partCompatibility="::ARMCore==CORTEX_M4F" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+      <file name="os_cpu_a.asm" uri="uCOS-II/Ports/ARM-Cortex-M4/Generic/IAR/os_cpu_a.asm" partCompatibility="::ARMCore==CORTEX_M4F" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar.*" />
+    </folder>
+  </folder>
+</project>

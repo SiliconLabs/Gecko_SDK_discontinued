@@ -240,6 +240,27 @@ mbedtls_ecp_keypair;
 #define MBEDTLS_ECP_TLS_NAMED_CURVE    3   /**< ECCurveType's named_curve */
 
 /**
+ * \brief
+ *   Set the device instance of an ECP group context.
+ *
+ * \details
+ *   This function sets the CRYPTO device instance of an ECP group context.
+ *   Subsequent calls to the ECP functions with this group context will use the
+ *   new CRYPTO device instance.
+ *
+ * \param[in] grp
+ *   ECP group context.
+ *  
+ * \param[in] devno
+ *   CRYPTO hardware device instance to use.
+ *  
+ * \return
+ *   0 if success. Error code if failure, see \ref aes.h.
+ ******************************************************************************/
+int mbedtls_ecp_set_device_instance(mbedtls_ecp_group *grp,
+                                    unsigned int       devno);
+  
+/**
  * \brief           Get the list of supported curves in order of preferrence
  *                  (full information)
  *

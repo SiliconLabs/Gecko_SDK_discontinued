@@ -27,6 +27,8 @@
 #include MBEDTLS_CONFIG_FILE
 #endif
 
+#include "ccm.h"
+#include "cmac.h"
 #include "aesdrv_internal.h"
 #include "aesdrv_common_crypto.h"
 #include "aesdrv_authencr.h"
@@ -526,7 +528,7 @@ Ecode_t AESDRV_CCM_Generalized(AESDRV_Context_t* pAesdrvContext,
 #if defined(MBEDTLS_INCLUDE_ASYNCH_API)
   pAesdrvContext->cipherMode    = cipherModeCcm;
     
-  if (pAsynchContext)
+  if (pAsynchContext && (la || lm))
   {
     pAsynchContext->pAuthTag      = pAuthTag;
     pAsynchContext->encrypt       = encrypt;
@@ -561,6 +563,22 @@ Ecode_t AESDRV_CCM_Generalized(AESDRV_Context_t* pAesdrvContext,
 
     status = CRYPTODRV_Release(pCryptodrvContext);
 
+#if defined(MBEDTLS_INCLUDE_ASYNCH_API)
+    if (pAsynchContext)
+    {
+      if (asynchCallback)
+      {
+        if (MBEDTLS_ECODE_AESDRV_AUTHENTICATION_FAILED == retval)
+        {
+          retval = (Ecode_t)MBEDTLS_ERR_CCM_AUTH_FAILED;
+        }
+        asynchCallback(retval, pAsynchContext->asynchCallbackArgument);
+        /* In asynch mode return OK, since status is returned in callback. */
+        retval = ECODE_OK;
+      }
+    }
+#endif
+    
     return retval==ECODE_OK? status : retval;
   }
 }
@@ -589,7 +607,7 @@ Ecode_t AESDRV_CCMBLE(AESDRV_Context_t*   pAesdrvContext,
   Ecode_t              status, retval=ECODE_OK;
   CRYPTODRV_Context_t* pCryptodrvContext =
     &pAesdrvContext->cryptodrvContext;
-  CRYPTO_TypeDef*      crypto = pCryptodrvContext->crypto;
+  CRYPTO_TypeDef*      crypto = pCryptodrvContext->device->crypto;
 #if defined(MBEDTLS_INCLUDE_ASYNCH_API)
   AESDRV_CCM_AsynchContext_t* pAsynchContext =
     (AESDRV_CCM_AsynchContext_t*) pAesdrvContext->pAsynchContext;
@@ -735,6 +753,9 @@ Ecode_t AESDRV_CCMBLE(AESDRV_Context_t*   pAesdrvContext,
 #endif /* #if defined(MBEDTLS_INCLUDE_ASYNCH_API) */
       {
         uint32_t * _pAuthTag = (uint32_t *)pAuthTag;
+#if (CRYPTO_COUNT > 1)
+        CRYPTO_InstructionSequenceWait(crypto);
+#endif
         if (crypto->DATA0 != *_pAuthTag)
         {
           retval = MBEDTLS_ECODE_AESDRV_AUTHENTICATION_FAILED;
@@ -923,7 +944,7 @@ Ecode_t AESDRV_CMAC(AESDRV_Context_t* pAesdrvContext,
   Ecode_t              status, retval = ECODE_OK;
   CRYPTODRV_Context_t* pCryptodrvContext =
     &pAesdrvContext->cryptodrvContext;
-  CRYPTO_TypeDef*      crypto = pCryptodrvContext->crypto;
+  CRYPTO_TypeDef*      crypto = pCryptodrvContext->device->crypto;
 #if defined(MBEDTLS_INCLUDE_ASYNCH_API)
   AESDRV_CMAC_AsynchContext_t* pAsynchContext =
     (AESDRV_CMAC_AsynchContext_t*) pAesdrvContext->pAsynchContext;
@@ -1186,11 +1207,10 @@ static void aesdrv_XCM_AsynchCallback (void* asynchCallbackArgument)
 
   if (pAesdrvContext)
   {
-    CRYPTODRV_Context_t*        pCryptodrvContext =
-      &pAesdrvContext->cryptodrvContext;
-    CRYPTO_TypeDef*             crypto            = pCryptodrvContext->crypto;
-  AESDRV_CCM_AsynchContext_t* pAsynchContext =
-    (AESDRV_CCM_AsynchContext_t*) pAesdrvContext->pAsynchContext;
+    CRYPTODRV_Context_t* pCryptodrvContext = &pAesdrvContext->cryptodrvContext;
+    CRYPTO_TypeDef*      crypto            = pCryptodrvContext->device->crypto;
+    AESDRV_CCM_AsynchContext_t* pAsynchContext =
+      (AESDRV_CCM_AsynchContext_t*) pAesdrvContext->pAsynchContext;
 
     int la = pAsynchContext->la;
     if (la && pAsynchContext->authTagLength)
@@ -1283,7 +1303,10 @@ static void aesdrv_XCM_AsynchCallback (void* asynchCallbackArgument)
                                       pAsynchContext->encrypt);
         if (MBEDTLS_ECODE_AESDRV_AUTHENTICATION_FAILED == status)
         {
-          memset(pAsynchContext->pDataOutput, 0, pAsynchContext->dataLength);
+          uint8_t *pDataStart = pAsynchContext->pDataOutput -
+            (pAsynchContext->dataLength - (pAsynchContext->dataLength&0xf));
+          memset(pDataStart, 0, pAsynchContext->dataLength);
+          status = (Ecode_t)MBEDTLS_ERR_CCM_AUTH_FAILED;
         }
         
         CRYPTODRV_ExitCriticalRegion(pCryptodrvContext);
@@ -1319,7 +1342,7 @@ static void aesdrv_CMAC_AsynchCallback (void* asynchCallbackArgument)
       (AESDRV_CMAC_AsynchContext_t*) pAesdrvContext->pAsynchContext;
     uint32_t dataBlocks                    = pAsynchContext->dataBlocks;
     CRYPTODRV_Context_t* pCryptodrvContext = &pAesdrvContext->cryptodrvContext;
-    CRYPTO_TypeDef* crypto                 = pCryptodrvContext->crypto;
+    CRYPTO_TypeDef* crypto                 = pCryptodrvContext->device->crypto;
   
     /* Push next block */
     if (dataBlocks)
@@ -1363,6 +1386,10 @@ static void aesdrv_CMAC_AsynchCallback (void* asynchCallbackArgument)
       /* Finally call the user callback */
       if (pAsynchContext->asynchCallback)
       {
+        if (MBEDTLS_ECODE_AESDRV_AUTHENTICATION_FAILED == status)
+        {
+          status = (Ecode_t)MBEDTLS_ERR_CMAC_AUTH_FAILED;
+        }
         pAsynchContext->asynchCallback(status==ECODE_OK? (int)retval : (int)status,
                                       pAsynchContext->asynchCallbackArgument);
       }
@@ -1393,7 +1420,7 @@ static inline Ecode_t aesdrv_CMAC_Finalize(AESDRV_Context_t* pAesdrvContext,
                                            uint16_t          digestLengthBits)
 {
   int i;
-  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.crypto;
+  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.device->crypto;
   
   /* If needed, verify */
   if(encrypt)
@@ -1463,7 +1490,7 @@ static inline void aesdrv_CCM_Prepare(AESDRV_Context_t* pAesdrvContext,
                                       const uint8_t*        pKey)
 {
   const uint32_t * const _pKey = (const uint32_t *)pKey;
-  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.crypto;
+  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.device->crypto;
 
   /* Setup CRYPTO registers for CCM operation:
      - AES-128 mode (256 not supported)
@@ -1515,7 +1542,7 @@ static inline void aesdrv_CCM_NoncePrepare(AESDRV_Context_t* pAesdrvContext,
   register uint32_t v1;
   register uint32_t v2;
   register uint32_t v3;
-  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.crypto;
+  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.device->crypto;
 
   crypto->SEQCTRL  = 0;
   crypto->SEQCTRLB = 0;
@@ -1585,7 +1612,7 @@ static inline void aesdrv_CCM_SeqSet(AESDRV_Context_t* pAesdrvContext,
 {
   const uint8_t * instrSeq;
   AESDRV_IoMode_t ioMode = pAesdrvContext->ioMode;
-  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.crypto;
+  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.device->crypto;
 
   if (authTagLength)
   {
@@ -1639,7 +1666,7 @@ static inline Ecode_t aesdrv_CCM_Execute
  uint32_t                    lm
  )
 {
-  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.crypto;
+  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.device->crypto;
 #if defined(MBEDTLS_INCLUDE_ASYNCH_API)
   AESDRV_CCM_AsynchContext_t* pAsynchContext =
     (AESDRV_CCM_AsynchContext_t*) pAesdrvContext->pAsynchContext;
@@ -1648,8 +1675,10 @@ static inline Ecode_t aesdrv_CCM_Execute
   if (pAesdrvContext->ioMode == aesdrvIoModeCore)
   {
 #if defined(MBEDTLS_INCLUDE_ASYNCH_API)
-    if (pAsynchContext)
+    if (pAsynchContext && (la || lm))
     {
+      pAsynchContext->hdrLength     = la;
+      pAsynchContext->dataLength    = lm;
       pAsynchContext->pHdr          = (uint8_t*) pHdr;
       pAsynchContext->la            = la;
       pAsynchContext->pDataInput    = (uint8_t*) pDataInput;
@@ -1757,7 +1786,7 @@ static void aesdrv_CCM_HeaderProcess(AESDRV_Context_t* pAesdrvContext,
 {
   uint32_t tempBuf32[4];
   uint8_t* tempBuf = (uint8_t*)tempBuf32;
-  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.crypto;
+  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.device->crypto;
 #if defined(MBEDTLS_INCLUDE_ASYNCH_API)
   AESDRV_CCM_AsynchContext_t* pAsynchContext =
     (AESDRV_CCM_AsynchContext_t*) pAesdrvContext->pAsynchContext;
@@ -1831,7 +1860,7 @@ static void aesdrv_GCM_Prepare(AESDRV_Context_t* pAesdrvContext,
   uint32_t        j;
   uint32_t*       _ctr = (uint32_t *) pInitialVector;
   const uint32_t* _key = (const uint32_t *) pKey;
-  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.crypto;
+  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.device->crypto;
 
   /* Setup CRYPTO for GCM operation:
      - AES-128 mode (256 not supported)
@@ -1917,7 +1946,7 @@ static inline void aesdrv_GCM_SeqSet(AESDRV_Context_t* pAesdrvContext,
 {
   const uint8_t * instrSeq;
   AESDRV_IoMode_t ioMode = pAesdrvContext->ioMode;
-  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.crypto;
+  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.device->crypto;
 
   if (encrypt)
   {
@@ -1965,9 +1994,9 @@ static void aesdrv_GCM_Execute(AESDRV_Context_t* pAesdrvContext,
                                uint8_t*          pDataOutput,
                                uint16_t          dataLength,
                                const uint8_t*    pHdr,
-                               uint32_t          hdrLength)
+                               uint32_t          hdrLength)
 {
-  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.crypto;
+  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.device->crypto;
 #if defined(MBEDTLS_INCLUDE_ASYNCH_API)
   AESDRV_GCM_AsynchContext_t* pAsynchContext =
     (AESDRV_GCM_AsynchContext_t*) pAesdrvContext->pAsynchContext;
@@ -2091,7 +2120,7 @@ static void aesdrv_GCM_Finalize(AESDRV_Context_t* pAesdrvContext,
                                 unsigned int      plaintextLength)
 {
   uint32_t ddata[8];
-  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.crypto;
+  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.device->crypto;
 
   CRYPTO_DDataRead(&crypto->DDATA0, ddata);
   
@@ -2185,7 +2214,7 @@ static void aesdrvAuthTagRead(AESDRV_Context_t* pAesdrvContext,
                                uint8_t*          pAuthTag,
                                uint8_t           authTagLength)
 {
-  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.crypto;
+  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.device->crypto;
   
   if (pAesdrvContext->authTagOptimize)
   {
@@ -2262,7 +2291,7 @@ static Ecode_t aesdrvAuthTagCompare(AESDRV_Context_t* pAesdrvContext,
                                     uint8_t           authTagLength)
 {
   Ecode_t status = ECODE_OK;
-  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.crypto;
+  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.device->crypto;
 
   if (pAesdrvContext->authTagOptimize)
   {
@@ -2430,7 +2459,7 @@ static void aesdrvDataLoadAsynch(CRYPTO_TypeDef* crypto,
  ******************************************************************************/
 static void aesdrvDataStoreAsynch(AESDRV_Context_t* pAesdrvContext)
 {
-  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.crypto;
+  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.device->crypto;
   AESDRV_CCM_AsynchContext_t* pAsynchContext =
     (AESDRV_CCM_AsynchContext_t*) pAesdrvContext->pAsynchContext;
 

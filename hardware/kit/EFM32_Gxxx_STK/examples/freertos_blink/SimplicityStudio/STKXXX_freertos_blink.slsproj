@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="STKXXX_freertos_blink" boardCompatibility="brd2001a" partCompatibility=".*efm32g890f128.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_rmu.c" />
+    <include pattern="emlib/em_rtc.c" />
+    <include pattern="emlib/em_system.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emdrv">
+    <include pattern="Drivers(/.*){0,1}/sleep.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <include pattern="BSP/bsp_trace.c" />
+    <include pattern="BSP/bsp_stk_leds.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.FreeRTOS">
+    <include pattern="FreeRTOS/.*/timers.c" />
+    <include pattern="FreeRTOS/.*/tasks.c" />
+    <include pattern="FreeRTOS/.*/queue.c" />
+    <include pattern="FreeRTOS/.*/list.c" />
+    <include pattern="FreeRTOS/.*/croutine.c" />
+    <include pattern="FreeRTOS/.*/event_groups.c" />
+    <include pattern="FreeRTOS/.*/heap_1.c" />
+    <include pattern="FreeRTOS/.*/port_gcc.c" />
+    <include pattern="FreeRTOS/.*/port_iar.c" />
+    <include pattern="FreeRTOS/.*/portasm.s" />
+  </module>
+  <macroDefinition name="IAR_ARM_CM3" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar" />
+  <macroDefinition name="GCC_ARMCM3" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+  <macroDefinition name="DEBUG_EFM" languageCompatibility="c cpp" />
+  <includePath uri="." />
+  <folder name="src">
+    <file name="main.c" uri="main.c" />
+    <file name="low_power_tick_management.c" uri="low_power_tick_management.c" />
+  </folder>
+</project>

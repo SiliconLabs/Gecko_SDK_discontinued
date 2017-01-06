@@ -667,7 +667,7 @@ static Ecode_t aesdrvDecryptKey(AESDRV_Context_t*       pAesdrvContext,
   const uint32_t*     _in  = (const uint32_t *) in;
   Ecode_t              status, retval;
   CRYPTODRV_Context_t* pCryptodrvContext = &pAesdrvContext->cryptodrvContext;
-  CRYPTO_TypeDef*      crypto = pAesdrvContext->cryptodrvContext.crypto;
+  CRYPTO_TypeDef*      crypto = pAesdrvContext->cryptodrvContext.device->crypto;
   EFM_ASSERT(((uint32_t)_in&0x3)==0);
   EFM_ASSERT(((uint32_t)_out&0x3)==0);
 
@@ -710,8 +710,7 @@ static void aesdrvAsynchCallback (void* asynchCallbackArgument)
   {
     AESDRV_BlockCipherAsynchContext_t* pAsynchContext =
       (AESDRV_BlockCipherAsynchContext_t*) pAesdrvContext->pAsynchContext;
-    CRYPTO_TypeDef* crypto =
-      pAesdrvContext->cryptodrvContext.crypto;
+    CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.device->crypto;
 
     if (pAsynchContext->remainingBlocks)
     {
@@ -813,7 +812,7 @@ static Ecode_t aesdrvBlockCipher
   AESDRV_BlockCipherAsynchContext_t* pAsynchContext =
     (AESDRV_BlockCipherAsynchContext_t*) pAesdrvContext->pAsynchContext;
 #endif /* #if defined(MBEDTLS_INCLUDE_ASYNCH_API) */
-  CRYPTO_TypeDef*      crypto = pAesdrvContext->cryptodrvContext.crypto;
+  CRYPTO_TypeDef*      crypto = pAesdrvContext->cryptodrvContext.device->crypto;
   AESDRV_IoMode_t      ioMode = pAesdrvContext->ioMode;
 
   EFM_ASSERT(!(len % AES_BLOCKSIZE));
@@ -901,8 +900,7 @@ static void aesdrvBlockCipherPrepare
  )
 {
   const uint32_t* _instr = (const uint32_t *)instrCode;
-  CRYPTO_TypeDef* crypto =
-    pAesdrvContext->cryptodrvContext.crypto;
+  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.device->crypto;
 
   /* Setup CRYPTO for basic AES block cipher operation:
      - width of counter in CTR cipher mode to 4 bytes.
@@ -952,8 +950,7 @@ static void aesdrvBlockCipherHwSetup
  uint32_t*         inout
  )
 {
-  CRYPTO_TypeDef* crypto =
-    pAesdrvContext->cryptodrvContext.crypto;
+  CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.device->crypto;
   EFM_ASSERT(len<=_CRYPTO_SEQCTRL_LENGTHA_MASK);
   crypto->SEQCTRL = len;
   AESDRV_HwIoSetup(pAesdrvContext, (uint8_t*)inout, 0, len);
@@ -988,7 +985,7 @@ static inline Ecode_t aesdrvProcessLoopMCU
  )
 {
   CRYPTODRV_Context_t* pCryptodrvContext = &pAesdrvContext->cryptodrvContext;
-  CRYPTO_TypeDef*      crypto            = pCryptodrvContext->crypto;
+  CRYPTO_TypeDef*      crypto            = pCryptodrvContext->device->crypto;
 #if defined(MBEDTLS_INCLUDE_ASYNCH_API)
   AESDRV_BlockCipherAsynchContext_t* pAsynchContext =
     (AESDRV_BlockCipherAsynchContext_t*) pAesdrvContext->pAsynchContext;
@@ -1050,7 +1047,7 @@ static inline Ecode_t aesdrvProcessLoopHW
  )
 {
   CRYPTODRV_Context_t* pCryptodrvContext = &pAesdrvContext->cryptodrvContext;
-  CRYPTO_TypeDef*      crypto            = pCryptodrvContext->crypto;
+  CRYPTO_TypeDef*      crypto            = pCryptodrvContext->device->crypto;
 #if defined(MBEDTLS_INCLUDE_ASYNCH_API)
   AESDRV_BlockCipherAsynchContext_t* pAsynchContext =
     (AESDRV_BlockCipherAsynchContext_t*) pAesdrvContext->pAsynchContext;

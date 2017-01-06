@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Empty_Project" partCompatibility="" toolchainCompatibility="" sdkCompatibility="com.silabs.sdk.si32.efm32.sls:2.0.0" contentRoot=".">
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_system.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part" />
+  <module id="com.silabs.sdk.exx32.board" />
+  <folder name="src">
+    <file name="main.c" uri="main.c" />
+  </folder>
+</project>

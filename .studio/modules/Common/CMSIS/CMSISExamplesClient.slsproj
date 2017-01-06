@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project id="com.silabs.sdk.exx32.common.CMSISExamples" label="CMSIS Examples" contentRoot="$(sdkInstallationPath:default())/platform/CMSIS/DSP_Lib/Examples">
+  <property key="category" value="efm32|Common"/>
+  <includePath uri="Common/Include" />
+  <property key="category" value="src/arm_fir_data.c"/>
+  <folder name="src" uri="arm_fir_example" includeAllFolders="false" />
+  <folder name="src" uri="Common/Source" includeAllFolders="false" />
+</project>
+

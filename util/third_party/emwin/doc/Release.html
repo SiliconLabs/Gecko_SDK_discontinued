@@ -1,0 +1,2937 @@
+<html>
+<head>
+<title>Release notes</title>
+</head>
+
+<style>
+  H2, H3 { color: blue }
+  H1, H2, H3 { font-family: Arial, Helvetica, sans-serif;}
+  PRE {  color: black;  margin-left: 2%; }
+  BODY { color: black;  margin-left: 2%; font-family: Verdana, Arial, Helvetica, sans-serif}
+  table{ color: black;  font-family: Verdana; font-size=100%}
+  .maintext {
+	  font-size: 80%;
+	  color: #000000;
+	  margin-left: 20px;
+	  margin-right: 20px;
+  }
+  h1.newsbox {
+	  color: #FFFFFF;
+	  font-weight: bold;
+	  font-size: 120%;
+	  padding-left: 10px;
+	  background: #526194;
+	  border: thin solid #000000;
+	  margin-right: 5px;
+	  margin-left: 5px;
+  }
+  .heading2 {
+	  color: #336699;
+	  font-weight: bold;
+	  font-size: 100%;
+	  padding-left: 25px;
+  }
+</style>
+
+<body bgcolor="#FFFFFF">
+
+<h3>Release notes for emWin Version 5.34c</h3>
+<ol class="maintext">
+  <li><a href=#features>New features</a></li>
+  <li><a href=#pcorr>Program corrections</a></li>
+  <li><a href=#history>Release history</a></li>
+  <li><a href=#misc>Miscellaneous</a></li>
+</ol>
+
+<!-------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------->
+<!-- NEW FEATURES                                                         -->
+<!-------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------->
+<h1 class="newsbox"><a name="features">New features / improvements</a></h1>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.34a</h2>
+<ol class="maintext">
+
+  <li>Display drivers:
+    <ul type=square>
+      <li>GUIDRV_SPage:
+        <br>- Support for Sitronix ST75320 added.
+      </li>
+    </ul>
+  </li>
+
+  <li>Core:
+    <ul type=square>
+      <li>Support for drawing 32bpp bitmaps with ChromeART accelerator added.</li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.34</h2>
+<ol class="maintext">
+
+  <li>Core:
+    <ul type=square>
+      <li>Initialization:
+        <br>- New function GUI_IsInitialized() added to be able to check if emWin is already initialized.
+      </li>
+      <li><b>QR-Codes</b>:
+        <br>- New function GUI_QR_Create() added to be able to create a QR code bitmap.
+        <br>- New function GUI_QR_Delete() added to be able to delete a QR code bitmap.
+        <br>- New function GUI_QR_Draw() added to be able to draw a QR code bitmap.
+        <br>- New function GUI_QR_GetInfo() added to be able to get informations about the given QR code bitmap.
+      </li>
+      <li>Display driver cache management:
+        <br>- New function GUI_SetControlHook() added to be able to call a custom function immediately before a driver cache operation.
+      </li>
+      <li>Drawing BMP files:
+        <br>- New function GUI_BMP_EnableAlpha() added to be able to enable alpha channel for 32 bpp BMP files.
+      </li>
+      <li>Pointer input devices:
+        <br>- New function GUI_PID_SetInitFunc() added to be able to set a function used to put a PID into operation.
+      </li>
+    </ul>
+  </li>
+
+  <li>VNC-Server and emVNC:
+    <ul type=square>
+      <li><b>File transfer:</b>
+        <br>- File transfer capabilities added to the VNC server.
+      </li>
+    </ul>
+  </li>
+
+  <li>Widgets:
+    <ul type=square>
+      <li>LISTBOX widget (New):
+        <br>- New function LISTBOX_GetOwner() added to be able to get the 'owner' of a LISTBOX.
+      </li>
+    </ul>
+  </li>
+
+  <li>Display drivers:
+    <ul type=square>
+      <li>GUIDRV_SH_MEM:
+        <br>- New driver for supporting <b>Sharp Memory LCDs (b/w only) added</b>.
+      </li>
+    </ul>
+  </li>
+
+  <li>Simulation:
+    <ul type=square>
+      <li>New functions SIM_GUI_SaveBMP() and SIM_GUI_SaveBMPEx() added to be able to save a bitmap file with the content of the currently selected layer.</li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.32</h2>
+<ol class="maintext">
+
+  <li>emWinSPY:
+    <ul type=square>
+      <li>New option for connecting via <a href=https://www.segger.com/jlink-rtt.html>RTT</a> added.</li>
+    </ul>
+  </li>
+
+  <li>Core:
+    <ul type=square>
+      <li>Language support:
+        <br>- New function GUI_GetLang() added to be able to get the currently selected language index.
+      </li>
+    </ul>
+  </li>
+
+  <li>Simulation:
+    <ul type=square>
+      <li>New function SIM_GUI_SetCompositeTouch() and SIM_GUI_GetCompositeTouch() added to be able to specify/get the layer to be used when touching the composite view of the simulation.</li>
+    </ul>
+  </li>
+
+  <li>Widgets:
+    <ul type=square>
+      <li><b>SWIPELIST widget (New):</b>
+        <br>- New functions SWIPELIST_CreateAsChild(), SWIPELIST_CreateEx(), SWIPELIST_CreateIndirect() and SWIPELIST_CreateUser added to be able to create a SWIPELIST widget.
+        <br>- New functions added to be able to set the properties of the widget: SWIPELIST_AddItemText(), SWIPELIST_SetAttachedWindowPos(), SWIPELIST_SetBitmap(), SWIPELIST_SetBitmapSpace(), SWIPELIST_SetBkColor(), SWIPELIST_SetBorderSize(), SWIPELIST_SetFont(), SWIPELIST_SetItemSize(), SWIPELIST_SetItemUserData(), SWIPELIST_SetOwnerDraw(), SWIPELIST_SetScrollPos(), SWIPELIST_SetScrollPosItem(), SWIPELIST_SetSepColor(), SWIPELIST_SetSepSize(), SWIPELIST_SetText(), SWIPELIST_SetTextAlign(), SWIPELIST_SetTextColor(), SWIPELIST_SetUserData(), SWIPELIST_ItemAttachWindow(), SWIPELIST_ItemDetachWindow(), SWIPELIST_OwnerDraw()
+        <br>- New functions added to be able to get the properties of the widget: SWIPELIST_GetBitmap(), SWIPELIST_GetBitmapSpace(), SWIPELIST_GetBkColor(), SWIPELIST_GetBorderSize(), SWIPELIST_GetFont(), SWIPELIST_GetItemSize(), SWIPELIST_GetItemUserData(), SWIPELIST_GetNumItems(), SWIPELIST_GetNumText(), SWIPELIST_GetReleasedItem(), SWIPELIST_GetScrollPos(), SWIPELIST_GetSelItem(), SWIPELIST_GetSepColor(), SWIPELIST_GetSepSize(), SWIPELIST_GetText(), SWIPELIST_GetTextAlign(), SWIPELIST_GetTextColor(), SWIPELIST_GetUserData()
+        <br>- New functions added to be able to set the default properties to be used for new widgets: SWIPELIST_SetDefaultBitmapSpace(), SWIPELIST_SetDefaultBkColor(), SWIPELIST_SetDefaultBorderSize(), SWIPELIST_SetDefaultFont(), SWIPELIST_SetDefaultSepColor(), SWIPELIST_SetDefaultSepSize(), SWIPELIST_SetDefaultTextColor(), SWIPELIST_SetDefaultTextAlign()
+        <br>- New functions added to be able to get the default properties to be used for new widgets: SWIPELIST_GetDefaultBitmapSpace(), SWIPELIST_GetDefaultBkColor(), SWIPELIST_GetDefaultBorderSize(), SWIPELIST_GetDefaultFont(), SWIPELIST_GetDefaultSepColor(), SWIPELIST_GetDefaultSepSize(), SWIPELIST_GetDefaultTextColor(), SWIPELIST_GetDefaultTextAlign()
+      </li>
+      <li>EDIT widget:
+        <br>- New function EDIT_EnableInversion() added to be able to use a cursor with dedicated text- and background color instead of inversion.
+      </li>
+      <li>LISTVIEW widget:
+        <br>- New function LISTVIEW_SetSelCol() added to be able to set the selected column when using the column selection mode of the widget.
+      </li>
+      <li>SLIDER widget:
+        <br>- New function SLIDER_GetRange() added to be able to get the current range of the given SLIDER widget.
+      </li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.30</h2>
+<ol class="maintext">
+
+  <li>Core:
+    <ul type=square>
+      <li>Colors:
+        <br>- <b>emWin now supports ARGB as logical color to be able to use the full performance of Chrom-ART Accelerator (DMA2D)</b>.
+      </li>
+    </ul>
+    <ul type=square>
+      <li>Alpha blending / Antialiasing:
+        <br>- New function GUI_PreserveTrans() added to be able to preserve alpha information after drawing operation.
+      </li>
+    </ul>
+    <ul type=square>
+      <li>Bitmaps:
+        <br>- New bitmap format added (M8888I) to be able to support drawing of true color bitmaps without color conversion on layeres with the same color format.
+        <br>- New function GUI_SetAlphaMask8888() added to be able to set additional masks for drawing the pixels of a true color bitmap.
+      </li>
+    </ul>
+  </li>
+
+  <li><b>Animations (New):</b>
+    <ul type=square>
+      <li>New function GUI_ANIM_AddItem() added to be able to add animation items to an existing animation.</li>
+      <li>New function GUI_ANIM_Create() added to be able to create an animation object.</li>
+      <li>New function GUI_ANIM_Delete() added to be able to delete an animation object.</li>
+      <li>New function GUI_ANIM_Exec() added to be able to keep an animation alive.</li>
+      <li>New function GUI_ANIM_Start() added to be able to start the given animation.</li>
+    </ul>
+  </li>
+
+  <li>BitmapConverter:
+    <ul type=square>
+      <li>Bitmap converter now supports <b>saving PNG images</b>.</li>
+    </ul>
+  </li>
+
+  <li>FontConverter:
+    <ul type=square>
+      <li>New function 'File/Load BDF file' added to be able to <b>load</b> fonts in <b>Adobe Glyph Bitmap Distribution Format (BDF)</b>.</li>
+    </ul>
+  </li>
+
+  <li>MemoryDevices:
+    <ul type=square>
+      <li>New function GUI_MEMDEV_WriteOpaque() added to be able to write memory devices without considering the alpha values.</li>
+      <li>New function GUI_MEMDEV_WriteOpaqueAt() added to be able to write memory devices at the given position without considering the alpha values.</li>
+    </ul>
+  </li>
+
+  <li>Widgets:
+    <ul type=square>
+      <li>TEXT widget:
+        <br>- New function TEXT_GetBkColor() added returning the current background color of the given widget.
+        <br>- New function TEXT_GetFont() added returning the current used font of the given widget.
+        <br>- New function TEXT_GetTextAlign() added returning the current text alignment of the given widget.
+        <br>- New function TEXT_GetTextColor() added returning the text color of the given widget.
+        <br>- New function TEXT_GetWrapMode() added returning the current wrap mode of the given widget.
+        <br>- New function TEXT_GetDefaultTextColor() added returning the default text color used for new TEXT widgets.
+        <br>- New function TEXT_GetDefaultWrapMode() added returning the default wrap mode used for new TEXT widgets.
+      </li>
+      <li>LISTWHEEL widget:
+        <br>- New function LISTWHEEL_IsMoving() added to be able to detect if the LISTWHEEL is currently moving.
+      </li>
+      <li>PROGBAR widget:
+        <br>- New function PROGBAR_GetMinMax() added to be able to get the range of the given PROGBAR widget.
+        <br>- New function PROGBAR_GetValue() added to be able to query the current value.
+      </li>
+    </ul>
+  </li>
+
+  <li>Display drivers:
+    <ul type=square>
+      <li>GUIDRV_SLin:
+        <br>- Support for Solomon SSD1325 added.
+      </li>
+      <li>GUIDRV_FlexColor:
+        <br>- Support for Himax HX8369 added.
+        <br>- Support for Sitronix ST7715 added.
+      </li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.28</h2>
+<ol class="maintext">
+
+  <li>Tools:
+    <ul type=square>
+      <li><b>New tool emWinSPY</b>:
+        <br>- Live information of RAM usage.
+        <br>- Showing current state of window tree and widget information (position, size, widget type, flags, ...) at runtime.
+        <br>- Logging touch- and keyboard input at runtime.
+        <br>- Making screenshots at runtime.
+      </li>
+      <li><b>New tool emVNC</b>:
+        <br>- The tool is released and added to the tool library.</li>
+      </li>
+    </ul>
+  </li>
+
+  <li>Core:
+    <ul type=square>
+      <li>Softlayers <b>(NEW)</b>:
+        <br>- New function GUI_SOFTLAYER_Enable() added for switching on softlayers.
+        <br>- New function GUI_SOFTLAYER_Refresh() added to be able to achieve a refresh of the physical display.
+        <br>- New function GUI_SOFTLAYER_SetCompositeColor() added to be able to set up the color of the underlying background.
+        <br>- New function GUI_SOFTLAYER_MULTIBUF_Enable() added for enabling multiple buffering for physical screen updates.
+      </li>
+      <li>emWinSPY <b>(NEW)</b>:
+        <br>- New function GUI_SPY_Process() added to be called within the emWinSPY thread for managing the requests of the tool.
+        <br>- New function GUI_SPY_SetMemHandler() added to be able to set a custom defined memory manager for the emWinSPY thread.
+        <br>- New function GUI_SPY_StartServer() added for starting the server thread.
+        <br>- New sample GUI_SPY_X_StartServer() added to show how to start an emWinSPY server thread.
+      </li>
+      <li>Sprites:
+        <br>- Sprites now supports true color bitmaps which enables <b>semi transparent sprites</b>.
+      </li>
+      <li>Display driver cache management:
+        <br>- New function GUI_SetRefreshHook() added to be able to consider a tearing signal before writing cache content to the frame buffer of the LCD-controller.
+      </li>
+      <li>Hardware acceleration:
+        <br>- New functions for hardware acceleration added.
+      </li>
+    </ul>
+  </li>
+
+  <li>Widgets:
+    <ul type=square>
+      <li>Skinning (related to BUTTON, CHECKBOX, DROPDOWN, FRAMEWIN, HEADER, MENU, MULTIPAGE, PROGBAR, RADIO, SCROLLBAR, SLIDER, SPINBOX):
+        <br>- <b>Skinning now is enabled by default</b> by setting the default value of the configuration macro WIDGET_USE_FLEX_SKIN to 1 (formerly 0).
+        <br>- With (WIDGET_USE_FLEX_SKIN == 1) the <b>new default background color of dialogs</b> (WINDOW_BKCOLOR_DEFAULT) now is 0xFFFFFF instead of 0xC0C0C0
+        <br>- With (WIDGET_USE_FLEX_SKIN == 1) the <b>new default background color of FRAMEWIN clients</b> (FRAMEWIN_CLIENTCOLOR_DEFAULT) now is 0xFFFFFF instead of 0xC0C0C0
+        <br>- With (WIDGET_USE_FLEX_SKIN == 1) the <b>new default font of FRAMEWIN headers</b> (FRAMEWIN_DEFAULT_FONT) now is GUI_FONT_13_1 instead of GUI_FONT_8_1
+        <br>- With (WIDGET_USE_FLEX_SKIN == 1) the <b>new default text color of FRAMEWIN headers</b> (FRAMEWIN_TEXTCOLOR0_DEFAULT and FRAMEWIN_TEXTCOLOR1_DEFAULT) now is 0x000000 instead of 0xFFFFFF
+      </li>
+      <li>LISTBOX widget:
+        <br>- New function LISTBOX_EnableWrapMode() added to be able to enable wrapping which makes it possible to scroll from the end of the list immediately to the beginning.
+      </li>
+    </ul>
+  </li>
+
+  <li>Display drivers:
+    <ul type=square>
+      <li>GUIDRV_7528:
+        <br>- New driver for supporting Sitronix ST7528 using 16 levels of gray added.
+      </li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.26c</h2>
+<ol class="maintext">
+
+  <li>Display drivers:
+    <ul type=square>
+      <li>GUIDRV_SPage:
+        <br>- Support for Ultrachip UC1638 added.
+      </li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.26</h2>
+<ol class="maintext">
+  <li>Core:
+    <ul type=square>
+      <li>New DIRTYDEVICE object added to be able to monitor screen changes.</li>
+    </ul>
+  </li>
+
+  <li>BitmapConverter:
+    <ul type=square>
+      <li>Dithering added.</li>
+    </ul>
+  </li>
+
+  <li>MemoryDevices:
+    <ul type=square>
+      <li>New function GUI_MEMDEV_FadeOutDevices() added to be able to smoothly fade out the given foreground device from the given background device.</li>
+      <li>New function GUI_MEMDEV_RotateHQAlpha() added to be able to scale and rotate the given memory device in high quality and blending it in using the given alpha value.</li>
+      <li>New function GUI_MEMDEV_RotateAlpha() added to be able to scale and rotate the given memory device and blending it in using the given alpha value.</li>
+      <li>New function GUI_MEMDEV_Dither32() added to be able to dither 32bpp memory devices at runtime.</li>
+    </ul>
+  </li>
+
+  <li>WindowManager:
+    <ul type=square>
+      <li>New function WM_GetScrollbarH() added to be able to get the handle of an attached horizontal scroll bar.</li>
+      <li>New function WM_GetScrollbarV() added to be able to get the handle of an attached vertical scroll bar.</li>
+      <li>New function WM_SetModalLayer() added to be able to limit touch input to only one layer.</li>
+      <li>New function WM_GetModalLayer() added to be able to get the current modal layer.</li>
+    </ul>
+  </li>
+
+  <li>Widgets:
+    <ul type=square>
+      <li>LISTVIEW widget:
+        <br>- New function LISTVIEW_EnableCellSelect() added to be able to switch from row select mode (default) to cell select mode.
+        <br>- New function LISTVIEW_GetItemRect() added to be able to get the rectangle of the given cell.
+        <br>- New function LISTVIEW_SetItemTextSorted() added to be able to set the content of a cell by addressing the row by the sorted index.
+      </li>
+      <li>MULTIPAGE widget:
+        <br>- New function MULTIPAGE_EnableScrollBar() added to be able to enable/disable the automatic scrollbar.
+        <br>- New function MULTIPAGE_SetBitmapEx() added to be able to set a bitmap to be shown at the specified offset in the tab of the given page.
+        <br>- New function MULTIPAGE_SetBitmap() added to be able to set a bitmap to be shown in the tab of the given page.
+        <br>- New function MULTIPAGE_SetTabWidth() added to be able to set the tab with of the given page.
+        <br>- New function MULTIPAGE_SetTabHeight() added to be able to set the tab height of the widget.
+        <br>- New function MULTIPAGE_SetTextAlign() added to be able to set the text alignment used to show the tab text of the widget.
+      </li>
+    </ul>
+  </li>
+  
+  <li>Display drivers:
+    <ul type=square>
+      <li>GUIDRV_FlexColor:
+        <br>- Support for LG Electronics LGDP4525 added.
+        <br>- Support for Ilitek ILI9488 added.
+        <br>- Support for Himax HX8357 added.
+        <br>- Support for RAIO RA8875 added.
+      </li>
+      <li>GUIDRV_SPage:
+        <br>- Support for OriseTech SPLC502B added.
+      </li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.24</h2>
+<ol class="maintext">
+
+  <li><b>MultiTouch support (New):</B>
+    <ul type=square>
+      <li>New function GUI_MEMDEV_BlurWinBk() added to be able to blur the background of the given window within the given period.</li>
+      <li>New function GUI_MTOUCH_Enable() added to be able to enable and disable multi touch support.</li>
+      <li>New function GUI_MTOUCH_GetEvent() added to be able to retrieve a multi touch event.</li>
+      <li>New function GUI_MTOUCH_GetTouchInput() added to be able to retrieve touch point information of a multi touch event.</li>
+      <li>New function GUI_MTOUCH_IsEmpty() added to be able to check if the multi touch buffer is empty or not.</li>
+      <li>New function GUI_MTOUCH_SetOrientation() added to be able to configure the orientation of the MTouch screen.</li>
+      <li>New function GUI_MTOUCH_StoreEvent() added to be able to put an event into the MTouch buffer of emWin.</li>
+    </ul>
+  </li>
+
+  <li>Memory devices:
+    <ul type=square>
+      <li>New function GUI_MEMDEV_ClearAlpha() added to be able to clear the alpha values of a 32 bpp memory device specified by a mask device for defining the area to be used.</li>
+      <li>New function GUI_MEMDEV_CreateFixed32() added to be able to create a 32 bpp memory device.</li>
+      <li>New function GUI_MEMDEV_BlendColor32() added to be able to blend a 32 bpp memory device with the given color and the given intensity.</li>
+    </ul>
+  </li>
+
+  <li>Antialiasing:
+    <ul type=square>
+      <li>New function GUI_AA_PreservreTrans() added to be able to preserve the transparency information when drawing into a 32 bpp memory device.</li>
+    </ul>
+  </li>
+
+  <li>TTF-Font Support:
+    <ul type=square>
+      <li>New function GUI_TTF_CreateFontAA() added to be able to use <b>antialiased TTF-fonts.</b></li>
+    </ul>
+  </li>
+
+  <li>Window manager:
+    <ul type=square>
+      <li>New function WM_EnableGestures() added to be able to receive <b>WM_GESTURE messages</b>.</li>
+      <li>Support for circular motion added.</li>
+    </ul>
+  </li>
+
+  <li>Widgets:
+    <ul type=square>
+      <li><b>KNOB widget (New):</b>
+        <br>- New function KNOB_AddValue() added to be able to turn the knob via application.
+        <br>- New function KNOB_GetValue() added to be able to get the current turning position.
+        <br>- New function KNOB_SetBkColor() added to be able to change the transparent background to a dedicated color.
+        <br>- New function KNOB_SetBkDevice() added to be able to set a memory device for drawing the background.
+        <br>- New function KNOB_SetDevice() added to be able to specify the appearance of the knob.
+        <br>- New function KNOB_SetKeyValue() added to be able to specify the amount of steps as keyboard reaction.
+        <br>- New function KNOB_SetOffset() added to be able to specify an offset for the drawing operation.
+        <br>- New function KNOB_SetPeriod() added to be able to set up the period used to stop the knob.
+        <br>- New function KNOB_SetPos() added to be able to set the knob to a dedicated position.
+        <br>- New function KNOB_SetRange() added to be able to specify the range for movement.
+        <br>- New function KNOB_SetSnap() added to be able to set up snapping operations.
+        <br>- New function KNOB_SetTickSize() added to be able to set up the smallest unit of movement.
+      </li>
+      <li>LISTWHEEL widget:
+        <br>- New function LISTWHEEL_SetDeceleration() added to be able to set up the deceleration used to stop the motion.
+      </li>
+      <li>DROPDOWN widget:
+        <br>- New function DROPDOWN_SetListHeight() added to be able to set up the height of the expanded dropdown list.
+      </li>
+      <li>ICONVIEW widget:
+        <br>- New function ICONVIEW_CreateIndirect() added to be able to use the widget within dialog resource tables.
+      </li>
+      <li>ICONVIEW widget:
+        <br>- New function LISTVIEW_OwnerDraw() added to be able to be able to manage the default drawing operation of a cell.
+        <br>- New function LISTVIEW_SetOwnerDraw() added to be able to set up a custom function for drawing a cell.
+        <br>- New function LISTVIEW_GetWrapMode() added to be able to return the current text wrapping mode.
+      </li>
+      <li>MULTIPAGE widget:
+        <br>- New function MULTIPAGE_GetPageText() added to be able to retrieve the label of the given page.
+      </li>
+      <li>SPINBOX widget:
+        <br>- New function SPINBOX_SetEditMode() added to be able to set up the desired mode ('SPINBOX_EM_STEP' or 'SPINBOX_EM_EDIT').
+        <br>- New function SPINBOX_SetStep() added to be able to set the increment used for one step.
+      </li>
+    </ul>
+  </li>
+
+  <li>Display drivers:
+    <ul type=square>
+      <li>GUIDRV_FlexColor:
+        <br>- Support for Ilitek ILI9163 added.
+        <br>- Support for RAIO RA8870 added.
+      </li>
+      <li>GUIDRV_SLin:
+        <br>- Support for Solomon SSD1351 added.
+        <br>- Support for RAIO RA8835 added.
+      </li>
+      <li>GUIDRV_SPage:
+        <br>- Support for Samsung S6B0108 added.
+        <br>- Support for Hitachi HD61202 added.
+      </li>
+    </ul>
+  </li>
+
+  <li>Core:
+    <ul type=square>
+      <li>Support for new bitmap formats with <b>16bpp color information and 8 bit alpha channel</b> added.</li>
+      <li>Streamed bitmaps:
+        <br>- New function GUI_DrawStreamedBitmapA555Ex() added to be able to draw 16bpp bitmaps with 5 bits blue, 5 bits green and 5 bits red and 8 bit alpha channel from a non addressable area.
+        <br>- New function GUI_DrawStreamedBitmapAM555Ex() added to be able to draw 16bpp bitmaps with 5 bits red, 5 bits green and 5 bits blue and 8 bit alpha channel from a non addressable area.
+        <br>- New function GUI_DrawStreamedBitmapA565Ex() added to be able to draw 16bpp bitmaps with 5 bits blue, 6 bits green and 5 bits red and 8 bit alpha channel from a non addressable area.
+        <br>- New function GUI_DrawStreamedBitmapAM565Ex() added to be able to draw 16bpp bitmaps with 5 bits red, 6 bits green and 5 bits blue and 8 bit alpha channel from a non addressable area.
+        <br>- New functions GUI_CreateBitmapFromStreamA555(), GUI_CreateBitmapFromStreamAM555(), GUI_CreateBitmapFromStreamA565() and GUI_CreateBitmapFromStreamAM565() added to be able to create the appropriate bitmap structures.
+      </li>
+      <li>New function LCD_SetChromaEx() added to be able to set the chroma value used for transparency operations by the LCD-controller.</li>
+      <li>New function LCD_SetChromaModeEx() added to be able to specify the chroma mode to be used.</li>
+      <li>New function LCD_SetAlpha() added to be able to set the alpha value for the given layer.</li>
+      <li>New function LCD_SetAlphaModeEx() added to be able to specify the alpha mode.</li>
+      <li>New function LCD_SetVisEx() added to be able to set up the visibility of the given layer.</li>
+    </ul>
+  </li>
+
+  <li>Touch drivers:
+    <ul type=square>
+      <li>New <b>multi touch driver</b> for PIXCIR Tango C32 added.</li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.22g</h2>
+<ol class="maintext">
+
+  <li>Display drivers:
+    <ul type=square>
+      <li>GUIDRV_FlexColor:
+        <br>- Support for Solomon SSD1351 added.
+      </li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.22</h2>
+<ol class="maintext">
+
+  <li>Core:
+    <ul type=square>
+      <li><b>Movie support (NEW)</b>:
+        <br>- New function GUI_MOVIE_Create() added to be able to create a movie handle for a file located within the addressable CPU memory area.
+        <br>- New function GUI_MOVIE_CreateEx() added to be able to create a movie handle for a file not located within the addressable CPU memory area.
+        <br>- New function GUI_MOVIE_Delete() added to be able to delete a movie handle.
+        <br>- New function GUI_MOVIE_GetFrameIndex() added to be able to get the index of the current frame.
+        <br>- New function GUI_MOVIE_GetInfo() added to be able to fill an information structure for a file located within the addressable CPU memory area.
+        <br>- New function GUI_MOVIE_GetInfoEx() added to be able to fill an information structure for a file not located within the addressable CPU memory area.
+        <br>- New function GUI_MOVIE_GetPos() added to be able to get the position used to show the movie.
+        <br>- New function GUI_MOVIE_GotoFrame() added to be able to set the index of the frame to be shown at next.
+        <br>- New function GUI_MOVIE_Pause() added to be able to stop the movie.
+        <br>- New function GUI_MOVIE_Play() added to be able to continue playing the movie.
+        <br>- New function GUI_MOVIE_SetPeriod() added to be able to set the period used for each frame.
+        <br>- New function GUI_MOVIE_SetPos() added to be able to set the position used to show the movie.
+        <br>- New function GUI_MOVIE_Show() added to be able to start playing the given movie at the given position.
+      </li>
+      <li><b>Timer support (NEW)</b>:
+        <br>- New function GUI_TIMER_Create() added to be able to create a timer.
+        <br>- New function GUI_TIMER_Delete() added to be able to delete a timer.
+        <br>- New function GUI_TIMER_Restart() added to be able to restart a timer.
+        <br>- New function GUI_TIMER_SetPeriod() added to be able to set the period to be used by the timer.
+      </li>
+      <li>Sprites:
+        <br>- New function GUI_SPRITE_SetLoop() added to be able to set or clear the loop flag of the given sprite.
+        <br>- New function GUI_SPRITE_StartAnim() added to be able to start a sprite animation.
+        <br>- New function GUI_SPRITE_StopAnim() added to be able to stop a sprite animation.
+      </li>
+      <li>Color conversion:
+        <br>- New color conversion GUICC_8 for using 256 levels of gray added.
+      </li>
+    </ul>
+  </li>
+
+  <li>Widgets:
+    <ul type=square>
+      <li>Multipage widget:
+        <br>- MULTIPAGE_SKIN_FLEX added to be able to support skinning for this widget (NEW).
+        <br>- New function MULTIPAGE_GetSkinFlexProps() added to be able to get the current flex skin properties.
+        <br>- New function MULTIPAGE_SetDefaultSkin() added to be able to set the default skin to be used for new widgets.
+        <br>- New function MULTIPAGE_SetDefaultSkinClassic() added to be able to use the classic skin for new widgets.
+        <br>- New function MULTIPAGE_SetSkinClassic() added to be able to set the classic look for the given widget.
+        <br>- New function MULTIPAGE_SetSkin() added to be able to set a custom skinning function to be used for the given widget.
+        <br>- New function MULTIPAGE_SetSkinFlexProps() added to be able to set the flex skin properties.
+        <br>- New function MULTIPAGE_GetPageText() added to be able to get the label text of the given page.
+      </li>
+      <li>Menu widget:
+        <br>- MENU_SKIN_FLEX added to be able to support skinning for this widget (NEW).
+        <br>- New function MENU_GetSkinFlexProps() added to be able to get the current flex skin properties.
+        <br>- New function MENU_SetDefaultSkin() added to be able to set the default skin to be used for new widgets.
+        <br>- New function MENU_SetDefaultSkinClassic() added to be able to use the classic skin for new widgets.
+        <br>- New function MENU_SetSkinClassic() added to be able to set the classic look for the given widget.
+        <br>- New function MENU_SetSkin() added to be able to set a custom skinning function to be used for the given widget.
+        <br>- New function MENU_SetSkinFlexProps() added to be able to set the flex skin properties.
+      </li>
+      <li>Graph widget:
+        <br>- New function GRAPH_SetAutoScrollbar() added to be able to enable automatic use of scrollbars.
+        <br>- New function GRAPH_GetScrollValue() added to be able to get the current scroll position.
+        <br>- New function GRAPH_SetScrollValue() added to be able to set the scroll position.
+      </li>
+      <li>Checkbox widget:
+        <br>- New function CHECKBOX_SetSkinFlexButtonSize() added to be able to set the size of the button used for the given widget.
+      </li>
+      <li>Multiedit widget:
+        <br>- New function MULTIEDIT_SetFocussable() added to be able to set the focusability of the given widget.
+      </li>
+      <li>Iconview widget:
+        <br>- New function ICONVIEW_SetIconAlign() added to be able to set the icon alignment to be used.
+      </li>
+      <li>Treeview widget:
+        <br>- New function TREEVIEW_ScrollToSel() added to be able to scroll to the currently selected item.
+      </li>
+      <li>Listwheel widget:
+        <br>- New function LISTWHEEL_GetItemFromPos() added to be able to return the item of the given position.
+      </li>
+      <li>Image widget:
+        <br>- Widget now sends notification messages WM_NOTIFICATION_CLICKED, WM_NOTIFICATION_RELEASED and WM_NOTIFICATION_MOVED_OUT.
+      </li>
+      <li>Text widget:
+        <br>- Widget now sends notification messages WM_NOTIFICATION_CLICKED, WM_NOTIFICATION_RELEASED and WM_NOTIFICATION_MOVED_OUT.
+      </li>
+    </ul>
+  </li>
+
+  <li>Memory devices:
+    <ul type=square>
+      <li>New function GUI_MEMDEV_BlurWinBk() added to be able to blur the background of the given window within the given period.</li>
+      <li>New function GUI_MEMDEV_BlurAndBlendWinBk() added to be able to blur and blend the background of the given window with the given color within the given period</li>
+      <li>New function GUI_MEMDEV_BlendWinBk() added to be able to blend the background of the given window with the given color within the given period</li>
+      <li>New function GUI_MEMDEV_CreateBlurredDevice32HQ() added to be able to create a blurred device using the high quality algorithm.</li>
+      <li>New function GUI_MEMDEV_CreateBlurredDevice32LQ() added to be able to create a blurred device using the low quality algorithm.</li>
+      <li>New function GUI_MEMDEV_CreateBlurredDevice32() added to be able to create a blurred device.</li>
+      <li>New function GUI_MEMDEV_PunchOutDevice() added to be able to punch out an area of a given 32 bpp memory device defined by an 8 bit mask device.</li>
+      <li>New function GUI_MEMDEV_RotateHR() added to be able to scale and rotate the given memory device in low quality and position it with subpixel coordinates.</li>
+      <li>New function GUI_MEMDEV_RotateHQHR() added to be able to scale and rotate the given memory device in high quality and position it with subpixel coordinates.</li>
+      <li>New function GUI_MEMDEV_SetBlurHQ() added to be able to set the desired blurring algorithm for GUI_MEMDEV_CreateBlurredDevice32() and the window effect functions to high quality.</li>
+      <li>New function GUI_MEMDEV_SetBlurLQ() added to be able to set the desired blurring algorithm for GUI_MEMDEV_CreateBlurredDevice32() and the window effect functions to low quality.</li>
+    </ul>
+  </li>
+
+  <li>Antialiasing:
+    <ul type=square>
+      <li>New function GUI_AA_FillRoundedRect() added to be able to draw a filled rectangle with antialiased rounded corners by using the given coordinates.</li>
+      <li>New function GUI_AA_FillRoundedRectEx() added to be able to draw a filled rectangle with antialiased rounded corners by using the given rectangle.</li>
+      <li>New function GUI_AA_DrawRoundedRect() added to be able to draw a rectangle with antialiased rounded corners by using the given coordinates.</li>
+      <li>New function GUI_AA_DrawRoundedRectEx() added to be able to draw a rectangle with antialiased rounded corners by using the given rectangle.</li>
+    </ul>
+  </li>
+
+  <li>Display drivers:
+    <ul type=square>
+      <li>New driver GUIDRV_UC1698G added.</li>
+      <li>GUIDRV_FlexColor:
+        <br>- Support for custom defined reading functions added.
+      </li>
+      <li>GUIDRV_SPage:
+        <br>- Support for Solomon SSD1306 added.
+      </li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.20</h2>
+<ol class="maintext">
+
+  <li>Core:
+    <ul type=square>
+      <li>New color conversions added: GUICC_M8888I, GUICC_M1555I, GUICC_M4444I, GUICC_1616I, GUICC_88666I.</li>
+      <li>New function GUI_SPRITE_CreateHidden() and GUI_SPRITE_CreateHiddenEx() added to be able to create sprites in hidden state.</li>
+      <li>New function GUI_SetOnErrorFunc() added to be able to set up a hook function to be called on serious errors.</li>
+    </ul>
+  </li>
+
+  <li>Display drivers:
+    <ul type=square>
+      <li>GUIDRV_SLin:
+        <br>- Support for S1D13305 added.
+      </li>
+      <li>GUIDRV_FlexColor:
+        <br>- Support for Himax HX8340 and HX8301 added.
+        <br>- Support for Hitachi HD66772 added.
+        <br>- Support for Ilitek ILI9220 and ILI9221 added.
+        <br>- Support for Samsung S6D0117 added.
+        <br>- Support for Sitronix ST7712 added.
+      </li>
+    </ul>
+  </li>
+
+  <li>Common dialogs:
+    <ul type=square>
+      <li>New common dialog CALENDAR added to be able to generate a dialog for selecting a calendar date.</li>
+      <li>New function CALENDAR_Create() added to be able to create a CALENDAR dialog.</li>
+      <li>New function CALENDAR_GetDate() added to be able to get the current date.</li>
+      <li>New function CALENDAR_GetSel() added to be able to get the current selection.</li>
+      <li>New function CALENDAR_SetDate() added to be able to set the current date.</li>
+      <li>New function CALENDAR_SetSel() added to be able to set the current selection.</li>
+      <li>New function CALENDAR_SetDefaultBkColor() added to be able to set the default background colors to be used.</li>
+      <li>New function CALENDAR_SetDefaultColor() added to be able to set the default foreground colors to be used.</li>
+      <li>New function CALENDAR_SetDefaultDays() added to be able to set up the weekday abbreviations to be shown.</li>
+      <li>New function CALENDAR_SetDefaultFont() added to be able to set the default fonts to be used.</li>
+      <li>New function CALENDAR_SetDefaultMonths() added to be able to set the monts names to be used.</li>
+      <li>New function CALENDAR_SetDefaultSize() added to be able to set up the default sizes to be used.</li>
+    </ul>
+  </li>
+
+  <li>VNC-Server:
+    <ul type=square>
+      <li>New function GUI_VNC_SetLockFrame() added to be able to manage locking within VNC server on systems with indirect display controller interface.</li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.18</h2>
+<ol class="maintext">
+
+  <li>Core:
+    <ul type=square>
+      <li><b>Internal global data structure 'GUI_Context' does no longer exist. Use of this structure has been replaced by using the new global pointer 'GUI_pContext'.<br>
+      </b></li>
+    </ul>
+  </li>
+
+  <li>BitmapConverter:
+    <ul type=square>
+      <li>Support for creating animated sprites and cursors automatically from GIF-files added under 'File/Create animated cursor/sprite from GIF'.</li>
+    </ul>
+  </li>
+
+  <li>Antialiasing:
+    <ul type=square>
+      <li>New function GUI_AA_SetDrawMode() added to be able to use the current background color instead of the content of the frame buffer.</li>
+    </ul>
+  </li>
+
+  <li>Window manager:
+    <ul type=square>
+      <li>New function WM_SetCaptureMove() added to be able to make a window moveable.</li>
+      <li>New functions WM_Screen2hWin() and WM_Screen2hWinEx() added to be able to get the first window handle below the given position.</li>
+    </ul>
+  </li>
+
+  <li>Widgets:
+    <ul type=square>
+      <li>SPINBOX widget:
+        <br>- New function SPINBOX_SetRange() added to be able to set the desired range.
+      </li>
+      <li>LISTVIEW widget:
+        <br>- New function LISTVIEW_SetWrapMode() added to be able to set the desired wrap mode.
+      </li>
+      <li>SPINBOX widget:
+        <br>- New function SPINBOX_SetButtonSize() added to be able to set the horizontal size of the buttons.
+      </li>
+      <li>BUTTON widget:
+        <br>- New function BUTTON_SetReactOnTouch() added to be able to set the reaction mode.
+      </li>
+      <li>TEXT widget:
+        <br>- New function TEXT_GetText() added to be able to get the text of the given widget.
+      </li>
+    </ul>
+  </li>
+
+  <li>Memory devices:
+    <ul type=square>
+      <li>New function GUI_MEMDEV_SerializeBMP() added to be able to save the content of a memory device as a BMP file.</li>
+    </ul>
+  </li>
+
+  <li>Display drivers:
+    <ul type=square>
+      <li>Custom drivers:
+        <br>- <b>Need to be reworked because of replacing 'GUI_Context' with 'GUI_pContext'.</b>
+      </li>
+      <li>GUIDRV_FlexColor:
+        <br>- <b>GUIDRV_FlexColor_SetInterface66709_B16() replaced by GUIDRV_FlexColor_SetReadFunc66709_B16()</b>
+        <br>- <b>GUIDRV_FlexColor_SetInterface66712_B16() replaced by GUIDRV_FlexColor_SetReadFunc66712_B16()</b>
+        <br>- <b>GUIDRV_FlexColor_SetInterface66720_B16() replaced by GUIDRV_FlexColor_SetReadFunc66720_B16()</b>
+        <br>- Support for Solomon SSD1284, SSD1289, SSD1298 added.
+        <br>- Support for Himax HX8352B added.
+      </li>
+      <li>GUIDRV_S1D13781:
+        <br>- Reworked in order to support rotation.
+      </li>
+      <li>GUIDRV_Lin:
+        <br>- 1bpp variant of driver now supports display sizes which are a multiples of 8.
+      </li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.16</h2>
+<ol class="maintext">
+
+  <li>New ToolTip support:
+    <ul type=square>
+      <li>New function WM_TOOLTIP_AddTool() added to be able to add a tool to a ToolTip object.</li>
+      <li>New function WM_TOOLTIP_Create() added to be able to create a ToolTip object.</li>
+      <li>New function WM_TOOLTIP_Delete() added to be able to delete a ToolTip object.</li>
+      <li>New function WM_TOOLTIP_SetDefaultFont() added to be able to set the default font to be used to draw the ToolTip text.</li>
+      <li>New function WM_TOOLTIP_SetDefaultColor() added to be able to set the default colors to be used to draw the ToolTips.</li>
+      <li>New function WM_TOOLTIP_SetDefaultPeriod() added to be able to set up the periods to be used with the ToolTips.</li>
+    </ul>
+  </li>
+
+  <li>New language support:
+    <ul type=square>
+      <li>New function GUI_LANG_GetNumItems() added to be able to get the available number of languages.</li>
+      <li>New function GUI_LANG_GetText() added to be able to get a pointer to a text specified by the text index.</li>
+      <li>New function GUI_LANG_GetTextEx() added to be able to get a pointer to a text specified by text index and language index.</li>
+      <li>New function GUI_LANG_LoadCSV() added to be able to read a CSV file with different languages.</li>
+      <li>New function GUI_LANG_LoadCSVEx() added to be able to read a CSV file with different languages without having the complete file in RAM.</li>
+      <li>New function GUI_LANG_LoadText() added to be able to read a text resource file with only one language.</li>
+      <li>New function GUI_LANG_LoadTextEx() added to be able to read a text resource file with only one language without having the complete file in RAM.</li>
+      <li>New function GUI_LANG_SetLang() added to be able to set the current language to be used.</li>
+      <li>New function GUI_LANG_SetMaxNumLang() added to be able to set the maximum available number of languages.</li>
+      <li>New function GUI_LANG_SetSep() added to be able to set the separator to be used within CSV files.</li>
+    </ul>
+  </li>
+  
+  <li>New CHOOSECOLOR dialog:
+    <ul type=square>
+      <li>New function CHOOSECOLOR_Create() added to be able to create a dialog for choosing a color.</li>
+      <li>New function CHOOSECOLOR_GetSel() added to be able to get the current selection.</li>
+      <li>New function CHOOSECOLOR_SetSel() added to be able to set the current selection.</li>
+      <li>New function CHOOSECOLOR_SetDefaultColor() added to be able to set the default colors to be used.</li>
+      <li>New function CHOOSECOLOR_SetDefaultSpace() added to be able to set the space between the colors.</li>
+      <li>New function CHOOSECOLOR_SetDefaultBorder() added to be able to set the space between dialog border and color rectangles.</li>
+      <li>New function CHOOSECOLOR_SetDefaultButtonSize() added to be able to set the button size to be used.</li>
+    </ul>
+  </li>
+
+  <li>New CHOOSEFILE dialog:
+    <ul type=square>
+      <li>New function CHOOSEFILE_Create() added to be able to create a dialog for brousing through a directory structure and to select a file.</li>
+      <li>New function CHOOSEFILE_EnableToolTips() added to be able to enable ToolTips within the CHOOSEFILE dialog.</li>
+      <li>New function CHOOSEFILE_SetButtonText() added to be able to set the button text to be used.</li>
+      <li>New function CHOOSEFILE_SetDefaultButtonText() added to be able to set the default button text to be used for new dialogs.</li>
+      <li>New function CHOOSEFILE_SetToolTips() added to be able to set the text shown within the ToolTips.</li>
+      <li>New function CHOOSEFILE_SetTopMode() added to be able to use the button bar at the top of the dialog.</li>
+    </ul>
+  </li>
+
+  <li>Widgets:
+    <ul type=square>
+      <li>ICONVIEW widget:
+        <br>- New function ICONVIEW_EnableStreamAuto() added to be able to use all kinds of streamed bitmaps with the widget.
+      </li>
+      <li>DROPDOWN widget:
+        <br>- New function DROPDOWN_SetUpMode() added to be able to open the widget upwards.
+      </li>
+      <li>SPINBOX widget:
+        <br>- New function SPINBOX_SetButtonSize() added to be able to set the horizontal size of the buttons.
+      </li>
+      <li>BUTTON widget:
+        <br>- New function BUTTON_SetReactOnTouch() added to be able to set the reaction mode.
+      </li>
+    </ul>
+  </li>
+
+  <li>New touch driver added:
+    <ul type=square>
+      <li>New touch driver GUITDRV_ADS7846 added.</li>
+    </ul>
+  </li>
+
+  <li>Memory devices:
+    <ul type=square>
+      <li>New function GUI_MEMDEV_RotateHQT() added to be able to improve the performance with images containing a large amount of completely transparent pixels.</li>
+    </ul>
+  </li>
+
+  <li>Core:
+    <ul type=square>
+      <li>New function GUI_GetKeyState() available to be able to get the current key state (pressed or unpressed).</li>
+      <li>New function GUI_PID_IsPressed() available to be able to check if the PID is currently in pressed state.</li>
+      <li>New function LCD_SetMaxNumColors() available to be able to reduce memory consumption on systems using less than 256 colors.</li>
+      <li>New color conversions GUICC_1_2, GUICC_1_4, GUICC_1_5, GUICC_1_8, GUICC_1_16, GUICC_1_24 added to be able to use the b/w version with drivers written for higher color depths.</li>
+    </ul>
+  </li>
+
+  <li>Display drivers:
+    <ul type=square>
+      <li>GUIDRV_FlexColor:
+        <br>- Support for Ilitek ILI9335, ILI9338, ILI9340, ILI9341, ILI9342 added.
+        <br>- Support for Samsung S6E63D6 added.
+      </li>
+      <li>GUIDRV_SPage:
+        <br>- Support for Sitronix ST7591 added.
+        <br>- Support for Epson S1D15605, S1D15606, S1D15607, S1D15608, S1D15705, S1D15710, S1D15714 added.
+        <br>- Support for Integrated Solutions Technology IST3020 added.
+        <br>- Support for New Japan Radio Company NJU6676 added.
+        <br>- Support for Novatek NT7502, NT7534, NT7538, NT75451 added.
+        <br>- Support for Samsung S6B0719, S6B0713, S6B0724, S6B1713 added.
+        <br>- Support for Sino Wealth SH1101A added.
+        <br>- Support for Sitronix ST7522, ST7565, ST7567 added.
+        <br>- Support for Solomon SSD1805, SSD1303, SSD1815 added.
+        <br>- Support for UltraChip UC1608, UC1701, UC1601, UC1606 added.
+        <br>- Support for Sunplus SPLC501C added.
+        <br>- Support for Epson S1D15E05, S1D15E06, S1D15719, S1D15721 added.
+      </li>
+      <li>GUIDRV_Lin:
+        <br>- New optimised routines for 8bpp available.
+      </li>
+      <li>New driver GUIDRV_S1D13781 available.</li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.14</h2>
+<ol class="maintext">
+
+  <li>Widgets:
+    <ul type=square>
+      <li>SPINBOX widget:
+        <br>- New SPINBOX widget added to be able to spin values up and down.
+      </li>
+      <li>IMAGE widget:
+        <br>- New IMAGE widget added to be able to add images or animations to a window.
+      </li>
+      <li>DROPDOWN widget:
+        <br>- New function DROPDOWN_GetItemText() added to be able to get the text of an item.
+      </li>
+      <li>EDIT widget:
+        <br>- New function EDIT_SetBkColor() added to be able to get the background color of the widget.
+      </li>
+    </ul>
+  </li>
+
+  <li>Display drivers:
+    <ul type=square>
+      <li>GUIDRV_FlexColor:
+        <br>- Support for Solomon SSD1961 added.
+        <br>- Support for Renesas R61526 added.
+        <br>- Support for FocalTech FT1509 added.
+        <br>- Support for Ilitek ILI9342 added.
+        <br>- Support for Himax HX8347 and HX8352 added.
+      </li>
+      <li>GUIDRV_07X1:
+        <br>- Support for Novatek NT7508 added.
+      </li>
+      <li>GUIDRV_Page1bpp:
+        <br>- Support for Solomon SSD1821 added.
+      </li>
+    </ul>
+  </li>
+
+  <li>Core:
+    <ul type=square>
+      <li>Streamed bitmaps:
+        <br>- New function GUI_DrawStreamedBitmap555Ex() added to be able to draw 16bpp bitmaps with 5 bits blue, 5 bits green and 5 bits red from a non addressable area.
+        <br>- New function GUI_DrawStreamedBitmapM555Ex() added to be able to draw 16bpp bitmaps with 5 bits red, 5 bits green and 5 bits blue from a non addressable area.
+        <br>- New function GUI_DrawStreamedBitmap565Ex() added to be able to draw 16bpp bitmaps with 5 bits blue, 6 bits green and 5 bits red from a non addressable area.
+        <br>- New function GUI_DrawStreamedBitmapM565Ex() added to be able to draw 16bpp bitmaps with 5 bits red, 6 bits green and 5 bits blue from a non addressable area.
+        <br>- New function GUI_DrawStreamedBitmap24Ex() added to be able to draw 16bpp bitmaps with 8 bits blue, 8 bits green and 8 bits red from a non addressable area.
+        <br>- New function GUI_DrawStreamedBitmapExAuto() added to be able to draw any kind of currently supported streamed bitmap from a non addressable area.
+        <br>- New function GUI_DrawStreamedBitmapAuto() added to be able to draw any kind of currently supported streamed bitmap.
+      </li>
+    </ul>
+    <ul type=square>
+      <li>New function GUI_CURSOR_SelectAnim() added to be able to set an animated cursor.</li>
+      <li>New function GUI_SPRITE_CreateAnim() added to be able to create animated sprites.</li>
+    </ul>
+    <ul type=square>
+    </ul>
+  </li>
+
+  <li>GUIBuilder:
+    <ul type=square>
+      <li>Support for IMAGE widget added.</li>
+    </ul>
+  </li>
+
+  <li>Window manager:
+    <ul type=square>
+      <li>Motion support added (gesture support):
+        <br>- New function WM_MOTION_Enable() added to be able to enable the motion support of the window managed.
+        <br>- New function WM_MOTION_SetDeceleration() added to be able to set the deceleration of a currently moving window.
+        <br>- New function WM_MOTION_SetDefaultPeriod() added to be able to set the default period of the deceleration period after releasing the PID.
+        <br>- New function WM_MOTION_SetMotion() added to be able to start a window moving operation by defining axis, speed and deceleration.
+        <br>- New function WM_MOTION_SetMoveable() added to be able to make a window 'moveable'.
+        <br>- New function WM_MOTION_SetMovement() added to be able to start a window moving operation by defining axis, speed and distance.
+        <br>- New function WM_MOTION_SetSpeed() added to be able to start a window moving operation by defining axis and speed.
+      </li>
+    </ul>
+    <ul type=square>
+      <li>WM_MOVE message now sends movement information by a pointer to a WM_MOVE_INFO structure.</li>
+    </ul>
+  </li>
+
+  <li>Simulation:
+    <ul type=square>
+      <li>New function SIM_GUI_Enable() added.</li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.12</h2>
+<ol class="maintext">
+
+  <li>Core:
+    <ul type=square>
+      <li>New function GUI_CopyRect() added to be able to copy rectangular areas.</li>
+      <li>New function GUI_MULTIBUF_UseSingleBuffer() added to be able to use one framebuffer for multiple layers.</li>
+      <li>New color conversions GUICC_666_9 and GUICC_M666_9 added.</li>
+    </ul>
+  </li>
+
+  <li>Display drivers:
+    <ul type=square>
+      <li>New runtime configurable driver GUIDRV_FlexColor which can be used as replacement for GUIDRV_CompactColor.</li>
+      <li>New runtime configurable driver GUIDRV_SPage which can be used as replacement for GUIDRV_1611.</li>
+      <li>New runtime configurable driver GUIDRV_Dist which can be used for multiple controllers on one display.</li>
+      <li>GUIDRV_Lin:
+        <br>- Support for LCD_DEVFUNC_COPYRECT added.
+      </li>
+      <li>GUIDRV_CompactColor_16:
+        <br>- Support for Solomon SSD1961 added.
+      </li>
+    </ul>
+  </li>
+
+  <li>Memory devices:
+    <ul type=square>
+      <li>Drawing of high- and true color memory devices accelerated.</li>
+      <li>New function GUI_MEMDEV_ShiftWindow() added to be able to shift in the content of a new window by shifting out the old content simultaneously.</li>
+      <li>New function GUI_MEMDEV_MarkDirty() added to be able to invalidate a given area.</li>
+    </ul>
+  </li>
+
+  <li>Widgets:
+    <ul type=square>
+      <li>ICONVIEW widget:
+        <br>- New function ICONVIEW_AddStreamedBitmapItem() added to be able to use streamed bitmaps.
+        <br>- New function ICONVIEW_AddStreamedBitmapItem() added to be able to use streamed bitmaps.
+        <br>- New function ICONVIEW_GetItemUserData() added to be able to get item related user data.
+        <br>- New function ICONVIEW_GetItemText() added to be able to get the text of a given item.
+        <br>- New function ICONVIEW_GetNumItems() added to be able to get the number of items of the widget.
+        <br>- New function ICONVIEW_InsertBitmapItem() added to be able to insert a bitmap image.
+        <br>- New function ICONVIEW_InsertStreamedBitmapItem() added to be able to insert a streamed bitmap image.
+        <br>- New function ICONVIEW_SetBitmapItem() added to be able to change the desired bitmap.
+        <br>- New function ICONVIEW_SetFrame() added to be able to change the frame size.
+        <br>- New function ICONVIEW_SetItemText() added to be able to change the item text.
+        <br>- New function ICONVIEW_SetItemUserData() added to be able to set item related user data.
+        <br>- New function ICONVIEW_SetSpace() added to be able to change the space between the items.
+        <br>- New function ICONVIEW_SetStreamedBitmapItem() added to be able to change the desired streamed bitmap.
+        <br>- New function ICONVIEW_SetTextAlign() added to be able to change the text alignment of the widget.
+      </li>
+      <li>LISTWHEEL widget:
+        <br>- New function LISTWHEEL_SetBkColor() added to be able to change the background color.
+      </li>
+      <li>TEXT widget:
+        <br>- New function TEXT_GetNumLines() added to be able to get the number of text lines.
+      </li>
+      <li>TREEVIEW widget:
+        <br>- New function TREEVIEW_SetBitmapOffset() added to be able to add an offset for drawing the plus- and minus bitmap.
+        <br>- New function TREEVIEW_SetIndent() added to be able to change the indention.
+        <br>- New function TREEVIEW_SetOwnerDraw() added to be able to add a custom drawing function.
+        <br>- New function TREEVIEW_SetTextIndent() added to be able to change the text indention.
+      </li>
+      <li>BUTTON widget:
+        <br>- New function BUTTON_SetTextOffset() added to be able to add an offset for drawing the button text.
+      </li>
+      <li>LISTVIEW widget:
+        <br>- New function LISTVIEW_SetHeaderHeight() added to be able to set the height of the header.
+      </li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.10</h2>
+<ol class="maintext">
+
+  <li>Widgets:
+    <ul type=square>
+      <li>GUIBuilder now available.</li>
+    </ul>
+  </li>
+
+  <li>Display drivers:
+    <ul type=square>
+      <li>GUIDRV_CompactColor_16:</li>
+        <br>- Support for Ilitek ILI9328 and ILI9221 added.
+        <br>- Support for Sitronix ST7715.
+      <li>GUIDRV_Bitplains:</li>
+        <br>- New function GUIDRV_BitPlains_Config() added to be able to mirror the pixels within a byte.
+    </ul>
+  </li>
+
+  <li>Memory devices:
+    <ul type=square>
+      <li>New function GUI_MEMDEV_MarkDirty() added to be able to mark an area of a memory device as 'touched'.</li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.08</h2>
+<ol class="maintext">
+
+  <li>Core:
+    <ul type=square>
+      <li>Multiple buffering added to be able to use 'Double Buffering' or 'Tripple Buffering'.</li>
+      <li>New function GUI_MULTIBUF_Config() added to be able to set up multiple buffers.</li>
+      <li>New functions GUI_MULTIBUF_Begin() and GUI_MULTIBUF_End() added to use multiple buffers.</li>
+      <li>New function GUI_UC_EnableBIDI() added to be able to configure the use of bidirectional text at runtime.</li>
+      <li>New function GUI_CreateBitmapFromStreamRLEAlpha() added to be able to use streamed compressed alpha channel bitmaps.</li>
+      <li>New function GUI_CreateBitmapFromStreamRLE32() added to be able to use streamed compressed bitmaps with alpha channel.</li>
+      <li>New function GUI_SetSignalEventFunc() added to be able to set up a function which signals an event.</li>
+      <li>New function GUI_SetWaitEventFunc() added to be able to set up a function which waits for an event.</li>
+      <li>New function GUI_SetWaitEventTimedFunc() added to be able to set up a function which waits for an event for the given period.</li>
+      <li>New function LCD_SetDevFunc() added to be able to add optional display driver routines.</li>
+    </ul>
+  </li>
+
+  <li>Widgets:
+    <ul type=square>
+      <li>New configuration macro WIDGET_USE_FLEX_SKIN which can be used to change the default behavior of the widgets to use 'Skinning' per default.</li>
+      <li>New functions &#60;WIDGET&#62;_SetUserData() added to be able to add custom data to a widget. (This function has been added to all widgets)</li>
+      <li>New functions &#60;WIDGET&#62;_GetUserData() added to be able to retrieve custom data from a widget. (This function has been added to all widgets)</li>
+      <li>New functions &#60;WIDGET&#62;_CreateUser() added to be able to add memory for custom cata to a widget. (This function has been added to all widgets)</li>
+      <li><b>Interface of LISTWHEEL_SetUserData() and LISTWHEEL_GetUserData() changed</b> because of the new &#60;WIDGET&#62;_SetUserData() functions.</li>
+      <li><b>Function LISTVIEW_SetUserData() and LISTVIEW_GetUserData() renamed</b> to LISTVIEW_SetUserDataRow() and LISTVIEW_GetUserDataRow() because of the new &#60;WIDGET&#62;_SetUserData() and &#60;WIDGET&#62;_GetUserData() functions.</li>
+      <li>New function BUTTON_SetReactOnLevel() added to be able to set up the button to react on level changes only.</li>
+      <li>New function ICONVIEW_DeleteItem() added to be able to delete single items.</li>
+      <li>New function TREEVIEW_ITEM_CollapseAll() added to be able to collapse each item of the given node.</li>
+      <li>New function TREEVIEW_ITEM_ExpandAll() added to be able to expand each item of the given node.</li>
+      <li>New function SCROLLBAR_SetThumbSizeMin() added to be able to set up the minimum size of the thumb.</li>
+      <li>New function SCROLLBAR_GetThumbSizeMin() added to be able to get the minimum size of the thumb.</li>
+      <li>New function ICONVIEW_CreateIndirect() added to be able to use the widget with the dialog creation functions.</li>
+      <li>New function LISTWHEEL_CreateIndirect() added to be able to use the widget with the dialog creation functions.</li>
+      <li>New function BUTTON_GetTextAlign() added to be able to get the text alignment of the widget.</li>
+    </ul>
+  </li>
+
+  <li>Memory devices:
+    <ul type=square>
+      <li>New function GUI_MEMDEV_SetAnimationCallback() added to be able to set up a function which is called after each step of the animation.</li>
+      <li>New animation function GUI_MEMDEV_ShiftInWindow() added to be able to shift in the given window from the top, left, right or bottom edge.</li>
+      <li>New animation function GUI_MEMDEV_ShiftOutWindow() added to be able to shift out the given window to the top, left, right or bottom edge.</li>
+    </ul>
+  </li>
+
+  <li>FontConverter:
+    <ul type=square>
+      <li>New function 'File/Merge C file' added to be able to merge font files.</li>
+      <li>New command line option 'merge' added to be able to merge font files per command line.</li>
+    </ul>
+  </li>
+
+  <li>BitmapConverter:
+    <ul type=square>
+      <li>New format 'True color with alpha channel, compressed' added to be able to use compressed alpha bitmaps.</li>
+      <li>New format 'Alpha channel, compressed' added to be able to use only the alpha channel with the current foreground color.</li>
+      <li>New function 'Image/Convert Into/Best pPalette + transparency' added to be able to convert alpha bitmaps into palette based bitmaps with transparency.</li>
+    </ul>
+  </li>
+
+  <li>Window manager:
+    <ul type=square>
+      <li>New message WM_PRE_PAINT added which is send to a window immediately before the first WM_PAINT message is send.</li>
+      <li>New message WM_POST_PAINT added which is send to a window immediately after the last WM_PAINT message has been send.</li>
+      <li>New function WM_MULTIBUF_Enable() added to be able to let the window manager use multiple buffers automatically.</li>
+      <li>Automatic use of cache locking and unlocking added.</li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.06</h2>
+<ol class="maintext">
+
+  <li>Skinning:
+    <ul type=square>
+      <li>Skinning for the most common widgets (BUTTON, CHECKBOX, DROPDOWN, FRAMEWIN, HEADER, PROGBAR, RADIO, SCROLLBAR, SLIDER) added.
+        <br>The following functions are available:</li>
+        <br>- &#60;WIDGET&#62;_GetSkinFlexProps() added to retrieve the configurable parameters of the given skin.
+        <br>- &#60;WIDGET&#62;_SetSkinClassic() added to (re)set the classic look and feel of the given widget.
+        <br>- &#60;WIDGET&#62;_SetSkin() added to be able to set the desired skin for the given widget.
+        <br>- &#60;WIDGET&#62;_DrawSkinFlex() added as default callback function of the 'flex'-skin.
+        <br>- &#60;WIDGET&#62;_SetDefaultSkin() added to be able to set a new default skin for new widgets.
+        <br>- &#60;WIDGET&#62;_SetSkinFlexProps() added to be able to configure the default 'flex'-skin by the given configuration structure.
+        <br>- &#60;WIDGET&#62;_SetDefaultSkinClassic() added to set the classic design as default for new widgets.
+    </ul>
+  </li>
+
+  <li>Memory devices:
+    <ul type=square>
+      <li>New function GUI_MEMDEV_FadeDevices() added to be able to smoothly fade the given devices.</li>
+      <li>New function GUI_MEMDEV_FadeInWindow() added to be able to smoothly fade in a given window.</li>
+      <li>New function GUI_MEMDEV_FadeOutWindow() added to be able to smoothly fade out a given window.</li>
+      <li>New function GUI_MEMDEV_MoveInWindow() added to be able to 'move in and optional rotate' a window from a given coordinate.</li>
+      <li>New function GUI_MEMDEV_MoveOutWindow() added to be able to 'move out and optional rotate' a window from a given coordinate.</li>
+    </ul>
+  </li>
+
+  <li>Core:
+    <ul type=square>
+      <li>New function GUI_DrawGradientRoundedV() added to be able to draw vertical gradients with rounded corners.</li>
+      <li>New function GUI_DrawGradientRoundedH() added to be able to draw horizontal gradients with rounded corners.</li>
+      <li>New function GUI_DrawRoundedFrame() added to be able to draw rounded frames.</li>
+      <li>New function GUI_SetDefaultFont() added to be able to set the default font used after GUI_Init().</li>
+      <li>New function GUI_GetPixelIndex() added to be able to get the pixel index value of the given position.</li>
+      <li>New function GUI_UC_EnableBIDI() added to be able to enable bidirectional text support at runtime as required for example for Arabic and Hebrew.</li>
+    </ul>
+  </li>
+
+  <li>Widgets:
+    <ul type=square>
+      <li>New function BUTTON_SetReactOnLevel() added to be able to configure the behavior of BUTTON widgets.</li>
+      <li>New function GRAPH_DATA_XY_SetOwnerDraw() added to be able to set up a owner draw function for the GRAPH_DADA_XY object.</li>
+      <li>New function LISTVIEW_SetItemBitmap() added to be able to set a bitmap to be drawn in the given cell.</li>
+      <li>New function LISTWHEEL_SetPos() added to be able to set the current position of the LISTWHEEL without moving.</li>
+      <li>New function SCROLLBAR_GetNumItems() added to be able to get the appropriate value.</li>
+      <li>New function SCROLLBAR_GetPageSize() added to be able to get the appropriate value.</li>
+    </ul>
+  </li>
+
+  <li>Multitasking:
+    <ul type=square>
+      <li>New function GUITASK_SetMaxTask() added to be able to configure the maximum number of tasks.</li>
+    </ul>
+  </li>
+
+  <li>Simulation:
+    <ul type=square>
+      <li>New function SIM_GUI_SetCallback() added.</li>
+      <li>New function SIM_GUI_ShowDevice() added.</li>
+    </ul>
+  </li>
+
+  <li>Display drivers:
+    <ul type=square>
+      <li>New function GUI_SetOrientation() added.</li>
+      <li>New driver GUIDRV_S1D15G00 added.</li>
+      <li>New driver GUIDRV_SLin added.</li>
+      <li>New driver GUIDRV_S1D13748 added. (Replacement for GUIDRV_13748)</li>
+      <li>New driver GUIDRV_S1D13748 added.</li>
+      <li>GUIDRV_CompactColor_16:</li>
+        <br>- Support for Himax HX8353 added.
+        <br>- Support for LGDP4551 added.
+        <br>- Support for Orisetech SPFD54124C added.
+        <br>- Support for Renesas R61505 added.
+        <br>- Support for Sitronix ST7735 and ST7787 added.
+        <br>- Support for Solomon SSD1284 and SSD2119 added.
+      <li>Driver GUIDRV_07X1 added.</li>
+      <li>Driver GUIDRV_Fujitsu_16 added.</li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.04</h2>
+<ol class="maintext">
+  <li>Display drivers:
+    <ul type=square>
+      <li>New driver GUIDRV_BitPlains added.</li>
+      <li>New driver GUIDRV_SLin added.</li>
+      <li>New driver GUIDRV_SSD1926 added.</li>
+      <li>Driver GUIDRV_1611 added.</li>
+      <li>Driver GUIDRV_6331 added.</li>
+      <li>Driver GUIDRV_Page1bpp added.</li>
+      <li>GUIDRV_CompactColor_16:
+        <br>- Support for Himax HX8352 added.
+        <br>- Support for Solomon SSD1355 and SSD1963 added.
+        <br>- Support for Orisetech SPFD5414D added.
+        <br>- Support for Ilitek ILI9320 and ILI9326 added.
+      </li>
+    </ul>
+  </li>
+
+  <li>VNC server:
+    <ul type=square>
+      <li>New function GUI_VNC_EnableKeyboardInput() added.</li>
+      <li>New function GUI_VNC_GetNumConnections() added.</li>
+      <li>New function GUI_VNC_SetPassword() added.</li>
+      <li>New function GUI_VNC_SetProgName() added.</li>
+      <li>New function GUI_VNC_SetSize() added.</li>
+      <li>New function GUI_VNC_RingBell() added.</li>
+    </ul>
+  </li>
+
+  <li>Core:
+    <ul type=square>
+      <li>New function GUI_DispStringInRectWrap() added to draw text within the given rectangle.</li>
+      <li>New function GUI_WrapGetNumLines() added to calculate the required number of lines for the given text.</li>
+      <li>New function GUI_EnableAlpha() added to enable automatic software alpha blending.</li>
+      <li>New function GUI_RestoreUserAlpha() added to restore the previous user alpha value.</li>
+      <li>New function GUI_SetUserAlpha() added to set an additional user alpha blending value.</li>
+      <li>New function GUI_CreateBitmapFromStream() added to create a bitmap from a stream of any format.</li>
+      <li>New function GUI_DrawStreamedBitmapEx() added to draw a streamed bitmap without loading it completely into RAM.</li>
+      <li>New function GUI_GetStreamedBitmapInfo() added to get information about a streamed bitmap.</li>
+      <li>New function GUI_GetStreamedBitmapInfoEx() added to get information about a streamed bitmap which is not located within the addressable CPU area.</li>
+      <li>New function GUI_SetStreamedBitmapHook() added to set a function which can be used to manipulate the palette of a streamed bitmap at runtime.</li>
+      <li>New function GUI_CreateBitmapFromStreamIDX() added to create a bitmap from a stream of an index based bitmap.</li>
+      <li>New function GUI_CreateBitmapFromStreamRLE4() added to create a bitmap from a stream of an RLE4 compressed bitmap.</li>
+      <li>New function GUI_CreateBitmapFromStreamRLE8() added to create a bitmap from a stream of an RLE8 compressed bitmap.</li>
+      <li>New function GUI_CreateBitmapFromStream565() added to create a bitmap from a stream of a high color bitmap.</li>
+      <li>New function GUI_CreateBitmapFromStreamM565() added to create a bitmap from a stream of a high color bitmap.</li>
+      <li>New function GUI_CreateBitmapFromStream555() added to create a bitmap from a stream of a high color bitmap.</li>
+      <li>New function GUI_CreateBitmapFromStreamM555() added to create a bitmap from a stream of a high color bitmap.</li>
+      <li>New function GUI_CreateBitmapFromStreamRLE16() added to create a bitmap from a stream of a RLE compressed high color bitmap.</li>
+      <li>New function GUI_CreateBitmapFromStreamRLEM16() added to create a bitmap from a stream of a RLE compressed high color bitmap.</li>
+      <li>New function GUI_CreateBitmapFromStream24() added to create a bitmap from a stream of a true color bitmap.</li>
+      <li>New function GUI_CreateBitmapFromStreamAlpha() added to create a bitmap from a stream of a true color bitmap with alpha blending.</li>
+    </ul>
+  </li>
+
+  <li>Fonts:
+    <ul type=square>
+      <li>Support for new font formats extended AA2 and extended AA4 added.</li>
+      <li>New framed font F20F_ASCII added.</li>
+      <li>New fonts F6x8_ASCII and F6x8_1 added.</li>
+      <li>New fonts F8x8_ASCII and F8x8_1 added.</li>
+      <li>New fonts F8x16_ASCII and F8x16_1 added.</li>
+    </ul>
+  </li>
+
+  <li>Keyboard support:
+    <ul type=square>
+      <li>Input buffer added.</li>
+    </ul>
+  </li>
+
+  <li>Pointer input devices:
+    <ul type=square>
+      <li>Input buffer added.</li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.02</h2>
+<ol class="maintext">
+
+  <li>Core:
+    <ul type=square>
+      <li>GUI_DrawBitmapEx(): Support for alpha bitmaps added.</li>
+    </ul>
+  </li>
+
+  <li>VNC:
+    <ul type=square>
+      <li>GUI_VNC_RingBell() added.</li>
+      <li>GUI_VNC_GetNumConnections() added.</li>
+    </ul>
+  </li>
+
+  <li>Display drivers:
+    <ul type=square>
+      <li>GUIDRV_CompactColor_16.c:
+        <br>- Support for Himax HX8340 added.
+        <br>- Support for Solomon SSD1298 added.
+        <br>- Support for Epson S1D19122 added.
+        <br>- Support for cache control added.
+      </li>
+    </ul>
+    <ul type=square>
+      <li>New driver added to support Sitronix ST7529.</li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------->
+<!-- PROGRAM CORRECTIONS                                                  -->
+<!-------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------->
+<h1 class="newsbox"><a name="pcorr">Program corrections</a></h1>
+
+  <li>Core:
+    <ul type=square>
+      <li><b>Movie support (NEW)</b>:
+        <br>- New function GUI_MOVIE_Create() added to be able to create a movie handle for a file located within the addressable CPU memory area.
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.34d</h2>
+<ol class="maintext">
+  <li>Drawing BMP-files:
+    <ul type=square>
+      <li>Drawing BMP files with bitmap information header > BITMAPINFOHEADER fails. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.34c</h2>
+<ol class="maintext">
+  <li>Movies:
+    <ul type=square>
+      <li>GUI_MOVIE_Pause() now makes sure, that at least one frame is shown.</li>
+      <li>Under certain circumstances a timer becomes invalid. Problem solved.</li>
+    </ul>
+  </li>
+  <li>BitmapConverter:
+    <ul type=square>
+      <li>New formats added to command line options.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.34b</h2>
+<ol class="maintext">
+  <li>Simulation:
+    <ul type=square>
+      <li>To be able to use (GUI_USE_ARGB == 1) in binary simulation, the library in System\Simulation\GUISim.GUI_USE_ARGB.zip should be used.</li>
+    </ul>
+  </li>
+  <li>SWIPELIST widget:
+    <ul type=square>
+      <li>Under certain circumstances SWIPELIST_DeleteItem() does not work right. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.32g</h2>
+<ol class="maintext">
+  <li>TREEVIEW widget:
+    <ul type=square>
+      <li>Under certain circumstances the function TREEVIEW_ScrollToSel() does not work right. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.32f</h2>
+<ol class="maintext">
+  <li>LISTBOX widget:
+    <ul type=square>
+      <li>Under certain circumstances the redrawing is not completely right after removing an item. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.32e</h2>
+<ol class="maintext">
+  <li>Core:
+    <ul type=square>
+      <li>Improvement of drawing 32bpp bitmaps implemented.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.32d</h2>
+<ol class="maintext">
+  <li>LISTBOX widget:
+    <ul type=square>
+      <li>Under certain circumstances redrawing of content is not completely right after inserting new items. Problem solved.</li>
+    </ul>
+    <ul type=square>
+      <li>When deleting the last item in selected state the redrawing is not completely right. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.32c</h2>
+<ol class="maintext">
+  <li>Core:
+    <ul type=square>
+      <li>Function _RegisterExit() in GUI__ManageCache.c has no prototype. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.32b</h2>
+<ol class="maintext">
+  <li>Language support:
+    <ul type=square>
+      <li>When using GUI_LANG_LoadText() with text from memory the functions GUI_LANG_GetTextBuffered() and GUI_LANG_GetTextBufferedEx() do not add a zero delimiter to the given destination buffer. Problem solved.</li>
+    </ul>
+  </li>
+  <li>JPEG decoder:
+    <ul type=square>
+      <li>Under certain circumstances the IDCT calculation does not manage overflows correctly which leads into pixel errors. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.32a</h2>
+<ol class="maintext">
+  <li>Window manager:
+    <ul type=square>
+      <li>Under certain circumstances the macro WM_ASSERT_NOT_IN_PAINT() does not work right in multitasking environments. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.34</h2>
+<ol class="maintext">
+  <li>FontConverter:
+    <ul type=square>
+      <li>Fixed - Merging two fonts and reading from pattern file without saving as new file did not worked correctly.</li>
+      <li>Fixed - Horizontal centered strings in a rectangle were not displayed correctly.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.30c</h2>
+<ol class="maintext">
+  <li>Sprites:
+    <ul type=square>
+      <li>Under certain circumstances it could happen, that a sprite is overwritten on the screen. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.30b</h2>
+<ol class="maintext">
+  <li>Sprites:
+    <ul type=square>
+      <li>Deleting non visible sprites could cause undefined behavior of the application. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.30a</h2>
+<ol class="maintext">
+  <li>CALENDAR widget:
+    <ul type=square>
+      <li>Function CALENDAR_SetSel() does not work right. Problem solved.</li>
+    </ul>
+  </li>
+  <li>emWinSPY:
+    <ul type=square>
+      <li>Window properties not exactly shown. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.28e</h2>
+<ol class="maintext">
+  <li>EDIT widget:
+    <ul type=square>
+      <li>Zero without fractional digits can not be displayed using the function EDIT_SetFloatMode() and the flag combination "GUI_EDIT_SIGNED | GUI_EDIT_SUPPRESS_LEADING_ZEROES". Problem solved.</li>
+    </ul>
+  </li>
+  <li>Font Converter 5.28a:
+    <ul type=square>
+      <li>Standard fonts can not be merged. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.28d</h2>
+<ol class="maintext">
+  <li>emWinSPY:
+    <ul type=square>
+      <li>Memory leak in default memory management. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.28c</h2>
+<ol class="maintext">
+  <li>General:
+    <ul type=square>
+      <li>Some additional pointer checks added to fulfil code analysis requirements.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.28b</h2>
+<ol class="maintext">
+  <li>emWinSPY:
+    <ul type=square>
+      <li>Target sample GUI_SPY_X_StartServer.c does not work right. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.28a</h2>
+<ol class="maintext">
+  <li>Widgets:
+    <ul type=square>
+      <li>Under certain circumstances EDIT widgets might draw its frame on top of an overlapping window. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.26d</h2>
+<ol class="maintext">
+  <li>Core / Memory devices:
+    <ul type=square>
+      <li>When fixed color mode GUICC_M888I is used and automatic memory devices are enabled true color bitmaps are not drawn within a window. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Core:
+    <ul type=square>
+      <li>Timers do not work correctly after 24.86 days. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.26c</h2>
+<ol class="maintext">
+  <li>FontConverter:
+    <ul type=square>
+      <li>Ability for suppressing message boxes in command line mode added.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.26b</h2>
+<ol class="maintext">
+  <li>FontConverter:
+    <ul type=square>
+      <li>Character view at the bottom is not resized automatically in Y-axis. Problem solved.</li>
+      <li>Moving the cursor above the uppermost row with active filter causes a crash. Problem solved.</li>
+    </ul>
+  </li>
+  <li>BitmapConverter:
+    <ul type=square>
+      <li>Command line option '-saveas' does not support saving 16bpp with transparency. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.26a</h2>
+<ol class="maintext">
+  <li>Bitmap converter:
+    <ul type=square>
+      <li>Saving streamed bitmap files with 16bpp and 8 bit alpha channel results fails with an empty DTA file. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Streamed bitmaps:
+    <ul type=square>
+      <li>Drawing of streamed bitmap files with 16bpp and 8 bit alpha channel fails. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.26</h2>
+<ol class="maintext">
+  <li>Core:
+    <ul type=square>
+      <li>The function GUI_DispStringInRectWrap() does not work properly when a user defined clipping rectangle is set. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.24h</h2>
+<ol class="maintext">
+  <li>Language support:
+    <ul type=square>
+      <li>When using a single record in a CSV file, the number of languages is determined wrong. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Widgets:
+    <ul type=square>
+      <li>When deleting a MENU widget it does not delete its submenus automatically. Problem solved.</li>
+      <li>Under certain circumstances using the function DROPDOWN_SetItemDisabled() might cause Problem solved.</li>
+    </ul>
+  </li>
+  <li>Core, Widgets, Memory devices:
+    <ul type=square>
+      <li>Some limit checks corrected when writing into arrays.</li>
+      <li>Some additional pointer checks added.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.24g</h2>
+<ol class="maintext">
+  <li>GUIBuilder:
+    <ul type=square>
+      <li>When reloading the source file previously saved with the GUIBuilder the function 'Set max length' of the EDIT widget does not work right. Problem solved.</li>
+      <li>SPINBOX widget has no context menu. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Widgets:
+    <ul type=square>
+      <li>Under certain circumstances HEADER widgets are not shown right. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.24f</h2>
+<ol class="maintext">
+  <li>Widgets:
+    <ul type=square>
+      <li>When deleting a GRAPH widget under certain circumstances not all memory is freed. Problem solved.</li>
+    </ul>
+    <ul type=square>
+      <li>TREEVIEW_IncSel() used with an empty widget leads in an endless loop. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.24e</h2>
+<ol class="maintext">
+  <li>Antialiasing:
+    <ul type=square>
+      <li>Rotated text not shown correct if AA4 SIF standard fonts are used. Problem solved.</li>
+      <li>Rotated text not shown correct if AA2 SIF standard fonts are used. Problem solved.</li>
+    </ul>
+  </li>
+  <li>JPEG decoder:
+    <ul type=square>
+      <li>Colors of decoded JPEGs not completely correct. Problem solved.</li>
+      <li>Decoder now ends decoding if wrong color space is detected instead of showing a wrong image. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.24d</h2>
+<ol class="maintext">
+  <li>Widgets:
+    <ul type=square>
+      <li>BUTTON_GetTextAlign() falsely invalidates the window. Problem solved.</li>
+    </ul>
+    <ul type=square>
+      <li>Deactivating items of a DROPDOWN does not work. Problem solved.</li>
+    </ul>
+  </li>
+  <li>TTF font support:
+    <ul type=square>
+      <li>Working with antialiased fonts does not work under all circumstances. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Window manager (motion support):
+    <ul type=square>
+      <li>Setting speed to 0 falsely creates a timer. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.24c</h2>
+<ol class="maintext">
+  <li>Window manager (motion support):
+    <ul type=square>
+      <li>Under certain circumstances motion support is not able to move any window. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.24b</h2>
+<ol class="maintext">
+  <li>Core:
+    <ul type=square>
+      <li>Movies don't work on big endian targets. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.24a</h2>
+<ol class="maintext">
+  <li>Display drivers:
+    <ul type=square>
+      <li>GUIDRV_Lin: Macro 'MIRROR()' does not exist if LCD_ENDIAN_BIG is defined. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Widgets:
+    <ul type=square>
+      <li>MULTIPAGE widget does not compile with 'GUI_SUPPORT_ROTATION 0'. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Core:
+    <ul type=square>
+      <li>If very short on memory under certain circumstances JPEG decoder could crash. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.22f</h2>
+<ol class="maintext">
+  <li>Linker:
+    <ul type=square>
+      <li>Problem with MSVC2012-linker: "error LNK2026:module unsafe for SAFESEH image". Problem solved.</li>
+    </ul>
+  </li>
+  <li>Core:
+    <ul type=square>
+      <li>GUI_DrawStreamedBitmapExAuto() does not work with alpha bitmaps. Problem solved.</li>
+    </ul>
+    <ul type=square>
+      <li>Under certain circumstances GUI_IsInFont() does not work right with SIF-fonts. Problem solved.</li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.22e</h2>
+<ol class="maintext">
+  <li>Core:
+    <ul type=square>
+      <li>Compiling of LCD_NextPixelAPI.c does not work with TI Code Composer Studio. Problem solved.</li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.22d</h2>
+<ol class="maintext">
+  <li>BitmapConverter:
+    <ul type=square>
+      <li>Transparency is not preserved automatically when loading GIF files. Problem solved.</li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.22c</h2>
+<ol class="maintext">
+  <li>Widgets:
+    <ul type=square>
+      <li>MULTIPAGE widget does not react on touch event under certain circumstances. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Display drivers:
+    <ul type=square>
+      <li>GUIDRV_SPage.c Support for Samsung S6B0108 (KS0108) added.</li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.22b</h2>
+<ol class="maintext">
+  <li>Display drivers:
+    <ul type=square>
+      <li>GUIDRV_07X1.c generates warnings caused by changing the interface. Problem solved.</li>
+      <li>GUIDRV_FlexColor_Func66709.c: Reading back pixel with GUIDRV_FLEXCOLOR_READ_FUNC_II and 16 bit interface does not work. Problem solved.</li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.22a</h2>
+<ol class="maintext">
+  <li>Bitmap Converter:
+    <ul type=square>
+      <li>The Bitmap Converter does not use the same color conversion routines as emWin does. Problem solved.</li>
+    </ul>
+  </li>
+
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.20h</h2>
+<ol class="maintext">
+  <li>Memory devices:
+    <ul type=square>
+      <li>Automatic memory devices with a color depth of 32bpp should not create a usage object. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Antialiased text:
+    <ul type=square>
+      <li>IAR ARM compiler does not translate GUIAA_Char2.c right when with optimization and CortexA5 target. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.20g</h2>
+<ol class="maintext">
+  <li>Streamed bitmaps:
+    <ul type=square>
+      <li>In certain cases streamed bitmaps could not be displayed at a position y > 0. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.20f</h2>
+<ol class="maintext">
+  <li>Display drivers:
+    <ul type=square>
+      <li>Additional syncronization macro calls included in driver GUIDRV_L5F30919.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.20e</h2>
+<ol class="maintext">
+  <li>Display drivers:
+    <ul type=square>
+      <li>GUIDRV_FlexColor was not able to set the desired read function. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.20d</h2>
+<ol class="maintext">
+  <li>Display drivers and core:
+    <ul type=square>
+      <li>Return value and/or parameter of cache control function not consistent. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.20c</h2>
+<ol class="maintext">
+  <li>GUIBuilder:
+    <ul type=square>
+      <li>The tool is not able to open files created by older versions. Problem solved.</li>
+    </ul>
+  </li>
+  <li>GIF-images:
+    <ul type=square>
+      <li>Under certain circumstances GUI_GIF_GetInfo() does not return the correct number of subimages. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.20b</h2>
+<ol class="maintext">
+  <li>Widgets:
+    <ul type=square>
+      <li>The ICONVIEW widget may be under certain circumstances not displayed properly. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Core:
+    <ul type=square>
+      <li>GUI_Exit() does not work correct. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Tools:
+    <ul type=square>
+      <li>When creating a dialog containing an IMAGE widget without image using the GUIBuilder, storing and reloading the source code was not done properly. Problem solved.</li>
+      <li>The "New" menu in the GUIBuilder does not contain recently added widgets. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.20a</h2>
+<ol class="maintext">
+  <li>Handling of error-, logging- and warning messages:
+    <ul type=square>
+      <li>The character arrays which store the error messages and hex values are dimensioned too small. Problem solved.</li>
+      <li>The function parameters which are used to store hex values are of type int. Should be I32 to make sure the size is 32 bit on every target system. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Widgets:
+    <ul type=square>
+      <li>Several CHECKBOX widgets using the FlexSkin can not be of different sizes. Problem solved.</li>
+      <li>Using the LISTWHEEL widget without any items may lead to application crashes. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Simulation:
+    <ul type=square>
+      <li>When using Multiple Buffering and Multiple Layers the composite view does not work properly. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Tools:
+    <ul type=square>
+      <li>Converting files using Bin2C results in global unsized arrays. Changed to static arrays of a fixed size.</li>
+      <li>Parameter flags for indirect creation may be deleted when storing a file using the GUIBuilder.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.18d</h2>
+<ol class="maintext">
+  <li>Display drivers:
+    <ul type=square>
+      <li>Several display driver initialization functions are of type void, but should return an int value. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.18c</h2>
+<ol class="maintext">
+  <li>EDIT widget and BiDi:
+    <ul type=square>
+      <li>When EDIT widget is used in "DecMode" and BiDi support is enabled, digits are not displayed. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Language resource:
+    <ul type=square>
+      <li>Using a UTF-8 encoded text file as a language resource does not work. Problem solved.</li>
+    </ul>
+  </li>
+  <li>LISTWHEEL widget:
+    <ul type=square>
+      <li>Under certain circumstances the LISTWHEEL does not stop moving after a call of LISTWHEEL_MoveToPos(). Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.18b</h2>
+<ol class="maintext">
+  <li>Memory allocation:
+    <ul type=square>
+      <li>Under certain circumstances the remaining free memory returned by GUI_ALLOC_GetNumFreeBytes() can not be allocated at once. Problem solved.</li>
+    </ul>
+  </li>
+  <li>VNC-server:
+    <ul type=square>
+      <li>Using the VNC-server with display drivers having an indirect interface could fail. Problem solved by adding the function GUI_VNC_SetLockFrame().</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.18a</h2>
+<ol class="maintext">
+  <li>Sprites:
+    <ul type=square>
+      <li>Sprites are not displayed correctly in certain cases. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.18</h2>
+<ol class="maintext">
+  <li>Multitasking support:
+    <ul type=square>
+      <li>Working with cursors and similar devices does not work right with multitasking. Problem solved.</li>
+    </ul>
+  </li>
+  <li>BitmapConverter:
+    <ul type=square>
+      <li>Animated GIFs are shown as a black square. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.16d</h2>
+<ol class="maintext">
+  <li>GUIDRV_FlexColor:
+    <ul type=square>
+      <li>Filling of driver variants with cache too slow. Problem solved.</li>
+    </ul>
+  </li>
+  <li>GUIDRV_S1D13781:
+    <ul type=square>
+      <li>Display rotation does not work properly. Problem solved.</li>
+      <li>Illegal pointer access during initialization. Problem solved.</li>
+    </ul>
+  </li>
+  <li>EDIT widget:
+    <ul type=square>
+      <li>Editing of values do not work right under certain circumstances. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.16c</h2>
+<ol class="maintext">
+  <li>Window Manager:
+    <ul type=square>
+      <li>If the number of invalid rectangles exceeds a certain amount the Window Manager stops working. Problem solved.</li>
+      <li>In certain cases the background of transparent windows is not drawn correctly. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.16b</h2>
+<ol class="maintext">
+  <li>Memory devices:
+    <ul type=square>
+      <li>Function pointer _pcbSetAlpha() in GUIDEV_Banding.c had wrong prototype. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.16a</h2>
+<ol class="maintext">
+  <li>Core:
+    <ul type=square>
+      <li>Compressed ARGB bitmaps and compressed alpha channel bitmaps don't work right if clipping is required. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Memory devices:
+    <ul type=square>
+      <li>Under certain circumstances GUI_EnableAlpha() does not work right with banding memory devices. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.14e</h2>
+<ol class="maintext">
+  <li>Core:
+    <ul type=square>
+      <li>Under certain circumstances allocation of fixed blocks fail in spite of having enough memory. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Memory devices:
+    <ul type=square>
+      <li>Under certain circumstances some pixels are not calculated right when using image rotation (HQ and HQT). Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.14d</h2>
+<ol class="maintext">
+  <li>Window manager:
+    <ul type=square>
+      <li>Under certain circumstances automatic locking/unlocking of display driver cache (if available) not executed correctly. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.14c</h2>
+<ol class="maintext">
+  <li>VNC-server:
+    <ul type=square>
+      <li>Some color modes of RealVNC and TightVNC not supported. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Antialiasing:
+    <ul type=square>
+      <li>Function GUI_AA_FillRoundedRect() do not work correctly within window callback routines. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Multitasking:
+    <ul type=square>
+      <li>Under certain circumstances GUI_WaitEvent() does not work right. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.14b</h2>
+<ol class="maintext">
+  <li>Streamed bitmaps:
+    <ul type=square>
+      <li>Drawing streamed bitmaps from external memory and transparent windows may cause an error. Problem solved.</li>
+      <li>Under certain circumstance drawing streamed bitmaps without palette does not function properly, since buffer allocation is not done correctly. Problem solved.</li>
+    </ul>
+  </li>
+  <li>LISTWHEEL widget:
+    <ul type=square>
+      <li>Pressing the LISTWHEEL after LISTWHEEL_MoveToPos() has been used for start turning the LISTWHEEL can't be started again via PID. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.14a</h2>
+<ol class="maintext">
+  <li>SPINBOX widget:
+    <ul type=square>
+      <li>Drawing issues may occur when switching between enabled and disabled state and changing the value. Problem solved.</li>
+      <li>Parent window does not receive any notification in case the value is changed. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.12g</h2>
+<ol class="maintext">
+  <li>Core:
+    <ul type=square>
+      <li>When drawing rotated text with GUI_ROTATE_CW and GUI_ROTATE_CCW clipping does not work correctly. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.12h</h2>
+<ol class="maintext">
+  <li>Window manager:
+    <ul type=square>
+      <li>Under certain circumstances the handles returnd by WM_GetScrollbarH() and WM_GetScrollbarV() are wrong. Problem solved.</li>
+    </ul>
+  </li>
+  <li>LISTBOX widget:
+    <ul type=square>
+      <li>LISTBOX_InsertString() and LISTBOX_DeleteString() does not work right under certain circumstances. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<h2 class="heading2">Version 5.12g</h2>
+<ol class="maintext">
+  <li>Cursor:
+    <ul type=square>
+      <li>Usage of different cursors may lead to a repetitive adding of records to the registration of the _OnExit()-function. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.12f</h2>
+<ol class="maintext">
+  <li>MENU widget:
+    <ul type=square>
+      <li>Under certain circumstances submenus are not able to receive key messages. Problem solved.</li>
+    </ul>
+  </li>
+  <li>FRAMEWIN widget:
+    <ul type=square>
+      <li>FRAMEWIN widgets are not able to be created with Skinning turned on using WIDGET_USE_FLEX_SKIN. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Alpha Blending:
+    <ul type=square>
+      <li>Usage of alpha blending leads to a repetitive adding of records to the registration of _OnExit()-functions. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Display Drivers:
+    <ul type=square>
+      <li>In case a customer purchases emWin b/w and a display driver which does not support 1bpp mode, emWin is not able to work.<br>
+	      This problem is solved by creating additional color conversion routines, which convert colors to black and white using 2bpp or 4bpp.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.12e</h2>
+<ol class="maintext">
+  <li>Memory devices:
+    <ul type=square>
+      <li>Writing the content of a 16-bit memory device to a 32-bit memory device does not work properly. Problem solved.</li>
+    </ul>
+  </li>
+  <li>PID:
+    <ul type=square>
+      <li>The Window manager causes the function GUI_PID_GetState() to always read the oldest PID state from the PID buffer. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.12d</h2>
+<ol class="maintext">
+  <li>MENU widget:
+    <ul type=square>
+      <li>Under certain circumstances submenus without submenu handle don't work. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.12c</h2>
+<ol class="maintext">
+  <li>Core:
+    <ul type=square>
+      <li>Superfluous copy operation of payload data of topmost free memory block. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.12b</h2>
+<ol class="maintext">
+  <li>FRAMEWIN widget:
+    <ul type=square>
+      <li>When working with FRAMEWIN_SetSkin() all skinned FRAMEWIN widgets use the same callback function. Problem solved.</li>
+    </ul>
+  </li>
+  <li>EXT fonts:
+    <ul type=square>
+      <li>When GUIPROP_EXT__ClearLine() is called with Len <= 0 drawing the background could be wrong. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.12a</h2>
+<ol class="maintext">
+  <li>Memory devices:
+    <ul type=square>
+      <li>Under certain circumstances drawing of 32bpp memory devices on systems with a color depth of 24bpp or higher could fail. Problem solved.</li>
+      <li>Use of automatically memory devices on systems short on memory could lead in memory consumption. Problem solved.</li>
+      <li>Window animation functions can fail under certain circumstances and lead in undefined behavior. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Core:
+    <ul type=square>
+      <li>If memory allocation fails because of too less memory blocks, the amount of remaining memory becomes invalid. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Window manager:
+    <ul type=square>
+      <li>After creating windows or memory devices when processing the WM_PRE_PAINT message, drawing of the window could be wrong. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.10b</h2>
+<ol class="maintext">
+  <li>SIF fonts:
+    <ul type=square>
+      <li>GUI_SIF__GetCharInfo_ExtFrm() does not read all required variables for GUI__GetOverlap(). Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<h2 class="heading2">Version 5.10a</h2>
+<ol class="maintext">
+  <li>XBF fonts:
+    <ul type=square>
+      <li>Buffer in GUI_XBF__GetCharInfo() too small. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.08e</h2>
+<ol class="maintext">
+  <li>Memory devices (1bpp):
+    <ul type=square>
+      <li>Drawing of 1bpp memory devices with transparency is limited on multiples of 8 for position and size. Problem solved</li>
+      <li>Under certain circumstances drawing of text with GUI_TM_XOR does not work completely right with 1bpp memory devices. Problem solved</li>
+    </ul>
+  </li>
+  <li>EDIT widget:
+    <ul type=square>
+      <li>Under certain circumstances an invalid pointer is used in function _InsertChar(). Problem solved</li>
+    </ul>
+  </li>
+  <li>LISTVIEW widget:
+    <ul type=square>
+      <li>Under certain circumstances LISTVIEW_SetItemBitmap() with high color bitmaps causes a warning: 'Locked handles exist'. Problem solved</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.08d</h2>
+<ol class="maintext">
+  <li>Display driver cache management:
+    <ul type=square>
+      <li>LCD_ControlCache() does not use GUI__ManageCacheEx(). Problem solved.</li>
+    </ul>
+  </li>
+  <li>PROGBAR widget:
+    <ul type=square>
+      <li>Skinning routine does not work right when PROGBAR_SetText() was used. Problem solved</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.08c</h2>
+<ol class="maintext">
+  <li>Touch Analog:
+    <ul type=square>
+      <li>The function GUI_TOUCH_SetOrientationPhys() is not working correctly. Problem solved.</li>
+    </ul>
+  </li>
+  <li>BiDi:
+    <ul type=square>
+      <li>IAR ARM compiler V6.10.2 does not translate GUI__BiDi.c because of a tool internal error. emWin code changed to be able to work with compiler bug.</li>
+    </ul>
+  </li>
+  <li>Displaying strings:
+    <ul type=square>
+      <li>Trying to display a string with a not existing character at the end of a line can cause the line to be not aligned correctly. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.08b</h2>
+<ol class="maintext">
+  <li>GUI_PID:
+    <ul type=square>
+      <li>PID buffer entries are not stored correctly. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.08a</h2>
+<ol class="maintext">
+  <li>String alignment:
+    <ul type=square>
+      <li>Under certain circumstances string alignment does not work right. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Bidirectional text:
+    <ul type=square>
+      <li>Mixed strings with only one single RTL character at the beginning are not shown right. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.06d</h2>
+<ol class="maintext">
+  <li>Display drivers:
+    <ul type=square>
+      <li>GUIDRV_Lin drawing of 8bpp device dependent bitmaps does not work right on 16 bit CPUs. Problem solved.</li>
+    </ul>
+  </li>
+  <li>MENU widget:
+    <ul type=square>
+      <li>Under certain circumstances submenus are not completely visible. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.06c</h2>
+<ol class="maintext">
+  <li>Drawing BMP-files:
+    <ul type=square>
+      <li>Under certain circumstances drawing of BMP files fails. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.06b</h2>
+<ol class="maintext">
+  <li>Display drivers:
+    <ul type=square>
+      <li>GUIDRV_SSD1926 and GUIDRV_Lin for 1, 2, 4 and 8bpp does not work completely right with 16 bit CPUs. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Widget library:
+    <ul type=square>
+      <li>Some warnings wiht 16 bit CPUs and GUI_DEBUG_LEVEL > 1. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Color conversion:
+    <ul type=square>
+      <li>GUICC_233 does not work right with 16 bit CPUs. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.06a</h2>
+<ol class="maintext">
+  <li>Memory devices:
+    <ul type=square>
+      <li>The window effect functions do not return 0 on success. Problem solved.</li>
+    </ul>
+  </li>
+  <li>SCROLLBAR widget:
+    <ul type=square>
+      <li>Scrollbar does not stop moving at the desired position when keeping pressed shaft area. Problem solved.</li>
+    </ul>
+  </li>
+  <li>LISTBOX widget:
+    <ul type=square>
+      <li>Under certain circumstances scrolling per keyboard does not work completely right. Problem solved.</li>
+    </ul>
+  </li>
+  <li>RADIO_SKIN_FLEX:
+    <ul type=square>
+      <li>Under certain circumstances the focus rectangle is not initialized right. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Core:
+    <ul type=square>
+      <li>Drawing of horizontal and rounded gradients fail if both colors are the same. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.04h</h2>
+<ol class="maintext">
+  <li>TREEVIEW widget:
+    <ul type=square>
+      <li>Under certain circumstances TREEVIEW_GetItem() returns a wrong handle. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.04g</h2>
+<ol class="maintext">
+  <li>Cache control:
+    <ul type=square>
+      <li>Under certain circumstances the function LCD_ControlCache() does not work right. Problem solved.</li>
+    </ul>
+  </li>
+  <li>LISTWHEEL widget:
+    <ul type=square>
+      <li>Under certain circumstances a variable was not initialized. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.04f</h2>
+<ol class="maintext">
+  <li>RADIO widget:
+    <ul type=square>
+      <li>When using custom bitmaps under certain circumstances the button text is not aligned to the button images. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.04e</h2>
+<ol class="maintext">
+  <li>EDIT widget:
+    <ul type=square>
+      <li>Function EDIT_SetCursorAtChar() does not use ..LOCK() and ..UNLOCK(). Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.04d</h2>
+<ol class="maintext">
+  <li>XBF font format:
+    <ul type=square>
+      <li>XBF fonts do not work on big endian systems. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.04c</h2>
+<ol class="maintext">
+  <li>Bitmaps:
+    <ul type=square>
+      <li>Under certain circumstances 16 bit bitmaps are not drawn on systems with a color depth of 24bpp. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.04b</h2>
+<ol class="maintext">
+  <li>Widget library:
+    <ul type=square>
+      <li>Deleting EDIT or MULTIEDIT widget with blinking cursors cause an undefined behaviour. Problem solved.</li>
+    </ul>
+  </li>
+  <li>JPEG images:
+    <ul type=square>
+      <li>Downscaling does not work correct under certain circumstances. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.04a</h2>
+<ol class="maintext">
+  <li>Simulation:
+    <ul type=square>
+      <li>Reading back pixel information fails if WM is not used. Problem solved.</li>
+    </ul>
+  </li>
+  <li>WM:
+    <ul type=square>
+      <li>Function WM__PaintWinAndOverlays() had no prototype. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.02n</h2>
+<ol class="maintext">
+  <li>LISTVIEW widget:
+    <ul type=square>
+      <li>Under certain circumstances locked handles exist when calling the parents callback function. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.02m</h2>
+<ol class="maintext">
+  <li>Core:
+    <ul type=square>
+      <li>Some drivers require the function LCD__GetColorIndex() which does not exist. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.02l</h2>
+<ol class="maintext">
+  <li>Window manager & alpha blending:
+    <ul type=square>
+      <li>Under certain circumstances the window manager does not recalculate pointers after drawing operations. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.02k</h2>
+<ol class="maintext">
+  <li>LISTVIEW widget:
+    <ul type=square>
+      <li>The header position is not updated correctly when using the thumb area of the scrollbar. Problem solved.</li>
+    </ul>
+  </li>
+  <li>GUIDRV_LIN_xxx_24:
+    <ul type=square>
+      <li>The 24 bit versions of the driver won't work right because of using a wrong address offset. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.02i</h2>
+<ol class="maintext">
+  <li>Simulation:
+    <ul type=square>
+      <li>Under certain circumstances modal dialogs do not receive the release message of a button. Problem solved.</li>
+    </ul>
+  </li>
+  <li>DROPDOWN widget:
+    <ul type=square>
+      <li>Memory locking problem under certain circumstances in DROPDOWN_Expand(). Problem solved.</li>
+    </ul>
+  </li>
+  <li>JPEG decoding:
+    <ul type=square>
+      <li>Under certain circumstances decoding of progressive JPEGS fails. Problem solved.</li>
+    </ul>
+  </li>
+  <li>Core:
+    <ul type=square>
+      <li>Under certain circumstances a pointer in the device structure was not initialized. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.02h</h2>
+<ol class="maintext">
+  <li>ICONVIEW widget:
+    <ul type=square>
+      <li>Under certain circumstances a pointer in the drawing routine became invalid. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.02g</h2>
+<ol class="maintext">
+  <li>Display driver:
+    <ul type=square>
+      <li>Driver migration GUIDRV_6331.c added.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.02f</h2>
+<ol class="maintext">
+  <li>Display driver:
+    <ul type=square>
+      <li>Driver migration GUIDRV_13700.c added.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.02e</h2>
+<ol class="maintext">
+  <li>Streamed bitmaps:
+    <ul type=square>
+      <li>Beta version of drawing streamed bitmaps from non addressable media added.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.02d</h2>
+<ol class="maintext">
+  <li>TREEVIEW widget:
+    <ul type=square>
+      <li>Problem with TREEVIEW_GET_LAST. Problem solved</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.02c</h2>
+<ol class="maintext">
+  <li>General:
+    <ul type=square>
+      <li>Removed some warnings wit IAR compiler.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.02b</h2>
+<ol class="maintext">
+  <li>BMP files:
+    <ul type=square>
+      <li>Drawing BMP files with a negative horizontal position does not work right. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.02a</h2>
+<ol class="maintext">
+  <li>XBF Fonts:
+    <ul type=square>
+      <li>Characters with a negative cursor offset are not shown right. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<h2 class="heading2">Version 5.02</h2>
+<ol class="maintext">
+  <li>VNC:
+    <ul type=square>
+      <li>Connection closed when copying text into clipboard of host. Problem solved.</li>
+    </ul>
+  </li>
+</ol><hr>
+
+<!-------------------------------------------------------------------------->
+<!-- Release history                                                      -->
+<!-------------------------------------------------------------------------->
+<h1 class="newsbox"><a name="history">Release history</a></h1>
+<table class="maintext">
+  
+  <tr> <td width=20%><b>Version</b></td> <td width=30%><b>Release date</b></td> <td><b>Availability</b></td> </tr>
+  <tr> <td>V5.34d</td> <td>2016-07-04</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.34c</td> <td>2016-06-24</td> <td>General release</td> </tr>
+  <tr> <td>V5.34b</td> <td>2016-06-06</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.34a</td> <td>2016-05-25</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.34</td>  <td>2016-04-29</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.32g</td> <td>2016-04-27</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.32f</td> <td>2016-04-18</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.32e</td> <td>2016-04-04</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.32d</td> <td>2016-03-31</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.32c</td> <td>2015-11-12</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.32b</td> <td>2015-11-06</td> <td>General release</td> </tr>
+  <tr> <td>V5.32a</td> <td>2015-11-04</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.32</td>  <td>2015-10-08</td> <td>General release</td> </tr>
+  <tr> <td>V5.30c</td> <td>2015-09-30</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.30b</td> <td>2015-09-15</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.30a</td> <td>2015-08-07</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.30</td>  <td>2015-07-06</td> <td>General release</td> </tr>
+  <tr> <td>V5.28e</td> <td>2015-04-14</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.28d</td> <td>2015-03-24</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.28c</td> <td>2015-02-18</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.28b</td> <td>2015-02-17</td> <td>General release</td> </tr>
+  <tr> <td>V5.28a</td> <td>2015-02-06</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.28</td>  <td>2015-01-27</td> <td>General release</td> </tr>
+  <tr> <td>V5.26d</td> <td>2015-01-15</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.26c</td> <td>2014-12-15</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.26b</td> <td>2014-09-30</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.26a</td> <td>2014-08-20</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.26</td>  <td>2014-08-06</td> <td>General release</td> </tr>
+  <tr> <td>V5.24h</td> <td>2014-06-04</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.24g</td> <td>2014-05-27</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.24f</td> <td>2014-05-14</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.24e</td> <td>2014-04-17</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.24d</td> <td>2014-03-27</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.24c</td> <td>2014-03-04</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.24b</td> <td>2014-02-18</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.24a</td> <td>2014-02-13</td> <td>General release</td> </tr>
+  <tr> <td>V5.24</td>  <td>2014-01-23</td> <td>General release</td> </tr>
+  <tr> <td>V5.22g</td> <td>2014-01-02</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.22f</td> <td>2013-11-19</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.22e</td> <td>2013-11-11</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.22d</td> <td>2013-30-10</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.22c</td> <td>2013-10-14</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.22b</td> <td>2013-09-04</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.22a</td> <td>2013-08-16</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.22</td>  <td>2013-07-02</td> <td>General release</td> </tr>
+  <tr> <td>V5.20h</td> <td>2013-06-21</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.20g</td> <td>2013-06-18</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.20f</td> <td>2013-06-13</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.20e</td> <td>2013-04-24</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.20d</td> <td>2013-04-10</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.20c</td> <td>2013-03-19</td> <td>General release</td> </tr>
+  <tr> <td>V5.20b</td> <td>2013-03-07</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.20a</td> <td>2013-03-01</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.20</td>  <td>2013-02-18</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.18d</td> <td>2012-11-29</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.18c</td> <td>2012-11-06</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.18b</td> <td>2012-10-05</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.18a</td> <td>2012-10-02</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.18</td>  <td>2012-09-17</td> <td>General release</td> </tr>
+  <tr> <td>V5.16d</td> <td>2012-09-04</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.16c</td> <td>2012-08-16</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.16b</td> <td>2012-06-25</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.16a</td> <td>2012-06-21</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.16</td>  <td>2012-06-04</td> <td>General release</td> </tr>
+  <tr> <td>V5.14e</td> <td>2012-05-02</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.14d</td> <td>2012-02-15</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.14c</td> <td>2012-02-08</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.14b</td> <td>2012-02-01</td> <td>General release</td> </tr>
+  <tr> <td>V5.14a</td> <td>2012-01-25</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.14</td>  <td>2011-01-13</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.12i</td> <td>2011-12-16</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.12h</td> <td>2011-10-27</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.12g</td> <td>2011-08-16</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.12f</td> <td>2011-08-16</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.12e</td> <td>2011-08-09</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.12d</td> <td>2011-07-27</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.12c</td> <td>2011-07-25</td> <td>General release</td> </tr>
+  <tr> <td>V5.12b</td> <td>2011-07-21</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.12a</td> <td>2011-07-18</td> <td>General release</td> </tr>
+  <tr> <td>V5.12</td>  <td>2011-06-28</td> <td>General release</td> </tr>
+  <tr> <td>V5.10b</td> <td>2011-05-30</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.10a</td> <td>2011-05-04</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.10</td>  <td>2011-03-30</td> <td>General release</td> </tr>
+  <tr> <td>V5.08e</td> <td>2011-03-09</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.08d</td> <td>2011-03-07</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.08c</td> <td>2011-02-16</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.08b</td> <td>2011-02-08</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.08a</td> <td>2011-01-25</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.08</td>  <td>2011-01-12</td> <td>General release</td> </tr>
+  <tr> <td>V5.06d</td> <td>2011-01-03</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.06c</td> <td>2010-11-30</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.06b</td> <td>2010-11-23</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.06a</td> <td>2010-10-22</td> <td>General release</td> </tr>
+  <tr> <td>V5.06</td>  <td>2010-09-09</td> <td>General release</td> </tr>
+  <tr> <td>V5.04h</td> <td>2010-06-08</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.04g</td> <td>2010-05-16</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.04f</td> <td>2010-04-14</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.04e</td> <td>2010-03-23</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.04d</td> <td>2010-03-08</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.04c</td> <td>2010-02-26</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.04b</td> <td>2010-02-03</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.04a</td> <td>2010-01-14</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.04</td>  <td>2010-01-04</td> <td>General release</td> </tr>
+  <tr> <td>V5.02n</td> <td>2009-12-15</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.02m</td> <td>2009-12-14</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.02l</td> <td>2009-12-10</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.02k</td> <td>2009-11-24</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.02i</td> <td>2009-10-29</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.02h</td> <td>2009-10-09</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.02g</td> <td>2009-10-07</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.02f</td> <td>2009-10-01</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.02e</td> <td>2009-09-24</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.02d</td> <td>2009-09-21</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.02c</td> <td>2009-07-28</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.02b</td> <td>2009-07-23</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.02a</td> <td>2009-07-02</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.02</td>  <td>2009-06-16</td> <td>Point release</td>   </tr>
+  <tr> <td>V5.00</td>  <td>2009-04-02</td> <td>First version covered by this document</td> </tr>
+</table>
+
+<!-------------------------------------------------------------------------->
+<!-- MISCELLANEOUS                                                        -->
+<!-------------------------------------------------------------------------->
+<h1 class="newsbox"><a name="misc">Miscellaneous</a></h1>
+
+<p class="maintext">
+  This document was first released with version 5.00 of the software.
+  Software released earlier is documented internally.
+</p>
+
+<hr>
+
+<br>
+<p class="maintext">
+  Copyright 2016 SEGGER Microcontroller GmbH & Co. KG. All rights reserved.<br>
+  For more information, please visit our website <a href ="http://www.segger.com/">www.segger.com</a> or contact us at <a href ="mailto:info@segger.com">info@segger.com</a><br>
+</p>
+
+</body>
+</html>

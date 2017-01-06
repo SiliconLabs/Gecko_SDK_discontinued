@@ -26,7 +26,7 @@
  *  mbed TLS configuration for Silicon Labs CRYPTO hardware acceleration 
  *
  * @details
- *  mbed TLS configuration is composed of settings in this Silicon Labs specific CRYPTO hardware acceleration file located in mbedtls\configs and the mbed TLS configuration file in mbedtls/include/mbedtls/config.h. 
+ *  mbed TLS configuration is composed of settings in this Silicon Labs specific CRYPTO hardware acceleration file located in mbedtls/configs and the mbed TLS configuration file in mbedtls/include/mbedtls/config.h. 
  *  This configuration can be used as a starting point to evaluate hardware acceleration available on Silicon Labs devices. 
  *
  * @{
@@ -58,9 +58,31 @@
  */
 //#define MBEDTLS_SLCL_PLUGINS
 
-/* Enable MBEDTLS_SLCL_PLUGINS in order to generate documentation: */
-#if defined(DOXY_DOC_ONLY)
-#define MBEDTLS_SLCL_PLUGINS
+/**
+ * \def MBEDTLS_CRYPTO_DEVICE_PREEMPTION
+ *
+ * Enable CRYPTO preemption. The CRYPTO preemption support allows a higher
+ * priority thread to preempt a lower priority thread that currently owns the
+ * CRYPTO module. The context of the lower priority thread will be saved and
+ * restored when the higher priority thread is done and releases the ownership
+ * of CRYPTO.
+ *
+ * Module:  sl_crypto/src/cryptodrv.c
+ *          
+ * Caller:  sl_crypto/src/slcl_aes.c
+ *          sl_crypto/src/slcl_ccm.c
+ *          sl_crypto/src/slcl_cmac.c
+ *          sl_crypto/src/slcl_ecp.c
+ *          sl_crypto/src/slcl_sha1.c
+ *          sl_crypto/src/slcl_sha256.c
+ *
+ * Requires: MBEDTLS_SLCL_PLUGINS
+ *           and (CRYPTO_COUNT > 0)
+ *
+ * Comment/uncomment macros to disable/enable
+ */
+#if defined(MBEDTLS_SLCL_PLUGINS) && defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
+//#define MBEDTLS_CRYPTO_DEVICE_PREEMPTION
 #endif
 
 /**
@@ -156,7 +178,6 @@
 /**
  * \def MBEDTLS_ECP_ALT
  * \def MBEDTLS_ECP_GROUP_LOAD_ALT
- * \def MBEDTLS_CRYPTO_DEVICE_PREEMPTION
  *
  * Enable CRYPTO preemption for the elliptic curve over GF(p) library.
  *
@@ -171,22 +192,22 @@
  *           MBEDTLS_ECP_C,
  *           MBEDTLS_ECP_DEVICE_ALT,
  *           MBEDTLS_SLCL_PLUGINS
+ *           MBEDTLS_CRYPTO_DEVICE_PREEMPTION
  *           at least one MBEDTLS_ECP_DP_XXX_ENABLED
  *           and (CRYPTO_COUNT > 0)
  *
  * Comment/uncomment macros to disable/enable
  */
-#if defined(MBEDTLS_SLCL_PLUGINS) && defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
+#if defined(MBEDTLS_SLCL_PLUGINS) && defined(MBEDTLS_CRYPTO_DEVICE_PREEMPTION) && defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
 #define MBEDTLS_ECP_ALT
 #define MBEDTLS_ECP_GROUP_LOAD_ALT
-//#define MBEDTLS_CRYPTO_DEVICE_PREEMPTION
 #endif
 
 /**
  * \def MBEDTLS_CRYPTO_CRITICAL_REGION_ALT
  *
  * Enable user defined alternative implementation of CRYPTO critical regions
- * (of CRYPTO preemption support).
+ * when CRYPTO preemption is enabled.
  *
  * Module:  sl_crypto/src/cryptodrv.c
  *

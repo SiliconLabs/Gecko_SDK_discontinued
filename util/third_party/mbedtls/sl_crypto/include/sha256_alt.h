@@ -102,7 +102,7 @@ void mbedtls_sha256_free( mbedtls_sha256_context *ctx );
  *   0 if success. Error code if failure, see \ref sha256.h.
  ******************************************************************************/
 int mbedtls_sha256_set_device_instance(mbedtls_sha256_context *ctx,
-                                       int                    devno);
+                                       unsigned int            devno);
 #endif /* #if defined( MBEDTLS_SLCL_PLUGINS ) */
 
 /**

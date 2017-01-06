@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contentItems>
+  <contentItemData label="AN0886 Happy Gecko Low Energy USB Overview" itemURI="file:../an/an0886_efm32hg_low_energy_usb_overview/an0886_efm32hg_low_energy_usb_overview.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.hg"/>
+    <description>On the EFM32HG devices, Silicon Labs has implemented techniques to reduce the amount of power consumed by the USB module and system-level hooks that can reduce the over- all power consumption of the entire device. This document discusses these features and how they can be leveraged to reduce sys- tem power consumption in a USB application. Note that this document assumes some familiarity with USB transfer types and terms.</description>
+  </contentItemData>
+  <contentItemData label="AN0889 Connect Quick Start Guide" itemURI="file:../an/an0889_connect_quickstart_guide/AN889_Connect_QuickStart.pdf">
+    <property key="partCompatibility" value="mcu.arm.ezr32.*"/>
+    <description>The Silicon Labs Connect Stack supports many combinations of radio modulation, fre- quency and data rates--with more combinations available in the future. The implementa- tion provides support for sleepy end-nodes, coordinators and routers and includes capa- bilities necessary to facilitate regulatory compliance such as synchronous frequency hop- ping and Listen Before Talk (LBT) protocols. The stack includes all MAC layer functions such as scanning and joining, setting up of a point-to-point or star network, device types such as end nodes, routers or coordinators, radio configuration, frequency hopping re- quired for regulatory compliance in each geographical region and PHY configuration for each of these regions, With all this functionality already implemented in the stack, the user can focus just on their end application development and not worry about the lower level radio and network details.</description>
+  </contentItemData>
+  <contentItemData label="AN0888 EZR32 Simple TRX Application Quick Start Guide" itemURI="file:../an/an0888_ezr32_quickstart_guide/AN888_EZR32_QuickStart.pdf">
+    <property key="partCompatibility" value="mcu.arm.ezr32.*"/>
+    <description>The EZR32LG and EZR32WG Wireless MCUs are the latest in Silicon Labs family of wireless MCUs delivering a high performance, low energy wireless solution integrated in- to a small form factor package. By combining a high performance sub-GHz RF transceiv- er with an energy efficient 32-bit MCU, the EZR32LG family provides designers the ulti- mate in flexibility with a family of pin-compatible devices that scale with 64/128/256 kB of flash and support Silicon Labs EZRadio or EZRadioPRO transceivers. The ultra-low power operating modes and fast wake-up times of the Silicon Labs energy friendly 32-bit MCUs, combined with the low transmit and receive power consumption of the sub-GHz radio, result in a solution optimized for battery powered applications.</description>
+  </contentItemData>
+  <contentItemData label="AN0878 Methods of Reducing Light Sensitivity in CSP Packages" itemURI="file:../an/an0878_methods_of_reducing_light_sensitivity_in_csp_packages/AN0878.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>This document discusses the effects of light with CSP packages and methods to address these concerns with EFM32 devices.</description>
+  </contentItemData>
+  <contentItemData label="AN0002 Hardware Design Considerations" itemURI="file:../an/an0002_efm32_and_ezr32_hardware_design_considerations/an0002_efm32_and_ezr32_hardware_design_considerations.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>This application note is intended for system designers who require an overview of the hardware design considerations for the EFM32. Topics that are covered specifically are how to provide a robust supply power to the chip, connection to the debug interface and external clock sources.&lt;p/>
+The scope is to provide an introduction to potential design challenges. Reference designs and schematic symbols for the different microcontrollers of the EFM32 family are included.</description>
+  </contentItemData>
+  <contentItemData label="AN0003 UART Bootloader" itemURI="file:../an/an0003_efm32_uart_bootloader/an0003_efm32_uart_bootloader.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>This application note is intended for users of the EFM32 UART bootloader. The bootloader enables users to program the EFM32 through a USART without the need for a debugger. In addition to booting user applications, it offers a destructive write mode, which allows the user to overwrite the bootloader so that the entire flash space can be used for user applications. The contents of the flash can be verified through a CRC checksum and debug lock can be enabled to protect IP. Because the bootloader uses the established XMODEM-CRC protocol for data upload, any serial terminal program can be used to communicate with the bootloader. EFM32 devices which includes a USB peripheral also have a USB bootloader pre-programmed. The USB bootloader is described in the application note &amp;quot;an0042_efm32_usb_uart_bootloader&amp;quot;.</description>
+  </contentItemData>
+  <contentItemData label="AN0004 Clock Management Unit" itemURI="file:../an/an0004_efm32_cmu/an0004_efm32_cmu.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note gives an overview of the CMU module with explanations on how to choose clock sources, prescaling and clock calibration. It also contains information about how to handle oscillators on wake up, external clock sources and RC oscillator calibration.</description>
+  </contentItemData>
+  <contentItemData label="AN0005 Real-Time Counter" itemURI="file:../an/an0005_efm32_rtc/an0005_efm32_rtc.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note describes the RTC and the Backup RTC(BURTC). The software examples includes how to use the RTC and the BURTC to wake up from energy mode 2 (EM2).</description>
+  </contentItemData>
+  <contentItemData label="AN0006 Tickless Calendar with Temperature Compensation" itemURI="file:../an/an0006_efm32_tickless_calendar/an0006_efm32_tickless_calendar.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note describes a tickless calendar with leap year support
+      implemented on the EFM32. 
+      
+      The calendar uses the
+      standard C library time.h where an implementation of the time() function calculates
+      the calendar time based on the RTC counter value.&lt;p/>
+      Software examples for the EFM32TG-STK3300, EFM32GG-STK3700 and
+      EFM32_Gxxx_STK Starter Kits are included.</description>
+  </contentItemData>
+  <contentItemData label="AN0007 Energy Modes" itemURI="file:../an/an0007_efm32_energymodes/an0007_efm32_energymodes.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note describes strategies to reduce current consumption as well as how to enter different energy modes. &lt;p/>
+Additionally the prime number calculation code used in current consumption benchmarking is included.</description>
+  </contentItemData>
+  <contentItemData label="AN0008 USART Synchronous mode" itemURI="file:../an/an0008_efm32_usart-spi/an0008_efm32_usart-spi.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128"/>
+    <description>This application note describes how to use the EFM32G USART in synchronous (SPI) mode.</description>
+  </contentItemData>
+  <contentItemData label="AN0009 Getting Started with EFM32" itemURI="file:../an/an0009_efm32_getting_started/an0009_efm32_getting_started.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32 mcu.arm.efm32.zg.efm32zg222f32"/>
+    <description>This application note is an introduction to development using the EFM32 devices from Energy Micro. The examples can be run on both the EFM32 Gecko Development Kit (DK) and the EFM32 Gecko Starter Kit (STK). The application note is intended as a hands-on tutorial and it is recommended to work through the tasks in the order they are presented.</description>
+  </contentItemData>
+  <contentItemData label="AN0011 I2C Master and Slave Operation" itemURI="file:../an/an0011_efm32_i2c/an0011_efm32_i2c.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128"/>
+    <description>The EFM32 I2C module allows simple, robust and cost effective communication between integrated circuits using only one data and one clock line.
+    
+This application note demonstrates how to use the EFM32 I2C module in multimaster mode. Two EFM32s are connected; each EFM32 will operate in both slave and master mode.</description>
+  </contentItemData>
+  <contentItemData label="AN0012 GPIO" itemURI="file:../an/an0012_efm32_gpio/an0012_efm32_gpio.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note describes how to use the EFM32 GPIO Module to configure port pins. Modes include digital I/O, analog input, interrupt and PRS input and alternative functions (peripheral usage).</description>
+  </contentItemData>
+  <contentItemData label="AN0013 Direct Memory Access" itemURI="file:../an/an0013_efm32_dma/an0013_efm32_dma.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.wg.efm32wg990f256"/>
+    <description>This application note demonstrates how to use the Direct Memory Access (DMA) in
+the EFM32. Several software examples are provided that shows how to use the DMA
+with the ADC, UART, SPI etc. using the various transfer modes of the DMA.</description>
+  </contentItemData>
+  <contentItemData label="AN0014 TIMER" itemURI="file:../an/an0014_efm32_timer/an0014_efm32_timer.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note gives an overview of the EFM32 TIMER module, followed by explanations on how to configure and use its primary functions, including up/down count, input capture, output compare and PWM.</description>
+  </contentItemData>
+  <contentItemData label="AN0015 Watchdog" itemURI="file:../an/an0015_efm32_watchdog/an0015_efm32_watchdog.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note demonstrates how to use the Watchdog module on the EFM32G microcontrollers. This includes initializing the Watchdog, a basic setup for operation, and ways to utilize the added Watchdog functionality in more advanced applications.</description>
+  </contentItemData>
+  <contentItemData label="AN0016 Oscillator Design Considerations" itemURI="file:../an/an0016_efm32_oscillator_design_considerations/an0016_efm32_oscillator_design_considerations.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>Modern computer technology relies on a clock signal to synchronize data processing and communication. The stability over time and temperature for the oscillator used to provide this clock is essential for the microcontroller to operate as expected. In addition, the choice of components in the load circuit affects cost and power consumption of the design. Choosing the correct crystal and load capacitors can be a challenging task, but failing to so may result in a faulty design.&lt;p/>
+The scope of this application note is to provide an introduction to oscillators and provide guidelines in selecting correct components for the oscillator circuit. Topics covered include oscillator theory and some recommended crystals for the EFM32G devices.</description>
+  </contentItemData>
+  <contentItemData label="AN0017 Low Energy UART" itemURI="file:../an/an0017_efm32_leuart/an0017_efm32_leuart.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128"/>
+    <description>This application note demonstrates how to use the Low Energy UART (LEUART) module on the EFM32G microcontrollers. The LEUART is able to run full UART communication even when the device is in deep sleep mode EM2. Together with intelligent interrupt functions and flexible DMA integration, this enables simple and energy friendly communication.</description>
+  </contentItemData>
+  <contentItemData label="AN0018 Supply Voltage Monitoring" itemURI="file:../an/an0018_efm32_supply_voltage_monitoring/an0018_efm32_supply_voltage_monitoring.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>Battery powered devices will eventually experience power loss unless the battery is replaced or recharged on a regular basis. In many such applications it is desirable to communicate that a power failure is imminent or to save data to non-volatile memory before the battery runs out. Some equipment may also require the source voltage to be within a certain range to operate safely.&lt;p/>
+This application note will demonstrate how to use the EFM32G Reset Management Unit and the Voltage Comparator to read the reset cause register and monitor the supply voltage.</description>
+  </contentItemData>
+  <contentItemData label="AN0019 EEPROM Emulation" itemURI="file:../an/an0019_efm32_eeprom_emulation/an0019_efm32_eeprom_emulation.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note demonstrates a way to use the flash memory of the EFM32G to emulate single variable rewritable EEPROM memory through software. The example API provided enables reading and writing of single variables to non-volatile flash memory. The erase-rewrite algorithm distributes page erases and thereby doing wear leveling.</description>
+  </contentItemData>
+  <contentItemData label="AN0020 Analog Comparator" itemURI="file:../an/an0020_efm32_analog_comparator/an0020_efm32_analog_comparator.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note describes how to use the EFM32 Analog Comparator Module to compare the voltage of two analog inputs, trigger interrupts or use two comparators for window mode.</description>
+  </contentItemData>
+  <contentItemData label="AN0021 Analog to Digital Converter" itemURI="file:../an/an0021_efm32_adc/an0021_efm32_adc.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note describes how to use the EFM32G Analog to Digital Converter to convert an analog input voltage to a digital value. Many aspects of the ADC, including inputs, references and the different operating modes are described. Calibration routines for offset and gain are also included.</description>
+  </contentItemData>
+  <contentItemData label="AN0022 Digital to Analog Converter" itemURI="file:../an/an0022_efm32_dac/an0022_efm32_dac.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note describes how to use the EFM32G Digital to Analog Converter. The features of the Digital to Analog Converter are described, and the software examples include both a signal generator and audio playback using Direct Memory Access.</description>
+  </contentItemData>
+  <contentItemData label="AN0024 Pulse Counter" itemURI="file:../an/an0024_efm32_pcnt/an0024_efm32_pcnt.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note describes how to configure and use the different modes in the EFM32G Pulse Counter, select clock sources and use the available interrupts to achieve high energy efficiency.</description>
+  </contentItemData>
+  <contentItemData label="AN0025 Peripheral Reflex System" itemURI="file:../an/an0025_efm32_prs/an0025_efm32_prs.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note describes the Peripheral Reflex System features and how these can be used to improve your system's energy performance, reduce CPU workload and latency. A few examples are presented and described in detail.</description>
+  </contentItemData>
+  <contentItemData label="AN0026 Low Energy Timer" itemURI="file:../an/an0026_efm32_letimer/an0026_efm32_letimer.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note gives an overview of the Low Energy Timer (LETIMER) and demonstrates how to use its features to generate pulses, PWM and other waveforms while remaining in EM2 to achieve high energy efficiency.</description>
+  </contentItemData>
+  <contentItemData label="AN0027 Energy Optimization" itemURI="file:../an/an0027_efm32_energy_optimization/an0027_efm32_energy_optimization.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>This application note is a guide to the most effective ways to reduce energy
+consumption in EFM32 applications. By both lowering dynamic and static power
+consumption and minimizing the time spent in active modes the overall energy
+consumption can be reduced. Hardware and software tools to help identify and
+remove energy bugs are also presented.</description>
+  </contentItemData>
+  <contentItemData label="AN0028 Low Energy Sensor Interface - Capacitive Sense" itemURI="file:../an/an0028_efm32_lesense_capacitive_sense/an0028_efm32_lesense_capacitive_sense.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note covers the basics of capacitive sense and 
+            describes how to use the Low Energy Sensor Interface (LESENSE) to scan a number of capacitive
+            sensors while remaining in EM2.</description>
+  </contentItemData>
+  <contentItemData label="AN0029 Low Energy Sensor Interface - Inductive Sense" itemURI="file:../an/an0029_efm32_lesense_lc_sense/an0029_efm32_lesense_lc_sense.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note covers the basics of inductive sensing (LC) and 
+            describes how to use the Low Energy Sensor Interface (LESENSE) to scan a number of LC
+            sensors while remaining in EM2.</description>
+  </contentItemData>
+  <contentItemData label="AN0030 FAT on SD Card" itemURI="file:../an/an0030_efm32_fat_on_sd_card/an0030_efm32_fat_on_sd_card.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g290f128 mcu.arm.efm32.g.efm32g890f128"/>
+    <description>This application note explains how to interface with an SD card with FAT file system using SPI.</description>
+  </contentItemData>
+  <contentItemData label="AN0031 Kit Prototyping PCB Library" itemURI="file:../an/an0031_efm32_kit_prototyping_library/an0031_efm32_kit_prototyping_library.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>This application note describes how anyone can make their own custom prototyping boards that can be connected directly with the EFM32 kits. 
+Both mechanical dimensions and PCB design files for development kit prototyping board and starter kit prototyping board are included.</description>
+  </contentItemData>
+  <contentItemData label="AN0032 Ethernet" itemURI="file:../an/an0032_efm32_ethernet/an0032_efm32_ethernet.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128"/>
+    <description>This application note implements an embedded http web server on the EFM32. The
+    ethernet PHY is implement with an ASIX AX88796C Ethernet Controller.</description>
+  </contentItemData>
+  <contentItemData label="AN0033 AES Cipher Modes with EFM32" itemURI="file:../an/an0033_efm32_aes_cipher_modes/aes_cbc.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.wg.efm32wg990f256"/>
+    <description>This application note describes how to implement several cryptographic cipher modes with the Advanced Encryption Standard (AES) on the EFM32 microcontrollers using the built-in AES hardware accelerator.</description>
+  </contentItemData>
+  <contentItemData label="AN0034 External Bus Interface" itemURI="file:../an/an0034_efm32_ebi/an0034_efm32_ebi.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.g.efm32g290f128 mcu.arm.efm32.gg.efm32gg990f1024"/>
+    <description>This application note shows how to use the EBI module in the EFM32 and access
+    an external SRAM on board the DK</description>
+  </contentItemData>
+  <contentItemData label="AN0036 Low Energy Sensor Interface - Resistive Sense" itemURI="file:../an/an0036_efm32_lesense_resistive_sense/an0036_efm32_lesense_resistive_sense.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note covers the basics of analog and 
+            describes how to use the Low Energy Sensor Interface (LESENSE) to scan a number of resistive
+            sensors while remaining in EM2.</description>
+  </contentItemData>
+  <contentItemData label="AN0038 Operational Amplifiers" itemURI="file:../an/an0038_efm32_operational_amplifiers/an0038_efm32_operational_amplifiers.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note covers the basics of the operational amplifiers in the EFM32 and how they can be configured in the most common setups.</description>
+  </contentItemData>
+  <contentItemData label="AN0039 Interrupt Handling" itemURI="file:../an/an0039_efm32_interrupt_handling/an0039_efm32_interrupt_handling.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note is an introduction to interrupts and wake-up handling in the EFM32. It includes ways to optimize for low latency wake-up, interrupt prioritization and energy saving operation.</description>
+  </contentItemData>
+  <contentItemData label="AN0040 Hardware Design for Capacitive Touch" itemURI="file:../an/an0040_efm32_capacitive_sense_hw_design/an0040_efm32_capacitive_sense_hw_design.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>This application note covers the basics of hardware design for capacitive touch
+    sensing with the EFM32 microcontrollers.</description>
+  </contentItemData>
+  <contentItemData label="AN0041 Backup Power Domain" itemURI="file:../an/an0041_efm32_backup_power_domain/an0041_efm32_backup_power_domain.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024"/>
+    <description>This application note describes how to use the EFM32 Backup Power Domain and Backup Real Time
+      Counter. An included software example for the Giant Gecko Development Kit EFM32GG-DK3750
+      demonstrates how to configure and use these features for time-keeping while running on backup
+      power.</description>
+  </contentItemData>
+  <contentItemData label="AN0042 USB-UART Bootloader" itemURI="file:../an/an0042_efm32_usb_uart_bootloader/an0042_efm32_usb_uart_bootloader.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>This application note is intended for users of the bootloader in USB enabled EFM32s. The bootloader enables users to program the EFM32 through an UART or an USB CDC class virtual UART without the need for a debugger. In addition to booting user applications, it offers a destructive write mode, which allows the user to overwrite the bootloader so that the entire flash space can be used for user applications. The contents of the flash can be verified through a CRC checksum and debug lock can be enabled to protect IP. Because the bootloader uses the established XMODEM-CRC protocol for data upload, any serial terminal program can be used to communicate with the bootloader.</description>
+  </contentItemData>
+  <contentItemData label="AN0043 Debug and Trace" itemURI="file:../an/an0043_efm32_debug_trace_capabilities/an0043_efm32_debug_trace_capabilities.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note gives an overview of the different software debug functions available 
+with the EFM32 microcontrollers. Both the hardware connection and software configuration for 
+Serial Wire Debug and Instruction Trace are described and demonstrated in the included software examples.</description>
+  </contentItemData>
+  <contentItemData label="AN0045 USART or UART Asynchronous mode" itemURI="file:../an/an0045_efm32_uart_rs-232/an0045_efm32_uart_rs-232.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024"/>
+    <description>This application note describes how to configure the EFM32 UART or USART to operate in asynchronous mode. &lt;p/>
+An included software example for the EFM32GG-DK3750 Giant Gecko Development Kit hows how to implement interrupt driven receive and transmit, utilizing the on-board RS-232 transceiver.</description>
+  </contentItemData>
+  <contentItemData label="AN0046 USB Hardware Design Guide" itemURI="file:../an/an0046_efm32_usb_hardware_design_guidelines/an0046_efm32_usb_hardware_design_guidelines.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>This application note gives recommendations on hardware design for implementing USB host and device applications using USB capable EFM32 microcontrollers.</description>
+  </contentItemData>
+  <contentItemData label="AN0047 Interfacing Graphical Displays" itemURI="file:../an/an0047_efm32_graphical_display/an0047_efm32_graphical_display.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024"/>
+    <description>This application note demonstrates how to drive a graphical display with the EFM32 microcontrollers.&lt;p/>
+Using the QVGA TFT-LCD on the EFM32GG-DK3750 Development Kit, the examples include how to drive the display in 8080 mode, and in RGB mode using the integrated Direct Drive feature.&lt;p/>
+It will be shown how to set up the SEGGER emWin Graphical Library that Energy Micro provides for free to all our customers.</description>
+  </contentItemData>
+  <contentItemData label="AN0048 Energy Optimized Display Application" itemURI="file:../an/an0048_efm32_energy_friendly_display/an0048_efm32_energy_friendly_display.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024"/>
+    <description>This application note shows how the EFM32 can be used to create an application that requires a high resolution graphical display, yet still maintains a low power consumption.</description>
+  </contentItemData>
+  <contentItemData label="AN0051 Digital Signal Processing with the EFM32" itemURI="file:../an/an0051_efm32_dsp/an0051_efm32_dsp.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024"/>
+    <description>This application note shows how to perform Digital Signal Processing (DSP) on the EFM32 using the DSP library provided with CMSIS in Simplicity Studio.</description>
+  </contentItemData>
+  <contentItemData label="AN0052 USB MSD Host Bootloader" itemURI="file:../an/an0052_efm32_usb_msd_host_bootloader/an0052_efm32_usb_msd_host_bootloader.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024"/>
+    <description>This application note describes how to implement a MSD (Mass Storage Device) host bootloader in a USB enabled EFM32 to update the EFM32 firmware from a binary image on an attached USB MSD device. Note that the bootloader described in this application note is NOT pre-programmed in any EFM32s.</description>
+  </contentItemData>
+  <contentItemData label="AN0053 IR Sensor Monitoring Using LESENSE" itemURI="file:../an/an0053_efm32_ir_sensor_lesense/an0053_efm32_ir_sensor_lesense.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024"/>
+    <description>This application note covers the basic theory of monitoring infrared (IR) photo sensors with EFM32 microcontrollers. It describes how to set up the Low Energy Sensor Interface (LESENSE) and create a circuit both for photo interruption and proximity detection while remaining in EM2, achieving current consumption around 5 uA.</description>
+  </contentItemData>
+  <contentItemData label="AN0054 Smart Phone Audio Jack Interface" itemURI="file:../an/an0054_efm32_phone_audio_jack_interface/an0054_efm32_phone_audio_jack_interface.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note describes how to connect the EFM32 Tiny Gecko microcontroller with a smart phone using the 
+audio jack interface of the phone. It demonstrates how the EFM32 can communicate and harvest power from the phone.
+This enables advanced smart phone accessories that does not require batteries.</description>
+  </contentItemData>
+  <contentItemData label="AN0055 Speex Codec" itemURI="file:../an/an0055_efm32_speex_codec/an0055_efm32_speex_codec.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024"/>
+    <description>Speex is a free audio codec which provides high level of compression with
+good sound quality for speech encoding and decoding. This application note
+demonstrates an energy efficient Speex solution on an EFM32GG for applications
+requiring voice recording or playback.</description>
+  </contentItemData>
+  <contentItemData label="AN0057 EFM32 Segment LCD Driver" itemURI="file:../an/an0057_efm32_segment_lcd/an0057_efm32_segment_lcd.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note provides a description of how passive segment LCD displays work and how they can be interfaced with the EFM32.</description>
+  </contentItemData>
+  <contentItemData label="AN0059 UART Flow Control" itemURI="file:../an/an0059_efm32_uart_flow_control/an0059_efm32_uart_flow_control.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024"/>
+    <description>This application note describes how to implement hardware or software flow control for UART.</description>
+  </contentItemData>
+  <contentItemData label="AN0060 Bootloader with AES Encryption" itemURI="file:../an/an0060_efm32_aes_bootloader/an0060_efm32_aes_bootloader.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024"/>
+    <description>This application note describes the implementation of a bootloader capable of accepting AES encrypted firmware updates. The full source code for a bootloader as well as a tool for encrypting firmware images on a PC are included.</description>
+  </contentItemData>
+  <contentItemData label="AN0061 Using EFM32 in Energy Harvesting Applications" itemURI="file:../an/an0061_efm32_energy_harvesting/an0061_efm32_energy_harvesting.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note presents considerations on hardware and software design when powering EFM32 microcontrollers from an energy harvesting source.</description>
+  </contentItemData>
+  <contentItemData label="AN0062 Programming Internal Flash Over the Serial Wire Debug Interface" itemURI="file:../an/an0062_efm32_programming_guide/an0062_efm32_programming_guide.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024"/>
+    <description>This document explains how to access the debug interface of the EFM32 and
+    how to use this interface to program devices (load applications into flash). It also
+    explains how to lock and unlock debug access to the MCU to protect the contents
+    of the internal flash and SRAM.</description>
+  </contentItemData>
+  <contentItemData label="AN0063 Driving Electronic Paper Displays (E-paper)" itemURI="file:../an/an0063_efm32_epd/an0063_efm32_epd.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024"/>
+    <description>This application note shows how to drive an Electronic Paper 
+    Display (EPD) with the EFM32. The application note makes use of an 
+    EPD extension board made by Pervasive Displays which is connected 
+    to the EFM32GG-STK3700 Starter Kit.</description>
+  </contentItemData>
+  <contentItemData label="AN0064 Current Digital to Analog Converter" itemURI="file:../an/an0064_efm32_idac/an0064_efm32_idac.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.zg.efm32zg222f32"/>
+    <description>This application note describes how to use the EFM32 Current Digital to Analog
+Converter (IDAC), a peripheral that can source or sink a configurable constant
+current.&lt;p/>
+The general operation of the peripheral is explained and software examples include
+using PRS to control the IDAC, a calibration routine for a given current output and a
+demonstration on how to use the module to measure absolute capacitance.</description>
+  </contentItemData>
+  <contentItemData label="AN0065 EFM32 as USB Device" itemURI="file:../an/an0065_efm32_usb_device/an0065_efm32_usb_device.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024"/>
+    <description>This application note introduces the EFM32 USB Device stack and explains how to
+		configure the EFM32 to act as a USB Device.</description>
+  </contentItemData>
+  <contentItemData label="AN0801 EFM32 as USB Host" itemURI="file:../an/an0801_efm32_usb_host/an0801_efm32_usb_host.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024"/>
+    <description>This application note introduces the EFM32 USB Host stack and explains how to configure the EFM32 as a USB Host.</description>
+  </contentItemData>
+  <contentItemData label="AN0806 Fortuna Cryptographically Secure PRNG" itemURI="file:../an/an0806_efm32_fortuna_prng/an0806_efm32_fortuna_prng.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>This application note describes how to get started running the
+    Fortuna cryptographically secure pseudo random number generator (PRNG) on
+    the EFM32 family of microcontrollers from Silicon Labs.</description>
+  </contentItemData>
+  <contentItemData label="AN0816 Brushless DC Motor Control" itemURI="file:../an/an0816_efm32_bldc/an0816_efm32_bldc.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024"/>
+    <description>This application note shows how to drive a brushless DC (BLDC) motor with the EFM32. It includes firmware for a BLDC controller and a GUI tool to monitor and control the motor. Both Hall-sensor and sensorless control are supported.
+		The firmware is written to run on a EFM32GG-DK3750 connected to a Silicon Labs C8051F850 Motor Control Reference Design Board.</description>
+  </contentItemData>
+  <contentItemData label="AN0817 EFM32 with SI446x" itemURI="file:../an/an0817_efm32_with_si446x/AN0817Rev0.2.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>This application note summarizes how to use Silicon Laboratories' Si4x6x radios with the EFM32LG Leopard Gecko and EFM32TG Tiny Gecko MCU starter kits.</description>
+  </contentItemData>
+  <contentItemData label="AN0820 USB Smart Card Reader" itemURI="file:../an/an0820_efm32_smart_card/an0820_efm32_smart_card.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024"/>
+    <description>This application note gives an overview of the ISO/IEC-7816 smart card standard and a short introduction to the communication and protocol of a smart card. Along with this document there is a working example of a smart card-reader, implemented using the EFM32.</description>
+  </contentItemData>
+  <contentItemData label="AN0861 LUFA USB Stack CDC Demo" itemURI="file:../an/an0861_efm32_lufa_usb_cdc/an0861_efm32_lufa_usb_cdc.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.gg.efm32gg990f1024"/>
+    <description>This application note introduces the LUFA USB stack running on the EFM32
+platform. Software examples implementing LUFA USB Communication Device
+Class (CDC) on the EFM32GG-DK3750 and the EFM32GG-STK3700 are also
+included.</description>
+  </contentItemData>
+  <contentItemData label="AN0918 EFM32 Gemstones Compatibility and Migration" itemURI="file:../an/an0918_gemstones_compatibility/an0918_gemstones_compatibility.pdf">
+  	<property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>The purpose of this application note is to help users migrating an existing design from EFM32 to the EFM32 Gemstones.
+    </description>
+  </contentItemData>
+  <contentItemData label="AN0948 EFM32 Power Configurations" itemURI="file:../an/an0948_efm32_power_configurations/an0948_efm32_power_configurations.pdf">
+  	<property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>The purpose of this application note is to help users use the EFM32 Gemstones DC-to-DC converter (DCDC) to convert a DC input voltage to a regulated DC output voltage.
+    </description>
+  </contentItemData>
+  <contentItemData label="AN0955 EFM32 Crypto Gemstones" itemURI="file:../an/an0955_crypto_acceleration_efm32_gemstones/an0955_crypto_acceleration_efm32_gemstones.pdf">
+  	<property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>The purpose of this application note is to help users use the EFM32 Gemstones CRYPTO acceleration module of the EFM32 Gemstones, including support for ECC, SHA, AES block ciphers, and authenticated encryption algorithms.
+    </description>
+  </contentItemData>
+  <contentItemData label="ARM0234 Migrating from PIC Microcontrollers to Cortex-M3" itemURI="file:../an/arm0234_migrating_from_pic_to_m3/arm0234_migrating_from_pic_to_m3.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>This is an ARM application note covering the most important topics when migrating from a PIC microcontroller to an ARM Cortex M3.</description>
+  </contentItemData>
+  <contentItemData label="TM0007 Introduction to EFM32 API" itemURI="file:../an/tm0007_api_intro/tm0007_api_intro.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>In this exercise you will learn how to write some basic programs for the EFM32 and how to find the relevant documentation.</description>
+  </contentItemData>
+  <contentItemData label="TM0008 Interrupts and Energy Modes" itemURI="file:../an/tm0008_interrupts_energy_modes/tm0008_interrupts_energy_modes.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.g.efm32g890f128 mcu.arm.efm32.gg.efm32gg990f1024 mcu.arm.efm32.tg.efm32tg840f32"/>
+    <description>In this exercise we will extend the basic EMF32 programming concepts to include interrupts and energy modes.</description>
+  </contentItemData>
+  <contentItemData label="TM0010 Low Energy Sensor Interface" itemURI="file:../an/tm0010_lesense/tm0010_lesense.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>In this exercise we will learn how to use the Low Energy Sensor Interface (LESENSE) by modifying different application note examples.</description>
+  </contentItemData>
+  <contentItemData label="WP0001 EFM32 Introduction" itemURI="file:../an/wp0001_efm32_introduction/wp0001_efm32_introduction.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>This white paper gives an introduction to the EFM32 and the features that make them the world's most energy friendly microcontrollers.</description>
+  </contentItemData>
+  <contentItemData label="WP0002 EFM32 Energy Debugging" itemURI="file:../an/wp0002_efm32_energy_debugging/wp0002_efm32_energy_debugging.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>This white paper introduces the energy debugging features of the Energy Micro developmen tools for the EFM32 microcontrollers. 
+The Advanced Energy Measurement (AEM) coupled with the energyAware Profiler lets the user to correlate the measured current consumption with the software running on the EFM32, allowing energy bugs to be found at an early stage of development.</description>
+  </contentItemData>
+  <contentItemData label="WP0003 - Smart Capacitive Touch and Gesture Detection in sub-uA Deep Sleep Mode" itemURI="file:../an/wp0003_efm32_capacitive_touch_and_gesture_detection/wp0003_efm32_capacitive_touch_and_gesture_detection.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>This white paper introduces the Low Energy Sensor Interface, LESENSE as a solution to low power sensor monitoring. 
+It describes how LESENSE operate for several different types of capacitive sensing applications.
+Typical current consumption for the different applications is also discussed.</description>
+  </contentItemData>
+  <contentItemData label="WP0004 - Efficient Metal Detection and Inductive Sensor Monitoring in sub-uA Deep Sleep Mode" itemURI="file:../an/wp0004_efm32_metal_detection_and_inductive_sensing/wp0004_efm32_metal_detection_and_inductive_sensing.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>This white paper introduces the Low Energy Sensor Interface, LESENSE as a solution to low power sensor monitoring. 
+It describes how LESENSE operate for several different types of inductive sensing applications.
+Typical current consumption for the different applications is also discussed.</description>
+  </contentItemData>
+  <contentItemData label="WP0005 - Fast Wake up on Analog Events and Autonomous Rotational Tracking in sub-uA Deep Sleep Mode" itemURI="file:../an/wp0005_efm32_resistive_sensing_and_wake_up/wp0005_efm32_resistive_sensing_and_wake_up.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>This white paper introduces the Low Energy Sensor Interface, LESENSE as a solution to low power sensor monitoring. 
+It describes how LESENSE operate for several different types of resistive sensing applications.
+Typical current consumption for the different applications is also discussed.</description>
+  </contentItemData>
+  <contentItemData label="WP0006 - Implementing Low Power Graphical User Interfaces with Microcontrollers" itemURI="file:../an/wp0006_efm32_low_power_graphical_displays/wp0006_efm32_low_power_graphical_displays.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>This white paper discusses low power graphical displays and to create a graphical user interface with minimum power consumption.</description>
+  </contentItemData>
+  <contentItemData label="WP0007 - Introducing the EFM32 Wonder Gecko" itemURI="file:../an/wp0007_efm32_wonder_gecko/wp0007_efm32_wonder_gecko.pdf">
+    <property key="partCompatibility" value="mcu.arm.efm32.*"/>
+    <description>This white paper describes the benefit of having signal processing capabilities in an energy friendly MCU</description>
+  </contentItemData>
+</contentItems>
