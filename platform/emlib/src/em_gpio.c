@@ -148,7 +148,7 @@ void GPIO_DriveStrengthSet(GPIO_Port_TypeDef port,
  *   by this function.
  *
  * @note
- *   On platform 1 devices the pin number parameter is not used. The
+ *   On platform 1 devices the port parameter is not used. The
  *   pin number used on these devices is hardwired to the interrupt with the
  *   same number. @n
  *   On platform 2 devices, pin number can be selected freely within a group.
