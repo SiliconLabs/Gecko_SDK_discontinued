@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file efr32mg12p_lesense.h
  * @brief EFR32MG12P_LESENSE register and bit field definitions
- * @version 5.0.0
+ * @version 5.1.2
  ******************************************************************************
  * @section License
- * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -257,17 +257,17 @@ typedef struct
 /* Bit fields for LESENSE PERCTRL */
 #define _LESENSE_PERCTRL_RESETVALUE                    0x00000000UL                                        /**< Default value for LESENSE_PERCTRL */
 #define _LESENSE_PERCTRL_MASK                          0x3FF0014FUL                                        /**< Mask for LESENSE_PERCTRL */
-#define LESENSE_PERCTRL_DACCH0EN                       (0x1UL << 0)                                        /**< DAC CH0 enable. */
+#define LESENSE_PERCTRL_DACCH0EN                       (0x1UL << 0)                                        /**< VDAC CH0 enable. */
 #define _LESENSE_PERCTRL_DACCH0EN_SHIFT                0                                                   /**< Shift value for LESENSE_DACCH0EN */
 #define _LESENSE_PERCTRL_DACCH0EN_MASK                 0x1UL                                               /**< Bit mask for LESENSE_DACCH0EN */
 #define _LESENSE_PERCTRL_DACCH0EN_DEFAULT              0x00000000UL                                        /**< Mode DEFAULT for LESENSE_PERCTRL */
 #define LESENSE_PERCTRL_DACCH0EN_DEFAULT               (_LESENSE_PERCTRL_DACCH0EN_DEFAULT << 0)            /**< Shifted mode DEFAULT for LESENSE_PERCTRL */
-#define LESENSE_PERCTRL_DACCH1EN                       (0x1UL << 1)                                        /**< DAC CH1 enable. */
+#define LESENSE_PERCTRL_DACCH1EN                       (0x1UL << 1)                                        /**< VDAC CH1 enable. */
 #define _LESENSE_PERCTRL_DACCH1EN_SHIFT                1                                                   /**< Shift value for LESENSE_DACCH1EN */
 #define _LESENSE_PERCTRL_DACCH1EN_MASK                 0x2UL                                               /**< Bit mask for LESENSE_DACCH1EN */
 #define _LESENSE_PERCTRL_DACCH1EN_DEFAULT              0x00000000UL                                        /**< Mode DEFAULT for LESENSE_PERCTRL */
 #define LESENSE_PERCTRL_DACCH1EN_DEFAULT               (_LESENSE_PERCTRL_DACCH1EN_DEFAULT << 1)            /**< Shifted mode DEFAULT for LESENSE_PERCTRL */
-#define LESENSE_PERCTRL_DACCH0DATA                     (0x1UL << 2)                                        /**< DAC CH0 data selection. */
+#define LESENSE_PERCTRL_DACCH0DATA                     (0x1UL << 2)                                        /**< VDAC CH0 data selection. */
 #define _LESENSE_PERCTRL_DACCH0DATA_SHIFT              2                                                   /**< Shift value for LESENSE_DACCH0DATA */
 #define _LESENSE_PERCTRL_DACCH0DATA_MASK               0x4UL                                               /**< Bit mask for LESENSE_DACCH0DATA */
 #define _LESENSE_PERCTRL_DACCH0DATA_DEFAULT            0x00000000UL                                        /**< Mode DEFAULT for LESENSE_PERCTRL */
@@ -276,7 +276,7 @@ typedef struct
 #define LESENSE_PERCTRL_DACCH0DATA_DEFAULT             (_LESENSE_PERCTRL_DACCH0DATA_DEFAULT << 2)          /**< Shifted mode DEFAULT for LESENSE_PERCTRL */
 #define LESENSE_PERCTRL_DACCH0DATA_DACDATA             (_LESENSE_PERCTRL_DACCH0DATA_DACDATA << 2)          /**< Shifted mode DACDATA for LESENSE_PERCTRL */
 #define LESENSE_PERCTRL_DACCH0DATA_THRES               (_LESENSE_PERCTRL_DACCH0DATA_THRES << 2)            /**< Shifted mode THRES for LESENSE_PERCTRL */
-#define LESENSE_PERCTRL_DACCH1DATA                     (0x1UL << 3)                                        /**< DAC CH1 data selection. */
+#define LESENSE_PERCTRL_DACCH1DATA                     (0x1UL << 3)                                        /**< VDAC CH1 data selection. */
 #define _LESENSE_PERCTRL_DACCH1DATA_SHIFT              3                                                   /**< Shift value for LESENSE_DACCH1DATA */
 #define _LESENSE_PERCTRL_DACCH1DATA_MASK               0x8UL                                               /**< Bit mask for LESENSE_DACCH1DATA */
 #define _LESENSE_PERCTRL_DACCH1DATA_DEFAULT            0x00000000UL                                        /**< Mode DEFAULT for LESENSE_PERCTRL */
@@ -285,7 +285,7 @@ typedef struct
 #define LESENSE_PERCTRL_DACCH1DATA_DEFAULT             (_LESENSE_PERCTRL_DACCH1DATA_DEFAULT << 3)          /**< Shifted mode DEFAULT for LESENSE_PERCTRL */
 #define LESENSE_PERCTRL_DACCH1DATA_DACDATA             (_LESENSE_PERCTRL_DACCH1DATA_DACDATA << 3)          /**< Shifted mode DACDATA for LESENSE_PERCTRL */
 #define LESENSE_PERCTRL_DACCH1DATA_THRES               (_LESENSE_PERCTRL_DACCH1DATA_THRES << 3)            /**< Shifted mode THRES for LESENSE_PERCTRL */
-#define LESENSE_PERCTRL_DACSTARTUP                     (0x1UL << 6)                                        /**< DAC startup configuration */
+#define LESENSE_PERCTRL_DACSTARTUP                     (0x1UL << 6)                                        /**< VDAC startup configuration */
 #define _LESENSE_PERCTRL_DACSTARTUP_SHIFT              6                                                   /**< Shift value for LESENSE_DACSTARTUP */
 #define _LESENSE_PERCTRL_DACSTARTUP_MASK               0x40UL                                              /**< Bit mask for LESENSE_DACSTARTUP */
 #define _LESENSE_PERCTRL_DACSTARTUP_DEFAULT            0x00000000UL                                        /**< Mode DEFAULT for LESENSE_PERCTRL */
@@ -294,7 +294,7 @@ typedef struct
 #define LESENSE_PERCTRL_DACSTARTUP_DEFAULT             (_LESENSE_PERCTRL_DACSTARTUP_DEFAULT << 6)          /**< Shifted mode DEFAULT for LESENSE_PERCTRL */
 #define LESENSE_PERCTRL_DACSTARTUP_FULLCYCLE           (_LESENSE_PERCTRL_DACSTARTUP_FULLCYCLE << 6)        /**< Shifted mode FULLCYCLE for LESENSE_PERCTRL */
 #define LESENSE_PERCTRL_DACSTARTUP_HALFCYCLE           (_LESENSE_PERCTRL_DACSTARTUP_HALFCYCLE << 6)        /**< Shifted mode HALFCYCLE for LESENSE_PERCTRL */
-#define LESENSE_PERCTRL_DACCONVTRIG                    (0x1UL << 8)                                        /**< DAC conversion trigger configuration */
+#define LESENSE_PERCTRL_DACCONVTRIG                    (0x1UL << 8)                                        /**< VDAC conversion trigger configuration */
 #define _LESENSE_PERCTRL_DACCONVTRIG_SHIFT             8                                                   /**< Shift value for LESENSE_DACCONVTRIG */
 #define _LESENSE_PERCTRL_DACCONVTRIG_MASK              0x100UL                                             /**< Bit mask for LESENSE_DACCONVTRIG */
 #define _LESENSE_PERCTRL_DACCONVTRIG_DEFAULT           0x00000000UL                                        /**< Mode DEFAULT for LESENSE_PERCTRL */
@@ -399,7 +399,7 @@ typedef struct
 #define _LESENSE_DECCTRL_PRSCNT_MASK                   0x80UL                                    /**< Bit mask for LESENSE_PRSCNT */
 #define _LESENSE_DECCTRL_PRSCNT_DEFAULT                0x00000000UL                              /**< Mode DEFAULT for LESENSE_DECCTRL */
 #define LESENSE_DECCTRL_PRSCNT_DEFAULT                 (_LESENSE_DECCTRL_PRSCNT_DEFAULT << 7)    /**< Shifted mode DEFAULT for LESENSE_DECCTRL */
-#define LESENSE_DECCTRL_INPUT                          (0x1UL << 8)                              /**<  */
+#define LESENSE_DECCTRL_INPUT                          (0x1UL << 8)                              /**< LESENSE decoder input configuration */
 #define _LESENSE_DECCTRL_INPUT_SHIFT                   8                                         /**< Shift value for LESENSE_INPUT */
 #define _LESENSE_DECCTRL_INPUT_MASK                    0x100UL                                   /**< Bit mask for LESENSE_INPUT */
 #define _LESENSE_DECCTRL_INPUT_DEFAULT                 0x00000000UL                              /**< Mode DEFAULT for LESENSE_DECCTRL */
@@ -632,7 +632,7 @@ typedef struct
 #define _LESENSE_STATUS_SCANACTIVE_MASK                0x10UL                                     /**< Bit mask for LESENSE_SCANACTIVE */
 #define _LESENSE_STATUS_SCANACTIVE_DEFAULT             0x00000000UL                               /**< Mode DEFAULT for LESENSE_STATUS */
 #define LESENSE_STATUS_SCANACTIVE_DEFAULT              (_LESENSE_STATUS_SCANACTIVE_DEFAULT << 4)  /**< Shifted mode DEFAULT for LESENSE_STATUS */
-#define LESENSE_STATUS_DACACTIVE                       (0x1UL << 5)                               /**< LESENSE DAC interface is active */
+#define LESENSE_STATUS_DACACTIVE                       (0x1UL << 5)                               /**< LESENSE VDAC interface is active */
 #define _LESENSE_STATUS_DACACTIVE_SHIFT                5                                          /**< Shift value for LESENSE_DACACTIVE */
 #define _LESENSE_STATUS_DACACTIVE_MASK                 0x20UL                                     /**< Bit mask for LESENSE_DACACTIVE */
 #define _LESENSE_STATUS_DACACTIVE_DEFAULT              0x00000000UL                               /**< Mode DEFAULT for LESENSE_STATUS */
@@ -1009,117 +1009,117 @@ typedef struct
 /* Bit fields for LESENSE IF */
 #define _LESENSE_IF_RESETVALUE                         0x00000000UL                             /**< Default value for LESENSE_IF */
 #define _LESENSE_IF_MASK                               0x007FFFFFUL                             /**< Mask for LESENSE_IF */
-#define LESENSE_IF_CH0                                 (0x1UL << 0)                             /**<  */
+#define LESENSE_IF_CH0                                 (0x1UL << 0)                             /**< CH0 interrupt flag */
 #define _LESENSE_IF_CH0_SHIFT                          0                                        /**< Shift value for LESENSE_CH0 */
 #define _LESENSE_IF_CH0_MASK                           0x1UL                                    /**< Bit mask for LESENSE_CH0 */
 #define _LESENSE_IF_CH0_DEFAULT                        0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_CH0_DEFAULT                         (_LESENSE_IF_CH0_DEFAULT << 0)           /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_CH1                                 (0x1UL << 1)                             /**<  */
+#define LESENSE_IF_CH1                                 (0x1UL << 1)                             /**< CH1 interrupt flag */
 #define _LESENSE_IF_CH1_SHIFT                          1                                        /**< Shift value for LESENSE_CH1 */
 #define _LESENSE_IF_CH1_MASK                           0x2UL                                    /**< Bit mask for LESENSE_CH1 */
 #define _LESENSE_IF_CH1_DEFAULT                        0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_CH1_DEFAULT                         (_LESENSE_IF_CH1_DEFAULT << 1)           /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_CH2                                 (0x1UL << 2)                             /**<  */
+#define LESENSE_IF_CH2                                 (0x1UL << 2)                             /**< CH2 interrupt flag */
 #define _LESENSE_IF_CH2_SHIFT                          2                                        /**< Shift value for LESENSE_CH2 */
 #define _LESENSE_IF_CH2_MASK                           0x4UL                                    /**< Bit mask for LESENSE_CH2 */
 #define _LESENSE_IF_CH2_DEFAULT                        0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_CH2_DEFAULT                         (_LESENSE_IF_CH2_DEFAULT << 2)           /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_CH3                                 (0x1UL << 3)                             /**<  */
+#define LESENSE_IF_CH3                                 (0x1UL << 3)                             /**< CH3 interrupt flag */
 #define _LESENSE_IF_CH3_SHIFT                          3                                        /**< Shift value for LESENSE_CH3 */
 #define _LESENSE_IF_CH3_MASK                           0x8UL                                    /**< Bit mask for LESENSE_CH3 */
 #define _LESENSE_IF_CH3_DEFAULT                        0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_CH3_DEFAULT                         (_LESENSE_IF_CH3_DEFAULT << 3)           /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_CH4                                 (0x1UL << 4)                             /**<  */
+#define LESENSE_IF_CH4                                 (0x1UL << 4)                             /**< CH4 interrupt flag */
 #define _LESENSE_IF_CH4_SHIFT                          4                                        /**< Shift value for LESENSE_CH4 */
 #define _LESENSE_IF_CH4_MASK                           0x10UL                                   /**< Bit mask for LESENSE_CH4 */
 #define _LESENSE_IF_CH4_DEFAULT                        0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_CH4_DEFAULT                         (_LESENSE_IF_CH4_DEFAULT << 4)           /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_CH5                                 (0x1UL << 5)                             /**<  */
+#define LESENSE_IF_CH5                                 (0x1UL << 5)                             /**< CH5 interrupt flag */
 #define _LESENSE_IF_CH5_SHIFT                          5                                        /**< Shift value for LESENSE_CH5 */
 #define _LESENSE_IF_CH5_MASK                           0x20UL                                   /**< Bit mask for LESENSE_CH5 */
 #define _LESENSE_IF_CH5_DEFAULT                        0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_CH5_DEFAULT                         (_LESENSE_IF_CH5_DEFAULT << 5)           /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_CH6                                 (0x1UL << 6)                             /**<  */
+#define LESENSE_IF_CH6                                 (0x1UL << 6)                             /**< CH6 interrupt flag */
 #define _LESENSE_IF_CH6_SHIFT                          6                                        /**< Shift value for LESENSE_CH6 */
 #define _LESENSE_IF_CH6_MASK                           0x40UL                                   /**< Bit mask for LESENSE_CH6 */
 #define _LESENSE_IF_CH6_DEFAULT                        0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_CH6_DEFAULT                         (_LESENSE_IF_CH6_DEFAULT << 6)           /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_CH7                                 (0x1UL << 7)                             /**<  */
+#define LESENSE_IF_CH7                                 (0x1UL << 7)                             /**< CH7 interrupt flag */
 #define _LESENSE_IF_CH7_SHIFT                          7                                        /**< Shift value for LESENSE_CH7 */
 #define _LESENSE_IF_CH7_MASK                           0x80UL                                   /**< Bit mask for LESENSE_CH7 */
 #define _LESENSE_IF_CH7_DEFAULT                        0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_CH7_DEFAULT                         (_LESENSE_IF_CH7_DEFAULT << 7)           /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_CH8                                 (0x1UL << 8)                             /**<  */
+#define LESENSE_IF_CH8                                 (0x1UL << 8)                             /**< CH8 interrupt flag */
 #define _LESENSE_IF_CH8_SHIFT                          8                                        /**< Shift value for LESENSE_CH8 */
 #define _LESENSE_IF_CH8_MASK                           0x100UL                                  /**< Bit mask for LESENSE_CH8 */
 #define _LESENSE_IF_CH8_DEFAULT                        0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_CH8_DEFAULT                         (_LESENSE_IF_CH8_DEFAULT << 8)           /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_CH9                                 (0x1UL << 9)                             /**<  */
+#define LESENSE_IF_CH9                                 (0x1UL << 9)                             /**< CH9 interrupt flag */
 #define _LESENSE_IF_CH9_SHIFT                          9                                        /**< Shift value for LESENSE_CH9 */
 #define _LESENSE_IF_CH9_MASK                           0x200UL                                  /**< Bit mask for LESENSE_CH9 */
 #define _LESENSE_IF_CH9_DEFAULT                        0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_CH9_DEFAULT                         (_LESENSE_IF_CH9_DEFAULT << 9)           /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_CH10                                (0x1UL << 10)                            /**<  */
+#define LESENSE_IF_CH10                                (0x1UL << 10)                            /**< CH10 interrupt flag */
 #define _LESENSE_IF_CH10_SHIFT                         10                                       /**< Shift value for LESENSE_CH10 */
 #define _LESENSE_IF_CH10_MASK                          0x400UL                                  /**< Bit mask for LESENSE_CH10 */
 #define _LESENSE_IF_CH10_DEFAULT                       0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_CH10_DEFAULT                        (_LESENSE_IF_CH10_DEFAULT << 10)         /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_CH11                                (0x1UL << 11)                            /**<  */
+#define LESENSE_IF_CH11                                (0x1UL << 11)                            /**< CH11 interrupt flag */
 #define _LESENSE_IF_CH11_SHIFT                         11                                       /**< Shift value for LESENSE_CH11 */
 #define _LESENSE_IF_CH11_MASK                          0x800UL                                  /**< Bit mask for LESENSE_CH11 */
 #define _LESENSE_IF_CH11_DEFAULT                       0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_CH11_DEFAULT                        (_LESENSE_IF_CH11_DEFAULT << 11)         /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_CH12                                (0x1UL << 12)                            /**<  */
+#define LESENSE_IF_CH12                                (0x1UL << 12)                            /**< CH12 interrupt flag */
 #define _LESENSE_IF_CH12_SHIFT                         12                                       /**< Shift value for LESENSE_CH12 */
 #define _LESENSE_IF_CH12_MASK                          0x1000UL                                 /**< Bit mask for LESENSE_CH12 */
 #define _LESENSE_IF_CH12_DEFAULT                       0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_CH12_DEFAULT                        (_LESENSE_IF_CH12_DEFAULT << 12)         /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_CH13                                (0x1UL << 13)                            /**<  */
+#define LESENSE_IF_CH13                                (0x1UL << 13)                            /**< CH13 interrupt flag */
 #define _LESENSE_IF_CH13_SHIFT                         13                                       /**< Shift value for LESENSE_CH13 */
 #define _LESENSE_IF_CH13_MASK                          0x2000UL                                 /**< Bit mask for LESENSE_CH13 */
 #define _LESENSE_IF_CH13_DEFAULT                       0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_CH13_DEFAULT                        (_LESENSE_IF_CH13_DEFAULT << 13)         /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_CH14                                (0x1UL << 14)                            /**<  */
+#define LESENSE_IF_CH14                                (0x1UL << 14)                            /**< CH14 interrupt flag */
 #define _LESENSE_IF_CH14_SHIFT                         14                                       /**< Shift value for LESENSE_CH14 */
 #define _LESENSE_IF_CH14_MASK                          0x4000UL                                 /**< Bit mask for LESENSE_CH14 */
 #define _LESENSE_IF_CH14_DEFAULT                       0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_CH14_DEFAULT                        (_LESENSE_IF_CH14_DEFAULT << 14)         /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_CH15                                (0x1UL << 15)                            /**<  */
+#define LESENSE_IF_CH15                                (0x1UL << 15)                            /**< CH15 interrupt flag */
 #define _LESENSE_IF_CH15_SHIFT                         15                                       /**< Shift value for LESENSE_CH15 */
 #define _LESENSE_IF_CH15_MASK                          0x8000UL                                 /**< Bit mask for LESENSE_CH15 */
 #define _LESENSE_IF_CH15_DEFAULT                       0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_CH15_DEFAULT                        (_LESENSE_IF_CH15_DEFAULT << 15)         /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_SCANCOMPLETE                        (0x1UL << 16)                            /**<  */
+#define LESENSE_IF_SCANCOMPLETE                        (0x1UL << 16)                            /**< SCANCOMPLETE interrupt flag */
 #define _LESENSE_IF_SCANCOMPLETE_SHIFT                 16                                       /**< Shift value for LESENSE_SCANCOMPLETE */
 #define _LESENSE_IF_SCANCOMPLETE_MASK                  0x10000UL                                /**< Bit mask for LESENSE_SCANCOMPLETE */
 #define _LESENSE_IF_SCANCOMPLETE_DEFAULT               0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_SCANCOMPLETE_DEFAULT                (_LESENSE_IF_SCANCOMPLETE_DEFAULT << 16) /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_DEC                                 (0x1UL << 17)                            /**<  */
+#define LESENSE_IF_DEC                                 (0x1UL << 17)                            /**< DEC interrupt flag */
 #define _LESENSE_IF_DEC_SHIFT                          17                                       /**< Shift value for LESENSE_DEC */
 #define _LESENSE_IF_DEC_MASK                           0x20000UL                                /**< Bit mask for LESENSE_DEC */
 #define _LESENSE_IF_DEC_DEFAULT                        0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_DEC_DEFAULT                         (_LESENSE_IF_DEC_DEFAULT << 17)          /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_DECERR                              (0x1UL << 18)                            /**<  */
+#define LESENSE_IF_DECERR                              (0x1UL << 18)                            /**< DECERR interrupt flag */
 #define _LESENSE_IF_DECERR_SHIFT                       18                                       /**< Shift value for LESENSE_DECERR */
 #define _LESENSE_IF_DECERR_MASK                        0x40000UL                                /**< Bit mask for LESENSE_DECERR */
 #define _LESENSE_IF_DECERR_DEFAULT                     0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_DECERR_DEFAULT                      (_LESENSE_IF_DECERR_DEFAULT << 18)       /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_BUFDATAV                            (0x1UL << 19)                            /**<  */
+#define LESENSE_IF_BUFDATAV                            (0x1UL << 19)                            /**< BUFDATAV interrupt flag */
 #define _LESENSE_IF_BUFDATAV_SHIFT                     19                                       /**< Shift value for LESENSE_BUFDATAV */
 #define _LESENSE_IF_BUFDATAV_MASK                      0x80000UL                                /**< Bit mask for LESENSE_BUFDATAV */
 #define _LESENSE_IF_BUFDATAV_DEFAULT                   0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_BUFDATAV_DEFAULT                    (_LESENSE_IF_BUFDATAV_DEFAULT << 19)     /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_BUFLEVEL                            (0x1UL << 20)                            /**<  */
+#define LESENSE_IF_BUFLEVEL                            (0x1UL << 20)                            /**< BUFLEVEL interrupt flag */
 #define _LESENSE_IF_BUFLEVEL_SHIFT                     20                                       /**< Shift value for LESENSE_BUFLEVEL */
 #define _LESENSE_IF_BUFLEVEL_MASK                      0x100000UL                               /**< Bit mask for LESENSE_BUFLEVEL */
 #define _LESENSE_IF_BUFLEVEL_DEFAULT                   0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_BUFLEVEL_DEFAULT                    (_LESENSE_IF_BUFLEVEL_DEFAULT << 20)     /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_BUFOF                               (0x1UL << 21)                            /**<  */
+#define LESENSE_IF_BUFOF                               (0x1UL << 21)                            /**< BUFOF interrupt flag */
 #define _LESENSE_IF_BUFOF_SHIFT                        21                                       /**< Shift value for LESENSE_BUFOF */
 #define _LESENSE_IF_BUFOF_MASK                         0x200000UL                               /**< Bit mask for LESENSE_BUFOF */
 #define _LESENSE_IF_BUFOF_DEFAULT                      0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */
 #define LESENSE_IF_BUFOF_DEFAULT                       (_LESENSE_IF_BUFOF_DEFAULT << 21)        /**< Shifted mode DEFAULT for LESENSE_IF */
-#define LESENSE_IF_CNTOF                               (0x1UL << 22)                            /**<  */
+#define LESENSE_IF_CNTOF                               (0x1UL << 22)                            /**< CNTOF interrupt flag */
 #define _LESENSE_IF_CNTOF_SHIFT                        22                                       /**< Shift value for LESENSE_CNTOF */
 #define _LESENSE_IF_CNTOF_MASK                         0x400000UL                               /**< Bit mask for LESENSE_CNTOF */
 #define _LESENSE_IF_CNTOF_DEFAULT                      0x00000000UL                             /**< Mode DEFAULT for LESENSE_IF */

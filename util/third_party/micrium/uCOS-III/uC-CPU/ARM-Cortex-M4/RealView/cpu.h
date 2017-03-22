@@ -3,7 +3,7 @@
 *                                                uC/CPU
 *                                    CPU CONFIGURATION & PORT LAYER
 *
-*                          (c) Copyright 2004-2013; Micrium, Inc.; Weston, FL
+*                          (c) Copyright 2004-2016; Micrium, Inc.; Weston, FL
 *
 *               All rights reserved.  Protected by international copyright laws.
 *
@@ -15,6 +15,8 @@
 *               Please help us continue to provide the Embedded community with the finest 
 *               software available.  Your honesty is greatly appreciated.
 *
+*               You can find our product's user manual, API reference, release notes and
+*               more information at https://doc.micrium.com.
 *               You can contact us at www.micrium.com.
 *********************************************************************************************************
 */
@@ -31,7 +33,7 @@
 *                                            Keil uVision
 *
 * Filename      : cpu.h
-* Version       : V1.29.02.00
+* Version       : V1.31.00
 * Programmer(s) : JJL
 *                 BAN
 *********************************************************************************************************
@@ -86,6 +88,10 @@
 
 #include  <cpu_def.h>
 #include  <cpu_cfg.h>                                           /* See Note #3.                                         */
+
+#ifdef __cplusplus
+extern  "C" {
+#endif
 
 
 /*
@@ -733,6 +739,10 @@ void        CPU_BitBandSet   (CPU_ADDR    addr,
 * Note(s) : (1) See 'cpu.h  MODULE'.
 *********************************************************************************************************
 */
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif                                                          /* End of CPU module include.                           */
 

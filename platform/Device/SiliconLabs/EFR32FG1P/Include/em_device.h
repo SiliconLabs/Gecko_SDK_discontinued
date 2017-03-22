@@ -12,10 +12,10 @@
  *
  *
  * @endverbatim
- * @version 5.0.0
+ * @version 5.1.2
  ******************************************************************************
  * @section License
- * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -80,9 +80,6 @@
 #elif defined(EFR32FG1P132F64GM48)
 #include "efr32fg1p132f64gm48.h"
 
-#elif defined(EFR32FG1P133F128GM32)
-#include "efr32fg1p133f128gm32.h"
-
 #elif defined(EFR32FG1P133F128GM48)
 #include "efr32fg1p133f128gm48.h"
 
@@ -91,9 +88,6 @@
 
 #elif defined(EFR32FG1P133F256GM48)
 #include "efr32fg1p133f256gm48.h"
-
-#elif defined(EFR32FG1P133F64GM32)
-#include "efr32fg1p133f64gm32.h"
 
 #elif defined(EFR32FG1P133F64GM48)
 #include "efr32fg1p133f64gm48.h"

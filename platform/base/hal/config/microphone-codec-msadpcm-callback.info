@@ -1,0 +1,14 @@
+#include PLATFORM_HEADER
+
+/** @brief A callback called when new microphone data is ready
+ *
+ * @appusage This function is called by the plugin when new data has been processed and is
+ * ready to be processed by other parts of the system.
+ *
+ * @param data     Pointer to the data that is ready
+ *
+ * @param length   Length of the data
+ */
+void halMicrophoneCodecMsadpcmDataReadyCallback(uint8_t * data, uint8_t length)
+{
+}

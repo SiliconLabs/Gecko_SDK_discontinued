@@ -1,4 +1,18 @@
 ================ Revision history ============================================
+5.1.2:
+ - Fixed C-STAT warnings in spidrv, uartdrv and rtcdriver.
+
+5.1.1:
+ - USTIMER: Add support for TIMER4-6 and WTIMER0-3.
+
+5.1.0:
+ - SLEEP: Changed ATOMIC region in SLEEP_Sleep() to CRITICAL as ATOMIC can mask
+   wakeup.
+ - UARTDRV: Fixed issue that can cause UARTDRV_ForceTransmit() to deadlock.
+ - UARTDRV: Fixed issue with calling UARTDRV_Abort() when no buffers were queued.
+ - UARTDRV: Fixed issue where UARTDRV_Abort() wouldn't call the callback on all
+   aborted transfers.
+
 5.0.0:
  - Update to use em_core instead of em_int to implement critical regions.
  - TEMPDRV: Errata fix is now using calibration values to initialize the

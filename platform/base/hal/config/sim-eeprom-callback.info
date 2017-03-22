@@ -1,0 +1,150 @@
+#include PLATFORM_HEADER
+#include CONFIGURATION_HEADER
+#include EMBER_AF_API_EMBER_TYPES
+#include EMBER_AF_API_HAL
+#include EMBER_AF_API_SIM_EEPROM
+
+/** @brief The Simulated EEPROM callback function, implemented by the
+ * application.
+ *
+ * @param status  An ::EmberStatus error code indicating one of the conditions
+ * described below.
+ *
+ * This callback will report an EmberStatus of
+ * ::EMBER_SIM_EEPROM_ERASE_PAGE_GREEN whenever a token is set and a page needs
+ * to be erased.  If the main application loop does not periodically
+ * call halSimEepromErasePage(), it is best to then erase a page in
+ * response to ::EMBER_SIM_EEPROM_ERASE_PAGE_GREEN.
+ *
+ * This callback will report an EmberStatus of ::EMBER_SIM_EEPROM_ERASE_PAGE_RED
+ * when the pages <i>must</i> be erased to prevent data loss.
+ * halSimEepromErasePage() needs to be called until it returns 0 to indicate
+ * there are no more pages that need to be erased.  Ignoring
+ * this indication and not erasing the pages will cause dropping the new data
+ * trying to be written.
+ *
+ * This callback will report an EmberStatus of ::EMBER_SIM_EEPROM_FULL when
+ * the new data cannot be written due to unerased pages.  <b>Not erasing
+ * pages regularly, not erasing in response to
+ * ::EMBER_SIM_EEPROM_ERASE_PAGE_GREEN, or not erasing in response to
+ * ::EMBER_SIM_EEPROM_ERASE_PAGE_RED will cause
+ * ::EMBER_SIM_EEPROM_FULL and the new data will be lost!.</b>  Any future
+ * write attempts will be lost as well.
+ *
+ * This callback will report an EmberStatus of ::EMBER_SIM_EEPROM_REPAIRING
+ * when the Simulated EEPROM needs to repair itself.  While there's nothing
+ * for an app to do when the SimEE is going to repair itself (SimEE has to
+ * be fully functional for the rest of the system to work), alert the
+ * application to the fact that repairing is occuring.  There are debugging
+ * scenarios where an app might want to know that repairing is happening;
+ * such as monitoring frequency.
+ * @note  Common situations will trigger an expected repair, such as using
+ *        a new chip or changing token definitions.
+ *
+ * If the callback ever reports the status ::EMBER_ERR_FLASH_WRITE_INHIBITED or
+ * ::EMBER_ERR_FLASH_VERIFY_FAILED, this indicates a catastrophic failure in
+ * flash writing, meaning either the address being written is not empty or the
+ * write itself has failed.  If ::EMBER_ERR_FLASH_WRITE_INHIBITED is
+ * encountered, the function ::halInternalSimEeRepair(false) should be called
+ * and the chip should then be reset to allow proper initialization to recover.
+ * If ::EMBER_ERR_FLASH_VERIFY_FAILED is encountered the Simulated EEPROM (and
+ * tokens) on the specific chip with this error should not be trusted anymore.
+ *
+ */
+void halSimEepromCallback(EmberStatus status)
+{
+  switch (status) {
+  case EMBER_SIM_EEPROM_ERASE_PAGE_GREEN:
+    //SimEE is asking for one page to be erased.
+#ifdef EMBER_STACK_COBRA
+    HalUARTRestrain();      // temporarily hold off serial input from host
+#endif
+    halSimEepromErasePage();
+    break;
+  case EMBER_SIM_EEPROM_ERASE_PAGE_RED:
+  case EMBER_SIM_EEPROM_FULL:
+  { //SimEE says we're out of room!  Erase all pages now or data
+    //currently being written will be dropped.
+#ifdef EMBER_STACK_COBRA
+    HalUARTRestrain();      // temporarily hold off serial input from host
+#endif
+    if(halSimEepromPagesRemainingToBeErased() > 0) {
+      //If there is at least one HW page to erase, loop over ErasePage until
+      //all HW pages are erased.  Without this explicit check before
+      //ErasePage, when halSimEepromErasePage() returns 0 the code wont
+      //know if a page was actually erased or not and properly break out.
+      while(halSimEepromErasePage()) {
+      }
+      // A fresh virtual page now exists to use
+      break;
+    }
+    //If there are still pages to erase, then we have a situation where page
+    //rotation is stuck because live tokens still exist in the
+    //page we want to erase.  In this case we must do a repair to
+    //get all live tokens into one virtual page. [BugzId:14392]
+    //This bug pertains to SimEE2.
+    //Fall into...
+  }
+  case EMBER_ERR_FLASH_WRITE_INHIBITED:
+  case EMBER_ERR_FLASH_VERIFY_FAILED:
+  { //Something went wrong while writing a token.  There is stale data and the
+    //token the app expected to write did not get written.  Also there may
+    //now be "stray" data written in the flash that could inhibit future token
+    //writes.  To deal with stray/stale data, we must repair the Simulated
+    //EEPROM.  Because the expected token write failed and will not be retried,
+    //it is best to reset the chip and let normal boot sequences take over.
+    //Since halInternalSimEeRepair() could potentially result in another write
+    //failure, we use a simple semaphore to prevent recursion.
+    static bool repairActive = false;
+    if(!repairActive) {
+      repairActive = true;
+      halInternalSimEeRepair(false);
+      switch (status) {
+      case EMBER_SIM_EEPROM_ERASE_PAGE_RED:
+      case EMBER_SIM_EEPROM_FULL:
+        //Don't reboot - return to let SimEE code retry the token write
+        //[BugzId:14392]
+        break;
+      case EMBER_ERR_FLASH_VERIFY_FAILED:
+        //[[WBB350FIXME -It would be nice to have a unified, ]]
+        //[[             platform independant reboot machanism]]
+        #if defined (CORTEXM3)
+          halInternalSysReset(RESET_FLASH_VERIFY);
+        #elif defined (EMBER_STACK_COBRA)
+          halInternalSystemReset(RESET_FLASH);
+        #else
+          assert(0);
+        #endif
+        break;
+      case EMBER_ERR_FLASH_WRITE_INHIBITED:
+        #if defined (CORTEXM3)
+          halInternalSysReset(RESET_FLASH_INHIBIT);
+        #elif defined (EMBER_STACK_COBRA)
+          halInternalSystemReset(RESET_FLASH);
+        #else
+          assert(0);
+        #endif
+        break;
+      default:
+        assert(0);
+        break;
+      }
+      repairActive = false;
+    }
+    break;
+  }
+  case EMBER_SIM_EEPROM_REPAIRING:
+    // While there's nothing for an app to do when the SimEE is going to
+    // repair itself (SimEE has to be fully functional for the rest of the
+    // system to work), alert the application to the fact that repairing
+    // is occuring.  There are debugging scenarios where an app might want
+    // to know that repairing is happening; such as monitoring frequency.
+    // NOTE:  Common situations will trigger an expected repair, such as
+    //        using an erased chip or changing token definitions.
+    break;
+  default:
+    // this condition indicates an unexpected problem.
+    assert(0);
+    break;
+  }
+}

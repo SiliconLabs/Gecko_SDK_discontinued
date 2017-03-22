@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file efr32mg12p_wdog.h
  * @brief EFR32MG12P_WDOG register and bit field definitions
- * @version 5.0.0
+ * @version 5.1.2
  ******************************************************************************
  * @section License
- * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -107,10 +107,12 @@ typedef struct
 #define _WDOG_CTRL_CLKSEL_ULFRCO                  0x00000000UL                          /**< Mode ULFRCO for WDOG_CTRL */
 #define _WDOG_CTRL_CLKSEL_LFRCO                   0x00000001UL                          /**< Mode LFRCO for WDOG_CTRL */
 #define _WDOG_CTRL_CLKSEL_LFXO                    0x00000002UL                          /**< Mode LFXO for WDOG_CTRL */
+#define _WDOG_CTRL_CLKSEL_HFCORECLK               0x00000003UL                          /**< Mode HFCORECLK for WDOG_CTRL */
 #define WDOG_CTRL_CLKSEL_DEFAULT                  (_WDOG_CTRL_CLKSEL_DEFAULT << 12)     /**< Shifted mode DEFAULT for WDOG_CTRL */
 #define WDOG_CTRL_CLKSEL_ULFRCO                   (_WDOG_CTRL_CLKSEL_ULFRCO << 12)      /**< Shifted mode ULFRCO for WDOG_CTRL */
 #define WDOG_CTRL_CLKSEL_LFRCO                    (_WDOG_CTRL_CLKSEL_LFRCO << 12)       /**< Shifted mode LFRCO for WDOG_CTRL */
 #define WDOG_CTRL_CLKSEL_LFXO                     (_WDOG_CTRL_CLKSEL_LFXO << 12)        /**< Shifted mode LFXO for WDOG_CTRL */
+#define WDOG_CTRL_CLKSEL_HFCORECLK                (_WDOG_CTRL_CLKSEL_HFCORECLK << 12)   /**< Shifted mode HFCORECLK for WDOG_CTRL */
 #define _WDOG_CTRL_WARNSEL_SHIFT                  16                                    /**< Shift value for WDOG_WARNSEL */
 #define _WDOG_CTRL_WARNSEL_MASK                   0x30000UL                             /**< Bit mask for WDOG_WARNSEL */
 #define _WDOG_CTRL_WARNSEL_DEFAULT                0x00000000UL                          /**< Mode DEFAULT for WDOG_CTRL */
@@ -215,17 +217,17 @@ typedef struct
 /* Bit fields for WDOG IF */
 #define _WDOG_IF_RESETVALUE                       0x00000000UL                 /**< Default value for WDOG_IF */
 #define _WDOG_IF_MASK                             0x0000001FUL                 /**< Mask for WDOG_IF */
-#define WDOG_IF_TOUT                              (0x1UL << 0)                 /**< Wdog Timeout Interrupt Flag */
+#define WDOG_IF_TOUT                              (0x1UL << 0)                 /**< WDOG Timeout Interrupt Flag */
 #define _WDOG_IF_TOUT_SHIFT                       0                            /**< Shift value for WDOG_TOUT */
 #define _WDOG_IF_TOUT_MASK                        0x1UL                        /**< Bit mask for WDOG_TOUT */
 #define _WDOG_IF_TOUT_DEFAULT                     0x00000000UL                 /**< Mode DEFAULT for WDOG_IF */
 #define WDOG_IF_TOUT_DEFAULT                      (_WDOG_IF_TOUT_DEFAULT << 0) /**< Shifted mode DEFAULT for WDOG_IF */
-#define WDOG_IF_WARN                              (0x1UL << 1)                 /**< Wdog Warning Timeout Interrupt Flag */
+#define WDOG_IF_WARN                              (0x1UL << 1)                 /**< WDOG Warning Timeout Interrupt Flag */
 #define _WDOG_IF_WARN_SHIFT                       1                            /**< Shift value for WDOG_WARN */
 #define _WDOG_IF_WARN_MASK                        0x2UL                        /**< Bit mask for WDOG_WARN */
 #define _WDOG_IF_WARN_DEFAULT                     0x00000000UL                 /**< Mode DEFAULT for WDOG_IF */
 #define WDOG_IF_WARN_DEFAULT                      (_WDOG_IF_WARN_DEFAULT << 1) /**< Shifted mode DEFAULT for WDOG_IF */
-#define WDOG_IF_WIN                               (0x1UL << 2)                 /**< Wdog Window Interrupt Flag */
+#define WDOG_IF_WIN                               (0x1UL << 2)                 /**< WDOG Window Interrupt Flag */
 #define _WDOG_IF_WIN_SHIFT                        2                            /**< Shift value for WDOG_WIN */
 #define _WDOG_IF_WIN_MASK                         0x4UL                        /**< Bit mask for WDOG_WIN */
 #define _WDOG_IF_WIN_DEFAULT                      0x00000000UL                 /**< Mode DEFAULT for WDOG_IF */

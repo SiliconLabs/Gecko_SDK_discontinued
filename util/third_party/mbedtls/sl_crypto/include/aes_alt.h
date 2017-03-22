@@ -62,22 +62,6 @@
 extern "C" {
 #endif
 
-#if defined( MBEDTLS_SLCL_PLUGINS )
-#if defined( MBEDTLS_INCLUDE_ASYNCH_API )
-  
-/**
- * \brief          AES asynchronous context structure
- */
-typedef struct
-{
-    AESDRV_BlockCipherAsynchContext_t aesdrv_asynch_ctx;/*!< AESDRV asynchronous
-                                                          context */
-}
-mbedtls_aes_asynch_context;
-  
-#endif /* #if defined( MBEDTLS_INCLUDE_ASYNCH_API ) */
-#endif /* #if defined( MBEDTLS_SLCL_PLUGINS ) */  
-
 /**
  * \brief          AES context structure
  */
@@ -119,7 +103,7 @@ void mbedtls_aes_free( mbedtls_aes_context *ctx );
  *   new AES/CRYPTO device instance.
  *
  * \param[in] ctx
- *   AES device context.
+ *   AES context.
  *  
  * \param[in] devno
  *   AES/CRYPTO hardware device instance to use.
@@ -130,62 +114,44 @@ void mbedtls_aes_free( mbedtls_aes_context *ctx );
 int mbedtls_aes_set_device_instance(mbedtls_aes_context *ctx,
                                     unsigned int         devno);
 
-#if defined( MBEDTLS_INCLUDE_ASYNCH_API )
 /**
- * \brief          Set an AES context in asynchronous mode.
+ * \brief
+ *   Set the number of ticks to wait for the decice lock.
  *
- * \details        
- *   This function enables or disables asynchronous (non-blocking) mode of an
- *   AES context. In order to enable, the user must set the
- *   @p asynch_ctx parameter to point to an asynchronous aes context structure
- *   @ref mbedtls_aes_asynch_context. Subsequent calls to the AES API
- *   functions with the specified context will behave asynchronously, i.e.
- *   initiate the hardware to execute the operation and return as soon as
- *   possible. The user may specify a callback function by setting the
- *   @p asynch_callback parameter which will called when the operation has
- *   completed.
- *   In order to disable, the user must set the @p asynch_context parameter
- *   to NULL. All subsequent calls to AES API functions with the specified
- *   context will block until the corresponding operation has completed, and
- *   then return.
+ * \details
+ *   This function sets the number of ticks that the subsequenct API calls
+ *   will wait for the device to become available.
  *
- * \param ctx              AES context
- * \param asynch_ctx       AES asynchronous context structure
- * \param asynch_callback  Asynchronous callback
- * \param user_arg         User specific argument which will be
- *                         sent to callback.
- *
- * \return         0 if successful, or error code
- */
-int mbedtls_aes_set_asynch( mbedtls_aes_context *ctx,
-                            mbedtls_aes_asynch_context *asynch_ctx,
-                            mbedtls_asynch_callback asynch_callback,
-                            void* user_arg );
+ * \param[in] ctx
+ *   AES context.
+ *  
+ * \param[in] ticks
+ *   Ticks to wait for device.
+ *  
+ * \return
+ *   0 if success. Error code if failure, see \ref aes.h.
+ ******************************************************************************/
+int mbedtls_aes_set_device_lock_wait_ticks(mbedtls_aes_context *ctx,
+                                           int                  ticks);
 
-#endif /* #if defined( MBEDTLS_INCLUDE_ASYNCH_API ) */
-  
 /**
  * \brief
  *   Set the device I/O mode of an AES context.
  *
  * \details
  *   This function sets the device data I/O mode of an AES context. The data
- *   can be moved by Core CPU, DMA or BUFC between CRYPTO and RAM.
+ *   can be moved by the CPU Core or the DMA between CRYPTO and RAM.
  *
  * \param[in] ctx
  *   AES device context.
  *  
  * \param[in] mode
- *   I/O mode (Core CPU, DMA or BUFC).
+ *   I/O mode (CPU Core or DMA).
  *  
  * \param[in] specific
  *   I/O mode specific configuration \ref mbedtls_device_io_mode_specific.
  *  
  * \warning
- *   If BUFC is selected (\ref MBEDTLS_DEVICE_IO_MODE_BUFC), this function does
- *   not enable the BUFC clock and does not do any global BUFC initialization.
- *   I.e. the user is responsible for performing BUFC initialization prior to
- *   calling this function.
  *   If DMA is selected (\ref MBEDTLS_INCLUDE_IO_MODE_DMA), this function
  *   performs full DMA driver initialization by calling DMADRV_Init
  *   (non-destructive) and allocates DMA channel resources to be used by CCM.
@@ -225,9 +191,6 @@ int mbedtls_aes_setkey_dec( mbedtls_aes_context *ctx, const unsigned char *key,
 
 /**
  * \brief          AES-ECB block encryption/decryption
- *
- * \details
- *  TODO: doc asynch mode output buffer not ready until completion
  *
  * \param ctx      AES context
  * \param mode     MBEDTLS_AES_ENCRYPT or MBEDTLS_AES_DECRYPT

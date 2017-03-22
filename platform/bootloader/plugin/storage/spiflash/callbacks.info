@@ -1,0 +1,24 @@
+
+/***************************************************************************//**
+ * Custom storage init function.
+ *
+ * This function can be implemented by the user to perform extra operations
+ * during initialization of the storage plugin, such as turning on a GPIO power
+ * pin to an external storage medium, toggling a write protect pin, etc.
+ * The custom init function is called by @ref storage_init.
+ ******************************************************************************/
+void storage_customInit(void)
+{
+}
+
+/***************************************************************************//**
+ * Custom storage shutdown function.
+ *
+ * This function can be implemented by the user to perform extra operations
+ * during shutdown of the storage plugin, such as turning off a GPIO power
+ * pin to an external storage medium.
+ * The custom shutdown function is called by @ref storage_shutdown.
+ ******************************************************************************/
+void storage_customShutdown(void)
+{
+}

@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file
  * @brief Board support package API implementation for BRD3201.
- * @version 5.0.0
+ * @version 5.1.1
  *******************************************************************************
  * @section License
- * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2016 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file

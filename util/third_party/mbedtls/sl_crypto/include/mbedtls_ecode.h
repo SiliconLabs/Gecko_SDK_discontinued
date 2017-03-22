@@ -55,10 +55,13 @@
 
 #define MBEDTLS_ECODE_BASE  ( 0xF1000000 )  /*!< Base value for all error codes. */
 
+#define MBEDTLS_ERR_DEVICE_BASE      ( MBEDTLS_ECODE_BASE | 0x00001000 ) /*!< Base value for DEVICE error codes. */
 #define MBEDTLS_ECODE_AESDRV_BASE    ( MBEDTLS_ECODE_BASE | 0x00005000 ) /*!< Base value for AESDRV error codes. */
 #define MBEDTLS_ECODE_ECC_BASE       ( MBEDTLS_ECODE_BASE | 0x00006000 ) /*!< Base value for ECC error codes. */
 #define MBEDTLS_ECODE_SHA_BASE       ( MBEDTLS_ECODE_BASE | 0x0000A000 ) /*!< Base value for SHA error codes. */
 #define MBEDTLS_ECODE_CRYPTODRV_BASE ( MBEDTLS_ECODE_BASE | 0x0000C000 ) /*!< Base value for CRYPTO error codes. */
 #define MBEDTLS_ERR_CMAC_BASE        ( MBEDTLS_ECODE_AESDRV_BASE | 0xf00) /**< Base value of error codes for CMAC submodule (of AESDRV module). */
+#define MBEDTLS_ERR_TRNG_BASE        ( MBEDTLS_ECODE_BASE | 0x0000E000 ) /**< Base value of error codes for TRNG submodule. */
+#define MBEDTLS_ERR_SLPAL_BASE       ( MBEDTLS_ECODE_BASE | 0x0000F000 ) /**< Base value of error codes for SLPAL submodule. */
 
 #endif /* #ifndef MBEDTLS_ECODE_H */

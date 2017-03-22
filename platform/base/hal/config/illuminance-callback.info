@@ -1,0 +1,10 @@
+/** @brief Illuminance Reading Complete
+ *
+ * This callback is called when a illuminance reading is complete.
+ *
+ * @param logLux The illuminance in Lux, in log scale.  This value is calculated
+ * using the following formula: loxLux = 10,000 * log10(Illuminance in Lux + 1)
+ */
+void halIlluminanceReadingCompleteCallback(uint16_t logLux)
+{
+}

@@ -1,0 +1,18 @@
+// IAR V5 ILINK linker configuration file.
+//
+// Copyright 2009 by Ember Corporation. All rights reserved.                *80*
+
+define symbol FLASH_START         = FIB_BOTTOM;
+define symbol FLASH_END           = FIB_TOP - 130; // Leave room for FIB data
+define symbol RAM_START           = RAM_BOTTOM;
+define symbol RAM_END             = RAM_START + 0x1FF;
+
+define region FLASH_region = mem:[from FLASH_START to FLASH_END];
+place at address mem:FLASH_START { ro section FAT };
+place in FLASH_region { ro };
+
+define region RAM_region = mem:[from RAM_START to RAM_END];
+// There are no globals in the FIB bootloader, so the only RAM allocation is the
+// CSTACK.
+do not initialize { section CSTACK };
+place in RAM_region { section CSTACK };

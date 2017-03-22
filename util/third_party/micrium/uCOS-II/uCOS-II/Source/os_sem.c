@@ -4,12 +4,12 @@
 *                                          The Real-Time Kernel
 *                                          SEMAPHORE MANAGEMENT
 *
-*                              (c) Copyright 1992-2012, Micrium, Weston, FL
+*                              (c) Copyright 1992-2016, Micrium, Weston, FL
 *                                           All Rights Reserved
 *
 * File    : OS_SEM.C
 * By      : Jean J. Labrosse
-* Version : V2.92.07
+* Version : V2.92.12
 *
 * LICENSING TERMS:
 * ---------------
@@ -18,6 +18,15 @@
 * its use in your product. We provide ALL the source code for your convenience and to help you experience
 * uC/OS-II.   The fact that the  source is provided does  NOT  mean that you can use it without  paying a
 * licensing fee.
+*
+* Knowledge of the source code may NOT be used to develop a similar product.
+*
+* Please help us continue to provide the embedded community with the finest software available.
+* Your honesty is greatly appreciated.
+*
+* You can find our product's user manual, API reference, release notes and
+* more information at https://doc.micrium.com.
+* You can contact us at www.micrium.com.
 *********************************************************************************************************
 */
 
@@ -28,7 +37,6 @@
 #endif
 
 #if OS_SEM_EN > 0u
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                          ACCEPT SEMAPHORE
@@ -75,7 +83,7 @@ INT16U  OSSemAccept (OS_EVENT *pevent)
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                         CREATE A SEMAPHORE
@@ -99,7 +107,6 @@ OS_EVENT  *OSSemCreate (INT16U cnt)
 #if OS_CRITICAL_METHOD == 3u                               /* Allocate storage for CPU status register */
     OS_CPU_SR  cpu_sr = 0u;
 #endif
-
 
 
 #ifdef OS_SAFETY_CRITICAL_IEC61508
@@ -130,7 +137,7 @@ OS_EVENT  *OSSemCreate (INT16U cnt)
     return (pevent);
 }
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                         DELETE A SEMAPHORE
@@ -146,12 +153,16 @@ OS_EVENT  *OSSemCreate (INT16U cnt)
 *                                                    In this case, all the tasks pending will be readied.
 *
 *              perr          is a pointer to an error code that can contain one of the following values:
-*                            OS_ERR_NONE             The call was successful and the semaphore was deleted
-*                            OS_ERR_DEL_ISR          If you attempted to delete the semaphore from an ISR
-*                            OS_ERR_INVALID_OPT      An invalid option was specified
-*                            OS_ERR_TASK_WAITING     One or more tasks were waiting on the semaphore
-*                            OS_ERR_EVENT_TYPE       If you didn't pass a pointer to a semaphore
-*                            OS_ERR_PEVENT_NULL      If 'pevent' is a NULL pointer.
+*                            OS_ERR_NONE                  The call was successful and the semaphore was
+*                                                         deleted
+*                            OS_ERR_DEL_ISR               If you attempted to delete the semaphore from an
+*                                                         ISR
+*                            OS_ERR_ILLEGAL_DEL_RUN_TIME  If you tried to delete the semaphore after
+*                                                         safety critical operation started.
+*                            OS_ERR_INVALID_OPT           An invalid option was specified
+*                            OS_ERR_TASK_WAITING          One or more tasks were waiting on the semaphore
+*                            OS_ERR_EVENT_TYPE            If you didn't pass a pointer to a semaphore
+*                            OS_ERR_PEVENT_NULL           If 'pevent' is a NULL pointer.
 *
 * Returns    : pevent        upon error
 *              (OS_EVENT *)0 if the semaphore was successfully deleted.
@@ -165,7 +176,7 @@ OS_EVENT  *OSSemCreate (INT16U cnt)
 *              4) Because ALL tasks pending on the semaphore will be readied, you MUST be careful in
 *                 applications where the semaphore is used for mutual exclusion because the resource(s)
 *                 will no longer be guarded by the semaphore.
-*              5) All tasks that were waiting for the semaphore will be readied and returned an 
+*              5) All tasks that were waiting for the semaphore will be readied and returned an
 *                 OS_ERR_PEND_ABORT if OSSemDel() was called with OS_DEL_ALWAYS
 *********************************************************************************************************
 */
@@ -186,6 +197,14 @@ OS_EVENT  *OSSemDel (OS_EVENT  *pevent,
 #ifdef OS_SAFETY_CRITICAL
     if (perr == (INT8U *)0) {
         OS_SAFETY_CRITICAL_EXCEPTION();
+        return ((OS_EVENT *)0);
+    }
+#endif
+
+#ifdef OS_SAFETY_CRITICAL_IEC61508
+    if (OSSafetyCriticalStartFlag == OS_TRUE) {
+        OS_SAFETY_CRITICAL_EXCEPTION();
+        *perr = OS_ERR_ILLEGAL_DEL_RUN_TIME;
         return ((OS_EVENT *)0);
     }
 #endif
@@ -259,7 +278,7 @@ OS_EVENT  *OSSemDel (OS_EVENT  *pevent,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                          PEND ON SEMAPHORE
@@ -291,7 +310,7 @@ OS_EVENT  *OSSemDel (OS_EVENT  *pevent,
 * Returns    : none
 *********************************************************************************************************
 */
-/*$PAGE*/
+
 void  OSSemPend (OS_EVENT  *pevent,
                  INT32U     timeout,
                  INT8U     *perr)
@@ -366,7 +385,7 @@ void  OSSemPend (OS_EVENT  *pevent,
     OS_EXIT_CRITICAL();
 }
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                    ABORT WAITING ON A SEMAPHORE
@@ -457,7 +476,7 @@ INT8U  OSSemPendAbort (OS_EVENT  *pevent,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                         POST TO A SEMAPHORE
@@ -509,7 +528,7 @@ INT8U  OSSemPost (OS_EVENT *pevent)
     return (OS_ERR_SEM_OVF);
 }
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                          QUERY A SEMAPHORE
@@ -566,7 +585,7 @@ INT8U  OSSemQuery (OS_EVENT     *pevent,
 }
 #endif                                                     /* OS_SEM_QUERY_EN                          */
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                            SET SEMAPHORE

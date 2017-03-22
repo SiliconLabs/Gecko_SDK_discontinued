@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file
  * @brief Definition of EMSTATUS used by graphics library
- * @version 2.0.1
+ * @version 5.1.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, http://www.silabs.com</b>

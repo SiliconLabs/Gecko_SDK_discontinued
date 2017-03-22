@@ -42,15 +42,14 @@
 *  Width of picture
 *  @param height
 *  Height of picture
-*  @param pixData
+*  @param picData
 *  Bitmap data 24-bit RGB
 *
 *  @return
 *  Returns GLIB_OK on success, or else error code
 ******************************************************************************/
-
 EMSTATUS GLIB_drawBitmap(GLIB_Context_t *pContext, int32_t x, int32_t y,
-                         uint32_t width, uint32_t height, uint8_t *picData)
+                         uint32_t width, uint32_t height, const uint8_t *picData)
 {
   EMSTATUS status;
 
@@ -63,8 +62,5 @@ EMSTATUS GLIB_drawBitmap(GLIB_Context_t *pContext, int32_t x, int32_t y,
   if (status != DMD_OK) return status;
 
   /* Reset driver clipping area to GLIB clipping region */
-  return DMD_setClippingArea(pContext->clippingRegion.xMin,
-                               pContext->clippingRegion.yMin,
-                               pContext->clippingRegion.xMin + pContext->clippingRegion.xMax + 1,
-                               pContext->clippingRegion.yMin + pContext->clippingRegion.yMax + 1);
+  return GLIB_applyClippingRegion(pContext);
 }

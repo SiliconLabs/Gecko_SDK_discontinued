@@ -4,14 +4,15 @@
 *                                          The Real-Time Kernel
 *
 *
-*                              (c) Copyright 2010; Micrium, Inc.; Weston, FL
+*                         (c) Copyright 2009-2016; Micrium, Inc.; Weston, FL
 *                    All rights reserved.  Protected by international copyright laws.
 *
 *                                           ARM Cortex-M4 Port
 *
 * File      : OS_CPU.H
-* Version   : V3.01.2
+* Version   : V3.06.00
 * By        : JJL
+*             JBL
 *
 * LICENSING TERMS:
 * ---------------
@@ -27,11 +28,24 @@
 *           Please help us continue to provide the embedded community with the finest software available.
 *           Your honesty is greatly appreciated.
 *
-*           You can contact us at www.micrium.com, or by phone at +1 (954) 217-2036.
+*           You can find our product's user manual, API reference, release notes and
+*           more information at https://doc.micrium.com.
+*           You can contact us at www.micrium.com.
 *
 * For       : ARMv7 Cortex-M4
 * Mode      : Thumb-2 ISA
 * Toolchain : RealView
+*********************************************************************************************************
+*/
+
+/*
+*********************************************************************************************************
+*********************************************************************************************************
+*                               WARNING - DEPRECATION NOTICE - WARNING
+* June 2016
+* This file is part of a deprecated port and will be removed in a future release.
+* The functionalities of this port were replaced by the generic ARM-Cortex-M port.
+*********************************************************************************************************
 *********************************************************************************************************
 */
 
@@ -44,6 +58,26 @@
 #define  OS_CPU_EXT  extern
 #endif
 
+#ifdef __cplusplus
+extern  "C" {
+#endif
+
+
+/*
+*********************************************************************************************************
+*                                               DEFINES
+*********************************************************************************************************
+*/
+
+#ifndef  __TARGET_FPU_SOFTVFP
+#define  OS_CPU_ARM_FP_EN                              DEF_ENABLED
+#else
+#define  OS_CPU_ARM_FP_EN                              DEF_DISABLED
+#endif
+
+#define  OS_CPU_ARM_FP_REG_NBR                           32u
+
+
 /*
 *********************************************************************************************************
 *                                               MACROS
@@ -51,6 +85,9 @@
 */
 
 #define  OS_TASK_SW()               OSCtxSw()
+
+#define  OS_TASK_SW_SYNC()          __isb(0xF)
+
 
 /*
 *********************************************************************************************************
@@ -108,6 +145,7 @@
 
 #define  OS_CPU_CFG_SYSTICK_PRIO           0u
 
+
 /*
 *********************************************************************************************************
 *                                          GLOBAL VARIABLES
@@ -115,6 +153,7 @@
 */
 
 OS_CPU_EXT  CPU_STK  *OS_CPU_ExceptStkBase;
+
 
 /*
 *********************************************************************************************************
@@ -131,5 +170,15 @@ void  OS_CPU_PendSVHandler (void);
 
 void  OS_CPU_SysTickHandler(void);
 void  OS_CPU_SysTickInit   (CPU_INT32U  cnts);
+
+#if (OS_CPU_ARM_FP_EN == DEF_ENABLED)
+void  OS_CPU_FP_Reg_Push   (CPU_STK    *stkPtr);
+void  OS_CPU_FP_Reg_Pop    (CPU_STK    *stkPtr);
+#endif
+
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

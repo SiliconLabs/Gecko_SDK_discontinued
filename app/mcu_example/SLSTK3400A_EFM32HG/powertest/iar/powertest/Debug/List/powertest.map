@@ -1,0 +1,329 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.2.11947/W32 for ARM                09/Mar/2017  20:16:31
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\powertest\iar\powertest\Debug\Exe\powertest.out
+#    Map file     =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\powertest\iar\powertest\Debug\List\powertest.map
+#    Command line =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\powertest\iar\powertest\Debug\Obj\em_assert.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\powertest\iar\powertest\Debug\Obj\em_cmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\powertest\iar\powertest\Debug\Obj\em_core.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\powertest\iar\powertest\Debug\Obj\em_emu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\powertest\iar\powertest\Debug\Obj\em_rtc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\powertest\iar\powertest\Debug\Obj\em_system.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\powertest\iar\powertest\Debug\Obj\em_wdog.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\powertest\iar\powertest\Debug\Obj\main.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\powertest\iar\powertest\Debug\Obj\rtcdriver.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\powertest\iar\powertest\Debug\Obj\startup_efm32zg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\powertest\iar\powertest\Debug\Obj\system_efm32zg.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\powertest\iar\powertest\Debug\Exe\powertest.out
+#        --map
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\powertest\iar\powertest\Debug\List\powertest.map
+#        --config
+#        T:\iar_ew_7802_win32_rel_1\arm\config\linker\SiliconLaboratories\EFM32ZG222F32.icf
+#        --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x00007fff] { ro };
+"P2":  place in [from 0x20000000 to 0x20000fff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+ { section .intvec };
+
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A0":                                       0x8c
+  .intvec            ro code  0x00000000    0x8c  startup_efm32zg.o [1]
+                            - 0x0000008c    0x8c
+
+"P1":                                     0x1aa0
+  .text              ro code  0x0000008c   0x880  em_cmu.o [1]
+  .text              ro code  0x0000090c     0x4  em_assert.o [1]
+  .text              ro code  0x00000910    0xf0  system_efm32zg.o [1]
+  .text              ro code  0x00000a00   0x794  rtcdriver.o [1]
+  .text              ro code  0x00001194     0x8  em_core.o [1]
+  .text              ro code  0x0000119c     0xa  em_core.o [1]
+  .text              ro code  0x000011a6     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x000011a8    0x32  I64Mul.o [4]
+  .text              ro code  0x000011da    0x6a  I64DivMod.o [4]
+  .text              ro code  0x00001244    0xe8  em_rtc.o [1]
+  .text              ro code  0x0000132c    0x50  ABImemset.o [4]
+  .text              ro code  0x0000137c     0x2  I64DivZer.o [4]
+  .text              ro code  0x0000137e     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00001380   0x2ec  main.o [1]
+  .text              ro code  0x0000166c    0x72  em_wdog.o [1]
+  .text              ro code  0x000016de    0xae  I32DivModFast.o [4]
+  .text              ro code  0x0000178c   0x174  em_emu.o [1]
+  .text              ro code  0x00001900     0x2  IntDivZer.o [4]
+  .text              ro code  0x00001902     0x2  startup_efm32zg.o [1]
+  .rodata            const    0x00001904    0x88  em_cmu.o [1]
+  .rodata            const    0x0000198c    0x4c  em_cmu.o [1]
+  .rodata            const    0x000019d8    0x4c  em_rtc.o [1]
+  .text              ro code  0x00001a24    0x3c  packbits_init_single.o [4]
+  .text              ro code  0x00001a60    0x28  data_init.o [4]
+  .iar.init_table    const    0x00001a88    0x10  - Linker created -
+  .text              ro code  0x00001a98    0x1a  cmain.o [4]
+  .text              ro code  0x00001ab2     0x4  low_level_init.o [3]
+  .text              ro code  0x00001ab6     0x8  exit.o [3]
+  .text              ro code  0x00001abe     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00001ac0     0xa  cexit.o [4]
+  .text              ro code  0x00001aca     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00001acc     0xc  XXexit.o [4]
+  .text              ro code  0x00001ad8    0x10  startup_efm32zg.o [1]
+  .rodata            const    0x00001ae8     0xc  main.o [1]
+  .text              ro code  0x00001af4     0xc  cstartup_M.o [4]
+  .rodata            const    0x00001b00     0x4  rtcdriver.o [1]
+  .text              ro code  0x00001b04     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00001b06     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00001b08     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00001b0a     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00001b0c     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00001b0e     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00001b10     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00001b12     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00001b14     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00001b16     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00001b18     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00001b1a     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00001b1c     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00001b1e     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00001b20     0x2  startup_efm32zg.o [1]
+  .rodata            const    0x00001b22     0x0  packbits_init_single.o [4]
+  Initializer bytes  const    0x00001b22     0xa  <for P2-1>
+                            - 0x00001b2c  0x1aa0
+
+"P2", part 1 of 2:                          0x4c
+  P2-1                        0x20000000    0x4c  <Init block>
+    .bss             inited   0x20000000    0x28  rtcdriver.o [1]
+    .data            inited   0x20000028     0x4  system_efm32zg.o [1]
+    .data            inited   0x2000002c     0x4  system_efm32zg.o [1]
+    .bss             inited   0x20000030     0x4  em_emu.o [1]
+    .bss             inited   0x20000034     0x4  main.o [1]
+    .bss             inited   0x20000038     0x4  main.o [1]
+    .bss             inited   0x2000003c     0x4  rtcdriver.o [1]
+    .bss             inited   0x20000040     0x4  rtcdriver.o [1]
+    .bss             inited   0x20000044     0x4  system_efm32zg.o [1]
+    .bss             inited   0x20000048     0x1  em_emu.o [1]
+    .bss             inited   0x20000049     0x1  rtcdriver.o [1]
+    .bss             inited   0x2000004a     0x1  rtcdriver.o [1]
+    .bss             inited   0x2000004b     0x1  rtcdriver.o [1]
+                            - 0x2000004c    0x4c
+
+"P2", part 2 of 2:                         0x400
+  CSTACK                      0x20000050   0x400  <Block>
+    CSTACK           uninit   0x20000050   0x400  <Block tail>
+                            - 0x20000450   0x400
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Copy/packbits (__iar_packbits_init_single3)
+    1 source range, total size 0xa (13% of destination):
+          0x00001b22   0xa
+    1 destination range, total size 0x4c:
+          0x20000000  0x4c
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                  ro code  ro data  rw data
+    ------                  -------  -------  -------
+D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\powertest\iar\powertest\Debug\Obj: [1]
+    em_assert.o                   4
+    em_cmu.o                  2 176      212
+    em_core.o                    18
+    em_emu.o                    372                 5
+    em_rtc.o                    232       76
+    em_wdog.o                   114
+    main.o                      748       13        8
+    rtcdriver.o               1 940       11       51
+    startup_efm32zg.o           196
+    system_efm32zg.o            240        2       12
+    -------------------------------------------------
+    Total:                    6 040      314       76
+
+command line: [2]
+    -------------------------------------------------
+    Total:
+
+dl6M_tln.a: [3]
+    exit.o                        8
+    low_level_init.o              4
+    -------------------------------------------------
+    Total:                       12
+
+rt6M_tl.a: [4]
+    ABImemset.o                  80
+    I32DivModFast.o             174
+    I64DivMod.o                 106
+    I64DivZer.o                   2
+    I64Mul.o                     50
+    IntDivZer.o                   2
+    XXexit.o                     12
+    cexit.o                      10
+    cmain.o                      26
+    cstartup_M.o                 12
+    data_init.o                  40
+    packbits_init_single.o       60
+    -------------------------------------------------
+    Total:                      574
+
+    Linker created                        16    1 024
+-----------------------------------------------------
+    Grand Total:              6 626      330    1 100
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x00001a88          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x00001a98          --   Gb  - Linker created -
+?main                   0x00001a99         Code  Gb  cmain.o [4]
+BUS_RegBitRead          0x000000bf    0xc  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x000000a3   0x1c  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x00001245   0x1c  Code  Lc  em_rtc.o [1]
+CHIP_Init               0x00001437    0x2  Code  Lc  main.o [1]
+CMU_ClockDivSet         0x0000034d  0x106  Code  Gb  em_cmu.o [1]
+CMU_ClockEnable         0x00000455   0x80  Code  Gb  em_cmu.o [1]
+CMU_ClockFreqGet        0x000004ed   0xce  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectGet      0x000005e1   0xe2  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectSet      0x000006ed  0x13e  Code  Gb  em_cmu.o [1]
+CMU_DivToLog2           0x000000cb   0x26  Code  Lc  em_cmu.o [1]
+CMU_Lock                0x00001795    0x8  Code  Lc  em_emu.o [1]
+CMU_OscillatorEnable    0x00000859   0x96  Code  Gb  em_cmu.o [1]
+CMU_Unlock              0x0000179d    0x8  Code  Lc  em_emu.o [1]
+CORE_EnterAtomic        0x00001195    0x8  Code  Wk  em_core.o [1]
+CORE_ExitAtomic         0x0000119d    0xa  Code  Wk  em_core.o [1]
+CSTACK$$Base            0x20000050          --   Gb  - Linker created -
+CSTACK$$Limit           0x20000450          --   Gb  - Linker created -
+Delay                   0x0000146b   0x14  Code  Lc  main.o [1]
+EMU_EnterEM1            0x00001439   0x10  Code  Lc  main.o [1]
+EMU_EnterEM2            0x0000186b   0x2c  Code  Gb  em_emu.o [1]
+EMU_EnterEM3            0x00001897   0x4c  Code  Gb  em_emu.o [1]
+NVIC_ClearPendingIRQ    0x00000a0f    0xe  Code  Lc  rtcdriver.o [1]
+NVIC_EnableIRQ          0x00000a01    0xe  Code  Lc  rtcdriver.o [1]
+NVIC_SetPriority        0x00001381   0x84  Code  Lc  main.o [1]
+RTCDRV_AllocateTimer    0x00000a4f   0x54  Code  Gb  rtcdriver.o [1]
+RTCDRV_Delay            0x00000aa3   0x5a  Code  Gb  rtcdriver.o [1]
+RTCDRV_Init             0x00000afd   0x7c  Code  Gb  rtcdriver.o [1]
+RTCDRV_StartTimer       0x00000bc9  0x26c  Code  Gb  rtcdriver.o [1]
+RTC_CompareGet          0x00001261   0x32  Code  Gb  em_rtc.o [1]
+RTC_CompareSet          0x00001293   0x36  Code  Gb  em_rtc.o [1]
+RTC_CounterGet          0x00000a1d    0x6  Code  Lc  rtcdriver.o [1]
+RTC_CounterReset        0x0000131d   0x10  Code  Gb  em_rtc.o [1]
+RTC_Enable              0x000012c9   0x12  Code  Gb  em_rtc.o [1]
+RTC_IRQHandler          0x00000e45   0x8c  Code  Gb  rtcdriver.o [1]
+RTC_Init                0x000012db   0x30  Code  Gb  em_rtc.o [1]
+RTC_IntClear            0x00000a23    0x6  Code  Lc  rtcdriver.o [1]
+RTC_IntDisable          0x00000a29    0xc  Code  Lc  rtcdriver.o [1]
+RTC_IntEnable           0x00000a35    0xc  Code  Lc  rtcdriver.o [1]
+RTC_IntGetEnabled       0x00000a41    0xe  Code  Lc  rtcdriver.o [1]
+Region$$Table$$Base     0x00001a88          --   Gb  - Linker created -
+Region$$Table$$Limit    0x00001a98          --   Gb  - Linker created -
+SYSTEM_GetProdRev       0x000000f1    0xa  Code  Lc  em_cmu.o [1]
+SysTickDisable          0x00001463    0x8  Code  Lc  main.o [1]
+SysTick_Config          0x00001405   0x32  Code  Lc  main.o [1]
+SysTick_Handler         0x00001457    0xc  Code  Gb  main.o [1]
+SystemCoreClock         0x20000044    0x4  Data  Gb  system_efm32zg.o [1]
+SystemCoreClockGet      0x00000911   0x1a  Code  Gb  system_efm32zg.o [1]
+SystemCoreClockUpdate   0x0000178d    0x8  Code  Lc  em_emu.o [1]
+SystemHFClockGet        0x0000092f   0x8e  Code  Gb  system_efm32zg.o [1]
+SystemHFXOClock         0x20000028    0x4  Data  Lc  system_efm32zg.o [1]
+SystemInit              0x000009bd    0x2  Code  Gb  system_efm32zg.o [1]
+SystemLFRCOClockGet     0x000009bf    0x6  Code  Gb  system_efm32zg.o [1]
+SystemLFXOClock         0x2000002c    0x4  Data  Lc  system_efm32zg.o [1]
+SystemLFXOClockGet      0x000009cb    0x6  Code  Gb  system_efm32zg.o [1]
+SystemMaxCoreClockGet   0x0000092b    0x4  Code  Gb  system_efm32zg.o [1]
+SystemULFRCOClockGet    0x000009c5    0x6  Code  Gb  system_efm32zg.o [1]
+WDOG_Init               0x00001449    0xe  Code  Lc  main.o [1]
+WDOGn_Init              0x0000166d   0x72  Code  Gb  em_wdog.o [1]
+__Vectors               0x00000000          --   Gb  startup_efm32zg.o [1]
+__Vectors_End           0x0000008c         Data  Gb  startup_efm32zg.o [1]
+__Vectors_Size {Abs}    0x0000008c          --   Gb  startup_efm32zg.o [1]
+__aeabi_idiv0           0x00001901         Code  Gb  IntDivZer.o [4]
+__aeabi_ldiv0           0x0000137d         Code  Gb  I64DivZer.o [4]
+__aeabi_lmul            0x000011a9         Code  Gb  I64Mul.o [4]
+__aeabi_memset          0x0000132d         Code  Gb  ABImemset.o [4]
+__aeabi_uidiv           0x000016df         Code  Gb  I32DivModFast.o [4]
+__aeabi_uidivmod        0x000016df         Code  Gb  I32DivModFast.o [4]
+__aeabi_uldivmod        0x000011db         Code  Gb  I64DivMod.o [4]
+__cmain                 0x00001a99         Code  Gb  cmain.o [4]
+__cmsis_iar_clz         0x0000008d   0x16  Code  Lc  em_cmu.o [1]
+__exit                  0x00001acd         Code  Gb  XXexit.o [4]
+__iar_Memset4_word      0x0000134d         Code  Gb  ABImemset.o [4]
+__iar_Memset_word       0x00001339         Code  Gb  ABImemset.o [4]
+__iar_data_init3        0x00001a61   0x28  Code  Gb  data_init.o [4]
+__iar_packbits_init_single3
+                        0x00001a25   0x3c  Code  Gb  packbits_init_single.o [4]
+__iar_program_start     0x00001af5         Code  Gb  cstartup_M.o [4]
+__low_level_init        0x00001ab3    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000         Data  Gb  startup_efm32zg.o [1]
+__vector_table_0x1c     0x0000001c         Data  Gb  startup_efm32zg.o [1]
+_call_main              0x00001aa5         Code  Gb  cmain.o [4]
+_exit                   0x00001ac1         Code  Gb  cexit.o [4]
+_main                   0x00001aaf         Code  Gb  cmain.o [4]
+assertEFM               0x0000090d    0x4  Code  Gb  em_assert.o [1]
+auxClkGet               0x000000fb   0x7e  Code  Lc  em_cmu.o [1]
+checkAllTimers          0x00000ee5  0x198  Code  Lc  rtcdriver.o [1]
+dbgClkGet               0x00000179   0x38  Code  Lc  em_cmu.o [1]
+delayTicks              0x0000107d   0x24  Code  Lc  rtcdriver.o [1]
+emState                 0x000017a5   0xc6  Code  Lc  em_emu.o [1]
+emState::cmuStatus      0x20000030    0x4  Data  Lc  em_emu.o [1]
+emState::hfClock        0x20000048    0x1  Data  Lc  em_emu.o [1]
+executeTimerCallbacks   0x000010a1   0x36  Code  Lc  rtcdriver.o [1]
+exit                    0x00001ab7    0x8  Code  Gb  exit.o [3]
+flashWaitStateControl   0x000001b1   0x52  Code  Lc  em_cmu.o [1]
+flashWaitStateMax       0x00000203    0xc  Code  Lc  em_cmu.o [1]
+inTimerIRQ              0x20000049    0x1  Data  Lc  rtcdriver.o [1]
+initRTC                 0x00001b00    0x4  Data  Lc  rtcdriver.o [1]
+lastStart               0x2000003c    0x4  Data  Lc  rtcdriver.o [1]
+lfClkGet                0x0000020f   0xc4  Code  Lc  em_cmu.o [1]
+main                    0x0000147f  0x1c0  Code  Gb  main.o [1]
+msTicks                 0x20000034    0x4  Data  Lc  main.o [1]
+rescheduleRtc           0x000010d9   0xa0  Code  Lc  rtcdriver.o [1]
+rtcRunning              0x2000004a    0x1  Data  Lc  rtcdriver.o [1]
+rtcdrvIsInitialized     0x2000004b    0x1  Data  Lc  rtcdriver.o [1]
+startTimerNestingLevel  0x20000040    0x4  Data  Lc  rtcdriver.o [1]
+syncReg                 0x000002d3   0x16  Code  Lc  em_cmu.o [1]
+timer                   0x20000000   0x28  Data  Lc  rtcdriver.o [1]
+xTimerForWakeUp         0x20000038    0x4  Data  Gb  main.o [1]
+
+
+[1] = D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\powertest\iar\powertest\Debug\Obj
+[2] = command line
+[3] = dl6M_tln.a
+[4] = rt6M_tl.a
+
+  6 626 bytes of readonly  code memory
+    330 bytes of readonly  data memory
+  1 100 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

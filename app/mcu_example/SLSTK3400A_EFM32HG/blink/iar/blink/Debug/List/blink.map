@@ -1,0 +1,251 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.2.11947/W32 for ARM                09/Mar/2017  20:15:22
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\blink\iar\blink\Debug\Exe\blink.out
+#    Map file     =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\blink\iar\blink\Debug\List\blink.map
+#    Command line =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\blink\iar\blink\Debug\Obj\blink.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\blink\iar\blink\Debug\Obj\bsp_stk_leds.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\blink\iar\blink\Debug\Obj\em_assert.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\blink\iar\blink\Debug\Obj\em_cmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\blink\iar\blink\Debug\Obj\em_emu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\blink\iar\blink\Debug\Obj\em_gpio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\blink\iar\blink\Debug\Obj\startup_efm32zg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\blink\iar\blink\Debug\Obj\system_efm32zg.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\blink\iar\blink\Debug\Exe\blink.out
+#        --map
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\blink\iar\blink\Debug\List\blink.map
+#        --config
+#        T:\iar_ew_7802_win32_rel_1\arm\config\linker\SiliconLaboratories\EFM32ZG222F32.icf
+#        --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x00007fff] { ro };
+"P2":  place in [from 0x20000000 to 0x20000fff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+ { section .intvec };
+
+  Section            Kind        Address   Size  Object
+  -------            ----        -------   ----  ------
+"A0":                                      0x8c
+  .intvec            ro code  0x00000000   0x8c  startup_efm32zg.o [1]
+                            - 0x0000008c   0x8c
+
+"P1":                                     0xe76
+  .text              ro code  0x0000008c  0x478  em_cmu.o [1]
+  .text              ro code  0x00000504    0x4  em_assert.o [1]
+  .text              ro code  0x00000508   0xe8  system_efm32zg.o [1]
+  .text              ro code  0x000005f0  0x2a8  em_gpio.o [1]
+  .text              ro code  0x00000898  0x1e4  bsp_stk_leds.o [1]
+  .text              ro code  0x00000a7c  0x128  blink.o [1]
+  .text              ro code  0x00000ba4   0xae  I32DivModFast.o [4]
+  .text              ro code  0x00000c52    0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00000c54    0x2  IntDivZer.o [4]
+  .text              ro code  0x00000c56    0x2  startup_efm32zg.o [1]
+  .rodata            const    0x00000c58   0x84  bsp_stk_leds.o [1]
+  .rodata            const    0x00000cdc   0x84  em_gpio.o [1]
+  .rodata            const    0x00000d60   0x4c  em_cmu.o [1]
+  .rodata            const    0x00000dac   0x4c  em_gpio.o [1]
+  .text              ro code  0x00000df8   0x30  copy_init3.o [4]
+  .text              ro code  0x00000e28   0x28  data_init.o [4]
+  .iar.init_table    const    0x00000e50   0x14  - Linker created -
+  .text              ro code  0x00000e64   0x1a  cmain.o [4]
+  .text              ro code  0x00000e7e    0x4  low_level_init.o [3]
+  .text              ro code  0x00000e82    0x8  exit.o [3]
+  .text              ro code  0x00000e8a    0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00000e8c    0xa  cexit.o [4]
+  .text              ro code  0x00000e96    0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00000e98    0xc  XXexit.o [4]
+  .rodata            const    0x00000ea4   0x10  bsp_stk_leds.o [1]
+  .text              ro code  0x00000eb4   0x10  startup_efm32zg.o [1]
+  Initializer bytes  const    0x00000ec4   0x10  <for P2-1>
+  .text              ro code  0x00000ed4    0xc  cstartup_M.o [4]
+  .text              ro code  0x00000ee0    0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00000ee2    0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00000ee4    0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00000ee6    0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00000ee8    0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00000eea    0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00000eec    0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00000eee    0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00000ef0    0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00000ef2    0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00000ef4    0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00000ef6    0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00000ef8    0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00000efa    0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00000efc    0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00000efe    0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00000f00    0x2  startup_efm32zg.o [1]
+  .rodata            const    0x00000f02    0x0  copy_init3.o [4]
+                            - 0x00000f02  0xe76
+
+"P2", part 1 of 2:                         0x10
+  P2-1                        0x20000000   0x10  <Init block>
+    .data            inited   0x20000000    0x4  system_efm32zg.o [1]
+    .data            inited   0x20000004    0x4  system_efm32zg.o [1]
+    .bss             inited   0x20000008    0x4  blink.o [1]
+    .bss             inited   0x2000000c    0x4  system_efm32zg.o [1]
+                            - 0x20000010   0x10
+
+"P2", part 2 of 2:                        0x400
+  CSTACK                      0x20000010  0x400  <Block>
+    CSTACK           uninit   0x20000010  0x400  <Block tail>
+                            - 0x20000410  0x400
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Copy (__iar_copy_init3)
+    1 source range, total size 0x10:
+          0x00000ec4  0x10
+    1 destination range, total size 0x10:
+          0x20000000  0x10
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module             ro code  ro data  rw data
+    ------             -------  -------  -------
+D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\blink\iar\blink\Debug\Obj: [1]
+    blink.o                296        4        4
+    bsp_stk_leds.o         484      148
+    em_assert.o              4
+    em_cmu.o             1 144       76
+    em_gpio.o              680      208
+    startup_efm32zg.o      198
+    system_efm32zg.o       232       12       12
+    --------------------------------------------
+    Total:               3 038      448       16
+
+command line: [2]
+    --------------------------------------------
+    Total:
+
+dl6M_tln.a: [3]
+    exit.o                   8
+    low_level_init.o         4
+    --------------------------------------------
+    Total:                  12
+
+rt6M_tl.a: [4]
+    I32DivModFast.o        174
+    IntDivZer.o              2
+    XXexit.o                12
+    cexit.o                 10
+    cmain.o                 26
+    copy_init3.o            48
+    cstartup_M.o            12
+    data_init.o             40
+    --------------------------------------------
+    Total:                 324
+
+    Linker created                   20    1 024
+------------------------------------------------
+    Grand Total:         3 374      468    1 040
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x00000e50          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x00000e64          --   Gb  - Linker created -
+?main                   0x00000e65         Code  Gb  cmain.o [4]
+BSP_LedsInit            0x000009dd   0x3c  Code  Gb  bsp_stk_leds.o [1]
+BSP_LedsSet             0x00000a21   0x4c  Code  Gb  bsp_stk_leds.o [1]
+BUS_RegBitWrite         0x0000008d   0x1c  Code  Lc  em_cmu.o [1]
+CHIP_Init               0x00000b33    0x2  Code  Lc  blink.o [1]
+CMU_ClockEnable         0x00000289   0x80  Code  Gb  em_cmu.o [1]
+CMU_ClockFreqGet        0x0000030d   0xce  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectGet      0x000003e1   0xe2  Code  Gb  em_cmu.o [1]
+CSTACK$$Base            0x20000010          --   Gb  - Linker created -
+CSTACK$$Limit           0x20000410          --   Gb  - Linker created -
+Delay                   0x00000b41   0x14  Code  Lc  blink.o [1]
+GPIO_PinModeSet         0x00000741  0x13a  Code  Gb  em_gpio.o [1]
+GPIO_PinOutClear        0x00000899   0x96  Code  Lc  bsp_stk_leds.o [1]
+GPIO_PinOutClear        0x000005f1   0x96  Code  Lc  em_gpio.o [1]
+GPIO_PinOutSet          0x0000092f   0x96  Code  Lc  bsp_stk_leds.o [1]
+GPIO_PinOutSet          0x00000687   0x96  Code  Lc  em_gpio.o [1]
+NVIC_SetPriority        0x00000a7d   0x84  Code  Lc  blink.o [1]
+Region$$Table$$Base     0x00000e50          --   Gb  - Linker created -
+Region$$Table$$Limit    0x00000e64          --   Gb  - Linker created -
+SYSTEM_GetProdRev       0x000000a9    0xa  Code  Lc  em_cmu.o [1]
+SysTick_Config          0x00000b01   0x32  Code  Lc  blink.o [1]
+SysTick_Handler         0x00000b35    0xc  Code  Gb  blink.o [1]
+SystemCoreClock         0x2000000c    0x4  Data  Gb  system_efm32zg.o [1]
+SystemCoreClockGet      0x00000509   0x1a  Code  Gb  system_efm32zg.o [1]
+SystemHFClockGet        0x00000523   0x8e  Code  Gb  system_efm32zg.o [1]
+SystemHFXOClock         0x20000000    0x4  Data  Lc  system_efm32zg.o [1]
+SystemInit              0x000005b1    0x2  Code  Gb  system_efm32zg.o [1]
+SystemLFRCOClockGet     0x000005b3    0x6  Code  Gb  system_efm32zg.o [1]
+SystemLFXOClock         0x20000004    0x4  Data  Lc  system_efm32zg.o [1]
+SystemLFXOClockGet      0x000005bf    0x6  Code  Gb  system_efm32zg.o [1]
+SystemULFRCOClockGet    0x000005b9    0x6  Code  Gb  system_efm32zg.o [1]
+__Vectors               0x00000000          --   Gb  startup_efm32zg.o [1]
+__Vectors_End           0x0000008c         Data  Gb  startup_efm32zg.o [1]
+__Vectors_Size {Abs}    0x0000008c          --   Gb  startup_efm32zg.o [1]
+__aeabi_idiv0           0x00000c55         Code  Gb  IntDivZer.o [4]
+__aeabi_uidiv           0x00000ba5         Code  Gb  I32DivModFast.o [4]
+__aeabi_uidivmod        0x00000ba5         Code  Gb  I32DivModFast.o [4]
+__cmain                 0x00000e65         Code  Gb  cmain.o [4]
+__exit                  0x00000e99         Code  Gb  XXexit.o [4]
+__iar_copy_init3        0x00000df9   0x30  Code  Gb  copy_init3.o [4]
+__iar_data_init3        0x00000e29   0x28  Code  Gb  data_init.o [4]
+__iar_program_start     0x00000ed5         Code  Gb  cstartup_M.o [4]
+__low_level_init        0x00000e7f    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000         Data  Gb  startup_efm32zg.o [1]
+__vector_table_0x1c     0x0000001c         Data  Gb  startup_efm32zg.o [1]
+_call_main              0x00000e71         Code  Gb  cmain.o [4]
+_exit                   0x00000e8d         Code  Gb  cexit.o [4]
+_main                   0x00000e7b         Code  Gb  cmain.o [4]
+assertEFM               0x00000505    0x4  Code  Gb  em_assert.o [1]
+auxClkGet               0x000000b3   0x7e  Code  Lc  em_cmu.o [1]
+dbgClkGet               0x00000131   0x38  Code  Lc  em_cmu.o [1]
+exit                    0x00000e83    0x8  Code  Gb  exit.o [3]
+ledArray                0x00000ea4   0x10  Data  Lc  bsp_stk_leds.o [1]
+lfClkGet                0x00000169   0xc4  Code  Lc  em_cmu.o [1]
+main                    0x00000b55   0x34  Code  Gb  blink.o [1]
+msTicks                 0x20000008    0x4  Data  Lc  blink.o [1]
+syncReg                 0x0000022d   0x16  Code  Lc  em_cmu.o [1]
+
+
+[1] = D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\blink\iar\blink\Debug\Obj
+[2] = command line
+[3] = dl6M_tln.a
+[4] = rt6M_tl.a
+
+  3 374 bytes of readonly  code memory
+    468 bytes of readonly  data memory
+  1 040 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="DK3850_audiofft_hardfloat" boardCompatibility="brd3800a" partCompatibility=".*efm32wg990f256.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <includePath uri="../../../../platform/CMSIS/DSP_Lib/Source/CommonTables" />
+  <includePath uri="../../../../platform/CMSIS/DSP_Lib/Source/ComplexMathFunctions" />
+  <includePath uri="../../../../platform/CMSIS/DSP_Lib/Source/TransformFunctions" />
+  <includePath uri="." />
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_adc.c" />
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_dma.c" />
+    <include pattern="emlib/em_ebi.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_prs.c" />
+    <include pattern="emlib/em_rtc.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_timer.c" />
+    <include pattern="emlib/em_usart.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emdrv">
+    <include pattern="Drivers(/.*){0,1}/rtcdriver.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <include pattern="BSP/bsp_dk_3201.c" />
+    <include pattern="BSP/bsp_dk_leds.c" />
+    <include pattern="BSP/bsp_trace.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <include pattern="Drivers/dmactrl.c" />
+    <include pattern="Drivers/tftdirect.c" />
+    <include pattern="Drivers/tftspi.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.glib">
+    <include pattern="Graphics/dmd_ssd2119_direct.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.emwin">
+    <exclude pattern=".*" />
+  </module>
+  <macroDefinition name="__FPU_PRESENT" value="1" />
+  <macroDefinition name="ARM_MATH_CM4" />
+  <libraryFile name="m" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.gnu.*" />
+  <folder name="DSP">
+    <file name="arm_bitreversal.c" uri="../../../../platform/CMSIS/DSP_Lib/Source/TransformFunctions/arm_bitreversal.c" />
+    <file name="arm_cfft_radix4_f32.c" uri="../../../../platform/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_f32.c" />
+    <file name="arm_cfft_radix4_init_f32.c" uri="../../../../platform/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_init_f32.c" />
+    <file name="arm_rfft_f32.c" uri="../../../../platform/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_f32.c" />
+    <file name="arm_rfft_init_f32.c" uri="../../../../platform/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_init_f32.c" />
+    <file name="arm_cmplx_mag_f32.c" uri="../../../../platform/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_f32.c" />
+    <file name="arm_common_tables.c" uri="../../../../platform/CMSIS/DSP_Lib/Source/CommonTables/arm_common_tables.c" />
+  </folder>
+  <folder name="src">
+    <file name="audiofft.c" uri="audiofft.c" />
+    <file name="plot.c" uri="plot.c" />
+    <file name="logo.c" uri="logo.c" />
+    <file name="GUIConf.c" uri="GUIConf.c" />
+    <file name="GUI_X.c" uri="GUI_X.c" />
+    <file name="LCDConf.c" uri="LCDConf.c" />
+    <file name="GUIResource.c" uri="GUIResource.c" />
+  </folder>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.flags" value="-c -x assembler-with-cpp -mfloat-abi=softfp -mfpu=fpv4-sp-d16 "/>
+</project>

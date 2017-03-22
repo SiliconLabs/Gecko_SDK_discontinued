@@ -4,14 +4,15 @@
 *                                          The Real-Time Kernel
 *
 *
-*                              (c) Copyright 2010; Micrium, Inc.; Weston, FL
+*                         (c) Copyright 2009-2016; Micrium, Inc.; Weston, FL
 *                    All rights reserved.  Protected by international copyright laws.
 *
 *                                           ARM Cortex-M4 Port
 *
 * File      : OS_CPU.H
-* Version   : V2.92
+* Version   : V2.92.12.00
 * By        : JJL
+*             JBL
 *
 * LICENSING TERMS:
 * ---------------
@@ -50,6 +51,20 @@
 #ifndef  OS_CPU_EXCEPT_STK_SIZE
 #define  OS_CPU_EXCEPT_STK_SIZE    128u          /* Default exception stack size is 128 OS_STK entries */
 #endif
+
+/*
+*********************************************************************************************************
+*                                               DEFINES
+*********************************************************************************************************
+*/
+
+#ifndef  __TARGET_FPU_SOFTVFP
+#define  OS_CPU_ARM_FP_EN                                1u
+#else
+#define  OS_CPU_ARM_FP_EN                                0u
+#endif
+
+#define  OS_CPU_ARM_FP_REG_NBR                           32u
 
 
 /*
@@ -97,6 +112,7 @@ typedef double         FP64;                     /* Double precision floating po
 typedef unsigned int   OS_STK;                   /* Each stack entry is 32-bit wide                    */
 typedef unsigned int   OS_CPU_SR;                /* Define size of CPU status register (PSR = 32 bits) */
 
+
 /*
 *********************************************************************************************************
 *                                              Cortex-M4
@@ -126,6 +142,7 @@ typedef unsigned int   OS_CPU_SR;                /* Define size of CPU status re
 #define  OS_EXIT_CRITICAL()   {OS_CPU_SR_Restore(cpu_sr);}
 #endif
 
+
 /*
 *********************************************************************************************************
 *                                        Cortex-M4 Miscellaneous
@@ -136,6 +153,7 @@ typedef unsigned int   OS_CPU_SR;                /* Define size of CPU status re
 
 #define  OS_TASK_SW()         OSCtxSw()
 
+
 /*
 *********************************************************************************************************
 *                                          GLOBAL VARIABLES
@@ -145,6 +163,7 @@ typedef unsigned int   OS_CPU_SR;                /* Define size of CPU status re
 OS_CPU_EXT  OS_STK   OS_CPU_ExceptStk[OS_CPU_EXCEPT_STK_SIZE];
 OS_CPU_EXT  OS_STK  *OS_CPU_ExceptStkBase;
 
+
 /*
 *********************************************************************************************************
 *                                         FUNCTION PROTOTYPES
@@ -152,18 +171,23 @@ OS_CPU_EXT  OS_STK  *OS_CPU_ExceptStkBase;
 */
 
 #if OS_CRITICAL_METHOD == 3u                      /* See OS_CPU_A.ASM                                  */
-OS_CPU_SR  OS_CPU_SR_Save(void);
-void       OS_CPU_SR_Restore(OS_CPU_SR cpu_sr);
+OS_CPU_SR  OS_CPU_SR_Save    (void);
+void       OS_CPU_SR_Restore (OS_CPU_SR cpu_sr);
 #endif
 
-void  OSCtxSw              (void);
-void  OSIntCtxSw           (void);
-void  OSStartHighRdy       (void);
+void  OSCtxSw                (void);
+void  OSIntCtxSw             (void);
+void  OSStartHighRdy         (void);
 
-void  OS_CPU_PendSVHandler (void);
+void  OS_CPU_PendSVHandler   (void);
 
                                                   /* See OS_CPU_C.C                                    */
-void  OS_CPU_SysTickHandler(void);
-void  OS_CPU_SysTickInit   (INT32U  cnts);
+void  OS_CPU_SysTickHandler  (void);
+void  OS_CPU_SysTickInit     (INT32U    cnts);
+
+#if (OS_CPU_ARM_FP_EN > 0u)
+void  OS_CPU_FP_Reg_Push     (OS_STK   *stkPtr);
+void  OS_CPU_FP_Reg_Pop      (OS_STK   *stkPtr);
+#endif
 
 #endif

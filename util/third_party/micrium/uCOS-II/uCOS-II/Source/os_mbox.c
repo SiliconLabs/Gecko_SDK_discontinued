@@ -4,12 +4,12 @@
 *                                          The Real-Time Kernel
 *                                       MESSAGE MAILBOX MANAGEMENT
 *
-*                              (c) Copyright 1992-2012, Micrium, Weston, FL
+*                              (c) Copyright 1992-2016, Micrium, Weston, FL
 *                                           All Rights Reserved
 *
 * File    : OS_MBOX.C
 * By      : Jean J. Labrosse
-* Version : V2.92.07
+* Version : V2.92.12
 *
 * LICENSING TERMS:
 * ---------------
@@ -18,6 +18,15 @@
 * its use in your product. We provide ALL the source code for your convenience and to help you experience
 * uC/OS-II.   The fact that the  source is provided does  NOT  mean that you can use it without  paying a
 * licensing fee.
+*
+* Knowledge of the source code may NOT be used to develop a similar product.
+*
+* Please help us continue to provide the embedded community with the finest software available.
+* Your honesty is greatly appreciated.
+*
+* You can find our product's user manual, API reference, release notes and
+* more information at https://doc.micrium.com.
+* You can contact us at www.micrium.com.
 *********************************************************************************************************
 */
 
@@ -70,7 +79,8 @@ void  *OSMboxAccept (OS_EVENT *pevent)
     return (pmsg);                                        /* Return the message received (or NULL)     */
 }
 #endif
-/*$PAGE*/
+
+
 /*
 *********************************************************************************************************
 *                                          CREATE A MESSAGE MAILBOX
@@ -123,7 +133,8 @@ OS_EVENT  *OSMboxCreate (void *pmsg)
     }
     return (pevent);                             /* Return pointer to event control block              */
 }
-/*$PAGE*/
+
+
 /*
 *********************************************************************************************************
 *                                           DELETE A MAIBOX
@@ -139,12 +150,14 @@ OS_EVENT  *OSMboxCreate (void *pmsg)
 *                                                    In this case, all the tasks pending will be readied.
 *
 *              perr          is a pointer to an error code that can contain one of the following values:
-*                            OS_ERR_NONE             The call was successful and the mailbox was deleted
-*                            OS_ERR_DEL_ISR          If you attempted to delete the mailbox from an ISR
-*                            OS_ERR_INVALID_OPT      An invalid option was specified
-*                            OS_ERR_TASK_WAITING     One or more tasks were waiting on the mailbox
-*                            OS_ERR_EVENT_TYPE       If you didn't pass a pointer to a mailbox
-*                            OS_ERR_PEVENT_NULL      If 'pevent' is a NULL pointer.
+*                            OS_ERR_NONE                  The call was successful and the mailbox was deleted
+*                            OS_ERR_DEL_ISR               If you attempted to delete the mailbox from an ISR
+*                            OS_ERR_INVALID_OPT           An invalid option was specified
+*                            OS_ERR_ILLEGAL_DEL_RUN_TIME  If you tried to delete a mailbox after safety
+*                                                         critical operation started.
+*                            OS_ERR_TASK_WAITING          One or more tasks were waiting on the mailbox
+*                            OS_ERR_EVENT_TYPE            If you didn't pass a pointer to a mailbox
+*                            OS_ERR_PEVENT_NULL           If 'pevent' is a NULL pointer.
 *
 * Returns    : pevent        upon error
 *              (OS_EVENT *)0 if the mailbox was successfully deleted.
@@ -157,7 +170,7 @@ OS_EVENT  *OSMboxCreate (void *pmsg)
 *              4) Because ALL tasks pending on the mailbox will be readied, you MUST be careful in
 *                 applications where the mailbox is used for mutual exclusion because the resource(s)
 *                 will no longer be guarded by the mailbox.
-*              5) All tasks that were waiting for the mailbox will be readied and returned an 
+*              5) All tasks that were waiting for the mailbox will be readied and returned an
 *                 OS_ERR_PEND_ABORT if OSMboxDel() was called with OS_DEL_ALWAYS
 *********************************************************************************************************
 */
@@ -178,6 +191,14 @@ OS_EVENT  *OSMboxDel (OS_EVENT  *pevent,
 #ifdef OS_SAFETY_CRITICAL
     if (perr == (INT8U *)0) {
         OS_SAFETY_CRITICAL_EXCEPTION();
+        return ((OS_EVENT *)0);
+    }
+#endif
+
+#ifdef OS_SAFETY_CRITICAL_IEC61508
+    if (OSSafetyCriticalStartFlag == OS_TRUE) {
+        OS_SAFETY_CRITICAL_EXCEPTION();
+        *perr = OS_ERR_ILLEGAL_DEL_RUN_TIME;
         return ((OS_EVENT *)0);
     }
 #endif
@@ -251,7 +272,7 @@ OS_EVENT  *OSMboxDel (OS_EVENT  *pevent,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                    PEND ON MAILBOX FOR A MESSAGE
@@ -284,7 +305,7 @@ OS_EVENT  *OSMboxDel (OS_EVENT  *pevent,
 *                            if you didn't pass the proper pointer to the event control block.
 *********************************************************************************************************
 */
-/*$PAGE*/
+
 void  *OSMboxPend (OS_EVENT  *pevent,
                    INT32U     timeout,
                    INT8U     *perr)
@@ -364,7 +385,8 @@ void  *OSMboxPend (OS_EVENT  *pevent,
     OS_EXIT_CRITICAL();
     return (pmsg);                                    /* Return received message                       */
 }
-/*$PAGE*/
+
+
 /*
 *********************************************************************************************************
 *                                     ABORT WAITING ON A MESSAGE MAILBOX
@@ -454,7 +476,7 @@ INT8U  OSMboxPendAbort (OS_EVENT  *pevent,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                      POST MESSAGE TO A MAILBOX
@@ -516,7 +538,7 @@ INT8U  OSMboxPost (OS_EVENT  *pevent,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                      POST MESSAGE TO A MAILBOX
@@ -596,7 +618,7 @@ INT8U  OSMboxPostOpt (OS_EVENT  *pevent,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                       QUERY A MESSAGE MAILBOX

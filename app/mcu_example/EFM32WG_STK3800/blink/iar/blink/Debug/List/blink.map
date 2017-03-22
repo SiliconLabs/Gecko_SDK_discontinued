@@ -1,0 +1,296 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.2.11947/W32 for ARM                09/Mar/2017  19:53:02
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\blink\iar\blink\Debug\Exe\blink.out
+#    Map file     =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\blink\iar\blink\Debug\List\blink.map
+#    Command line =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\blink\iar\blink\Debug\Obj\blink.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\blink\iar\blink\Debug\Obj\bsp_bcc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\blink\iar\blink\Debug\Obj\bsp_stk.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\blink\iar\blink\Debug\Obj\bsp_stk_leds.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\blink\iar\blink\Debug\Obj\bsp_trace.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\blink\iar\blink\Debug\Obj\em_assert.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\blink\iar\blink\Debug\Obj\em_cmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\blink\iar\blink\Debug\Obj\em_ebi.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\blink\iar\blink\Debug\Obj\em_emu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\blink\iar\blink\Debug\Obj\em_gpio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\blink\iar\blink\Debug\Obj\em_system.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\blink\iar\blink\Debug\Obj\em_usart.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\blink\iar\blink\Debug\Obj\startup_efm32gg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\blink\iar\blink\Debug\Obj\system_efm32gg.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\blink\iar\blink\Debug\Exe\blink.out
+#        --map
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\blink\iar\blink\Debug\List\blink.map
+#        --config
+#        T:\iar_ew_7802_win32_rel_1\arm\config\linker\SiliconLaboratories\EFM32GG990F1024.icf
+#        --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x000fffff] { ro };
+"P2":  place in [from 0x20000000 to 0x2001ffff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+ { section .intvec };
+
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A0":                                       0xdc
+  .intvec            ro code  0x00000000    0xdc  startup_efm32gg.o [1]
+                            - 0x000000dc    0xdc
+
+"P1":                                     0x1390
+  .text              ro code  0x000000dc   0x730  em_cmu.o [1]
+  .text              ro code  0x0000080c     0x2  em_assert.o [1]
+  .text              ro code  0x00000810   0x12c  system_efm32gg.o [1]
+  .text              ro code  0x0000093c   0x2b0  em_gpio.o [1]
+  .text              ro code  0x00000bec   0x1ec  bsp_stk_leds.o [1]
+  .text              ro code  0x00000dd8   0x114  blink.o [1]
+  .text              ro code  0x00000eec    0x60  em_system.o [1]
+  .text              ro code  0x00000f4c   0x114  bsp_trace.o [1]
+  .rodata            const    0x00001060    0x84  bsp_stk_leds.o [1]
+  .rodata            const    0x000010e4    0x84  em_cmu.o [1]
+  .rodata            const    0x00001168    0x84  em_gpio.o [1]
+  .rodata            const    0x000011ec    0x4c  em_cmu.o [1]
+  .rodata            const    0x00001238    0x4c  em_gpio.o [1]
+  .rodata            const    0x00001284    0x4c  em_system.o [1]
+  .text              ro code  0x000012d0    0x2c  copy_init3.o [4]
+  .text              ro code  0x000012fc    0x28  data_init.o [4]
+  .iar.init_table    const    0x00001324    0x14  - Linker created -
+  .text              ro code  0x00001338    0x1a  cmain.o [4]
+  .text              ro code  0x00001352     0x4  low_level_init.o [3]
+  .text              ro code  0x00001356     0x4  exit.o [3]
+  .text              ro code  0x0000135c     0xa  cexit.o [4]
+  .text              ro code  0x00001368     0xc  XXexit.o [4]
+  .rodata            const    0x00001374    0x10  bsp_stk_leds.o [1]
+  .text              ro code  0x00001384    0x10  startup_efm32gg.o [1]
+  Initializer bytes  const    0x00001394    0x10  <for P2-1>
+  .text              ro code  0x000013a4     0xc  cstartup_M.o [4]
+  .text              ro code  0x000013b0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000013b4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000013b8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000013bc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000013c0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000013c4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000013c8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000013cc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000013d0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000013d4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000013d8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000013dc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000013e0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000013e4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000013e8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000013ec     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000013f0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000013f4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000013f8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000013fc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001400     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001404     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001408     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000140c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001410     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001414     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001418     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000141c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001420     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001424     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001428     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000142c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001430     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001434     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001438     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000143c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001440     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001444     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001448     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000144c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001450     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001454     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001458     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000145c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001460     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001464     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001468     0x4  startup_efm32gg.o [1]
+  .rodata            const    0x0000146c     0x0  copy_init3.o [4]
+                            - 0x0000146c  0x1390
+
+"P2", part 1 of 2:                          0x10
+  P2-1                        0x20000000    0x10  <Init block>
+    .data            inited   0x20000000     0x4  system_efm32gg.o [1]
+    .data            inited   0x20000004     0x4  system_efm32gg.o [1]
+    .bss             inited   0x20000008     0x4  blink.o [1]
+    .bss             inited   0x2000000c     0x4  system_efm32gg.o [1]
+                            - 0x20000010    0x10
+
+"P2", part 2 of 2:                         0x400
+  CSTACK                      0x20000010   0x400  <Block>
+    CSTACK           uninit   0x20000010   0x400  <Block tail>
+                            - 0x20000410   0x400
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Copy (__iar_copy_init3)
+    1 source range, total size 0x10:
+          0x00001394  0x10
+    1 destination range, total size 0x10:
+          0x20000000  0x10
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module             ro code  ro data  rw data
+    ------             -------  -------  -------
+D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\blink\iar\blink\Debug\Obj: [1]
+    blink.o                276        4        4
+    bsp_stk_leds.o         492      148
+    bsp_trace.o            276
+    em_assert.o              2
+    em_cmu.o             1 840      208
+    em_gpio.o              688      208
+    em_system.o             96       76
+    startup_efm32gg.o      424
+    system_efm32gg.o       300       12       12
+    --------------------------------------------
+    Total:               4 394      656       16
+
+command line: [2]
+    --------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    exit.o                   4
+    low_level_init.o         4
+    --------------------------------------------
+    Total:                   8
+
+rt7M_tl.a: [4]
+    XXexit.o                12
+    cexit.o                 10
+    cmain.o                 26
+    copy_init3.o            44
+    cstartup_M.o            12
+    data_init.o             40
+    --------------------------------------------
+    Total:                 144
+
+    Gaps                     6
+    Linker created                   20    1 024
+------------------------------------------------
+    Grand Total:         4 552      676    1 040
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x00001324          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x00001338          --   Gb  - Linker created -
+?main                   0x00001339         Code  Gb  cmain.o [4]
+BSP_LedSet              0x00000d71   0x28  Code  Gb  bsp_stk_leds.o [1]
+BSP_LedToggle           0x00000d99   0x28  Code  Gb  bsp_stk_leds.o [1]
+BSP_LedsInit            0x00000d39   0x38  Code  Gb  bsp_stk_leds.o [1]
+BSP_TraceProfilerSetup  0x00001049   0x18  Code  Gb  bsp_trace.o [1]
+BSP_TraceSwoSetup       0x00000f4d   0xac  Code  Gb  bsp_trace.o [1]
+BUS_RegBitRead          0x000000eb   0x10  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x000000dd    0xe  Code  Lc  em_cmu.o [1]
+CHIP_Init               0x00000e39   0x30  Code  Lc  blink.o [1]
+CMU_ClockEnable         0x00000409   0xa6  Code  Gb  em_cmu.o [1]
+CMU_ClockFreqGet        0x000004c5  0x188  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectGet      0x00000689  0x134  Code  Gb  em_cmu.o [1]
+CMU_DivToLog2           0x000000fb   0x28  Code  Lc  em_cmu.o [1]
+CSTACK$$Base            0x20000010          --   Gb  - Linker created -
+CSTACK$$Limit           0x20000410          --   Gb  - Linker created -
+Delay                   0x00000e75   0x12  Code  Gb  blink.o [1]
+GPIO_PinModeSet         0x00000a91  0x14e  Code  Gb  em_gpio.o [1]
+GPIO_PinOutClear        0x0000093d   0xaa  Code  Lc  em_gpio.o [1]
+GPIO_PinOutSet          0x00000bed   0xa6  Code  Lc  bsp_stk_leds.o [1]
+GPIO_PinOutSet          0x000009e7   0xaa  Code  Lc  em_gpio.o [1]
+GPIO_PinOutToggle       0x00000c93   0xa6  Code  Lc  bsp_stk_leds.o [1]
+GetProdRev              0x00000811    0xa  Code  Lc  system_efm32gg.o [1]
+NVIC_SetPriority        0x00000dd9   0x26  Code  Lc  blink.o [1]
+Region$$Table$$Base     0x00001324          --   Gb  - Linker created -
+Region$$Table$$Limit    0x00001338          --   Gb  - Linker created -
+SYSTEM_ChipRevisionGet  0x00000eed   0x4a  Code  Gb  em_system.o [1]
+SYSTEM_GetFamily        0x0000012f    0xc  Code  Lc  em_cmu.o [1]
+SYSTEM_GetProdRev       0x00000e2f    0xa  Code  Lc  blink.o [1]
+SYSTEM_GetProdRev       0x00000123    0xc  Code  Lc  em_cmu.o [1]
+SysTick_Config          0x00000dff   0x30  Code  Lc  blink.o [1]
+SysTick_Handler         0x00000e69    0xc  Code  Gb  blink.o [1]
+SystemCoreClock         0x2000000c    0x4  Data  Gb  system_efm32gg.o [1]
+SystemCoreClockGet      0x0000081b   0x1a  Code  Gb  system_efm32gg.o [1]
+SystemHFClockGet        0x00000835   0xb2  Code  Gb  system_efm32gg.o [1]
+SystemHFXOClock         0x20000000    0x4  Data  Lc  system_efm32gg.o [1]
+SystemInit              0x000008e7    0x2  Code  Gb  system_efm32gg.o [1]
+SystemLFRCOClockGet     0x000008e9    0x6  Code  Gb  system_efm32gg.o [1]
+SystemLFXOClock         0x20000004    0x4  Data  Lc  system_efm32gg.o [1]
+SystemLFXOClockGet      0x000008f5    0x6  Code  Gb  system_efm32gg.o [1]
+SystemULFRCOClockGet    0x000008ef    0x6  Code  Gb  system_efm32gg.o [1]
+__Vectors               0x00000000          --   Gb  startup_efm32gg.o [1]
+__Vectors_End           0x000000dc         Data  Gb  startup_efm32gg.o [1]
+__Vectors_Size {Abs}    0x000000dc          --   Gb  startup_efm32gg.o [1]
+__cmain                 0x00001339         Code  Gb  cmain.o [4]
+__exit                  0x00001369         Code  Gb  XXexit.o [4]
+__iar_copy_init3        0x000012d1   0x2c  Code  Gb  copy_init3.o [4]
+__iar_data_init3        0x000012fd   0x28  Code  Gb  data_init.o [4]
+__iar_program_start     0x000013a5         Code  Gb  cstartup_M.o [4]
+__low_level_init        0x00001353    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000         Data  Gb  startup_efm32gg.o [1]
+__vector_table_0x1c     0x0000001c         Data  Gb  startup_efm32gg.o [1]
+_call_main              0x00001345         Code  Gb  cmain.o [4]
+_exit                   0x0000135d         Code  Gb  cexit.o [4]
+_main                   0x0000134f         Code  Gb  cmain.o [4]
+assertEFM               0x0000080d    0x2  Code  Gb  em_assert.o [1]
+auxClkGet               0x000001f1   0x94  Code  Lc  em_cmu.o [1]
+dbgClkGet               0x00000285   0x3c  Code  Lc  em_cmu.o [1]
+exit                    0x00001357    0x4  Code  Gb  exit.o [3]
+getHfLeConfig           0x000001c5   0x2c  Code  Lc  em_cmu.o [1]
+ledArray                0x00001374   0x10  Data  Lc  bsp_stk_leds.o [1]
+lfClkGet                0x000002c1   0xf4  Code  Lc  em_cmu.o [1]
+main                    0x00000e87   0x42  Code  Gb  blink.o [1]
+maxFreqHfle             0x0000013b   0x60  Code  Lc  em_cmu.o [1]
+msTicks                 0x20000008    0x4  Data  Gb  blink.o [1]
+setHfLeConfig           0x0000019b   0x2a  Code  Lc  em_cmu.o [1]
+syncReg                 0x000003b5   0x16  Code  Lc  em_cmu.o [1]
+usbCClkGet              0x000003cb   0x3e  Code  Lc  em_cmu.o [1]
+
+
+[1] = D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\blink\iar\blink\Debug\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = rt7M_tl.a
+
+  4 552 bytes of readonly  code memory
+    676 bytes of readonly  data memory
+  1 040 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

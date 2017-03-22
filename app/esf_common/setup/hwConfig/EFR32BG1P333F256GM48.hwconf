@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="ASCII"?>
+<device:XMLDevice xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:device="http://www.silabs.com/sls/hc/document/device.ecore" name="EFR32BG1P333F256GM48" partId="com.silabs.mcu.si32.efr32.efr32bg1p.efr32bg1p333f256gm48">
+  <mode name="DefaultMode">
+    <property object="DefaultMode" propertyId="mode.diagramLocation" value="100, 100" />
+
+    <!--     -->
+    <!-- CMU -->
+    <!--     -->
+    <property object="CMU" propertyId="ABPeripheral.included"                                                                           value="true"       />
+    <property object="CMU" propertyId="cmu.settings.hiddenbysdk"                                                                        value="On"         />
+    <property object="CMU" propertyId="clocksettings.hfclocksettings.hfclocksource"                                                     value="HFXO"       />
+    <property object="CMU" propertyId="clocksettings.lfclocksettings.lfaclocksource"                                                    value="LFRCO"      />
+    <property object="CMU" propertyId="clocksettings.lfclocksettings.lfbclocksource"                                                    value="LFRCO"      />
+    <property object="CMU" propertyId="hfxo.calibration.customfunctionnamesignature:functionuint16_tctune_startup,uint16_tctune_steady" value="halInternalGetCtuneToken"/>
+    <property object="CMU" propertyId="hfxo.calibration.usecustomfunctiontogetctune"                                                    value="Yes"        />
+    <property object="CMU" propertyId="hfxo.initialization.startupxocorebiastrimcurrentua"                                              value="1280"       />
+    <property object="CMU" propertyId="hfxo.initialization.steadystatetimeout"                                                          value="256 cycles" />
+
+    <property object="LFXO"   propertyId="ABPeripheral.included" value="true"/>
+    <property object="PORTIO" propertyId="portio.lfxo.enable.n"  value="Enabled"/>
+    <property object="PORTIO" propertyId="portio.lfxo.enable.p"  value="Enabled"/>
+
+    <!--     -->
+    <!-- EMU -->
+    <!--     -->
+    <property object="EMU" propertyId="ABPeripheral.included" value="true" />
+
+    <!--      -->
+    <!-- RTCC -->
+    <!--      -->
+    <property object="RTCC" propertyId="ABPeripheral.included"     value="false" />
+    <property object="RTCC" propertyId="rtcc.settings.hiddenbysdk" value="On"    />
+
+    <!--        -->
+    <!-- TIMER0 -->
+    <!--        -->
+    <property object="TIMER0" propertyId="ABPeripheral.included"      value="false" />
+    <property object="TIMER0" propertyId="timer.settings.hiddenbysdk" value="On"    />
+
+    <!--        -->
+    <!-- USART0 -->
+    <!--        -->
+    <property object="USART0" propertyId="ABPeripheral.included"      value="false" />
+    <property object="USART0" propertyId="usart.settings.hiddenbysdk" value="On"    />
+
+    <!--        -->
+    <!-- USART1 -->
+    <!--        -->
+    <property object="USART1" propertyId="ABPeripheral.included"      value="false" />
+    <property object="USART1" propertyId="usart.settings.hiddenbysdk" value="On"    />
+
+    <!--       -->
+    <!-- WDOG0 -->
+    <!--       -->
+    <property object="WDOG0" propertyId="ABPeripheral.included"     value="false" />
+    <property object="WDOG0" propertyId="wdog.settings.hiddenbysdk" value="On"    />
+
+    <!--      -->
+    <!-- GPIO -->
+    <!--      -->
+    <property object="GPIO" propertyId="ABPeripheral.included" value="true" />
+
+    <property object="PA0"  propertyId="ports.settings.custompinname" value="RETARGET_TX"         />
+    <property object="PA0"  propertyId="ports.settings.reserve"       value="Reserved"            />
+    <property object="PA1"  propertyId="ports.settings.custompinname" value="RETARGET_RX"         />
+    <property object="PA1"  propertyId="ports.settings.reserve"       value="Reserved"            />
+
+    <!-- TODO: if a customer is using software flow control, then they don't need these, right?  -->
+    <property object="PA2"  propertyId="ports.settings.custompinname" value="USART0_CTS_PORT"     />
+    <property object="PA2"  propertyId="ports.settings.reserve"       value="Reserved"            />
+    <property object="PA3"  propertyId="ports.settings.custompinname" value="USART0_RTS_PORT"     />
+    <property object="PA3"  propertyId="ports.settings.reserve"       value="Reserved"            />
+
+    <property object="PC6"  propertyId="ports.settings.custompinname" value="EXTERNAL_FLASH_MOSI" />
+    <property object="PC6"  propertyId="ports.settings.reserve"       value="Reserved"            />
+    <property object="PC7"  propertyId="ports.settings.custompinname" value="EXTERNAL_FLASH_MISO" />
+    <property object="PC7"  propertyId="ports.settings.reserve"       value="Reserved"            />
+    <property object="PC8"  propertyId="ports.settings.custompinname" value="EXTERNAL_FLASH_CLK"  />
+    <property object="PC8"  propertyId="ports.settings.reserve"       value="Reserved"            />
+    <property object="PA4"  propertyId="ports.settings.custompinname" value="EXTERNAL_FLASH_CS"   />
+    <property object="PA4"  propertyId="ports.settings.reserve"       value="Reserved"            />
+
+    <property object="PF4"  propertyId="ports.settings.custompinname" value="BSP_GPIO_LED0"       />
+    <property object="PF4"  propertyId="ports.settings.pinmode"       value="Push-pull"           />
+    <property object="PF4"  propertyId="ports.settings.reserve"       value="Reserved"            />
+    <property object="PF5"  propertyId="ports.settings.custompinname" value="BSP_GPIO_LED1"       />
+    <property object="PF5"  propertyId="ports.settings.pinmode"       value="Push-pull"           />
+    <property object="PF5"  propertyId="ports.settings.reserve"       value="Reserved"            />
+    <property object="PF6"  propertyId="ports.settings.custompinname" value="BSP_GPIO_PB0"        />
+    <property object="PF6"  propertyId="ports.settings.reserve"       value="Reserved"            />
+    <property object="PF7"  propertyId="ports.settings.custompinname" value="BSP_GPIO_PB1"        />
+    <property object="PF7"  propertyId="ports.settings.reserve"       value="Reserved"            />
+
+  </mode>
+  <modeTransition>
+    <property object="RESET &#x2192; DefaultMode" propertyId="modeTransition.source" value="RESET"/>
+    <property object="RESET &#x2192; DefaultMode" propertyId="modeTransition.target" value="DefaultMode"/>
+  </modeTransition>
+</device:XMLDevice>

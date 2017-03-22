@@ -4,15 +4,16 @@
 ;                                          The Real-Time Kernel
 ;
 ;
-;                              (c) Copyright 2010; Micrium, Inc.; Weston, FL
+;                         (c) Copyright 2009-2016; Micrium, Inc.; Weston, FL
 ;                    All rights reserved.  Protected by international copyright laws.
 ;
 ;                                           ARM Cortex-M4 Port
 ;
 ; File      : OS_CPU_A.ASM
-; Version   : V2.92
+; Version   : V2.92.12.00
 ; By        : JJL
 ;             BAN
+;             JBL
 ;
 ; For       : ARMv7 Cortex-M4
 ; Mode      : Thumb-2 ISA
@@ -45,7 +46,7 @@
     PUBLIC  OS_CPU_FP_Reg_Pop
 #endif    
 
-;PAGE
+
 ;********************************************************************************************************
 ;                                               EQUATES
 ;********************************************************************************************************
@@ -63,8 +64,7 @@ NVIC_PENDSVSET  EQU     0x10000000                              ; Value to trigg
     RSEG CODE:CODE:NOROOT(2)
     THUMB
 
-#ifdef __ARMVFP__
-;PAGE
+
 ;********************************************************************************************************
 ;                                   FLOATING POINT REGISTERS PUSH
 ;                             void  OS_CPU_FP_Reg_Push (OS_STK  *stkPtr)
@@ -78,6 +78,7 @@ NVIC_PENDSVSET  EQU     0x10000000                              ; Value to trigg
 ;              d) Update OSTCBCur->OSTCBStkPtr;
 ;********************************************************************************************************
 
+#ifdef __ARMVFP__
 OS_CPU_FP_Reg_Push
     MRS     R1, PSP                                             ; PSP is process stack pointer
     CBZ     R1, OS_CPU_FP_nosave                                ; Skip FP register save the first time
@@ -90,8 +91,9 @@ OS_CPU_FP_Reg_Push
     STR     R0, [R2]
 OS_CPU_FP_nosave    
     BX      LR
+#endif
 
-;PAGE
+
 ;********************************************************************************************************
 ;                                   FLOATING POINT REGISTERS POP
 ;                             void  OS_CPU_FP_Reg_Pop (OS_STK  *stkPtr)
@@ -104,6 +106,7 @@ OS_CPU_FP_nosave
 ;              c) Update OSTCBHighRdy->OSTCBStkPtr pointer of new proces stack;
 ;********************************************************************************************************
 
+#ifdef __ARMVFP__
 OS_CPU_FP_Reg_Pop
     VLDMIA  R0!, {S0-S31}
     LDMIA   R0!, {R1}
@@ -113,6 +116,7 @@ OS_CPU_FP_Reg_Pop
     STR     R0, [R2]
     BX      LR
 #endif
+
 
 ;********************************************************************************************************
 ;                                   CRITICAL SECTION METHOD 3 FUNCTIONS
@@ -155,7 +159,7 @@ OS_CPU_SR_Restore
     MSR     PRIMASK, R0
     BX      LR
 
-;PAGE
+
 ;********************************************************************************************************
 ;                                         START MULTITASKING
 ;                                      void OSStartHighRdy(void)
@@ -179,6 +183,7 @@ OSStartHighRdy
 
     MOVS    R0, #0                                              ; Set the PSP to 0 for initial context switch call
     MSR     PSP, R0
+    BL      OSTaskSwHook                                        ; Call OSTaskSwHook for FPU Pop
 
     LDR     R0, =OS_CPU_ExceptStkBase                           ; Initialize the MSP to the OS_CPU_ExceptStkBase
     LDR     R1, [R0]
@@ -198,7 +203,6 @@ OSStartHang
     B       OSStartHang                                         ; Should never get here
 
 
-;PAGE
 ;********************************************************************************************************
 ;                       PERFORM A CONTEXT SWITCH (From task level) - OSCtxSw()
 ;
@@ -213,7 +217,6 @@ OSCtxSw
     BX      LR
 
 
-;PAGE
 ;********************************************************************************************************
 ;                   PERFORM A CONTEXT SWITCH (From interrupt level) - OSIntCtxSw()
 ;
@@ -229,7 +232,6 @@ OSIntCtxSw
     BX      LR
 
 
-;PAGE
 ;********************************************************************************************************
 ;                                       HANDLE PendSV EXCEPTION
 ;                                   void OS_CPU_PendSVHandler(void)
@@ -298,7 +300,7 @@ OS_CPU_PendSVHandler_nosave
     LDM     R0, {R4-R11}                                        ; Restore r4-11 from new process stack
     ADDS    R0, R0, #0x20
     MSR     PSP, R0                                             ; Load PSP with new process SP
-    ORR     LR, LR, #0x04                                       ; Ensure exception return uses process stack
+    ORR     LR, LR, #0xF4                                       ; Ensure exception return uses process stack
     CPSIE   I
     BX      LR                                                  ; Exception return will restore remaining context
 

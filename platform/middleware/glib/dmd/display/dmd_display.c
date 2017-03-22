@@ -1,7 +1,7 @@
  /*************************************************************************//**
- * @file displaydmd.c
+ * @file dmd_display.c
  * @brief Dot matrix display driver for DISPLAY device driver interface.
- * @version x.xx
+ * @version 5.1.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -20,6 +20,8 @@
 
 #include "display.h"
 #include "dmd.h"
+
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 
 /* DISPLAY device number to use. */
 #define DISPLAY_DEVICE_NO                           (0)
@@ -211,8 +213,7 @@ EMSTATUS DMD_writeData(uint16_t x, uint16_t y, const uint8_t data[],
 
   /* Number of pixels from the first pixel (given by x and y) to the end
    * of the clipping area */
-  clipRemaining = (dimensions.clipHeight - y - 1) * dimensions.clipWidth +
-                  dimensions.clipWidth - x;
+  clipRemaining = (dimensions.clipHeight - y) * dimensions.clipWidth - x;
 
   /* Check that the length of data isn't longer than the number of pixels
    * in the rest of the clipping area */
@@ -778,3 +779,5 @@ EMSTATUS DMD_updateDisplay (void)
 
   return DMD_OK;
 }
+
+/** @endcond */

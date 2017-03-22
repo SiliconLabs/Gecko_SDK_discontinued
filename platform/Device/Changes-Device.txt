@@ -1,8 +1,26 @@
 ================ Revision history ============================================
+5.1.2:
+ - No changes.
+
+5.1.1:
+ - Added missing calibration value symbols for OPA's on Jade/Pearl
+   EFM32JG12B and EFM32PG12B families.
+
+5.1.0:
+ - Added radiotype #define's to EFR32 part header files.
+   The _SILICON_LABS_EFR32_RADIO_TYPE #define will have one of these values:
+     #define _SILICON_LABS_EFR32_RADIO_SUBGHZ    1
+     #define _SILICON_LABS_EFR32_RADIO_2G4HZ     2
+     #define _SILICON_LABS_EFR32_RADIO_DUALBAND  3
+ - Added support for new EFR32 Series 1 Device Configuration 3 parts.
+   New family names are EFR32BG13P, EFR32FG13P and EFR32MG13P.
+ - Added support for new EFM32 Series 1 Device Configuration 2 and 3 parts.
+   New family names are EFM32JG12B, EFM32JG13B, EFM32PG12B and EFM32PG13B.
+
 5.0.0:
  - Added support for new EFR32 Series 1 Device Configuration 2 parts.
    New family names are EFR32BG12P, EFR32FG12P, EFR32MG12P and EFR32MG2P.
- 
+
 4.4.0:
  - Added support for sub GHz EFR devices.
  - Added support for BGM121 (EFR32BG1X232FXXXGM56) module.

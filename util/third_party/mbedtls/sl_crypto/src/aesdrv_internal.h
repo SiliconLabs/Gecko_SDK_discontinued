@@ -31,7 +31,6 @@
 #endif
 
 #include "aesdrv.h"
-#include "ecode.h"
 #include <stdint.h>
 #include <stdbool.h>
 
@@ -47,12 +46,12 @@ extern "C" {
  *   This function initializes an AESDRV context structure to default values.
  *   In case of CRYPTO HW module use CRYPTO(0) as default device (for parts
  *   with multiple CRYPTO instances), and set data I/O mode to
- *   @ref aesdrvIoModeCore (i.e. core cpu moves data, not DMA or BUFC).
+ *   @ref aesdrvIoModeCore (i.e. cpu core moves data, not DMA).
  *
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  ******************************************************************************/
-Ecode_t AESDRV_Init(AESDRV_Context_t*  pAesdrvContext);
+int AESDRV_Init(AESDRV_Context_t*  pAesdrvContext);
 
 /***************************************************************************//**
  * @brief
@@ -63,9 +62,9 @@ Ecode_t AESDRV_Init(AESDRV_Context_t*  pAesdrvContext);
  *   releasing the resources in use. 
  *
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  ******************************************************************************/
-Ecode_t AESDRV_DeInit(AESDRV_Context_t*  pAesdrvContext);
+int AESDRV_DeInit(AESDRV_Context_t*  pAesdrvContext);
 
 /***************************************************************************//**
  * @brief
@@ -83,10 +82,10 @@ Ecode_t AESDRV_DeInit(AESDRV_Context_t*  pAesdrvContext);
  *   AES/CRYPTO hardware device instance to use.
  *  
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  ******************************************************************************/
-Ecode_t AESDRV_SetDeviceInstance(AESDRV_Context_t*  pAesdrvContext,
-                                 unsigned int       devno);
+int AESDRV_SetDeviceInstance(AESDRV_Context_t*  pAesdrvContext,
+                             unsigned int       devno);
   
 /***************************************************************************//**
  * @brief
@@ -99,116 +98,26 @@ Ecode_t AESDRV_SetDeviceInstance(AESDRV_Context_t*  pAesdrvContext,
  *   AESDRV device context.
  *  
  * @param[in] ioMode
- *   I/O mode (Core CPU, DMA or BUFC).
+ *   I/O mode (CPU Core or DMA).
  *  
  * @param[in] ioModeSpecific
  *   I/O mode specific configuration @ref AESDRV_IoModeSpecific_t.
  *  
  * @warning
- *   If BUFC is selected (@ref aesdrvIoModeBufc), this function does not enable
- *   the BUFC clock and does not do any global BUFC initialization. I.e. the
- *   user is responsible for performing BUFC initialization prior to calling
- *   this function.
  *   If DMA is selected (@ref aesdrvIoModeDma), this function performs full
  *   DMA driver initialization by calling DMADRV_Init (non-destructive) and
  *   allocates DMA channel resources to be used by AESDRV.
  *
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  ******************************************************************************/
-Ecode_t AESDRV_SetIoMode
+int AESDRV_SetIoMode
 (
  AESDRV_Context_t*        pAesdrvContext,
  AESDRV_IoMode_t          ioMode,
  AESDRV_IoModeSpecific_t* ioModeSpecific
  );
 
-#if defined(MBEDTLS_INCLUDE_ASYNCH_API)
-/***************************************************************************//**
- * @brief
- *   Setup the asynchronous mode of an AESDRV context.
- *
- * @details
- *   This function enables or disables asynchronous (non-blocking) mode of an
- *   AESDRV context.
- *   In order to enable, the user must set the @p pAsynchContext parameter to
- *   point to an asynchronous data context structure, and set the corresponding
- *   @p cipherMode. All subsequent calls to AESDRV API functions with the
- *   specified context will behave asynchronously, i.e. initiate the hardware
- *   to execute the operation and return as soon as possible. The user may
- *   specify a callback function by setting the @p asynchCallback parameter
- *   which will called when the operation has completed.
- *   In order to disable, the user must set the @p pAsynchContext parameter
- *   to NULL. All subsequent calls to AESDRV API functions with the specified
- *   context will block until the corresponding operation has completed, and
- *   then return.
- *
- * @param[in] pAesdrvContext
- *   AESDRV device context.
- *  
- * @param[in] cipherMode
- *   Cipher mode corresponding to the intended asynchronous operation.
- *  
- * @param[in] pAsynchContext
- *   Pointer to an asynchronous context structure corresponding to the
- *   cipher mode specified by @p cipherMode, or NULL in order to disable
- *   asynchronous mode. In order to enable asynchronous mode, @p pAsynchContext
- *   must be one of
- *   @li @ref AESDRV_BlockCipherAsynchContext_t
- *   @li @ref AESDRV_CCM_AsynchContext_t
- *   @li @ref AESDRV_GCM_AsynchContext_t
- *   @li @ref AESDRV_CMAC_AsynchContext_t.
- *   For BLE optimized CCM @ref AESDRV_CCMBLE, use
- *   @ref AESDRV_CCM_AsynchContext_t.
- *
- * @param[in]  asynchCallback
- *   If non-NULL, this function will operate in asynchronous mode by starting
- *   the AES operation and return immediately (non-blocking API). When the AES
- *   operation has completed, the ascynchCallback function will be called.
- *   If NULL, this function will operate in synchronous mode, and block until
- *   the AES operation has completed.
- *
- * @param[in]  asynchCallbackArgument
- *   User defined parameter to be sent to callback function.
- *
- * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
- ******************************************************************************/
-Ecode_t AESDRV_SetAsynchMode
-(
- AESDRV_Context_t*       pAesdrvContext,
- AESDRV_CipherMode_t     cipherMode,
- void*                   pAsynchContext,
- AESDRV_AsynchCallback_t asynchCallback,
- void*                   asynchCallbackArgument
- );
-#endif /* #if defined(MBEDTLS_INCLUDE_ASYNCH_API) */
-
-/***************************************************************************//**
- * @brief
- *   Set the AES encryption key.
- *
- * @details
- *   This functions sets up a 128 or 256 bit key to use for encryption and
- *   decryption in subsequent calls to AESDRV.
- *
- * @param[in] pAesdrvContext
- *   Pointer to AESDRV context structure.
- *
- * @param[in] pKey
- *   Pointer to buffer including the AES key.
- *
- * @param[in] keyLength
- *   The length (in bytes) of the AES key. I.e. 16 bytes = 128 bits,
- *   32 bytes = 256 bits key length.
- *
- * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
- ******************************************************************************/
-Ecode_t AESDRV_SetKey(AESDRV_Context_t* pAesdrvContext,
-                      const uint8_t*    pKey,
-                      uint32_t          keyLength);
-  
 /***************************************************************************//**
  * @brief
  *   Generate 128 bit decryption key from 128 bit encryption key. The decryption
@@ -228,11 +137,11 @@ Ecode_t AESDRV_SetKey(AESDRV_Context_t* pAesdrvContext,
  *   Buffer holding 128 bit encryption key. Must be at least 16 bytes long.
  *
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  ******************************************************************************/
-Ecode_t AESDRV_DecryptKey128(AESDRV_Context_t* pAesdrvContext,
-                             uint8_t*          pKeyOut,
-                             const uint8_t*    pKeyIn);
+int AESDRV_DecryptKey128(AESDRV_Context_t* pAesdrvContext,
+                         uint8_t*          pKeyOut,
+                         const uint8_t*    pKeyIn);
 
 /***************************************************************************//**
  * @brief
@@ -253,11 +162,11 @@ Ecode_t AESDRV_DecryptKey128(AESDRV_Context_t* pAesdrvContext,
  *   Buffer holding 256 bit encryption key. Must be at least 32 bytes long.
  *
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  ******************************************************************************/
-Ecode_t AESDRV_DecryptKey256(AESDRV_Context_t* pAesdrvContext,
-                             uint8_t*          pKeyOut,
-                             const uint8_t*    pKeyIn);
+int AESDRV_DecryptKey256(AESDRV_Context_t* pAesdrvContext,
+                         uint8_t*          pKeyOut,
+                         const uint8_t*    pKeyIn);
 
 /***************************************************************************//**
  * @brief
@@ -314,8 +223,7 @@ Ecode_t AESDRV_DecryptKey256(AESDRV_Context_t* pAesdrvContext,
  *   decryption, this is the 128 bit decryption key. The decryption key may
  *   be generated from the encryption key with AESDRV_DecryptKey128().
  *   On devices supporting key buffering this argument can be NULL, and if so,
- *   the current key will be used. The key can be set explicitly with
- *   @ref AESDRV_SetKey.
+ *   the current key will be used.
  *
  * @param[in,out] iv
  *   128 bit initalization vector. The updated vector value for the last block
@@ -325,16 +233,16 @@ Ecode_t AESDRV_DecryptKey256(AESDRV_Context_t* pAesdrvContext,
  *   Set to true to encrypt, false to decrypt.
  *
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  ******************************************************************************/
-Ecode_t AESDRV_CBC128(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      uint8_t*          iv,
-                      bool              encrypt
-                      );
+int AESDRV_CBC128(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  uint8_t*          iv,
+                  bool              encrypt
+                  );
   
 /***************************************************************************//**
  * @brief
@@ -363,8 +271,7 @@ Ecode_t AESDRV_CBC128(AESDRV_Context_t* pAesdrvContext,
  *   decryption, this is the 256 bit decryption key. The decryption key may
  *   be generated from the encryption key with AESDRV_DecryptKey256().
  *   On devices supporting key buffering this argument can be NULL, and if so,
- *   the current key will be used. The key can be set explicitly with
- *   @ref AESDRV_SetKey.
+ *   the current key will be used.
  *
  * @param[in,out] iv
  *   128 bit initalization vector. The updated vector value for the last block
@@ -374,16 +281,16 @@ Ecode_t AESDRV_CBC128(AESDRV_Context_t* pAesdrvContext,
  *   Set to true to encrypt, false to decrypt.
  *
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  ******************************************************************************/
-Ecode_t AESDRV_CBC256(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      uint8_t*          iv,
-                      bool              encrypt
-                      );
+int AESDRV_CBC256(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  uint8_t*          iv,
+                  bool              encrypt
+                  );
   
 /***************************************************************************//**
  * @brief
@@ -440,8 +347,7 @@ Ecode_t AESDRV_CBC256(AESDRV_Context_t* pAesdrvContext,
  * @param[in] key
  *   128 bit encryption key is used for both encryption and decryption modes.
  *   On devices supporting key buffering this argument can be NULL, and if so,
- *   the current key will be used. The key can be set explicitly with
- *   @ref AESDRV_SetKey.
+ *   the current key will be used.
  *
  * @param[in,out] iv
  *   128 bit initalization vector. The updated vector value for the last block
@@ -451,16 +357,16 @@ Ecode_t AESDRV_CBC256(AESDRV_Context_t* pAesdrvContext,
  *   Set to true to encrypt, false to decrypt.
  *
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  ******************************************************************************/
-Ecode_t AESDRV_CFB128(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      uint8_t*          iv,
-                      bool              encrypt
-                      );
+int AESDRV_CFB128(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  uint8_t*          iv,
+                  bool              encrypt
+                  );
   
 /***************************************************************************//**
  * @brief
@@ -487,8 +393,7 @@ Ecode_t AESDRV_CFB128(AESDRV_Context_t* pAesdrvContext,
  * @param[in] key
  *   256 bit encryption key is used for both encryption and decryption modes.
  *   On devices supporting key buffering this argument can be NULL, and if so,
- *   the current key will be used. The key can be set explicitly with
- *   @ref AESDRV_SetKey.
+ *   the current key will be used.
  *
  * @param[in,out] iv
  *   128 bit initalization vector. The updated vector value for the last block
@@ -498,16 +403,16 @@ Ecode_t AESDRV_CFB128(AESDRV_Context_t* pAesdrvContext,
  *   Set to true to encrypt, false to decrypt.
  *
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  ******************************************************************************/
-Ecode_t AESDRV_CFB256(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      uint8_t*          iv,
-                      bool              encrypt
-                      );
+int AESDRV_CFB256(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  uint8_t*          iv,
+                  bool              encrypt
+                  );
   
 /***************************************************************************//**
  * @brief
@@ -562,8 +467,7 @@ Ecode_t AESDRV_CFB256(AESDRV_Context_t* pAesdrvContext,
  * @param[in] key
  *   128 bit encryption key.
  *   On devices supporting key buffering this argument can be NULL, and if so,
- *   the current key will be used. The key can be set explicitly with
- *   @ref AESDRV_SetKey.
+ *   the current key will be used.
  *
  * @param[in,out] ctr
  *   128 bit initial counter value.
@@ -577,16 +481,16 @@ Ecode_t AESDRV_CFB256(AESDRV_Context_t* pAesdrvContext,
  *   AES_CTRUpdate32Bit from emlib will be used.
  *
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  ******************************************************************************/
-Ecode_t AESDRV_CTR128(AESDRV_Context_t*    pAesdrvContext,
-                      uint8_t*             out,
-                      const uint8_t*       in,
-                      unsigned int         len,
-                      const uint8_t*       key,
-                      uint8_t*             ctr,
-                      AESDRV_CtrCallback_t ctrCallback
-                      );
+int AESDRV_CTR128(AESDRV_Context_t*    pAesdrvContext,
+                  uint8_t*             out,
+                  const uint8_t*       in,
+                  unsigned int         len,
+                  const uint8_t*       key,
+                  uint8_t*             ctr,
+                  AESDRV_CtrCallback_t ctrCallback
+                  );
   
 /***************************************************************************//**
  * @brief
@@ -613,8 +517,7 @@ Ecode_t AESDRV_CTR128(AESDRV_Context_t*    pAesdrvContext,
  * @param[in] key
  *   256 bit encryption key.
  *   On devices supporting key buffering this argument can be NULL, and if so,
- *   the current key will be used. The key can be set explicitly with
- *   @ref AESDRV_SetKey.
+ *   the current key will be used.
  *
  * @param[in,out] ctr
  *   128 bit initial counter value.
@@ -628,16 +531,16 @@ Ecode_t AESDRV_CTR128(AESDRV_Context_t*    pAesdrvContext,
  *   AES_CTRUpdate32Bit from emlib will be used.
  *
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  ******************************************************************************/
-Ecode_t AESDRV_CTR256(AESDRV_Context_t*    pAesdrvContext,
-                      uint8_t*             out,
-                      const uint8_t*       in,
-                      unsigned int         len,
-                      const uint8_t*       key,
-                      uint8_t*             ctr,
-                      AESDRV_CtrCallback_t ctrCallback
-                      );
+int AESDRV_CTR256(AESDRV_Context_t*    pAesdrvContext,
+                  uint8_t*             out,
+                  const uint8_t*       in,
+                  unsigned int         len,
+                  const uint8_t*       key,
+                  uint8_t*             ctr,
+                  AESDRV_CtrCallback_t ctrCallback
+                  );
 
 /***************************************************************************//**
  * @brief
@@ -690,22 +593,21 @@ Ecode_t AESDRV_CTR256(AESDRV_Context_t*    pAesdrvContext,
  *   decryption, this is the 128 bit decryption key. The decryption key may
  *   be generated from the encryption key with AESDRV_DecryptKey128().
  *   On devices supporting key buffering this argument can be NULL, and if so,
- *   the current key will be used. The key can be set explicitly with
- *   @ref AESDRV_SetKey.
+ *   the current key will be used.
  *
  * @param[in] encrypt
  *   Set to true to encrypt, false to decrypt.
  *
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  ******************************************************************************/
-Ecode_t AESDRV_ECB128(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      bool              encrypt
-                      );
+int AESDRV_ECB128(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  bool              encrypt
+                  );
 
 /***************************************************************************//**
  * @brief
@@ -734,22 +636,21 @@ Ecode_t AESDRV_ECB128(AESDRV_Context_t* pAesdrvContext,
  *   decryption, this is the 256 bit decryption key. The decryption key may
  *   be generated from the encryption key with AESDRV_DecryptKey256().
  *   On devices supporting key buffering this argument can be NULL, and if so,
- *   the current key will be used. The key can be set explicitly with
- *   @ref AESDRV_SetKey.
+ *   the current key will be used.
  *
  * @param[in] encrypt
  *   Set to true to encrypt, false to decrypt.
  *
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  ******************************************************************************/
-Ecode_t AESDRV_ECB256(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      bool              encrypt
-                      );
+int AESDRV_ECB256(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  bool              encrypt
+                  );
 
 /***************************************************************************//**
  * @brief
@@ -808,23 +709,22 @@ Ecode_t AESDRV_ECB256(AESDRV_Context_t* pAesdrvContext,
  * @param[in] key
  *   128 bit encryption key.
  *   On devices supporting key buffering this argument can be NULL, and if so,
- *   the current key will be used. The key can be set explicitly with
- *   @ref AESDRV_SetKey.
+ *   the current key will be used.
  *
  * @param[in,out] iv
  *   128 bit initalization vector. The updated vector value for the last block
  *   is returned.
  *
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  ******************************************************************************/
-Ecode_t AESDRV_OFB128(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      uint8_t*          iv
-                      );
+int AESDRV_OFB128(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  uint8_t*          iv
+                  );
 
 /***************************************************************************//**
  * @brief
@@ -851,23 +751,22 @@ Ecode_t AESDRV_OFB128(AESDRV_Context_t* pAesdrvContext,
  * @param[in] key
  *   256 bit encryption key.
  *   On devices supporting key buffering this argument can be NULL, and if so,
- *   the current key will be used. The key can be set explicitly with
- *   @ref AESDRV_SetKey.
+ *   the current key will be used.
  *
  * @param[in,out] iv
  *   128 bit initalization vector. The updated vector value for the last block
  *   is returned.
  *
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  ******************************************************************************/
-Ecode_t AESDRV_OFB256(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      uint8_t*          iv
-                      );
+int AESDRV_OFB256(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  uint8_t*          iv
+                  );
 
 /***************************************************************************//**
  * @brief
@@ -927,8 +826,7 @@ uint8_t AESDRV_CCMStar_LengthOfMIC(uint8_t securityLevel);
  *   Pointer to security key.
  *   Currently only 128 bit keys (16 bytes) are supported.
  *   On devices supporting key buffering this argument can be NULL, and if so,
- *   the current key will be used. The key can be set explicitly with
- *   @ref AESDRV_SetKey.
+ *   the current key will be used.
  *
  * @param[in] keyLength
  *   The length in bytes, of the @p pKey, i.e. the 'K' parameter in CCM.
@@ -958,22 +856,22 @@ uint8_t AESDRV_CCMStar_LengthOfMIC(uint8_t securityLevel);
  *   false to run the decryption-verification process.
  *
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  ******************************************************************************/
-Ecode_t AESDRV_CCM(AESDRV_Context_t* pAesdrvContext,
-                   const uint8_t*    pDataInput,
-                         uint8_t*    pDataOutput,
-                   const uint32_t    dataLength,
-                   const uint8_t*    pHdr,
-                   const uint32_t    hdrLength,
-                   const uint8_t*    pKey,
-                   const uint32_t    keyLength,
-                   const uint8_t*    pNonce,
-                   const uint32_t    nonceLength,
-                         uint8_t*    pAuthTag,
-                   const uint8_t     authTagLength,
-                   const bool        encrypt
-                   );
+int AESDRV_CCM(AESDRV_Context_t* pAesdrvContext,
+               const uint8_t*    pDataInput,
+                     uint8_t*    pDataOutput,
+               const uint32_t    dataLength,
+               const uint8_t*    pHdr,
+               const uint32_t    hdrLength,
+               const uint8_t*    pKey,
+               const uint32_t    keyLength,
+               const uint8_t*    pNonce,
+               const uint32_t    nonceLength,
+               uint8_t*    pAuthTag,
+               const uint8_t     authTagLength,
+               const bool        encrypt
+               );
 
 /***************************************************************************//**
  * @brief
@@ -1018,8 +916,7 @@ Ecode_t AESDRV_CCM(AESDRV_Context_t* pAesdrvContext,
  *   Pointer to security key.
  *   Currently only 128 bit keys (16 bytes) are supported.
  *   On devices supporting key buffering this argument can be NULL, and if so,
- *   the current key will be used. The key can be set explicitly with
- *   @ref AESDRV_SetKey.
+ *   the current key will be used.
  *
  * @param[in] keyLength
  *   The length in bytes, of the @p pKey, i.e. the 'K' parameter in CCM*.
@@ -1052,22 +949,22 @@ Ecode_t AESDRV_CCM(AESDRV_Context_t* pAesdrvContext,
  *   Set to true to encrypt, false to decrypt.
  *
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  ******************************************************************************/
-Ecode_t AESDRV_CCMStar(AESDRV_Context_t* pAesdrvContext,
-                       const uint8_t*    pDataInput,
-                             uint8_t*    pDataOutput,
-                       const uint32_t    dataLength,
-                       const uint8_t*    pHdr,
-                       const uint32_t    hdrLength,
-                       const uint8_t*    pKey,
-                       const uint32_t    keyLength,
-                       const uint8_t*    pNonce,
-                       const uint32_t    nonceLength,
-                             uint8_t*    pAuthTag,
-                       const uint8_t     securityLevel,
-                       const bool        encrypt
-                       );
+int AESDRV_CCMStar(AESDRV_Context_t* pAesdrvContext,
+                   const uint8_t*    pDataInput,
+                         uint8_t*    pDataOutput,
+                   const uint32_t    dataLength,
+                   const uint8_t*    pHdr,
+                   const uint32_t    hdrLength,
+                   const uint8_t*    pKey,
+                   const uint32_t    keyLength,
+                   const uint8_t*    pNonce,
+                   const uint32_t    nonceLength,
+                   uint8_t*    pAuthTag,
+                   const uint8_t     securityLevel,
+                   const bool        encrypt
+                   );
   
 /***************************************************************************//**
  * @brief
@@ -1093,8 +990,7 @@ Ecode_t AESDRV_CCMStar(AESDRV_Context_t* pAesdrvContext,
  * @param pKey
  *  Pointer to 128 bits (16 byte) Security Key.
  *  On devices supporting key buffering this argument can be NULL, and if so,
- *  the current key will used. The key can be explicitly set with
- *  @ref AESDRV_SetKey.
+ *  the current key will used.
  *
  * @param pNonce
  *  13 byte nonce
@@ -1108,17 +1004,17 @@ Ecode_t AESDRV_CCMStar(AESDRV_Context_t* pAesdrvContext,
  *  false - decrypt
  *
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  */
-Ecode_t AESDRV_CCMBLE(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          pData,
-                      const uint32_t    dataLength,
-                      uint8_t           hdr,
-                      const uint8_t*    pKey,
-                      const uint8_t*    pNonce,
-                            uint8_t*    pAuthTag,
-                      const bool        encrypt
-                      );
+int AESDRV_CCMBLE(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          pData,
+                  const uint32_t    dataLength,
+                        uint8_t           hdr,
+                  const uint8_t*    pKey,
+                  const uint8_t*    pNonce,
+                        uint8_t*    pAuthTag,
+                  const bool        encrypt
+                  );
 
 /***************************************************************************//**
  * @brief
@@ -1166,8 +1062,7 @@ Ecode_t AESDRV_CCMBLE(AESDRV_Context_t* pAesdrvContext,
  *   Pointer to security key buffer.
  *   Currently only 128 bit keys (16 bytes) are supported.
  *   On devices supporting key buffering this argument can be NULL, and if so,
- *   the current key will be used. The key can be set explicitly with
- *   @ref AESDRV_SetKey.
+ *   the current key will be used.
  *
  * @param[in] keyLength
  *   The length in bytes, of the @p pKey, i.e. the 'K' parameter in CCM.
@@ -1190,21 +1085,21 @@ Ecode_t AESDRV_CCMBLE(AESDRV_Context_t* pAesdrvContext,
  *   false to run the decryption-verification process.
  *
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  ******************************************************************************/
-Ecode_t AESDRV_GCM(AESDRV_Context_t* pAesdrvContext,
-                   const uint8_t*    pDataInput,
-                         uint8_t*    pDataOutput,
-                   const uint32_t    dataLength,
-                   const uint8_t*    pHdr,
-                   const uint32_t    hdrLength,
-                   const uint8_t*    pKey,
-                   const uint32_t    keyLength,
-                   const uint8_t*    pInitialVector,
-                   const uint32_t    initialVectorLength,
-                   uint8_t*          pAuthTag,
-                   const uint8_t     authTagLength,
-                   const bool        encrypt);
+int AESDRV_GCM(AESDRV_Context_t* pAesdrvContext,
+               const uint8_t*    pDataInput,
+                     uint8_t*    pDataOutput,
+               const uint32_t    dataLength,
+               const uint8_t*    pHdr,
+               const uint32_t    hdrLength,
+               const uint8_t*    pKey,
+               const uint32_t    keyLength,
+               const uint8_t*    pInitialVector,
+               const uint32_t    initialVectorLength,
+                     uint8_t*    pAuthTag,
+               const uint8_t     authTagLength,
+               const bool        encrypt);
 
 /***************************************************************************//**
  * @brief
@@ -1233,8 +1128,7 @@ Ecode_t AESDRV_GCM(AESDRV_Context_t* pAesdrvContext,
  *  Pointer to key buffer for the AES algorithm.
  *  Currently only 128 bit keys (16 bytes) are supported.
  *  On devices supporting key buffering this argument can be NULL, and if so,
- *  the current key will used. The key can be explicitly set with
- *  @ref AESDRV_SetKey.
+ *  the current key will used.
  *
  * @param[in] keyLength
  *   The length in bytes, of the @p pKey, i.e. the 'K' parameter in CCM.
@@ -1254,17 +1148,17 @@ Ecode_t AESDRV_GCM(AESDRV_Context_t* pAesdrvContext,
  *  false - Verify hash
  *
  * @return
- *   ECODE_OK if success. Error code if failure, see @ref aesdrv.h.
+ *   0 if success. Error code if failure, see @ref aesdrv.h.
  */
-Ecode_t AESDRV_CMAC(AESDRV_Context_t* pAesdrvContext,
-                    const uint8_t*    pData,
-                    uint32_t          dataLengthBits,
-                    const uint8_t*    pKey,
-                    const uint32_t    keyLength,
-                    uint8_t*          pDigest,
-                    uint16_t          digestLengthBits,
-                    const bool        encrypt
-                    );
+int AESDRV_CMAC(AESDRV_Context_t* pAesdrvContext,
+                const uint8_t*    pData,
+                uint32_t          dataLengthBits,
+                const uint8_t*    pKey,
+                const uint32_t    keyLength,
+                uint8_t*          pDigest,
+                uint16_t          digestLengthBits,
+                const bool        encrypt
+                );
 
 #ifdef __cplusplus
 }

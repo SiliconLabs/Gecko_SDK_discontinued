@@ -136,23 +136,23 @@ uint8_t AESDRV_CCMStar_LengthOfMIC(uint8_t securityLevel)
  *   false to run the decryption-verification process.
  *
  * @return
- *   ECODE_OK if success. Error code if failure.
+ *   0 if success. Error code if failure.
  *   Encryption will always succeed.
  *   Decryption may fail if the authentication fails.
  ******************************************************************************/
-Ecode_t AESDRV_CCM(AESDRV_Context_t*       pAesdrvContext,
-                   const uint8_t*          pDataInput,
-                         uint8_t*          pDataOutput,
-                   const uint32_t          dataLength,
-                   const uint8_t*          pHdr,
-                   const uint32_t          hdrLength,
-                   const uint8_t*          pKey,
-                   const uint32_t          keyLength,
-                   const uint8_t*          pNonce,
-                   const uint32_t          nonceLength,
-                         uint8_t*          pAuthTag,
-                   const uint8_t           authTagLength,
-                   const bool              encrypt)
+int AESDRV_CCM(AESDRV_Context_t*       pAesdrvContext,
+               const uint8_t*          pDataInput,
+                     uint8_t*          pDataOutput,
+               const uint32_t          dataLength,
+               const uint8_t*          pHdr,
+               const uint32_t          hdrLength,
+               const uint8_t*          pKey,
+               const uint32_t          keyLength,
+               const uint8_t*          pNonce,
+               const uint32_t          nonceLength,
+                     uint8_t*          pAuthTag,
+               const uint8_t           authTagLength,
+               const bool              encrypt)
 {
   return AESDRV_CCM_Generalized( pAesdrvContext,
                                  pDataInput,
@@ -240,23 +240,23 @@ Ecode_t AESDRV_CCM(AESDRV_Context_t*       pAesdrvContext,
  *   Set to true to encrypt, false to decrypt.
  *
  * @return
- *   ECODE_OK if success. Error code if failure.
+ *   0 if success. Error code if failure.
  *   Encryption will always succeed.
  *   Decryption may fail if the authentication fails.
  ******************************************************************************/
-Ecode_t AESDRV_CCMStar(AESDRV_Context_t*       pAesdrvContext,
-                       const uint8_t*          pDataInput,
-                             uint8_t*          pDataOutput,
-                       const uint32_t          dataLength,
-                       const uint8_t*          pHdr,
-                       const uint32_t          hdrLength,
-                       const uint8_t*          pKey,
-                       const uint32_t          keyLength,
-                       const uint8_t*          pNonce,
-                       const uint32_t          nonceLength,
-                             uint8_t*          pAuthTag,
-                       const uint8_t           securityLevel,
-                       const bool              encrypt)
+int AESDRV_CCMStar(AESDRV_Context_t*       pAesdrvContext,
+                   const uint8_t*          pDataInput,
+                         uint8_t*          pDataOutput,
+                   const uint32_t          dataLength,
+                   const uint8_t*          pHdr,
+                   const uint32_t          hdrLength,
+                   const uint8_t*          pKey,
+                   const uint32_t          keyLength,
+                   const uint8_t*          pNonce,
+                   const uint32_t          nonceLength,
+                         uint8_t*          pAuthTag,
+                   const uint8_t           securityLevel,
+                   const bool              encrypt)
 {
   return AESDRV_CCM_Generalized( pAesdrvContext,
                                  pDataInput,

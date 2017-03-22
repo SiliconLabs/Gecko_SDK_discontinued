@@ -12,10 +12,10 @@
  *
  *
  * @endverbatim
- * @version 5.0.0
+ * @version 5.1.2
  ******************************************************************************
  * @section License
- * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -44,7 +44,13 @@
 #ifndef EM_DEVICE_H
 #define EM_DEVICE_H
 
-#if defined(EFR32FG1V131F128GM32)
+#if defined(EFR32FG1V032F128GM32)
+#include "efr32fg1v032f128gm32.h"
+
+#elif defined(EFR32FG1V032F256GM32)
+#include "efr32fg1v032f256gm32.h"
+
+#elif defined(EFR32FG1V131F128GM32)
 #include "efr32fg1v131f128gm32.h"
 
 #elif defined(EFR32FG1V131F128GM48)

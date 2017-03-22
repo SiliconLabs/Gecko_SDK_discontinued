@@ -10,7 +10,7 @@
 **
 **  Target      : Silicon Labs EFM32G devices.
 **
-**  Version     : 5.0.0
+**  Version     : 5.1.2
 **
 **  Environment : Atollic TrueSTUDIO(R)
 **

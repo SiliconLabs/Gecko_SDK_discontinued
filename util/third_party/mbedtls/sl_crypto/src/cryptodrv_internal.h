@@ -1,6 +1,6 @@
 /*
  *  CRYPTO driver internal definitions including CRYPTO preemption and
- *  asynchronous (non-blocking) support.
+ *  yield when busy management.
  *
  *  Copyright (C) 2016, Silicon Labs, http://www.silabs.com
  *  SPDX-License-Identifier: Apache-2.0
@@ -31,7 +31,6 @@
 #endif
 
 #include "cryptodrv.h"
-#include "ecode.h"
 #include <stdint.h>
 #include <string.h>
 
@@ -59,6 +58,25 @@ extern "C" {
 int cryptodrvSetDeviceInstance(CRYPTODRV_Context_t* pCryptodrvContext,
                                unsigned int         devno);
 
+/***************************************************************************//**
+ * @brief
+ *   Set the number of ticks to wait for the device lock.
+ *
+ * @param pCryptoContext
+ *  Pointer to CRYPTODRV context.
+ *
+ * @param ticks
+ *  Number of ticks to wait for the device to become unlocked. If the value is 0
+ *  this function will return immediately even if the lock was not acquired.
+ *  If the value is -1 this funciton will wait forever (not time out) for the
+ *  lock to become available.
+ *
+ * @return
+ *   Always 0 for OK.
+ ******************************************************************************/
+int cryptodrvSetDeviceLockWaitTicks(CRYPTODRV_Context_t* pCryptodrvContext,
+                                    int                  ticks);
+  
 /***************************************************************************//**
  * @brief
  *   Write a 128 bit value (optionally unaligned) into a crypto register.
@@ -174,51 +192,143 @@ __STATIC_INLINE void CRYPTODRV_DDataReadUnaligned(volatile uint32_t * reg,
  *  Pointer to CRYPTO context associated with operation.
  *
  * @return
- *  ECODE_OK if operation completed successfully.
+ *  0 if operation completed successfully.
  *  ECODE_CRYPTODRV_RUNNING if CRYPTO is executing operation.
  *  ECODE_CRYPTODRV_ABORTED if operation was aborted.
  */
-Ecode_t CRYPTODRV_CheckStatus (CRYPTODRV_Context_t* pCryptoContext);
-
-#if defined(MBEDTLS_INCLUDE_ASYNCH_API)
-
-/***************************************************************************//**
- * @brief
- *  Set asynchronous callback to be called when crypto operations complete.
- *
- * @details
- *  This function sets the asynchronous callback function to be called when
- *  crypto operations complete.
- *
- * @return
- *  N/A
- */
-void CRYPTODRV_SetAsynchCallback
-(
- CRYPTODRV_Context_t*       pCryptodrvContext,
- CRYPTODRV_AsynchCallback_t asynchCallback,
- void*                      callbackArgument
- );
-  
-#else /* #if defined(MBEDTLS_INCLUDE_ASYNCH_API) */
-  
-__STATIC_INLINE void CRYPTODRV_SetAsynchCallback
-(
- CRYPTODRV_Context_t*       pCryptodrvContext,
- CRYPTODRV_AsynchCallback_t asynchCallback,
- void*                      callbackArgument
- )
-{
-  (void) pCryptodrvContext;
-  (void) asynchCallback;
-  (void) callbackArgument;
-}
-
-#endif /* #if defined(MBEDTLS_INCLUDE_ASYNCH_API) */
+int CRYPTODRV_CheckStatus (CRYPTODRV_Context_t* pCryptoContext);
 
 #if defined MBEDTLS_CRYPTO_DEVICE_PREEMPTION
   
- /***************************************************************************//**
+#if defined( MBEDTLS_CRYPTO_PREEMPTION_PRIORITY_SET )
+/***************************************************************************//**
+ * @brief
+ *   Set priority of a CRYPTO context to be used for CRPYTO preemption arbitration.
+ *
+ * @param pCryptoContext
+ *  Pointer to a CRYPTO context structure.
+ *
+ * @param priority
+ *  Priority to give the CRYPTO context.
+ ******************************************************************************/
+__STATIC_INLINE
+void cryptodrvSetContextPriority(CRYPTODRV_Context_t* pCryptodrvContext,
+                                 unsigned long        priority)
+{
+  pCryptodrvContext->priority = priority;
+}
+#endif /* #if defined( MBEDTLS_CRYPTO_PREEMPTION_PRIORITY_SET ) */
+  
+/***************************************************************************//**
+ * @brief
+ *   Write CRYPTO context to a CRYPTO device
+ *
+ * @param crypto
+ *  Pointer to CRYPTO register block
+ *
+ * @param pCryptoContext
+ *  Pointer to a CRYPTO context structure.
+ ******************************************************************************/
+__STATIC_INLINE
+void cryptodrvWriteCryptoContext(CRYPTO_TypeDef   *crypto,
+                                 CRYPTO_Context_t *pCryptoContext)
+{
+  uint32_t wac     = pCryptoContext->WAC;
+  crypto->WAC      = wac;
+  crypto->CTRL     = pCryptoContext->CTRL;
+  crypto->SEQCTRL  = pCryptoContext->SEQCTRL;
+  crypto->SEQCTRLB = pCryptoContext->SEQCTRLB;
+  crypto->IEN      = pCryptoContext->IEN;
+  crypto->SEQ0     = pCryptoContext->SEQ[0];
+  crypto->SEQ1     = pCryptoContext->SEQ[1];
+  crypto->SEQ2     = pCryptoContext->SEQ[2];
+  crypto->SEQ3     = pCryptoContext->SEQ[3];
+  crypto->SEQ4     = pCryptoContext->SEQ[4];
+  
+  if ( (wac & _CRYPTO_WAC_RESULTWIDTH_MASK) == CRYPTO_WAC_RESULTWIDTH_260BIT)
+  {
+    /* Start by writing the DDATA1 value to DDATA0 and move to DDATA1. */
+    CRYPTO_DData0Write260(crypto, pCryptoContext->DDATA[1]);
+    crypto->CMD = CRYPTO_CMD_INSTR_DDATA0TODDATA1;
+    
+    /* Write the DDATA2 value to DDATA0 and move to DDATA2. */
+    CRYPTO_DData0Write260(crypto, pCryptoContext->DDATA[2]);
+    crypto->CMD = CRYPTO_CMD_INSTR_DDATA0TODDATA2;
+    
+    /* Write the DDATA3 value to DDATA0 and move to DDATA3. */
+    CRYPTO_DData0Write260(crypto, pCryptoContext->DDATA[3]);
+    crypto->CMD = CRYPTO_CMD_INSTR_DDATA0TODDATA3;
+    
+    /* Write the DDATA4 value to DDATA0 and move to DDATA4. */
+    CRYPTO_DData0Write260(crypto, pCryptoContext->DDATA[4]);
+    crypto->CMD = CRYPTO_CMD_INSTR_DDATA0TODDATA4;
+    
+    /* Finally write DDATA0 */
+    CRYPTO_DData0Write260(crypto, pCryptoContext->DDATA[0]);
+  }
+  else
+  {
+    CRYPTO_DDataWrite(&crypto->DDATA0, pCryptoContext->DDATA[0]);
+    CRYPTO_DDataWrite(&crypto->DDATA1, pCryptoContext->DDATA[1]);
+    CRYPTO_DDataWrite(&crypto->DDATA2, pCryptoContext->DDATA[2]);
+    CRYPTO_DDataWrite(&crypto->DDATA3, pCryptoContext->DDATA[3]);
+    CRYPTO_DDataWrite(&crypto->DDATA4, pCryptoContext->DDATA[4]);
+  }
+}
+
+/***************************************************************************//**
+ * @brief
+ *   Read CRYPTO context of a CRYPTO device
+ *
+ * @param crypto
+ *  Pointer to CRYPTO register block
+ *
+ * @param pCryptoContext
+ *  Pointer to a CRYPTO context structure.
+ ******************************************************************************/
+__STATIC_INLINE
+void cryptodrvReadCryptoContext(CRYPTO_TypeDef   *crypto,
+                                CRYPTO_Context_t *pCryptoContext)
+{
+  uint32_t wac             = crypto->WAC;
+  pCryptoContext->WAC      = wac;
+  pCryptoContext->CTRL     = crypto->CTRL;
+  pCryptoContext->SEQCTRL  = crypto->SEQCTRL;
+  pCryptoContext->SEQCTRLB = crypto->SEQCTRLB;
+  pCryptoContext->IEN      = crypto->IEN;
+  pCryptoContext->SEQ[0]   = crypto->SEQ0;
+  pCryptoContext->SEQ[1]   = crypto->SEQ1;
+  pCryptoContext->SEQ[2]   = crypto->SEQ2;
+  pCryptoContext->SEQ[3]   = crypto->SEQ3;
+  pCryptoContext->SEQ[4]   = crypto->SEQ4;
+
+  if ( (wac & _CRYPTO_WAC_RESULTWIDTH_MASK) == CRYPTO_WAC_RESULTWIDTH_260BIT)
+  {
+    CRYPTO_DData0Read260(crypto, pCryptoContext->DDATA[0]);
+    crypto->CMD = CRYPTO_CMD_INSTR_DDATA1TODDATA0; /* Move DDATA1 to DDATA0
+                                                      in order to read. */
+    CRYPTO_DData0Read260(crypto, pCryptoContext->DDATA[1]);
+    crypto->CMD = CRYPTO_CMD_INSTR_DDATA2TODDATA0; /* Move DDATA2 to DDATA0
+                                                      in order to read. */
+    CRYPTO_DData0Read260(crypto, pCryptoContext->DDATA[2]);
+    crypto->CMD = CRYPTO_CMD_INSTR_DDATA3TODDATA0; /* Move DDATA3 to DDATA0
+                                                      in order to read. */
+    CRYPTO_DData0Read260(crypto, pCryptoContext->DDATA[3]);
+    crypto->CMD = CRYPTO_CMD_INSTR_DDATA4TODDATA0; /* Move DDATA4 to DDATA0
+                                                      in order to read. */
+    CRYPTO_DData0Read260(crypto, pCryptoContext->DDATA[4]);
+  }
+  else
+  {
+    CRYPTO_DDataRead(&crypto->DDATA0, pCryptoContext->DDATA[0]);
+    CRYPTO_DDataRead(&crypto->DDATA1, pCryptoContext->DDATA[1]);
+    CRYPTO_DDataRead(&crypto->DDATA2, pCryptoContext->DDATA[2]);
+    CRYPTO_DDataRead(&crypto->DDATA3, pCryptoContext->DDATA[3]);
+    CRYPTO_DDataRead(&crypto->DDATA4, pCryptoContext->DDATA[4]);
+  }
+}
+  
+/***************************************************************************//**
  * @brief
  *  Arbitrate for exclusive access to CRYPTO unit.
  *
@@ -241,10 +351,10 @@ __STATIC_INLINE void CRYPTODRV_SetAsynchCallback
  *  like @ref CRYPTODRV_Release.
  *
  * @return
- *  ECODE_OK if success. Error code if failure.
+ *  0 if success. Error code if failure.
  *  MBEDTLS_ECODE_CRYPTODRV_BUSY if priority is lower than or equal to running thread.
  */
-Ecode_t CRYPTODRV_Arbitrate (CRYPTODRV_Context_t* pCryptodrvContext);
+int CRYPTODRV_Arbitrate (CRYPTODRV_Context_t* pCryptodrvContext);
 
 /***************************************************************************//**
  * @brief
@@ -262,9 +372,9 @@ Ecode_t CRYPTODRV_Arbitrate (CRYPTODRV_Context_t* pCryptodrvContext);
  *  The CRYPTODRV context to remove from CRYPTODRV context list.
  *
  * @return
- *  ECODE_OK if success. Error code if failure.
+ *  0 if success. Error code if failure.
  */
-Ecode_t CRYPTODRV_Release (CRYPTODRV_Context_t* pCryptodrvContext);
+int CRYPTODRV_Release (CRYPTODRV_Context_t* pCryptodrvContext);
 
 /***************************************************************************//**
  * @brief
@@ -278,9 +388,9 @@ Ecode_t CRYPTODRV_Release (CRYPTODRV_Context_t* pCryptodrvContext);
  *  there should be one version per supported OS/runtime platform.
  *
  * @return
- *  ECODE_OK if success. Error code if failure.
+ *  0 if success. Error code if failure.
  */
-Ecode_t CRYPTODRV_EnterCriticalRegion (CRYPTODRV_Context_t* pCryptodrvContext);
+int CRYPTODRV_EnterCriticalRegion (CRYPTODRV_Context_t* pCryptodrvContext);
 
  /***************************************************************************//**
  * @brief
@@ -294,35 +404,51 @@ Ecode_t CRYPTODRV_EnterCriticalRegion (CRYPTODRV_Context_t* pCryptodrvContext);
  *  there should be one version per supported OS/runtime platform.
  *
  * @return
- *  ECODE_OK if success. Error code if failure.
+ *  0 if success. Error code if failure.
  */
-Ecode_t CRYPTODRV_ExitCriticalRegion (CRYPTODRV_Context_t* pCryptodrvContext);
+int CRYPTODRV_ExitCriticalRegion (CRYPTODRV_Context_t* pCryptodrvContext);
 
 #else   /* #if defined MBEDTLS_CRYPTO_DEVICE_PREEMPTION */
 
+#if defined( MBEDTLS_CRYPTO_PREEMPTION_PRIORITY_SET )
 __STATIC_INLINE
-Ecode_t CRYPTODRV_Arbitrate (CRYPTODRV_Context_t* pCryptodrvContext)
-{
-  CMU->HFBUSCLKEN0 |= pCryptodrvContext->device->clk;
-  return ECODE_OK;
-}
-__STATIC_INLINE
-Ecode_t CRYPTODRV_Release (CRYPTODRV_Context_t* pCryptodrvContext)
-{
-  CMU->HFBUSCLKEN0 &= ~pCryptodrvContext->device->clk;
-  return ECODE_OK;
-}
-__STATIC_INLINE
-Ecode_t CRYPTODRV_EnterCriticalRegion (CRYPTODRV_Context_t* pCryptodrvContext)
+void cryptodrvSetContextPriority(CRYPTODRV_Context_t* pCryptodrvContext,
+                                 unsigned long        priority)
 {
   (void) pCryptodrvContext;
-  return ECODE_OK;
+  (void) priority;
 }
+#endif /* #if defined( MBEDTLS_CRYPTO_PREEMPTION_PRIORITY_SET ) */
+  
 __STATIC_INLINE
-Ecode_t CRYPTODRV_ExitCriticalRegion (CRYPTODRV_Context_t* pCryptodrvContext)
+int CRYPTODRV_Arbitrate (CRYPTODRV_Context_t* pCryptodrvContext)
+{
+  const CRYPTO_Device_t* pCryptoDevice = pCryptodrvContext->device;
+  /* Start the CRYPTO clock */
+  CMU->HFBUSCLKEN0 |= pCryptoDevice->clk;
+  return 0;
+}
+
+__STATIC_INLINE
+int CRYPTODRV_Release (CRYPTODRV_Context_t* pCryptodrvContext)
+{
+  const CRYPTO_Device_t* pCryptoDevice = pCryptodrvContext->device;
+  /* Stop the CRYPTO clock */
+  CMU->HFBUSCLKEN0 &= ~pCryptoDevice->clk;
+  return 0;
+}
+
+__STATIC_INLINE
+int CRYPTODRV_EnterCriticalRegion (CRYPTODRV_Context_t* pCryptodrvContext)
 {
   (void) pCryptodrvContext;
-  return ECODE_OK;
+  return 0;
+}
+__STATIC_INLINE
+int CRYPTODRV_ExitCriticalRegion (CRYPTODRV_Context_t* pCryptodrvContext)
+{
+  (void) pCryptodrvContext;
+  return 0;
 }
 
 #endif   /* #if defined MBEDTLS_CRYPTO_DEVICE_PREEMPTION */

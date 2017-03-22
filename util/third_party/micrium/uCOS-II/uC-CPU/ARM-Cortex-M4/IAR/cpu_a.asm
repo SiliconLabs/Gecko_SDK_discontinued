@@ -2,7 +2,7 @@
 ;                                                uC/CPU
 ;                                    CPU CONFIGURATION & PORT LAYER
 ;
-;                          (c) Copyright 2004-2013; Micrium, Inc.; Weston, FL
+;                          (c) Copyright 2004-2016; Micrium, Inc.; Weston, FL
 ;
 ;               All rights reserved.  Protected by international copyright laws.
 ;
@@ -14,6 +14,8 @@
 ;               Please help us continue to provide the Embedded community with the finest 
 ;               software available.  Your honesty is greatly appreciated.
 ;
+;               You can find our product's user manual, API reference, release notes and
+;               more information at https://doc.micrium.com.
 ;               You can contact us at www.micrium.com.
 ;********************************************************************************************************
 
@@ -25,7 +27,7 @@
 ;                                            IAR C Compiler
 ;
 ; Filename      : cpu_a.asm
-; Version       : V1.29.02.00
+; Version       : V1.31.00
 ; Programmer(s) : JJL
 ;********************************************************************************************************
 

@@ -4,13 +4,13 @@
 ;                                          The Real-Time Kernel
 ;
 ;
-;                              (c) Copyright 2010; Micrium, Inc.; Weston, FL
+;                         (c) Copyright 2009-2016; Micrium, Inc.; Weston, FL
 ;                    All rights reserved.  Protected by international copyright laws.
 ;
 ;                                           ARM Cortex-M4 Port
 ;
 ; File      : OS_CPU_A.ASM
-; Version   : V3.01.2
+; Version   : V3.06.00
 ; By        : JJL
 ;             BAN
 ;
@@ -22,6 +22,17 @@
 ;             Keil uVision
 ;********************************************************************************************************
 ;
+
+;/*
+;*********************************************************************************************************
+;*********************************************************************************************************
+;*                               WARNING - DEPRECATION NOTICE - WARNING
+;* June 2016
+;* This file is part of a deprecated port and will be removed in a future release.
+;* The functionalities of this port were replaced by the generic ARM-Cortex-M port.
+;*********************************************************************************************************
+;*********************************************************************************************************
+;*/
 
 ;********************************************************************************************************
 ;                                          PUBLIC FUNCTIONS
@@ -42,7 +53,12 @@
     EXPORT  OSIntCtxSw
     EXPORT  OS_CPU_PendSVHandler
 
-;PAGE
+    IF {FPU} != "SoftVFP"
+    EXPORT  OS_CPU_FP_Reg_Push
+    EXPORT  OS_CPU_FP_Reg_Pop
+    ENDIF
+
+
 ;********************************************************************************************************
 ;                                               EQUATES
 ;********************************************************************************************************
@@ -63,7 +79,63 @@ NVIC_PENDSVSET  EQU     0x10000000                              ; Value to trigg
     AREA CODE, CODE, READONLY
 
 
-;PAGE
+;********************************************************************************************************
+;                                   FLOATING POINT REGISTERS PUSH
+;                             void  OS_CPU_FP_Reg_Push (CPU_STK  *stkPtr)
+;
+; Note(s) : 1) This function saves S0-S31, and FPSCR registers of the Floating Point Unit.
+;
+;           2) Pseudo-code is:
+;              a) Get FPSCR register value;
+;              b) Push value on process stack;
+;              c) Push remaining regs S0-S31 on process stack;
+;              d) Update OSTCBCurPtr->StkPtr;
+;********************************************************************************************************
+
+    IF {FPU} != "SoftVFP"
+
+OS_CPU_FP_Reg_Push
+    MRS     R1, PSP                                             ; PSP is process stack pointer
+    CBZ     R1, OS_CPU_FP_nosave                                ; Skip FP register save the first time
+
+    VMRS    R1, FPSCR
+    STR R1, [R0, #-4]!
+    VSTMDB  R0!, {S0-S31}
+    LDR     R1, =OSTCBCurPtr
+    LDR     R2, [R1]
+    STR     R0, [R2]
+OS_CPU_FP_nosave
+    BX      LR
+
+    ENDIF
+
+
+;********************************************************************************************************
+;                                   FLOATING POINT REGISTERS POP
+;                             void  OS_CPU_FP_Reg_Pop (CPU_STK  *stkPtr)
+;
+; Note(s) : 1) This function restores S0-S31, and FPSCR registers of the Floating Point Unit.
+;
+;           2) Pseudo-code is:
+;              a) Restore regs S0-S31 of new process stack;
+;              b) Restore FPSCR reg value
+;              c) Update OSTCBHighRdyPtr->StkPtr pointer of new proces stack;
+;********************************************************************************************************
+
+    IF {FPU} != "SoftVFP"
+
+OS_CPU_FP_Reg_Pop
+    VLDMIA  R0!, {S0-S31}
+    LDMIA   R0!, {R1}
+    VMSR    FPSCR, R1
+    LDR     R1, =OSTCBHighRdyPtr
+    LDR     R2, [R1]
+    STR     R0, [R2]
+    BX      LR
+
+    ENDIF
+
+
 ;********************************************************************************************************
 ;                                         START MULTITASKING
 ;                                      void OSStartHighRdy(void)
@@ -80,28 +152,46 @@ NVIC_PENDSVSET  EQU     0x10000000                              ; Value to trigg
 ;********************************************************************************************************
 
 OSStartHighRdy
-    LDR     R0, =NVIC_SYSPRI14                                  ; Set the PendSV exception priority
-    LDR     R1, =NVIC_PENDSV_PRI
+    CPSID   I                                                   ; Prevent interruption during context switch
+    MOV32   R0, NVIC_SYSPRI14                                   ; Set the PendSV exception priority
+    MOV32   R1, NVIC_PENDSV_PRI
     STRB    R1, [R0]
 
     MOVS    R0, #0                                              ; Set the PSP to 0 for initial context switch call
     MSR     PSP, R0
 
-    LDR     R0, =OS_CPU_ExceptStkBase                           ; Initialize the MSP to the OS_CPU_ExceptStkBase
+    MOV32   R0, OS_CPU_ExceptStkBase                            ; Initialize the MSP to the OS_CPU_ExceptStkBase
     LDR     R1, [R0]
     MSR     MSP, R1    
 
-    LDR     R0, =NVIC_INT_CTRL                                  ; Trigger the PendSV exception (causes context switch)
-    LDR     R1, =NVIC_PENDSVSET
-    STR     R1, [R0]
-    
-    CPSIE   I                                                   ; Enable interrupts at processor level
+    BL      OSTaskSwHook                                        ; Call OSTaskSwHook() for FPU Push & Pop
 
-OSStartHang
-    B       OSStartHang                                         ; Should never get here
+    MOV32   R0, OSPrioCur                                       ; OSPrioCur   = OSPrioHighRdy;
+    MOV32   R1, OSPrioHighRdy
+    LDRB    R2, [R1]
+    STRB    R2, [R0]
+
+    MOV32   R5, OSTCBCurPtr
+    MOV32   R1, OSTCBHighRdyPtr                                 ; OSTCBCurPtr = OSTCBHighRdyPtr;
+    LDR     R2, [R1]
+    STR     R2, [R5]
+
+    LDR     R0, [R2]                                            ; R0 is new process SP; SP = OSTCBHighRdyPtr->StkPtr;
+    MSR     PSP, R0                                             ; Load PSP with new process SP
+
+    MRS     R0, CONTROL
+    ORR     R0, R0, #2
+    MSR     CONTROL, R0
+    ISB                                                         ; Sync instruction stream
+
+    LDMFD    SP!, {R4-R11}                                      ; Restore r4-11 from new process stack
+    LDMFD    SP!, {R0-R3}                                       ; Restore r0, r3
+    LDMFD    SP!, {R12, LR}                                     ; Load R12 and LR
+    LDMFD    SP!, {R1, R2}                                      ; Load PC and discard xPSR
+    CPSIE    I
+    BX       R1
 
 
-;PAGE
 ;********************************************************************************************************
 ;                       PERFORM A CONTEXT SWITCH (From task level) - OSCtxSw()
 ;
@@ -116,7 +206,6 @@ OSCtxSw
     BX      LR
 
 
-;PAGE
 ;********************************************************************************************************
 ;                   PERFORM A CONTEXT SWITCH (From interrupt level) - OSIntCtxSw()
 ;
@@ -132,7 +221,6 @@ OSIntCtxSw
     BX      LR
 
 
-;PAGE
 ;********************************************************************************************************
 ;                                       HANDLE PendSV EXCEPTION
 ;                                   void OS_CPU_PendSVHandler(void)
@@ -171,38 +259,32 @@ OSIntCtxSw
 OS_CPU_PendSVHandler
     CPSID   I                                                   ; Prevent interruption during context switch
     MRS     R0, PSP                                             ; PSP is process stack pointer
-    CBZ     R0, OS_CPU_PendSVHandler_nosave                     ; Skip register save the first time
+    STMFD   R0!, {R4-R11}                                       ; Save remaining regs r4-11 on process stack
 
-    SUBS    R0, R0, #0x20                                       ; Save remaining regs r4-11 on process stack
-    STM     R0, {R4-R11}
-
-    LDR     R1, =OSTCBCurPtr                                    ; OSTCBCurPtr->OSTCBStkPtr = SP;
-    LDR     R1, [R1]
-    STR     R0, [R1]                                            ; R0 is SP of process being switched out
+    MOV32   R5, OSTCBCurPtr                                     ; OSTCBCurPtr->OSTCBStkPtr = SP;
+    LDR     R6, [R5]
+    STR     R0, [R6]                                            ; R0 is SP of process being switched out
 
                                                                 ; At this point, entire context of process has been saved
-OS_CPU_PendSVHandler_nosave
-    PUSH    {R14}                                               ; Save LR exc_return value
-    LDR     R0, =OSTaskSwHook                                   ; OSTaskSwHook();
-    BLX     R0
-    POP     {R14}
+    MOV     R4, LR                                              ; Save LR exc_return value
+    BL      OSTaskSwHook                                        ; OSTaskSwHook();
 
-    LDR     R0, =OSPrioCur                                      ; OSPrioCur   = OSPrioHighRdy;
-    LDR     R1, =OSPrioHighRdy
+    MOV32   R0, OSPrioCur                                       ; OSPrioCur   = OSPrioHighRdy;
+    MOV32   R1, OSPrioHighRdy
     LDRB    R2, [R1]
     STRB    R2, [R0]
 
-    LDR     R0, =OSTCBCurPtr                                    ; OSTCBCurPtr = OSTCBHighRdyPtr;
-    LDR     R1, =OSTCBHighRdyPtr
+    MOV32   R1, OSTCBHighRdyPtr                                 ; OSTCBCurPtr = OSTCBHighRdyPtr;
     LDR     R2, [R1]
-    STR     R2, [R0]
+    STR     R2, [R5]
 
+    ORR     LR, R4, #0xF4                                       ; Ensure exception return uses process stack
     LDR     R0, [R2]                                            ; R0 is new process SP; SP = OSTCBHighRdyPtr->StkPtr;
-    LDM     R0, {R4-R11}                                        ; Restore r4-11 from new process stack
-    ADDS    R0, R0, #0x20
+    LDMFD   R0!, {R4-R11}                                       ; Restore r4-11 from new process stack
     MSR     PSP, R0                                             ; Load PSP with new process SP
-    ORR     LR, LR, #0x04                                       ; Ensure exception return uses process stack
     CPSIE   I
     BX      LR                                                  ; Exception return will restore remaining context
+
+    ALIGN
 
     END

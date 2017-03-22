@@ -4,12 +4,12 @@
 *                                          The Real-Time Kernel
 *                                        MESSAGE QUEUE MANAGEMENT
 *
-*                              (c) Copyright 1992-2012, Micrium, Weston, FL
+*                              (c) Copyright 1992-2016, Micrium, Weston, FL
 *                                           All Rights Reserved
 *
 * File    : OS_Q.C
 * By      : Jean J. Labrosse
-* Version : V2.92.07
+* Version : V2.92.12
 *
 * LICENSING TERMS:
 * ---------------
@@ -18,6 +18,15 @@
 * its use in your product. We provide ALL the source code for your convenience and to help you experience
 * uC/OS-II.   The fact that the  source is provided does  NOT  mean that you can use it without  paying a
 * licensing fee.
+*
+* Knowledge of the source code may NOT be used to develop a similar product.
+*
+* Please help us continue to provide the embedded community with the finest software available.
+* Your honesty is greatly appreciated.
+*
+* You can find our product's user manual, API reference, release notes and
+* more information at https://doc.micrium.com.
+* You can contact us at www.micrium.com.
 *********************************************************************************************************
 */
 
@@ -105,7 +114,8 @@ void  *OSQAccept (OS_EVENT  *pevent,
     return (pmsg);                               /* Return message received (or NULL)                  */
 }
 #endif
-/*$PAGE*/
+
+
 /*
 *********************************************************************************************************
 *                                       CREATE A MESSAGE QUEUE
@@ -180,7 +190,8 @@ OS_EVENT  *OSQCreate (void    **start,
     }
     return (pevent);
 }
-/*$PAGE*/
+
+
 /*
 *********************************************************************************************************
 *                                       DELETE A MESSAGE QUEUE
@@ -196,12 +207,14 @@ OS_EVENT  *OSQCreate (void    **start,
 *                                                    In this case, all the tasks pending will be readied.
 *
 *              perr          is a pointer to an error code that can contain one of the following values:
-*                            OS_ERR_NONE             The call was successful and the queue was deleted
-*                            OS_ERR_DEL_ISR          If you tried to delete the queue from an ISR
-*                            OS_ERR_INVALID_OPT      An invalid option was specified
-*                            OS_ERR_TASK_WAITING     One or more tasks were waiting on the queue
-*                            OS_ERR_EVENT_TYPE       If you didn't pass a pointer to a queue
-*                            OS_ERR_PEVENT_NULL      If 'pevent' is a NULL pointer.
+*                            OS_ERR_NONE                  The call was successful and the queue was deleted
+*                            OS_ERR_DEL_ISR               If you tried to delete the queue from an ISR
+*                            OS_ERR_ILLEGAL_DEL_RUN_TIME  If you tried to delete the queue after safety
+*                                                         critical operation started.
+*                            OS_ERR_INVALID_OPT           An invalid option was specified
+*                            OS_ERR_TASK_WAITING          One or more tasks were waiting on the queue
+*                            OS_ERR_EVENT_TYPE            If you didn't pass a pointer to a queue
+*                            OS_ERR_PEVENT_NULL           If 'pevent' is a NULL pointer.
 *
 * Returns    : pevent        upon error
 *              (OS_EVENT *)0 if the queue was successfully deleted.
@@ -219,7 +232,7 @@ OS_EVENT  *OSQCreate (void    **start,
 *                 type call) then your application MUST release the memory storage by call the counterpart
 *                 call of the dynamic allocation scheme used.  If the queue storage was created statically
 *                 then, the storage can be reused.
-*              6) All tasks that were waiting for the queue will be readied and returned an 
+*              6) All tasks that were waiting for the queue will be readied and returned an
 *                 OS_ERR_PEND_ABORT if OSQDel() was called with OS_DEL_ALWAYS
 *********************************************************************************************************
 */
@@ -241,6 +254,14 @@ OS_EVENT  *OSQDel (OS_EVENT  *pevent,
 #ifdef OS_SAFETY_CRITICAL
     if (perr == (INT8U *)0) {
         OS_SAFETY_CRITICAL_EXCEPTION();
+        return ((OS_EVENT *)0);
+    }
+#endif
+
+#ifdef OS_SAFETY_CRITICAL_IEC61508
+    if (OSSafetyCriticalStartFlag == OS_TRUE) {
+        OS_SAFETY_CRITICAL_EXCEPTION();
+        *perr = OS_ERR_ILLEGAL_DEL_RUN_TIME;
         return ((OS_EVENT *)0);
     }
 #endif
@@ -320,7 +341,7 @@ OS_EVENT  *OSQDel (OS_EVENT  *pevent,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                             FLUSH QUEUE
@@ -368,7 +389,7 @@ INT8U  OSQFlush (OS_EVENT *pevent)
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                    PEND ON A QUEUE FOR A MESSAGE
@@ -489,7 +510,8 @@ void  *OSQPend (OS_EVENT  *pevent,
     OS_EXIT_CRITICAL();
     return (pmsg);                                    /* Return received message                       */
 }
-/*$PAGE*/
+
+
 /*
 *********************************************************************************************************
 *                                  ABORT WAITING ON A MESSAGE QUEUE
@@ -579,7 +601,7 @@ INT8U  OSQPendAbort (OS_EVENT  *pevent,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                       POST MESSAGE TO A QUEUE
@@ -640,7 +662,8 @@ INT8U  OSQPost (OS_EVENT  *pevent,
     return (OS_ERR_NONE);
 }
 #endif
-/*$PAGE*/
+
+
 /*
 *********************************************************************************************************
 *                                POST MESSAGE TO THE FRONT OF A QUEUE
@@ -704,7 +727,8 @@ INT8U  OSQPostFront (OS_EVENT  *pevent,
     return (OS_ERR_NONE);
 }
 #endif
-/*$PAGE*/
+
+
 /*
 *********************************************************************************************************
 *                                       POST MESSAGE TO A QUEUE
@@ -791,7 +815,8 @@ INT8U  OSQPostOpt (OS_EVENT  *pevent,
     return (OS_ERR_NONE);
 }
 #endif
-/*$PAGE*/
+
+
 /*
 *********************************************************************************************************
 *                                        QUERY A MESSAGE QUEUE
@@ -855,7 +880,7 @@ INT8U  OSQQuery (OS_EVENT  *pevent,
 }
 #endif                                                 /* OS_Q_QUERY_EN                                */
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                     QUEUE MODULE INITIALIZATION

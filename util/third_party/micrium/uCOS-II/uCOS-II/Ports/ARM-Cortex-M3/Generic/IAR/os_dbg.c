@@ -4,13 +4,13 @@
 *                                         The Real-Time Kernel
 *                                          DEBUGGER CONSTANTS
 *
-*                                (c) Copyright 2006, Micrium, Weston, FL
+*                             (c) Copyright 2006-2016, Micrium, Weston, FL
 *                                          All Rights Reserved
 *
 *                                           ARM Cortex-M3 Port
 *
 * File      : OS_DBG.C
-* Version   : V2.89
+* Version   : V2.92.12.00
 * By        : Jean J. Labrosse
 *
 * For       : ARMv7M Cortex-M3

@@ -17,6 +17,7 @@
 #include <stdint.h>
 #include "glib.h"
 
+/** @brief Pixel data for the "GLIB_FontNormal8x8" font. */
 static const uint8_t GLIB_FontNormal8x8PixMap[] =
 {
   0x00, 0x18, 0x6c, 0x6c, 0x10, 0xce, 0x38, 0x08, 0x60, 0x0c, 0x00, 0x00,
@@ -88,6 +89,9 @@ static const uint8_t GLIB_FontNormal8x8PixMap[] =
   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 };
 
+/**
+ * @brief Normal 8x8 pixels font containing characters and numbers.
+ */
 const GLIB_Font_t GLIB_FontNormal8x8 = {(void *)GLIB_FontNormal8x8PixMap,
                                         sizeof(GLIB_FontNormal8x8PixMap),
                                         sizeof(GLIB_FontNormal8x8PixMap[0]),

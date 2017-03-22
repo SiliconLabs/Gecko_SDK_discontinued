@@ -1,0 +1,430 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.2.11947/W32 for ARM                09/Mar/2017  19:49:55
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Exe\scroller.out
+#    Map file     =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\List\scroller.map
+#    Command line =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Obj\bsp_dk_3201.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Obj\bsp_dk_leds.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Obj\bsp_trace.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Obj\dmd_ssd2119_direct.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Obj\em_assert.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Obj\em_cmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Obj\em_ebi.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Obj\em_emu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Obj\em_gpio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Obj\em_system.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Obj\em_usart.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Obj\fnt16x28.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Obj\gecko.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Obj\scroller.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Obj\startup_efm32gg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Obj\system_efm32gg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Obj\tftdirect.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Obj\tftspi.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Exe\scroller.out
+#        --map
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\List\scroller.map
+#        --config
+#        T:\iar_ew_7802_win32_rel_1\arm\config\linker\SiliconLaboratories\EFM32GG990F1024.icf
+#        --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x000fffff] { ro };
+"P2":  place in [from 0x20000000 to 0x2001ffff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+ { section .intvec };
+
+  Section            Kind        Address     Size  Object
+  -------            ----        -------     ----  ------
+"A0":                                        0xdc
+  .intvec            ro code  0x00000000     0xdc  startup_efm32gg.o [1]
+                            - 0x000000dc     0xdc
+
+"P1":                                     0x1ff64
+  .rodata            const    0x000000dc  0x14910  fnt16x28.o [1]
+  .rodata            const    0x000149ec   0x7d00  gecko.o [1]
+  .text              ro code  0x0001c6ec    0xb38  em_cmu.o [1]
+  .text              ro code  0x0001d224      0x2  em_assert.o [1]
+  .text              ro code  0x0001d228    0x138  system_efm32gg.o [1]
+  .text              ro code  0x0001d360    0xb24  bsp_dk_3201.o [1]
+  .text              ro code  0x0001de84    0x2b0  em_gpio.o [1]
+  .text              ro code  0x0001e134     0x56  ABImemcpy_unaligned.o [4]
+  .text              ro code  0x0001e18c    0xb24  em_ebi.o [1]
+  .text              ro code  0x0001ecb0    0x194  em_usart.o [1]
+  .text              ro code  0x0001ee44    0x5c4  scroller.o [1]
+  .text              ro code  0x0001f408    0x118  bsp_trace.o [1]
+  .text              ro code  0x0001f520     0x18  bsp_dk_leds.o [1]
+  .text              ro code  0x0001f538     0xec  tftdirect.o [1]
+  .text              ro code  0x0001f624     0xf8  dmd_ssd2119_direct.o [1]
+  .text              ro code  0x0001f71c    0x234  tftspi.o [1]
+  .rodata            const    0x0001f950     0x88  bsp_dk_3201.o [1]
+  .rodata            const    0x0001f9d8     0x88  em_gpio.o [1]
+  .rodata            const    0x0001fa60     0x88  tftspi.o [1]
+  .rodata            const    0x0001fae8     0x84  em_cmu.o [1]
+  .rodata            const    0x0001fb6c     0x84  scroller.o [1]
+  .rodata            const    0x0001fbf0     0x7c  scroller.o [1]
+  .rodata            const    0x0001fc6c     0x50  bsp_dk_3201.o [1]
+  .rodata            const    0x0001fcbc     0x4c  em_cmu.o [1]
+  .rodata            const    0x0001fd08     0x4c  em_ebi.o [1]
+  .rodata            const    0x0001fd54     0x4c  em_gpio.o [1]
+  .rodata            const    0x0001fda0     0x4c  em_usart.o [1]
+  .rodata            const    0x0001fdec     0x4c  scroller.o [1]
+  .text              ro code  0x0001fe38     0x38  packbits_init_single.o [4]
+  .text              ro code  0x0001fe70     0x28  data_init.o [4]
+  .iar.init_table    const    0x0001fe98     0x10  - Linker created -
+  .text              ro code  0x0001fea8     0x1a  cmain.o [4]
+  .text              ro code  0x0001fec2      0x4  low_level_init.o [3]
+  .text              ro code  0x0001fec6      0x4  exit.o [3]
+  .text              ro code  0x0001fecc      0xa  cexit.o [4]
+  .text              ro code  0x0001fed8      0xc  XXexit.o [4]
+  .rodata            const    0x0001fee4     0x18  bsp_dk_3201.o [1]
+  .rodata            const    0x0001fefc     0x18  scroller.o [1]
+  .rodata            const    0x0001ff14     0x18  scroller.o [1]
+  .rodata            const    0x0001ff2c     0x18  scroller.o [1]
+  .rodata            const    0x0001ff44     0x18  tftspi.o [1]
+  .text              ro code  0x0001ff5c     0x10  startup_efm32gg.o [1]
+  .text              ro code  0x0001ff6c      0xc  cstartup_M.o [4]
+  .text              ro code  0x0001ff78      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ff7c      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ff80      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ff84      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ff88      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ff8c      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ff90      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ff94      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ff98      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ff9c      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ffa0      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ffa4      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ffa8      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ffac      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ffb0      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ffb4      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ffb8      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ffbc      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ffc0      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ffc4      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ffc8      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ffcc      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ffd0      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ffd4      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ffd8      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ffdc      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ffe0      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ffe4      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ffe8      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001ffec      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001fff0      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001fff4      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001fff8      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0001fffc      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00020000      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00020004      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00020008      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0002000c      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00020010      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00020014      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00020018      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0002001c      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00020020      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00020024      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00020028      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0002002c      0x4  startup_efm32gg.o [1]
+  .rodata            const    0x00020030      0x0  packbits_init_single.o [4]
+  Initializer bytes  const    0x00020030     0x10  <for P2-1>
+                            - 0x00020040  0x1ff64
+
+"P2", part 1 of 2:                           0x38
+  P2-1                        0x20000000     0x38  <Init block>
+    .data            inited   0x20000000      0x4  scroller.o [1]
+    .data            inited   0x20000004      0x4  system_efm32gg.o [1]
+    .data            inited   0x20000008      0x4  system_efm32gg.o [1]
+    .bss             inited   0x2000000c      0x4  bsp_dk_3201.o [1]
+    .bss             inited   0x20000010      0x4  bsp_dk_3201.o [1]
+    .bss             inited   0x20000014      0x4  dmd_ssd2119_direct.o [1]
+    .bss             inited   0x20000018      0x4  dmd_ssd2119_direct.o [1]
+    .bss             inited   0x2000001c      0x4  scroller.o [1]
+    .bss             inited   0x20000020      0x4  scroller.o [1]
+    .bss             inited   0x20000024      0x4  scroller.o [1]
+    .bss             inited   0x20000028      0x4  scroller.o [1]
+    .bss             inited   0x2000002c      0x4  scroller.o [1]
+    .bss             inited   0x20000030      0x4  system_efm32gg.o [1]
+    .bss             inited   0x20000034      0x2  bsp_dk_3201.o [1]
+    .data            inited   0x20000036      0x1  tftdirect.o [1]
+    .bss             inited   0x20000037      0x1  bsp_dk_3201.o [1]
+                            - 0x20000038     0x38
+
+"P2", part 2 of 2:                          0x400
+  CSTACK                      0x20000038    0x400  <Block>
+    CSTACK           uninit   0x20000038    0x400  <Block tail>
+                            - 0x20000438    0x400
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Copy/packbits (__iar_packbits_init_single3)
+    1 source range, total size 0x10 (28% of destination):
+          0x00020030  0x10
+    1 destination range, total size 0x38:
+          0x20000000  0x38
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                  ro code  ro data  rw data
+    ------                  -------  -------  -------
+D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Obj: [1]
+    bsp_dk_3201.o             2 852      244       11
+    bsp_dk_leds.o                24
+    bsp_trace.o                 280
+    dmd_ssd2119_direct.o        248        3        8
+    em_assert.o                   2
+    em_cmu.o                  2 872      208
+    em_ebi.o                  2 852       76
+    em_gpio.o                   688      212
+    em_usart.o                  404       76
+    fnt16x28.o                        84 240
+    gecko.o                           32 000
+    scroller.o                1 476      410       24
+    startup_efm32gg.o           420
+    system_efm32gg.o            312        3       12
+    tftdirect.o                 236                 1
+    tftspi.o                    564      160
+    -------------------------------------------------
+    Total:                   13 230  117 632       56
+
+command line: [2]
+    -------------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    exit.o                        4
+    low_level_init.o              4
+    -------------------------------------------------
+    Total:                        8
+
+rt7M_tl.a: [4]
+    ABImemcpy_unaligned.o        86
+    XXexit.o                     12
+    cexit.o                      10
+    cmain.o                      26
+    cstartup_M.o                 12
+    data_init.o                  40
+    packbits_init_single.o       56
+    -------------------------------------------------
+    Total:                      242
+
+    Gaps                          8
+    Linker created                        16    1 024
+-----------------------------------------------------
+    Grand Total:             13 488  117 648    1 080
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address     Size  Type      Object
+-----                      -------     ----  ----      ------
+.iar.init_table$$Base   0x0001fe98            --   Gb  - Linker created -
+.iar.init_table$$Limit  0x0001fea8            --   Gb  - Linker created -
+?main                   0x0001fea9           Code  Gb  cmain.o [4]
+BSP_BusControlModeSet   0x0001d50f     0x9c  Code  Gb  bsp_dk_3201.o [1]
+BSP_DisplayControl      0x0001d5ab     0xfc  Code  Gb  bsp_dk_3201.o [1]
+BSP_EbiExtendedAddressRange
+                        0x0001d6a7     0x24  Code  Gb  bsp_dk_3201.o [1]
+BSP_Init                0x0001d4b5     0x5a  Code  Gb  bsp_dk_3201.o [1]
+BSP_LedsSet             0x0001f521     0x12  Code  Gb  bsp_dk_leds.o [1]
+BSP_PeripheralAccess    0x0001d6cb    0x236  Code  Gb  bsp_dk_3201.o [1]
+BSP_RegisterRead        0x0001d901     0x1a  Code  Gb  bsp_dk_3201.o [1]
+BSP_RegisterWrite       0x0001d91b     0x22  Code  Gb  bsp_dk_3201.o [1]
+BSP_TraceProfilerSetup  0x0001f509     0x18  Code  Gb  bsp_trace.o [1]
+BSP_TraceSwoSetup       0x0001f409     0xac  Code  Gb  bsp_trace.o [1]
+BUS_RegBitRead          0x0001c6fb     0x10  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x0001c6ed      0xe  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x0001e195      0xe  Code  Lc  em_ebi.o [1]
+BUS_RegMaskedWrite      0x0001ecb1      0xa  Code  Lc  em_usart.o [1]
+CMU_ClockEnable         0x0001cac7     0xa6  Code  Gb  em_cmu.o [1]
+CMU_ClockFreqGet        0x0001cb81    0x188  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectGet      0x0001cd45    0x134  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectSet      0x0001ce9d    0x292  Code  Gb  em_cmu.o [1]
+CMU_DivToLog2           0x0001c70b     0x28  Code  Lc  em_cmu.o [1]
+CMU_OscillatorEnable    0x0001d14d     0x9c  Code  Gb  em_cmu.o [1]
+CSTACK$$Base            0x20000038            --   Gb  - Linker created -
+CSTACK$$Limit           0x20000438            --   Gb  - Linker created -
+DMDIF_writeReg          0x0001f625     0x16  Code  Gb  dmd_ssd2119_direct.o [1]
+DMD_init                0x0001f63b     0xbe  Code  Gb  dmd_ssd2119_direct.o [1]
+DMD_selectFramebuffer   0x0001f6f9     0x16  Code  Gb  dmd_ssd2119_direct.o [1]
+Delay                   0x0001ef77     0x16  Code  Gb  scroller.o [1]
+EBI_BankAddress         0x0001e3a3     0x82  Code  Gb  em_ebi.o [1]
+EBI_BankAddressTimingConfig
+                        0x0001ea25     0x5a  Code  Gb  em_ebi.o [1]
+EBI_BankAddressTimingSet
+                        0x0001ea7f     0x86  Code  Gb  em_ebi.o [1]
+EBI_BankPolaritySet     0x0001eb0d    0x12a  Code  Gb  em_ebi.o [1]
+EBI_BankReadTimingConfig
+                        0x0001e741     0xd8  Code  Gb  em_ebi.o [1]
+EBI_BankReadTimingSet   0x0001e819     0xc6  Code  Gb  em_ebi.o [1]
+EBI_BankWriteTimingConfig
+                        0x0001e8df     0x9e  Code  Gb  em_ebi.o [1]
+EBI_BankWriteTimingSet  0x0001e97d     0xa8  Code  Gb  em_ebi.o [1]
+EBI_ChipSelectEnable    0x0001e425     0x50  Code  Gb  em_ebi.o [1]
+EBI_IRQHandler          0x0001f113    0x10c  Code  Gb  scroller.o [1]
+EBI_Init                0x0001e1a3    0x200  Code  Gb  em_ebi.o [1]
+EBI_IntClear            0x0001ef37      0x8  Code  Lc  scroller.o [1]
+EBI_IntDisable          0x0001ef3f     0x10  Code  Lc  scroller.o [1]
+EBI_IntEnable           0x0001ef4f     0x10  Code  Lc  scroller.o [1]
+EBI_IntGet              0x0001ef5f      0x8  Code  Lc  scroller.o [1]
+EBI_PolaritySet         0x0001e475     0xea  Code  Gb  em_ebi.o [1]
+EBI_TFTAlphaBlendSet    0x0001eeef      0xa  Code  Lc  scroller.o [1]
+EBI_TFTFrameBaseSet     0x0001e18d      0x8  Code  Lc  em_ebi.o [1]
+EBI_TFTFrameBaseSet     0x0001eed1      0x8  Code  Lc  scroller.o [1]
+EBI_TFTHPorchSet        0x0001e647     0x4c  Code  Gb  em_ebi.o [1]
+EBI_TFTHStrideSet       0x0001ef0d     0x2a  Code  Lc  scroller.o [1]
+EBI_TFTInit             0x0001e55f     0xaa  Code  Gb  em_ebi.o [1]
+EBI_TFTMaskBlendMode    0x0001eed9     0x16  Code  Lc  scroller.o [1]
+EBI_TFTMaskSet          0x0001eef9      0x8  Code  Lc  scroller.o [1]
+EBI_TFTSizeSet          0x0001e609     0x3e  Code  Gb  em_ebi.o [1]
+EBI_TFTTimingSet        0x0001e6df     0x62  Code  Gb  em_ebi.o [1]
+EBI_TFTVCount           0x0001ef01      0xc  Code  Lc  scroller.o [1]
+EBI_TFTVPorchSet        0x0001e693     0x4c  Code  Gb  em_ebi.o [1]
+EbiInit                 0x0001d93d    0x30a  Code  Lc  bsp_dk_3201.o [1]
+GPIO_PinModeSet         0x0001dfd9    0x14e  Code  Gb  em_gpio.o [1]
+GPIO_PinOutClear        0x0001d361     0xaa  Code  Lc  bsp_dk_3201.o [1]
+GPIO_PinOutClear        0x0001de85     0xaa  Code  Lc  em_gpio.o [1]
+GPIO_PinOutClear        0x0001f71d     0xa6  Code  Lc  tftspi.o [1]
+GPIO_PinOutSet          0x0001d40b     0xaa  Code  Lc  bsp_dk_3201.o [1]
+GPIO_PinOutSet          0x0001df2f     0xaa  Code  Lc  em_gpio.o [1]
+GPIO_PinOutSet          0x0001f7c3     0xa6  Code  Lc  tftspi.o [1]
+GetProdRev              0x0001d229      0xa  Code  Lc  system_efm32gg.o [1]
+NVIC_ClearPendingIRQ    0x0001ee5b     0x16  Code  Lc  scroller.o [1]
+NVIC_EnableIRQ          0x0001ee45     0x16  Code  Lc  scroller.o [1]
+NVIC_SetPriority        0x0001ee71     0x2a  Code  Lc  scroller.o [1]
+Region$$Table$$Base     0x0001fe98            --   Gb  - Linker created -
+Region$$Table$$Limit    0x0001fea8            --   Gb  - Linker created -
+SPI_TFT_Init            0x0001f869     0x62  Code  Gb  tftspi.o [1]
+SPI_TFT_WriteRegister   0x0001f8cb     0x64  Code  Gb  tftspi.o [1]
+SYSTEM_GetFamily        0x0001c73f      0xc  Code  Lc  em_cmu.o [1]
+SYSTEM_GetProdRev       0x0001c733      0xc  Code  Lc  em_cmu.o [1]
+SpiBcAccess             0x0001dc47     0x60  Code  Lc  bsp_dk_3201.o [1]
+SpiBcInit               0x0001dca7     0x60  Code  Lc  bsp_dk_3201.o [1]
+SpiControl              0x0001dd07     0x44  Code  Lc  bsp_dk_3201.o [1]
+SpiInit                 0x0001dd4b     0x30  Code  Lc  bsp_dk_3201.o [1]
+SpiRegisterRead         0x0001dd7b     0x56  Code  Lc  bsp_dk_3201.o [1]
+SpiRegisterWrite        0x0001ddd9     0x48  Code  Lc  bsp_dk_3201.o [1]
+SysTick_Config          0x0001ee9b     0x36  Code  Lc  scroller.o [1]
+SysTick_Handler         0x0001ef67     0x10  Code  Gb  scroller.o [1]
+SystemCoreClock         0x20000030      0x4  Data  Gb  system_efm32gg.o [1]
+SystemCoreClockGet      0x0001d233     0x1a  Code  Gb  system_efm32gg.o [1]
+SystemHFClockGet        0x0001d251     0xb2  Code  Gb  system_efm32gg.o [1]
+SystemHFXOClock         0x20000004      0x4  Data  Lc  system_efm32gg.o [1]
+SystemHFXOClockGet      0x0001d303      0x6  Code  Gb  system_efm32gg.o [1]
+SystemInit              0x0001d309      0x2  Code  Gb  system_efm32gg.o [1]
+SystemLFRCOClockGet     0x0001d30b      0x6  Code  Gb  system_efm32gg.o [1]
+SystemLFXOClock         0x20000008      0x4  Data  Lc  system_efm32gg.o [1]
+SystemLFXOClockGet      0x0001d317      0x6  Code  Gb  system_efm32gg.o [1]
+SystemMaxCoreClockGet   0x0001d24d      0x4  Code  Gb  system_efm32gg.o [1]
+SystemULFRCOClockGet    0x0001d311      0x6  Code  Gb  system_efm32gg.o [1]
+TFT_DirectGPIOConfig    0x0001f539     0x34  Code  Gb  tftdirect.o [1]
+TFT_DirectInit          0x0001f56d     0xac  Code  Gb  tftdirect.o [1]
+TFT_DisplayClear        0x0001ef8d     0x1e  Code  Gb  scroller.o [1]
+TFT_DrawFont            0x0001f05d     0x96  Code  Gb  scroller.o [1]
+TFT_DrawGecko           0x0001efe9     0x44  Code  Gb  scroller.o [1]
+TFT_DrawGraphics        0x0001f02d     0x30  Code  Gb  scroller.o [1]
+TFT_DrawRectangle       0x0001efab     0x3e  Code  Gb  scroller.o [1]
+TFT_DrawString          0x0001f0f3     0x20  Code  Gb  scroller.o [1]
+TFT_IRQEnable           0x0001f21f     0x24  Code  Gb  scroller.o [1]
+USART_BaudrateSyncSet   0x0001ecbb     0x54  Code  Gb  em_usart.o [1]
+USART_InitSync          0x0001ed0f     0x8a  Code  Gb  em_usart.o [1]
+USART_Reset             0x0001ed99     0x72  Code  Gb  em_usart.o [1]
+USART_Rx                0x0001ee2d      0xc  Code  Gb  em_usart.o [1]
+USART_Tx                0x0001ee39      0xc  Code  Gb  em_usart.o [1]
+__Vectors               0x00000000            --   Gb  startup_efm32gg.o [1]
+__Vectors_End           0x000000dc           Data  Gb  startup_efm32gg.o [1]
+__Vectors_Size {Abs}    0x000000dc            --   Gb  startup_efm32gg.o [1]
+__cmain                 0x0001fea9           Code  Gb  cmain.o [4]
+__exit                  0x0001fed9           Code  Gb  XXexit.o [4]
+__iar_data_init3        0x0001fe71     0x28  Code  Gb  data_init.o [4]
+__iar_packbits_init_single3
+                        0x0001fe39     0x38  Code  Gb  packbits_init_single.o [4]
+__iar_program_start     0x0001ff6d           Code  Gb  cstartup_M.o [4]
+__iar_unaligned___aeabi_memcpy4
+                        0x0001e135           Code  Gb  ABImemcpy_unaligned.o [4]
+__iar_unaligned___aeabi_memcpy8
+                        0x0001e135           Code  Gb  ABImemcpy_unaligned.o [4]
+__low_level_init        0x0001fec3      0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000           Data  Gb  startup_efm32gg.o [1]
+__vector_table_0x1c     0x0000001c           Data  Gb  startup_efm32gg.o [1]
+_call_main              0x0001feb5           Code  Gb  cmain.o [4]
+_exit                   0x0001fecd           Code  Gb  cexit.o [4]
+_main                   0x0001febf           Code  Gb  cmain.o [4]
+assertEFM               0x0001d225      0x2  Code  Gb  em_assert.o [1]
+auxClkGet               0x0001c801     0x94  Code  Lc  em_cmu.o [1]
+bcFwVersion             0x20000034      0x2  Data  Lc  bsp_dk_3201.o [1]
+bspOperationMode        0x2000000c      0x4  Data  Lc  bsp_dk_3201.o [1]
+busMode                 0x20000037      0x1  Data  Lc  bsp_dk_3201.o [1]
+dbgClkGet               0x0001c895     0x3c  Code  Lc  em_cmu.o [1]
+exit                    0x0001fec7      0x4  Code  Gb  exit.o [3]
+flashWaitStateControl   0x0001c8d1     0xa2  Code  Lc  em_cmu.o [1]
+flashWaitStateMax       0x0001c973      0xc  Code  Lc  em_cmu.o [1]
+font16x28               0x000000dc  0x14910  Data  Gb  fnt16x28.o [1]
+frameBuffer             0x20000014      0x4  Data  Lc  dmd_ssd2119_direct.o [1]
+frameCtr                0x20000028      0x4  Data  Lc  scroller.o [1]
+gecko                   0x000149ec   0x7d00  Data  Gb  gecko.o [1]
+getHfLeConfig           0x0001c7d5     0x2c  Code  Lc  em_cmu.o [1]
+hPos                    0x20000024      0x4  Data  Lc  scroller.o [1]
+hzOffset                0x20000020      0x4  Data  Lc  scroller.o [1]
+initialized             0x20000018      0x4  Data  Lc  dmd_ssd2119_direct.o [1]
+inittft                 0x0001ff44     0x18  Data  Lc  tftspi.o [1]
+lastAddr                0x20000010      0x4  Data  Lc  bsp_dk_3201.o [1]
+lfClkGet                0x0001c97f     0xf4  Code  Lc  em_cmu.o [1]
+main                    0x0001f243    0x148  Code  Gb  scroller.o [1]
+maxFreqHfle             0x0001c74b     0x60  Code  Lc  em_cmu.o [1]
+msTicks                 0x2000001c      0x4  Data  Lc  scroller.o [1]
+runOnce                 0x20000036      0x1  Data  Lc  tftdirect.o [1]
+scrollptr               0x2000002c      0x4  Data  Gb  scroller.o [1]
+scrolltext              0x20000000      0x4  Data  Gb  scroller.o [1]
+setHfLeConfig           0x0001c7ab     0x2a  Code  Lc  em_cmu.o [1]
+syncReg                 0x0001ca73     0x16  Code  Lc  em_cmu.o [1]
+tftInit                 0x0001fdec     0x4c  Data  Gb  scroller.o [1]
+usbCClkGet              0x0001ca89     0x3e  Code  Lc  em_cmu.o [1]
+
+
+[1] = D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\scroller\iar\scroller\Debug\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = rt7M_tl.a
+
+   13 488 bytes of readonly  code memory
+  117 648 bytes of readonly  data memory
+    1 080 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

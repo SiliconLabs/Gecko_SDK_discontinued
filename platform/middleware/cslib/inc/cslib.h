@@ -12,15 +12,15 @@
 #include <stdint.h>
 /**************************************************************************//**
  *
- * @addtogroup cslib_group Capacitive Sensing Firmware Library
+ * @addtogroup cslib_group Capacitive Sensing Library (CSLIB)
  * @{
  *
- * @brief Capacitive sensing firmware library for Silicon Labs MCUs
+ * @brief Capacitive sensing firmware library for Silicon Labs MCUs and SoCs.
  *
  * # Introduction #
  * The capacitive sensing library provides pre-compiled code set that
  * performs touch qualification, filtering, and state maintanence for
- * capacitive sensing-enabled Silicon Laboratories MCUs.
+ * capacitive sensing-enabled Silicon Laboratories MCUs and SoCs.
  *
  * The library functions using calls into a device layer that interfaces
  * with hardware peripherals.

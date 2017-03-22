@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file sleep.c
  * @brief Energy Modes management driver.
- * @version 5.0.0
+ * @version 5.1.2
  * @details
  * This is a energy modes management module consisting of sleep.c and sleep.h
  * source files. The main purpose of the module is to ease energy
@@ -181,8 +181,8 @@ SLEEP_EnergyMode_t SLEEP_Sleep(void)
   CORE_DECLARE_IRQ_STATE;
   SLEEP_EnergyMode_t allowedEM;
 
-  CORE_ENTER_ATOMIC();
-
+  /* Critical section to allow sleep blocks in ISRs. */
+  CORE_ENTER_CRITICAL();
   allowedEM = SLEEP_LowestEnergyModeGet();
 
   if ((allowedEM >= sleepEM1) && (allowedEM <= sleepEM3))
@@ -193,8 +193,7 @@ SLEEP_EnergyMode_t SLEEP_Sleep(void)
   {
     allowedEM = sleepEM0;
   }
-
-  CORE_EXIT_ATOMIC();
+  CORE_EXIT_CRITICAL();
 
   return allowedEM;
 }

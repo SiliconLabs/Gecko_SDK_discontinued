@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="STK3800_ucos3" boardCompatibility="brd2400a" partCompatibility=".*efm32wg990f256.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <includePath uri="../../../../util/third_party/micrium/Ports/CMSIS/IAR" />
+  <includePath uri="../../../../util/third_party/micrium/Ports/CMSIS/GCC" />
+  <includePath uri="." />
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_ebi.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_lcd.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_usart.c" />
+    <include pattern="emlib/em_leuart.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <include pattern="BSP/bsp_bcc.c" />
+    <include pattern="BSP/bsp_stk.c" />
+    <include pattern="BSP/bsp_stk_leds.c" />
+    <include pattern="BSP/bsp_trace.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <include pattern="Drivers/retargetio.c" />
+    <include pattern="Drivers/retargetserial.c" />
+    <include pattern="Drivers/segmentlcd.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.uCos3">
+    <include pattern="uC-CPU.*/cpu_core.c" />
+    <include pattern="uC-CPU.*/cpu_c.c" />
+    <include pattern="uC-CPU.*/cpu_a.asm" />
+    <include pattern="uC-CPU.*/cpu_a.s" />
+    <include pattern="uCOS-III.*/os_cfg_app.c" />
+    <include pattern="uCOS-III.*/os_core.c" />
+    <include pattern="uCOS-III.*/os_dbg.c" />
+    <include pattern="uCOS-III.*/os_flag.c" />
+    <include pattern="uCOS-III.*/os_mem.c" />
+    <include pattern="uCOS-III.*/os_mon.c" />
+    <include pattern="uCOS-III.*/os_msg.c" />
+    <include pattern="uCOS-III.*/os_mutex.c" />
+    <include pattern="uCOS-III.*/os_prio.c" />
+    <include pattern="uCOS-III.*/os_q.c" />
+    <include pattern="uCOS-III.*/os_sem.c" />
+    <include pattern="uCOS-III.*/os_stat.c" />
+    <include pattern="uCOS-III.*/os_task.c" />
+    <include pattern="uCOS-III.*/os_tick.c" />
+    <include pattern="uCOS-III.*/os_time.c" />
+    <include pattern="uCOS-III.*/os_tmr.c" />
+    <include pattern="uCOS-III.*/os_var.c" />
+    <include pattern="uCOS-III.*/os_cpu_c.c" />
+    <include pattern="uCOS-III.*/os_cpu_a.asm" />
+    <include pattern="uCOS-III.*/os_cpu_a.S" />
+  </module>
+  <includePath uri="src/bsp" />
+  <includePath uri="src/app" />
+  <folder name="APP">
+    <file name="app.c" uri="src/app/app.c" />
+    <file name="app_hooks.c" uri="src/app/app_hooks.c" />
+    <file name="app_task_one.c" uri="src/app/app_task_one.c" />
+    <file name="app_task_two.c" uri="src/app/app_task_two.c" />
+    <file name="app_task_three.c" uri="src/app/app_task_three.c" />
+  </folder>
+  <folder name="BSP">
+    <file name="bspos.c" uri="src/bsp/bspos.c" />
+  </folder>
+  <folder name="CMSIS">
+    <file name="cmsis_wrapper.s" uri="../../../../util/third_party/micrium/Ports/CMSIS/GCC/cmsis_wrapper.s" />
+    <file name="cmsis_wrapper.s" uri="../../../../util/third_party/micrium/Ports/CMSIS/IAR/cmsis_wrapper.s" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar" />
+  </folder>
+  <toolOption toolId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.base" optionId="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.assembler.flags" value="-c -x assembler-with-cpp -mfloat-abi=softfp -mfpu=fpv4-sp-d16 "/>
+</project>

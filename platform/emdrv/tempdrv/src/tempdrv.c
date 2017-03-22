@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file tempdrv.c
  * @brief TEMPDRV API implementation.
- * @version 5.0.0
+ * @version 5.1.2
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -43,8 +43,7 @@ typedef struct
   uint8_t temp;                   ///< Limit temperature (EMU value)
 } TEMPDRV_CallbackSet_t;
 
-#if defined(_SILICON_LABS_32B_PLATFORM_2)          \
-    && defined(_SILICON_LABS_32B_PLATFORM_2_GEN_1)
+#if defined(_SILICON_LABS_GECKO_INTERNAL_SDID_80)
 #define TEMPDRV_ERRATA_FIX
 #endif
 

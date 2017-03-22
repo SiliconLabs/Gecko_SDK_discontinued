@@ -4,13 +4,13 @@
 *                                          The Real-Time Kernel
 *
 *
-*                           (c) Copyright 2009-2010; Micrium, Inc.; Weston, FL
+*                           (c) Copyright 2009-2016; Micrium, Inc.; Weston, FL
 *                    All rights reserved.  Protected by international copyright laws.
 *
 *                                           ARM Cortex-M3 Port
 *
 * File      : OS_CPU.H
-* Version   : V3.01.2
+* Version   : V3.06.00
 * By        : JJL
 *
 * LICENSING TERMS:
@@ -23,11 +23,24 @@
 *             Please help us continue to provide the Embedded community with the finest
 *             software available.  Your honesty is greatly appreciated.
 *
+*             You can find our product's user manual, API reference, release notes and
+*             more information at https://doc.micrium.com.
 *             You can contact us at www.micrium.com.
 *
 * For       : ARMv7M Cortex-M3
 * Mode      : Thumb2
 * Toolchain : IAR EWARM
+*********************************************************************************************************
+*/
+
+/*
+*********************************************************************************************************
+*********************************************************************************************************
+*                               WARNING - DEPRECATION NOTICE - WARNING
+* June 2016
+* This file is part of a deprecated port and will be removed in a future release.
+* The functionalities of this port were replaced by the generic ARM-Cortex-M port.
+*********************************************************************************************************
 *********************************************************************************************************
 */
 
@@ -40,13 +53,28 @@
 #define  OS_CPU_EXT  extern
 #endif
 
+#ifdef __cplusplus
+extern  "C" {
+#endif
+
 /*
 *********************************************************************************************************
 *                                               MACROS
 *********************************************************************************************************
 */
 
-#define  OS_TASK_SW()               OSCtxSw()
+#ifndef  NVIC_INT_CTRL
+#define  NVIC_INT_CTRL                      *((CPU_REG32 *)0xE000ED04u)
+#endif
+
+#ifndef  NVIC_PENDSVSET
+#define  NVIC_PENDSVSET                                    0x10000000u
+#endif
+
+#define  OS_TASK_SW()               NVIC_INT_CTRL = NVIC_PENDSVSET
+#define  OSIntCtxSw()               NVIC_INT_CTRL = NVIC_PENDSVSET
+
+#define  OS_TASK_SW_SYNC()          __ISB()
 
 /*
 *********************************************************************************************************
@@ -118,14 +146,17 @@ OS_CPU_EXT  CPU_STK  *OS_CPU_ExceptStkBase;
 *********************************************************************************************************
 */
 
-void  OSCtxSw              (void);
-void  OSIntCtxSw           (void);
 void  OSStartHighRdy       (void);
 
 void  OS_CPU_PendSVHandler (void);
 
-
 void  OS_CPU_SysTickHandler(void);
+
 void  OS_CPU_SysTickInit   (CPU_INT32U  cnts);
+
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

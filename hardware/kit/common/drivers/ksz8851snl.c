@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file
  * @brief Driver for Micrel KSZ8851SNL Ethernet controller
- * @version 5.0.0
+ * @version 5.1.1
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -733,6 +733,10 @@ void KSZ8851SNL_Enable(void)
  *
  * @param[in] length
  *   the length of frame to be transmitted
+ *
+ * @return
+ *   true if transmission is initialized, false if there is not enough tx
+ *   memory left on the ethernet controller.
  *****************************************************************************/
 bool KSZ8851SNL_TransmitBegin(uint16_t length)
 {

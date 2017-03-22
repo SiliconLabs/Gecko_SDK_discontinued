@@ -1,0 +1,52 @@
+// IAR V5 ILINK linker configuration file.
+//
+// Copyright 2015 Silicon Laboratories, Inc.                                *80*
+
+//------------------------------------------------------------------------------
+// Symbol definition.
+
+
+// Default to 256K Flash 32K Ram
+if( !isdefinedsymbol(FLASH_SIZE) ) {
+  define symbol FLASH_SIZE = 256K;
+}
+if( !isdefinedsymbol(RAM_SIZE) ) {
+  define symbol RAM_SIZE = 32K;
+}
+
+if ( RAM_SIZE == 31K ) {
+  define symbol TRUE_RAM_SIZE = 32K;
+}
+else {
+  define symbol TRUE_RAM_SIZE = RAM_SIZE;
+}
+
+// EFR32/EZR32 doesn't have a FIB
+define symbol NO_FIB = 1;
+
+define memory mem with size = 4G;
+
+define symbol RAM_BOTTOM          = 0x20000000;
+define symbol RAM_TOP             = RAM_BOTTOM + TRUE_RAM_SIZE - 1;
+
+define symbol MFB_BOTTOM          = 0x00000000;
+define symbol MFB_TOP             = MFB_BOTTOM + FLASH_SIZE-1;
+
+// Default bootloader size is hardcoded to 16 kB -- also see memmap.h
+define symbol DEFAULT_BTL_SIZE    = 0x4000;
+
+// If we were given a RAM_RETAIN_SIZE then make sure that we don't use
+// any RAM outside of that range by setting it to be in the unused region.
+if( isdefinedsymbol(RAM_RETAIN_SIZE) ) {
+    define symbol UNUSED_RAM_SIZE = RAM_TOP - RAM_BOTTOM + 1 - RAM_RETAIN_SIZE;
+} else {
+    define symbol UNUSED_RAM_SIZE = 0;
+}
+
+// include the common icf which locates all the sections
+if(isdefinedsymbol(BOOTLOADER)) {
+  include "../bootloader/iar-cfg-boot.icf";
+} else {
+  include "../iar-cfg-common.icf";
+}
+

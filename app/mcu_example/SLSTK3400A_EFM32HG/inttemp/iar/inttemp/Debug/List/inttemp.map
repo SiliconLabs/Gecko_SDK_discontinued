@@ -1,0 +1,548 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.2.11947/W32 for ARM                09/Mar/2017  20:16:22
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Exe\inttemp.out
+#    Map file     =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\List\inttemp.map
+#    Command line =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj\display.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj\displayls013b7dh03.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj\displaypalemlib.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj\em_adc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj\em_assert.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj\em_cmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj\em_core.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj\em_emu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj\em_gpio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj\em_prs.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj\em_rtc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj\em_usart.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj\main.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj\retargetio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj\retargettextdisplay.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj\startup_efm32zg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj\system_efm32zg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj\textdisplay.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj\udelay.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Exe\inttemp.out
+#        --map
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\List\inttemp.map
+#        --config
+#        T:\iar_ew_7802_win32_rel_1\arm\config\linker\SiliconLaboratories\EFM32ZG222F32.icf
+#        --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x00007fff] { ro };
+"P2":  place in [from 0x20000000 to 0x20000fff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+ { section .intvec };
+
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A0":                                       0x8c
+  .intvec            ro code  0x00000000    0x8c  startup_efm32zg.o [1]
+                            - 0x0000008c    0x8c
+
+"P1":                                     0x494a
+  .text              ro code  0x0000008c   0xeb6  xprintffull.o [3]
+  .text              ro code  0x00000f42    0x14  strchr.o [5]
+  .text              ro code  0x00000f56    0x10  strlen.o [5]
+  .text              ro code  0x00000f66    0x18  memchr.o [5]
+  .text              ro code  0x00000f7e    0x6a  I64DivMod.o [5]
+  .text              ro code  0x00000fe8    0x5c  ABImemcpy.o [5]
+  .text              ro code  0x00001044    0x32  DblCmpLe.o [4]
+  .text              ro code  0x00001076    0x32  DblCmpGe.o [4]
+  .text              ro code  0x000010a8    0x80  xdscale.o [4]
+  .text              ro code  0x00001128    0x52  DblToI32.o [4]
+  .text              ro code  0x0000117a     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x0000117c    0x34  I32ToDbl.o [4]
+  .text              ro code  0x000011b0   0x1b4  DblAddSub.o [4]
+  .text              ro code  0x00001364    0xe0  I32DivModFast.o [5]
+  .text              ro code  0x00001444   0x184  DblMul.o [4]
+  .text              ro code  0x000015c8    0xc2  DblDiv.o [4]
+  .text              ro code  0x0000168a    0x20  div.o [3]
+  .text              ro code  0x000016aa     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x000016ac     0x2  I64DivZer.o [5]
+  .text              ro code  0x000016ae     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x000016b0     0x2  IntDivZer.o [5]
+  .text              ro code  0x000016b2     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x000016b4   0x93c  em_cmu.o [1]
+  .text              ro code  0x00001ff0     0x4  em_assert.o [1]
+  .text              ro code  0x00001ff4    0xf0  system_efm32zg.o [1]
+  .text              ro code  0x000020e4   0x510  textdisplay.o [1]
+  .text              ro code  0x000025f4    0xd4  display.o [1]
+  .text              ro code  0x000026c8    0x54  ABImemset.o [5]
+  .text              ro code  0x0000271c    0x3e  isprint.o [3]
+  .text              ro code  0x0000275a     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x0000275c   0x3e4  em_gpio.o [1]
+  .text              ro code  0x00002b40   0x358  displaypalemlib.o [1]
+  .text              ro code  0x00002e98   0x178  em_usart.o [1]
+  .text              ro code  0x00003010   0x290  udelay.o [1]
+  .text              ro code  0x000032a0    0x3c  em_prs.o [1]
+  .text              ro code  0x000032dc    0xd0  em_rtc.o [1]
+  .text              ro code  0x000033ac     0x8  em_core.o [1]
+  .text              ro code  0x000033b4     0xa  em_core.o [1]
+  .text              ro code  0x000033be     0x2  startup_efm32zg.o [1]
+  .rodata            const    0x000033c0   0x320  textdisplay.o [1]
+  .text              ro code  0x000036e0   0x30c  main.o [1]
+  .text              ro code  0x000039ec    0x5c  retargettextdisplay.o [1]
+  .text              ro code  0x00003a48    0x24  printf.o [3]
+  .text              ro code  0x00003a6c    0xb0  FltMul.o [4]
+  .text              ro code  0x00003b1c    0x3a  FltToS32.o [4]
+  .text              ro code  0x00003b56     0x8  abs.o [3]
+  .text              ro code  0x00003b5e     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00003b60   0x128  em_emu.o [1]
+  .text              ro code  0x00003c88   0x294  em_adc.o [1]
+  .text              ro code  0x00003f1c    0x32  I32ToFlt.o [4]
+  .text              ro code  0x00003f4e    0xaa  FltDiv.o [4]
+  .text              ro code  0x00003ff8   0x116  FltAddSub.o [4]
+  .text              ro code  0x0000410e     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00004110    0x32  FltToDbl.o [4]
+  .text              ro code  0x00004142    0x62  DblToFlt.o [4]
+  .text              ro code  0x000041a4   0x264  displayls013b7dh03.o [1]
+  .rodata            const    0x00004408    0x88  displaypalemlib.o [1]
+  .rodata            const    0x00004490    0x88  em_gpio.o [1]
+  .rodata            const    0x00004518    0x84  em_cmu.o [1]
+  .text              ro code  0x0000459c    0x56  retargetio.o [1]
+  .text              ro code  0x000045f2     0x2  startup_efm32zg.o [1]
+  .rodata            const    0x000045f4    0x4c  em_adc.o [1]
+  .rodata            const    0x00004640    0x4c  em_cmu.o [1]
+  .rodata            const    0x0000468c    0x4c  em_gpio.o [1]
+  .rodata            const    0x000046d8    0x4c  em_prs.o [1]
+  .rodata            const    0x00004724    0x4c  em_rtc.o [1]
+  .rodata            const    0x00004770    0x4c  em_usart.o [1]
+  .text              ro code  0x000047bc    0x3c  zero_init3.o [5]
+  .text              ro code  0x000047f8    0x30  copy_init3.o [5]
+  .text              ro code  0x00004828    0x28  data_init.o [5]
+  Initializer bytes  const    0x00004850    0x28  <for P2-1>
+  .text              ro code  0x00004878    0x24  putchar.o [3]
+  .iar.init_table    const    0x0000489c    0x24  - Linker created -
+  .rodata            const    0x000048c0    0x1c  main.o [1]
+  .text              ro code  0x000048dc    0x1a  cmain.o [5]
+  .text              ro code  0x000048f6     0x4  low_level_init.o [3]
+  .text              ro code  0x000048fa     0x8  exit.o [3]
+  .text              ro code  0x00004902     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00004904     0xa  cexit.o [5]
+  .text              ro code  0x0000490e     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00004910     0xc  XXexit.o [5]
+  .rodata            const    0x0000491c    0x18  displayls013b7dh03.o [1]
+  .rodata            const    0x00004934    0x18  displaypalemlib.o [1]
+  .rodata            const    0x0000494c    0x18  xprintffull.o [3]
+  .text              ro code  0x00004964    0x16  xprout.o [3]
+  .text              ro code  0x0000497a     0x2  startup_efm32zg.o [1]
+  .rodata            const    0x0000497c    0x10  main.o [1]
+  .rodata            const    0x0000498c    0x10  main.o [1]
+  .text              ro code  0x0000499c    0x10  startup_efm32zg.o [1]
+  .text              ro code  0x000049ac     0xc  cstartup_M.o [5]
+  .rodata            const    0x000049b8     0x8  main.o [1]
+  .rodata            const    0x000049c0     0x4  displaypalemlib.o [1]
+  .rodata            const    0x000049c4     0x4  udelay.o [1]
+  .text              ro code  0x000049c8     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x000049ca     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x000049cc     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x000049ce     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x000049d0     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x000049d2     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x000049d4     0x2  startup_efm32zg.o [1]
+  .rodata            const    0x000049d6     0x0  zero_init3.o [5]
+  .rodata            const    0x000049d6     0x0  copy_init3.o [5]
+                            - 0x000049d6  0x494a
+
+"P2", part 1 of 3:                          0x28
+  P2-1                        0x20000000    0x28  <Init block>
+    .data            inited   0x20000000     0x8  display.o [1]
+    .data            inited   0x20000008     0x4  displayls013b7dh03.o [1]
+    .data            inited   0x2000000c     0x4  system_efm32zg.o [1]
+    .data            inited   0x20000010     0x4  system_efm32zg.o [1]
+    .data            inited   0x20000014    0x10  textdisplay.o [1]
+    .data            inited   0x20000024     0x4  udelay.o [1]
+                            - 0x20000028    0x28
+
+"P2", part 2 of 3:                         0x400
+  CSTACK                      0x20000028   0x400  <Block>
+    CSTACK           uninit   0x20000028   0x400  <Block tail>
+                            - 0x20000428   0x400
+
+"P2", part 3 of 3:                         0x260
+  .bss               zero     0x20000428   0x100  textdisplay.o [1]
+  .bss               zero     0x20000528    0x80  displayls013b7dh03.o [1]
+  .bss               zero     0x200005a8    0x58  textdisplay.o [1]
+  .bss               zero     0x20000600    0x40  textdisplay.o [1]
+  .bss               zero     0x20000640    0x2c  display.o [1]
+  .bss               zero     0x2000066c     0x4  display.o [1]
+  .bss               zero     0x20000670     0x4  em_emu.o [1]
+  .bss               zero     0x20000674     0x4  main.o [1]
+  .bss               zero     0x20000678     0x4  main.o [1]
+  .bss               zero     0x2000067c     0x4  retargettextdisplay.o [1]
+  .bss               zero     0x20000680     0x4  system_efm32zg.o [1]
+  .bss               zero     0x20000684     0x1  display.o [1]
+  .bss               zero     0x20000685     0x1  displayls013b7dh03.o [1]
+  .bss               zero     0x20000686     0x1  em_emu.o [1]
+                            - 0x20000687   0x25f
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x25f:
+          0x20000428  0x25f
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0x28:
+          0x00004850   0x28
+    1 destination range, total size 0x28:
+          0x20000000   0x28
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                 ro code  ro data  rw data
+    ------                 -------  -------  -------
+D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj: [1]
+    display.o                  212        8       57
+    displayls013b7dh03.o       612       28      133
+    displaypalemlib.o          856      164
+    em_adc.o                   660       76
+    em_assert.o                  4
+    em_cmu.o                 2 364      208
+    em_core.o                   18
+    em_emu.o                   296                 5
+    em_gpio.o                  996      212
+    em_prs.o                    60       76
+    em_rtc.o                   208       76
+    em_usart.o                 376       76
+    main.o                     780       68        8
+    retargetio.o                86
+    retargettextdisplay.o       92                 4
+    startup_efm32zg.o          194
+    system_efm32zg.o           240        8       12
+    textdisplay.o            1 296      816      424
+    udelay.o                   656        8        4
+    ------------------------------------------------
+    Total:                  10 006    1 824      647
+
+command line: [2]
+    ------------------------------------------------
+    Total:
+
+dl6M_tln.a: [3]
+    abs.o                        8
+    div.o                       32
+    exit.o                       8
+    isprint.o                   62
+    low_level_init.o             4
+    printf.o                    36
+    putchar.o                   36
+    xprintffull.o            3 766       24
+    xprout.o                    22
+    ------------------------------------------------
+    Total:                   3 974       24
+
+m6M_tl.a: [4]
+    DblAddSub.o                436
+    DblCmpGe.o                  50
+    DblCmpLe.o                  50
+    DblDiv.o                   194
+    DblMul.o                   388
+    DblToFlt.o                  98
+    DblToI32.o                  82
+    FltAddSub.o                278
+    FltDiv.o                   170
+    FltMul.o                   176
+    FltToDbl.o                  50
+    FltToS32.o                  58
+    I32ToDbl.o                  52
+    I32ToFlt.o                  50
+    xdscale.o                  128
+    ------------------------------------------------
+    Total:                   2 260
+
+rt6M_tl.a: [5]
+    ABImemcpy.o                 92
+    ABImemset.o                 84
+    I32DivModFast.o            224
+    I64DivMod.o                106
+    I64DivZer.o                  2
+    IntDivZer.o                  2
+    XXexit.o                    12
+    cexit.o                     10
+    cmain.o                     26
+    copy_init3.o                48
+    cstartup_M.o                12
+    data_init.o                 40
+    memchr.o                    24
+    strchr.o                    20
+    strlen.o                    16
+    zero_init3.o                60
+    ------------------------------------------------
+    Total:                     778
+
+    Linker created                       36    1 024
+----------------------------------------------------
+    Grand Total:            17 018    1 884    1 671
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x0000489c          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x000048c0          --   Gb  - Linker created -
+?main                   0x000048dd         Code  Gb  cmain.o [5]
+ADC_DataSingleGet       0x000036fd    0x4  Code  Lc  main.o [1]
+ADC_Init                0x00003d63   0x9c  Code  Gb  em_adc.o [1]
+ADC_InitSingle          0x00003dff   0x78  Code  Gb  em_adc.o [1]
+ADC_LoadDevinfoCal      0x00003c89   0xda  Code  Lc  em_adc.o [1]
+ADC_PrescaleCalc        0x00003e77   0x44  Code  Gb  em_adc.o [1]
+ADC_Start               0x00003701    0x6  Code  Lc  main.o [1]
+ADC_TimebaseCalc        0x00003ec5   0x2c  Code  Gb  em_adc.o [1]
+AdcRead                 0x0000390f   0x1a  Code  Lc  main.o [1]
+AdcSetup                0x000038bb   0x54  Code  Lc  main.o [1]
+BUS_RegBitRead          0x000016e7    0xc  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x000016cb   0x1c  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x0000275d   0x1c  Code  Lc  em_gpio.o [1]
+BUS_RegBitWrite         0x000032dd   0x1c  Code  Lc  em_rtc.o [1]
+BUS_RegMaskedWrite      0x00002779    0xa  Code  Lc  em_gpio.o [1]
+BUS_RegMaskedWrite      0x00002e99    0xa  Code  Lc  em_usart.o [1]
+CHIP_Init               0x0000373d    0x2  Code  Lc  main.o [1]
+CMU_ClockDivGet         0x0000197d   0xa8  Code  Gb  em_cmu.o [1]
+CMU_ClockDivSet         0x00001a29  0x106  Code  Gb  em_cmu.o [1]
+CMU_ClockEnable         0x00001b31   0x80  Code  Gb  em_cmu.o [1]
+CMU_ClockFreqGet        0x00001bd1   0xce  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectGet      0x00001cc5   0xe2  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectSet      0x00001dd1  0x13e  Code  Gb  em_cmu.o [1]
+CMU_DivToLog2           0x000016f3   0x26  Code  Lc  em_cmu.o [1]
+CMU_Lock                0x00003b69    0x8  Code  Lc  em_emu.o [1]
+CMU_Log2ToDiv           0x00001719    0x8  Code  Lc  em_cmu.o [1]
+CMU_OscillatorEnable    0x00001f3d   0x96  Code  Gb  em_cmu.o [1]
+CMU_Unlock              0x00003b71    0x8  Code  Lc  em_emu.o [1]
+CORE_EnterAtomic        0x000033ad    0x8  Code  Wk  em_core.o [1]
+CORE_ExitAtomic         0x000033b5    0xa  Code  Wk  em_core.o [1]
+CSTACK$$Base            0x20000028          --   Gb  - Linker created -
+CSTACK$$Limit           0x20000428          --   Gb  - Linker created -
+ConvertToCelsius        0x00003929   0x38  Code  Lc  main.o [1]
+ConvertToFahrenheit     0x00003961   0x2c  Code  Lc  main.o [1]
+DISPLAY_DeviceGet       0x00002623   0x3c  Code  Gb  display.o [1]
+DISPLAY_DeviceRegister  0x0000265f   0x4a  Code  Gb  display.o [1]
+DISPLAY_Init            0x000025f5   0x2e  Code  Gb  display.o [1]
+DISPLAY_Ls013b7dh03Init
+                        0x000041a5   0xbe  Code  Gb  displayls013b7dh03.o [1]
+DisplayClear            0x000042a7   0x36  Code  Lc  displayls013b7dh03.o [1]
+DisplayEnable           0x00004275   0x32  Code  Lc  displayls013b7dh03.o [1]
+DriverRefresh           0x00004263   0x12  Code  Lc  displayls013b7dh03.o [1]
+EMU_EnterEM2            0x00003c3f   0x2c  Code  Gb  em_emu.o [1]
+GPIO_EVEN_IRQHandler    0x000037d1    0x8  Code  Gb  main.o [1]
+GPIO_ExtIntConfig       0x000028cd   0xfc  Code  Gb  em_gpio.o [1]
+GPIO_IntClear           0x00003707    0x6  Code  Lc  main.o [1]
+GPIO_IntConfig          0x00003713   0x2a  Code  Lc  main.o [1]
+GPIO_IntGet             0x0000370d    0x6  Code  Lc  main.o [1]
+GPIO_ODD_IRQHandler     0x000037d9    0x8  Code  Gb  main.o [1]
+GPIO_PinModeSet         0x000029d1  0x13a  Code  Gb  em_gpio.o [1]
+GPIO_PinOutClear        0x00002b41   0x96  Code  Lc  displaypalemlib.o [1]
+GPIO_PinOutClear        0x00002783   0x96  Code  Lc  em_gpio.o [1]
+GPIO_PinOutSet          0x00002bd7   0x96  Code  Lc  displaypalemlib.o [1]
+GPIO_PinOutSet          0x00002819   0x96  Code  Lc  em_gpio.o [1]
+GPIO_Unified_IRQ        0x000037ad   0x24  Code  Gb  main.o [1]
+GpioSetup               0x00003751   0x5c  Code  Lc  main.o [1]
+LoadInt                 0x00000655   0x68  Code  Lc  xprintffull.o [3]
+NVIC_ClearPendingIRQ    0x000036ef    0xe  Code  Lc  main.o [1]
+NVIC_ClearPendingIRQ    0x00003011    0xe  Code  Lc  udelay.o [1]
+NVIC_EnableIRQ          0x000036e1    0xe  Code  Lc  main.o [1]
+PAL_GpioInit            0x00002d0d   0x10  Code  Gb  displaypalemlib.o [1]
+PAL_GpioPinAutoToggle   0x00002d85   0x56  Code  Gb  displaypalemlib.o [1]
+PAL_GpioPinModeSet      0x00002d25   0x30  Code  Gb  displaypalemlib.o [1]
+PAL_GpioPinOutClear     0x00002d6f   0x16  Code  Gb  displaypalemlib.o [1]
+PAL_GpioPinOutSet       0x00002d59   0x16  Code  Gb  displaypalemlib.o [1]
+PAL_SpiInit             0x00002c6d   0x30  Code  Gb  displaypalemlib.o [1]
+PAL_SpiTransmit         0x00002cad   0x3e  Code  Gb  displaypalemlib.o [1]
+PAL_TimerInit           0x00002cf1    0xc  Code  Gb  displaypalemlib.o [1]
+PAL_TimerMicroSecondsDelay
+                        0x00002cfd   0x10  Code  Gb  displaypalemlib.o [1]
+PRS_SourceAsyncSignalSet
+                        0x000032a1   0x30  Code  Gb  em_prs.o [1]
+PixelMatrixAllocate     0x000042dd   0x44  Code  Lc  displayls013b7dh03.o [1]
+PixelMatrixClear        0x00004327   0x2a  Code  Lc  displayls013b7dh03.o [1]
+PixelMatrixDraw         0x00004351   0x80  Code  Lc  displayls013b7dh03.o [1]
+PixelMatrixFree         0x00004321    0x6  Code  Lc  displayls013b7dh03.o [1]
+RETARGET_TextDisplayInit
+                        0x000039ed   0x32  Code  Gb  retargettextdisplay.o [1]
+RETARGET_WriteChar      0x00003a1f   0x24  Code  Gb  retargettextdisplay.o [1]
+RTC_CompareSet          0x000032f9   0x36  Code  Gb  em_rtc.o [1]
+RTC_CounterGet          0x0000301f    0x6  Code  Lc  udelay.o [1]
+RTC_CounterReset        0x0000339d   0x10  Code  Gb  em_rtc.o [1]
+RTC_Enable              0x0000332f   0x12  Code  Gb  em_rtc.o [1]
+RTC_FreezeEnable        0x00003341   0x18  Code  Gb  em_rtc.o [1]
+RTC_IRQHandler          0x000037e1   0x14  Code  Gb  main.o [1]
+RTC_Init                0x00003359   0x30  Code  Gb  em_rtc.o [1]
+RTC_IntClear            0x0000373f    0x6  Code  Lc  main.o [1]
+RTC_IntEnable           0x00003745    0xc  Code  Lc  main.o [1]
+Region$$Table$$Base     0x0000489c          --   Gb  - Linker created -
+Region$$Table$$Limit    0x000048c0          --   Gb  - Linker created -
+SYSTEM_GetProdRev       0x00001721    0xa  Code  Lc  em_cmu.o [1]
+SystemCoreClock         0x20000680    0x4  Data  Gb  system_efm32zg.o [1]
+SystemCoreClockGet      0x00001ff5   0x1a  Code  Gb  system_efm32zg.o [1]
+SystemCoreClockUpdate   0x00003b61    0x8  Code  Lc  em_emu.o [1]
+SystemHFClockGet        0x00002013   0x8e  Code  Gb  system_efm32zg.o [1]
+SystemHFXOClock         0x2000000c    0x4  Data  Lc  system_efm32zg.o [1]
+SystemInit              0x000020a1    0x2  Code  Gb  system_efm32zg.o [1]
+SystemLFRCOClockGet     0x000020a3    0x6  Code  Gb  system_efm32zg.o [1]
+SystemLFXOClock         0x20000010    0x4  Data  Lc  system_efm32zg.o [1]
+SystemLFXOClockGet      0x000020af    0x6  Code  Gb  system_efm32zg.o [1]
+SystemMaxCoreClockGet   0x0000200f    0x4  Code  Gb  system_efm32zg.o [1]
+SystemULFRCOClockGet    0x000020a9    0x6  Code  Gb  system_efm32zg.o [1]
+TEXTDISPLAY_New         0x000020e5  0x13c  Code  Gb  textdisplay.o [1]
+TEXTDISPLAY_WriteChar   0x00002221   0xa8  Code  Gb  textdisplay.o [1]
+TextdisplayCharAdd      0x00002373   0xd8  Code  Lc  textdisplay.o [1]
+TextdisplayClear        0x000022e1   0x2e  Code  Lc  textdisplay.o [1]
+TextdisplayLineDraw     0x0000244b   0xda  Code  Lc  textdisplay.o [1]
+TextdisplayScrollUp     0x0000230f   0x64  Code  Lc  textdisplay.o [1]
+TextdisplayUpdate       0x00002525   0xc8  Code  Lc  textdisplay.o [1]
+TxBuf                   0x0000459d   0x1e  Code  Lc  retargetio.o [1]
+UDELAY_Calibrate        0x00003025  0x172  Code  Gb  udelay.o [1]
+UDELAY_Delay            0x00003241   0x24  Code  Gb  udelay.o [1]
+USART_BaudrateSyncSet   0x00002ea3   0x56  Code  Gb  em_usart.o [1]
+USART_InitSync          0x00002f01   0x7e  Code  Gb  em_usart.o [1]
+USART_Reset             0x00002f85   0x4c  Code  Gb  em_usart.o [1]
+USART_Tx                0x00002ff5    0xe  Code  Gb  em_usart.o [1]
+USART_TxDouble          0x00003003    0xe  Code  Gb  em_usart.o [1]
+_GenldFull              0x00000c65  0x2aa  Code  Lc  xprintffull.o [3]
+_LdtobFull              0x000007ed  0x464  Code  Lc  xprintffull.o [3]
+_LitobFull              0x000006bd  0x12a  Code  Lc  xprintffull.o [3]
+_PrintfFull             0x0000008d  0x5c8  Code  Gb  xprintffull.o [3]
+_Prout                  0x00004965   0x16  Code  Gb  xprout.o [3]
+_PutcharsFull           0x00000f0f   0x30  Code  Lc  xprintffull.o [3]
+__Vectors               0x00000000          --   Gb  startup_efm32zg.o [1]
+__Vectors_End           0x0000008c         Data  Gb  startup_efm32zg.o [1]
+__Vectors_Size {Abs}    0x0000008c          --   Gb  startup_efm32zg.o [1]
+__aeabi_cdcmple         0x00001045         Code  Gb  DblCmpLe.o [4]
+__aeabi_cdrcmple        0x00001077         Code  Gb  DblCmpGe.o [4]
+__aeabi_d2f             0x00004143         Code  Gb  DblToFlt.o [4]
+__aeabi_d2iz            0x00001129         Code  Gb  DblToI32.o [4]
+__aeabi_d2uiz           0x0000114d         Code  Gb  DblToI32.o [4]
+__aeabi_dadd            0x000011b1         Code  Gb  DblAddSub.o [4]
+__aeabi_ddiv            0x000015c9         Code  Gb  DblDiv.o [4]
+__aeabi_dmul            0x00001445         Code  Gb  DblMul.o [4]
+__aeabi_dsub            0x00001277         Code  Gb  DblAddSub.o [4]
+__aeabi_f2d             0x00004111         Code  Gb  FltToDbl.o [4]
+__aeabi_f2iz            0x00003b1d         Code  Gb  FltToS32.o [4]
+__aeabi_fdiv            0x00003f4f         Code  Gb  FltDiv.o [4]
+__aeabi_fmul            0x00003a6d         Code  Gb  FltMul.o [4]
+__aeabi_fsub            0x0000405f         Code  Gb  FltAddSub.o [4]
+__aeabi_i2d             0x0000117d         Code  Gb  I32ToDbl.o [4]
+__aeabi_i2f             0x00003f1d         Code  Gb  I32ToFlt.o [4]
+__aeabi_idiv            0x00001391         Code  Gb  I32DivModFast.o [5]
+__aeabi_idiv0           0x000016b1         Code  Gb  IntDivZer.o [5]
+__aeabi_idivmod         0x00001391         Code  Gb  I32DivModFast.o [5]
+__aeabi_ldiv0           0x000016ad         Code  Gb  I64DivZer.o [5]
+__aeabi_memclr4         0x00002719         Code  Gb  ABImemset.o [5]
+__aeabi_memclr8         0x00002719         Code  Gb  ABImemset.o [5]
+__aeabi_memcpy          0x00000fe9         Code  Gb  ABImemcpy.o [5]
+__aeabi_memcpy4         0x00001011         Code  Wk  ABImemcpy.o [5]
+__aeabi_memset          0x000026c9         Code  Gb  ABImemset.o [5]
+__aeabi_ui2d            0x00001191         Code  Gb  I32ToDbl.o [4]
+__aeabi_uidiv           0x00001397         Code  Gb  I32DivModFast.o [5]
+__aeabi_uidivmod        0x00001397         Code  Gb  I32DivModFast.o [5]
+__aeabi_uldivmod        0x00000f7f         Code  Gb  I64DivMod.o [5]
+__cmain                 0x000048dd         Code  Gb  cmain.o [5]
+__cmsis_iar_clz         0x000016b5   0x16  Code  Lc  em_cmu.o [1]
+__exit                  0x00004911         Code  Gb  XXexit.o [5]
+__iar_Dscale            0x000010a9   0x80  Code  Gb  xdscale.o [4]
+__iar_Memchr            0x00000f67   0x18  Code  Gb  memchr.o [5]
+__iar_Memset4_word      0x000026e9         Code  Gb  ABImemset.o [5]
+__iar_Memset_word       0x000026d5         Code  Gb  ABImemset.o [5]
+__iar_Strchr            0x00000f43   0x14  Code  Gb  strchr.o [5]
+__iar_copy_init3        0x000047f9   0x30  Code  Gb  copy_init3.o [5]
+__iar_d2uiz             0x00001151         Code  Gb  DblToI32.o [4]
+__iar_data_init3        0x00004829   0x28  Code  Gb  data_init.o [5]
+__iar_program_start     0x000049ad         Code  Gb  cstartup_M.o [5]
+__iar_ui2d              0x00001195         Code  Gb  I32ToDbl.o [4]
+__iar_ui2f              0x00003f35         Code  Gb  I32ToFlt.o [4]
+__iar_zero_init3        0x000047bd   0x3c  Code  Gb  zero_init3.o [5]
+__low_level_init        0x000048f7    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000         Data  Gb  startup_efm32zg.o [1]
+__vector_table_0x1c     0x0000001c         Data  Gb  startup_efm32zg.o [1]
+__write                 0x000045bb   0x38  Code  Gb  retargetio.o [1]
+_call_main              0x000048e9         Code  Gb  cmain.o [5]
+_delay                  0x00003239    0x6  Code  Lc  udelay.o [1]
+_exit                   0x00004905         Code  Gb  cexit.o [5]
+_main                   0x000048f3         Code  Gb  cmain.o [5]
+abs                     0x00003b57    0x8  Code  Gb  abs.o [3]
+assertEFM               0x00001ff1    0x4  Code  Gb  em_assert.o [1]
+auxClkGet               0x0000172b   0x7e  Code  Lc  em_cmu.o [1]
+calibrate_delay         0x00003197   0x9a  Code  Lc  udelay.o [1]
+charArrayDevice0        0x20000600   0x40  Data  Gb  textdisplay.o [1]
+charBufferDevice0       0x20000428  0x100  Data  Gb  textdisplay.o [1]
+charBufferTbl           0x20000014   0x10  Data  Lc  textdisplay.o [1]
+chars_8x8_bits          0x000033c0  0x320  Data  Lc  textdisplay.o [1]
+clock                   0x00003231    0x8  Code  Lc  udelay.o [1]
+dbgClkGet               0x000017a9   0x38  Code  Lc  em_cmu.o [1]
+deviceTable             0x20000640   0x2c  Data  Lc  display.o [1]
+devicesRegistered       0x2000066c    0x4  Data  Lc  display.o [1]
+div                     0x0000168b   0x20  Code  Gb  div.o [3]
+emState                 0x00003b79   0xc6  Code  Lc  em_emu.o [1]
+emState::cmuStatus      0x20000670    0x4  Data  Lc  em_emu.o [1]
+emState::hfClock        0x20000686    0x1  Data  Lc  em_emu.o [1]
+exit                    0x000048fb    0x8  Code  Gb  exit.o [3]
+flashWaitStateControl   0x000017e1   0x52  Code  Lc  em_cmu.o [1]
+flashWaitStateMax       0x00001833    0xc  Code  Lc  em_cmu.o [1]
+isprint                 0x0000271d   0x3e  Code  Gb  isprint.o [3]
+lcdPolarity             0x20000685    0x1  Data  Lc  displayls013b7dh03.o [1]
+lfClkGet                0x0000183f   0xc4  Code  Lc  em_cmu.o [1]
+loops_per_jiffy         0x20000024    0x4  Data  Gb  udelay.o [1]
+main                    0x000037f5   0xc6  Code  Gb  main.o [1]
+moduleInitialized       0x20000684    0x1  Data  Lc  display.o [1]
+pDisplayDeviceDriverInitFunctions
+                        0x20000000    0x8  Data  Lc  display.o [1]
+palClockSetup           0x00002ddb   0x16  Code  Lc  displaypalemlib.o [1]
+pixelMatrixPool         0x20000008    0x4  Data  Lc  displayls013b7dh03.o [1]
+pixelMatrixPoolBase     0x20000528   0x80  Data  Lc  displayls013b7dh03.o [1]
+printf                  0x00003a49   0x24  Code  Gb  printf.o [3]
+putchar                 0x00004879   0x24  Code  Gb  putchar.o [3]
+rtcSetup                0x00002df9   0x5e  Code  Lc  displaypalemlib.o [1]
+rtcTick                 0x20000678    0x4  Data  Lc  main.o [1]
+showFahrenheit          0x20000674    0x4  Data  Lc  main.o [1]
+strlen                  0x00000f57   0x10  Code  Gb  strlen.o [5]
+syncReg                 0x00001903   0x16  Code  Lc  em_cmu.o [1]
+textDisplayHandle       0x2000067c    0x4  Data  Gb  retargettextdisplay.o [1]
+textdisplayTbl          0x200005a8   0x58  Data  Lc  textdisplay.o [1]
+
+
+[1] = D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\inttemp\iar\inttemp\Debug\Obj
+[2] = command line
+[3] = dl6M_tln.a
+[4] = m6M_tl.a
+[5] = rt6M_tl.a
+
+  17 018 bytes of readonly  code memory
+   1 884 bytes of readonly  data memory
+   1 671 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

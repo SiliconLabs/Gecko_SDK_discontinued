@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>39240710</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\rs232\Debug\Obj\bsp_dk_3201.o</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_leuart.c</file>
+      <file>$PROJ_DIR$\..\main.c</file>
+      <file>$PROJ_DIR$\rs232\Debug\Obj\bsp_trace.o</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_lcd.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_burtc_ret.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_burtc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_wdog.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_etm.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_devinfo.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_dma_descriptor.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_romtable.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_calibrate.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_prs_signals.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_dmareq.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_dmactrl.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_uart.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_af_ports.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_af_pins.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stddef.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_assert.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_bus.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\limits.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_emu.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_system.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_common.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_ebi.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_gpio.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_usart.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp\bsp_dk_bcreg_3201.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp\bsp.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFM32GG_DK3750\config\bspconfig.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp\bsp_trace.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_ramfunc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_msc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFM32GG_DK3750\config\traceconfig.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_core.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\yfuns.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_leuart.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ystdio.h</file>
+      <file>$PROJ_DIR$\rs232\Debug\List\rs232.map</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\retargetserial.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFM32GG_DK3750\config\retargetserialconfig.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\retargetserial.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\retargetio.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp\bsp_dk_3201.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp\bsp_trace.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Source\IAR\startup_efm32gg.s</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Source\system_efm32gg.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_assert.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_system.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_core.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_emu.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_ebi.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_usart.c</file>
+      <file>$PROJ_DIR$\rs232\Debug\Obj\system_efm32gg.o</file>
+      <file>$PROJ_DIR$\rs232\Debug\Obj\retargetio.o</file>
+      <file>$PROJ_DIR$\rs232\Debug\Obj\retargetserial.o</file>
+      <file>$PROJ_DIR$\rs232\Debug\Obj\em_cmu.o</file>
+      <file>$PROJ_DIR$\rs232\Debug\Obj\em_assert.o</file>
+      <file>$PROJ_DIR$\rs232\Debug\Obj\em_core.o</file>
+      <file>$PROJ_DIR$\rs232\Debug\Obj\em_ebi.o</file>
+      <file>$PROJ_DIR$\rs232\Debug\Obj\em_emu.o</file>
+      <file>$PROJ_DIR$\rs232\Debug\Obj\em_gpio.o</file>
+      <file>$PROJ_DIR$\rs232\Debug\Obj\em_leuart.o</file>
+      <file>$PROJ_DIR$\rs232\Debug\Obj\em_system.o</file>
+      <file>$PROJ_DIR$\rs232\Debug\Obj\em_usart.o</file>
+      <file>$PROJ_DIR$\rs232\Debug\Obj\startup_efm32gg.o</file>
+      <file>$PROJ_DIR$\rs232\Debug\Obj\main.o</file>
+      <file>$PROJ_DIR$\rs232\Debug\Exe\rs232.out</file>
+      <file>$PROJ_DIR$\rs232\Debug\Exe\rs232.bin</file>
+      <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
+      <file>$TOOLKIT_DIR$\lib\m7M_tl.a</file>
+      <file>$TOOLKIT_DIR$\config\linker\SiliconLaboratories\EFM32GG990F1024.icf</file>
+      <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_cmu.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\em_device.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg990f1024.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include\core_cm3.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xencoding_limits.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include\core_cmInstr.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\cmsis_iar.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include\core_cmFunc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\system_efm32gg.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_dma_ch.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_dma.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_aes.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_usb_hc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_usb_diep.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_usb_doep.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_usb.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_msc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_emu.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_rmu.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_cmu.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_lesense_st.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_lesense_buf.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_lesense_ch.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_lesense.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_rtc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_letimer.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_ebi.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_usart.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_timer_cc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_timer.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_acmp.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_i2c.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_gpio_p.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_gpio.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_vcmp.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_prs_ch.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_prs.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_leuart.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_pcnt.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_adc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_dac.h</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 74 43</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_leuart.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 69</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 41 81 82 83 84 85 86 87 91 89 90 88 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 4 5 6 7 8 10 9 11 12 13 14 15 16 17 18 19 80 21 22</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 73</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 40 85 86 87 91 89 90 88 23 42 81 82 83 84 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 4 5 6 7 8 10 9 11 12 13 14 15 16 17 18 25 19 22 32 33 31 34 36 35 37 44 45</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\retargetserial.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 62</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 40 85 86 87 91 89 90 88 23 42 81 82 83 84 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 4 5 6 7 8 10 9 11 12 13 14 15 16 17 18 80 19 21 22 38 27 29 44 45 32 33 31 30</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\retargetio.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 61</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 39 23 85 86 87 91 89 90 88 84</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp\bsp_dk_3201.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 0</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 81 82 83 84 85 86 87 91 89 90 88 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 4 5 6 7 8 10 9 11 12 13 14 15 16 17 18 80 19 21 22 28 29 30 31 32 33</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp\bsp_trace.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 3</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 19 81 82 83 84 85 86 87 91 89 90 88 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 4 5 6 7 8 10 9 11 12 13 14 15 16 17 18 29 22 21 80 34 36 35 37 32 33 31</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Source\IAR\startup_efm32gg.s</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 72</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Source\system_efm32gg.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 60</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 84 85 86 87 91 89 90 88 81 82 83 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 4 5 6 7 8 10 9 11 12 13 14 15 16 17 18</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_assert.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 64</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 21 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_system.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 70</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 26 19 81 82 83 84 85 86 87 91 89 90 88 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 4 5 6 7 8 10 9 11 12 13 14 15 16 17 18 21 20 23</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 63</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 80 81 82 83 84 85 86 87 91 89 90 88 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 4 5 6 7 8 10 9 11 12 13 14 15 16 17 18 19 21 22 20 23 24 25 26 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_core.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 65</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 38 81 82 83 84 85 86 87 91 89 90 88 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 4 5 6 7 8 10 9 11 12 13 14 15 16 17 18 27 19 21</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_emu.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 67</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 24 85 86 87 91 89 90 88 25 81 82 83 84 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 4 5 6 7 8 10 9 11 12 13 14 15 16 17 18 19 22 80 21 26 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 68</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 29 81 82 83 84 85 86 87 91 89 90 88 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 4 5 6 7 8 10 9 11 12 13 14 15 16 17 18 19 22 21</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_ebi.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 66</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 28 81 82 83 84 85 86 87 91 89 90 88 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 4 5 6 7 8 10 9 11 12 13 14 15 16 17 18 19 21 22</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_usart.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 71</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 30 81 82 83 84 85 86 87 91 89 90 88 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 4 5 6 7 8 10 9 11 12 13 14 15 16 17 18 19 80 21 22</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\rs232\Debug\Exe\rs232.out</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 43</file>
+        </tool>
+        <tool>
+          <name>OBJCOPY</name>
+          <file> 75</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 78 0 3 64 63 65 66 67 68 69 70 71 73 61 62 72 60 79 77 76</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>ILINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

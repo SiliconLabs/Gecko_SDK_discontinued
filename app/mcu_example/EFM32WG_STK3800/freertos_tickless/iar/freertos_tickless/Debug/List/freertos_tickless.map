@@ -1,0 +1,615 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.2.11947/W32 for ARM                09/Mar/2017  19:54:03
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Exe\freertos_tickless.out
+#    Map file     =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\List\freertos_tickless.map
+#    Command line =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\bsp_trace.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\croutine.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\em_assert.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\em_burtc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\em_cmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\em_core.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\em_emu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\em_gpio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\em_lcd.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\em_rmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\em_rtc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\em_system.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\event_groups.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\heap_1.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\list.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\low_power_tick_management.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\main.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\port.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\portasm.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\queue.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\segmentlcd.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\sleep.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\startup_efm32gg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\system_efm32gg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\tasks.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj\timers.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Exe\freertos_tickless.out
+#        --map
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\List\freertos_tickless.map
+#        --config
+#        T:\iar_ew_7802_win32_rel_1\arm\config\linker\SiliconLaboratories\EFM32GG990F1024.icf
+#        --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x000fffff] { ro };
+"P2":  place in [from 0x20000000 to 0x2001ffff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+ { section .intvec };
+
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A0":                                       0xdc
+  .intvec            ro code  0x00000000    0xdc  startup_efm32gg.o [1]
+                            - 0x000000dc    0xdc
+
+"P1":                                     0x461c
+  .text              ro code  0x000000dc   0xe14  em_cmu.o [1]
+  .text              ro code  0x00000ef0     0x2  em_assert.o [1]
+  .text              ro code  0x00000ef4   0x138  system_efm32gg.o [1]
+  .text              ro code  0x0000102c   0xbbc  tasks.o [1]
+  .text              ro code  0x00001be8    0x88  heap_1.o [1]
+  .text              ro code  0x00001c70    0x9e  list.o [1]
+  .text              ro code  0x00001d10   0x1c4  port.o [1]
+  .text              ro code  0x00001ed4   0x420  timers.o [1]
+  .text              ro code  0x000022f4   0x288  low_power_tick_management.o [1]
+  CODE               ro code  0x0000257c    0x88  portasm.o [1]
+  .text              ro code  0x00002604   0x714  queue.o [1]
+  .text              ro code  0x00002d18    0xc0  em_rtc.o [1]
+  .text              ro code  0x00002dd8     0x8  em_core.o [1]
+  .text              ro code  0x00002de0     0x8  em_core.o [1]
+  .text              ro code  0x00002de8   0x1a4  sleep.o [1]
+  .text              ro code  0x00002f8c    0x76  ABImemcpy_unaligned.o [4]
+  .text              ro code  0x00003004    0xa8  em_rmu.o [1]
+  .text              ro code  0x000030ac   0x2a0  em_emu.o [1]
+  .text              ro code  0x0000334c   0x46c  em_lcd.o [1]
+  .text              ro code  0x000037b8   0x30c  segmentlcd.o [1]
+  .text              ro code  0x00003ac4    0x36  strlen.o [4]
+  .rodata            const    0x00003afc   0x200  segmentlcd.o [1]
+  .text              ro code  0x00003cfc   0x14c  main.o [1]
+  .text              ro code  0x00003e48    0x60  em_system.o [1]
+  .text              ro code  0x00003ea8   0x114  bsp_trace.o [1]
+  .rodata            const    0x00003fbc    0xb8  segmentlcd.o [1]
+  .rodata            const    0x00004074    0x90  em_cmu.o [1]
+  .rodata            const    0x00004104    0x80  em_rmu.o [1]
+  .rodata            const    0x00004184    0x6c  port.o [1]
+  .rodata            const    0x000041f0    0x68  heap_1.o [1]
+  .rodata            const    0x00004258    0x58  queue.o [1]
+  .rodata            const    0x000042b0    0x58  tasks.o [1]
+  .rodata            const    0x00004308    0x58  timers.o [1]
+  .rodata            const    0x00004360    0x50  sleep.o [1]
+  .rodata            const    0x000043b0    0x4c  em_cmu.o [1]
+  .rodata            const    0x000043fc    0x4c  em_lcd.o [1]
+  .rodata            const    0x00004448    0x4c  em_rtc.o [1]
+  .rodata            const    0x00004494    0x4c  em_system.o [1]
+  .text              ro code  0x000044e0    0x40  zero_init3.o [4]
+  .text              ro code  0x00004520    0x2c  copy_init3.o [4]
+  .text              ro code  0x0000454c    0x28  data_init.o [4]
+  .iar.init_table    const    0x00004574    0x24  - Linker created -
+  .text              ro code  0x00004598    0x1a  cmain.o [4]
+  .text              ro code  0x000045b2     0x4  low_level_init.o [3]
+  .text              ro code  0x000045b6     0x4  exit.o [3]
+  .text              ro code  0x000045bc     0xa  cexit.o [4]
+  .text              ro code  0x000045c8     0xc  XXexit.o [4]
+  .rodata            const    0x000045d4    0x14  segmentlcd.o [1]
+  .text              ro code  0x000045e8    0x10  startup_efm32gg.o [1]
+  .rodata            const    0x000045f8     0xc  main.o [1]
+  .text              ro code  0x00004604     0xc  cstartup_M.o [4]
+  Initializer bytes  const    0x00004610     0xc  <for P2-1>
+  .rodata            const    0x0000461c     0x8  main.o [1]
+  .rodata            const    0x00004624     0x8  tasks.o [1]
+  .rodata            const    0x0000462c     0x8  timers.o [1]
+  .rodata            const    0x00004634     0x8  timers.o [1]
+  .rodata            const    0x0000463c     0x4  low_power_tick_management.o [1]
+  .rodata            const    0x00004640     0x4  low_power_tick_management.o [1]
+  .rodata            const    0x00004644     0x4  port.o [1]
+  .text              ro code  0x00004648     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000464c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00004650     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00004654     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00004658     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000465c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00004660     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00004664     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00004668     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000466c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00004670     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00004674     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00004678     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000467c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00004680     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00004684     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00004688     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000468c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00004690     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00004694     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00004698     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000469c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046a0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046a4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046a8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046ac     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046b0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046b4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046b8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046bc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046c0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046c4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046c8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046cc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046d0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046d4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046d8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046dc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046e0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046e4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046e8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046ec     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046f0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000046f4     0x4  startup_efm32gg.o [1]
+  .rodata            const    0x000046f8     0x0  zero_init3.o [4]
+  .rodata            const    0x000046f8     0x0  copy_init3.o [4]
+                            - 0x000046f8  0x461c
+
+"P2", part 1 of 3:                           0xc
+  P2-1                        0x20000000     0xc  <Init block>
+    .data            inited   0x20000000     0x4  port.o [1]
+    .data            inited   0x20000004     0x4  system_efm32gg.o [1]
+    .data            inited   0x20000008     0x4  system_efm32gg.o [1]
+                            - 0x2000000c     0xc
+
+"P2", part 2 of 3:                         0x400
+  CSTACK                      0x20000010   0x400  <Block>
+    CSTACK           uninit   0x20000010   0x400  <Block tail>
+                            - 0x20000410   0x400
+
+"P2", part 3 of 3:                        0x24c4
+  .bss               zero     0x20000410  0x2328  heap_1.o [1]
+  .bss               zero     0x20002738    0x50  queue.o [1]
+  .bss               zero     0x20002788    0x3c  tasks.o [1]
+  .bss               zero     0x200027c4    0x14  tasks.o [1]
+  .bss               zero     0x200027d8    0x14  tasks.o [1]
+  .bss               zero     0x200027ec    0x14  tasks.o [1]
+  .bss               zero     0x20002800    0x14  tasks.o [1]
+  .bss               zero     0x20002814    0x14  tasks.o [1]
+  .bss               zero     0x20002828    0x14  timers.o [1]
+  .bss               zero     0x2000283c    0x14  timers.o [1]
+  .bss               zero     0x20002850     0x8  main.o [1]
+  .bss               zero     0x20002858     0x4  em_emu.o [1]
+  .bss               zero     0x2000285c     0x4  heap_1.o [1]
+  .bss               zero     0x20002860     0x4  heap_1.o [1]
+  .bss               zero     0x20002864     0x4  low_power_tick_management.o [1]
+  .bss               zero     0x20002868     0x4  main.o [1]
+  .bss               zero     0x2000286c     0x4  main.o [1]
+  .bss               zero     0x20002870     0x4  port.o [1]
+  .bss               zero     0x20002874     0x4  sleep.o [1]
+  .bss               zero     0x20002878     0x4  sleep.o [1]
+  .bss               zero     0x2000287c     0x4  system_efm32gg.o [1]
+  .bss               zero     0x20002880     0x4  tasks.o [1]
+  .bss               zero     0x20002884     0x4  tasks.o [1]
+  .bss               zero     0x20002888     0x4  tasks.o [1]
+  .bss               zero     0x2000288c     0x4  tasks.o [1]
+  .bss               zero     0x20002890     0x4  tasks.o [1]
+  .bss               zero     0x20002894     0x4  tasks.o [1]
+  .bss               zero     0x20002898     0x4  tasks.o [1]
+  .bss               zero     0x2000289c     0x4  tasks.o [1]
+  .bss               zero     0x200028a0     0x4  tasks.o [1]
+  .bss               zero     0x200028a4     0x4  tasks.o [1]
+  .bss               zero     0x200028a8     0x4  tasks.o [1]
+  .bss               zero     0x200028ac     0x4  tasks.o [1]
+  .bss               zero     0x200028b0     0x4  tasks.o [1]
+  .bss               zero     0x200028b4     0x4  tasks.o [1]
+  .bss               zero     0x200028b8     0x4  tasks.o [1]
+  .bss               zero     0x200028bc     0x4  timers.o [1]
+  .bss               zero     0x200028c0     0x4  timers.o [1]
+  .bss               zero     0x200028c4     0x4  timers.o [1]
+  .bss               zero     0x200028c8     0x4  timers.o [1]
+  .bss               zero     0x200028cc     0x4  timers.o [1]
+  .bss               zero     0x200028d0     0x2  sleep.o [1]
+  .bss               zero     0x200028d2     0x1  em_emu.o [1]
+  .bss               zero     0x200028d3     0x1  port.o [1]
+                            - 0x200028d4  0x24c4
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x24c4:
+          0x20000410  0x24c4
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0xc:
+          0x00004610     0xc
+    1 destination range, total size 0xc:
+          0x20000000     0xc
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                       ro code  ro data  rw data
+    ------                       -------  -------  -------
+D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj: [1]
+    bsp_trace.o                      276
+    em_assert.o                        2
+    em_cmu.o                       3 604      220
+    em_core.o                         16
+    em_emu.o                         672                 5
+    em_lcd.o                       1 132       76
+    em_rmu.o                         168      128
+    em_rtc.o                         192       76
+    em_system.o                       96       76
+    heap_1.o                         136      104    9 008
+    list.o                           158
+    low_power_tick_management.o      648        8        4
+    main.o                           332       20       16
+    port.o                           452      116        9
+    portasm.o                        136
+    queue.o                        1 812       88       80
+    segmentlcd.o                     780      716
+    sleep.o                          420       80       10
+    startup_efm32gg.o                412
+    system_efm32gg.o                 312        8       12
+    tasks.o                        3 004       96      220
+    timers.o                       1 056      104       60
+    ------------------------------------------------------
+    Total:                        15 816    1 916    9 424
+
+command line: [2]
+    ------------------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    exit.o                             4
+    low_level_init.o                   4
+    ------------------------------------------------------
+    Total:                             8
+
+rt7M_tl.a: [4]
+    ABImemcpy_unaligned.o            118
+    XXexit.o                          12
+    cexit.o                           10
+    cmain.o                           26
+    copy_init3.o                      44
+    cstartup_M.o                      12
+    data_init.o                       40
+    strlen.o                          54
+    zero_init3.o                      64
+    ------------------------------------------------------
+    Total:                           380
+
+    Gaps                              10        2
+    Linker created                             36    1 024
+----------------------------------------------------------
+    Grand Total:                  16 214    1 954   10 448
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address    Size  Type      Object
+-----                      -------    ----  ----      ------
+.iar.init_table$$Base   0x00004574           --   Gb  - Linker created -
+.iar.init_table$$Limit  0x00004598           --   Gb  - Linker created -
+?main                   0x00004599          Code  Gb  cmain.o [4]
+BSP_TraceProfilerSetup  0x00003fa5    0x18  Code  Gb  bsp_trace.o [1]
+BSP_TraceSwoSetup       0x00003ea9    0xac  Code  Gb  bsp_trace.o [1]
+BUS_RegBitRead          0x000000eb    0x10  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x000000dd     0xe  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x00003377     0xe  Code  Lc  em_lcd.o [1]
+BUS_RegBitWrite         0x00003005     0xe  Code  Lc  em_rmu.o [1]
+BUS_RegBitWrite         0x00002d19     0xe  Code  Lc  em_rtc.o [1]
+BUS_RegBitWrite         0x00002de9     0xe  Code  Lc  sleep.o [1]
+CHIP_Init               0x00003d07    0x30  Code  Lc  main.o [1]
+CMU_ClockDivSet         0x000004b7   0x294  Code  Gb  em_cmu.o [1]
+CMU_ClockEnable         0x0000074b    0xa6  Code  Gb  em_cmu.o [1]
+CMU_ClockFreqGet        0x00000805   0x188  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectGet      0x000009c9   0x134  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectSet      0x00000b21   0x292  Code  Gb  em_cmu.o [1]
+CMU_DivToLog2           0x000000fb    0x28  Code  Lc  em_cmu.o [1]
+CMU_LCDClkFDIVSet       0x00000dc9    0x2e  Code  Gb  em_cmu.o [1]
+CMU_Lock                0x000030c1     0xa  Code  Lc  em_emu.o [1]
+CMU_OscillatorEnable    0x00000e19    0x9c  Code  Gb  em_cmu.o [1]
+CMU_Unlock              0x000030cb     0xc  Code  Lc  em_emu.o [1]
+CORE_EnterCritical      0x00002dd9     0x8  Code  Wk  em_core.o [1]
+CORE_ExitCritical       0x00002de1     0x8  Code  Wk  em_core.o [1]
+CSTACK$$Base            0x20000010           --   Gb  - Linker created -
+CSTACK$$Limit           0x20000410           --   Gb  - Linker created -
+Count                   0x00003d57    0x58  Code  Lc  main.o [1]
+EFM_Alphabet            0x00003fbc    0xb8  Data  Lc  segmentlcd.o [1]
+EFM_Display             0x00003afc   0x200  Data  Lc  segmentlcd.o [1]
+EMU_EM2Block            0x00002e07     0xe  Code  Lc  sleep.o [1]
+EMU_EnterEM1            0x00002df7    0x10  Code  Lc  sleep.o [1]
+EMU_EnterEM2            0x000031e3    0x6c  Code  Gb  em_emu.o [1]
+EMU_EnterEM3            0x0000324f    0x88  Code  Gb  em_emu.o [1]
+EMU_EnterEM4            0x000032d7    0x34  Code  Gb  em_emu.o [1]
+EMU_Lock                0x00003013     0x8  Code  Lc  em_rmu.o [1]
+EMU_Unlock              0x000030b5     0xc  Code  Lc  em_emu.o [1]
+EMU_Unlock              0x0000301b     0xa  Code  Lc  em_rmu.o [1]
+GetProdRev              0x00000ef5     0xa  Code  Lc  system_efm32gg.o [1]
+LCD_Enable              0x0000334d    0x2a  Code  Lc  em_lcd.o [1]
+LCD_FreezeEnable        0x000037b9    0x1a  Code  Lc  segmentlcd.o [1]
+LCD_Init                0x00003385    0x4c  Code  Gb  em_lcd.o [1]
+LCD_IntDisable          0x000037df    0x10  Code  Lc  segmentlcd.o [1]
+LCD_SegmentRangeEnable  0x000033f7    0x2a  Code  Gb  em_lcd.o [1]
+LCD_SegmentSet          0x00003421   0x182  Code  Gb  em_lcd.o [1]
+LCD_SegmentSetHigh      0x00003681    0xd4  Code  Gb  em_lcd.o [1]
+LCD_SegmentSetLow       0x000035a3    0xde  Code  Gb  em_lcd.o [1]
+LCD_SyncBusyDelay       0x000037d3     0xc  Code  Lc  segmentlcd.o [1]
+LCD_VBoostSet           0x00003755    0x10  Code  Gb  em_lcd.o [1]
+LCD_VLCDSelect          0x000033d1    0x26  Code  Gb  em_lcd.o [1]
+LcdPrint                0x00003d37    0x20  Code  Lc  main.o [1]
+NVIC_ClearPendingIRQ    0x00002309    0x14  Code  Lc  low_power_tick_management.o [1]
+NVIC_EnableIRQ          0x000022f5    0x14  Code  Lc  low_power_tick_management.o [1]
+NVIC_SetPriority        0x0000231d    0x26  Code  Lc  low_power_tick_management.o [1]
+PendSV_Handler          0x0000257d          Code  Gb  portasm.o [1]
+RMU_ResetCauseClear     0x00003025    0x38  Code  Gb  em_rmu.o [1]
+RMU_ResetCauseGet       0x0000305d    0x38  Code  Gb  em_rmu.o [1]
+RTC_CompareGet          0x00002d27    0x32  Code  Gb  em_rtc.o [1]
+RTC_CompareSet          0x00002d59    0x34  Code  Gb  em_rtc.o [1]
+RTC_CounterGet          0x00002343     0x6  Code  Lc  low_power_tick_management.o [1]
+RTC_Enable              0x00002d8d    0x12  Code  Gb  em_rtc.o [1]
+RTC_IRQHandler          0x0000236d    0x5e  Code  Gb  low_power_tick_management.o [1]
+RTC_Init                0x00002d9f    0x2a  Code  Gb  em_rtc.o [1]
+RTC_IntClear            0x00002349     0x6  Code  Lc  low_power_tick_management.o [1]
+RTC_IntDisable          0x0000234f     0xc  Code  Lc  low_power_tick_management.o [1]
+RTC_IntEnable           0x0000235b     0xc  Code  Lc  low_power_tick_management.o [1]
+RTC_IntGet              0x00002367     0x6  Code  Lc  low_power_tick_management.o [1]
+Region$$Table$$Base     0x00004574           --   Gb  - Linker created -
+Region$$Table$$Limit    0x00004598           --   Gb  - Linker created -
+SLEEP_Init              0x00002e15    0x38  Code  Gb  sleep.o [1]
+SLEEP_LowestEnergyModeGet
+                        0x00002edd    0x28  Code  Gb  sleep.o [1]
+SLEEP_Sleep             0x00002e4d    0x34  Code  Gb  sleep.o [1]
+SLEEP_SleepBlockBegin   0x00002e81    0x5c  Code  Gb  sleep.o [1]
+SVC_Handler             0x000025c3          Code  Gb  portasm.o [1]
+SYSTEM_ChipRevisionGet  0x00003e49    0x4a  Code  Gb  em_system.o [1]
+SYSTEM_GetFamily        0x0000012f     0xc  Code  Lc  em_cmu.o [1]
+SYSTEM_GetProdRev       0x00000123     0xc  Code  Lc  em_cmu.o [1]
+SYSTEM_GetProdRev       0x00003cfd     0xa  Code  Lc  main.o [1]
+SegmentLCD_AllOff       0x000037ef    0xb4  Code  Gb  segmentlcd.o [1]
+SegmentLCD_AlphaNumberOff
+                        0x000038a3    0xaa  Code  Gb  segmentlcd.o [1]
+SegmentLCD_Init         0x0000394d    0xa2  Code  Gb  segmentlcd.o [1]
+SegmentLCD_Write        0x000039ef    0x9c  Code  Gb  segmentlcd.o [1]
+SysTick_Handler         0x00001e41    0x28  Code  Gb  port.o [1]
+SystemCoreClock         0x2000287c     0x4  Data  Gb  system_efm32gg.o [1]
+SystemCoreClockGet      0x00000eff    0x1a  Code  Gb  system_efm32gg.o [1]
+SystemCoreClockUpdate   0x000030ad     0x8  Code  Lc  em_emu.o [1]
+SystemHFClockGet        0x00000f1d    0xb2  Code  Gb  system_efm32gg.o [1]
+SystemHFXOClock         0x20000004     0x4  Data  Lc  system_efm32gg.o [1]
+SystemHFXOClockGet      0x00000fcf     0x6  Code  Gb  system_efm32gg.o [1]
+SystemInit              0x00000fd5     0x2  Code  Gb  system_efm32gg.o [1]
+SystemLFRCOClockGet     0x00000fd7     0x6  Code  Gb  system_efm32gg.o [1]
+SystemLFXOClock         0x20000008     0x4  Data  Lc  system_efm32gg.o [1]
+SystemLFXOClockGet      0x00000fe3     0x6  Code  Gb  system_efm32gg.o [1]
+SystemMaxCoreClockGet   0x00000f19     0x4  Code  Gb  system_efm32gg.o [1]
+SystemULFRCOClockGet    0x00000fdd     0x6  Code  Gb  system_efm32gg.o [1]
+__Vectors               0x00000000           --   Gb  startup_efm32gg.o [1]
+__Vectors_End           0x000000dc          Data  Gb  startup_efm32gg.o [1]
+__Vectors_Size {Abs}    0x000000dc           --   Gb  startup_efm32gg.o [1]
+__cmain                 0x00004599          Code  Gb  cmain.o [4]
+__exit                  0x000045c9          Code  Gb  XXexit.o [4]
+__iar_copy_init3        0x00004521    0x2c  Code  Gb  copy_init3.o [4]
+__iar_data_init3        0x0000454d    0x28  Code  Gb  data_init.o [4]
+__iar_program_start     0x00004605          Code  Gb  cstartup_M.o [4]
+__iar_unaligned___aeabi_memcpy
+                        0x00002f8d          Code  Gb  ABImemcpy_unaligned.o [4]
+__iar_unaligned___aeabi_memcpy4
+                        0x00002fad          Code  Gb  ABImemcpy_unaligned.o [4]
+__iar_unaligned___aeabi_memcpy8
+                        0x00002fad          Code  Gb  ABImemcpy_unaligned.o [4]
+__iar_zero_init3        0x000044e1    0x40  Code  Gb  zero_init3.o [4]
+__low_level_init        0x000045b3     0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000          Data  Gb  startup_efm32gg.o [1]
+__vector_table_0x1c     0x0000001c          Data  Gb  startup_efm32gg.o [1]
+_call_main              0x000045a5          Code  Gb  cmain.o [4]
+_exit                   0x000045bd          Code  Gb  cexit.o [4]
+_main                   0x000045af          Code  Gb  cmain.o [4]
+assertEFM               0x00000ef1     0x2  Code  Gb  em_assert.o [1]
+auxClkGet               0x000001f1    0x94  Code  Lc  em_cmu.o [1]
+count                   0x2000286c     0x4  Data  Gb  main.o [1]
+dbgClkGet               0x00000285    0x3c  Code  Lc  em_cmu.o [1]
+eTaskConfirmSleepModeStatus
+                        0x00001819    0x3c  Code  Gb  tasks.o [1]
+emState                 0x000030d7    0xcc  Code  Lc  em_emu.o [1]
+emState::cmuStatus      0x20002858     0x4  Data  Lc  em_emu.o [1]
+emState::hfClock        0x200028d2     0x1  Data  Lc  em_emu.o [1]
+enterEMx                0x00002f05    0x70  Code  Lc  sleep.o [1]
+exit                    0x000045b7     0x4  Code  Gb  exit.o [3]
+flashWaitStateControl   0x000002c1    0xa2  Code  Lc  em_cmu.o [1]
+flashWaitStateMax       0x00000363     0xc  Code  Lc  em_cmu.o [1]
+getErrataFixEmuE107En   0x000031a3    0x40  Code  Lc  em_emu.o [1]
+getHfLeConfig           0x000001c5    0x2c  Code  Lc  em_cmu.o [1]
+lcdInit                 0x000045d4    0x14  Data  Lc  segmentlcd.o [1]
+lfClkGet                0x0000036f    0xf4  Code  Lc  em_cmu.o [1]
+main                    0x00003daf    0x74  Code  Gb  main.o [1]
+maxFreqHfle             0x0000013b    0x60  Code  Lc  em_cmu.o [1]
+pcInterruptPriorityRegisters
+                        0x00004644     0x4  Data  Lc  port.o [1]
+prvAddCurrentTaskToDelayedList
+                        0x00001b25    0x82  Code  Lc  tasks.o [1]
+prvAddNewTaskToReadyList
+                        0x00001175    0xb8  Code  Lc  tasks.o [1]
+prvCheckForValidListAndQueue
+                        0x0000227d    0x4c  Code  Lc  timers.o [1]
+prvCheckTasksWaitingTermination
+                        0x000018b5    0x66  Code  Lc  tasks.o [1]
+prvCopyDataFromQueue    0x00002bb9    0x30  Code  Lc  queue.o [1]
+prvCopyDataToQueue      0x00002b1b    0x9e  Code  Lc  queue.o [1]
+prvDeleteTCB            0x0000191b    0x12  Code  Lc  tasks.o [1]
+prvGetExpectedIdleTime  0x000012f5    0x50  Code  Lc  tasks.o [1]
+prvGetNextExpireTime    0x0000207b    0x2e  Code  Lc  timers.o [1]
+prvIdleTask             0x000017cd    0x46  Code  Lc  tasks.o [1]
+prvInitialiseNewQueue   0x000026e9    0x32  Code  Lc  queue.o [1]
+prvInitialiseNewTask    0x000010b1    0xc4  Code  Lc  tasks.o [1]
+prvInitialiseTaskLists  0x00001855    0x5a  Code  Lc  tasks.o [1]
+prvInsertTimerInActiveList
+                        0x000020d1    0x50  Code  Lc  timers.o [1]
+prvIsQueueEmpty         0x00002c57    0x20  Code  Lc  queue.o [1]
+prvIsQueueFull          0x00002c77    0x22  Code  Lc  queue.o [1]
+prvProcessExpiredTimer  0x00001f97    0x58  Code  Lc  timers.o [1]
+prvProcessReceivedCommands
+                        0x00002121    0xd2  Code  Lc  timers.o [1]
+prvProcessTimerOrBlockTask
+                        0x0000200b    0x70  Code  Lc  timers.o [1]
+prvResetNextTaskUnblockTime
+                        0x0000192d    0x2a  Code  Lc  tasks.o [1]
+prvSampleTimeNow        0x000020a9    0x28  Code  Lc  timers.o [1]
+prvSampleTimeNow::xLastTime
+                        0x200028cc     0x4  Data  Lc  timers.o [1]
+prvSwitchTimerLists     0x000021f3    0x8a  Code  Lc  timers.o [1]
+prvTaskExitError        0x00001d31    0x24  Code  Lc  port.o [1]
+prvTimerTask            0x00001ff1    0x1a  Code  Lc  timers.o [1]
+prvUnlockQueue          0x00002be9    0x6e  Code  Lc  queue.o [1]
+pvPortMalloc            0x00001be9    0x66  Code  Gb  heap_1.o [1]
+pvPortMalloc::pucAlignedHeap
+                        0x20002860     0x4  Data  Lc  heap_1.o [1]
+pvTaskIncrementMutexHeldCount
+                        0x00001ae1    0x1e  Code  Gb  tasks.o [1]
+pxCurrentTCB            0x20002880     0x4  Data  Gb  tasks.o [1]
+pxCurrentTimerList      0x200028bc     0x4  Data  Lc  timers.o [1]
+pxDelayedTaskList       0x20002884     0x4  Data  Lc  tasks.o [1]
+pxOverflowDelayedTaskList
+                        0x20002888     0x4  Data  Lc  tasks.o [1]
+pxOverflowTimerList     0x200028c0     0x4  Data  Lc  timers.o [1]
+pxPortInitialiseStack   0x00001d11    0x20  Code  Gb  port.o [1]
+pxReadyTasksLists       0x20002788    0x3c  Data  Lc  tasks.o [1]
+resetCauseMasks         0x00004104    0x80  Data  Lc  em_rmu.o [1]
+sem                     0x20002868     0x4  Data  Gb  main.o [1]
+setHfLeConfig           0x0000019b    0x2a  Code  Lc  em_cmu.o [1]
+sleepBlockCnt           0x200028d0     0x2  Data  Lc  sleep.o [1]
+sleepCallback           0x20002874     0x4  Data  Lc  sleep.o [1]
+strlen                  0x00003ac5          Code  Gb  strlen.o [4]
+syncReg                 0x00000463    0x16  Code  Lc  em_cmu.o [1]
+text                    0x20002850     0x8  Data  Gb  main.o [1]
+ucHeap                  0x20000410  0x2328  Data  Lc  heap_1.o [1]
+ucMaxSysCallPriority    0x200028d3     0x1  Data  Lc  port.o [1]
+ulMaxPRIGROUPValue      0x20002870     0x4  Data  Lc  port.o [1]
+ulReloadValueForOneTick
+                        0x0000463c     0x4  Data  Lc  low_power_tick_management.o [1]
+ulStoppedTimerCompensation
+                        0x00004640     0x4  Data  Lc  low_power_tick_management.o [1]
+usbCClkGet              0x00000479    0x3e  Code  Lc  em_cmu.o [1]
+uxCriticalNesting       0x20000000     0x4  Data  Lc  port.o [1]
+uxCurrentNumberOfTasks  0x20002890     0x4  Data  Lc  tasks.o [1]
+uxDeletedTasksWaitingCleanUp
+                        0x2000288c     0x4  Data  Lc  tasks.o [1]
+uxListRemove            0x00001ce7    0x28  Code  Gb  list.o [1]
+uxPendedTicks           0x200028a0     0x4  Data  Lc  tasks.o [1]
+uxSchedulerSuspended    0x200028b8     0x4  Data  Lc  tasks.o [1]
+uxTaskNumber            0x200028ac     0x4  Data  Lc  tasks.o [1]
+uxTopReadyPriority      0x20002898     0x4  Data  Lc  tasks.o [1]
+vListInitialise         0x00001c71    0x1e  Code  Gb  list.o [1]
+vListInitialiseItem     0x00001c8f     0x6  Code  Gb  list.o [1]
+vListInsert             0x00001cad    0x3a  Code  Gb  list.o [1]
+vListInsertEnd          0x00001c95    0x18  Code  Gb  list.o [1]
+vPortEnterCritical      0x00001ddd    0x36  Code  Gb  port.o [1]
+vPortExitCritical       0x00001e13    0x2e  Code  Gb  port.o [1]
+vPortFree               0x00001c4f    0x12  Code  Gb  heap_1.o [1]
+vPortSetupTimerInterrupt
+                        0x000023cb    0x82  Code  Gb  low_power_tick_management.o [1]
+vPortStartFirstTask     0x000025e3          Code  Gb  portasm.o [1]
+vPortSuppressTicksAndSleep
+                        0x0000244d    0xf2  Code  Gb  low_power_tick_management.o [1]
+vPortValidateInterruptPriority
+                        0x00001e69    0x46  Code  Gb  port.o [1]
+vQueueAddToRegistry     0x00002c99    0x28  Code  Gb  queue.o [1]
+vQueueWaitForMessageRestricted
+                        0x00002ccd    0x4c  Code  Gb  queue.o [1]
+vTaskDelay              0x0000122d    0x4a  Code  Gb  tasks.o [1]
+vTaskMissedYield        0x000017c1     0xa  Code  Gb  tasks.o [1]
+vTaskPlaceOnEventList   0x0000160d    0x2e  Code  Gb  tasks.o [1]
+vTaskPlaceOnEventListRestricted
+                        0x0000163b    0x3a  Code  Gb  tasks.o [1]
+vTaskPriorityInherit    0x0000197d    0xaa  Code  Gb  tasks.o [1]
+vTaskSetTimeOutState    0x00001715    0x24  Code  Gb  tasks.o [1]
+vTaskStartScheduler     0x00001277    0x6e  Code  Gb  tasks.o [1]
+vTaskStepTick           0x00001447    0x32  Code  Gb  tasks.o [1]
+vTaskSuspendAll         0x000012e5    0x10  Code  Gb  tasks.o [1]
+vTaskSwitchContext      0x0000159f    0x6e  Code  Gb  tasks.o [1]
+wakeUpCallback          0x20002878     0x4  Data  Lc  sleep.o [1]
+xActiveTimerList1       0x20002828    0x14  Data  Lc  timers.o [1]
+xActiveTimerList2       0x2000283c    0x14  Data  Lc  timers.o [1]
+xDelayedTaskList1       0x200027c4    0x14  Data  Lc  tasks.o [1]
+xDelayedTaskList2       0x200027d8    0x14  Data  Lc  tasks.o [1]
+xIdleTaskHandle         0x200028b4     0x4  Data  Lc  tasks.o [1]
+xMaximumPossibleSuppressedTicks
+                        0x20002864     0x4  Data  Lc  low_power_tick_management.o [1]
+xNextFreeByte           0x2000285c     0x4  Data  Lc  heap_1.o [1]
+xNextTaskUnblockTime    0x200028b0     0x4  Data  Lc  tasks.o [1]
+xNumOfOverflows         0x200028a8     0x4  Data  Lc  tasks.o [1]
+xPendingReadyList       0x200027ec    0x14  Data  Lc  tasks.o [1]
+xPortStartScheduler     0x00001d55    0x88  Code  Gb  port.o [1]
+xQueueGenericCreate     0x00002695    0x54  Code  Gb  queue.o [1]
+xQueueGenericReceive    0x00002963   0x1b8  Code  Gb  queue.o [1]
+xQueueGenericReset      0x00002605    0x90  Code  Gb  queue.o [1]
+xQueueGenericSend       0x0000271b   0x17e  Code  Gb  queue.o [1]
+xQueueGenericSendFromISR
+                        0x00002899    0xca  Code  Gb  queue.o [1]
+xQueueRegistry          0x20002738    0x50  Data  Gb  queue.o [1]
+xSchedulerRunning       0x2000289c     0x4  Data  Lc  tasks.o [1]
+xSuspendedTaskList      0x20002814    0x14  Data  Lc  tasks.o [1]
+xTaskCheckForTimeOut    0x00001741    0x7c  Code  Gb  tasks.o [1]
+xTaskCreate             0x0000102d    0x84  Code  Gb  tasks.o [1]
+xTaskGetSchedulerState  0x00001957    0x26  Code  Gb  tasks.o [1]
+xTaskGetTickCount       0x0000143d     0xa  Code  Gb  tasks.o [1]
+xTaskIncrementTick      0x00001479   0x126  Code  Gb  tasks.o [1]
+xTaskPriorityDisinherit
+                        0x00001a31    0xb0  Code  Gb  tasks.o [1]
+xTaskRemoveFromEventList
+                        0x00001685    0x84  Code  Gb  tasks.o [1]
+xTaskResumeAll          0x00001345    0xf8  Code  Gb  tasks.o [1]
+xTasksWaitingTermination
+                        0x20002800    0x14  Data  Lc  tasks.o [1]
+xTickCount              0x20002894     0x4  Data  Lc  tasks.o [1]
+xTimerCreateTimerTask   0x00001ed5    0x42  Code  Gb  timers.o [1]
+xTimerGenericCommand    0x00001f17    0x80  Code  Gb  timers.o [1]
+xTimerQueue             0x200028c4     0x4  Data  Lc  timers.o [1]
+xTimerTaskHandle        0x200028c8     0x4  Data  Lc  timers.o [1]
+xYieldPending           0x200028a4     0x4  Data  Lc  tasks.o [1]
+
+
+[1] = D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\freertos_tickless\iar\freertos_tickless\Debug\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = rt7M_tl.a
+
+  16 214 bytes of readonly  code memory
+   1 954 bytes of readonly  data memory
+  10 448 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

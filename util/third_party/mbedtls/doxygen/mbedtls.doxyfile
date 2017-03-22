@@ -2020,6 +2020,7 @@ PREDEFINED             = WIN32 \
                          HAVE_GETTIMEOFDAY \
                          MBEDTLS_CONFIG_FILE=config-sl-crypto-all-acceleration.h \
                          CRYPTO_COUNT=1 \
+                         TRNG_COUNT=1 \
                          DOXY_DOC_ONLY
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this

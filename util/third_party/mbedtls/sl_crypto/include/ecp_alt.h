@@ -261,6 +261,26 @@ int mbedtls_ecp_set_device_instance(mbedtls_ecp_group *grp,
                                     unsigned int       devno);
   
 /**
+ * \brief
+ *   Set the number of ticks to wait for the decice lock.
+ *
+ * \details
+ *   This function sets the number of ticks that the subsequenct API calls
+ *   will wait for the device to become available.
+ *
+ * \param[in] grp
+ *   ECP group context.
+ *  
+ * \param[in] ticks
+ *   Ticks to wait for device.
+ *  
+ * \return
+ *   0 if success. Error code if failure, see \ref aes.h.
+ ******************************************************************************/
+int mbedtls_ecp_set_device_lock_wait_ticks(mbedtls_ecp_group *grp,
+                                           int                ticks);
+
+/**
  * \brief           Get the list of supported curves in order of preferrence
  *                  (full information)
  *

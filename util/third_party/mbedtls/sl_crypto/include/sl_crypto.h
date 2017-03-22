@@ -53,30 +53,12 @@
 extern "C" {
 #endif
 
-/**
- * \brief  Asynchronous (non-blocking) operation completion callback function.
- *
- * \details
- *  The callback function is called when an asynchronous (non-blocking)
- *  mbedtls operation has completed.
- *
- * \param[in] result
- *  The result of the asynchronous operation.
- *
- * \param[in] user_arg
- *  Optional user defined argument
- ******************************************************************************/
-typedef void (*mbedtls_asynch_callback)(int result, void* user_arg);
-
 /** Enum defines which data I/O mode to use for moving data to/from the
     AES/CRYPTO hardware module. */
 typedef enum
 {
   MBEDTLS_DEVICE_IO_MODE_CORE, /*!< Core CPU moves data to/from the data
                                  registers. */
-                        
-  MBEDTLS_DEVICE_IO_MODE_BUFC, /*!< Buffer Controller moves data to/from the
-                                 CRYPTO data registers. */
   
 #if defined( MBEDTLS_INCLUDE_IO_MODE_DMA )
   MBEDTLS_DEVICE_IO_MODE_DMA   /*!< DMA moves data to/from the CRYPTO data
@@ -93,26 +75,16 @@ typedef struct
 } mbedtls_device_dma_config;
 #endif
 
-#if defined(BUFC_PRESENT)
-/** BUFC I/O mode specific configuration structure. */
-typedef struct
-{
-  uint8_t buf_id;    /*!< BUFC buffer id. Must be setup by user. */
-} mbedtls_device_bufc_config;
-#endif
-  
 /** Data I/O mode specific configuration structure. */
 typedef union
 {
 #if defined( MBEDTLS_INCLUDE_IO_MODE_DMA )
   mbedtls_device_dma_config  dma_config;  /*!< DMA specific config */
-#endif
-#if defined(BUFC_PRESENT)
-  mbedtls_device_bufc_config bufc_config; /*!< BUFC specific config */
-#endif
+#else
   void* placeholder;                      /*!< Dummy place holder to
-                                           keep compiler happy when both
-                                           BUFC and DMA are disabled. */
+                                           keep compiler happy when
+                                           DMA is disabled. */
+#endif
 } mbedtls_device_io_mode_specific;
 
 #ifdef __cplusplus

@@ -4,12 +4,12 @@
 *                                          The Real-Time Kernel
 *                                         EVENT FLAG  MANAGEMENT
 *
-*                              (c) Copyright 1992-2012, Micrium, Weston, FL
+*                              (c) Copyright 1992-2016, Micrium, Weston, FL
 *                                           All Rights Reserved
 *
 * File    : OS_FLAG.C
 * By      : Jean J. Labrosse
-* Version : V2.92.07
+* Version : V2.92.12
 *
 * LICENSING TERMS:
 * ---------------
@@ -18,6 +18,15 @@
 * its use in your product. We provide ALL the source code for your convenience and to help you experience
 * uC/OS-II.   The fact that the  source is provided does  NOT  mean that you can use it without  paying a
 * licensing fee.
+*
+* Knowledge of the source code may NOT be used to develop a similar product.
+*
+* Please help us continue to provide the embedded community with the finest software available.
+* Your honesty is greatly appreciated.
+*
+* You can find our product's user manual, API reference, release notes and
+* more information at https://doc.micrium.com.
+* You can contact us at www.micrium.com.
 *********************************************************************************************************
 */
 
@@ -37,7 +46,7 @@
 static  void     OS_FlagBlock(OS_FLAG_GRP *pgrp, OS_FLAG_NODE *pnode, OS_FLAGS flags, INT8U wait_type, INT32U timeout);
 static  BOOLEAN  OS_FlagTaskRdy(OS_FLAG_NODE *pnode, OS_FLAGS flags_rdy, INT8U pend_stat);
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                          CHECK THE STATUS OF FLAGS IN AN EVENT FLAG GROUP
@@ -129,7 +138,7 @@ OS_FLAGS  OSFlagAccept (OS_FLAG_GRP  *pgrp,
     } else {
         consume    = OS_FALSE;
     }
-/*$PAGE*/
+
     *perr = OS_ERR_NONE;                                   /* Assume NO error until proven otherwise.  */
     OS_ENTER_CRITICAL();
     switch (wait_type) {
@@ -193,7 +202,7 @@ OS_FLAGS  OSFlagAccept (OS_FLAG_GRP  *pgrp,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                        CREATE AN EVENT FLAG
@@ -203,10 +212,12 @@ OS_FLAGS  OSFlagAccept (OS_FLAG_GRP  *pgrp,
 * Arguments  : flags         Contains the initial value to store in the event flag group.
 *
 *              perr          is a pointer to an error code which will be returned to your application:
-*                               OS_ERR_NONE               if the call was successful.
-*                               OS_ERR_CREATE_ISR         if you attempted to create an Event Flag from an
-*                                                         ISR.
-*                               OS_ERR_FLAG_GRP_DEPLETED  if there are no more event flag groups
+*                               OS_ERR_NONE                     if the call was successful.
+*                               OS_ERR_CREATE_ISR               if you attempted to create an Event Flag from an
+*                                                               ISR.
+*                               OS_ERR_FLAG_GRP_DEPLETED        if there are no more event flag groups
+*                               OS_ERR_ILLEGAL_CREATE_RUN_TIME  if you tried to create an event flag after
+*                                                               safety critical operation started.
 *
 * Returns    : A pointer to an event flag group or a NULL pointer if no more groups are available.
 *
@@ -234,6 +245,7 @@ OS_FLAG_GRP  *OSFlagCreate (OS_FLAGS  flags,
 #ifdef OS_SAFETY_CRITICAL_IEC61508
     if (OSSafetyCriticalStartFlag == OS_TRUE) {
         OS_SAFETY_CRITICAL_EXCEPTION();
+        *perr = OS_ERR_ILLEGAL_CREATE_RUN_TIME;
         return ((OS_FLAG_GRP *)0);
     }
 #endif
@@ -262,7 +274,7 @@ OS_FLAG_GRP  *OSFlagCreate (OS_FLAGS  flags,
     return (pgrp);                                  /* Return pointer to event flag group              */
 }
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                     DELETE AN EVENT FLAG GROUP
@@ -279,15 +291,17 @@ OS_FLAG_GRP  *OSFlagCreate (OS_FLAGS  flags,
 *                                                    readied.
 *
 *              perr          is a pointer to an error code that can contain one of the following values:
-*                            OS_ERR_NONE               The call was successful and the event flag group was
-*                                                      deleted
-*                            OS_ERR_DEL_ISR            If you attempted to delete the event flag group from
-*                                                      an ISR
-*                            OS_ERR_FLAG_INVALID_PGRP  If 'pgrp' is a NULL pointer.
-*                            OS_ERR_EVENT_TYPE         If you didn't pass a pointer to an event flag group
-*                            OS_ERR_INVALID_OPT        An invalid option was specified
-*                            OS_ERR_TASK_WAITING       One or more tasks were waiting on the event flag
-*                                                      group.
+*                            OS_ERR_NONE                  The call was successful and the event flag group was
+*                                                         deleted
+*                            OS_ERR_DEL_ISR               If you attempted to delete the event flag group from
+*                                                         an ISR
+*                            OS_ERR_FLAG_INVALID_PGRP     If 'pgrp' is a NULL pointer.
+*                            OS_ERR_EVENT_TYPE            If you didn't pass a pointer to an event flag group
+*                            OS_ERR_ILLEGAL_DEL_RUN_TIME  If you tried to delete an event flag after
+*                                                         safety critical operation started.
+*                            OS_ERR_INVALID_OPT           An invalid option was specified
+*                            OS_ERR_TASK_WAITING          One or more tasks were waiting on the event flag
+*                                                         group.
 *
 * Returns    : pgrp          upon error
 *              (OS_EVENT *)0 if the event flag group was successfully deleted.
@@ -296,7 +310,7 @@ OS_FLAG_GRP  *OSFlagCreate (OS_FLAGS  flags,
 *                 the event flag group MUST check the return code of OSFlagAccept() and OSFlagPend().
 *              2) This call can potentially disable interrupts for a long time.  The interrupt disable
 *                 time is directly proportional to the number of tasks waiting on the event flag group.
-*              3) All tasks that were waiting for the event flag will be readied and returned an 
+*              3) All tasks that were waiting for the event flag will be readied and returned an
 *                 OS_ERR_PEND_ABORT if OSFlagDel() was called with OS_DEL_ALWAYS
 *********************************************************************************************************
 */
@@ -318,6 +332,14 @@ OS_FLAG_GRP  *OSFlagDel (OS_FLAG_GRP  *pgrp,
 #ifdef OS_SAFETY_CRITICAL
     if (perr == (INT8U *)0) {
         OS_SAFETY_CRITICAL_EXCEPTION();
+        return ((OS_FLAG_GRP *)0);
+    }
+#endif
+
+#ifdef OS_SAFETY_CRITICAL_IEC61508
+    if (OSSafetyCriticalStartFlag == OS_TRUE) {
+        OS_SAFETY_CRITICAL_EXCEPTION();
+        *perr = OS_ERR_ILLEGAL_DEL_RUN_TIME;
         return ((OS_FLAG_GRP *)0);
     }
 #endif
@@ -392,7 +414,8 @@ OS_FLAG_GRP  *OSFlagDel (OS_FLAG_GRP  *pgrp,
     return (pgrp_return);
 }
 #endif
-/*$PAGE*/
+
+
 /*
 *********************************************************************************************************
 *                                 GET THE NAME OF AN EVENT FLAG GROUP
@@ -463,7 +486,7 @@ INT8U  OSFlagNameGet (OS_FLAG_GRP   *pgrp,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                ASSIGN A NAME TO AN EVENT FLAG GROUP
@@ -532,7 +555,7 @@ void  OSFlagNameSet (OS_FLAG_GRP  *pgrp,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                     WAIT ON AN EVENT FLAG GROUP
@@ -636,7 +659,7 @@ OS_FLAGS  OSFlagPend (OS_FLAG_GRP  *pgrp,
     } else {
         consume    = OS_FALSE;
     }
-/*$PAGE*/
+
     OS_ENTER_CRITICAL();
     switch (wait_type) {
         case OS_FLAG_WAIT_SET_ALL:                         /* See if all required flags are set        */
@@ -711,7 +734,7 @@ OS_FLAGS  OSFlagPend (OS_FLAG_GRP  *pgrp,
              *perr      = OS_ERR_FLAG_WAIT_TYPE;
              return (flags_rdy);
     }
-/*$PAGE*/
+
     OS_Sched();                                            /* Find next HPT ready to run               */
     OS_ENTER_CRITICAL();
     if (OSTCBCur->OSTCBStatPend != OS_STAT_PEND_OK) {      /* Have we timed-out or aborted?            */
@@ -757,7 +780,8 @@ OS_FLAGS  OSFlagPend (OS_FLAG_GRP  *pgrp,
     *perr = OS_ERR_NONE;                                   /* Event(s) must have occurred              */
     return (flags_rdy);
 }
-/*$PAGE*/
+
+
 /*
 *********************************************************************************************************
 *                              GET FLAGS WHO CAUSED TASK TO BECOME READY
@@ -788,7 +812,7 @@ OS_FLAGS  OSFlagPendGetFlagsRdy (void)
     return (flags);
 }
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                       POST EVENT FLAG BIT(S)
@@ -863,7 +887,7 @@ OS_FLAGS  OSFlagPost (OS_FLAG_GRP  *pgrp,
         *perr = OS_ERR_EVENT_TYPE;
         return ((OS_FLAGS)0);
     }
-/*$PAGE*/
+
     OS_ENTER_CRITICAL();
     switch (opt) {
         case OS_FLAG_CLR:
@@ -886,7 +910,7 @@ OS_FLAGS  OSFlagPost (OS_FLAG_GRP  *pgrp,
             case OS_FLAG_WAIT_SET_ALL:               /* See if all req. flags are set for current node */
                  flags_rdy = (OS_FLAGS)(pgrp->OSFlagFlags & pnode->OSFlagNodeFlags);
                  if (flags_rdy == pnode->OSFlagNodeFlags) {   /* Make task RTR, event(s) Rx'd          */
-                     rdy = OS_FlagTaskRdy(pnode, flags_rdy, OS_STAT_PEND_OK);  
+                     rdy = OS_FlagTaskRdy(pnode, flags_rdy, OS_STAT_PEND_OK);
                      if (rdy == OS_TRUE) {
                          sched = OS_TRUE;                     /* When done we will reschedule          */
                      }
@@ -896,7 +920,7 @@ OS_FLAGS  OSFlagPost (OS_FLAG_GRP  *pgrp,
             case OS_FLAG_WAIT_SET_ANY:               /* See if any flag set                            */
                  flags_rdy = (OS_FLAGS)(pgrp->OSFlagFlags & pnode->OSFlagNodeFlags);
                  if (flags_rdy != (OS_FLAGS)0) {              /* Make task RTR, event(s) Rx'd          */
-                     rdy = OS_FlagTaskRdy(pnode, flags_rdy, OS_STAT_PEND_OK);  
+                     rdy = OS_FlagTaskRdy(pnode, flags_rdy, OS_STAT_PEND_OK);
                      if (rdy == OS_TRUE) {
                          sched = OS_TRUE;                     /* When done we will reschedule          */
                      }
@@ -907,7 +931,7 @@ OS_FLAGS  OSFlagPost (OS_FLAG_GRP  *pgrp,
             case OS_FLAG_WAIT_CLR_ALL:               /* See if all req. flags are set for current node */
                  flags_rdy = (OS_FLAGS)~pgrp->OSFlagFlags & pnode->OSFlagNodeFlags;
                  if (flags_rdy == pnode->OSFlagNodeFlags) {   /* Make task RTR, event(s) Rx'd          */
-                     rdy = OS_FlagTaskRdy(pnode, flags_rdy, OS_STAT_PEND_OK);  
+                     rdy = OS_FlagTaskRdy(pnode, flags_rdy, OS_STAT_PEND_OK);
                      if (rdy == OS_TRUE) {
                          sched = OS_TRUE;                     /* When done we will reschedule          */
                      }
@@ -917,7 +941,7 @@ OS_FLAGS  OSFlagPost (OS_FLAG_GRP  *pgrp,
             case OS_FLAG_WAIT_CLR_ANY:               /* See if any flag set                            */
                  flags_rdy = (OS_FLAGS)~pgrp->OSFlagFlags & pnode->OSFlagNodeFlags;
                  if (flags_rdy != (OS_FLAGS)0) {              /* Make task RTR, event(s) Rx'd          */
-                     rdy = OS_FlagTaskRdy(pnode, flags_rdy, OS_STAT_PEND_OK);  
+                     rdy = OS_FlagTaskRdy(pnode, flags_rdy, OS_STAT_PEND_OK);
                      if (rdy == OS_TRUE) {
                          sched = OS_TRUE;                     /* When done we will reschedule          */
                      }
@@ -941,7 +965,8 @@ OS_FLAGS  OSFlagPost (OS_FLAG_GRP  *pgrp,
     *perr     = OS_ERR_NONE;
     return (flags_cur);
 }
-/*$PAGE*/
+
+
 /*
 *********************************************************************************************************
 *                                          QUERY EVENT FLAG
@@ -997,7 +1022,7 @@ OS_FLAGS  OSFlagQuery (OS_FLAG_GRP  *pgrp,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                     SUSPEND TASK UNTIL EVENT FLAG(s) RECEIVED OR TIMEOUT OCCURS
@@ -1070,7 +1095,7 @@ static  void  OS_FlagBlock (OS_FLAG_GRP  *pgrp,
     }
 }
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                  INITIALIZE THE EVENT FLAG MODULE
@@ -1126,7 +1151,7 @@ void  OS_FlagInit (void)
 #endif
 }
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                              MAKE TASK READY-TO-RUN, EVENT(s) OCCURRED
@@ -1177,7 +1202,7 @@ static  BOOLEAN  OS_FlagTaskRdy (OS_FLAG_NODE *pnode,
     return (sched);
 }
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                              UNLINK EVENT FLAG NODE FROM WAITING LIST

@@ -102,6 +102,27 @@ void mbedtls_sha1_free( mbedtls_sha1_context *ctx );
  ******************************************************************************/
 int mbedtls_sha1_set_device_instance(mbedtls_sha1_context* ctx,
                                     unsigned int           devno);
+  
+/**
+ * \brief
+ *   Set the number of ticks to wait for the decice lock.
+ *
+ * \details
+ *   This function sets the number of ticks that the subsequenct API calls
+ *   will wait for the device to become available.
+ *
+ * \param[in] ctx
+ *   SHA-1 context.
+ *  
+ * \param[in] ticks
+ *   Ticks to wait for device.
+ *  
+ * \return
+ *   0 if success. Error code if failure, see \ref aes.h.
+ ******************************************************************************/
+int mbedtls_sha1_set_device_lock_wait_ticks(mbedtls_sha1_context *ctx,
+                                            int                   ticks);
+
 #endif /* #if defined( MBEDTLS_SLCL_PLUGINS ) */
   
 /**
@@ -155,6 +176,13 @@ void mbedtls_sha1_process( mbedtls_sha1_context *ctx, const unsigned char data[6
 int mbedtls_sha1( const unsigned char *input, size_t ilen,
                   unsigned char output[20]);
 
+/**
+ * \brief          Checkup routine
+ *
+ * \return         0 if successful, or 1 if the test failed
+ */
+int mbedtls_sha1_self_test( int verbose, int device_instance );
+  
 #ifdef __cplusplus
 }
 #endif

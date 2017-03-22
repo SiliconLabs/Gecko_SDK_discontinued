@@ -1,0 +1,59 @@
+//------------------------------------------------------------------------------
+// @file hal/micro/cortexm3/isr-stubs.s79
+// @brief Stubs for all exception handlers (ISRs)
+// 
+// NOTE: You should NOT have to change this file to instatiate your own ISR!
+//
+// By providing a *weak* function here, every vector in the interrupt table is
+// guaranteed to be defined.  These functions will be overridden during link
+// time whenever the same function (symbol) name is used normally in another
+// source file.
+//
+// RESULT:  Simply define whichever ISRs you need in your application and this
+// file will fill in the gaps during linking.
+//
+// Copyright 2007 by Ember Corporation. All rights reserved.                *80*
+//------------------------------------------------------------------------------
+
+//Normally the default NVIC_CONFIG file would be defined in the PLATFORM_HEADER
+//but this assembly file does not include the PLATFORM_HEADER (it can't
+//because this is assembly, and the header is for c).
+#ifndef NVIC_CONFIG
+  #define NVIC_CONFIG "hal/micro/cortexm3/efm32/nvic-config.h"
+#endif
+#include "../compiler/asm.h"
+
+#define SEGMENT() \
+__CODE__
+#define SEGMENT2() \
+__THUMB__
+// NOTE: Any use of white space in this file is ignored by the preprocessor.
+//       Since assembly files have white space requirements, the white space
+//       needed is implemented in the nvic-config.h file itself.
+
+#define EXCEPTION(vectorNumber, functionName, priorityLevel, subpriority) \
+__WEAK__ functionName
+#define PERM_EXCEPTION(vectorNumber, functionName, priorityLevel)
+#include NVIC_CONFIG
+#undef  PERM_EXCEPTION
+#undef  EXCEPTION
+
+
+
+#define EXCEPTION(vectorNumber, functionName, priorityLevel, subpriority) \
+functionName:
+#define PERM_EXCEPTION(vectorNumber, functionName, priorityLevel)
+#include NVIC_CONFIG
+#undef  PERM_EXCEPTION
+#undef  EXCEPTION
+
+
+// Every function defined above will reference the following code
+// Since each function is still defined PUBWEAK with its own segment, the
+// linker will still do it's job and stub out only the functions that need it.
+// By having all the stubs reference the same code, we save 96 bytes!
+        __IMPORT__ uninitializedIsr
+        B   uninitializedIsr
+
+
+        __END__

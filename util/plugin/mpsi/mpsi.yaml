@@ -1,0 +1,64 @@
+-
+  id: 0
+  name: Get Applications Info
+  macro: INCLUDE_GET_APPS_INFO
+  origin: Mobile App
+  destination: Any App
+  description: A command sent to request information for all applications on the remote device.
+  handler: mpsiHandleMessageGetAppsInfo
+-
+  id: 1
+  name: Applications Info
+  macro: INCLUDE_APPS_INFO
+  origin: Any App
+  destination: Mobile App
+  description: Returns the slot ID, application ID (BLE, ZigBee, etc), version number, and maximum message ID understood by each application, both the one running and those in storage. The entry with a slot ID of 0xFF indicates that this image is the currently running image.
+  handler: mpsiHandleMessageAppsInfo
+-
+  id: 2
+  name: Bootload Slot
+  macro: INCLUDE_BOOTLOAD_SLOT
+  origin: Mobile App
+  destination: Any App
+  description: This triggers the device to bootload the application in the passed slot ID.
+  handler: mpsiHandleMessageBootloadSlot
+-
+  id: 3
+  name: Error
+  macro: INCLUDE_ERROR
+  origin: BLE JD or Any TC App
+  destination: Mobile App
+  description: This command is sent to indicate an error at the MPSI layer to the Mobile App. Typically, this will be sent in response to having processed a received MPSI message that caused some issue (message ID not supported, message formatted incorrectly, etc).
+  handler: mpsiHandleMessageError
+-
+  id: 4
+  name: Initiate Joining
+  macro: INCLUDE_INITIATE_JOINING
+  origin: Any App
+  destination: Any App except Mobile App
+  description: Attempt to join a network with current parameters. For BLE, this is interpreted as send BLE advertisements for up to the amount of minutes specified by the Option parameter and wait for BLE pairing.
+  handler: mpsiHandleMessageInitiateJoining
+-
+  id: 5
+  name: Get ZigBee Joining Device Info
+  macro: INCLUDE_GET_ZIGBEE_JOINING_DEVICE_INFO
+  origin: Mobile App
+  destination: BLE App
+  description: A command sent to request the device EUI and installation code for joining the ZigBee device to a network.
+  handler: mpsiHandleMessageGetZigbeeJoiningDeviceInfo
+-
+  id: 6
+  name: ZigBee Joining Device Info
+  macro: INCLUDE_ZIGBEE_JOINING_DEVICE_INFO
+  origin: BLE App
+  destination: Mobile App
+  description: The EUI and installation code for the ZigBee joining device.
+  handler: mpsiHandleMessageZigbeeJoiningDeviceInfo
+-
+  id: 7
+  name: Set ZigBee Joining Device Info
+  macro: INCLUDE_SET_ZIGBEE_JOINING_DEVICE_INFO
+  origin: Mobile App
+  destination: ZigBee App (TC)
+  description: Convert an install code to link key and add to the Trust Center's local link key table.
+  handler: mpsiHandleMessageSetZigbeeJoiningDeviceInfo

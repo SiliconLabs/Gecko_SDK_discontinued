@@ -115,18 +115,6 @@ void mbedtls_sha256_process( mbedtls_sha256_context *ctx, const unsigned char da
 void mbedtls_sha256( const unsigned char *input, size_t ilen,
            unsigned char output[32], int is224 );
 
-#ifdef __cplusplus
-}
-#endif
-
-#else  /* MBEDTLS_SHA256_ALT */
-#include "sha256_alt.h"
-#endif /* MBEDTLS_SHA256_ALT */
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 /**
  * \brief          Checkup routine
  *
@@ -137,5 +125,9 @@ int mbedtls_sha256_self_test( int verbose );
 #ifdef __cplusplus
 }
 #endif
+
+#else  /* MBEDTLS_SHA256_ALT */
+#include "sha256_alt.h"
+#endif /* MBEDTLS_SHA256_ALT */
 
 #endif /* mbedtls_sha256.h */

@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_usb.h
  * @brief USB protocol stack library API for EFM32/EZR32.
- * @version 5.0.0
+ * @version 5.1.2
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -41,27 +41,21 @@ extern "C" {
 #if defined(USB_HOST)
 /***************************************************************************//**
  * @addtogroup USB
- * @brief USB HOST and DEVICE protocol stacks.
  * @{
  ******************************************************************************/
 
 /***************************************************************************//**
  * @addtogroup USB_COMMON
- * @brief Common parts for both HOST and DEVICE USB stacks, see @ref usb_device
- *        and @ref usb_host pages for device and host library documentation.
  * @{
  ******************************************************************************/
 #else
 /***************************************************************************//**
  * @addtogroup USB
- * @brief USB DEVICE protocol stack.
  * @{
  ******************************************************************************/
 
 /***************************************************************************//**
  * @addtogroup USB_COMMON
- * @brief Common parts for both HOST and DEVICE USB stacks, see @ref usb_device
- *        pages for device library documentation.
  * @{
  ******************************************************************************/
 #endif
@@ -349,7 +343,6 @@ typedef enum
 #if defined(USB_DEVICE)
 /***************************************************************************//**
  * @addtogroup USB_DEVICE
- * @brief USB DEVICE protocol stack, see @ref usb_device page for detailed documentation.
  * @{
  ******************************************************************************/
 
@@ -842,7 +835,6 @@ int                 USBD_Write(             int epAddr, void *data, int byteCoun
 #if defined(USB_HOST)
 /***************************************************************************//**
  * @addtogroup USB_HOST
- * @brief USB HOST protocol stack, see @ref usb_host page for detailed documentation.
  * @{
  ******************************************************************************/
 /*** -------------------- HOST mode API definitions ---------------------- ***/

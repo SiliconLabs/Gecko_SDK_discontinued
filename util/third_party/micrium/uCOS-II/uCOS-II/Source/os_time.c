@@ -4,12 +4,12 @@
 *                                          The Real-Time Kernel
 *                                             TIME MANAGEMENT
 *
-*                              (c) Copyright 1992-2012, Micrium, Weston, FL
+*                              (c) Copyright 1992-2016, Micrium, Weston, FL
 *                                           All Rights Reserved
 *
 * File    : OS_TIME.C
 * By      : Jean J. Labrosse
-* Version : V2.92.07
+* Version : V2.92.12
 *
 * LICENSING TERMS:
 * ---------------
@@ -18,6 +18,15 @@
 * its use in your product. We provide ALL the source code for your convenience and to help you experience
 * uC/OS-II.   The fact that the  source is provided does  NOT  mean that you can use it without  paying a
 * licensing fee.
+*
+* Knowledge of the source code may NOT be used to develop a similar product.
+*
+* Please help us continue to provide the embedded community with the finest software available.
+* Your honesty is greatly appreciated.
+*
+* You can find our product's user manual, API reference, release notes and
+* more information at https://doc.micrium.com.
+* You can contact us at www.micrium.com.
 *********************************************************************************************************
 */
 
@@ -70,7 +79,8 @@ void  OSTimeDly (INT32U ticks)
         OS_Sched();                              /* Find next task to run!                             */
     }
 }
-/*$PAGE*/
+
+
 /*
 *********************************************************************************************************
 *                                    DELAY TASK FOR SPECIFIED TIME
@@ -140,7 +150,8 @@ INT8U  OSTimeDlyHMSM (INT8U   hours,
     return (OS_ERR_NONE);
 }
 #endif
-/*$PAGE*/
+
+
 /*
 *********************************************************************************************************
 *                                        RESUME A DELAYED TASK
@@ -206,7 +217,8 @@ INT8U  OSTimeDlyResume (INT8U prio)
     return (OS_ERR_NONE);
 }
 #endif
-/*$PAGE*/
+
+
 /*
 *********************************************************************************************************
 *                                       GET CURRENT SYSTEM TIME
@@ -236,6 +248,7 @@ INT32U  OSTimeGet (void)
     return (ticks);
 }
 #endif
+
 
 /*
 *********************************************************************************************************

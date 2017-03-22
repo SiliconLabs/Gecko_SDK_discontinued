@@ -4,15 +4,16 @@
 ;                                          The Real-Time Kernel
 ;
 ;
-;                              (c) Copyright 2010; Micrium, Inc.; Weston, FL
+;                         (c) Copyright 2009-2016; Micrium, Inc.; Weston, FL
 ;                    All rights reserved.  Protected by international copyright laws.
 ;
 ;                                           ARM Cortex-M4 Port
 ;
 ; File      : OS_CPU_A.ASM
-; Version   : V2.92
+; Version   : V2.92.12.00
 ; By        : JJL
 ;             BAN
+;             JBL
 ;
 ; For       : ARMv7 Cortex-M4
 ; Mode      : Thumb-2 ISA
@@ -43,7 +44,12 @@
     EXPORT  OSIntCtxSw
     EXPORT  OS_CPU_PendSVHandler
 
-;PAGE
+    IF {FPU} != "SoftVFP"
+    EXPORT  OS_CPU_FP_Reg_Push
+    EXPORT  OS_CPU_FP_Reg_Pop
+    ENDIF
+
+
 ;********************************************************************************************************
 ;                                               EQUATES
 ;********************************************************************************************************
@@ -62,6 +68,64 @@ NVIC_PENDSVSET  EQU     0x10000000                              ; Value to trigg
     THUMB
     REQUIRE8
     PRESERVE8
+
+
+;********************************************************************************************************
+;                                   FLOATING POINT REGISTERS PUSH
+;                             void  OS_CPU_FP_Reg_Push (CPU_STK  *stkPtr)
+;
+; Note(s) : 1) This function saves S0-S31, and FPSCR registers of the Floating Point Unit.
+;
+;           2) Pseudo-code is:
+;              a) Get FPSCR register value;
+;              b) Push value on process stack;
+;              c) Push remaining regs S0-S31 on process stack;
+;              d) Update OSTCBCurPtr->StkPtr;
+;********************************************************************************************************
+
+    IF {FPU} != "SoftVFP"
+
+OS_CPU_FP_Reg_Push
+    MRS     R1, PSP                                             ; PSP is process stack pointer
+    CBZ     R1, OS_CPU_FP_nosave                                ; Skip FP register save the first time
+
+    VMRS    R1, FPSCR
+    STR R1, [R0, #-4]!
+    VSTMDB  R0!, {S0-S31}
+    LDR     R1, =OSTCBCur
+    LDR     R2, [R1]
+    STR     R0, [R2]
+OS_CPU_FP_nosave
+    BX      LR
+
+    ENDIF
+
+
+;********************************************************************************************************
+;                                   FLOATING POINT REGISTERS POP
+;                             void  OS_CPU_FP_Reg_Pop (CPU_STK  *stkPtr)
+;
+; Note(s) : 1) This function restores S0-S31, and FPSCR registers of the Floating Point Unit.
+;
+;           2) Pseudo-code is:
+;              a) Restore regs S0-S31 of new process stack;
+;              b) Restore FPSCR reg value
+;              c) Update OSTCBHighRdyPtr->StkPtr pointer of new proces stack;
+;********************************************************************************************************
+
+    IF {FPU} != "SoftVFP"
+
+OS_CPU_FP_Reg_Pop
+    VLDMIA  R0!, {S0-S31}
+    LDMIA   R0!, {R1}
+    VMSR    FPSCR, R1
+    LDR     R1, =OSTCBHighRdy
+    LDR     R2, [R1]
+    STR     R0, [R2]
+    BX      LR
+
+    ENDIF
+
 
 ;********************************************************************************************************
 ;                                   CRITICAL SECTION METHOD 3 FUNCTIONS
@@ -104,7 +168,7 @@ OS_CPU_SR_Restore
     MSR     PRIMASK, R0
     BX      LR
 
-;PAGE
+
 ;********************************************************************************************************
 ;                                         START MULTITASKING
 ;                                      void OSStartHighRdy(void)
@@ -128,6 +192,7 @@ OSStartHighRdy
 
     MOVS    R0, #0                                              ; Set the PSP to 0 for initial context switch call
     MSR     PSP, R0
+    BL      OSTaskSwHook                                        ; Call OSTaskSwHook for FPU Pop
 
     LDR     R0, =OS_CPU_ExceptStkBase                           ; Initialize the MSP to the OS_CPU_ExceptStkBase
     LDR     R1, [R0]
@@ -147,7 +212,6 @@ OSStartHang
     B       OSStartHang                                         ; Should never get here
 
 
-;PAGE
 ;********************************************************************************************************
 ;                       PERFORM A CONTEXT SWITCH (From task level) - OSCtxSw()
 ;
@@ -162,7 +226,6 @@ OSCtxSw
     BX      LR
 
 
-;PAGE
 ;********************************************************************************************************
 ;                   PERFORM A CONTEXT SWITCH (From interrupt level) - OSIntCtxSw()
 ;
@@ -178,7 +241,6 @@ OSIntCtxSw
     BX      LR
 
 
-;PAGE
 ;********************************************************************************************************
 ;                                       HANDLE PendSV EXCEPTION
 ;                                   void OS_CPU_PendSVHandler(void)
@@ -247,7 +309,7 @@ OS_CPU_PendSVHandler_nosave
     LDM     R0, {R4-R11}                                        ; Restore r4-11 from new process stack
     ADDS    R0, R0, #0x20
     MSR     PSP, R0                                             ; Load PSP with new process SP
-    ORR     LR, LR, #0x04                                       ; Ensure exception return uses process stack
+    ORR     LR, LR, #0xF4                                       ; Ensure exception return uses process stack
     CPSIE   I
     BX      LR                                                  ; Exception return will restore remaining context
 

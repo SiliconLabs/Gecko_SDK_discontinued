@@ -1,0 +1,23 @@
+#include PLATFORM_HEADER
+#include CONFIGURATION_HEADER
+#include EMBER_AF_API_HAL
+#include EMBER_AF_API_ASH_V3
+
+/** @brief Notification that ash has changed state.
+ *
+ * @param state  An ::AshState  indicating one of the conditions
+ * described below.
+ *
+ * This callback will report an AshState of ::ASH_STATE_RESET_TX_PRE whenever 
+ * the RESET packet has been sent to the UART link.
+ *
+ * This callback will report an AshState of ::ASH_STATE_RESET_TX_POST  whenever 
+ * the UART is done sending the RESET packet.
+ *
+ * This callback will report an AshState of ::ASH_STATE_RUNNING  when we've 
+ * received an RSTACK to our RESET.
+ *
+ */
+void emberAshStatusHandler(AshState state)
+{
+}

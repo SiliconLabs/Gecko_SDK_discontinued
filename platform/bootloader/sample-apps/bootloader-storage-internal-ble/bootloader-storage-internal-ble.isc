@@ -1,0 +1,54 @@
+#ISD afv6
+# ISD version: 4.10.0.201701192345-978
+
+# Application configuration
+appId: bootloader
+architecture: efr32~series[1]+iar
+deviceName: bootloader
+generationDirectory: PATH(ISC_RELATIVE):.
+
+# Devices
+
+# Plugin configuration
+appPlugin: bgapi-uart-dfu=false
+appPlugin: core=true
+appPlugin: crc=true
+appPlugin: crypto=true
+appPlugin: debug=false
+appPlugin: delay-driver=false
+appPlugin: emlib=true
+appPlugin: ezsp-spi=false
+appPlugin: gpio-activation=false
+appPlugin: internal_flash=true
+appPlugin: mbedtls=true
+appPlugin: parser=true
+appPlugin: spi-driver=false
+appPlugin: spislave-driver=false
+appPlugin: spiflash=false
+appPlugin: storage-common=true
+appPlugin: token-management=true
+appPlugin: uart-driver=false
+appPlugin: xmodem-parser=false
+appPlugin: xmodem-uart=false
+
+# Setup configurations
+{setupId:additionalFiles
+}
+
+{setupId:bootloaderStorage
+137216,120832;Slot 0
+}
+
+{setupId:macros
+}
+
+{setupId:template
+}
+
+{setupId:information
+\{key:description
+
+\}
+}
+
+# Plugin options

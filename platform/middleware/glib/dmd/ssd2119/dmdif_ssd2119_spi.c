@@ -1,6 +1,6 @@
 /*************************************************************************//***
- * @file dmdif_ssd2119_ebi.c
- * @brief Dot matrix display SSD2119 interface using EBI
+ * @file dmdif_ssd2119_spi.c
+ * @brief Dot matrix display SSD2119 interface using SPI
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -19,6 +19,8 @@
 #include "dmd_ssd2119.h"
 #include "dmdif_ssd2119_spi.h"
 #include "bsp.h"
+
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 
 /* Local function prototypes */
 static EMSTATUS setNextReg(uint8_t reg);
@@ -201,3 +203,5 @@ static EMSTATUS setNextReg(uint8_t reg)
 
   return DMD_OK;
 }
+
+/** @endcond */

@@ -1,0 +1,86 @@
+// IAR V5 ILINK linker configuration file.
+//
+// Basic memory layout of a RAMEXE in RAM:
+//  ----------------
+//  | RAM          |
+//  |--------------|
+//  | Code         |
+//  |--------------|
+//  | ENTRYPOINT   |
+//  |--------------| 0x20000284
+//  | Vector table | 0x20000283
+//  |--------------| 0x20000200
+//  | Stack        | 0x200001FF
+//  ----------------
+//
+// Copyright 2008 by Ember Corporation. All rights reserved.                *80*
+//------------------------------------------------------------------------------
+
+// This configuration file is common to all ember cortex chips built for RAM
+// execution.  It is included from a chip specific file which defines the
+// following symbols:
+//   RAM_BOTTOM
+//   RAM_TOP
+//   MFB_BOTTOM
+//   MFB_TOP
+//   CIB_BOTTOM
+//   CIB_TOP
+//   FIB_BOTTOM
+//   FIB_TOP
+
+//------------------------------------------------------------------------------
+// Symbol definition.
+
+define symbol RAM_CSTACK_TOP     = 0x200001FF;
+define symbol RAM_VECT_BOTTOM    = 0x20000200;
+
+
+//------------------------------------------------------------------------------
+// RAM placement.
+
+//=============================================================================
+// Define the call stack and reset info sections so that they overlay on top
+// of each other.  The reset info is used to store reset/crash information and
+// bootloader parameters across resets.  It is overlaid across the bottom of the
+// call stack to avoid always dedicating RAM for this purpose even though it is
+// only used just before and just after a software reset.
+//=============================================================================
+define overlay CSTACK_overlay { rw section CSTACK };
+define overlay CSTACK_overlay { rw section RESETINFO };
+
+
+//Do not include the intializer tables or IAR init library code for any RW.
+do not initialize { rw };
+//But, .data will be manually initialized so we need the init table for it.
+//NOTE: "section .textrw" is not included here because we're already executing
+//      from RAM so there's no point to initialize .textrw.
+initialize manually { section .data };
+
+// For the flashloader limit the RAM size to 8KiB so that it fits on chips with
+// smaller RAM sizes.
+define symbol RAM_8K_TOP = RAM_BOTTOM + 8K;
+
+//Give the CSTACK it's own region since it's very important that CSTACK
+//always lives at the bottom with a fixed sized (this way if stack definition
+//in the code increases the linker will catch it).
+define region CSTACK_region = mem:[from RAM_BOTTOM to RAM_CSTACK_TOP];
+//Everything else lives in either a code region or a RAM region..
+define region RO_region = mem:[from RAM_VECT_BOTTOM to RAM_8K_TOP];
+define region RW_region = mem:[from RAM_VECT_BOTTOM to RAM_8K_TOP];
+
+
+define block RO_block with fixed order { ro section RAT,
+                                         ro section .intvec,
+                                         ro section ENTRYPOINT, 
+                                         ro section .text,
+                                         ro section .rodata,
+                                         ro section .data_init };
+define block RW_block with fixed order { rw section .data,
+                                         rw section .bss, 
+                                         rw section SHAREDRAM };
+
+
+"CSTACK": place at start of CSTACK_region { overlay CSTACK_overlay };
+"RO": place at start of RO_region { block RO_block };
+"RW": place at end of RW_region { block RW_block };
+

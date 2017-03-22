@@ -4,31 +4,44 @@
 *                                          The Real-Time Kernel
 *
 *
-*                           (c) Copyright 2009-2010; Micrium, Inc.; Weston, FL
+*                           (c) Copyright 2009-2016; Micrium, Inc.; Weston, FL
 *                    All rights reserved.  Protected by international copyright laws.
 *
 *                                           ARM Cortex-M3 Port
 *
 * File      : OS_CPU_C.C
-* Version   : V3.01.2
+* Version   : V3.06.00
 * By        : JJL
 *             FT
 *
 * LICENSING TERMS:
 * ---------------
-*             uC/OS-III is provided in source form to registered licensees ONLY.  It is 
-*             illegal to distribute this source code to any third party unless you receive 
-*             written permission by an authorized Micrium representative.  Knowledge of 
+*             uC/OS-III is provided in source form to registered licensees ONLY.  It is
+*             illegal to distribute this source code to any third party unless you receive
+*             written permission by an authorized Micrium representative.  Knowledge of
 *             the source code may NOT be used to develop a similar product.
 *
 *             Please help us continue to provide the Embedded community with the finest
 *             software available.  Your honesty is greatly appreciated.
 *
+*             You can find our product's user manual, API reference, release notes and
+*             more information at https://doc.micrium.com.
 *             You can contact us at www.micrium.com.
 *
 * For       : ARMv7M Cortex-M3
 * Mode      : Thumb2
 * Toolchain : GNU C Compiler
+*********************************************************************************************************
+*/
+
+/*
+*********************************************************************************************************
+*********************************************************************************************************
+*                               WARNING - DEPRECATION NOTICE - WARNING
+* June 2016
+* This file is part of a deprecated port and will be removed in a future release.
+* The functionalities of this port were replaced by the generic ARM-Cortex-M port.
+*********************************************************************************************************
 *********************************************************************************************************
 */
 
@@ -38,14 +51,20 @@
 const  CPU_CHAR  *os_cpu_c__c = "$Id: $";
 #endif
 
-/*$PAGE*/
+/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                             INCLUDE FILES
 *********************************************************************************************************
 */
 
-#include  <os.h>
+#include  "../../../../Source/os.h"
+
+
+#ifdef __cplusplus
+extern  "C" {
+#endif
+
 
 /*
 *********************************************************************************************************
@@ -70,7 +89,7 @@ void  OSIdleTaskHook (void)
 }
 
 
-/*$PAGE*/
+/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                       OS INITIALIZATION HOOK
@@ -85,19 +104,40 @@ void  OSIdleTaskHook (void)
 
 void  OSInitHook (void)
 {
-    CPU_STK_SIZE   i;
-    CPU_STK       *p_stk;
-
-
-    p_stk = OSCfg_ISRStkBasePtr;                            /* Clear the ISR stack                                    */
-    for (i = 0u; i < OSCfg_ISRStkSize; i++) {
-        *p_stk++ = (CPU_STK)0u;
-    }
-    OS_CPU_ExceptStkBase = (CPU_STK *)(OSCfg_ISRStkBasePtr + OSCfg_ISRStkSize - 1u);
+                                                                /* 8-byte align the ISR stack.                          */
+    OS_CPU_ExceptStkBase = (CPU_STK *)(OSCfg_ISRStkBasePtr + OSCfg_ISRStkSize);
+    OS_CPU_ExceptStkBase = (CPU_STK *)((CPU_STK)(OS_CPU_ExceptStkBase) & 0xFFFFFFF8);
 }
 
 
-/*$PAGE*/
+/*
+*********************************************************************************************************
+*                                           REDZONE HIT HOOK
+*
+* Description: This function is called when a task's stack overflowed.
+*
+* Arguments  : p_tcb        Pointer to the task control block of the offending task. NULL if ISR.
+*
+* Note(s)    : None.
+*********************************************************************************************************
+*/
+#if (OS_CFG_TASK_STK_REDZONE_EN == DEF_ENABLED)
+void  OSRedzoneHitHook (OS_TCB  *p_tcb)
+{
+#if OS_CFG_APP_HOOKS_EN > 0u
+    if (OS_AppRedzoneHitHookPtr != (OS_APP_HOOK_TCB)0) {
+        (*OS_AppRedzoneHitHookPtr)(p_tcb);
+    } else {
+        CPU_SW_EXCEPTION(;);
+    }
+#else
+    (void)p_tcb;                                                /* Prevent compiler warning                             */
+    CPU_SW_EXCEPTION(;);
+#endif
+}
+#endif
+
+/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                         STATISTIC TASK HOOK
@@ -121,7 +161,7 @@ void  OSStatTaskHook (void)
 }
 
 
-/*$PAGE*/
+/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                          TASK CREATION HOOK
@@ -146,7 +186,7 @@ void  OSTaskCreateHook (OS_TCB  *p_tcb)
 }
 
 
-/*$PAGE*/
+/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                           TASK DELETION HOOK
@@ -171,7 +211,7 @@ void  OSTaskDelHook (OS_TCB  *p_tcb)
 }
 
 
-/*$PAGE*/
+/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                            TASK RETURN HOOK
@@ -197,7 +237,7 @@ void  OSTaskReturnHook (OS_TCB  *p_tcb)
 }
 
 
-/*$PAGE*/
+/*$PAGE*/
 /*
 **********************************************************************************************************
 *                                       INITIALIZE A TASK'S STACK
@@ -262,7 +302,7 @@ CPU_STK  *OSTaskStkInit (OS_TASK_PTR    p_task,
 }
 
 
-/*$PAGE*/
+/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                           TASK SWITCH HOOK
@@ -287,7 +327,9 @@ void  OSTaskSwHook (void)
 #ifdef  CPU_CFG_INT_DIS_MEAS_EN
     CPU_TS  int_dis_time;
 #endif
-
+#if (OS_CFG_TASK_STK_REDZONE_EN == DEF_ENABLED)
+    CPU_BOOLEAN  stk_status;
+#endif
 
 
 #if OS_CFG_APP_HOOKS_EN > 0u
@@ -295,6 +337,8 @@ void  OSTaskSwHook (void)
         (*OS_AppTaskSwHookPtr)();
     }
 #endif
+
+    OS_TRACE_TASK_SWITCHED_IN(OSTCBHighRdyPtr);
 
 #if OS_CFG_TASK_PROFILE_EN > 0u
     ts = OS_TS_GET();
@@ -320,10 +364,17 @@ void  OSTaskSwHook (void)
     }
     OSSchedLockTimeMaxCur = (CPU_TS)0;                      /* Reset the per-task value                               */
 #endif
+
+#if (OS_CFG_TASK_STK_REDZONE_EN == DEF_ENABLED)
+    stk_status = OSTaskStkRedzoneChk(DEF_NULL);
+    if (stk_status != DEF_OK) {
+        CPU_SW_EXCEPTION(;);
+    }
+#endif
 }
 
 
-/*$PAGE*/
+/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                              TICK HOOK
@@ -346,7 +397,7 @@ void  OSTimeTickHook (void)
 }
 
 
-/*$PAGE*/
+/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                          SYS TICK HANDLER
@@ -375,7 +426,7 @@ void  OS_CPU_SysTickHandler (void)
 }
 
 
-/*$PAGE*/
+/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                         INITIALIZE SYS TICK
@@ -408,4 +459,8 @@ void  OS_CPU_SysTickInit (CPU_INT32U  cnts)
                                                             /* Enable timer interrupt.                                */
     CPU_REG_NVIC_ST_CTRL |= CPU_REG_NVIC_ST_CTRL_TICKINT;
 }
+
+#ifdef __cplusplus
+}
+#endif
 

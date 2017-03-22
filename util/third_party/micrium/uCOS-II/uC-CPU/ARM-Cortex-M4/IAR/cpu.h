@@ -3,7 +3,7 @@
 *                                                uC/CPU
 *                                    CPU CONFIGURATION & PORT LAYER
 *
-*                          (c) Copyright 2004-2013; Micrium, Inc.; Weston, FL
+*                          (c) Copyright 2004-2016; Micrium, Inc.; Weston, FL
 *
 *               All rights reserved.  Protected by international copyright laws.
 *
@@ -15,6 +15,8 @@
 *               Please help us continue to provide the Embedded community with the finest 
 *               software available.  Your honesty is greatly appreciated.
 *
+*               You can find our product's user manual, API reference, release notes and
+*               more information at https://doc.micrium.com.
 *               You can contact us at www.micrium.com.
 *********************************************************************************************************
 */
@@ -28,7 +30,7 @@
 *                                            IAR C Compiler
 *
 * Filename      : cpu.h
-* Version       : V1.29.02.00
+* Version       : V1.31.00
 * Programmer(s) : JJL
 *                 BAN
 *********************************************************************************************************
@@ -81,8 +83,14 @@
 *********************************************************************************************************
 */
 
+#include  <intrinsics.h>
+
 #include  <cpu_def.h>
 #include  <cpu_cfg.h>                                           /* See Note #3.                                         */
+
+#ifdef __cplusplus
+extern  "C" {
+#endif
 
 
 /*
@@ -306,10 +314,9 @@ typedef  CPU_INT32U                 CPU_SR;                     /* Defines   CPU
 #define  CPU_SR_ALLOC()
 #endif
 
-
-
-#define  CPU_INT_DIS()         do { cpu_sr = CPU_SR_Save(); } while (0) /* Save    CPU status word & disable interrupts.*/
-#define  CPU_INT_EN()          do { CPU_SR_Restore(cpu_sr); } while (0) /* Restore CPU status word.                     */
+                                                                        /* Save    CPU status word & disable interrupts.*/
+#define  CPU_INT_DIS()         do { cpu_sr = __get_PRIMASK(); __disable_interrupt(); } while (0)
+#define  CPU_INT_EN()          do { __set_PRIMASK(cpu_sr); } while (0)  /* Restore CPU status word.                     */
 
 
 #ifdef   CPU_CFG_INT_DIS_MEAS_EN
@@ -738,6 +745,10 @@ void        CPU_BitBandSet   (CPU_ADDR    addr,
 * Note(s) : (1) See 'cpu.h  MODULE'.
 *********************************************************************************************************
 */
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif                                                          /* End of CPU module include.                           */
 

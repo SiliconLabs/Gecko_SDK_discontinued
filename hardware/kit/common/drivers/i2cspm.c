@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file
  * @brief I2C simple poll-based master mode driver for the DK/STK.
- * @version 5.0.0
+ * @version 5.1.1
  *******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -88,7 +88,7 @@ void I2CSPM_Init(I2CSPM_Init_TypeDef *init)
 #if defined (_I2C_ROUTEPEN_MASK)
   init->port->ROUTEPEN  = I2C_ROUTEPEN_SDAPEN | I2C_ROUTEPEN_SCLPEN;
   init->port->ROUTELOC0 = (init->portLocationSda << _I2C_ROUTELOC0_SDALOC_SHIFT)
-    | (init->portLocationScl << _I2C_ROUTELOC0_SCLLOC_SHIFT);
+                          | (init->portLocationScl << _I2C_ROUTELOC0_SCLLOC_SHIFT);
 #else
   init->port->ROUTE = I2C_ROUTE_SDAPEN |
                       I2C_ROUTE_SCLPEN |

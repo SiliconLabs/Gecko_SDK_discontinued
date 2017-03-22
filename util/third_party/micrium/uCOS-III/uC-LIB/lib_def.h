@@ -3,19 +3,22 @@
 *                                                uC/LIB
 *                                        CUSTOM LIBRARY MODULES
 *
-*                          (c) Copyright 2004-2012; Micrium, Inc.; Weston, FL
+*                         (c) Copyright 2004-2015; Micrium, Inc.; Weston, FL
 *
-*               All rights reserved.  Protected by international copyright laws.
+*                  All rights reserved.  Protected by international copyright laws.
 *
-*               uC/LIB is provided in source form to registered licensees ONLY.  It is 
-*               illegal to distribute this source code to any third party unless you receive 
-*               written permission by an authorized Micrium representative.  Knowledge of 
-*               the source code may NOT be used to develop a similar product.
+*                  uC/LIB is provided in source form to registered licensees ONLY.  It is
+*                  illegal to distribute this source code to any third party unless you receive
+*                  written permission by an authorized Micrium representative.  Knowledge of
+*                  the source code may NOT be used to develop a similar product.
 *
-*               Please help us continue to provide the Embedded community with the finest 
-*               software available.  Your honesty is greatly appreciated.
+*                  Please help us continue to provide the Embedded community with the finest
+*                  software available.  Your honesty is greatly appreciated.
 *
-*               You can contact us at www.micrium.com.
+*                  You can find our product's user manual, API reference, release notes and
+*                  more information at: https://doc.micrium.com
+*
+*                  You can contact us at: http://www.micrium.com
 *********************************************************************************************************
 */
 
@@ -25,11 +28,12 @@
 *                                     CORE CUSTOM LIBRARY MODULE
 *
 * Filename      : lib_def.h
-* Version       : V1.37.01
+* Version       : V1.38.02
 * Programmer(s) : ITJ
 *                 FBJ
+*                 JFD
 *********************************************************************************************************
-* Note(s)       : (1) Assumes the following versions (or more recent) of software modules are included in 
+* Note(s)       : (1) Assumes the following versions (or more recent) of software modules are included in
 *                     the project build :
 *
 *                     (a) uC/CPU V1.29.00
@@ -57,7 +61,7 @@
 *********************************************************************************************************
 *                                               MODULE
 *
-* Note(s) : (1) This library definition header file is protected from multiple pre-processor inclusion 
+* Note(s) : (1) This library definition header file is protected from multiple pre-processor inclusion
 *               through use of the library definition module present pre-processor macro definition.
 *********************************************************************************************************
 */
@@ -66,7 +70,6 @@
 #define  LIB_DEF_MODULE_PRESENT
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                CUSTOM LIBRARY MODULE VERSION NUMBER
@@ -87,14 +90,14 @@
 *
 *                           where
 *                                   ver             denotes software version number scaled as an integer value
-*                                   x.yyzz          denotes software version number, where the unscaled integer 
-*                                                       portion denotes the major version number & the unscaled 
-*                                                       fractional portion denotes the (concatenated) minor 
+*                                   x.yyzz          denotes software version number, where the unscaled integer
+*                                                       portion denotes the major version number & the unscaled
+*                                                       fractional portion denotes the (concatenated) minor
 *                                                       version numbers
 *********************************************************************************************************
 */
 
-#define  LIB_VERSION                                   13700u   /* See Note #1.                                         */
+#define  LIB_VERSION                                   13802u   /* See Note #1.                                         */
 
 
 /*
@@ -131,7 +134,6 @@
 #include  <cpu.h>
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                          STANDARD DEFINES
@@ -205,7 +207,6 @@
 #define  DEF_BIT_29                               0x20000000u
 #define  DEF_BIT_30                               0x40000000u
 #define  DEF_BIT_31                               0x80000000u
-/*$PAGE*/
 #define  DEF_BIT_32                       0x0000000100000000u
 #define  DEF_BIT_33                       0x0000000200000000u
 #define  DEF_BIT_34                       0x0000000400000000u
@@ -267,7 +268,6 @@
 #define  DEF_NBR_BASE_HEX                                 16u
 
 
-/*$PAGE*/
                                                                 /* ----------------- INTEGER DEFINES ------------------ */
 #define  DEF_INT_08_NBR_BITS                               8u
 #define  DEF_INT_08_MASK                                0xFFu
@@ -348,8 +348,6 @@
 #define  DEF_INT_64S_NBR_DIG_MAX                          19u
 
 
-
-/*$PAGE*/
                                                                 /* --------------- CPU INTEGER DEFINES ---------------- */
 #define  DEF_INT_CPU_NBR_BITS                           (CPU_CFG_DATA_SIZE     * DEF_OCTET_NBR_BITS)
 #define  DEF_INT_CPU_NBR_BITS_MAX                       (CPU_CFG_DATA_SIZE_MAX * DEF_OCTET_NBR_BITS)
@@ -428,8 +426,6 @@
 #endif
 
 
-
-/*$PAGE*/
                                                                 /* ------------------- TIME DEFINES ------------------- */
 #define  DEF_TIME_NBR_DAY_PER_WK                           7u
 #define  DEF_TIME_NBR_DAY_PER_YR                         365u
@@ -458,7 +454,6 @@
 #define  DEF_TIME_NBR_nS_PER_SEC                  1000000000u
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                             ERROR CODES
@@ -478,6 +473,7 @@ typedef enum lib_err {
     LIB_MEM_ERR_INVALID_MEM_ALIGN           =     10101u,       /* Invalid mem     align.                               */
     LIB_MEM_ERR_INVALID_SEG_SIZE            =     10110u,       /* Invalid mem seg size.                                */
     LIB_MEM_ERR_INVALID_SEG_OVERLAP         =     10111u,       /* Invalid mem seg overlaps other mem seg(s).           */
+    LIB_MEM_ERR_INVALID_SEG_EXISTS          =     10112u,       /* Invalid mem seg already exists.                      */
     LIB_MEM_ERR_INVALID_POOL                =     10120u,       /* Invalid mem pool.                                    */
     LIB_MEM_ERR_INVALID_BLK_NBR             =     10130u,       /* Invalid mem pool blk nbr.                            */
     LIB_MEM_ERR_INVALID_BLK_SIZE            =     10131u,       /* Invalid mem pool blk size.                           */
@@ -490,6 +486,7 @@ typedef enum lib_err {
     LIB_MEM_ERR_SEG_OVF                     =     10201u,       /* Mem seg  ovf;   i.e. req'd mem ovfs rem mem in seg.  */
     LIB_MEM_ERR_POOL_FULL                   =     10205u,       /* Mem pool full;  i.e. all mem blks avail in mem pool. */
     LIB_MEM_ERR_POOL_EMPTY                  =     10206u,       /* Mem pool empty; i.e. NO  mem blks avail in mem pool. */
+    LIB_MEM_ERR_POOL_UNLIMITED              =     10207u,       /* Mem pool is unlimited.                               */
 
     LIB_MEM_ERR_HEAP_EMPTY                  =     10210u,       /* Heap seg empty; i.e. NO avail mem in heap.           */
     LIB_MEM_ERR_HEAP_OVF                    =     10211u,       /* Heap seg ovf;   i.e. req'd mem ovfs rem mem in heap. */
@@ -498,7 +495,6 @@ typedef enum lib_err {
 } LIB_ERR;
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                             DATA TYPES
@@ -537,7 +533,6 @@ typedef enum lib_err {
 #endif
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                             BIT MACRO'S
@@ -558,12 +553,12 @@ typedef enum lib_err {
 *
 * Note(s)     : (1) 'bit' SHOULD be a non-negative integer.
 *
-*               (2) (a) 'bit' values that overflow the target CPU &/or compiler environment (e.g. negative 
+*               (2) (a) 'bit' values that overflow the target CPU &/or compiler environment (e.g. negative
 *                       or greater-than-CPU-data-size values) MAY generate compiler warnings &/or errors.
 *********************************************************************************************************
 */
 
-#define  DEF_BIT(bit)                                                   (1u << (bit))
+#define  DEF_BIT(bit)                                                   (1uL << (bit))
 
 
 /*
@@ -580,13 +575,13 @@ typedef enum lib_err {
 *
 * Note(s)     : (1) 'bit' SHOULD be a non-negative integer.
 *
-*               (2) (a) 'bit' values that overflow the target CPU &/or compiler environment (e.g. negative 
+*               (2) (a) 'bit' values that overflow the target CPU &/or compiler environment (e.g. negative
 *                       or greater-than-CPU-data-size values) MAY generate compiler warnings &/or errors.
 *
-*                   (b) To avoid overflowing any target CPU &/or compiler's integer data type, unsigned 
+*                   (b) To avoid overflowing any target CPU &/or compiler's integer data type, unsigned
 *                       bit constant '1' is cast to specified integer data type size.
 *
-*               (3) Ideally, DEF_BITxx() macro's should be named DEF_BIT_xx(); however, these names already 
+*               (3) Ideally, DEF_BITxx() macro's should be named DEF_BIT_xx(); however, these names already
 *                   previously-released for bit constant #define's (see 'STANDARD DEFINES  BIT DEFINES').
 *********************************************************************************************************
 */
@@ -600,7 +595,6 @@ typedef enum lib_err {
 #define  DEF_BIT64(bit)                        ((CPU_INT64U)((CPU_INT64U)1u  << (bit)))
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                           DEF_BIT_MASK()
@@ -659,7 +653,6 @@ typedef enum lib_err {
 #define  DEF_BIT_MASK_64(bit_mask, bit_shift)         ((CPU_INT64U)((CPU_INT64U)(bit_mask) << (bit_shift)))
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                           DEF_BIT_FIELD()
@@ -676,17 +669,17 @@ typedef enum lib_err {
 *
 * Note(s)     : (1) 'bit_field' & 'bit_shift' SHOULD be non-negative integers.
 *
-*               (2) (a) 'bit_field'/'bit_shift' values that overflow the target CPU &/or compiler 
-*                       environment (e.g. negative or greater-than-CPU-data-size values) MAY generate 
+*               (2) (a) 'bit_field'/'bit_shift' values that overflow the target CPU &/or compiler
+*                       environment (e.g. negative or greater-than-CPU-data-size values) MAY generate
 *                       compiler warnings &/or errors.
 *
-*                   (b) To avoid overflowing any target CPU &/or compiler's integer data type, unsigned 
+*                   (b) To avoid overflowing any target CPU &/or compiler's integer data type, unsigned
 *                       bit constant '1' is suffixed with 'L'ong integer modifier.
 *
-*                       This may still be insufficient for CPUs &/or compilers that support 'long long' 
-*                       integer data types, in which case 'LL' integer modifier should be suffixed.  
-*                       However, since almost all 16- & 32-bit CPUs & compilers support 'long' integer 
-*                       data types but many may NOT support 'long long' integer data types, only 'long' 
+*                       This may still be insufficient for CPUs &/or compilers that support 'long long'
+*                       integer data types, in which case 'LL' integer modifier should be suffixed.
+*                       However, since almost all 16- & 32-bit CPUs & compilers support 'long' integer
+*                       data types but many may NOT support 'long long' integer data types, only 'long'
 *                       integer data types & modifiers are supported.
 *
 *                       See also 'DEF_BIT_FIELD_xx()  Note #1b'.
@@ -713,11 +706,11 @@ typedef enum lib_err {
 *
 * Note(s)     : (1) 'bit_field' & 'bit_shift' SHOULD be non-negative integers.
 *
-*               (2) (a) 'bit_field'/'bit_shift' values that overflow the target CPU &/or compiler 
-*                       environment (e.g. negative or greater-than-CPU-data-size values) MAY generate 
+*               (2) (a) 'bit_field'/'bit_shift' values that overflow the target CPU &/or compiler
+*                       environment (e.g. negative or greater-than-CPU-data-size values) MAY generate
 *                       compiler warnings &/or errors.
 *
-*                   (b) To avoid overflowing any target CPU &/or compiler's integer data type, unsigned 
+*                   (b) To avoid overflowing any target CPU &/or compiler's integer data type, unsigned
 *                       bit constant '1' is cast to specified integer data type size.
 *********************************************************************************************************
 */
@@ -738,33 +731,6 @@ typedef enum lib_err {
                                                                                                                                 : (CPU_INT64U)(DEF_BIT64(bit_field) - (CPU_INT64U)1u)) \
                                                                                                                                                      << (bit_shift)))
 
-/*$PAGE*/
-/*
-*********************************************************************************************************
-*                                          DEF_BIT_SET_xx()
-*
-* Description : Set specified bit(s) in a value of specified bit size.
-*
-* Argument(s) : val         Value to modify by setting specified bit(s).
-*
-*               mask        Mask of bits to set.
-*
-* Return(s)   : Modified value with specified bit(s) set.
-*
-* Caller(s)   : Application.
-*
-* Note(s)     : (1) 'val' & 'mask' SHOULD be unsigned integers.
-*********************************************************************************************************
-*/
-
-#define  DEF_BIT_SET_08(val, mask)                     ((val) = (CPU_INT08U)(((CPU_INT08U)(val)) | ((CPU_INT08U) (mask))))
-
-#define  DEF_BIT_SET_16(val, mask)                     ((val) = (CPU_INT16U)(((CPU_INT16U)(val)) | ((CPU_INT16U) (mask))))
-
-#define  DEF_BIT_SET_32(val, mask)                     ((val) = (CPU_INT32U)(((CPU_INT32U)(val)) | ((CPU_INT32U) (mask))))
-
-#define  DEF_BIT_SET_64(val, mask)                     ((val) = (CPU_INT64U)(((CPU_INT64U)(val)) | ((CPU_INT64U) (mask))))
-
 
 /*
 *********************************************************************************************************
@@ -784,40 +750,38 @@ typedef enum lib_err {
 *********************************************************************************************************
 */
 
-#if     (CPU_CFG_DATA_SIZE_MAX == CPU_WORD_SIZE_08)
-
-#define  DEF_BIT_SET(val, mask)                 ((sizeof(val) == CPU_WORD_SIZE_08) ? DEF_BIT_SET_08(val, mask) : 0)
+#define  DEF_BIT_SET(val, mask)                        ((val) = ((val) | (mask)))
 
 
-#elif   (CPU_CFG_DATA_SIZE_MAX == CPU_WORD_SIZE_16)
+/*
+*********************************************************************************************************
+*                                          DEF_BIT_SET_xx()
+*
+* Description : Set specified bit(s) in a value of specified bit size.
+*
+* Argument(s) : val         Value to modify by setting specified bit(s).
+*
+*               mask        Mask of bits to set.
+*
+* Return(s)   : Modified value with specified bit(s) set.
+*
+* Caller(s)   : Application.
+*
+* Note(s)     : (1) 'val' & 'mask' SHOULD be unsigned integers.
+*
+*               (2) These macros are deprecated and should be replaced by the DEF_BIT_SET macro.
+*********************************************************************************************************
+*/
 
-#define  DEF_BIT_SET(val, mask)                 ((sizeof(val) == CPU_WORD_SIZE_08) ? DEF_BIT_SET_08(val, mask) :   \
-                                                ((sizeof(val) == CPU_WORD_SIZE_16) ? DEF_BIT_SET_16(val, mask) : 0))
+#define  DEF_BIT_SET_08(val, mask)                     (CPU_INT08U)DEF_BIT_SET((val), (CPU_INT08U)(mask))
+
+#define  DEF_BIT_SET_16(val, mask)                     (CPU_INT16U)DEF_BIT_SET((val), (CPU_INT16U)(mask))
+
+#define  DEF_BIT_SET_32(val, mask)                     (CPU_INT32U)DEF_BIT_SET((val), (CPU_INT32U)(mask))
+
+#define  DEF_BIT_SET_64(val, mask)                     (CPU_INT64U)DEF_BIT_SET((val), (CPU_INT64U)(mask))
 
 
-#elif   (CPU_CFG_DATA_SIZE_MAX == CPU_WORD_SIZE_32)
-
-#define  DEF_BIT_SET(val, mask)                 ((sizeof(val) == CPU_WORD_SIZE_08) ? DEF_BIT_SET_08(val, mask) :    \
-                                                ((sizeof(val) == CPU_WORD_SIZE_16) ? DEF_BIT_SET_16(val, mask) :    \
-                                                ((sizeof(val) == CPU_WORD_SIZE_32) ? DEF_BIT_SET_32(val, mask) : 0)))
-
-
-#elif   (CPU_CFG_DATA_SIZE_MAX == CPU_WORD_SIZE_64)
-
-#define  DEF_BIT_SET(val, mask)                 ((sizeof(val) == CPU_WORD_SIZE_08) ? DEF_BIT_SET_08(val, mask) :     \
-                                                ((sizeof(val) == CPU_WORD_SIZE_16) ? DEF_BIT_SET_16(val, mask) :     \
-                                                ((sizeof(val) == CPU_WORD_SIZE_32) ? DEF_BIT_SET_32(val, mask) :     \
-                                                ((sizeof(val) == CPU_WORD_SIZE_64) ? DEF_BIT_SET_64(val, mask) : 0))))
-
-#else
-
-#error  "CPU_CFG_DATA_SIZE_MAX  illegally #defined in 'cpu.h'      "
-#error  "                       [See 'cpu.h  CONFIGURATION ERRORS']"
-
-#endif
-
-
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                          DEF_BIT_CLR_xx()
@@ -836,13 +800,13 @@ typedef enum lib_err {
 *********************************************************************************************************
 */
 
-#define  DEF_BIT_CLR_08(val, mask)                     ((val) = (CPU_INT08U)(((CPU_INT08U)(val)) & ((CPU_INT08U)~(mask))))
+#define  DEF_BIT_CLR_08(val, mask)                     (CPU_INT08U)((val) = (((CPU_INT08U)val) & (~((CPU_INT08U)mask))))
 
-#define  DEF_BIT_CLR_16(val, mask)                     ((val) = (CPU_INT16U)(((CPU_INT16U)(val)) & ((CPU_INT16U)~(mask))))
+#define  DEF_BIT_CLR_16(val, mask)                     (CPU_INT16U)((val) = (((CPU_INT16U)val) & (~((CPU_INT16U)mask))))
 
-#define  DEF_BIT_CLR_32(val, mask)                     ((val) = (CPU_INT32U)(((CPU_INT32U)(val)) & ((CPU_INT32U)~(mask))))
+#define  DEF_BIT_CLR_32(val, mask)                     (CPU_INT32U)((val) = (((CPU_INT32U)val) & (~((CPU_INT32U)mask))))
 
-#define  DEF_BIT_CLR_64(val, mask)                     ((val) = (CPU_INT64U)(((CPU_INT64U)(val)) & ((CPU_INT64U)~(mask))))
+#define  DEF_BIT_CLR_64(val, mask)                     (CPU_INT64U)((val) = (((CPU_INT64U)val) & (~((CPU_INT64U)mask))))
 
 
 /*
@@ -896,7 +860,100 @@ typedef enum lib_err {
 #endif
 
 
-/*$PAGE*/
+/*
+*********************************************************************************************************
+*                                            DEF_BIT_TOGGLE()
+*
+* Description : Toggles specified bit(s) in a value.
+*
+* Argument(s) : val         Value to modify by toggling specified bit(s).
+*
+*               mask        Mask of bits to toggle.
+*
+* Return(s)   : Modified value with specified bit(s) toggled.
+*
+* Caller(s)   : Application.
+*
+* Note(s)     : (1) 'val' & 'mask' SHOULD be unsigned integers.
+*********************************************************************************************************
+*/
+
+#define  DEF_BIT_TOGGLE(val, mask)                      ((val) ^= (mask))
+
+
+/*
+*********************************************************************************************************
+*                                           DEF_BIT_FIELD_RD()
+*
+* Description : Reads a 'val' field, masked and shifted, given by mask 'field_mask'.
+*
+* Argument(s) : val         Value to read from.
+*
+*               field_mask  Mask of field to read. See note #1, #2 and #3.
+*
+* Return(s)   : Field value, masked and right-shifted to bit position 0.
+*
+* Caller(s)   : Application.
+*
+* Note(s)     : (1) 'field_mask' argument must NOT be 0.
+*
+*               (2) 'field_mask' argument must contain a mask with contiguous set bits.
+*
+*               (3) 'val' & 'field_mask' SHOULD be unsigned integers.
+*********************************************************************************************************
+*/
+
+#define  DEF_BIT_FIELD_RD(val, field_mask)              (((val) & (field_mask)) / ((field_mask) & ((~(field_mask)) + 1u)))
+
+
+/*
+*********************************************************************************************************
+*                                          DEF_BIT_FIELD_ENC()
+*
+* Description : Encodes given 'field_val' at position given by mask 'field_mask'.
+*
+* Argument(s) : field_val   Value to encode.
+*
+*               field_mask  Mask of field to read. See note #1 and #2.
+*
+* Return(s)   : Field value, masked and left-shifted to field position.
+*
+* Caller(s)   : Application.
+*
+* Note(s)     : (1) 'field_mask' argument must contain a mask with contiguous set bits.
+*
+*               (2) 'field_val' & 'field_mask' SHOULD be unsigned integers.
+*********************************************************************************************************
+*/
+
+#define  DEF_BIT_FIELD_ENC(field_val, field_mask)       (((field_val) * ((field_mask) & ((~(field_mask)) + 1u))) & (field_mask))
+
+
+/*
+*********************************************************************************************************
+*                                           DEF_BIT_FIELD_WR()
+*
+* Description : Writes 'field_val' field at position given by mask 'field_mask' in variable 'var'.
+*
+* Argument(s) : var         Variable to write field to. See note #2.
+*
+*               field_val   Desired value for field. See note #2.
+*
+*               field_mask  Mask of field to write to. See note #1 and #2.
+*
+* Return(s)   : None.
+*
+* Caller(s)   : Application.
+*
+* Note(s)     : (1) 'field_mask' argument must contain a mask with contiguous set bits.
+*
+*               (2) 'var', 'field_val' & 'field_mask' SHOULD be unsigned integers.
+*********************************************************************************************************
+*/
+
+#define  DEF_BIT_FIELD_WR(var, field_val, field_mask)   (var) = (((var) & ~(field_mask)) | DEF_BIT_FIELD_ENC((field_val), (field_mask)))
+
+
 /*
 *********************************************************************************************************
 *                                          DEF_BIT_IS_SET()
@@ -919,8 +976,8 @@ typedef enum lib_err {
 *********************************************************************************************************
 */
 
-#define  DEF_BIT_IS_SET(val, mask)                           ((((mask)  !=  0u)  && \
-                                                      (((val) & (mask)) == (mask))) ? (DEF_YES) : (DEF_NO ))
+#define  DEF_BIT_IS_SET(val, mask)                    (((((val) & (mask)) == (mask)) && \
+                                                         ((mask)          !=  0u))    ? (DEF_YES) : (DEF_NO))
 
 
 /*
@@ -945,11 +1002,10 @@ typedef enum lib_err {
 *********************************************************************************************************
 */
 
-#define  DEF_BIT_IS_CLR(val, mask)                           ((((mask)  !=  0u)  && \
-                                                      (((val) & (mask)) ==  0u))    ? (DEF_YES) : (DEF_NO ))
+#define  DEF_BIT_IS_CLR(val, mask)                    (((((val) & (mask)) ==  0u)  && \
+                                                         ((mask)          !=  0u))  ? (DEF_YES) : (DEF_NO))
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                        DEF_BIT_IS_SET_ANY()
@@ -998,7 +1054,6 @@ typedef enum lib_err {
 #define  DEF_BIT_IS_CLR_ANY(val, mask)               ((((val) & (mask)) == (mask))  ? (DEF_NO ) : (DEF_YES))
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                            VALUE MACRO'S
@@ -1021,16 +1076,16 @@ typedef enum lib_err {
 *
 * Caller(s)   : Application.
 *
-* Note(s)     : (1) DEF_CHK_VAL_MIN() avoids directly comparing any two values if only one of the values 
-*                   is negative since the negative value might be incorrectly promoted to an arbitrary 
+* Note(s)     : (1) DEF_CHK_VAL_MIN() avoids directly comparing any two values if only one of the values
+*                   is negative since the negative value might be incorrectly promoted to an arbitrary
 *                   unsigned value if the other value to compare is unsigned.
 *
-*               (2) Validation of values is limited to the range supported by the compiler &/or target 
-*                   environment.  All other values that underflow/overflow the supported range will 
+*               (2) Validation of values is limited to the range supported by the compiler &/or target
+*                   environment.  All other values that underflow/overflow the supported range will
 *                   modulo/wrap into the supported range as arbitrary signed or unsigned values.
 *
-*                   Therefore, any values that underflow the most negative signed value or overflow 
-*                   the most positive unsigned value supported by the compiler &/or target environment 
+*                   Therefore, any values that underflow the most negative signed value or overflow
+*                   the most positive unsigned value supported by the compiler &/or target environment
 *                   cannot be validated :
 *
 *                           (    N-1       N     ]
@@ -1038,10 +1093,10 @@ typedef enum lib_err {
 *                           (                    ]
 *
 *                               where
-*                                       N       Number of data word bits supported by the compiler 
+*                                       N       Number of data word bits supported by the compiler
 *                                                   &/or target environment
 *
-*                   (a) Note that the most negative value, -2^(N-1), is NOT included in the supported 
+*                   (a) Note that the most negative value, -2^(N-1), is NOT included in the supported
 *                       range since many compilers do NOT always correctly handle this value.
 *
 *               (3) 'val' and 'val_min' are compared to 1 instead of 0 to avoid warning generated for
@@ -1054,7 +1109,6 @@ typedef enum lib_err {
                                                        ((val) < (val_min)))) ? DEF_FAIL : DEF_OK)
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                          DEF_CHK_VAL_MAX()
@@ -1071,16 +1125,16 @@ typedef enum lib_err {
 *
 * Caller(s)   : Application.
 *
-* Note(s)     : (1) DEF_CHK_VAL_MAX() avoids directly comparing any two values if only one of the values 
-*                   is negative since the negative value might be incorrectly promoted to an arbitrary 
+* Note(s)     : (1) DEF_CHK_VAL_MAX() avoids directly comparing any two values if only one of the values
+*                   is negative since the negative value might be incorrectly promoted to an arbitrary
 *                   unsigned value if the other value to compare is unsigned.
 *
-*               (2) Validation of values is limited to the range supported by the compiler &/or target 
-*                   environment.  All other values that underflow/overflow the supported range will 
+*               (2) Validation of values is limited to the range supported by the compiler &/or target
+*                   environment.  All other values that underflow/overflow the supported range will
 *                   modulo/wrap into the supported range as arbitrary signed or unsigned values.
 *
-*                   Therefore, any values that underflow the most negative signed value or overflow 
-*                   the most positive unsigned value supported by the compiler &/or target environment 
+*                   Therefore, any values that underflow the most negative signed value or overflow
+*                   the most positive unsigned value supported by the compiler &/or target environment
 *                   cannot be validated :
 *
 *                           (    N-1       N     ]
@@ -1088,10 +1142,10 @@ typedef enum lib_err {
 *                           (                    ]
 *
 *                               where
-*                                       N       Number of data word bits supported by the compiler 
+*                                       N       Number of data word bits supported by the compiler
 *                                                   &/or target environment
 *
-*                   (a) Note that the most negative value, -2^(N-1), is NOT included in the supported 
+*                   (a) Note that the most negative value, -2^(N-1), is NOT included in the supported
 *                       range since many compilers do NOT always correctly handle this value.
 *
 *               (3) 'val' and 'val_max' are compared to 1 instead of 0 to avoid warning generated for
@@ -1104,12 +1158,11 @@ typedef enum lib_err {
                                                        ((val) > (val_max)))) ? DEF_FAIL : DEF_OK)
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                            DEF_CHK_VAL()
 *
-* Description : Validate a value as greater than or equal to a specified minimum value & less than or 
+* Description : Validate a value as greater than or equal to a specified minimum value & less than or
 *                   equal to a specified maximum value.
 *
 * Argument(s) : val        Value to validate.
@@ -1118,23 +1171,23 @@ typedef enum lib_err {
 *
 *               val_max    Maximum value to test.
 *
-* Return(s)   : DEF_OK,    Value is greater than or equal to minimum value AND 
+* Return(s)   : DEF_OK,    Value is greater than or equal to minimum value AND
 *                                   less    than or equal to maximum value.
 *
 *               DEF_FAIL,  otherwise.
 *
 * Caller(s)   : Application.
 *
-* Note(s)     : (1) DEF_CHK_VAL() avoids directly comparing any two values if only one of the values 
-*                   is negative since the negative value might be incorrectly promoted to an arbitrary 
+* Note(s)     : (1) DEF_CHK_VAL() avoids directly comparing any two values if only one of the values
+*                   is negative since the negative value might be incorrectly promoted to an arbitrary
 *                   unsigned value if the other value to compare is unsigned.
 *
-*               (2) Validation of values is limited to the range supported by the compiler &/or target 
-*                   environment.  All other values that underflow/overflow the supported range will 
+*               (2) Validation of values is limited to the range supported by the compiler &/or target
+*                   environment.  All other values that underflow/overflow the supported range will
 *                   modulo/wrap into the supported range as arbitrary signed or unsigned values.
 *
-*                   Therefore, any values that underflow the most negative signed value or overflow 
-*                   the most positive unsigned value supported by the compiler &/or target environment 
+*                   Therefore, any values that underflow the most negative signed value or overflow
+*                   the most positive unsigned value supported by the compiler &/or target environment
 *                   cannot be validated :
 *
 *                           (    N-1       N     ]
@@ -1142,27 +1195,26 @@ typedef enum lib_err {
 *                           (                    ]
 *
 *                               where
-*                                       N       Number of data word bits supported by the compiler 
+*                                       N       Number of data word bits supported by the compiler
 *                                                   &/or target environment
 *
-*                   (a) Note that the most negative value, -2^(N-1), is NOT included in the supported 
+*                   (a) Note that the most negative value, -2^(N-1), is NOT included in the supported
 *                       range since many compilers do NOT always correctly handle this value.
 *
-*               (3) DEF_CHK_VAL() does NOT validate that the maximum value ('val_max') is greater than 
+*               (3) DEF_CHK_VAL() does NOT validate that the maximum value ('val_max') is greater than
 *                   or equal to the minimum value ('val_min').
 *********************************************************************************************************
 */
 
-#define  DEF_CHK_VAL(val, val_min, val_max)          (((DEF_CHK_VAL_MIN(val, val_min) == DEF_FAIL) ||                  \
-                                                       (DEF_CHK_VAL_MAX(val, val_max) == DEF_FAIL)) ? DEF_FAIL : DEF_OK)
+#define  DEF_CHK_VAL(val, val_min, val_max)          (((DEF_CHK_VAL_MIN((val), (val_min)) == DEF_FAIL) ||                  \
+                                                       (DEF_CHK_VAL_MAX((val), (val_max)) == DEF_FAIL)) ? DEF_FAIL : DEF_OK)
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                         DEF_GET_U_MAX_VAL()
 *
-* Description : Get the maximum unsigned value that can be represented in an unsigned integer variable 
+* Description : Get the maximum unsigned value that can be represented in an unsigned integer variable
 *                   of the same data type size as an object.
 *
 * Argument(s) : obj         Object or data type to return maximum unsigned value (see Note #1).
@@ -1173,7 +1225,7 @@ typedef enum lib_err {
 *
 * Caller(s)   : Application.
 *
-* Note(s)     : (1) 'obj' SHOULD be an integer object or data type but COULD also be a character or 
+* Note(s)     : (1) 'obj' SHOULD be an integer object or data type but COULD also be a character or
 *                   pointer object or data type.
 *********************************************************************************************************
 */
@@ -1211,15 +1263,14 @@ typedef enum lib_err {
 #endif
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                            MATH MACRO'S
 *
-* Note(s) : (1) Ideally, ALL mathematical macro's & functions SHOULD be defined in the custom mathematics 
+* Note(s) : (1) Ideally, ALL mathematical macro's & functions SHOULD be defined in the custom mathematics
 *               library ('lib_math.*').  #### However, to maintain backwards compatibility with previously-
-*               released modules, mathematical macro & function definitions should only be moved to the 
-*               custom mathematics library once all previously-released modules are updated to include the 
+*               released modules, mathematical macro & function definitions should only be moved to the
+*               custom mathematics library once all previously-released modules are updated to include the
 *               custom mathematics library.
 *********************************************************************************************************
 */
@@ -1264,7 +1315,6 @@ typedef enum lib_err {
 #define  DEF_MAX(a, b)                                  (((a) > (b)) ? (a) : (b))
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                              DEF_ABS()
@@ -1284,7 +1334,6 @@ typedef enum lib_err {
 #define  DEF_ABS(a)                                     (((a) < 0) ? (-(a)) : (a))
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                         FUNCTION PROTOTYPES

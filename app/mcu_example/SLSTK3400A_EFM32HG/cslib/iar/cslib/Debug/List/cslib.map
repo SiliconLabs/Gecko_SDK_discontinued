@@ -1,0 +1,623 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.2.11947/W32 for ARM                09/Mar/2017  20:15:44
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Exe\cslib.out
+#    Map file     =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\List\cslib.map
+#    Command line =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\bsp_bcc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\bsp_stk.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\bsp_stk_leds.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\bsp_trace.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\comm_routines.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\cslib_config.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\device_init.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\em_acmp.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\em_assert.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\em_cmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\em_core.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\em_ebi.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\em_emu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\em_gpio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\em_leuart.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\em_rtc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\em_system.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\em_usart.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\hardware_config.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\hardware_routines.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\low_power_config.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\main.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\profiler_interface.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\retargetio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\retargetvirtual.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\sensor_descriptors.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\startup_efm32zg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj\system_efm32zg.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Exe\cslib.out
+#        --map
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\List\cslib.map
+#        --config
+#        T:\iar_ew_7802_win32_rel_1\arm\config\linker\SiliconLaboratories\EFM32ZG222F32.icf
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\..\..\..\..\..\platform\middleware\cslib\lib\libCSLIB_M0_iar.a
+#        --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x00007fff] { ro };
+"P2":  place in [from 0x20000000 to 0x20000fff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+ { section .intvec };
+
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A0":                                       0x8c
+  .intvec            ro code  0x00000000    0x8c  startup_efm32zg.o [1]
+                            - 0x0000008c    0x8c
+
+"P1":                                     0x39aa
+  .text              ro code  0x0000008c   0xeb6  xprintffull.o [3]
+  .text              ro code  0x00000f42    0x14  strchr.o [6]
+  .text              ro code  0x00000f56    0x10  strlen.o [6]
+  .text              ro code  0x00000f66    0x18  memchr.o [6]
+  .text              ro code  0x00000f7e    0x6a  I64DivMod.o [6]
+  .text              ro code  0x00000fe8    0x5c  ABImemcpy.o [6]
+  .text              ro code  0x00001044    0x32  DblCmpLe.o [5]
+  .text              ro code  0x00001076    0x32  DblCmpGe.o [5]
+  .text              ro code  0x000010a8    0x80  xdscale.o [5]
+  .text              ro code  0x00001128    0x52  DblToI32.o [5]
+  .rodata            const    0x0000117a     0x2  hardware_config.o [1]
+  .text              ro code  0x0000117c    0x34  I32ToDbl.o [5]
+  .text              ro code  0x000011b0   0x1a8  DblAddSub.o [5]
+  .text              ro code  0x00001358    0xe0  I32DivModFast.o [6]
+  .text              ro code  0x00001438   0x184  DblMul.o [5]
+  .text              ro code  0x000015bc    0xc2  DblDiv.o [5]
+  .text              ro code  0x0000167e    0x20  div.o [3]
+  .rodata            const    0x0000169e     0x2  hardware_config.o [1]
+  .text              ro code  0x000016a0     0x2  I64DivZer.o [6]
+  .rodata            const    0x000016a2     0x2  hardware_config.o [1]
+  .text              ro code  0x000016a4     0x2  IntDivZer.o [6]
+  .text              ro code  0x000016a6     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x000016a8   0x880  em_cmu.o [1]
+  .text              ro code  0x00001f28     0x4  em_assert.o [1]
+  .text              ro code  0x00001f2c    0xf0  system_efm32zg.o [1]
+  .text              ro code  0x0000201c   0x2a8  em_gpio.o [1]
+  .text              ro code  0x000022c4   0x274  hardware_routines.o [1]
+  .text              ro code  0x00002538   0x10c  em_acmp.o [1]
+  .text              ro code  0x00002644    0x28  low_power_config.o [1]
+  .text              ro code  0x0000266c    0xb4  em_rtc.o [1]
+  .text              ro code  0x00002720   0x128  em_emu.o [1]
+  .text              ro code  0x00002848   0x1cc  retargetvirtual.o [1]
+  .text              ro code  0x00002a14   0x160  em_leuart.o [1]
+  .text              ro code  0x00002b74   0x18c  profiler_interface.o [1]
+  .text              ro code  0x00002d00    0x24  printf.o [3]
+  .text              ro code  0x00002d24   0x184  sensor_node_routines.o [4]
+  .text              ro code  0x00002ea8    0x7c  comm_routines.o [1]
+  .text              ro code  0x00002f24    0x40  sensor_descriptors.o [1]
+  .text              ro code  0x00002f64   0x10c  threshold_routines.o [4]
+  .text              ro code  0x00003070    0xe0  low_power_routines.o [4]
+  .text              ro code  0x00003150    0x74  master_algorithm_config.o [4]
+  .text              ro code  0x000031c4    0x8a  baseline_routines.o [4]
+  .text              ro code  0x0000324e     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00003250    0x20  data_shaping_routines.o [4]
+  .text              ro code  0x00003270    0x9c  noise_routines.o [4]
+  .text              ro code  0x0000330c    0x34  scanning_routines.o [4]
+  .text              ro code  0x00003340    0x60  data_processing.o [4]
+  .text              ro code  0x000033a0    0xe0  exponential_averaging.o [4]
+  .rodata            const    0x00003480    0x84  em_cmu.o [1]
+  .rodata            const    0x00003504    0x84  em_gpio.o [1]
+  .text              ro code  0x00003588    0x56  retargetio.o [1]
+  .text              ro code  0x000035de     0x2  startup_efm32zg.o [1]
+  .rodata            const    0x000035e0    0x4c  em_acmp.o [1]
+  .rodata            const    0x0000362c    0x4c  em_cmu.o [1]
+  .rodata            const    0x00003678    0x4c  em_gpio.o [1]
+  .rodata            const    0x000036c4    0x4c  em_leuart.o [1]
+  .rodata            const    0x00003710    0x4c  em_rtc.o [1]
+  .rodata            const    0x0000375c    0x48  profiler_interface.o [1]
+  .text              ro code  0x000037a4    0x3c  zero_init3.o [6]
+  .text              ro code  0x000037e0    0x30  copy_init3.o [6]
+  .text              ro code  0x00003810    0x28  data_init.o [6]
+  .text              ro code  0x00003838    0x26  main.o [1]
+  .text              ro code  0x0000385e    0x16  device_init.o [1]
+  .text              ro code  0x00003874    0x24  putchar.o [3]
+  .iar.init_table    const    0x00003898    0x24  - Linker created -
+  .text              ro code  0x000038bc    0x1a  cmain.o [6]
+  .text              ro code  0x000038d6     0x4  low_level_init.o [3]
+  .text              ro code  0x000038da     0x8  exit.o [3]
+  .text              ro code  0x000038e2     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x000038e4     0xa  cexit.o [6]
+  .text              ro code  0x000038ee     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x000038f0     0xc  XXexit.o [6]
+  .rodata            const    0x000038fc    0x18  sensor_descriptors.o [1]
+  .rodata            const    0x00003914    0x18  xprintffull.o [3]
+  Initializer bytes  const    0x0000392c    0x18  <for P2-1>
+  .text              ro code  0x00003944    0x16  xprout.o [3]
+  .text              ro code  0x0000395a     0x2  startup_efm32zg.o [1]
+  .rodata            const    0x0000395c    0x14  hardware_routines.o [1]
+  .rodata            const    0x00003970    0x10  retargetvirtual.o [1]
+  .text              ro code  0x00003980    0x10  startup_efm32zg.o [1]
+  .rodata            const    0x00003990     0xc  comm_routines.o [1]
+  .rodata            const    0x0000399c     0xc  profiler_interface.o [1]
+  .rodata            const    0x000039a8     0xc  profiler_interface.o [1]
+  .rodata            const    0x000039b4     0xc  profiler_interface.o [1]
+  .rodata            const    0x000039c0     0xc  profiler_interface.o [1]
+  .text              ro code  0x000039cc     0xc  cstartup_M.o [6]
+  .rodata            const    0x000039d8     0x8  comm_routines.o [1]
+  .rodata            const    0x000039e0     0x8  profiler_interface.o [1]
+  .rodata            const    0x000039e8     0x8  profiler_interface.o [1]
+  .rodata            const    0x000039f0     0x8  profiler_interface.o [1]
+  .rodata            const    0x000039f8     0x8  profiler_interface.o [1]
+  .rodata            const    0x00003a00     0x8  sensor_descriptors.o [1]
+  .rodata            const    0x00003a08     0x4  hardware_config.o [1]
+  .rodata            const    0x00003a0c     0x4  hardware_routines.o [1]
+  .rodata            const    0x00003a10     0x4  profiler_interface.o [1]
+  .rodata            const    0x00003a14     0x4  sensor_descriptors.o [1]
+  .rodata            const    0x00003a18     0x4  sensor_descriptors.o [1]
+  .text              ro code  0x00003a1c     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00003a1e     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00003a20     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00003a22     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00003a24     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00003a26     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00003a28     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00003a2a     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00003a2c     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00003a2e     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00003a30     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00003a32     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00003a34     0x2  startup_efm32zg.o [1]
+  .rodata            const    0x00003a36     0x0  zero_init3.o [6]
+  .rodata            const    0x00003a36     0x0  copy_init3.o [6]
+                            - 0x00003a36  0x39aa
+
+"P2", part 1 of 3:                          0x18
+  P2-1                        0x20000000    0x18  <Init block>
+    .data            inited   0x20000000     0x8  sensor_descriptors.o [1]
+    .data            inited   0x20000008     0x4  system_efm32zg.o [1]
+    .data            inited   0x2000000c     0x4  system_efm32zg.o [1]
+    .data            inited   0x20000010     0x2  cslib_config.o [1]
+    .data            inited   0x20000012     0x1  cslib_config.o [1]
+    .data            inited   0x20000013     0x1  cslib_config.o [1]
+    .data            inited   0x20000014     0x1  cslib_config.o [1]
+    .data            inited   0x20000015     0x1  cslib_config.o [1]
+    .data            inited   0x20000016     0x1  cslib_config.o [1]
+    .data            inited   0x20000017     0x1  profiler_interface.o [1]
+                            - 0x20000018    0x18
+
+"P2", part 2 of 3:                         0x400
+  CSTACK                      0x20000018   0x400  <Block>
+    CSTACK           uninit   0x20000018   0x400  <Block tail>
+                            - 0x20000418   0x400
+
+"P2", part 3 of 3:                          0x6c
+  .bss               zero     0x20000418    0x20  cslib_config.o [1]
+  .bss               zero     0x20000438     0xc  noise_routines.o [4]
+  .bss               zero     0x20000444     0x8  hardware_routines.o [1]
+  .bss               zero     0x2000044c     0x8  retargetvirtual.o [1]
+  .bss               zero     0x20000454     0x4  em_emu.o [1]
+  .bss               zero     0x20000458     0x4  hardware_config.o [1]
+  .bss               zero     0x2000045c     0x4  hardware_config.o [1]
+  .bss               zero     0x20000460     0x4  retargetvirtual.o [1]
+  .bss               zero     0x20000464     0x4  retargetvirtual.o [1]
+  .bss               zero     0x20000468     0x4  retargetvirtual.o [1]
+  .bss               zero     0x2000046c     0x4  system_efm32zg.o [1]
+  .bss               zero     0x20000470     0x4  scanning_routines.o [4]
+  .bss               zero     0x20000474     0x4  low_power_routines.o [4]
+  .bss               zero     0x20000478     0x2  hardware_routines.o [1]
+  .bss               zero     0x2000047a     0x1  em_emu.o [1]
+  .bss               zero     0x2000047b     0x1  hardware_routines.o [1]
+  .bss               zero     0x2000047c     0x1  hardware_routines.o [1]
+  .bss               zero     0x2000047d     0x1  low_power_config.o [1]
+  .bss               zero     0x2000047e     0x1  retargetvirtual.o [1]
+  .bss               zero     0x2000047f     0x1  retargetvirtual.o [1]
+  .bss               zero     0x20000480     0x1  exponential_averaging.o [4]
+  .bss               zero     0x20000481     0x1  filter_config.o [4]
+                            - 0x20000482    0x6a
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x6a:
+          0x20000418  0x6a
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0x18:
+          0x0000392c  0x18
+    1 destination range, total size 0x18:
+          0x20000000  0x18
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                     ro code  ro data  rw data
+    ------                     -------  -------  -------
+D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj: [1]
+    comm_routines.o                124       20
+    cslib_config.o                            7       39
+    device_init.o                   22
+    em_acmp.o                      268       76
+    em_assert.o                      4
+    em_cmu.o                     2 176      208
+    em_emu.o                       296                 5
+    em_gpio.o                      680      208
+    em_leuart.o                    352       76
+    em_rtc.o                       180       76
+    hardware_config.o                        10        8
+    hardware_routines.o            628       24       12
+    low_power_config.o              40                 1
+    main.o                          38
+    profiler_interface.o           396      157        1
+    retargetio.o                    86
+    retargetvirtual.o              460       16       22
+    sensor_descriptors.o            64       48        8
+    startup_efm32zg.o              194
+    system_efm32zg.o               240        8       12
+    ----------------------------------------------------
+    Total:                       6 248      934      108
+
+command line: [2]
+    ----------------------------------------------------
+    Total:
+
+dl6M_tln.a: [3]
+    div.o                           32
+    exit.o                           8
+    low_level_init.o                 4
+    printf.o                        36
+    putchar.o                       36
+    xprintffull.o                3 766       24
+    xprout.o                        22
+    ----------------------------------------------------
+    Total:                       3 904       24
+
+libCSLIB_M0_iar.a: [4]
+    baseline_routines.o            138
+    data_processing.o               96
+    data_shaping_routines.o         32
+    exponential_averaging.o        224                 1
+    filter_config.o                                    1
+    low_power_routines.o           224                 4
+    master_algorithm_config.o      116
+    noise_routines.o               156                12
+    scanning_routines.o             52                 4
+    sensor_node_routines.o         388
+    threshold_routines.o           268
+    ----------------------------------------------------
+    Total:                       1 694                22
+
+m6M_tl.a: [5]
+    DblAddSub.o                    424
+    DblCmpGe.o                      50
+    DblCmpLe.o                      50
+    DblDiv.o                       194
+    DblMul.o                       388
+    DblToI32.o                      82
+    I32ToDbl.o                      52
+    xdscale.o                      128
+    ----------------------------------------------------
+    Total:                       1 368
+
+rt6M_tl.a: [6]
+    ABImemcpy.o                     92
+    I32DivModFast.o                224
+    I64DivMod.o                    106
+    I64DivZer.o                      2
+    IntDivZer.o                      2
+    XXexit.o                        12
+    cexit.o                         10
+    cmain.o                         26
+    copy_init3.o                    48
+    cstartup_M.o                    12
+    data_init.o                     40
+    memchr.o                        24
+    strchr.o                        20
+    strlen.o                        16
+    zero_init3.o                    60
+    ----------------------------------------------------
+    Total:                         694
+
+    Linker created                           36    1 024
+--------------------------------------------------------
+    Grand Total:                13 908      994    1 154
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x00003898          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x000038bc          --   Gb  - Linker created -
+?main                   0x000038bd         Code  Gb  cmain.o [6]
+ACMP_CapsenseChannelSet
+                        0x000025cf   0x30  Code  Gb  em_acmp.o [1]
+ACMP_CapsenseInit       0x0000255f   0x70  Code  Gb  em_acmp.o [1]
+ACMP_Disable            0x000025ff   0x1c  Code  Gb  em_acmp.o [1]
+ACMP_Enable             0x0000261b   0x1c  Code  Gb  em_acmp.o [1]
+BUS_RegBitRead          0x000016db    0xc  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x00002539   0x1c  Code  Lc  em_acmp.o [1]
+BUS_RegBitWrite         0x000016bf   0x1c  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x0000266d   0x1c  Code  Lc  em_rtc.o [1]
+BUS_RegMaskedWrite      0x00002555    0xa  Code  Lc  em_acmp.o [1]
+BlockWhileTX            0x00002eb7    0x8  Code  Gb  comm_routines.o [1]
+CAPSENSE_Init           0x0000237b   0x86  Code  Gb  hardware_routines.o [1]
+CHIP_Init               0x00003867    0x2  Code  Lc  device_init.o [1]
+CHIP_Init               0x00003839    0x2  Code  Lc  main.o [1]
+CMU_ClockDivSet         0x00001969  0x106  Code  Gb  em_cmu.o [1]
+CMU_ClockEnable         0x00001a71   0x80  Code  Gb  em_cmu.o [1]
+CMU_ClockFreqGet        0x00001b09   0xce  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectGet      0x00001bfd   0xe2  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectSet      0x00001d09  0x13e  Code  Gb  em_cmu.o [1]
+CMU_DivToLog2           0x000016e7   0x26  Code  Lc  em_cmu.o [1]
+CMU_Lock                0x00002729    0x8  Code  Lc  em_emu.o [1]
+CMU_OscillatorEnable    0x00001e75   0x96  Code  Gb  em_cmu.o [1]
+CMU_Unlock              0x00002731    0x8  Code  Lc  em_emu.o [1]
+CSLIB_activeThreshold   0x0000117a    0x2  Data  Gb  hardware_config.o [1]
+CSLIB_anySensorDebounceActive
+                        0x00002e47   0x24  Code  Gb  sensor_node_routines.o [4]
+CSLIB_anySensorSingleActive
+                        0x00002d67   0x24  Code  Gb  sensor_node_routines.o [4]
+CSLIB_averageTouchDelta
+                        0x000016a2    0x2  Data  Gb  hardware_config.o [1]
+CSLIB_buttonDebounce    0x20000014    0x1  Data  Gb  cslib_config.o [1]
+CSLIB_commInit          0x00002ea9    0xe  Code  Gb  comm_routines.o [1]
+CSLIB_commUpdate        0x00002b75  0x12e  Code  Gb  profiler_interface.o [1]
+CSLIB_countsBeforeSleep
+                        0x20000010    0x2  Data  Gb  cslib_config.o [1]
+CSLIB_freeRunSetting    0x20000015    0x1  Data  Gb  cslib_config.o [1]
+CSLIB_getNoiseAdjustedSensorData
+                        0x00002fa5   0x16  Code  Gb  threshold_routines.o [4]
+CSLIB_getNormalizedDelta
+                        0x00002fc3   0x28  Code  Gb  threshold_routines.o [4]
+CSLIB_getUnpackedTouchDelta
+                        0x00002e6b    0xc  Code  Gb  sensor_node_routines.o [4]
+CSLIB_inactiveThreshold
+                        0x0000169e    0x2  Data  Gb  hardware_config.o [1]
+CSLIB_initHardware      0x00003151    0xc  Code  Gb  master_algorithm_config.o [4]
+CSLIB_initLibrary       0x0000315d   0x34  Code  Gb  master_algorithm_config.o [4]
+CSLIB_isSensorDebounceActive
+                        0x00002e77   0x14  Code  Gb  sensor_node_routines.o [4]
+CSLIB_isSensorSingleActive
+                        0x00002e33   0x14  Code  Gb  sensor_node_routines.o [4]
+CSLIB_lowPowerUpdate    0x00003085   0xb4  Code  Gb  low_power_routines.o [4]
+CSLIB_muxInput          0x00003a08    0x4  Data  Gb  hardware_config.o [1]
+CSLIB_node              0x20000418   0x20  Data  Gb  cslib_config.o [1]
+CSLIB_nodeGetRaw        0x00002d5b    0xc  Code  Gb  sensor_node_routines.o [4]
+CSLIB_nodePushRaw       0x00002d4d    0xe  Code  Gb  sensor_node_routines.o [4]
+CSLIB_numSensors        0x20000012    0x1  Data  Gb  cslib_config.o [1]
+CSLIB_resetSensorStruct
+                        0x00002d25   0x28  Code  Gb  sensor_node_routines.o [4]
+CSLIB_sensorBufferSize  0x20000013    0x1  Data  Gb  cslib_config.o [1]
+CSLIB_sleepModeEnable   0x20000016    0x1  Data  Gb  cslib_config.o [1]
+CSLIB_systemNoiseAverage
+                        0x2000043a    0x2  Data  Gb  noise_routines.o [4]
+CSLIB_systemNoiseAverage_internal
+                        0x20000440    0x4  Data  Gb  noise_routines.o [4]
+CSLIB_update            0x00003191   0x30  Code  Gb  master_algorithm_config.o [4]
+CSTACK$$Base            0x20000018          --   Gb  - Linker created -
+CSTACK$$Limit           0x20000418          --   Gb  - Linker created -
+CS_dataBuffer           0x20000444    0x8  Data  Gb  hardware_routines.o [1]
+CS_newData              0x20000470    0x2  Data  Gb  scanning_routines.o [4]
+EMU_EnterEM1            0x000022d3   0x10  Code  Lc  hardware_routines.o [1]
+EMU_EnterEM2            0x000027ff   0x2c  Code  Gb  em_emu.o [1]
+GPIO_PinModeSet         0x0000216d  0x13a  Code  Gb  em_gpio.o [1]
+GPIO_PinOutClear        0x0000201d   0x96  Code  Lc  em_gpio.o [1]
+GPIO_PinOutSet          0x000020b3   0x96  Code  Lc  em_gpio.o [1]
+IncrementActiveDebounceCount
+                        0x00002d8b   0x46  Code  Gb  sensor_node_routines.o [4]
+IncrementInactiveDebounceCount
+                        0x00002dd1   0x42  Code  Gb  sensor_node_routines.o [4]
+Init_BaselineRoutines   0x0000324d    0x2  Code  Gb  baseline_routines.o [4]
+Init_DataShapingRoutines
+                        0x00003251    0xc  Code  Gb  data_shaping_routines.o [4]
+Init_ExponentialAveraging
+                        0x000033a1   0x2e  Code  Gb  exponential_averaging.o [4]
+Init_LowPowerRoutines   0x00003071   0x14  Code  Gb  low_power_routines.o [4]
+Init_NoiseRoutines      0x00003271    0x8  Code  Gb  noise_routines.o [4]
+Init_ProcessData        0x00003341   0x16  Code  Gb  data_processing.o [4]
+Init_ThresholdRoutines  0x00002f65   0x40  Code  Gb  threshold_routines.o [4]
+LESENSE_sleepScan       0x20000472    0x2  Data  Gb  scanning_routines.o [4]
+LEUART0_IRQHandler      0x00002871   0x56  Code  Gb  retargetvirtual.o [1]
+LEUART_BaudrateSet      0x00002a27   0x6e  Code  Gb  em_leuart.o [1]
+LEUART_Enable           0x00002a95   0x34  Code  Gb  em_leuart.o [1]
+LEUART_FreezeEnable     0x00002ac9   0x1a  Code  Gb  em_leuart.o [1]
+LEUART_Init             0x00002ae3   0x56  Code  Gb  em_leuart.o [1]
+LEUART_IntClear         0x00002865    0x4  Code  Lc  retargetvirtual.o [1]
+LEUART_IntEnable        0x00002869    0x8  Code  Lc  retargetvirtual.o [1]
+LEUART_Rx               0x00002b39    0xe  Code  Gb  em_leuart.o [1]
+LEUART_Sync             0x00002a15   0x12  Code  Lc  em_leuart.o [1]
+LEUART_Tx               0x00002b47   0x1a  Code  Gb  em_leuart.o [1]
+LFtoCRLF                0x2000047e    0x1  Data  Lc  retargetvirtual.o [1]
+LoadInt                 0x00000655   0x68  Code  Lc  xprintffull.o [3]
+NVIC_ClearPendingIRQ    0x00002857    0xe  Code  Lc  retargetvirtual.o [1]
+NVIC_EnableIRQ          0x000022c5    0xe  Code  Lc  hardware_routines.o [1]
+NVIC_EnableIRQ          0x00002849    0xe  Code  Lc  retargetvirtual.o [1]
+RETARGET_BlockOnTX      0x000028dd    0xc  Code  Gb  retargetvirtual.o [1]
+RETARGET_SerialCrLf     0x000028c7   0x16  Code  Gb  retargetvirtual.o [1]
+RETARGET_SerialInit     0x000028e9   0x9e  Code  Gb  retargetvirtual.o [1]
+RETARGET_WriteChar      0x00002987   0x4c  Code  Gb  retargetvirtual.o [1]
+RTC_CompareSet          0x00002689   0x36  Code  Gb  em_rtc.o [1]
+RTC_CounterReset        0x00002711   0x10  Code  Gb  em_rtc.o [1]
+RTC_Enable              0x000026bf   0x12  Code  Gb  em_rtc.o [1]
+RTC_IRQHandler          0x00002497   0x10  Code  Gb  hardware_routines.o [1]
+RTC_Init                0x000026d1   0x30  Code  Gb  em_rtc.o [1]
+RTC_IntClear            0x000022e3    0x6  Code  Lc  hardware_routines.o [1]
+RTC_IntEnable           0x000022e9    0xc  Code  Lc  hardware_routines.o [1]
+Region$$Table$$Base     0x00003898          --   Gb  - Linker created -
+Region$$Table$$Limit    0x000038bc          --   Gb  - Linker created -
+ResetActiveDebounceCount
+                        0x00002e23   0x10  Code  Gb  sensor_node_routines.o [4]
+ResetInactiveDebounceCount
+                        0x00002e13   0x10  Code  Gb  sensor_node_routines.o [4]
+SHAPING_indexValue      0x20000481    0x1  Data  Gb  filter_config.o [4]
+SYSTEM_GetProdRev       0x0000170d    0xa  Code  Lc  em_cmu.o [1]
+ScanAllSensors          0x0000330d   0x2a  Code  Gb  scanning_routines.o [4]
+ShapeScannedData        0x0000325d   0x10  Code  Gb  data_shaping_routines.o [4]
+SystemCoreClock         0x2000046c    0x4  Data  Gb  system_efm32zg.o [1]
+SystemCoreClockGet      0x00001f2d   0x1a  Code  Gb  system_efm32zg.o [1]
+SystemCoreClockUpdate   0x0000385f    0x8  Code  Lc  device_init.o [1]
+SystemCoreClockUpdate   0x00002721    0x8  Code  Lc  em_emu.o [1]
+SystemHFClockGet        0x00001f4b   0x8e  Code  Gb  system_efm32zg.o [1]
+SystemHFXOClock         0x20000008    0x4  Data  Lc  system_efm32zg.o [1]
+SystemInit              0x00001fd9    0x2  Code  Gb  system_efm32zg.o [1]
+SystemLFRCOClockGet     0x00001fdb    0x6  Code  Gb  system_efm32zg.o [1]
+SystemLFXOClock         0x2000000c    0x4  Data  Lc  system_efm32zg.o [1]
+SystemLFXOClockGet      0x00001fe7    0x6  Code  Gb  system_efm32zg.o [1]
+SystemMaxCoreClockGet   0x00001f47    0x4  Code  Gb  system_efm32zg.o [1]
+SystemULFRCOClockGet    0x00001fe1    0x6  Code  Gb  system_efm32zg.o [1]
+TIMER0_IRQHandler       0x000022f5   0x26  Code  Gb  hardware_routines.o [1]
+ThresholdUpdate_WithHystAndDebounce
+                        0x00002feb   0x6e  Code  Gb  threshold_routines.o [4]
+TxBuf                   0x00003589   0x1e  Code  Lc  retargetio.o [1]
+UpdateAllBaselines      0x00003245    0x8  Code  Gb  baseline_routines.o [4]
+UpdateAllNoiseLevels    0x00003279   0x8a  Code  Gb  noise_routines.o [4]
+UpdateBaseline          0x000031c5   0x72  Code  Gb  baseline_routines.o [4]
+UpdateExponentialAveraging
+                        0x000033cf   0x9c  Code  Gb  exponential_averaging.o [4]
+UpdateProcessData       0x00003357   0x38  Code  Gb  data_processing.o [4]
+UpdateThresholds        0x00002fbb    0x8  Code  Gb  threshold_routines.o [4]
+_GenldFull              0x00000c65  0x2aa  Code  Lc  xprintffull.o [3]
+_LdtobFull              0x000007ed  0x464  Code  Lc  xprintffull.o [3]
+_LitobFull              0x000006bd  0x12a  Code  Lc  xprintffull.o [3]
+_PrintfFull             0x0000008d  0x5c8  Code  Gb  xprintffull.o [3]
+_Prout                  0x00003945   0x16  Code  Gb  xprout.o [3]
+_PutcharsFull           0x00000f0f   0x30  Code  Lc  xprintffull.o [3]
+__Vectors               0x00000000          --   Gb  startup_efm32zg.o [1]
+__Vectors_End           0x0000008c         Data  Gb  startup_efm32zg.o [1]
+__Vectors_Size {Abs}    0x0000008c          --   Gb  startup_efm32zg.o [1]
+__aeabi_cdcmple         0x00001045         Code  Gb  DblCmpLe.o [5]
+__aeabi_cdrcmple        0x00001077         Code  Gb  DblCmpGe.o [5]
+__aeabi_d2iz            0x00001129         Code  Gb  DblToI32.o [5]
+__aeabi_d2uiz           0x0000114d         Code  Gb  DblToI32.o [5]
+__aeabi_ddiv            0x000015bd         Code  Gb  DblDiv.o [5]
+__aeabi_dmul            0x00001439         Code  Gb  DblMul.o [5]
+__aeabi_dsub            0x0000126b         Code  Gb  DblAddSub.o [5]
+__aeabi_i2d             0x0000117d         Code  Gb  I32ToDbl.o [5]
+__aeabi_idiv            0x00001385         Code  Gb  I32DivModFast.o [6]
+__aeabi_idiv0           0x000016a5         Code  Gb  IntDivZer.o [6]
+__aeabi_idivmod         0x00001385         Code  Gb  I32DivModFast.o [6]
+__aeabi_ldiv0           0x000016a1         Code  Gb  I64DivZer.o [6]
+__aeabi_memcpy          0x00000fe9         Code  Gb  ABImemcpy.o [6]
+__aeabi_memcpy4         0x00001011         Code  Wk  ABImemcpy.o [6]
+__aeabi_ui2d            0x00001191         Code  Gb  I32ToDbl.o [5]
+__aeabi_uidiv           0x0000138b         Code  Gb  I32DivModFast.o [6]
+__aeabi_uidivmod        0x0000138b         Code  Gb  I32DivModFast.o [6]
+__aeabi_uldivmod        0x00000f7f         Code  Gb  I64DivMod.o [6]
+__cmain                 0x000038bd         Code  Gb  cmain.o [6]
+__cmsis_iar_clz         0x000016a9   0x16  Code  Lc  em_cmu.o [1]
+__exit                  0x000038f1         Code  Gb  XXexit.o [6]
+__iar_Dscale            0x000010a9   0x80  Code  Gb  xdscale.o [5]
+__iar_Memchr            0x00000f67   0x18  Code  Gb  memchr.o [6]
+__iar_Strchr            0x00000f43   0x14  Code  Gb  strchr.o [6]
+__iar_copy_init3        0x000037e1   0x30  Code  Gb  copy_init3.o [6]
+__iar_d2uiz             0x00001151         Code  Gb  DblToI32.o [5]
+__iar_data_init3        0x00003811   0x28  Code  Gb  data_init.o [6]
+__iar_program_start     0x000039cd         Code  Gb  cstartup_M.o [6]
+__iar_ui2d              0x00001195         Code  Gb  I32ToDbl.o [5]
+__iar_zero_init3        0x000037a5   0x3c  Code  Gb  zero_init3.o [6]
+__low_level_init        0x000038d7    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000         Data  Gb  startup_efm32zg.o [1]
+__vector_table_0x1c     0x0000001c         Data  Gb  startup_efm32zg.o [1]
+__write                 0x000035a7   0x38  Code  Gb  retargetio.o [1]
+_call_main              0x000038c9         Code  Gb  cmain.o [6]
+_exit                   0x000038e5         Code  Gb  cexit.o [6]
+_main                   0x000038d3         Code  Gb  cmain.o [6]
+active_thresh           0x20000458    0x4  Data  Gb  hardware_config.o [1]
+active_timer_go_to_sleep
+                        0x20000475    0x1  Data  Gb  low_power_routines.o [4]
+assertEFM               0x00001f29    0x4  Code  Gb  em_assert.o [1]
+auxClkGet               0x00001717   0x7e  Code  Lc  em_cmu.o [1]
+checkTimer              0x0000266b    0x2  Code  Gb  low_power_config.o [1]
+configureRelaxOscActiveMode
+                        0x00002409    0xc  Code  Gb  hardware_routines.o [1]
+configureSensorForActiveMode
+                        0x00002401    0x8  Code  Gb  hardware_routines.o [1]
+configureSensorForSleepMode
+                        0x00002645    0x8  Code  Gb  low_power_config.o [1]
+configureTimerForActiveMode
+                        0x00002657    0xa  Code  Gb  low_power_config.o [1]
+configureTimerForSleepMode
+                        0x00002661    0xa  Code  Gb  low_power_config.o [1]
+currentChannel          0x2000047b    0x1  Data  Lc  hardware_routines.o [1]
+dbgClkGet               0x00001795   0x38  Code  Lc  em_cmu.o [1]
+div                     0x0000167f   0x20  Code  Gb  div.o [3]
+emState                 0x00002739   0xc6  Code  Lc  em_emu.o [1]
+emState::cmuStatus      0x20000454    0x4  Data  Lc  em_emu.o [1]
+emState::hfClock        0x2000047a    0x1  Data  Lc  em_emu.o [1]
+enterLowPowerState      0x0000264d    0xa  Code  Gb  low_power_config.o [1]
+exit                    0x000038db    0x8  Code  Gb  exit.o [3]
+exp_av_divider          0x20000480    0x1  Data  Gb  exponential_averaging.o [4]
+flashWaitStateControl   0x000017cd   0x52  Code  Lc  em_cmu.o [1]
+flashWaitStateMax       0x0000181f    0xc  Code  Lc  em_cmu.o [1]
+headerEntries           0x0000375c   0x48  Data  Gb  profiler_interface.o [1]
+inactive_thresh         0x2000045c    0x4  Data  Gb  hardware_config.o [1]
+initialized             0x2000047f    0x1  Data  Lc  retargetvirtual.o [1]
+lfClkGet                0x0000182b   0xc4  Code  Lc  em_cmu.o [1]
+main                    0x0000383b   0x24  Code  Gb  main.o [1]
+measurementComplete     0x2000047c    0x1  Data  Lc  hardware_routines.o [1]
+mode                    0x20000474    0x1  Data  Gb  low_power_routines.o [4]
+noise_level             0x20000438    0x1  Data  Gb  noise_routines.o [4]
+outputBeginHeader       0x00002efd    0xa  Code  Gb  comm_routines.o [1]
+outputBreak             0x00002ef3    0xa  Code  Gb  comm_routines.o [1]
+outputHeaderCount       0x00002ebf   0x34  Code  Gb  comm_routines.o [1]
+outputNewLine           0x00002f07    0xa  Code  Gb  comm_routines.o [1]
+outputsensorDescriptors
+                        0x00002f25   0x40  Code  Gb  sensor_descriptors.o [1]
+palClockSetup           0x00002415   0x16  Code  Lc  hardware_routines.o [1]
+printHeader             0x00002ca3   0x36  Code  Gb  profiler_interface.o [1]
+printf                  0x00002d01   0x24  Code  Gb  printf.o [3]
+putchar                 0x00003875   0x24  Code  Gb  putchar.o [3]
+rtcSetup                0x0000242b   0x6c  Code  Gb  hardware_routines.o [1]
+rxBuffer                0x2000044c    0x8  Data  Lc  retargetvirtual.o [1]
+rxCount                 0x20000468    0x4  Data  Lc  retargetvirtual.o [1]
+rxReadIndex             0x20000460    0x4  Data  Lc  retargetvirtual.o [1]
+rxWriteIndex            0x20000464    0x4  Data  Lc  retargetvirtual.o [1]
+scanResult              0x20000478    0x2  Data  Lc  hardware_routines.o [1]
+scanSensor              0x0000231b   0x60  Code  Gb  hardware_routines.o [1]
+sendHeader              0x20000017    0x1  Data  Gb  profiler_interface.o [1]
+sensorDescriptors       0x20000000    0x8  Data  Gb  sensor_descriptors.o [1]
+strlen                  0x00000f57   0x10  Code  Gb  strlen.o [6]
+syncReg                 0x000018ef   0x16  Code  Lc  em_cmu.o [1]
+systemInit              0x00003869    0xc  Code  Gb  device_init.o [1]
+system_noise            0x2000043c    0x2  Data  Gb  noise_routines.o [4]
+timerTick               0x2000047d    0x1  Data  Gb  low_power_config.o [1]
+
+
+[1] = D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\cslib\iar\cslib\Debug\Obj
+[2] = command line
+[3] = dl6M_tln.a
+[4] = libCSLIB_M0_iar.a
+[5] = m6M_tl.a
+[6] = rt6M_tl.a
+
+  13 908 bytes of readonly  code memory
+     994 bytes of readonly  data memory
+   1 154 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

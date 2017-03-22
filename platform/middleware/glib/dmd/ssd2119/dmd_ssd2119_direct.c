@@ -1,7 +1,7 @@
 /***************************************************************************//**
- * @file
+ * @file dmd_ssd2119_direct.c
  * @brief Dot matrix display Direct Driver for TFT SSD2119 "Generic" mode
- * @version 2.0.1
+ * @version 5.1.2
  *******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -24,6 +24,8 @@
 #include "em_cmu.h"
 #include "em_gpio.h"
 #include "tftspi.h"
+
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 
 /** Dimensions of the display */
 DMD_DisplayGeometry dimensions =
@@ -339,7 +341,6 @@ EMSTATUS DMD_writeData(uint16_t x, uint16_t y, const uint8_t data[],
   return DMD_OK;
 }
 
-
 /**************************************************************************//**
 *  @brief
 *  Reads data from display memory
@@ -372,7 +373,6 @@ EMSTATUS DMD_readData(uint16_t x, uint16_t y,
 
   return DMD_OK;
 }
-
 
 /**************************************************************************//**
 *  \brief
@@ -456,7 +456,6 @@ EMSTATUS DMD_sleep(void)
   return DMD_OK;
 }
 
-
 /**************************************************************************//**
 *  @brief
 *  Wakes up the display from sleep mode
@@ -521,3 +520,5 @@ EMSTATUS DMD_flipDisplay(int horizontal, int vertical)
 
   return DMD_OK;
 }
+
+/** @endcond */

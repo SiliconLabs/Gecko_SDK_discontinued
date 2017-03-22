@@ -2,7 +2,7 @@
  * @file startup_efm32wg.c
  * @brief CMSIS Compatible EFM32WG startup file in C.
  *        Should be used with GCC 'GNU Tools ARM Embedded'
- * @version 5.0.0
+ * @version 5.1.2
  * Date:    12 June 2014
  *
  */

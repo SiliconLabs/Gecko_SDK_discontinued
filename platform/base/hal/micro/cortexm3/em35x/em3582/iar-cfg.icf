@@ -1,0 +1,55 @@
+// IAR V5 ILINK linker configuration file.
+//
+// THIS IS A GENERATED FILE.  DO NOT EDIT.
+//
+// Copyright 2016 Silicon Laboratories, Inc.                                *80*
+
+//------------------------------------------------------------------------------
+// Symbol definition.
+
+//  The EM3582's main flash block is actually physically instantiated starting 
+//  at address 0x08000000, but unless executing in fib bootload mode, it may 
+//  also be accessed starting at address 0x00000000.  As a result, the interrupt 
+//  vectors (especially the reset vector) are still located in the proper 
+//  place where the hardware expects them.
+//  
+
+define memory mem with size = 4G;
+
+define symbol RAM_BOTTOM          = 0x20000000;
+define symbol RAM_TOP             = 0x20007FFF;
+
+define symbol MFB_BOTTOM          = 0x08000000;
+define symbol MFB_TOP             = 0x0803FFFF;
+
+define symbol CIB_BOTTOM          = 0x08080800;
+define symbol CIB_TOP             = 0x08080FFF;
+
+define symbol FIB_BOTTOM          = 0x08080000;
+define symbol FIB_TOP             = 0x080807FF;
+
+define symbol FLASH_PAGE_SIZE     = 0x00000800;
+define symbol WRITE_PROTECT_SIZE  = 8;
+define symbol DEFAULT_BTL_SIZE    = FLASH_PAGE_SIZE * WRITE_PROTECT_SIZE;
+
+// If we were given a RAM_RETAIN_SIZE then make sure that we don't use
+// any RAM outside of that range by setting it to be in the unused region.
+if( isdefinedsymbol(RAM_RETAIN_SIZE) ) {
+    define symbol UNUSED_RAM_SIZE = RAM_TOP - RAM_BOTTOM + 1 - RAM_RETAIN_SIZE;
+} else {
+    define symbol UNUSED_RAM_SIZE = 0;
+}
+
+// include the common icf which locates all the sections
+if(isdefinedsymbol(FLASHLOADER)) {
+  include "../../loader/flashloader/iar-cfg-flashloader.icf";
+} else if(isdefinedsymbol(RAMEXE)) {
+  include "../../iar-cfg-common-ramexe.icf";
+} else if(isdefinedsymbol(BOOTLOADER)) {
+  include "../../bootloader/iar-cfg-boot.icf";
+} else if(isdefinedsymbol(FIB_BOOTLOADER)) {
+  include "../../bootloader/iar-cfg-fib.icf";
+} else {
+  include "../../iar-cfg-common.icf";
+}
+

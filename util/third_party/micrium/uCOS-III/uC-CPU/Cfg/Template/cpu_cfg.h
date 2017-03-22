@@ -3,7 +3,7 @@
 *                                                uC/CPU
 *                                    CPU CONFIGURATION & PORT LAYER
 *
-*                          (c) Copyright 2004-2013; Micrium, Inc.; Weston, FL
+*                          (c) Copyright 2004-2016; Micrium, Inc.; Weston, FL
 *
 *               All rights reserved.  Protected by international copyright laws.
 *
@@ -15,6 +15,8 @@
 *               Please help us continue to provide the Embedded community with the finest 
 *               software available.  Your honesty is greatly appreciated.
 *
+*               You can find our product's user manual, API reference, release notes and
+*               more information at https://doc.micrium.com.
 *               You can contact us at www.micrium.com.
 *********************************************************************************************************
 */
@@ -27,7 +29,7 @@
 *                                              TEMPLATE
 *
 * Filename      : cpu_cfg.h
-* Version       : V1.29.02
+* Version       : V1.31.00
 * Programmer(s) : SR
 *                 ITJ
 *                 JBL
@@ -122,11 +124,6 @@
 *               (b) Configure CPU_CFG_INT_DIS_MEAS_OVRHD_NBR with the number of times to measure & 
 *                   average the interrupts disabled time measurements overhead.
 *
-*                   Recommend a single (1) overhead time measurement, even for instruction-cache-enabled 
-*                   CPUs, since critical sections are NOT typically called within instruction-cached loops.
-*                   Thus a single non-cached/non-averaged time measurement is a more realistic overhead 
-*                   for the majority of non-cached interrupts disabled time measurements.
-*
 *                   See also 'cpu_core.c  CPU_IntDisMeasInit()  Note #3a'.
 *********************************************************************************************************
 */
@@ -191,6 +188,21 @@
 #if 0
 #define  CPU_CFG_ENDIAN_TYPE            CPU_ENDIAN_TYPE_BIG     /* Defines CPU data    word-memory order (see Note #2). */
 #endif
+
+
+/*
+*********************************************************************************************************
+*                                          CACHE MANAGEMENT
+*
+* Note(s) : (1) Configure CPU_CFG_CACHE_MGMT_EN to enable the cache managment API.
+
+*
+*           (2) Defining CPU_CFG_CACHE_MGMT_EN to DEF_ENABLED only enable the cache management function.
+*               Cache are assumed to be configured and enabled by the time CPU_init() is called.
+*********************************************************************************************************
+*/
+
+#define  CPU_CFG_CACHE_MGMT_EN            DEF_DISABLED          /* Defines CPU data    word-memory order (see Note #1). */
 
 
 /*

@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file spidrv.c
  * @brief SPIDRV API implementation.
- * @version 5.0.0
+ * @version 5.1.2
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -141,6 +141,30 @@ Ecode_t SPIDRV_Init( SPIDRV_Handle_t handle, SPIDRV_Init_t *initData )
     handle->usartClock  = cmuClock_USART2;
     handle->txDMASignal = dmadrvPeripheralSignal_USART2_TXBL;
     handle->rxDMASignal = dmadrvPeripheralSignal_USART2_RXDATAV;
+#endif
+#if defined( USART3 )
+  }
+  else if ( initData->port == USART3 )
+  {
+    handle->usartClock  = cmuClock_USART3;
+    handle->txDMASignal = dmadrvPeripheralSignal_USART3_TXBL;
+    handle->rxDMASignal = dmadrvPeripheralSignal_USART3_RXDATAV;
+#endif
+#if defined( USART4 )
+  }
+  else if ( initData->port == USART4 )
+  {
+    handle->usartClock  = cmuClock_USART4;
+    handle->txDMASignal = dmadrvPeripheralSignal_USART4_TXBL;
+    handle->rxDMASignal = dmadrvPeripheralSignal_USART4_RXDATAV;
+#endif
+#if defined( USART5 )
+  }
+  else if ( initData->port == USART5 )
+  {
+    handle->usartClock  = cmuClock_USART5;
+    handle->txDMASignal = dmadrvPeripheralSignal_USART5_TXBL;
+    handle->rxDMASignal = dmadrvPeripheralSignal_USART5_RXDATAV;
 #endif
 #if defined( USARTRF0 )
   }
@@ -724,14 +748,14 @@ Ecode_t SPIDRV_MTransferSingleItemB( SPIDRV_Handle_t handle,
   CORE_DECLARE_IRQ_STATE;
   uint32_t rxBuffer;
 
-  if ( handle->initData.type == spidrvSlave )
-  {
-    return ECODE_EMDRV_SPIDRV_MODE_ERROR;
-  }
-
   if ( handle == NULL )
   {
     return ECODE_EMDRV_SPIDRV_ILLEGAL_HANDLE;
+  }
+
+  if ( handle->initData.type == spidrvSlave )
+  {
+    return ECODE_EMDRV_SPIDRV_MODE_ERROR;
   }
 
   CORE_ENTER_ATOMIC();
@@ -1389,6 +1413,45 @@ static Ecode_t ConfigGPIO( SPIDRV_Handle_t handle, bool enable )
     misoPin        = AF_USART2_RX_PIN(   initData->portLocationRx  );
     clkPin         = AF_USART2_CLK_PIN(  initData->portLocationClk );
     handle->csPin  = AF_USART2_CS_PIN(   initData->portLocationCs  );
+#endif
+#if defined( USART3 )
+  }
+  else if ( handle->initData.port == USART3 )
+  {
+    mosiPort       = AF_USART3_TX_PORT(  initData->portLocationTx  );
+    misoPort       = AF_USART3_RX_PORT(  initData->portLocationRx  );
+    clkPort        = AF_USART3_CLK_PORT( initData->portLocationClk );
+    handle->csPort = AF_USART3_CS_PORT(  initData->portLocationCs  );
+    mosiPin        = AF_USART3_TX_PIN(   initData->portLocationTx  );
+    misoPin        = AF_USART3_RX_PIN(   initData->portLocationRx  );
+    clkPin         = AF_USART3_CLK_PIN(  initData->portLocationClk );
+    handle->csPin  = AF_USART3_CS_PIN(   initData->portLocationCs  );
+#endif
+#if defined( USART4 )
+  }
+  else if ( handle->initData.port == USART4 )
+  {
+    mosiPort       = AF_USART4_TX_PORT(  initData->portLocationTx  );
+    misoPort       = AF_USART4_RX_PORT(  initData->portLocationRx  );
+    clkPort        = AF_USART4_CLK_PORT( initData->portLocationClk );
+    handle->csPort = AF_USART4_CS_PORT(  initData->portLocationCs  );
+    mosiPin        = AF_USART4_TX_PIN(   initData->portLocationTx  );
+    misoPin        = AF_USART4_RX_PIN(   initData->portLocationRx  );
+    clkPin         = AF_USART4_CLK_PIN(  initData->portLocationClk );
+    handle->csPin  = AF_USART4_CS_PIN(   initData->portLocationCs  );
+#endif
+#if defined( USART5 )
+  }
+  else if ( handle->initData.port == USART5 )
+  {
+    mosiPort       = AF_USART5_TX_PORT(  initData->portLocationTx  );
+    misoPort       = AF_USART5_RX_PORT(  initData->portLocationRx  );
+    clkPort        = AF_USART5_CLK_PORT( initData->portLocationClk );
+    handle->csPort = AF_USART5_CS_PORT(  initData->portLocationCs  );
+    mosiPin        = AF_USART5_TX_PIN(   initData->portLocationTx  );
+    misoPin        = AF_USART5_RX_PIN(   initData->portLocationRx  );
+    clkPin         = AF_USART5_CLK_PIN(  initData->portLocationClk );
+    handle->csPin  = AF_USART5_CS_PIN(   initData->portLocationCs  );
 #endif
 #if defined( USARTRF0 )
   }

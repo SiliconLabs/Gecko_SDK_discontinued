@@ -2,13 +2,13 @@
 ;                                               uC/OS-II
 ;                                         The Real-Time Kernel
 ;
-;                               (c) Copyright 1992-2006, Micrium, Weston, FL
+;                               (c) Copyright 1992-2016, Micrium, Weston, FL
 ;                                          All Rights Reserved
 ;
 ;                                           ARM Cortex-M3 Port
 ;
 ; File      : OS_CPU_A.ASM
-; Version   : V2.89
+; Version   : V2.92.12.00
 ; By        : Jean J. Labrosse
 ;             Brian Nagel
 ;
@@ -118,6 +118,7 @@ OSStartHighRdy
 
     MOVS    R0, #0                                              ; Set the PSP to 0 for initial context switch call
     MSR     PSP, R0
+    BL      OSTaskSwHook
 
     LDR     R0, =OS_CPU_ExceptStkBase                           ; Initialize the MSP to the OS_CPU_ExceptStkBase
     LDR     R1, [R0]

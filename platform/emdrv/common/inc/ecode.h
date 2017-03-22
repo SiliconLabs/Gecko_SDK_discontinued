@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file ecode.h
  * @brief Energy Aware drivers error code definitions.
- * @version 5.0.0
+ * @version 5.1.2
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -32,7 +32,7 @@
  *  found in emdrv\\config.
  *
  * @note
- *	EMDRV APIs use Ecode_t to return status.
+ *	EMDRV APIs use @ref Ecode_t to return status.
  * @n @n
  *  With the exception of ezradiodrv, EMDRV does not implement RF support.
  *  Please refer to stack documentation for more information.
@@ -41,12 +41,12 @@
  ******************************************************************************/
 
 /***************************************************************************//**
- * @brief Typedef for API function errorcode return values.
+ * @brief Typedef for API function error code return values.
  *
  * @details
- *        Bit 24-31:  sub-system, for example emLib, eaDrivers,... @n
- *        Bit 16-23:  module, for example UART, LCD,... @n
- *        Bit 0-15:   error code, specific error code
+ *        Bit 24-31:  Component, for example @ref EMDRV @n
+ *        Bit 16-23:  Module, for example @ref UARTDRV or @ref RTCDRV @n
+ *        Bit 0-15:   Error code
  ******************************************************************************/
 typedef uint32_t Ecode_t;
 

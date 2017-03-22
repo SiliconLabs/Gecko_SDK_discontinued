@@ -1,0 +1,357 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.2.11947/W32 for ARM                09/Mar/2017  19:48:30
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\joystick\iar\joystick\Debug\Exe\joystick.out
+#    Map file     =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\joystick\iar\joystick\Debug\List\joystick.map
+#    Command line =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\joystick\iar\joystick\Debug\Obj\bsp_dk_3201.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\joystick\iar\joystick\Debug\Obj\bsp_dk_leds.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\joystick\iar\joystick\Debug\Obj\bsp_trace.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\joystick\iar\joystick\Debug\Obj\em_assert.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\joystick\iar\joystick\Debug\Obj\em_cmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\joystick\iar\joystick\Debug\Obj\em_ebi.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\joystick\iar\joystick\Debug\Obj\em_emu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\joystick\iar\joystick\Debug\Obj\em_gpio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\joystick\iar\joystick\Debug\Obj\em_system.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\joystick\iar\joystick\Debug\Obj\em_usart.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\joystick\iar\joystick\Debug\Obj\joystick.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\joystick\iar\joystick\Debug\Obj\startup_efm32gg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\joystick\iar\joystick\Debug\Obj\system_efm32gg.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\joystick\iar\joystick\Debug\Exe\joystick.out
+#        --map
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\joystick\iar\joystick\Debug\List\joystick.map
+#        --config
+#        T:\iar_ew_7802_win32_rel_1\arm\config\linker\SiliconLaboratories\EFM32GG990F1024.icf
+#        --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x000fffff] { ro };
+"P2":  place in [from 0x20000000 to 0x2001ffff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+ { section .intvec };
+
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A0":                                       0xdc
+  .intvec            ro code  0x00000000    0xdc  startup_efm32gg.o [1]
+                            - 0x000000dc    0xdc
+
+"P1":                                     0x25dd
+  .text              ro code  0x000000dc   0x840  bsp_dk_3201.o [1]
+  .text              ro code  0x0000091c     0x2  em_assert.o [1]
+  .text              ro code  0x00000920   0x730  em_cmu.o [1]
+  .text              ro code  0x00001050   0x3fc  em_gpio.o [1]
+  .text              ro code  0x0000144c    0x56  ABImemcpy_unaligned.o [4]
+  .text              ro code  0x000014a4   0x7b8  em_ebi.o [1]
+  .text              ro code  0x00001c5c   0x194  em_usart.o [1]
+  .text              ro code  0x00001df0   0x12c  system_efm32gg.o [1]
+  .text              ro code  0x00001f1c   0x1b8  joystick.o [1]
+  .text              ro code  0x000020d4    0x18  bsp_dk_leds.o [1]
+  .text              ro code  0x000020ec   0x118  bsp_trace.o [1]
+  .rodata            const    0x00002204    0x88  bsp_dk_3201.o [1]
+  .rodata            const    0x0000228c    0x88  em_gpio.o [1]
+  .rodata            const    0x00002314    0x84  em_cmu.o [1]
+  .rodata            const    0x00002398    0x50  bsp_dk_3201.o [1]
+  .rodata            const    0x000023e8    0x4c  em_cmu.o [1]
+  .rodata            const    0x00002434    0x4c  em_ebi.o [1]
+  .rodata            const    0x00002480    0x4c  em_gpio.o [1]
+  .rodata            const    0x000024cc    0x4c  em_usart.o [1]
+  .text              ro code  0x00002518    0x38  packbits_init_single.o [4]
+  .text              ro code  0x00002550    0x28  data_init.o [4]
+  .iar.init_table    const    0x00002578    0x10  - Linker created -
+  .text              ro code  0x00002588    0x1a  cmain.o [4]
+  .text              ro code  0x000025a2     0x4  low_level_init.o [3]
+  .text              ro code  0x000025a6     0x4  exit.o [3]
+  .text              ro code  0x000025ac     0xa  cexit.o [4]
+  .text              ro code  0x000025b8     0xc  XXexit.o [4]
+  .rodata            const    0x000025c4    0x18  bsp_dk_3201.o [1]
+  .text              ro code  0x000025dc    0x10  startup_efm32gg.o [1]
+  .text              ro code  0x000025ec     0xc  cstartup_M.o [4]
+  .text              ro code  0x000025f8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000025fc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002600     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002604     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002608     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000260c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002610     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002614     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002618     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000261c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002620     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002624     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002628     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000262c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002630     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002634     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002638     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000263c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002640     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002644     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002648     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000264c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002650     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002654     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002658     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000265c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002660     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002664     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002668     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000266c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002670     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002674     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002678     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000267c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002680     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002684     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002688     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000268c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002690     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002694     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002698     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000269c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000026a0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000026a4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000026a8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000026ac     0x4  startup_efm32gg.o [1]
+  .rodata            const    0x000026b0     0x0  packbits_init_single.o [4]
+  Initializer bytes  const    0x000026b0     0x9  <for P2-1>
+                            - 0x000026b9  0x25dd
+
+"P2", part 1 of 2:                          0x1b
+  P2-1                        0x20000000    0x1b  <Init block>
+    .data            inited   0x20000000     0x4  system_efm32gg.o [1]
+    .data            inited   0x20000004     0x4  system_efm32gg.o [1]
+    .bss             inited   0x20000008     0x4  bsp_dk_3201.o [1]
+    .bss             inited   0x2000000c     0x4  bsp_dk_3201.o [1]
+    .bss             inited   0x20000010     0x4  joystick.o [1]
+    .bss             inited   0x20000014     0x4  system_efm32gg.o [1]
+    .bss             inited   0x20000018     0x2  bsp_dk_3201.o [1]
+    .bss             inited   0x2000001a     0x1  bsp_dk_3201.o [1]
+                            - 0x2000001b    0x1b
+
+"P2", part 2 of 2:                         0x400
+  CSTACK                      0x20000020   0x400  <Block>
+    CSTACK           uninit   0x20000020   0x400  <Block tail>
+                            - 0x20000420   0x400
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Copy/packbits (__iar_packbits_init_single3)
+    1 source range, total size 0x9 (33% of destination):
+          0x000026b0   0x9
+    1 destination range, total size 0x1b:
+          0x20000000  0x1b
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                  ro code  ro data  rw data
+    ------                  -------  -------  -------
+D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\joystick\iar\joystick\Debug\Obj: [1]
+    bsp_dk_3201.o             2 112      244       11
+    bsp_dk_leds.o                24
+    bsp_trace.o                 280
+    em_assert.o                   2
+    em_cmu.o                  1 840      208
+    em_ebi.o                  1 976       76
+    em_gpio.o                 1 020      212
+    em_usart.o                  404       76
+    joystick.o                  440        1        4
+    startup_efm32gg.o           420
+    system_efm32gg.o            300        4       12
+    -------------------------------------------------
+    Total:                    8 818      821       27
+
+command line: [2]
+    -------------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    exit.o                        4
+    low_level_init.o              4
+    -------------------------------------------------
+    Total:                        8
+
+rt7M_tl.a: [4]
+    ABImemcpy_unaligned.o        86
+    XXexit.o                     12
+    cexit.o                      10
+    cmain.o                      26
+    cstartup_M.o                 12
+    data_init.o                  40
+    packbits_init_single.o       56
+    -------------------------------------------------
+    Total:                      242
+
+    Gaps                          8
+    Linker created                        16    1 024
+-----------------------------------------------------
+    Grand Total:              9 076      837    1 051
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x00002578          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x00002588          --   Gb  - Linker created -
+?main                   0x00002589         Code  Gb  cmain.o [4]
+BSP_BusControlModeSet   0x0000028b   0x9c  Code  Gb  bsp_dk_3201.o [1]
+BSP_EbiExtendedAddressRange
+                        0x00000327   0x24  Code  Gb  bsp_dk_3201.o [1]
+BSP_Init                0x00000231   0x5a  Code  Gb  bsp_dk_3201.o [1]
+BSP_InterruptDisable    0x0000034b   0x24  Code  Gb  bsp_dk_3201.o [1]
+BSP_InterruptEnable     0x0000036f   0x20  Code  Gb  bsp_dk_3201.o [1]
+BSP_InterruptFlagsClear
+                        0x0000038f   0x3a  Code  Gb  bsp_dk_3201.o [1]
+BSP_InterruptFlagsGet   0x000003c9    0xc  Code  Gb  bsp_dk_3201.o [1]
+BSP_JoystickGet         0x000003d5   0x12  Code  Gb  bsp_dk_3201.o [1]
+BSP_LedsSet             0x000020d5   0x12  Code  Gb  bsp_dk_leds.o [1]
+BSP_RegisterRead        0x000003e7   0x1a  Code  Gb  bsp_dk_3201.o [1]
+BSP_RegisterWrite       0x00000401   0x22  Code  Gb  bsp_dk_3201.o [1]
+BSP_TraceProfilerSetup  0x000021ed   0x18  Code  Gb  bsp_trace.o [1]
+BSP_TraceSwoSetup       0x000020ed   0xac  Code  Gb  bsp_trace.o [1]
+BUS_RegBitRead          0x0000092f   0x10  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x00000921    0xe  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x000014a5    0xe  Code  Lc  em_ebi.o [1]
+BUS_RegBitWrite         0x00001051    0xe  Code  Lc  em_gpio.o [1]
+BUS_RegMaskedWrite      0x0000105f    0xa  Code  Lc  em_gpio.o [1]
+BUS_RegMaskedWrite      0x00001c5d    0xa  Code  Lc  em_usart.o [1]
+CMU_ClockEnable         0x00000c4d   0xa6  Code  Gb  em_cmu.o [1]
+CMU_ClockFreqGet        0x00000d09  0x188  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectGet      0x00000ecd  0x134  Code  Gb  em_cmu.o [1]
+CMU_DivToLog2           0x0000093f   0x28  Code  Lc  em_cmu.o [1]
+CSTACK$$Base            0x20000020          --   Gb  - Linker created -
+CSTACK$$Limit           0x20000420          --   Gb  - Linker created -
+DK_IRQInit              0x0000203f   0x1a  Code  Gb  joystick.o [1]
+Delay                   0x00001fdb   0x12  Code  Gb  joystick.o [1]
+EBI_BankAddressTimingConfig
+                        0x000019e7   0x5a  Code  Gb  em_ebi.o [1]
+EBI_BankAddressTimingSet
+                        0x00001a41   0x86  Code  Gb  em_ebi.o [1]
+EBI_BankPolaritySet     0x00001ad1  0x12a  Code  Gb  em_ebi.o [1]
+EBI_BankReadTimingConfig
+                        0x00001703   0xd8  Code  Gb  em_ebi.o [1]
+EBI_BankReadTimingSet   0x000017db   0xc6  Code  Gb  em_ebi.o [1]
+EBI_BankWriteTimingConfig
+                        0x000018a1   0x9e  Code  Gb  em_ebi.o [1]
+EBI_BankWriteTimingSet  0x0000193f   0xa8  Code  Gb  em_ebi.o [1]
+EBI_ChipSelectEnable    0x000016b3   0x50  Code  Gb  em_ebi.o [1]
+EBI_Init                0x000014b3  0x200  Code  Gb  em_ebi.o [1]
+EbiInit                 0x00000423  0x30a  Code  Lc  bsp_dk_3201.o [1]
+GPIO_EVEN_IRQHandler    0x00001fed   0x26  Code  Gb  joystick.o [1]
+GPIO_ExtIntConfig       0x000011bd  0x11c  Code  Gb  em_gpio.o [1]
+GPIO_IRQInit            0x00002013   0x2c  Code  Gb  joystick.o [1]
+GPIO_IntClear           0x00001f9b    0x6  Code  Lc  joystick.o [1]
+GPIO_IntConfig          0x00001fa1   0x2e  Code  Lc  joystick.o [1]
+GPIO_PinModeSet         0x000012d9  0x14e  Code  Gb  em_gpio.o [1]
+GPIO_PinOutClear        0x000000dd   0xaa  Code  Lc  bsp_dk_3201.o [1]
+GPIO_PinOutClear        0x00001069   0xaa  Code  Lc  em_gpio.o [1]
+GPIO_PinOutSet          0x00000187   0xaa  Code  Lc  bsp_dk_3201.o [1]
+GPIO_PinOutSet          0x00001113   0xaa  Code  Lc  em_gpio.o [1]
+GetProdRev              0x00001df1    0xa  Code  Lc  system_efm32gg.o [1]
+NVIC_ClearPendingIRQ    0x00001f31   0x14  Code  Lc  joystick.o [1]
+NVIC_EnableIRQ          0x00001f1d   0x14  Code  Lc  joystick.o [1]
+NVIC_SetPriority        0x00001f45   0x26  Code  Lc  joystick.o [1]
+Region$$Table$$Base     0x00002578          --   Gb  - Linker created -
+Region$$Table$$Limit    0x00002588          --   Gb  - Linker created -
+SYSTEM_GetFamily        0x00000973    0xc  Code  Lc  em_cmu.o [1]
+SYSTEM_GetProdRev       0x00000967    0xc  Code  Lc  em_cmu.o [1]
+SpiBcAccess             0x0000072d   0x60  Code  Lc  bsp_dk_3201.o [1]
+SpiBcInit               0x0000078d   0x60  Code  Lc  bsp_dk_3201.o [1]
+SpiInit                 0x000007ed   0x30  Code  Lc  bsp_dk_3201.o [1]
+SpiRegisterRead         0x0000081d   0x56  Code  Lc  bsp_dk_3201.o [1]
+SpiRegisterWrite        0x00000879   0x48  Code  Lc  bsp_dk_3201.o [1]
+SysTick_Config          0x00001f6b   0x30  Code  Lc  joystick.o [1]
+SysTick_Handler         0x00001fcf    0xc  Code  Gb  joystick.o [1]
+SystemCoreClock         0x20000014    0x4  Data  Gb  system_efm32gg.o [1]
+SystemCoreClockGet      0x00001dfb   0x1a  Code  Gb  system_efm32gg.o [1]
+SystemHFClockGet        0x00001e15   0xb2  Code  Gb  system_efm32gg.o [1]
+SystemHFXOClock         0x20000000    0x4  Data  Lc  system_efm32gg.o [1]
+SystemInit              0x00001ec7    0x2  Code  Gb  system_efm32gg.o [1]
+SystemLFRCOClockGet     0x00001ec9    0x6  Code  Gb  system_efm32gg.o [1]
+SystemLFXOClock         0x20000004    0x4  Data  Lc  system_efm32gg.o [1]
+SystemLFXOClockGet      0x00001ed5    0x6  Code  Gb  system_efm32gg.o [1]
+SystemULFRCOClockGet    0x00001ecf    0x6  Code  Gb  system_efm32gg.o [1]
+USART_BaudrateSyncSet   0x00001c67   0x54  Code  Gb  em_usart.o [1]
+USART_InitSync          0x00001cbb   0x8a  Code  Gb  em_usart.o [1]
+USART_Reset             0x00001d45   0x72  Code  Gb  em_usart.o [1]
+USART_Rx                0x00001dd9    0xc  Code  Gb  em_usart.o [1]
+USART_Tx                0x00001de5    0xc  Code  Gb  em_usart.o [1]
+__Vectors               0x00000000          --   Gb  startup_efm32gg.o [1]
+__Vectors_End           0x000000dc         Data  Gb  startup_efm32gg.o [1]
+__Vectors_Size {Abs}    0x000000dc          --   Gb  startup_efm32gg.o [1]
+__cmain                 0x00002589         Code  Gb  cmain.o [4]
+__exit                  0x000025b9         Code  Gb  XXexit.o [4]
+__iar_data_init3        0x00002551   0x28  Code  Gb  data_init.o [4]
+__iar_packbits_init_single3
+                        0x00002519   0x38  Code  Gb  packbits_init_single.o [4]
+__iar_program_start     0x000025ed         Code  Gb  cstartup_M.o [4]
+__iar_unaligned___aeabi_memcpy4
+                        0x0000144d         Code  Gb  ABImemcpy_unaligned.o [4]
+__iar_unaligned___aeabi_memcpy8
+                        0x0000144d         Code  Gb  ABImemcpy_unaligned.o [4]
+__low_level_init        0x000025a3    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000         Data  Gb  startup_efm32gg.o [1]
+__vector_table_0x1c     0x0000001c         Data  Gb  startup_efm32gg.o [1]
+_call_main              0x00002595         Code  Gb  cmain.o [4]
+_exit                   0x000025ad         Code  Gb  cexit.o [4]
+_main                   0x0000259f         Code  Gb  cmain.o [4]
+assertEFM               0x0000091d    0x2  Code  Gb  em_assert.o [1]
+auxClkGet               0x00000a35   0x94  Code  Lc  em_cmu.o [1]
+bcFwVersion             0x20000018    0x2  Data  Lc  bsp_dk_3201.o [1]
+bspOperationMode        0x20000008    0x4  Data  Lc  bsp_dk_3201.o [1]
+busMode                 0x2000001a    0x1  Data  Lc  bsp_dk_3201.o [1]
+dbgClkGet               0x00000ac9   0x3c  Code  Lc  em_cmu.o [1]
+exit                    0x000025a7    0x4  Code  Gb  exit.o [3]
+getHfLeConfig           0x00000a09   0x2c  Code  Lc  em_cmu.o [1]
+lastAddr                0x2000000c    0x4  Data  Lc  bsp_dk_3201.o [1]
+lfClkGet                0x00000b05   0xf4  Code  Lc  em_cmu.o [1]
+main                    0x00002059   0x54  Code  Gb  joystick.o [1]
+maxFreqHfle             0x0000097f   0x60  Code  Lc  em_cmu.o [1]
+msTicks                 0x20000010    0x4  Data  Gb  joystick.o [1]
+setHfLeConfig           0x000009df   0x2a  Code  Lc  em_cmu.o [1]
+syncReg                 0x00000bf9   0x16  Code  Lc  em_cmu.o [1]
+usbCClkGet              0x00000c0f   0x3e  Code  Lc  em_cmu.o [1]
+
+
+[1] = D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\joystick\iar\joystick\Debug\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = rt7M_tl.a
+
+  9 076 bytes of readonly  code memory
+    837 bytes of readonly  data memory
+  1 051 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

@@ -4,13 +4,13 @@
 *                                          The Real-Time Kernel
 *                                            TIMER MANAGEMENT
 *
-*                              (c) Copyright 1992-2012, Micrium, Weston, FL
+*                              (c) Copyright 1992-2016, Micrium, Weston, FL
 *                                           All Rights Reserved
 *
 *
 * File    : OS_TMR.C
 * By      : Jean J. Labrosse
-* Version : V2.92.07
+* Version : V2.92.12
 *
 * LICENSING TERMS:
 * ---------------
@@ -19,6 +19,15 @@
 * its use in your product. We provide ALL the source code for your convenience and to help you experience
 * uC/OS-II.   The fact that the  source is provided does  NOT  mean that you can use it without  paying a
 * licensing fee.
+*
+* Knowledge of the source code may NOT be used to develop a similar product.
+*
+* Please help us continue to provide the embedded community with the finest software available.
+* Your honesty is greatly appreciated.
+*
+* You can find our product's user manual, API reference, release notes and
+* more information at https://doc.micrium.com.
+* You can contact us at www.micrium.com.
 *********************************************************************************************************
 */
 
@@ -65,7 +74,7 @@ static  void     OSTmr_Unlink        (OS_TMR *ptmr);
 static  void     OSTmr_Task          (void   *p_arg);
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                           CREATE A TIMER
@@ -74,34 +83,37 @@ static  void     OSTmr_Task          (void   *p_arg);
 *
 * Arguments  : dly           Initial delay.
 *                            If the timer is configured for ONE-SHOT mode, this is the timeout used.
-*                            If the timer is configured for PERIODIC mode, this is the first timeout to 
+*                            If the timer is configured for PERIODIC mode, this is the first timeout to
 *                               wait for before the timer starts entering periodic mode.
 *
 *              period        The 'period' being repeated for the timer.
-*                               If you specified 'OS_TMR_OPT_PERIODIC' as an option, when the timer 
+*                               If you specified 'OS_TMR_OPT_PERIODIC' as an option, when the timer
 *                               expires, it will automatically restart with the same period.
 *
 *              opt           Specifies either:
 *                               OS_TMR_OPT_ONE_SHOT       The timer counts down only once
 *                               OS_TMR_OPT_PERIODIC       The timer counts down and then reloads itself
 *
-*              callback      Is a pointer to a callback function that will be called when the timer expires. 
+*              callback      Is a pointer to a callback function that will be called when the timer expires.
 *                               The callback function must be declared as follows:
 *
 *                               void MyCallback (OS_TMR *ptmr, void *p_arg);
 *
 *              callback_arg  Is an argument (a pointer) that is passed to the callback function when it is called.
 *
-*              pname         Is a pointer to an ASCII string that is used to name the timer.  Names are 
+*              pname         Is a pointer to an ASCII string that is used to name the timer.  Names are
 *                               useful for debugging.
 *
 *              perr          Is a pointer to an error code.  '*perr' will contain one of the following:
-*                               OS_ERR_NONE
-*                               OS_ERR_TMR_INVALID_DLY     you specified an invalid delay
-*                               OS_ERR_TMR_INVALID_PERIOD  you specified an invalid period
-*                               OS_ERR_TMR_INVALID_OPT     you specified an invalid option
-*                               OS_ERR_TMR_ISR             if the call was made from an ISR
-*                               OS_ERR_TMR_NON_AVAIL       if there are no free timers from the timer pool
+*                               OS_ERR_NONE                     the call was successful and the timer
+*                                                               was created.
+*                               OS_ERR_ILLEGAL_CREATE_RUN_TIME  if you tried to create a timer after
+*                                                               safety critical operation started.
+*                               OS_ERR_TMR_INVALID_DLY          you specified an invalid delay
+*                               OS_ERR_TMR_INVALID_PERIOD       you specified an invalid period
+*                               OS_ERR_TMR_INVALID_OPT          you specified an invalid option
+*                               OS_ERR_TMR_ISR                  if the call was made from an ISR
+*                               OS_ERR_TMR_NON_AVAIL            if there are no free timers from the timer pool
 *
 * Returns    : A pointer to an OS_TMR data structure.
 *              This is the 'handle' that your application will use to reference the timer created.
@@ -130,6 +142,7 @@ OS_TMR  *OSTmrCreate (INT32U           dly,
 #ifdef OS_SAFETY_CRITICAL_IEC61508
     if (OSSafetyCriticalStartFlag == OS_TRUE) {
         OS_SAFETY_CRITICAL_EXCEPTION();
+        *perr = OS_ERR_ILLEGAL_CREATE_RUN_TIME;
         return ((OS_TMR *)0);
     }
 #endif
@@ -185,7 +198,7 @@ OS_TMR  *OSTmrCreate (INT32U           dly,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                           DELETE A TIMER
@@ -195,12 +208,15 @@ OS_TMR  *OSTmrCreate (INT32U           dly,
 * Arguments  : ptmr          Is a pointer to the timer to stop and delete.
 *
 *              perr          Is a pointer to an error code.  '*perr' will contain one of the following:
-*                               OS_ERR_NONE
-*                               OS_ERR_TMR_INVALID        'ptmr'  is a NULL pointer
-*                               OS_ERR_TMR_INVALID_TYPE   'ptmr'  is not pointing to an OS_TMR
-*                               OS_ERR_TMR_ISR            if the function was called from an ISR
-*                               OS_ERR_TMR_INACTIVE       if the timer was not created
-*                               OS_ERR_TMR_INVALID_STATE  the timer is in an invalid state
+*                               OS_ERR_NONE                  the call was successful and the timer
+*                                                            was deleted.
+*                               OS_ERR_ILLEGAL_DEL_RUN_TIME  if you tried to delete a timer after safety
+*                                                            critical operation started.
+*                               OS_ERR_TMR_INVALID           'ptmr'  is a NULL pointer
+*                               OS_ERR_TMR_INVALID_TYPE      'ptmr'  is not pointing to an OS_TMR
+*                               OS_ERR_TMR_ISR               if the function was called from an ISR
+*                               OS_ERR_TMR_INACTIVE          if the timer was not created
+*                               OS_ERR_TMR_INVALID_STATE     the timer is in an invalid state
 *
 * Returns    : OS_TRUE       If the call was successful
 *              OS_FALSE      If not
@@ -214,6 +230,14 @@ BOOLEAN  OSTmrDel (OS_TMR  *ptmr,
 #ifdef OS_SAFETY_CRITICAL
     if (perr == (INT8U *)0) {
         OS_SAFETY_CRITICAL_EXCEPTION();
+        return (OS_FALSE);
+    }
+#endif
+
+#ifdef OS_SAFETY_CRITICAL_IEC61508
+    if (OSSafetyCriticalStartFlag == OS_TRUE) {
+        OS_SAFETY_CRITICAL_EXCEPTION();
+        *perr = OS_ERR_ILLEGAL_DEL_RUN_TIME;
         return (OS_FALSE);
     }
 #endif
@@ -261,7 +285,7 @@ BOOLEAN  OSTmrDel (OS_TMR  *ptmr,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                       GET THE NAME OF A TIMER
@@ -342,7 +366,7 @@ INT8U  OSTmrNameGet (OS_TMR   *ptmr,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                          GET HOW MUCH TIME IS LEFT BEFORE A TIMER EXPIRES
@@ -359,8 +383,8 @@ INT8U  OSTmrNameGet (OS_TMR   *ptmr,
 *                               OS_ERR_TMR_INACTIVE       'ptmr' points to a timer that is not active
 *                               OS_ERR_TMR_INVALID_STATE  the timer is in an invalid state
 *
-* Returns    : The time remaining for the timer to expire.  The time represents 'timer' increments. 
-*              In other words, if OSTmr_Task() is signaled every 1/10 of a second then the returned 
+* Returns    : The time remaining for the timer to expire.  The time represents 'timer' increments.
+*              In other words, if OSTmr_Task() is signaled every 1/10 of a second then the returned
 *              value represents the number of 1/10 of a second remaining before the timer expires.
 *********************************************************************************************************
 */
@@ -440,7 +464,7 @@ INT32U  OSTmrRemainGet (OS_TMR  *ptmr,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                  FIND OUT WHAT STATE A TIMER IS IN
@@ -513,7 +537,7 @@ INT8U  OSTmrStateGet (OS_TMR  *ptmr,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                            START A TIMER
@@ -589,7 +613,7 @@ BOOLEAN  OSTmrStart (OS_TMR   *ptmr,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                            STOP A TIMER
@@ -601,14 +625,14 @@ BOOLEAN  OSTmrStart (OS_TMR   *ptmr,
 *              opt           Allows you to specify an option to this functions which can be:
 *
 *                               OS_TMR_OPT_NONE          Do nothing special but stop the timer
-*                               OS_TMR_OPT_CALLBACK      Execute the callback function, pass it the 
-*                                                        callback argument specified when the timer 
+*                               OS_TMR_OPT_CALLBACK      Execute the callback function, pass it the
+*                                                        callback argument specified when the timer
 *                                                        was created.
-*                               OS_TMR_OPT_CALLBACK_ARG  Execute the callback function, pass it the 
+*                               OS_TMR_OPT_CALLBACK_ARG  Execute the callback function, pass it the
 *                                                        callback argument specified in THIS function call.
 *
-*              callback_arg  Is a pointer to a 'new' callback argument that can be passed to the callback 
-*                            function instead of the timer's callback argument.  In other words, use 
+*              callback_arg  Is a pointer to a 'new' callback argument that can be passed to the callback
+*                            function instead of the timer's callback argument.  In other words, use
 *                            'callback_arg' passed in THIS function INSTEAD of ptmr->OSTmrCallbackArg.
 *
 *              perr          Is a pointer to an error code.  '*perr' will contain one of the following:
@@ -710,22 +734,22 @@ BOOLEAN  OSTmrStop (OS_TMR  *ptmr,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                             SIGNAL THAT IT'S TIME TO UPDATE THE TIMERS
 *
-* Description: This function is typically called by the ISR that occurs at the timer tick rate and is 
+* Description: This function is typically called by the ISR that occurs at the timer tick rate and is
 *              used to signal to OSTmr_Task() that it's time to update the timers.
 *
 * Arguments  : none
 *
 * Returns    : OS_ERR_NONE         The call was successful and the timer task was signaled.
-*              OS_ERR_SEM_OVF      If OSTmrSignal() was called more often than OSTmr_Task() can handle 
+*              OS_ERR_SEM_OVF      If OSTmrSignal() was called more often than OSTmr_Task() can handle
 *                                  the timers. This would indicate that your system is heavily loaded.
-*              OS_ERR_EVENT_TYPE   Unlikely you would get this error because the semaphore used for 
+*              OS_ERR_EVENT_TYPE   Unlikely you would get this error because the semaphore used for
 *                                  signaling is created by uC/OS-II.
-*              OS_ERR_PEVENT_NULL  Again, unlikely you would ever get this error because the semaphore 
+*              OS_ERR_PEVENT_NULL  Again, unlikely you would ever get this error because the semaphore
 *                                  used for signaling is created by uC/OS-II.
 *********************************************************************************************************
 */
@@ -741,7 +765,7 @@ INT8U  OSTmrSignal (void)
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                      ALLOCATE AND FREE A TIMER
@@ -808,7 +832,7 @@ static  void  OSTmr_Free (OS_TMR *ptmr)
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                                    INITIALIZATION
@@ -871,7 +895,7 @@ void  OSTmr_Init (void)
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                INITIALIZE THE TIMER MANAGEMENT TASK
@@ -933,12 +957,12 @@ static  void  OSTmr_InitTask (void)
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                 INSERT A TIMER INTO THE TIMER WHEEL
 *
-* Description: This function is called to insert the timer into the timer wheel.  The timer is always 
+* Description: This function is called to insert the timer into the timer wheel.  The timer is always
 *              inserted at the beginning of the list.
 *
 * Arguments  : ptmr          Is a pointer to the timer to insert.
@@ -988,7 +1012,7 @@ static  void  OSTmr_Link (OS_TMR  *ptmr,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                 REMOVE A TIMER FROM THE TIMER WHEEL
@@ -1034,7 +1058,7 @@ static  void  OSTmr_Unlink (OS_TMR *ptmr)
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                        TIMER MANAGEMENT TASK

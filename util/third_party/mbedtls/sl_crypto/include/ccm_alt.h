@@ -48,18 +48,6 @@
 extern "C" {
 #endif
 
-#if defined( MBEDTLS_INCLUDE_ASYNCH_API )
-/**
- * \brief          CCM asynchronous context structure
- */
-typedef struct
-{
-    AESDRV_CCM_AsynchContext_t aesdrv_asynch_ctx; /*!< AESDRV CCM asynchronous
-                                                    context */
-}
-mbedtls_ccm_asynch_context;
-#endif /* #if defined( MBEDTLS_INCLUDE_ASYNCH_API ) */
-
 /**
  * \brief          CCM context structure
  */
@@ -93,7 +81,7 @@ void mbedtls_ccm_init( mbedtls_ccm_context *ctx );
  *   new AES/CRYPTO device instance.
  *
  * \param[in] ctx
- *   CCM device context.
+ *   CCM context.
  *  
  * \param[in] devno
  *   AES/CRYPTO hardware device instance to use.
@@ -106,26 +94,42 @@ int mbedtls_ccm_set_device_instance(mbedtls_ccm_context* ctx,
 
 /**
  * \brief
+ *   Set the number of ticks to wait for the decice lock.
+ *
+ * \details
+ *   This function sets the number of ticks that the subsequenct API calls
+ *   will wait for the device to become available.
+ *
+ * \param[in] ctx
+ *   CCM context.
+ *  
+ * \param[in] ticks
+ *   Ticks to wait for device.
+ *  
+ * \return
+ *   0 if success. Error code if failure, see \ref aes.h.
+ ******************************************************************************/
+int mbedtls_ccm_set_device_lock_wait_ticks(mbedtls_ccm_context *ctx,
+                                           int                  ticks);
+
+/**
+ * \brief
  *   Set the device I/O mode of an CCM context.
  *
  * \details
  *   This function sets the device data I/O mode of an CCM context. The data
- *   can be moved by Core CPU, DMA or BUFC between CRYPTO and RAM.
+ *   can be moved by the CPU Core or the DMA between CRYPTO and RAM.
  *
  * \param[in] ctx
  *   CCM device context.
  *  
  * \param[in] mode
- *   I/O mode (Core CPU, DMA or BUFC).
+ *   I/O mode (CPU Core or DMA).
  *  
  * \param[in] specific
  *   I/O mode specific configuration \ref mbedtls_device_io_mode_specific.
  *  
  * \warning
- *   If BUFC is selected (\ref MBEDTLS_DEVICE_IO_MODE_BUFC), this function does
- *   not enable the BUFC clock and does not do any global BUFC initialization.
- *   I.e. the user is responsible for performing BUFC initialization prior to
- *   calling this function.
  *   If DMA is selected (\ref MBEDTLS_INCLUDE_IO_MODE_DMA), this function
  *   performs full DMA driver initialization by calling DMADRV_Init
  *   (non-destructive) and allocates DMA channel resources to be used by CCM.
@@ -154,41 +158,6 @@ int mbedtls_ccm_setkey( mbedtls_ccm_context *ctx,
                         mbedtls_cipher_id_t cipher,
                         const unsigned char *key,
                         unsigned int keybits );
-
-#if defined( MBEDTLS_INCLUDE_ASYNCH_API )
-  
-/**
- * \brief          Set an CCM context in asynchronous mode.
- *
- * \details        
- *   This function enables or disables asynchronous (non-blocking) mode of an
- *   CCM context. In order to enable, the user must set the
- *   @p asynch_ctx parameter to point to an asynchronous ccm context structure
- *   @ref mbedtls_ccm_asynch_context. Subsequent calls to the CCM API
- *   functions with the specified context will behave asynchronously, i.e.
- *   initiate the hardware to execute the operation and return as soon as
- *   possible. The user may specify a callback function by setting the
- *   @p asynch_callback parameter which will called when the operation has
- *   completed.
- *   In order to disable, the user must set the @p asynch_context parameter
- *   to NULL. All subsequent calls to CCM API functions with the specified
- *   context will block until the corresponding operation has completed, and
- *   then return.
- *
- * \param ctx              CCM context
- * \param asynch_ctx       CCM asynchronous context structure
- * \param asynch_callback  Asynchronous callback
- * \param user_arg         User specific argument which will be
- *                         sent to callback.
- *
- * \return         0 if successful, or error code
- */
-int mbedtls_ccm_set_asynch( mbedtls_ccm_context *ctx,
-                            mbedtls_ccm_asynch_context *asynch_ctx,
-                            mbedtls_asynch_callback asynch_callback,
-                            void* user_arg );
-
-#endif /* #if defined( MBEDTLS_INCLUDE_ASYNCH_API ) */
 
 /**
  * \brief           Free a CCM context and underlying cipher sub-context

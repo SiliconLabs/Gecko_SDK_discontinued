@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file
  * @brief API for enabling SWO and ETM trace.
- * @version 5.0.0
+ * @version 5.1.1
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -23,6 +23,23 @@
 #include "bsp.h"
 
 #if defined( BSP_ETM_TRACE ) && defined( ETM_PRESENT )
+
+#if !defined(BSP_TRACE_ETM_CLKLOC)
+#define BSP_TRACE_ETM_CLKLOC 0
+#endif
+#if !defined(BSP_TRACE_ETM_TD0LOC)
+#define BSP_TRACE_ETM_TD0LOC 0
+#endif
+#if !defined(BSP_TRACE_ETM_TD1LOC)
+#define BSP_TRACE_ETM_TD1LOC 0
+#endif
+#if !defined(BSP_TRACE_ETM_TD2LOC)
+#define BSP_TRACE_ETM_TD2LOC 0
+#endif
+#if !defined(BSP_TRACE_ETM_TD3LOC)
+#define BSP_TRACE_ETM_TD3LOC 0
+#endif
+
 /**************************************************************************//**
  * @brief Configure EFM32 for ETM trace output.
  * @note You need to configure ETM trace on kit config menu as well!
@@ -30,13 +47,12 @@
 void BSP_TraceEtmSetup(void)
 {
   /* Enable peripheral clocks */
-  CMU->HFCORECLKEN0 |= CMU_HFCORECLKEN0_LE;
-  CMU->HFPERCLKEN0  |= CMU_HFPERCLKEN0_GPIO;
-  CMU->OSCENCMD      = CMU_OSCENCMD_AUXHFRCOEN;
+  CMU_ClockEnable(cmuClock_HFLE, true);
+  CMU_ClockEnable(cmuClock_GPIO, true);
+  CMU_OscillatorEnable(cmuOsc_AUXHFRCO, true, true);
 
-  /* Wait until AUXHFRCO clock is ready */
-  while (!(CMU->STATUS & CMU_STATUS_AUXHFRCORDY)) ;
-
+  /* Configure trace output */
+#if defined(_GPIO_ROUTE_TCLKPEN_MASK)
   /* Enable Port D, pins 3,4,5,6 for ETM Trace Data output */
   GPIO->P[3].MODEL = (GPIO->P[3].MODEL & ~_GPIO_P_MODEL_MODE3_MASK) | GPIO_P_MODEL_MODE3_PUSHPULL;
   GPIO->P[3].MODEL = (GPIO->P[3].MODEL & ~_GPIO_P_MODEL_MODE4_MASK) | GPIO_P_MODEL_MODE4_PUSHPULL;
@@ -45,11 +61,30 @@ void BSP_TraceEtmSetup(void)
 
   /* Enable Port D, pin 7 for DBG_TCLK */
   GPIO->P[3].MODEL = (GPIO->P[3].MODEL & ~_GPIO_P_MODEL_MODE7_MASK) | GPIO_P_MODEL_MODE7_PUSHPULL;
-
-  /* Configure trace output for alternate location */
+  
   GPIO->ROUTE = GPIO->ROUTE | GPIO_ROUTE_TCLKPEN | GPIO_ROUTE_TD0PEN | GPIO_ROUTE_TD1PEN
                 | GPIO_ROUTE_TD2PEN | GPIO_ROUTE_TD3PEN
                 | GPIO_ROUTE_ETMLOCATION_LOC0;
+#else
+  /* Enable GPIO Pins for ETM Trace Data output and ETM Clock */
+  GPIO_PinModeSet((GPIO_Port_TypeDef)AF_ETM_TCLK_PORT(BSP_TRACE_ETM_CLKLOC), AF_ETM_TCLK_PIN(BSP_TRACE_ETM_CLKLOC), gpioModePushPull, 0);
+  GPIO_PinModeSet((GPIO_Port_TypeDef)AF_ETM_TD0_PORT(BSP_TRACE_ETM_TD0LOC), AF_ETM_TD0_PIN(BSP_TRACE_ETM_TD0LOC), gpioModePushPull, 0);
+  GPIO_PinModeSet((GPIO_Port_TypeDef)AF_ETM_TD1_PORT(BSP_TRACE_ETM_TD1LOC), AF_ETM_TD1_PIN(BSP_TRACE_ETM_TD1LOC), gpioModePushPull, 0);
+  GPIO_PinModeSet((GPIO_Port_TypeDef)AF_ETM_TD2_PORT(BSP_TRACE_ETM_TD2LOC), AF_ETM_TD2_PIN(BSP_TRACE_ETM_TD2LOC), gpioModePushPull, 0);
+  GPIO_PinModeSet((GPIO_Port_TypeDef)AF_ETM_TD3_PORT(BSP_TRACE_ETM_TD3LOC), AF_ETM_TD3_PIN(BSP_TRACE_ETM_TD3LOC), gpioModePushPull, 0);
+  
+  GPIO->ROUTELOC1 = (BSP_TRACE_ETM_CLKLOC << _GPIO_ROUTELOC1_ETMTCLKLOC_SHIFT)
+                    | (BSP_TRACE_ETM_TD0LOC << _GPIO_ROUTELOC1_ETMTD0LOC_SHIFT)
+                    | (BSP_TRACE_ETM_TD1LOC << _GPIO_ROUTELOC1_ETMTD1LOC_SHIFT)
+                    | (BSP_TRACE_ETM_TD2LOC << _GPIO_ROUTELOC1_ETMTD2LOC_SHIFT)
+                    | (BSP_TRACE_ETM_TD3LOC << _GPIO_ROUTELOC1_ETMTD3LOC_SHIFT);
+  GPIO->ROUTEPEN = GPIO->ROUTEPEN
+                   | GPIO_ROUTEPEN_ETMTCLKPEN 
+                   | GPIO_ROUTEPEN_ETMTD0PEN
+                   | GPIO_ROUTEPEN_ETMTD1PEN
+                   | GPIO_ROUTEPEN_ETMTD2PEN
+                   | GPIO_ROUTEPEN_ETMTD3PEN;
+#endif
 }
 #endif
 

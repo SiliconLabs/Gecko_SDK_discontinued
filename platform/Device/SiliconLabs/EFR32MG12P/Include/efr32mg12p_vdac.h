@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file efr32mg12p_vdac.h
  * @brief EFR32MG12P_VDAC register and bit field definitions
- * @version 5.0.0
+ * @version 5.1.2
  ******************************************************************************
  * @section License
- * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -55,7 +55,7 @@ typedef struct
   __IOM uint32_t   CAL;           /**< Calibration Register  */
 
   uint32_t         RESERVED0[27]; /**< Reserved registers */
-  VDAC_OPA_TypeDef OPA[4];        /**< OPA Registers */
+  VDAC_OPA_TypeDef OPA[3];        /**< OPA Registers */
 } VDAC_TypeDef;                   /** @} */
 
 /**************************************************************************//**
@@ -1008,38 +1008,6 @@ typedef struct
 #define _VDAC_OPA_MUX_MASK                                 0x0717FFFFUL                            /**< Mask for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_SHIFT                         0                                       /**< Shift value for VDAC_OPAPOSSEL */
 #define _VDAC_OPA_MUX_POSSEL_MASK                          0xFFUL                                  /**< Bit mask for VDAC_OPAPOSSEL */
-#define _VDAC_OPA_MUX_POSSEL_APORT0XCH0                    0x00000000UL                            /**< Mode APORT0XCH0 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0XCH1                    0x00000001UL                            /**< Mode APORT0XCH1 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0XCH2                    0x00000002UL                            /**< Mode APORT0XCH2 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0XCH3                    0x00000003UL                            /**< Mode APORT0XCH3 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0XCH4                    0x00000004UL                            /**< Mode APORT0XCH4 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0XCH5                    0x00000005UL                            /**< Mode APORT0XCH5 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0XCH6                    0x00000006UL                            /**< Mode APORT0XCH6 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0XCH7                    0x00000007UL                            /**< Mode APORT0XCH7 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0XCH8                    0x00000008UL                            /**< Mode APORT0XCH8 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0XCH9                    0x00000009UL                            /**< Mode APORT0XCH9 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0XCH10                   0x0000000AUL                            /**< Mode APORT0XCH10 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0XCH11                   0x0000000BUL                            /**< Mode APORT0XCH11 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0XCH12                   0x0000000CUL                            /**< Mode APORT0XCH12 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0XCH13                   0x0000000DUL                            /**< Mode APORT0XCH13 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0XCH14                   0x0000000EUL                            /**< Mode APORT0XCH14 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0XCH15                   0x0000000FUL                            /**< Mode APORT0XCH15 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0YCH0                    0x00000010UL                            /**< Mode APORT0YCH0 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0YCH1                    0x00000011UL                            /**< Mode APORT0YCH1 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0YCH2                    0x00000012UL                            /**< Mode APORT0YCH2 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0YCH3                    0x00000013UL                            /**< Mode APORT0YCH3 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0YCH4                    0x00000014UL                            /**< Mode APORT0YCH4 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0YCH5                    0x00000015UL                            /**< Mode APORT0YCH5 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0YCH6                    0x00000016UL                            /**< Mode APORT0YCH6 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0YCH7                    0x00000017UL                            /**< Mode APORT0YCH7 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0YCH8                    0x00000018UL                            /**< Mode APORT0YCH8 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0YCH9                    0x00000019UL                            /**< Mode APORT0YCH9 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0YCH10                   0x0000001AUL                            /**< Mode APORT0YCH10 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0YCH11                   0x0000001BUL                            /**< Mode APORT0YCH11 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0YCH12                   0x0000001CUL                            /**< Mode APORT0YCH12 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0YCH13                   0x0000001DUL                            /**< Mode APORT0YCH13 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0YCH14                   0x0000001EUL                            /**< Mode APORT0YCH14 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT0YCH15                   0x0000001FUL                            /**< Mode APORT0YCH15 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT1XCH0                    0x00000020UL                            /**< Mode APORT1XCH0 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT1XCH2                    0x00000021UL                            /**< Mode APORT1XCH2 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT1XCH4                    0x00000022UL                            /**< Mode APORT1XCH4 for VDAC_OPA_MUX */
@@ -1056,24 +1024,8 @@ typedef struct
 #define _VDAC_OPA_MUX_POSSEL_APORT1XCH26                   0x0000002DUL                            /**< Mode APORT1XCH26 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT1XCH28                   0x0000002EUL                            /**< Mode APORT1XCH28 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT1XCH30                   0x0000002FUL                            /**< Mode APORT1XCH30 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT1YCH1                    0x00000030UL                            /**< Mode APORT1YCH1 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT1YCH3                    0x00000031UL                            /**< Mode APORT1YCH3 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT1YCH5                    0x00000032UL                            /**< Mode APORT1YCH5 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT1YCH7                    0x00000033UL                            /**< Mode APORT1YCH7 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT1YCH9                    0x00000034UL                            /**< Mode APORT1YCH9 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT1YCH11                   0x00000035UL                            /**< Mode APORT1YCH11 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT1YCH13                   0x00000036UL                            /**< Mode APORT1YCH13 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT1YCH15                   0x00000037UL                            /**< Mode APORT1YCH15 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT1YCH17                   0x00000038UL                            /**< Mode APORT1YCH17 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT1YCH19                   0x00000039UL                            /**< Mode APORT1YCH19 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT1YCH21                   0x0000003AUL                            /**< Mode APORT1YCH21 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT1YCH23                   0x0000003BUL                            /**< Mode APORT1YCH23 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT1YCH25                   0x0000003CUL                            /**< Mode APORT1YCH25 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT1YCH27                   0x0000003DUL                            /**< Mode APORT1YCH27 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT1YCH29                   0x0000003EUL                            /**< Mode APORT1YCH29 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT1YCH31                   0x0000003FUL                            /**< Mode APORT1YCH31 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT2XCH1                    0x00000040UL                            /**< Mode APORT2XCH1 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT2XCH2                    0x00000041UL                            /**< Mode APORT2XCH2 for VDAC_OPA_MUX */
+#define _VDAC_OPA_MUX_POSSEL_APORT2XCH3                    0x00000041UL                            /**< Mode APORT2XCH3 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT2XCH5                    0x00000042UL                            /**< Mode APORT2XCH5 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT2XCH7                    0x00000043UL                            /**< Mode APORT2XCH7 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT2XCH9                    0x00000044UL                            /**< Mode APORT2XCH9 for VDAC_OPA_MUX */
@@ -1088,22 +1040,6 @@ typedef struct
 #define _VDAC_OPA_MUX_POSSEL_APORT2XCH27                   0x0000004DUL                            /**< Mode APORT2XCH27 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT2XCH29                   0x0000004EUL                            /**< Mode APORT2XCH29 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT2XCH31                   0x0000004FUL                            /**< Mode APORT2XCH31 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT2YCH0                    0x00000050UL                            /**< Mode APORT2YCH0 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT2YCH2                    0x00000051UL                            /**< Mode APORT2YCH2 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT2YCH4                    0x00000052UL                            /**< Mode APORT2YCH4 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT2YCH6                    0x00000053UL                            /**< Mode APORT2YCH6 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT2YCH8                    0x00000054UL                            /**< Mode APORT2YCH8 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT2YCH10                   0x00000055UL                            /**< Mode APORT2YCH10 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT2YCH12                   0x00000056UL                            /**< Mode APORT2YCH12 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT2YCH14                   0x00000057UL                            /**< Mode APORT2YCH14 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT2YCH16                   0x00000058UL                            /**< Mode APORT2YCH16 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT2YCH18                   0x00000059UL                            /**< Mode APORT2YCH18 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT2YCH20                   0x0000005AUL                            /**< Mode APORT2YCH20 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT2YCH22                   0x0000005BUL                            /**< Mode APORT2YCH22 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT2YCH24                   0x0000005CUL                            /**< Mode APORT2YCH24 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT2YCH26                   0x0000005DUL                            /**< Mode APORT2YCH26 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT2YCH28                   0x0000005EUL                            /**< Mode APORT2YCH28 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT2YCH30                   0x0000005FUL                            /**< Mode APORT2YCH30 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT3XCH0                    0x00000060UL                            /**< Mode APORT3XCH0 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT3XCH2                    0x00000061UL                            /**< Mode APORT3XCH2 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT3XCH4                    0x00000062UL                            /**< Mode APORT3XCH4 for VDAC_OPA_MUX */
@@ -1120,22 +1056,6 @@ typedef struct
 #define _VDAC_OPA_MUX_POSSEL_APORT3XCH26                   0x0000006DUL                            /**< Mode APORT3XCH26 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT3XCH28                   0x0000006EUL                            /**< Mode APORT3XCH28 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT3XCH30                   0x0000006FUL                            /**< Mode APORT3XCH30 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT3YCH1                    0x00000070UL                            /**< Mode APORT3YCH1 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT3YCH3                    0x00000071UL                            /**< Mode APORT3YCH3 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT3YCH5                    0x00000072UL                            /**< Mode APORT3YCH5 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT3YCH7                    0x00000073UL                            /**< Mode APORT3YCH7 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT3YCH9                    0x00000074UL                            /**< Mode APORT3YCH9 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT3YCH11                   0x00000075UL                            /**< Mode APORT3YCH11 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT3YCH13                   0x00000076UL                            /**< Mode APORT3YCH13 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT3YCH15                   0x00000077UL                            /**< Mode APORT3YCH15 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT3YCH17                   0x00000078UL                            /**< Mode APORT3YCH17 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT3YCH19                   0x00000079UL                            /**< Mode APORT3YCH19 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT3YCH21                   0x0000007AUL                            /**< Mode APORT3YCH21 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT3YCH23                   0x0000007BUL                            /**< Mode APORT3YCH23 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT3YCH25                   0x0000007CUL                            /**< Mode APORT3YCH25 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT3YCH27                   0x0000007DUL                            /**< Mode APORT3YCH27 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT3YCH29                   0x0000007EUL                            /**< Mode APORT3YCH29 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT3YCH31                   0x0000007FUL                            /**< Mode APORT3YCH31 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT4XCH1                    0x00000080UL                            /**< Mode APORT4XCH1 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT4XCH3                    0x00000081UL                            /**< Mode APORT4XCH3 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT4XCH5                    0x00000082UL                            /**< Mode APORT4XCH5 for VDAC_OPA_MUX */
@@ -1152,60 +1072,12 @@ typedef struct
 #define _VDAC_OPA_MUX_POSSEL_APORT4XCH27                   0x0000008DUL                            /**< Mode APORT4XCH27 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT4XCH29                   0x0000008EUL                            /**< Mode APORT4XCH29 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_APORT4XCH31                   0x0000008FUL                            /**< Mode APORT4XCH31 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT4YCH0                    0x00000090UL                            /**< Mode APORT4YCH0 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT4YCH2                    0x00000091UL                            /**< Mode APORT4YCH2 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT4YCH4                    0x00000092UL                            /**< Mode APORT4YCH4 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT4YCH6                    0x00000093UL                            /**< Mode APORT4YCH6 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT4YCH8                    0x00000094UL                            /**< Mode APORT4YCH8 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT4YCH10                   0x00000095UL                            /**< Mode APORT4YCH10 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT4YCH12                   0x00000096UL                            /**< Mode APORT4YCH12 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT4YCH14                   0x00000097UL                            /**< Mode APORT4YCH14 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT4YCH16                   0x00000098UL                            /**< Mode APORT4YCH16 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT4YCH18                   0x00000099UL                            /**< Mode APORT4YCH18 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT4YCH20                   0x0000009AUL                            /**< Mode APORT4YCH20 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT4YCH22                   0x0000009BUL                            /**< Mode APORT4YCH22 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT4YCH24                   0x0000009CUL                            /**< Mode APORT4YCH24 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT4YCH26                   0x0000009DUL                            /**< Mode APORT4YCH26 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT4YCH28                   0x0000009EUL                            /**< Mode APORT4YCH28 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_POSSEL_APORT4YCH30                   0x0000009FUL                            /**< Mode APORT4YCH30 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_DISABLE                       0x000000F0UL                            /**< Mode DISABLE for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_DEFAULT                       0x000000F1UL                            /**< Mode DEFAULT for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_DAC                           0x000000F1UL                            /**< Mode DAC for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_POSPAD                        0x000000F2UL                            /**< Mode POSPAD for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_OPANEXT                       0x000000F3UL                            /**< Mode OPANEXT for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_POSSEL_OPATAP                        0x000000F4UL                            /**< Mode OPATAP for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0XCH0                     (_VDAC_OPA_MUX_POSSEL_APORT0XCH0 << 0)  /**< Shifted mode APORT0XCH0 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0XCH1                     (_VDAC_OPA_MUX_POSSEL_APORT0XCH1 << 0)  /**< Shifted mode APORT0XCH1 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0XCH2                     (_VDAC_OPA_MUX_POSSEL_APORT0XCH2 << 0)  /**< Shifted mode APORT0XCH2 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0XCH3                     (_VDAC_OPA_MUX_POSSEL_APORT0XCH3 << 0)  /**< Shifted mode APORT0XCH3 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0XCH4                     (_VDAC_OPA_MUX_POSSEL_APORT0XCH4 << 0)  /**< Shifted mode APORT0XCH4 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0XCH5                     (_VDAC_OPA_MUX_POSSEL_APORT0XCH5 << 0)  /**< Shifted mode APORT0XCH5 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0XCH6                     (_VDAC_OPA_MUX_POSSEL_APORT0XCH6 << 0)  /**< Shifted mode APORT0XCH6 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0XCH7                     (_VDAC_OPA_MUX_POSSEL_APORT0XCH7 << 0)  /**< Shifted mode APORT0XCH7 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0XCH8                     (_VDAC_OPA_MUX_POSSEL_APORT0XCH8 << 0)  /**< Shifted mode APORT0XCH8 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0XCH9                     (_VDAC_OPA_MUX_POSSEL_APORT0XCH9 << 0)  /**< Shifted mode APORT0XCH9 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0XCH10                    (_VDAC_OPA_MUX_POSSEL_APORT0XCH10 << 0) /**< Shifted mode APORT0XCH10 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0XCH11                    (_VDAC_OPA_MUX_POSSEL_APORT0XCH11 << 0) /**< Shifted mode APORT0XCH11 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0XCH12                    (_VDAC_OPA_MUX_POSSEL_APORT0XCH12 << 0) /**< Shifted mode APORT0XCH12 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0XCH13                    (_VDAC_OPA_MUX_POSSEL_APORT0XCH13 << 0) /**< Shifted mode APORT0XCH13 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0XCH14                    (_VDAC_OPA_MUX_POSSEL_APORT0XCH14 << 0) /**< Shifted mode APORT0XCH14 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0XCH15                    (_VDAC_OPA_MUX_POSSEL_APORT0XCH15 << 0) /**< Shifted mode APORT0XCH15 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0YCH0                     (_VDAC_OPA_MUX_POSSEL_APORT0YCH0 << 0)  /**< Shifted mode APORT0YCH0 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0YCH1                     (_VDAC_OPA_MUX_POSSEL_APORT0YCH1 << 0)  /**< Shifted mode APORT0YCH1 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0YCH2                     (_VDAC_OPA_MUX_POSSEL_APORT0YCH2 << 0)  /**< Shifted mode APORT0YCH2 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0YCH3                     (_VDAC_OPA_MUX_POSSEL_APORT0YCH3 << 0)  /**< Shifted mode APORT0YCH3 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0YCH4                     (_VDAC_OPA_MUX_POSSEL_APORT0YCH4 << 0)  /**< Shifted mode APORT0YCH4 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0YCH5                     (_VDAC_OPA_MUX_POSSEL_APORT0YCH5 << 0)  /**< Shifted mode APORT0YCH5 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0YCH6                     (_VDAC_OPA_MUX_POSSEL_APORT0YCH6 << 0)  /**< Shifted mode APORT0YCH6 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0YCH7                     (_VDAC_OPA_MUX_POSSEL_APORT0YCH7 << 0)  /**< Shifted mode APORT0YCH7 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0YCH8                     (_VDAC_OPA_MUX_POSSEL_APORT0YCH8 << 0)  /**< Shifted mode APORT0YCH8 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0YCH9                     (_VDAC_OPA_MUX_POSSEL_APORT0YCH9 << 0)  /**< Shifted mode APORT0YCH9 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0YCH10                    (_VDAC_OPA_MUX_POSSEL_APORT0YCH10 << 0) /**< Shifted mode APORT0YCH10 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0YCH11                    (_VDAC_OPA_MUX_POSSEL_APORT0YCH11 << 0) /**< Shifted mode APORT0YCH11 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0YCH12                    (_VDAC_OPA_MUX_POSSEL_APORT0YCH12 << 0) /**< Shifted mode APORT0YCH12 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0YCH13                    (_VDAC_OPA_MUX_POSSEL_APORT0YCH13 << 0) /**< Shifted mode APORT0YCH13 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0YCH14                    (_VDAC_OPA_MUX_POSSEL_APORT0YCH14 << 0) /**< Shifted mode APORT0YCH14 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT0YCH15                    (_VDAC_OPA_MUX_POSSEL_APORT0YCH15 << 0) /**< Shifted mode APORT0YCH15 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT1XCH0                     (_VDAC_OPA_MUX_POSSEL_APORT1XCH0 << 0)  /**< Shifted mode APORT1XCH0 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT1XCH2                     (_VDAC_OPA_MUX_POSSEL_APORT1XCH2 << 0)  /**< Shifted mode APORT1XCH2 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT1XCH4                     (_VDAC_OPA_MUX_POSSEL_APORT1XCH4 << 0)  /**< Shifted mode APORT1XCH4 for VDAC_OPA_MUX */
@@ -1222,24 +1094,8 @@ typedef struct
 #define VDAC_OPA_MUX_POSSEL_APORT1XCH26                    (_VDAC_OPA_MUX_POSSEL_APORT1XCH26 << 0) /**< Shifted mode APORT1XCH26 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT1XCH28                    (_VDAC_OPA_MUX_POSSEL_APORT1XCH28 << 0) /**< Shifted mode APORT1XCH28 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT1XCH30                    (_VDAC_OPA_MUX_POSSEL_APORT1XCH30 << 0) /**< Shifted mode APORT1XCH30 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT1YCH1                     (_VDAC_OPA_MUX_POSSEL_APORT1YCH1 << 0)  /**< Shifted mode APORT1YCH1 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT1YCH3                     (_VDAC_OPA_MUX_POSSEL_APORT1YCH3 << 0)  /**< Shifted mode APORT1YCH3 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT1YCH5                     (_VDAC_OPA_MUX_POSSEL_APORT1YCH5 << 0)  /**< Shifted mode APORT1YCH5 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT1YCH7                     (_VDAC_OPA_MUX_POSSEL_APORT1YCH7 << 0)  /**< Shifted mode APORT1YCH7 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT1YCH9                     (_VDAC_OPA_MUX_POSSEL_APORT1YCH9 << 0)  /**< Shifted mode APORT1YCH9 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT1YCH11                    (_VDAC_OPA_MUX_POSSEL_APORT1YCH11 << 0) /**< Shifted mode APORT1YCH11 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT1YCH13                    (_VDAC_OPA_MUX_POSSEL_APORT1YCH13 << 0) /**< Shifted mode APORT1YCH13 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT1YCH15                    (_VDAC_OPA_MUX_POSSEL_APORT1YCH15 << 0) /**< Shifted mode APORT1YCH15 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT1YCH17                    (_VDAC_OPA_MUX_POSSEL_APORT1YCH17 << 0) /**< Shifted mode APORT1YCH17 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT1YCH19                    (_VDAC_OPA_MUX_POSSEL_APORT1YCH19 << 0) /**< Shifted mode APORT1YCH19 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT1YCH21                    (_VDAC_OPA_MUX_POSSEL_APORT1YCH21 << 0) /**< Shifted mode APORT1YCH21 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT1YCH23                    (_VDAC_OPA_MUX_POSSEL_APORT1YCH23 << 0) /**< Shifted mode APORT1YCH23 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT1YCH25                    (_VDAC_OPA_MUX_POSSEL_APORT1YCH25 << 0) /**< Shifted mode APORT1YCH25 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT1YCH27                    (_VDAC_OPA_MUX_POSSEL_APORT1YCH27 << 0) /**< Shifted mode APORT1YCH27 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT1YCH29                    (_VDAC_OPA_MUX_POSSEL_APORT1YCH29 << 0) /**< Shifted mode APORT1YCH29 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT1YCH31                    (_VDAC_OPA_MUX_POSSEL_APORT1YCH31 << 0) /**< Shifted mode APORT1YCH31 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT2XCH1                     (_VDAC_OPA_MUX_POSSEL_APORT2XCH1 << 0)  /**< Shifted mode APORT2XCH1 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT2XCH2                     (_VDAC_OPA_MUX_POSSEL_APORT2XCH2 << 0)  /**< Shifted mode APORT2XCH2 for VDAC_OPA_MUX */
+#define VDAC_OPA_MUX_POSSEL_APORT2XCH3                     (_VDAC_OPA_MUX_POSSEL_APORT2XCH3 << 0)  /**< Shifted mode APORT2XCH3 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT2XCH5                     (_VDAC_OPA_MUX_POSSEL_APORT2XCH5 << 0)  /**< Shifted mode APORT2XCH5 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT2XCH7                     (_VDAC_OPA_MUX_POSSEL_APORT2XCH7 << 0)  /**< Shifted mode APORT2XCH7 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT2XCH9                     (_VDAC_OPA_MUX_POSSEL_APORT2XCH9 << 0)  /**< Shifted mode APORT2XCH9 for VDAC_OPA_MUX */
@@ -1254,22 +1110,6 @@ typedef struct
 #define VDAC_OPA_MUX_POSSEL_APORT2XCH27                    (_VDAC_OPA_MUX_POSSEL_APORT2XCH27 << 0) /**< Shifted mode APORT2XCH27 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT2XCH29                    (_VDAC_OPA_MUX_POSSEL_APORT2XCH29 << 0) /**< Shifted mode APORT2XCH29 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT2XCH31                    (_VDAC_OPA_MUX_POSSEL_APORT2XCH31 << 0) /**< Shifted mode APORT2XCH31 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT2YCH0                     (_VDAC_OPA_MUX_POSSEL_APORT2YCH0 << 0)  /**< Shifted mode APORT2YCH0 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT2YCH2                     (_VDAC_OPA_MUX_POSSEL_APORT2YCH2 << 0)  /**< Shifted mode APORT2YCH2 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT2YCH4                     (_VDAC_OPA_MUX_POSSEL_APORT2YCH4 << 0)  /**< Shifted mode APORT2YCH4 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT2YCH6                     (_VDAC_OPA_MUX_POSSEL_APORT2YCH6 << 0)  /**< Shifted mode APORT2YCH6 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT2YCH8                     (_VDAC_OPA_MUX_POSSEL_APORT2YCH8 << 0)  /**< Shifted mode APORT2YCH8 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT2YCH10                    (_VDAC_OPA_MUX_POSSEL_APORT2YCH10 << 0) /**< Shifted mode APORT2YCH10 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT2YCH12                    (_VDAC_OPA_MUX_POSSEL_APORT2YCH12 << 0) /**< Shifted mode APORT2YCH12 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT2YCH14                    (_VDAC_OPA_MUX_POSSEL_APORT2YCH14 << 0) /**< Shifted mode APORT2YCH14 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT2YCH16                    (_VDAC_OPA_MUX_POSSEL_APORT2YCH16 << 0) /**< Shifted mode APORT2YCH16 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT2YCH18                    (_VDAC_OPA_MUX_POSSEL_APORT2YCH18 << 0) /**< Shifted mode APORT2YCH18 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT2YCH20                    (_VDAC_OPA_MUX_POSSEL_APORT2YCH20 << 0) /**< Shifted mode APORT2YCH20 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT2YCH22                    (_VDAC_OPA_MUX_POSSEL_APORT2YCH22 << 0) /**< Shifted mode APORT2YCH22 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT2YCH24                    (_VDAC_OPA_MUX_POSSEL_APORT2YCH24 << 0) /**< Shifted mode APORT2YCH24 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT2YCH26                    (_VDAC_OPA_MUX_POSSEL_APORT2YCH26 << 0) /**< Shifted mode APORT2YCH26 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT2YCH28                    (_VDAC_OPA_MUX_POSSEL_APORT2YCH28 << 0) /**< Shifted mode APORT2YCH28 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT2YCH30                    (_VDAC_OPA_MUX_POSSEL_APORT2YCH30 << 0) /**< Shifted mode APORT2YCH30 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT3XCH0                     (_VDAC_OPA_MUX_POSSEL_APORT3XCH0 << 0)  /**< Shifted mode APORT3XCH0 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT3XCH2                     (_VDAC_OPA_MUX_POSSEL_APORT3XCH2 << 0)  /**< Shifted mode APORT3XCH2 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT3XCH4                     (_VDAC_OPA_MUX_POSSEL_APORT3XCH4 << 0)  /**< Shifted mode APORT3XCH4 for VDAC_OPA_MUX */
@@ -1286,22 +1126,6 @@ typedef struct
 #define VDAC_OPA_MUX_POSSEL_APORT3XCH26                    (_VDAC_OPA_MUX_POSSEL_APORT3XCH26 << 0) /**< Shifted mode APORT3XCH26 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT3XCH28                    (_VDAC_OPA_MUX_POSSEL_APORT3XCH28 << 0) /**< Shifted mode APORT3XCH28 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT3XCH30                    (_VDAC_OPA_MUX_POSSEL_APORT3XCH30 << 0) /**< Shifted mode APORT3XCH30 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT3YCH1                     (_VDAC_OPA_MUX_POSSEL_APORT3YCH1 << 0)  /**< Shifted mode APORT3YCH1 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT3YCH3                     (_VDAC_OPA_MUX_POSSEL_APORT3YCH3 << 0)  /**< Shifted mode APORT3YCH3 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT3YCH5                     (_VDAC_OPA_MUX_POSSEL_APORT3YCH5 << 0)  /**< Shifted mode APORT3YCH5 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT3YCH7                     (_VDAC_OPA_MUX_POSSEL_APORT3YCH7 << 0)  /**< Shifted mode APORT3YCH7 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT3YCH9                     (_VDAC_OPA_MUX_POSSEL_APORT3YCH9 << 0)  /**< Shifted mode APORT3YCH9 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT3YCH11                    (_VDAC_OPA_MUX_POSSEL_APORT3YCH11 << 0) /**< Shifted mode APORT3YCH11 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT3YCH13                    (_VDAC_OPA_MUX_POSSEL_APORT3YCH13 << 0) /**< Shifted mode APORT3YCH13 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT3YCH15                    (_VDAC_OPA_MUX_POSSEL_APORT3YCH15 << 0) /**< Shifted mode APORT3YCH15 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT3YCH17                    (_VDAC_OPA_MUX_POSSEL_APORT3YCH17 << 0) /**< Shifted mode APORT3YCH17 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT3YCH19                    (_VDAC_OPA_MUX_POSSEL_APORT3YCH19 << 0) /**< Shifted mode APORT3YCH19 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT3YCH21                    (_VDAC_OPA_MUX_POSSEL_APORT3YCH21 << 0) /**< Shifted mode APORT3YCH21 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT3YCH23                    (_VDAC_OPA_MUX_POSSEL_APORT3YCH23 << 0) /**< Shifted mode APORT3YCH23 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT3YCH25                    (_VDAC_OPA_MUX_POSSEL_APORT3YCH25 << 0) /**< Shifted mode APORT3YCH25 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT3YCH27                    (_VDAC_OPA_MUX_POSSEL_APORT3YCH27 << 0) /**< Shifted mode APORT3YCH27 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT3YCH29                    (_VDAC_OPA_MUX_POSSEL_APORT3YCH29 << 0) /**< Shifted mode APORT3YCH29 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT3YCH31                    (_VDAC_OPA_MUX_POSSEL_APORT3YCH31 << 0) /**< Shifted mode APORT3YCH31 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT4XCH1                     (_VDAC_OPA_MUX_POSSEL_APORT4XCH1 << 0)  /**< Shifted mode APORT4XCH1 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT4XCH3                     (_VDAC_OPA_MUX_POSSEL_APORT4XCH3 << 0)  /**< Shifted mode APORT4XCH3 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT4XCH5                     (_VDAC_OPA_MUX_POSSEL_APORT4XCH5 << 0)  /**< Shifted mode APORT4XCH5 for VDAC_OPA_MUX */
@@ -1318,22 +1142,6 @@ typedef struct
 #define VDAC_OPA_MUX_POSSEL_APORT4XCH27                    (_VDAC_OPA_MUX_POSSEL_APORT4XCH27 << 0) /**< Shifted mode APORT4XCH27 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT4XCH29                    (_VDAC_OPA_MUX_POSSEL_APORT4XCH29 << 0) /**< Shifted mode APORT4XCH29 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_APORT4XCH31                    (_VDAC_OPA_MUX_POSSEL_APORT4XCH31 << 0) /**< Shifted mode APORT4XCH31 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT4YCH0                     (_VDAC_OPA_MUX_POSSEL_APORT4YCH0 << 0)  /**< Shifted mode APORT4YCH0 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT4YCH2                     (_VDAC_OPA_MUX_POSSEL_APORT4YCH2 << 0)  /**< Shifted mode APORT4YCH2 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT4YCH4                     (_VDAC_OPA_MUX_POSSEL_APORT4YCH4 << 0)  /**< Shifted mode APORT4YCH4 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT4YCH6                     (_VDAC_OPA_MUX_POSSEL_APORT4YCH6 << 0)  /**< Shifted mode APORT4YCH6 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT4YCH8                     (_VDAC_OPA_MUX_POSSEL_APORT4YCH8 << 0)  /**< Shifted mode APORT4YCH8 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT4YCH10                    (_VDAC_OPA_MUX_POSSEL_APORT4YCH10 << 0) /**< Shifted mode APORT4YCH10 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT4YCH12                    (_VDAC_OPA_MUX_POSSEL_APORT4YCH12 << 0) /**< Shifted mode APORT4YCH12 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT4YCH14                    (_VDAC_OPA_MUX_POSSEL_APORT4YCH14 << 0) /**< Shifted mode APORT4YCH14 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT4YCH16                    (_VDAC_OPA_MUX_POSSEL_APORT4YCH16 << 0) /**< Shifted mode APORT4YCH16 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT4YCH18                    (_VDAC_OPA_MUX_POSSEL_APORT4YCH18 << 0) /**< Shifted mode APORT4YCH18 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT4YCH20                    (_VDAC_OPA_MUX_POSSEL_APORT4YCH20 << 0) /**< Shifted mode APORT4YCH20 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT4YCH22                    (_VDAC_OPA_MUX_POSSEL_APORT4YCH22 << 0) /**< Shifted mode APORT4YCH22 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT4YCH24                    (_VDAC_OPA_MUX_POSSEL_APORT4YCH24 << 0) /**< Shifted mode APORT4YCH24 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT4YCH26                    (_VDAC_OPA_MUX_POSSEL_APORT4YCH26 << 0) /**< Shifted mode APORT4YCH26 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT4YCH28                    (_VDAC_OPA_MUX_POSSEL_APORT4YCH28 << 0) /**< Shifted mode APORT4YCH28 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_POSSEL_APORT4YCH30                    (_VDAC_OPA_MUX_POSSEL_APORT4YCH30 << 0) /**< Shifted mode APORT4YCH30 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_DISABLE                        (_VDAC_OPA_MUX_POSSEL_DISABLE << 0)     /**< Shifted mode DISABLE for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_DEFAULT                        (_VDAC_OPA_MUX_POSSEL_DEFAULT << 0)     /**< Shifted mode DEFAULT for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_POSSEL_DAC                            (_VDAC_OPA_MUX_POSSEL_DAC << 0)         /**< Shifted mode DAC for VDAC_OPA_MUX */
@@ -1342,54 +1150,6 @@ typedef struct
 #define VDAC_OPA_MUX_POSSEL_OPATAP                         (_VDAC_OPA_MUX_POSSEL_OPATAP << 0)      /**< Shifted mode OPATAP for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_SHIFT                         8                                       /**< Shift value for VDAC_OPANEGSEL */
 #define _VDAC_OPA_MUX_NEGSEL_MASK                          0xFF00UL                                /**< Bit mask for VDAC_OPANEGSEL */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0XCH0                    0x00000000UL                            /**< Mode APORT0XCH0 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0XCH1                    0x00000001UL                            /**< Mode APORT0XCH1 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0XCH2                    0x00000002UL                            /**< Mode APORT0XCH2 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0XCH3                    0x00000003UL                            /**< Mode APORT0XCH3 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0XCH4                    0x00000004UL                            /**< Mode APORT0XCH4 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0XCH5                    0x00000005UL                            /**< Mode APORT0XCH5 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0XCH6                    0x00000006UL                            /**< Mode APORT0XCH6 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0XCH7                    0x00000007UL                            /**< Mode APORT0XCH7 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0XCH8                    0x00000008UL                            /**< Mode APORT0XCH8 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0XCH9                    0x00000009UL                            /**< Mode APORT0XCH9 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0XCH10                   0x0000000AUL                            /**< Mode APORT0XCH10 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0XCH11                   0x0000000BUL                            /**< Mode APORT0XCH11 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0XCH12                   0x0000000CUL                            /**< Mode APORT0XCH12 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0XCH13                   0x0000000DUL                            /**< Mode APORT0XCH13 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0XCH14                   0x0000000EUL                            /**< Mode APORT0XCH14 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0XCH15                   0x0000000FUL                            /**< Mode APORT0XCH15 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0YCH0                    0x00000010UL                            /**< Mode APORT0YCH0 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0YCH1                    0x00000011UL                            /**< Mode APORT0YCH1 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0YCH2                    0x00000012UL                            /**< Mode APORT0YCH2 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0YCH3                    0x00000013UL                            /**< Mode APORT0YCH3 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0YCH4                    0x00000014UL                            /**< Mode APORT0YCH4 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0YCH5                    0x00000015UL                            /**< Mode APORT0YCH5 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0YCH6                    0x00000016UL                            /**< Mode APORT0YCH6 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0YCH7                    0x00000017UL                            /**< Mode APORT0YCH7 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0YCH8                    0x00000018UL                            /**< Mode APORT0YCH8 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0YCH9                    0x00000019UL                            /**< Mode APORT0YCH9 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0YCH10                   0x0000001AUL                            /**< Mode APORT0YCH10 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0YCH11                   0x0000001BUL                            /**< Mode APORT0YCH11 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0YCH12                   0x0000001CUL                            /**< Mode APORT0YCH12 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0YCH13                   0x0000001DUL                            /**< Mode APORT0YCH13 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0YCH14                   0x0000001EUL                            /**< Mode APORT0YCH14 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT0YCH15                   0x0000001FUL                            /**< Mode APORT0YCH15 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT1XCH0                    0x00000020UL                            /**< Mode APORT1XCH0 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT1XCH2                    0x00000021UL                            /**< Mode APORT1XCH2 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT1XCH4                    0x00000022UL                            /**< Mode APORT1XCH4 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT1XCH6                    0x00000023UL                            /**< Mode APORT1XCH6 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT1XCH8                    0x00000024UL                            /**< Mode APORT1XCH8 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT1XCH10                   0x00000025UL                            /**< Mode APORT1XCH10 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT1XCH12                   0x00000026UL                            /**< Mode APORT1XCH12 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT1XCH14                   0x00000027UL                            /**< Mode APORT1XCH14 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT1XCH16                   0x00000028UL                            /**< Mode APORT1XCH16 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT1XCH18                   0x00000029UL                            /**< Mode APORT1XCH18 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT1XCH20                   0x0000002AUL                            /**< Mode APORT1XCH20 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT1XCH22                   0x0000002BUL                            /**< Mode APORT1XCH22 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT1XCH24                   0x0000002CUL                            /**< Mode APORT1XCH24 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT1XCH26                   0x0000002DUL                            /**< Mode APORT1XCH26 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT1XCH28                   0x0000002EUL                            /**< Mode APORT1XCH28 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT1XCH30                   0x0000002FUL                            /**< Mode APORT1XCH30 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_APORT1YCH1                    0x00000030UL                            /**< Mode APORT1YCH1 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_APORT1YCH3                    0x00000031UL                            /**< Mode APORT1YCH3 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_APORT1YCH5                    0x00000032UL                            /**< Mode APORT1YCH5 for VDAC_OPA_MUX */
@@ -1406,22 +1166,6 @@ typedef struct
 #define _VDAC_OPA_MUX_NEGSEL_APORT1YCH27                   0x0000003DUL                            /**< Mode APORT1YCH27 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_APORT1YCH29                   0x0000003EUL                            /**< Mode APORT1YCH29 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_APORT1YCH31                   0x0000003FUL                            /**< Mode APORT1YCH31 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT2XCH1                    0x00000040UL                            /**< Mode APORT2XCH1 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT2XCH2                    0x00000041UL                            /**< Mode APORT2XCH2 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT2XCH5                    0x00000042UL                            /**< Mode APORT2XCH5 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT2XCH7                    0x00000043UL                            /**< Mode APORT2XCH7 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT2XCH9                    0x00000044UL                            /**< Mode APORT2XCH9 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT2XCH11                   0x00000045UL                            /**< Mode APORT2XCH11 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT2XCH13                   0x00000046UL                            /**< Mode APORT2XCH13 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT2XCH15                   0x00000047UL                            /**< Mode APORT2XCH15 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT2XCH17                   0x00000048UL                            /**< Mode APORT2XCH17 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT2XCH19                   0x00000049UL                            /**< Mode APORT2XCH19 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT2XCH21                   0x0000004AUL                            /**< Mode APORT2XCH21 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT2XCH23                   0x0000004BUL                            /**< Mode APORT2XCH23 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT2XCH25                   0x0000004CUL                            /**< Mode APORT2XCH25 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT2XCH27                   0x0000004DUL                            /**< Mode APORT2XCH27 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT2XCH29                   0x0000004EUL                            /**< Mode APORT2XCH29 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT2XCH31                   0x0000004FUL                            /**< Mode APORT2XCH31 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_APORT2YCH0                    0x00000050UL                            /**< Mode APORT2YCH0 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_APORT2YCH2                    0x00000051UL                            /**< Mode APORT2YCH2 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_APORT2YCH4                    0x00000052UL                            /**< Mode APORT2YCH4 for VDAC_OPA_MUX */
@@ -1438,22 +1182,6 @@ typedef struct
 #define _VDAC_OPA_MUX_NEGSEL_APORT2YCH26                   0x0000005DUL                            /**< Mode APORT2YCH26 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_APORT2YCH28                   0x0000005EUL                            /**< Mode APORT2YCH28 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_APORT2YCH30                   0x0000005FUL                            /**< Mode APORT2YCH30 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT3XCH0                    0x00000060UL                            /**< Mode APORT3XCH0 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT3XCH2                    0x00000061UL                            /**< Mode APORT3XCH2 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT3XCH4                    0x00000062UL                            /**< Mode APORT3XCH4 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT3XCH6                    0x00000063UL                            /**< Mode APORT3XCH6 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT3XCH8                    0x00000064UL                            /**< Mode APORT3XCH8 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT3XCH10                   0x00000065UL                            /**< Mode APORT3XCH10 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT3XCH12                   0x00000066UL                            /**< Mode APORT3XCH12 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT3XCH14                   0x00000067UL                            /**< Mode APORT3XCH14 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT3XCH16                   0x00000068UL                            /**< Mode APORT3XCH16 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT3XCH18                   0x00000069UL                            /**< Mode APORT3XCH18 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT3XCH20                   0x0000006AUL                            /**< Mode APORT3XCH20 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT3XCH22                   0x0000006BUL                            /**< Mode APORT3XCH22 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT3XCH24                   0x0000006CUL                            /**< Mode APORT3XCH24 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT3XCH26                   0x0000006DUL                            /**< Mode APORT3XCH26 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT3XCH28                   0x0000006EUL                            /**< Mode APORT3XCH28 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT3XCH30                   0x0000006FUL                            /**< Mode APORT3XCH30 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_APORT3YCH1                    0x00000070UL                            /**< Mode APORT3YCH1 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_APORT3YCH3                    0x00000071UL                            /**< Mode APORT3YCH3 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_APORT3YCH5                    0x00000072UL                            /**< Mode APORT3YCH5 for VDAC_OPA_MUX */
@@ -1470,22 +1198,6 @@ typedef struct
 #define _VDAC_OPA_MUX_NEGSEL_APORT3YCH27                   0x0000007DUL                            /**< Mode APORT3YCH27 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_APORT3YCH29                   0x0000007EUL                            /**< Mode APORT3YCH29 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_APORT3YCH31                   0x0000007FUL                            /**< Mode APORT3YCH31 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT4XCH1                    0x00000080UL                            /**< Mode APORT4XCH1 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT4XCH3                    0x00000081UL                            /**< Mode APORT4XCH3 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT4XCH5                    0x00000082UL                            /**< Mode APORT4XCH5 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT4XCH7                    0x00000083UL                            /**< Mode APORT4XCH7 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT4XCH9                    0x00000084UL                            /**< Mode APORT4XCH9 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT4XCH11                   0x00000085UL                            /**< Mode APORT4XCH11 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT4XCH13                   0x00000086UL                            /**< Mode APORT4XCH13 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT4XCH15                   0x00000087UL                            /**< Mode APORT4XCH15 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT4XCH17                   0x00000088UL                            /**< Mode APORT4XCH17 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT4XCH19                   0x00000089UL                            /**< Mode APORT4XCH19 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT4XCH21                   0x0000008AUL                            /**< Mode APORT4XCH21 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT4XCH23                   0x0000008BUL                            /**< Mode APORT4XCH23 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT4XCH25                   0x0000008CUL                            /**< Mode APORT4XCH25 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT4XCH27                   0x0000008DUL                            /**< Mode APORT4XCH27 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT4XCH29                   0x0000008EUL                            /**< Mode APORT4XCH29 for VDAC_OPA_MUX */
-#define _VDAC_OPA_MUX_NEGSEL_APORT4XCH31                   0x0000008FUL                            /**< Mode APORT4XCH31 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_APORT4YCH0                    0x00000090UL                            /**< Mode APORT4YCH0 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_APORT4YCH2                    0x00000091UL                            /**< Mode APORT4YCH2 for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_APORT4YCH4                    0x00000092UL                            /**< Mode APORT4YCH4 for VDAC_OPA_MUX */
@@ -1507,54 +1219,6 @@ typedef struct
 #define _VDAC_OPA_MUX_NEGSEL_DEFAULT                       0x000000F2UL                            /**< Mode DEFAULT for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_OPATAP                        0x000000F2UL                            /**< Mode OPATAP for VDAC_OPA_MUX */
 #define _VDAC_OPA_MUX_NEGSEL_NEGPAD                        0x000000F3UL                            /**< Mode NEGPAD for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0XCH0                     (_VDAC_OPA_MUX_NEGSEL_APORT0XCH0 << 8)  /**< Shifted mode APORT0XCH0 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0XCH1                     (_VDAC_OPA_MUX_NEGSEL_APORT0XCH1 << 8)  /**< Shifted mode APORT0XCH1 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0XCH2                     (_VDAC_OPA_MUX_NEGSEL_APORT0XCH2 << 8)  /**< Shifted mode APORT0XCH2 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0XCH3                     (_VDAC_OPA_MUX_NEGSEL_APORT0XCH3 << 8)  /**< Shifted mode APORT0XCH3 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0XCH4                     (_VDAC_OPA_MUX_NEGSEL_APORT0XCH4 << 8)  /**< Shifted mode APORT0XCH4 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0XCH5                     (_VDAC_OPA_MUX_NEGSEL_APORT0XCH5 << 8)  /**< Shifted mode APORT0XCH5 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0XCH6                     (_VDAC_OPA_MUX_NEGSEL_APORT0XCH6 << 8)  /**< Shifted mode APORT0XCH6 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0XCH7                     (_VDAC_OPA_MUX_NEGSEL_APORT0XCH7 << 8)  /**< Shifted mode APORT0XCH7 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0XCH8                     (_VDAC_OPA_MUX_NEGSEL_APORT0XCH8 << 8)  /**< Shifted mode APORT0XCH8 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0XCH9                     (_VDAC_OPA_MUX_NEGSEL_APORT0XCH9 << 8)  /**< Shifted mode APORT0XCH9 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0XCH10                    (_VDAC_OPA_MUX_NEGSEL_APORT0XCH10 << 8) /**< Shifted mode APORT0XCH10 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0XCH11                    (_VDAC_OPA_MUX_NEGSEL_APORT0XCH11 << 8) /**< Shifted mode APORT0XCH11 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0XCH12                    (_VDAC_OPA_MUX_NEGSEL_APORT0XCH12 << 8) /**< Shifted mode APORT0XCH12 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0XCH13                    (_VDAC_OPA_MUX_NEGSEL_APORT0XCH13 << 8) /**< Shifted mode APORT0XCH13 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0XCH14                    (_VDAC_OPA_MUX_NEGSEL_APORT0XCH14 << 8) /**< Shifted mode APORT0XCH14 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0XCH15                    (_VDAC_OPA_MUX_NEGSEL_APORT0XCH15 << 8) /**< Shifted mode APORT0XCH15 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0YCH0                     (_VDAC_OPA_MUX_NEGSEL_APORT0YCH0 << 8)  /**< Shifted mode APORT0YCH0 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0YCH1                     (_VDAC_OPA_MUX_NEGSEL_APORT0YCH1 << 8)  /**< Shifted mode APORT0YCH1 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0YCH2                     (_VDAC_OPA_MUX_NEGSEL_APORT0YCH2 << 8)  /**< Shifted mode APORT0YCH2 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0YCH3                     (_VDAC_OPA_MUX_NEGSEL_APORT0YCH3 << 8)  /**< Shifted mode APORT0YCH3 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0YCH4                     (_VDAC_OPA_MUX_NEGSEL_APORT0YCH4 << 8)  /**< Shifted mode APORT0YCH4 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0YCH5                     (_VDAC_OPA_MUX_NEGSEL_APORT0YCH5 << 8)  /**< Shifted mode APORT0YCH5 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0YCH6                     (_VDAC_OPA_MUX_NEGSEL_APORT0YCH6 << 8)  /**< Shifted mode APORT0YCH6 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0YCH7                     (_VDAC_OPA_MUX_NEGSEL_APORT0YCH7 << 8)  /**< Shifted mode APORT0YCH7 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0YCH8                     (_VDAC_OPA_MUX_NEGSEL_APORT0YCH8 << 8)  /**< Shifted mode APORT0YCH8 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0YCH9                     (_VDAC_OPA_MUX_NEGSEL_APORT0YCH9 << 8)  /**< Shifted mode APORT0YCH9 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0YCH10                    (_VDAC_OPA_MUX_NEGSEL_APORT0YCH10 << 8) /**< Shifted mode APORT0YCH10 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0YCH11                    (_VDAC_OPA_MUX_NEGSEL_APORT0YCH11 << 8) /**< Shifted mode APORT0YCH11 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0YCH12                    (_VDAC_OPA_MUX_NEGSEL_APORT0YCH12 << 8) /**< Shifted mode APORT0YCH12 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0YCH13                    (_VDAC_OPA_MUX_NEGSEL_APORT0YCH13 << 8) /**< Shifted mode APORT0YCH13 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0YCH14                    (_VDAC_OPA_MUX_NEGSEL_APORT0YCH14 << 8) /**< Shifted mode APORT0YCH14 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT0YCH15                    (_VDAC_OPA_MUX_NEGSEL_APORT0YCH15 << 8) /**< Shifted mode APORT0YCH15 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT1XCH0                     (_VDAC_OPA_MUX_NEGSEL_APORT1XCH0 << 8)  /**< Shifted mode APORT1XCH0 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT1XCH2                     (_VDAC_OPA_MUX_NEGSEL_APORT1XCH2 << 8)  /**< Shifted mode APORT1XCH2 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT1XCH4                     (_VDAC_OPA_MUX_NEGSEL_APORT1XCH4 << 8)  /**< Shifted mode APORT1XCH4 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT1XCH6                     (_VDAC_OPA_MUX_NEGSEL_APORT1XCH6 << 8)  /**< Shifted mode APORT1XCH6 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT1XCH8                     (_VDAC_OPA_MUX_NEGSEL_APORT1XCH8 << 8)  /**< Shifted mode APORT1XCH8 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT1XCH10                    (_VDAC_OPA_MUX_NEGSEL_APORT1XCH10 << 8) /**< Shifted mode APORT1XCH10 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT1XCH12                    (_VDAC_OPA_MUX_NEGSEL_APORT1XCH12 << 8) /**< Shifted mode APORT1XCH12 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT1XCH14                    (_VDAC_OPA_MUX_NEGSEL_APORT1XCH14 << 8) /**< Shifted mode APORT1XCH14 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT1XCH16                    (_VDAC_OPA_MUX_NEGSEL_APORT1XCH16 << 8) /**< Shifted mode APORT1XCH16 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT1XCH18                    (_VDAC_OPA_MUX_NEGSEL_APORT1XCH18 << 8) /**< Shifted mode APORT1XCH18 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT1XCH20                    (_VDAC_OPA_MUX_NEGSEL_APORT1XCH20 << 8) /**< Shifted mode APORT1XCH20 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT1XCH22                    (_VDAC_OPA_MUX_NEGSEL_APORT1XCH22 << 8) /**< Shifted mode APORT1XCH22 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT1XCH24                    (_VDAC_OPA_MUX_NEGSEL_APORT1XCH24 << 8) /**< Shifted mode APORT1XCH24 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT1XCH26                    (_VDAC_OPA_MUX_NEGSEL_APORT1XCH26 << 8) /**< Shifted mode APORT1XCH26 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT1XCH28                    (_VDAC_OPA_MUX_NEGSEL_APORT1XCH28 << 8) /**< Shifted mode APORT1XCH28 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT1XCH30                    (_VDAC_OPA_MUX_NEGSEL_APORT1XCH30 << 8) /**< Shifted mode APORT1XCH30 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_NEGSEL_APORT1YCH1                     (_VDAC_OPA_MUX_NEGSEL_APORT1YCH1 << 8)  /**< Shifted mode APORT1YCH1 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_NEGSEL_APORT1YCH3                     (_VDAC_OPA_MUX_NEGSEL_APORT1YCH3 << 8)  /**< Shifted mode APORT1YCH3 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_NEGSEL_APORT1YCH5                     (_VDAC_OPA_MUX_NEGSEL_APORT1YCH5 << 8)  /**< Shifted mode APORT1YCH5 for VDAC_OPA_MUX */
@@ -1571,22 +1235,6 @@ typedef struct
 #define VDAC_OPA_MUX_NEGSEL_APORT1YCH27                    (_VDAC_OPA_MUX_NEGSEL_APORT1YCH27 << 8) /**< Shifted mode APORT1YCH27 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_NEGSEL_APORT1YCH29                    (_VDAC_OPA_MUX_NEGSEL_APORT1YCH29 << 8) /**< Shifted mode APORT1YCH29 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_NEGSEL_APORT1YCH31                    (_VDAC_OPA_MUX_NEGSEL_APORT1YCH31 << 8) /**< Shifted mode APORT1YCH31 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT2XCH1                     (_VDAC_OPA_MUX_NEGSEL_APORT2XCH1 << 8)  /**< Shifted mode APORT2XCH1 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT2XCH2                     (_VDAC_OPA_MUX_NEGSEL_APORT2XCH2 << 8)  /**< Shifted mode APORT2XCH2 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT2XCH5                     (_VDAC_OPA_MUX_NEGSEL_APORT2XCH5 << 8)  /**< Shifted mode APORT2XCH5 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT2XCH7                     (_VDAC_OPA_MUX_NEGSEL_APORT2XCH7 << 8)  /**< Shifted mode APORT2XCH7 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT2XCH9                     (_VDAC_OPA_MUX_NEGSEL_APORT2XCH9 << 8)  /**< Shifted mode APORT2XCH9 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT2XCH11                    (_VDAC_OPA_MUX_NEGSEL_APORT2XCH11 << 8) /**< Shifted mode APORT2XCH11 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT2XCH13                    (_VDAC_OPA_MUX_NEGSEL_APORT2XCH13 << 8) /**< Shifted mode APORT2XCH13 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT2XCH15                    (_VDAC_OPA_MUX_NEGSEL_APORT2XCH15 << 8) /**< Shifted mode APORT2XCH15 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT2XCH17                    (_VDAC_OPA_MUX_NEGSEL_APORT2XCH17 << 8) /**< Shifted mode APORT2XCH17 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT2XCH19                    (_VDAC_OPA_MUX_NEGSEL_APORT2XCH19 << 8) /**< Shifted mode APORT2XCH19 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT2XCH21                    (_VDAC_OPA_MUX_NEGSEL_APORT2XCH21 << 8) /**< Shifted mode APORT2XCH21 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT2XCH23                    (_VDAC_OPA_MUX_NEGSEL_APORT2XCH23 << 8) /**< Shifted mode APORT2XCH23 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT2XCH25                    (_VDAC_OPA_MUX_NEGSEL_APORT2XCH25 << 8) /**< Shifted mode APORT2XCH25 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT2XCH27                    (_VDAC_OPA_MUX_NEGSEL_APORT2XCH27 << 8) /**< Shifted mode APORT2XCH27 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT2XCH29                    (_VDAC_OPA_MUX_NEGSEL_APORT2XCH29 << 8) /**< Shifted mode APORT2XCH29 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT2XCH31                    (_VDAC_OPA_MUX_NEGSEL_APORT2XCH31 << 8) /**< Shifted mode APORT2XCH31 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_NEGSEL_APORT2YCH0                     (_VDAC_OPA_MUX_NEGSEL_APORT2YCH0 << 8)  /**< Shifted mode APORT2YCH0 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_NEGSEL_APORT2YCH2                     (_VDAC_OPA_MUX_NEGSEL_APORT2YCH2 << 8)  /**< Shifted mode APORT2YCH2 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_NEGSEL_APORT2YCH4                     (_VDAC_OPA_MUX_NEGSEL_APORT2YCH4 << 8)  /**< Shifted mode APORT2YCH4 for VDAC_OPA_MUX */
@@ -1603,22 +1251,6 @@ typedef struct
 #define VDAC_OPA_MUX_NEGSEL_APORT2YCH26                    (_VDAC_OPA_MUX_NEGSEL_APORT2YCH26 << 8) /**< Shifted mode APORT2YCH26 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_NEGSEL_APORT2YCH28                    (_VDAC_OPA_MUX_NEGSEL_APORT2YCH28 << 8) /**< Shifted mode APORT2YCH28 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_NEGSEL_APORT2YCH30                    (_VDAC_OPA_MUX_NEGSEL_APORT2YCH30 << 8) /**< Shifted mode APORT2YCH30 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT3XCH0                     (_VDAC_OPA_MUX_NEGSEL_APORT3XCH0 << 8)  /**< Shifted mode APORT3XCH0 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT3XCH2                     (_VDAC_OPA_MUX_NEGSEL_APORT3XCH2 << 8)  /**< Shifted mode APORT3XCH2 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT3XCH4                     (_VDAC_OPA_MUX_NEGSEL_APORT3XCH4 << 8)  /**< Shifted mode APORT3XCH4 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT3XCH6                     (_VDAC_OPA_MUX_NEGSEL_APORT3XCH6 << 8)  /**< Shifted mode APORT3XCH6 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT3XCH8                     (_VDAC_OPA_MUX_NEGSEL_APORT3XCH8 << 8)  /**< Shifted mode APORT3XCH8 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT3XCH10                    (_VDAC_OPA_MUX_NEGSEL_APORT3XCH10 << 8) /**< Shifted mode APORT3XCH10 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT3XCH12                    (_VDAC_OPA_MUX_NEGSEL_APORT3XCH12 << 8) /**< Shifted mode APORT3XCH12 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT3XCH14                    (_VDAC_OPA_MUX_NEGSEL_APORT3XCH14 << 8) /**< Shifted mode APORT3XCH14 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT3XCH16                    (_VDAC_OPA_MUX_NEGSEL_APORT3XCH16 << 8) /**< Shifted mode APORT3XCH16 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT3XCH18                    (_VDAC_OPA_MUX_NEGSEL_APORT3XCH18 << 8) /**< Shifted mode APORT3XCH18 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT3XCH20                    (_VDAC_OPA_MUX_NEGSEL_APORT3XCH20 << 8) /**< Shifted mode APORT3XCH20 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT3XCH22                    (_VDAC_OPA_MUX_NEGSEL_APORT3XCH22 << 8) /**< Shifted mode APORT3XCH22 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT3XCH24                    (_VDAC_OPA_MUX_NEGSEL_APORT3XCH24 << 8) /**< Shifted mode APORT3XCH24 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT3XCH26                    (_VDAC_OPA_MUX_NEGSEL_APORT3XCH26 << 8) /**< Shifted mode APORT3XCH26 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT3XCH28                    (_VDAC_OPA_MUX_NEGSEL_APORT3XCH28 << 8) /**< Shifted mode APORT3XCH28 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT3XCH30                    (_VDAC_OPA_MUX_NEGSEL_APORT3XCH30 << 8) /**< Shifted mode APORT3XCH30 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_NEGSEL_APORT3YCH1                     (_VDAC_OPA_MUX_NEGSEL_APORT3YCH1 << 8)  /**< Shifted mode APORT3YCH1 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_NEGSEL_APORT3YCH3                     (_VDAC_OPA_MUX_NEGSEL_APORT3YCH3 << 8)  /**< Shifted mode APORT3YCH3 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_NEGSEL_APORT3YCH5                     (_VDAC_OPA_MUX_NEGSEL_APORT3YCH5 << 8)  /**< Shifted mode APORT3YCH5 for VDAC_OPA_MUX */
@@ -1635,22 +1267,6 @@ typedef struct
 #define VDAC_OPA_MUX_NEGSEL_APORT3YCH27                    (_VDAC_OPA_MUX_NEGSEL_APORT3YCH27 << 8) /**< Shifted mode APORT3YCH27 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_NEGSEL_APORT3YCH29                    (_VDAC_OPA_MUX_NEGSEL_APORT3YCH29 << 8) /**< Shifted mode APORT3YCH29 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_NEGSEL_APORT3YCH31                    (_VDAC_OPA_MUX_NEGSEL_APORT3YCH31 << 8) /**< Shifted mode APORT3YCH31 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT4XCH1                     (_VDAC_OPA_MUX_NEGSEL_APORT4XCH1 << 8)  /**< Shifted mode APORT4XCH1 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT4XCH3                     (_VDAC_OPA_MUX_NEGSEL_APORT4XCH3 << 8)  /**< Shifted mode APORT4XCH3 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT4XCH5                     (_VDAC_OPA_MUX_NEGSEL_APORT4XCH5 << 8)  /**< Shifted mode APORT4XCH5 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT4XCH7                     (_VDAC_OPA_MUX_NEGSEL_APORT4XCH7 << 8)  /**< Shifted mode APORT4XCH7 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT4XCH9                     (_VDAC_OPA_MUX_NEGSEL_APORT4XCH9 << 8)  /**< Shifted mode APORT4XCH9 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT4XCH11                    (_VDAC_OPA_MUX_NEGSEL_APORT4XCH11 << 8) /**< Shifted mode APORT4XCH11 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT4XCH13                    (_VDAC_OPA_MUX_NEGSEL_APORT4XCH13 << 8) /**< Shifted mode APORT4XCH13 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT4XCH15                    (_VDAC_OPA_MUX_NEGSEL_APORT4XCH15 << 8) /**< Shifted mode APORT4XCH15 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT4XCH17                    (_VDAC_OPA_MUX_NEGSEL_APORT4XCH17 << 8) /**< Shifted mode APORT4XCH17 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT4XCH19                    (_VDAC_OPA_MUX_NEGSEL_APORT4XCH19 << 8) /**< Shifted mode APORT4XCH19 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT4XCH21                    (_VDAC_OPA_MUX_NEGSEL_APORT4XCH21 << 8) /**< Shifted mode APORT4XCH21 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT4XCH23                    (_VDAC_OPA_MUX_NEGSEL_APORT4XCH23 << 8) /**< Shifted mode APORT4XCH23 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT4XCH25                    (_VDAC_OPA_MUX_NEGSEL_APORT4XCH25 << 8) /**< Shifted mode APORT4XCH25 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT4XCH27                    (_VDAC_OPA_MUX_NEGSEL_APORT4XCH27 << 8) /**< Shifted mode APORT4XCH27 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT4XCH29                    (_VDAC_OPA_MUX_NEGSEL_APORT4XCH29 << 8) /**< Shifted mode APORT4XCH29 for VDAC_OPA_MUX */
-#define VDAC_OPA_MUX_NEGSEL_APORT4XCH31                    (_VDAC_OPA_MUX_NEGSEL_APORT4XCH31 << 8) /**< Shifted mode APORT4XCH31 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_NEGSEL_APORT4YCH0                     (_VDAC_OPA_MUX_NEGSEL_APORT4YCH0 << 8)  /**< Shifted mode APORT4YCH0 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_NEGSEL_APORT4YCH2                     (_VDAC_OPA_MUX_NEGSEL_APORT4YCH2 << 8)  /**< Shifted mode APORT4YCH2 for VDAC_OPA_MUX */
 #define VDAC_OPA_MUX_NEGSEL_APORT4YCH4                     (_VDAC_OPA_MUX_NEGSEL_APORT4YCH4 << 8)  /**< Shifted mode APORT4YCH4 for VDAC_OPA_MUX */
@@ -1756,54 +1372,6 @@ typedef struct
 #define _VDAC_OPA_OUT_APORTOUTSEL_SHIFT                    16                                            /**< Shift value for VDAC_OPAAPORTOUTSEL */
 #define _VDAC_OPA_OUT_APORTOUTSEL_MASK                     0xFF0000UL                                    /**< Bit mask for VDAC_OPAAPORTOUTSEL */
 #define _VDAC_OPA_OUT_APORTOUTSEL_DEFAULT                  0x00000000UL                                  /**< Mode DEFAULT for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH0               0x00000000UL                                  /**< Mode APORT0XCH0 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH1               0x00000001UL                                  /**< Mode APORT0XCH1 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH2               0x00000002UL                                  /**< Mode APORT0XCH2 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH3               0x00000003UL                                  /**< Mode APORT0XCH3 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH4               0x00000004UL                                  /**< Mode APORT0XCH4 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH5               0x00000005UL                                  /**< Mode APORT0XCH5 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH6               0x00000006UL                                  /**< Mode APORT0XCH6 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH7               0x00000007UL                                  /**< Mode APORT0XCH7 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH8               0x00000008UL                                  /**< Mode APORT0XCH8 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH9               0x00000009UL                                  /**< Mode APORT0XCH9 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH10              0x0000000AUL                                  /**< Mode APORT0XCH10 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH11              0x0000000BUL                                  /**< Mode APORT0XCH11 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH12              0x0000000CUL                                  /**< Mode APORT0XCH12 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH13              0x0000000DUL                                  /**< Mode APORT0XCH13 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH14              0x0000000EUL                                  /**< Mode APORT0XCH14 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH15              0x0000000FUL                                  /**< Mode APORT0XCH15 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH0               0x00000010UL                                  /**< Mode APORT0YCH0 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH1               0x00000011UL                                  /**< Mode APORT0YCH1 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH2               0x00000012UL                                  /**< Mode APORT0YCH2 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH3               0x00000013UL                                  /**< Mode APORT0YCH3 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH4               0x00000014UL                                  /**< Mode APORT0YCH4 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH5               0x00000015UL                                  /**< Mode APORT0YCH5 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH6               0x00000016UL                                  /**< Mode APORT0YCH6 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH7               0x00000017UL                                  /**< Mode APORT0YCH7 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH8               0x00000018UL                                  /**< Mode APORT0YCH8 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH9               0x00000019UL                                  /**< Mode APORT0YCH9 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH10              0x0000001AUL                                  /**< Mode APORT0YCH10 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH11              0x0000001BUL                                  /**< Mode APORT0YCH11 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH12              0x0000001CUL                                  /**< Mode APORT0YCH12 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH13              0x0000001DUL                                  /**< Mode APORT0YCH13 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH14              0x0000001EUL                                  /**< Mode APORT0YCH14 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH15              0x0000001FUL                                  /**< Mode APORT0YCH15 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH0               0x00000020UL                                  /**< Mode APORT1XCH0 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH2               0x00000021UL                                  /**< Mode APORT1XCH2 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH4               0x00000022UL                                  /**< Mode APORT1XCH4 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH6               0x00000023UL                                  /**< Mode APORT1XCH6 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH8               0x00000024UL                                  /**< Mode APORT1XCH8 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH10              0x00000025UL                                  /**< Mode APORT1XCH10 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH12              0x00000026UL                                  /**< Mode APORT1XCH12 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH14              0x00000027UL                                  /**< Mode APORT1XCH14 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH16              0x00000028UL                                  /**< Mode APORT1XCH16 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH18              0x00000029UL                                  /**< Mode APORT1XCH18 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH20              0x0000002AUL                                  /**< Mode APORT1XCH20 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH22              0x0000002BUL                                  /**< Mode APORT1XCH22 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH24              0x0000002CUL                                  /**< Mode APORT1XCH24 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH26              0x0000002DUL                                  /**< Mode APORT1XCH26 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH28              0x0000002EUL                                  /**< Mode APORT1XCH28 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH30              0x0000002FUL                                  /**< Mode APORT1XCH30 for VDAC_OPA_OUT */
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT1YCH1               0x00000030UL                                  /**< Mode APORT1YCH1 for VDAC_OPA_OUT */
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT1YCH3               0x00000031UL                                  /**< Mode APORT1YCH3 for VDAC_OPA_OUT */
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT1YCH5               0x00000032UL                                  /**< Mode APORT1YCH5 for VDAC_OPA_OUT */
@@ -1820,22 +1388,6 @@ typedef struct
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT1YCH27              0x0000003DUL                                  /**< Mode APORT1YCH27 for VDAC_OPA_OUT */
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT1YCH29              0x0000003EUL                                  /**< Mode APORT1YCH29 for VDAC_OPA_OUT */
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT1YCH31              0x0000003FUL                                  /**< Mode APORT1YCH31 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH1               0x00000040UL                                  /**< Mode APORT2XCH1 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH2               0x00000041UL                                  /**< Mode APORT2XCH2 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH5               0x00000042UL                                  /**< Mode APORT2XCH5 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH7               0x00000043UL                                  /**< Mode APORT2XCH7 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH9               0x00000044UL                                  /**< Mode APORT2XCH9 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH11              0x00000045UL                                  /**< Mode APORT2XCH11 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH13              0x00000046UL                                  /**< Mode APORT2XCH13 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH15              0x00000047UL                                  /**< Mode APORT2XCH15 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH17              0x00000048UL                                  /**< Mode APORT2XCH17 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH19              0x00000049UL                                  /**< Mode APORT2XCH19 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH21              0x0000004AUL                                  /**< Mode APORT2XCH21 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH23              0x0000004BUL                                  /**< Mode APORT2XCH23 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH25              0x0000004CUL                                  /**< Mode APORT2XCH25 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH27              0x0000004DUL                                  /**< Mode APORT2XCH27 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH29              0x0000004EUL                                  /**< Mode APORT2XCH29 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH31              0x0000004FUL                                  /**< Mode APORT2XCH31 for VDAC_OPA_OUT */
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT2YCH0               0x00000050UL                                  /**< Mode APORT2YCH0 for VDAC_OPA_OUT */
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT2YCH2               0x00000051UL                                  /**< Mode APORT2YCH2 for VDAC_OPA_OUT */
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT2YCH4               0x00000052UL                                  /**< Mode APORT2YCH4 for VDAC_OPA_OUT */
@@ -1852,22 +1404,6 @@ typedef struct
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT2YCH26              0x0000005DUL                                  /**< Mode APORT2YCH26 for VDAC_OPA_OUT */
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT2YCH28              0x0000005EUL                                  /**< Mode APORT2YCH28 for VDAC_OPA_OUT */
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT2YCH30              0x0000005FUL                                  /**< Mode APORT2YCH30 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH0               0x00000060UL                                  /**< Mode APORT3XCH0 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH2               0x00000061UL                                  /**< Mode APORT3XCH2 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH4               0x00000062UL                                  /**< Mode APORT3XCH4 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH6               0x00000063UL                                  /**< Mode APORT3XCH6 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH8               0x00000064UL                                  /**< Mode APORT3XCH8 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH10              0x00000065UL                                  /**< Mode APORT3XCH10 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH12              0x00000066UL                                  /**< Mode APORT3XCH12 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH14              0x00000067UL                                  /**< Mode APORT3XCH14 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH16              0x00000068UL                                  /**< Mode APORT3XCH16 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH18              0x00000069UL                                  /**< Mode APORT3XCH18 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH20              0x0000006AUL                                  /**< Mode APORT3XCH20 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH22              0x0000006BUL                                  /**< Mode APORT3XCH22 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH24              0x0000006CUL                                  /**< Mode APORT3XCH24 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH26              0x0000006DUL                                  /**< Mode APORT3XCH26 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH28              0x0000006EUL                                  /**< Mode APORT3XCH28 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH30              0x0000006FUL                                  /**< Mode APORT3XCH30 for VDAC_OPA_OUT */
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT3YCH1               0x00000070UL                                  /**< Mode APORT3YCH1 for VDAC_OPA_OUT */
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT3YCH3               0x00000071UL                                  /**< Mode APORT3YCH3 for VDAC_OPA_OUT */
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT3YCH5               0x00000072UL                                  /**< Mode APORT3YCH5 for VDAC_OPA_OUT */
@@ -1884,22 +1420,6 @@ typedef struct
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT3YCH27              0x0000007DUL                                  /**< Mode APORT3YCH27 for VDAC_OPA_OUT */
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT3YCH29              0x0000007EUL                                  /**< Mode APORT3YCH29 for VDAC_OPA_OUT */
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT3YCH31              0x0000007FUL                                  /**< Mode APORT3YCH31 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH1               0x00000080UL                                  /**< Mode APORT4XCH1 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH3               0x00000081UL                                  /**< Mode APORT4XCH3 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH5               0x00000082UL                                  /**< Mode APORT4XCH5 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH7               0x00000083UL                                  /**< Mode APORT4XCH7 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH9               0x00000084UL                                  /**< Mode APORT4XCH9 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH11              0x00000085UL                                  /**< Mode APORT4XCH11 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH13              0x00000086UL                                  /**< Mode APORT4XCH13 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH15              0x00000087UL                                  /**< Mode APORT4XCH15 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH17              0x00000088UL                                  /**< Mode APORT4XCH17 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH19              0x00000089UL                                  /**< Mode APORT4XCH19 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH21              0x0000008AUL                                  /**< Mode APORT4XCH21 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH23              0x0000008BUL                                  /**< Mode APORT4XCH23 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH25              0x0000008CUL                                  /**< Mode APORT4XCH25 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH27              0x0000008DUL                                  /**< Mode APORT4XCH27 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH29              0x0000008EUL                                  /**< Mode APORT4XCH29 for VDAC_OPA_OUT */
-#define _VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH31              0x0000008FUL                                  /**< Mode APORT4XCH31 for VDAC_OPA_OUT */
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT4YCH0               0x00000090UL                                  /**< Mode APORT4YCH0 for VDAC_OPA_OUT */
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT4YCH2               0x00000091UL                                  /**< Mode APORT4YCH2 for VDAC_OPA_OUT */
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT4YCH4               0x00000092UL                                  /**< Mode APORT4YCH4 for VDAC_OPA_OUT */
@@ -1917,54 +1437,6 @@ typedef struct
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT4YCH28              0x0000009EUL                                  /**< Mode APORT4YCH28 for VDAC_OPA_OUT */
 #define _VDAC_OPA_OUT_APORTOUTSEL_APORT4YCH30              0x0000009FUL                                  /**< Mode APORT4YCH30 for VDAC_OPA_OUT */
 #define VDAC_OPA_OUT_APORTOUTSEL_DEFAULT                   (_VDAC_OPA_OUT_APORTOUTSEL_DEFAULT << 16)     /**< Shifted mode DEFAULT for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH0                (_VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH0 << 16)  /**< Shifted mode APORT0XCH0 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH1                (_VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH1 << 16)  /**< Shifted mode APORT0XCH1 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH2                (_VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH2 << 16)  /**< Shifted mode APORT0XCH2 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH3                (_VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH3 << 16)  /**< Shifted mode APORT0XCH3 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH4                (_VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH4 << 16)  /**< Shifted mode APORT0XCH4 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH5                (_VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH5 << 16)  /**< Shifted mode APORT0XCH5 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH6                (_VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH6 << 16)  /**< Shifted mode APORT0XCH6 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH7                (_VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH7 << 16)  /**< Shifted mode APORT0XCH7 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH8                (_VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH8 << 16)  /**< Shifted mode APORT0XCH8 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH9                (_VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH9 << 16)  /**< Shifted mode APORT0XCH9 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH10               (_VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH10 << 16) /**< Shifted mode APORT0XCH10 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH11               (_VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH11 << 16) /**< Shifted mode APORT0XCH11 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH12               (_VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH12 << 16) /**< Shifted mode APORT0XCH12 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH13               (_VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH13 << 16) /**< Shifted mode APORT0XCH13 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH14               (_VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH14 << 16) /**< Shifted mode APORT0XCH14 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH15               (_VDAC_OPA_OUT_APORTOUTSEL_APORT0XCH15 << 16) /**< Shifted mode APORT0XCH15 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH0                (_VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH0 << 16)  /**< Shifted mode APORT0YCH0 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH1                (_VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH1 << 16)  /**< Shifted mode APORT0YCH1 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH2                (_VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH2 << 16)  /**< Shifted mode APORT0YCH2 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH3                (_VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH3 << 16)  /**< Shifted mode APORT0YCH3 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH4                (_VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH4 << 16)  /**< Shifted mode APORT0YCH4 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH5                (_VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH5 << 16)  /**< Shifted mode APORT0YCH5 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH6                (_VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH6 << 16)  /**< Shifted mode APORT0YCH6 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH7                (_VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH7 << 16)  /**< Shifted mode APORT0YCH7 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH8                (_VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH8 << 16)  /**< Shifted mode APORT0YCH8 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH9                (_VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH9 << 16)  /**< Shifted mode APORT0YCH9 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH10               (_VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH10 << 16) /**< Shifted mode APORT0YCH10 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH11               (_VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH11 << 16) /**< Shifted mode APORT0YCH11 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH12               (_VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH12 << 16) /**< Shifted mode APORT0YCH12 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH13               (_VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH13 << 16) /**< Shifted mode APORT0YCH13 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH14               (_VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH14 << 16) /**< Shifted mode APORT0YCH14 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH15               (_VDAC_OPA_OUT_APORTOUTSEL_APORT0YCH15 << 16) /**< Shifted mode APORT0YCH15 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH0                (_VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH0 << 16)  /**< Shifted mode APORT1XCH0 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH2                (_VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH2 << 16)  /**< Shifted mode APORT1XCH2 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH4                (_VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH4 << 16)  /**< Shifted mode APORT1XCH4 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH6                (_VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH6 << 16)  /**< Shifted mode APORT1XCH6 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH8                (_VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH8 << 16)  /**< Shifted mode APORT1XCH8 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH10               (_VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH10 << 16) /**< Shifted mode APORT1XCH10 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH12               (_VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH12 << 16) /**< Shifted mode APORT1XCH12 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH14               (_VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH14 << 16) /**< Shifted mode APORT1XCH14 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH16               (_VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH16 << 16) /**< Shifted mode APORT1XCH16 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH18               (_VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH18 << 16) /**< Shifted mode APORT1XCH18 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH20               (_VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH20 << 16) /**< Shifted mode APORT1XCH20 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH22               (_VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH22 << 16) /**< Shifted mode APORT1XCH22 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH24               (_VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH24 << 16) /**< Shifted mode APORT1XCH24 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH26               (_VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH26 << 16) /**< Shifted mode APORT1XCH26 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH28               (_VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH28 << 16) /**< Shifted mode APORT1XCH28 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH30               (_VDAC_OPA_OUT_APORTOUTSEL_APORT1XCH30 << 16) /**< Shifted mode APORT1XCH30 for VDAC_OPA_OUT */
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT1YCH1                (_VDAC_OPA_OUT_APORTOUTSEL_APORT1YCH1 << 16)  /**< Shifted mode APORT1YCH1 for VDAC_OPA_OUT */
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT1YCH3                (_VDAC_OPA_OUT_APORTOUTSEL_APORT1YCH3 << 16)  /**< Shifted mode APORT1YCH3 for VDAC_OPA_OUT */
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT1YCH5                (_VDAC_OPA_OUT_APORTOUTSEL_APORT1YCH5 << 16)  /**< Shifted mode APORT1YCH5 for VDAC_OPA_OUT */
@@ -1981,22 +1453,6 @@ typedef struct
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT1YCH27               (_VDAC_OPA_OUT_APORTOUTSEL_APORT1YCH27 << 16) /**< Shifted mode APORT1YCH27 for VDAC_OPA_OUT */
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT1YCH29               (_VDAC_OPA_OUT_APORTOUTSEL_APORT1YCH29 << 16) /**< Shifted mode APORT1YCH29 for VDAC_OPA_OUT */
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT1YCH31               (_VDAC_OPA_OUT_APORTOUTSEL_APORT1YCH31 << 16) /**< Shifted mode APORT1YCH31 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH1                (_VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH1 << 16)  /**< Shifted mode APORT2XCH1 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH2                (_VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH2 << 16)  /**< Shifted mode APORT2XCH2 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH5                (_VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH5 << 16)  /**< Shifted mode APORT2XCH5 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH7                (_VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH7 << 16)  /**< Shifted mode APORT2XCH7 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH9                (_VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH9 << 16)  /**< Shifted mode APORT2XCH9 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH11               (_VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH11 << 16) /**< Shifted mode APORT2XCH11 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH13               (_VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH13 << 16) /**< Shifted mode APORT2XCH13 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH15               (_VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH15 << 16) /**< Shifted mode APORT2XCH15 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH17               (_VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH17 << 16) /**< Shifted mode APORT2XCH17 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH19               (_VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH19 << 16) /**< Shifted mode APORT2XCH19 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH21               (_VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH21 << 16) /**< Shifted mode APORT2XCH21 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH23               (_VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH23 << 16) /**< Shifted mode APORT2XCH23 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH25               (_VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH25 << 16) /**< Shifted mode APORT2XCH25 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH27               (_VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH27 << 16) /**< Shifted mode APORT2XCH27 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH29               (_VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH29 << 16) /**< Shifted mode APORT2XCH29 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH31               (_VDAC_OPA_OUT_APORTOUTSEL_APORT2XCH31 << 16) /**< Shifted mode APORT2XCH31 for VDAC_OPA_OUT */
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT2YCH0                (_VDAC_OPA_OUT_APORTOUTSEL_APORT2YCH0 << 16)  /**< Shifted mode APORT2YCH0 for VDAC_OPA_OUT */
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT2YCH2                (_VDAC_OPA_OUT_APORTOUTSEL_APORT2YCH2 << 16)  /**< Shifted mode APORT2YCH2 for VDAC_OPA_OUT */
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT2YCH4                (_VDAC_OPA_OUT_APORTOUTSEL_APORT2YCH4 << 16)  /**< Shifted mode APORT2YCH4 for VDAC_OPA_OUT */
@@ -2013,22 +1469,6 @@ typedef struct
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT2YCH26               (_VDAC_OPA_OUT_APORTOUTSEL_APORT2YCH26 << 16) /**< Shifted mode APORT2YCH26 for VDAC_OPA_OUT */
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT2YCH28               (_VDAC_OPA_OUT_APORTOUTSEL_APORT2YCH28 << 16) /**< Shifted mode APORT2YCH28 for VDAC_OPA_OUT */
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT2YCH30               (_VDAC_OPA_OUT_APORTOUTSEL_APORT2YCH30 << 16) /**< Shifted mode APORT2YCH30 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH0                (_VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH0 << 16)  /**< Shifted mode APORT3XCH0 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH2                (_VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH2 << 16)  /**< Shifted mode APORT3XCH2 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH4                (_VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH4 << 16)  /**< Shifted mode APORT3XCH4 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH6                (_VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH6 << 16)  /**< Shifted mode APORT3XCH6 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH8                (_VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH8 << 16)  /**< Shifted mode APORT3XCH8 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH10               (_VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH10 << 16) /**< Shifted mode APORT3XCH10 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH12               (_VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH12 << 16) /**< Shifted mode APORT3XCH12 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH14               (_VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH14 << 16) /**< Shifted mode APORT3XCH14 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH16               (_VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH16 << 16) /**< Shifted mode APORT3XCH16 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH18               (_VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH18 << 16) /**< Shifted mode APORT3XCH18 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH20               (_VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH20 << 16) /**< Shifted mode APORT3XCH20 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH22               (_VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH22 << 16) /**< Shifted mode APORT3XCH22 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH24               (_VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH24 << 16) /**< Shifted mode APORT3XCH24 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH26               (_VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH26 << 16) /**< Shifted mode APORT3XCH26 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH28               (_VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH28 << 16) /**< Shifted mode APORT3XCH28 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH30               (_VDAC_OPA_OUT_APORTOUTSEL_APORT3XCH30 << 16) /**< Shifted mode APORT3XCH30 for VDAC_OPA_OUT */
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT3YCH1                (_VDAC_OPA_OUT_APORTOUTSEL_APORT3YCH1 << 16)  /**< Shifted mode APORT3YCH1 for VDAC_OPA_OUT */
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT3YCH3                (_VDAC_OPA_OUT_APORTOUTSEL_APORT3YCH3 << 16)  /**< Shifted mode APORT3YCH3 for VDAC_OPA_OUT */
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT3YCH5                (_VDAC_OPA_OUT_APORTOUTSEL_APORT3YCH5 << 16)  /**< Shifted mode APORT3YCH5 for VDAC_OPA_OUT */
@@ -2045,22 +1485,6 @@ typedef struct
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT3YCH27               (_VDAC_OPA_OUT_APORTOUTSEL_APORT3YCH27 << 16) /**< Shifted mode APORT3YCH27 for VDAC_OPA_OUT */
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT3YCH29               (_VDAC_OPA_OUT_APORTOUTSEL_APORT3YCH29 << 16) /**< Shifted mode APORT3YCH29 for VDAC_OPA_OUT */
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT3YCH31               (_VDAC_OPA_OUT_APORTOUTSEL_APORT3YCH31 << 16) /**< Shifted mode APORT3YCH31 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH1                (_VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH1 << 16)  /**< Shifted mode APORT4XCH1 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH3                (_VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH3 << 16)  /**< Shifted mode APORT4XCH3 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH5                (_VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH5 << 16)  /**< Shifted mode APORT4XCH5 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH7                (_VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH7 << 16)  /**< Shifted mode APORT4XCH7 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH9                (_VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH9 << 16)  /**< Shifted mode APORT4XCH9 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH11               (_VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH11 << 16) /**< Shifted mode APORT4XCH11 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH13               (_VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH13 << 16) /**< Shifted mode APORT4XCH13 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH15               (_VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH15 << 16) /**< Shifted mode APORT4XCH15 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH17               (_VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH17 << 16) /**< Shifted mode APORT4XCH17 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH19               (_VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH19 << 16) /**< Shifted mode APORT4XCH19 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH21               (_VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH21 << 16) /**< Shifted mode APORT4XCH21 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH23               (_VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH23 << 16) /**< Shifted mode APORT4XCH23 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH25               (_VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH25 << 16) /**< Shifted mode APORT4XCH25 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH27               (_VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH27 << 16) /**< Shifted mode APORT4XCH27 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH29               (_VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH29 << 16) /**< Shifted mode APORT4XCH29 for VDAC_OPA_OUT */
-#define VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH31               (_VDAC_OPA_OUT_APORTOUTSEL_APORT4XCH31 << 16) /**< Shifted mode APORT4XCH31 for VDAC_OPA_OUT */
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT4YCH0                (_VDAC_OPA_OUT_APORTOUTSEL_APORT4YCH0 << 16)  /**< Shifted mode APORT4YCH0 for VDAC_OPA_OUT */
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT4YCH2                (_VDAC_OPA_OUT_APORTOUTSEL_APORT4YCH2 << 16)  /**< Shifted mode APORT4YCH2 for VDAC_OPA_OUT */
 #define VDAC_OPA_OUT_APORTOUTSEL_APORT4YCH4                (_VDAC_OPA_OUT_APORTOUTSEL_APORT4YCH4 << 16)  /**< Shifted mode APORT4YCH4 for VDAC_OPA_OUT */

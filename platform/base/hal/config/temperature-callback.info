@@ -1,0 +1,12 @@
+/** @brief Temperature Reading Complete
+ *
+ * This callback is called when a temperature reading is complete.
+ *
+ * @param temperature The temperature in milli degrees Celsius
+ * 
+ * @param readSuccess if temperature reading is successful
+ */
+void halTemperatureReadingCompleteCallback(int32_t temperature,
+                                           bool readSuccess)
+{
+}

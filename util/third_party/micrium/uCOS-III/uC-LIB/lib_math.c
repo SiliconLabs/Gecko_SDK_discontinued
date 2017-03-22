@@ -3,19 +3,22 @@
 *                                                uC/LIB
 *                                        CUSTOM LIBRARY MODULES
 *
-*                          (c) Copyright 2004-2013; Micrium, Inc.; Weston, FL
+*                         (c) Copyright 2004-2015; Micrium, Inc.; Weston, FL
 *
-*               All rights reserved.  Protected by international copyright laws.
+*                  All rights reserved.  Protected by international copyright laws.
 *
-*               uC/LIB is provided in source form to registered licensees ONLY.  It is 
-*               illegal to distribute this source code to any third party unless you receive 
-*               written permission by an authorized Micrium representative.  Knowledge of 
-*               the source code may NOT be used to develop a similar product.
+*                  uC/LIB is provided in source form to registered licensees ONLY.  It is
+*                  illegal to distribute this source code to any third party unless you receive
+*                  written permission by an authorized Micrium representative.  Knowledge of
+*                  the source code may NOT be used to develop a similar product.
 *
-*               Please help us continue to provide the Embedded community with the finest 
-*               software available.  Your honesty is greatly appreciated.
+*                  Please help us continue to provide the Embedded community with the finest
+*                  software available.  Your honesty is greatly appreciated.
 *
-*               You can contact us at www.micrium.com.
+*                  You can find our product's user manual, API reference, release notes and
+*                  more information at: https://doc.micrium.com
+*
+*                  You can contact us at: http://www.micrium.com
 *********************************************************************************************************
 */
 
@@ -25,7 +28,7 @@
 *                                        MATHEMATIC OPERATIONS
 *
 * Filename      : lib_math.c
-* Version       : V1.37.01
+* Version       : V1.38.02
 * Programmer(s) : SR
 *                 ITJ
 *********************************************************************************************************
@@ -69,7 +72,6 @@
 #include  <lib_math.h>
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                            LOCAL DEFINES
@@ -121,7 +123,6 @@ RAND_NBR  Math_RandSeedCur;                                     /* Cur rand nbr 
 */
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                             Math_Init()
@@ -149,7 +150,6 @@ void  Math_Init (void)
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                         Math_RandSetSeed()
@@ -162,8 +162,8 @@ void  Math_Init (void)
 *
 * Caller(s)   : Application.
 *
-* Note(s)     : (1) IEEE Std 1003.1, 2004 Edition, Section 'rand() : DESCRIPTION' states that "srand() 
-*                   ... uses the argument as a seed for a new sequence of pseudo-random numbers to be 
+* Note(s)     : (1) IEEE Std 1003.1, 2004 Edition, Section 'rand() : DESCRIPTION' states that "srand()
+*                   ... uses the argument as a seed for a new sequence of pseudo-random numbers to be
 *                   returned by subsequent calls to rand()".
 *
 *               (2) 'Math_RandSeedCur' MUST always be accessed exclusively in critical sections.
@@ -183,7 +183,6 @@ void  Math_RandSetSeed (RAND_NBR  seed)
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                             Math_Rand()
@@ -196,17 +195,17 @@ void  Math_RandSetSeed (RAND_NBR  seed)
 *
 * Caller(s)   : Application.
 *
-* Note(s)     : (1) (a) The pseudo-random number generator is implemented as a Linear Congruential 
+* Note(s)     : (1) (a) The pseudo-random number generator is implemented as a Linear Congruential
 *                       Generator (LCG).
 *
 *                   (b) The pseudo-random number generated is in the range [0, RAND_LCG_PARAM_M].
 *
 *                   See also 'Math_RandSeed()  Note #1'.
 *
-*               (2) (a) IEEE Std 1003.1, 2004 Edition, Section 'rand() : DESCRIPTION' states that "rand() 
+*               (2) (a) IEEE Std 1003.1, 2004 Edition, Section 'rand() : DESCRIPTION' states that "rand()
 *                       ... need not be reentrant ... [and] is not required to be thread-safe".
 *
-*                   (b) However, in order to implement Math_Rand() as re-entrant; 'Math_RandSeedCur' MUST 
+*                   (b) However, in order to implement Math_Rand() as re-entrant; 'Math_RandSeedCur' MUST
 *                       always be accessed & updated exclusively in critical sections.
 *
 *                   See also 'Math_RandSeed()  Note #2'.
@@ -230,7 +229,6 @@ RAND_NBR  Math_Rand (void)
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                           Math_RandSeed()
@@ -263,10 +261,10 @@ RAND_NBR  Math_Rand (void)
 *
                     See also 'lib_math.h  RANDOM NUMBER DEFINES  Note #1b'.
 *
-*               (2) (a) IEEE Std 1003.1, 2004 Edition, Section 'rand() : DESCRIPTION' states that "rand() 
+*               (2) (a) IEEE Std 1003.1, 2004 Edition, Section 'rand() : DESCRIPTION' states that "rand()
 *                       ... need not be reentrant ... [and] is not required to be thread-safe".
 *
-*                   (b) However, Math_RandSeed() is re-entrant since it calculates the next random number 
+*                   (b) However, Math_RandSeed() is re-entrant since it calculates the next random number
 *                       using ONLY local variables.
 *********************************************************************************************************
 */

@@ -3,7 +3,7 @@
 *                                                uC/CPU
 *                                    CPU CONFIGURATION & PORT LAYER
 *
-*                          (c) Copyright 2004-2013; Micrium, Inc.; Weston, FL
+*                          (c) Copyright 2004-2016; Micrium, Inc.; Weston, FL
 *
 *               All rights reserved.  Protected by international copyright laws.
 *
@@ -15,6 +15,8 @@
 *               Please help us continue to provide the Embedded community with the finest 
 *               software available.  Your honesty is greatly appreciated.
 *
+*               You can find our product's user manual, API reference, release notes and
+*               more information at https://doc.micrium.com.
 *               You can contact us at www.micrium.com.
 *********************************************************************************************************
 */
@@ -28,7 +30,7 @@
 *                                            IAR C Compiler
 *
 * Filename      : cpu_c.c
-* Version       : V1.29.02.00
+* Version       : V1.31.00
 * Programmer(s) : JJL
 *                 BAN
 *********************************************************************************************************
@@ -47,6 +49,9 @@
 
 #include  <lib_def.h>
 
+#ifdef __cplusplus
+extern  "C" {
+#endif
 
 /*
 *********************************************************************************************************
@@ -54,7 +59,7 @@
 *********************************************************************************************************
 */
 
-#define  CPU_INT_SRC_POS_MAX                  ((((CPU_REG_NVIC_NVIC + 1) & 0x1F) * 32) + 16)
+#define  CPU_INT_SRC_POS_MAX                   (((CPU_REG_NVIC_NVIC & 0xF) * 32) + 31)
 
 #define  CPU_BIT_BAND_SRAM_REG_LO                 0x20000000
 #define  CPU_BIT_BAND_SRAM_REG_HI                 0x200FFFFF
@@ -296,7 +301,7 @@ void  CPU_IntSrcDis (CPU_INT08U  pos)
                                                                 /* ---------------- EXTERNAL INTERRUPT ---------------- */
         default:
             pos_max = CPU_INT_SRC_POS_MAX;
-            if (pos < pos_max) {                                /* See Note #3.                                         */
+            if (pos <= pos_max) {                               /* See Note #3.                                         */
                  group = (pos - 16) / 32;
                  nbr   = (pos - 16) % 32;
 
@@ -384,7 +389,7 @@ void  CPU_IntSrcEn (CPU_INT08U  pos)
                                                                 /* ---------------- EXTERNAL INTERRUPT ---------------- */
         default:
             pos_max = CPU_INT_SRC_POS_MAX;
-            if (pos < pos_max) {                                /* See Note #3.                                         */
+            if (pos <= pos_max) {                               /* See Note #3.                                         */
                  group = (pos - 16) / 32;
                  nbr   = (pos - 16) % 32;
 
@@ -460,7 +465,7 @@ void  CPU_IntSrcPendClr (CPU_INT08U  pos)
                                                                 /* ---------------- EXTERNAL INTERRUPT ---------------- */
         default:
             pos_max = CPU_INT_SRC_POS_MAX;
-            if (pos < pos_max) {                                /* See Note #3.                                         */
+            if (pos <= pos_max) {                               /* See Note #3.                                         */
                  group = (pos - 16) / 32;
                  nbr   = (pos - 16) % 32;
 
@@ -592,7 +597,7 @@ void  CPU_IntSrcPrioSet (CPU_INT08U  pos,
                                                                 /* ---------------- EXTERNAL INTERRUPT ---------------- */
         default:
             pos_max = CPU_INT_SRC_POS_MAX;
-            if (pos < pos_max) {                                /* See Note #3.                                         */
+            if (pos <= pos_max) {                               /* See Note #3.                                         */
                  group                    = (pos - 16) / 4;
                  nbr                      = (pos - 16) % 4;
 
@@ -684,6 +689,7 @@ CPU_INT16S  CPU_IntSrcPrioGet (CPU_INT08U  pos)
              CPU_CRITICAL_ENTER();
              temp = CPU_REG_NVIC_SHPRI1;
              prio = (temp >> (2 * DEF_OCTET_NBR_BITS)) & DEF_OCTET_MASK;
+             CPU_CRITICAL_EXIT();
              break;
 
         case CPU_INT_SVCALL:                                    /* SVCall.                                              */
@@ -718,7 +724,7 @@ CPU_INT16S  CPU_IntSrcPrioGet (CPU_INT08U  pos)
                                                                 /* ---------------- EXTERNAL INTERRUPT ---------------- */
         default:
             pos_max = CPU_INT_SRC_POS_MAX;
-            if (pos < pos_max) {                                /* See Note #3.                                         */
+            if (pos <= pos_max) {                               /* See Note #3.                                         */
                  group = (pos - 16) / 4;
                  nbr   = (pos - 16) % 4;
 
@@ -736,3 +742,6 @@ CPU_INT16S  CPU_IntSrcPrioGet (CPU_INT08U  pos)
     return (prio);
 }
 
+#ifdef __cplusplus
+}
+#endif

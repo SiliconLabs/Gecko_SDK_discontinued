@@ -358,8 +358,6 @@ void mbedtls_sha1( const unsigned char *input, size_t ilen, unsigned char output
     mbedtls_sha1_free( &ctx );
 }
 
-#endif /* !MBEDTLS_SHA1_ALT */
-
 #if defined(MBEDTLS_SELF_TEST)
 /*
  * FIPS-180-1 test vectors
@@ -444,5 +442,7 @@ exit:
 }
 
 #endif /* MBEDTLS_SELF_TEST */
+
+#endif /* !MBEDTLS_SHA1_ALT */
 
 #endif /* MBEDTLS_SHA1_C */

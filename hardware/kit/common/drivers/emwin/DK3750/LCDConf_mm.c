@@ -226,6 +226,11 @@ void LCD_InitializeLCD(void)
     /* If we're not BC_ARB_CTRL_EBI state, we need to reconfigure display controller */
     if ((BSP_RegisterRead(&BC_REGISTER->ARB_CTRL) != BC_ARB_CTRL_EBI) || runOnce)
     {
+      /* Resetting display while SPI_DEMUX is set to display does not work */
+      if (BSP_RegisterRead(&BC_REGISTER->SPI_DEMUX) == BC_SPI_DEMUX_SLAVE_DISPLAY)
+      {
+        BSP_RegisterWrite(&BC_REGISTER->SPI_DEMUX, BC_SPI_DEMUX_SLAVE_AUDIO);
+      }
       /* Configure for EBI mode and reset display */
       BSP_DisplayControl(BSP_Display_EBI);
       BSP_DisplayControl(BSP_Display_ResetAssert);

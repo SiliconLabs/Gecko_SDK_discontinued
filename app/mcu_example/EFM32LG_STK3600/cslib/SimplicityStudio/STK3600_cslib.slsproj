@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="STK3600_cslib" boardCompatibility="brd2201a" partCompatibility=".*efm32lg990f256.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <includePath uri="." />
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_acmp.c" />
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_ebi.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_lesense.c" />
+    <include pattern="emlib/em_rtc.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_vcmp.c" />
+    <include pattern="emlib/em_leuart.c" />
+    <include pattern="emlib/em_usart.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emdrv">
+    <include pattern="Drivers(/.*){0,1}/rtcdriver.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <include pattern="BSP/bsp_bcc.c" />
+    <include pattern="BSP/bsp_stk.c" />
+    <include pattern="BSP/bsp_stk_leds.c" />
+    <include pattern="BSP/bsp_trace.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <include pattern="Drivers/retargetio.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.cslib">
+    <exclude pattern=".*" />
+  </module>
+  <macroDefinition name="DEBUG_EFM" languageCompatibility="c cpp" />
+  <includePath uri="../../../../platform/middleware/cslib/src/app" />
+  <includePath uri="../../../../platform/middleware/cslib/src/device_LESENSE" />
+  <includePath uri="../../../../platform/middleware/cslib/src/serial" />
+  <includePath uri="../../../../platform/middleware/cslib/src/config_LESENSE" />
+  <folder name="app">
+    <file name="cslib_config.c" uri="../../../../platform/middleware/cslib/src/app/cslib_config.c" />
+    <file name="device_init.c" uri="../../../../platform/middleware/cslib/src/app/device_init.c" />
+  </folder>
+  <folder name="device_LESENSE">
+    <file name="hardware_config.c" uri="../../../../platform/middleware/cslib/src/device_LESENSE/hardware_config.c" />
+    <file name="hardware_routines.c" uri="../../../../platform/middleware/cslib/src/device_LESENSE/hardware_routines.c" />
+    <file name="low_power_config.c" uri="../../../../platform/middleware/cslib/src/device_LESENSE/low_power_config.c" />
+  </folder>
+  <folder name="serial">
+    <file name="comm_routines.c" uri="../../../../platform/middleware/cslib/src/serial/comm_routines.c" />
+    <file name="profiler_interface.c" uri="../../../../platform/middleware/cslib/src/serial/profiler_interface.c" />
+    <file name="retargetvirtual.c" uri="../../../../platform/middleware/cslib/src/serial/retargetvirtual.c" />
+    <file name="sensor_descriptors.c" uri="../../../../platform/middleware/cslib/src/serial/sensor_descriptors.c" />
+  </folder>
+  <folder name="src">
+    <file name="main.c" uri="main.c" />
+  </folder>
+</project>

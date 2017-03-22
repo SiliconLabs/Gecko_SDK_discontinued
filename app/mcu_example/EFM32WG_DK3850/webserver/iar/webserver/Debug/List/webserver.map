@@ -1,0 +1,1709 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.2.11947/W32 for ARM                09/Mar/2017  19:52:26
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Exe\webserver.out
+#    Map file     =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\List\webserver.map
+#    Command line =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\api_lib.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\api_msg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\autoip.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\bsp_dk_3201.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\bsp_dk_leds.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\bsp_trace.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\def.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\dhcp.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\dmactrl.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\dmadrv.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\dmd_ssd2119_16bit.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\dmdif_ssd2119_ebi16.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\dns.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\echo.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\em_assert.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\em_cmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\em_core.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\em_dma.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\em_ebi.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\em_emu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\em_gpio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\em_rtc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\em_system.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\em_usart.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\err.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\etharp.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\ethernetif.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\fs.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\httpd.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\icmp.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\igmp.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\inet.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\inet_chksum.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\init.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\ip.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\ip_addr.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\ip_frag.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\ksz8851snl.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\ksz8851snl_driver.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\ksz8851snl_spi.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\mem.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\memp.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\netbuf.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\netdb.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\netif.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\netifapi.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\pbuf.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\raw.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\retargetio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\retargetserial.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\rtcdriver.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\sockets.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\spidrv.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\startup_efm32gg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\stats.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\sys.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\system_efm32gg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\tcp.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\tcp_in.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\tcp_out.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\tcpip.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\tftconsole.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\timers.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\udp.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj\webserver.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Exe\webserver.out
+#        --map
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\List\webserver.map
+#        --config
+#        T:\iar_ew_7802_win32_rel_1\arm\config\linker\SiliconLaboratories\EFM32GG990F1024.icf
+#        --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x000fffff] { ro };
+"P2":  place in [from 0x20000000 to 0x2001ffff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+ { section .intvec };
+
+  Section             Kind        Address     Size  Object
+  -------             ----        -------     ----  ------
+"A0":                                         0xdc
+  .intvec             ro code  0x00000000     0xdc  startup_efm32gg.o [1]
+                             - 0x000000dc     0xdc
+
+"P1":                                      0x1892d
+  .text               ro code  0x000000dc   0x1b54  tcp_in.o [1]
+  .text               ro code  0x00001c30   0x113c  tcp.o [1]
+  .text               ro code  0x00002d6c    0xa44  pbuf.o [1]
+  .text               ro code  0x000037b0    0x10a  ip_addr.o [1]
+  .text               ro code  0x000038ba     0x1a  xsnprout.o [3]
+  .text               ro code  0x000038d4     0x24  printf.o [3]
+  .text               ro code  0x000038f8    0x500  memp.o [1]
+  .text               ro code  0x00003df8   0x1102  tcp_out.o [1]
+  .rodata             const    0x00004efa      0x2  memp.o [1]
+  .text               ro code  0x00004efc    0x2b0  timers.o [1]
+  .text               ro code  0x000051ac     0x76  ABImemcpy_unaligned.o [5]
+  .rodata             const    0x00005222      0x2  memp.o [1]
+  .text               ro code  0x00005224     0x66  ABImemset.o [5]
+  .text               ro code  0x0000528c    0x458  ip.o [1]
+  .text               ro code  0x000056e4    0x57c  mem.o [1]
+  .text               ro code  0x00005c60    0xdd2  xprintffull.o [3]
+  .text               ro code  0x00006a32     0x1c  strcat.o [3]
+  .text               ro code  0x00006a50    0x938  ip_frag.o [1]
+  .text               ro code  0x00007388    0xf8c  etharp.o [1]
+  .text               ro code  0x00008314   0x15b0  dhcp.o [1]
+  .text               ro code  0x000098c4    0x640  webserver.o [1]
+  .text               ro code  0x00009f04     0x9c  raw.o [1]
+  .text               ro code  0x00009fa0    0x576  udp.o [1]
+  .text               ro code  0x0000a518    0x2ec  icmp.o [1]
+  .text               ro code  0x0000a804     0x16  strchr.o [5]
+  .text               ro code  0x0000a81c     0x36  strlen.o [5]
+  .text               ro code  0x0000a854     0x58  memchr.o [5]
+  .text               ro code  0x0000a8ac     0xee  I64DivMod.o [5]
+  .text               ro code  0x0000a99a     0x44  xdnorm.o [4]
+  .text               ro code  0x0000a9e0     0x2e  DblCmpLe.o [4]
+  .text               ro code  0x0000aa10     0x2e  DblCmpGe.o [4]
+  .text               ro code  0x0000aa40    0x10c  xdscale.o [4]
+  .text               ro code  0x0000ab4c     0x58  DblToI32.o [4]
+  .text               ro code  0x0000aba4     0x30  I32ToDbl.o [4]
+  .text               ro code  0x0000abd4    0x180  DblSub.o [4]
+  .text               ro code  0x0000ad54    0x1a2  DblMul.o [4]
+  .text               ro code  0x0000aef8    0x256  DblDiv.o [4]
+  .text               ro code  0x0000b14e      0xe  div.o [3]
+  .text               ro code  0x0000b15c    0x12c  inet_chksum.o [1]
+  .text               ro code  0x0000b288      0x6  ABImemclr.o [5]
+  .text               ro code  0x0000b290     0x62  memcmp_unaligned.o [5]
+  .text               ro code  0x0000b2f4    0x25a  netif.o [1]
+  .text               ro code  0x0000b550     0xe0  rand.o [3]
+  .text               ro code  0x0000b630    0x3fc  em_gpio.o [1]
+  .text               ro code  0x0000ba2c     0x60  em_system.o [1]
+  .text               ro code  0x0000ba8c     0x9c  bsp_dk_leds.o [1]
+  .text               ro code  0x0000bb28    0xbb8  bsp_dk_3201.o [1]
+  .text               ro code  0x0000c6e0    0x204  retargetserial.o [1]
+  .text               ro code  0x0000c8e4    0xa52  ksz8851snl.o [1]
+  .text               ro code  0x0000d338    0x8fc  tftconsole.o [1]
+  .text               ro code  0x0000dc34    0x2c8  ksz8851snl_driver.o [1]
+  .text               ro code  0x0000defc    0xde4  em_cmu.o [1]
+  .text               ro code  0x0000ece0     0x20  init.o [1]
+  .text               ro code  0x0000ed00    0x924  httpd.o [1]
+  .text               ro code  0x0000f624    0x33a  echo.o [1]
+  .text               ro code  0x0000f95e      0x2  em_assert.o [1]
+  .text               ro code  0x0000f960      0x2  I64DivZer.o [5]
+  .text               ro code  0x0000f964     0xd4  DblAdd.o [4]
+  .text               ro code  0x0000fa38      0x2  xtls.o [3]
+  .text               ro code  0x0000fa3c    0x7b8  em_ebi.o [1]
+  .text               ro code  0x000101f4    0x344  em_usart.o [1]
+  .text               ro code  0x00010538      0x8  em_core.o [1]
+  .text               ro code  0x00010540      0x8  em_core.o [1]
+  .text               ro code  0x00010548    0x3ce  ksz8851snl_spi.o [1]
+  .text               ro code  0x00010918    0x3f8  dmd_ssd2119_16bit.o [1]
+  .text               ro code  0x00010d10     0x78  dmdif_ssd2119_ebi16.o [1]
+  .text               ro code  0x00010d88     0x3c  vsnprint.o [3]
+  .text               ro code  0x00010dc4    0x138  system_efm32gg.o [1]
+  .text               ro code  0x00010efc     0x38  stats.o [1]
+  .text               ro code  0x00010f34     0x2c  strncmp.o [3]
+  .text               ro code  0x00010f60     0x5a  fs.o [1]
+  .text               ro code  0x00010fbc    0xa9a  spidrv.o [1]
+  .text               ro code  0x00011a58     0x42  strcmp_unaligned.o [5]
+  .text               ro code  0x00011a9c    0x564  rtcdriver.o [1]
+  .text               ro code  0x00012000    0x478  dmadrv.o [1]
+  .text               ro code  0x00012478     0x84  em_core.o [1]
+  .text               ro code  0x000124fc    0x5d0  em_dma.o [1]
+  .text               ro code  0x00012acc     0xd0  em_rtc.o [1]
+  .text               ro code  0x00012b9c     0x6c  em_core.o [1]
+  .rodata             const    0x00012c08    0xca8  fs.o [1]
+  .rodata             const    0x000138b0    0x6b0  fs.o [1]
+  .rodata             const    0x00013f60    0x320  tftconsole.o [1]
+  .rodata             const    0x00014280    0x2b0  fs.o [1]
+  .rodata             const    0x00014530     0x88  bsp_dk_3201.o [1]
+  .rodata             const    0x000145b8     0x88  em_cmu.o [1]
+  .rodata             const    0x00014640     0x88  em_gpio.o [1]
+  .rodata             const    0x000146c8     0x88  ksz8851snl_spi.o [1]
+  .rodata             const    0x00014750     0x80  memp.o [1]
+  .rodata             const    0x000147d0     0x80  memp.o [1]
+  .rodata             const    0x00014850     0x70  ksz8851snl_driver.o [1]
+  .rodata             const    0x000148c0     0x6c  httpd.o [1]
+  .rodata             const    0x0001492c     0x68  echo.o [1]
+  .rodata             const    0x00014994     0x68  etharp.o [1]
+  .rodata             const    0x000149fc     0x64  webserver.o [1]
+  .rodata             const    0x00014a60     0x60  icmp.o [1]
+  .rodata             const    0x00014ac0     0x60  ip_frag.o [1]
+  .rodata             const    0x00014b20     0x5c  etharp.o [1]
+  .rodata             const    0x00014b7c     0x5c  ip.o [1]
+  .rodata             const    0x00014bd8     0x5c  ksz8851snl_spi.o [1]
+  .rodata             const    0x00014c34     0x5c  netif.o [1]
+  .rodata             const    0x00014c90     0x5c  tcp_in.o [1]
+  .rodata             const    0x00014cec     0x5c  tcp_out.o [1]
+  .rodata             const    0x00014d48     0x5c  timers.o [1]
+  .rodata             const    0x00014da4     0x58  dhcp.o [1]
+  .rodata             const    0x00014dfc     0x58  ksz8851snl.o [1]
+  .rodata             const    0x00014e54     0x58  mem.o [1]
+  .rodata             const    0x00014eac     0x58  memp.o [1]
+  .rodata             const    0x00014f04     0x58  pbuf.o [1]
+  .rodata             const    0x00014f5c     0x58  tcp.o [1]
+  .rodata             const    0x00014fb4     0x58  tcp_out.o [1]
+  .rodata             const    0x0001500c     0x58  udp.o [1]
+  .text               ro code  0x00015064     0x56  retargetio.o [1]
+  .rodata             const    0x000150bc     0x50  bsp_dk_3201.o [1]
+  .rodata             const    0x0001510c     0x4c  em_cmu.o [1]
+  .rodata             const    0x00015158     0x4c  em_core.o [1]
+  .rodata             const    0x000151a4     0x4c  em_dma.o [1]
+  .rodata             const    0x000151f0     0x4c  em_ebi.o [1]
+  .rodata             const    0x0001523c     0x4c  em_gpio.o [1]
+  .rodata             const    0x00015288     0x4c  em_rtc.o [1]
+  .rodata             const    0x000152d4     0x4c  em_system.o [1]
+  .rodata             const    0x00015320     0x4c  em_usart.o [1]
+  .rodata             const    0x0001536c     0x4c  ip.o [1]
+  .rodata             const    0x000153b8     0x48  dhcp.o [1]
+  .rodata             const    0x00015400     0x48  dhcp.o [1]
+  .rodata             const    0x00015448     0x48  ksz8851snl_driver.o [1]
+  .rodata             const    0x00015490     0x48  pbuf.o [1]
+  .rodata             const    0x000154d8     0x44  dhcp.o [1]
+  .rodata             const    0x0001551c     0x44  etharp.o [1]
+  .rodata             const    0x00015560     0x44  ksz8851snl.o [1]
+  .rodata             const    0x000155a4     0x44  ksz8851snl.o [1]
+  .rodata             const    0x000155e8     0x44  ksz8851snl.o [1]
+  .rodata             const    0x0001562c     0x44  ksz8851snl.o [1]
+  .rodata             const    0x00015670     0x44  ksz8851snl_driver.o [1]
+  .rodata             const    0x000156b4     0x44  ksz8851snl_driver.o [1]
+  .rodata             const    0x000156f8     0x40  dhcp.o [1]
+  .rodata             const    0x00015738     0x40  dhcp.o [1]
+  .rodata             const    0x00015778     0x40  dhcp.o [1]
+  .rodata             const    0x000157b8     0x40  dhcp.o [1]
+  .rodata             const    0x000157f8     0x40  etharp.o [1]
+  .rodata             const    0x00015838     0x40  ip.o [1]
+  .rodata             const    0x00015878     0x40  tcp_out.o [1]
+  .rodata             const    0x000158b8     0x40  tcp_out.o [1]
+  .rodata             const    0x000158f8     0x40  timers.o [1]
+  .text               ro code  0x00015938     0x40  zero_init3.o [5]
+  .rodata             const    0x00015978     0x3c  dhcp.o [1]
+  .rodata             const    0x000159b4     0x3c  tcp_in.o [1]
+  .rodata             const    0x000159f0     0x3c  tcp_out.o [1]
+  .rodata             const    0x00015a2c     0x3c  tcp_out.o [1]
+  .rodata             const    0x00015a68     0x3c  tcp_out.o [1]
+  .rodata             const    0x00015aa4     0x38  dhcp.o [1]
+  .rodata             const    0x00015adc     0x38  dhcp.o [1]
+  .rodata             const    0x00015b14     0x38  etharp.o [1]
+  .rodata             const    0x00015b4c     0x38  etharp.o [1]
+  .rodata             const    0x00015b84     0x38  httpd.o [1]
+  .rodata             const    0x00015bbc     0x38  icmp.o [1]
+  .rodata             const    0x00015bf4     0x38  ip_frag.o [1]
+  .rodata             const    0x00015c2c     0x38  ksz8851snl_driver.o [1]
+  .rodata             const    0x00015c64     0x38  ksz8851snl_driver.o [1]
+  .rodata             const    0x00015c9c     0x38  ksz8851snl_driver.o [1]
+  .rodata             const    0x00015cd4     0x38  pbuf.o [1]
+  .rodata             const    0x00015d0c     0x38  pbuf.o [1]
+  .rodata             const    0x00015d44     0x38  tcp_in.o [1]
+  .rodata             const    0x00015d7c     0x38  tcp_out.o [1]
+  .rodata             const    0x00015db4     0x38  tcp_out.o [1]
+  .rodata             const    0x00015dec     0x38  tcp_out.o [1]
+  .text               ro code  0x00015e24     0x38  packbits_init_single.o [5]
+  .rodata             const    0x00015e5c     0x34  dhcp.o [1]
+  .rodata             const    0x00015e90     0x34  etharp.o [1]
+  .rodata             const    0x00015ec4     0x34  etharp.o [1]
+  .rodata             const    0x00015ef8     0x34  icmp.o [1]
+  .rodata             const    0x00015f2c     0x34  icmp.o [1]
+  .rodata             const    0x00015f60     0x34  ip.o [1]
+  .rodata             const    0x00015f94     0x34  ksz8851snl.o [1]
+  .rodata             const    0x00015fc8     0x34  ksz8851snl_driver.o [1]
+  .rodata             const    0x00015ffc     0x34  pbuf.o [1]
+  .rodata             const    0x00016030     0x34  pbuf.o [1]
+  .rodata             const    0x00016064     0x34  pbuf.o [1]
+  .rodata             const    0x00016098     0x34  tcp.o [1]
+  .rodata             const    0x000160cc     0x34  tcp_out.o [1]
+  .rodata             const    0x00016100     0x34  tcp_out.o [1]
+  .rodata             const    0x00016134     0x30  dhcp.o [1]
+  .rodata             const    0x00016164     0x30  dhcp.o [1]
+  .rodata             const    0x00016194     0x30  dhcp.o [1]
+  .rodata             const    0x000161c4     0x30  dhcp.o [1]
+  .rodata             const    0x000161f4     0x30  dhcp.o [1]
+  .rodata             const    0x00016224     0x30  dhcp.o [1]
+  .rodata             const    0x00016254     0x30  dhcp.o [1]
+  .rodata             const    0x00016284     0x30  etharp.o [1]
+  .rodata             const    0x000162b4     0x30  httpd.o [1]
+  .rodata             const    0x000162e4     0x30  ip.o [1]
+  .rodata             const    0x00016314     0x30  ip.o [1]
+  .rodata             const    0x00016344     0x30  ip_frag.o [1]
+  .rodata             const    0x00016374     0x30  mem.o [1]
+  .rodata             const    0x000163a4     0x30  mem.o [1]
+  .rodata             const    0x000163d4     0x30  pbuf.o [1]
+  .rodata             const    0x00016404     0x30  pbuf.o [1]
+  .rodata             const    0x00016434     0x30  pbuf.o [1]
+  .rodata             const    0x00016464     0x30  pbuf.o [1]
+  .rodata             const    0x00016494     0x30  tcp.o [1]
+  .rodata             const    0x000164c4     0x30  tcp.o [1]
+  .rodata             const    0x000164f4     0x30  tcp.o [1]
+  .rodata             const    0x00016524     0x30  tcp_in.o [1]
+  .rodata             const    0x00016554     0x30  tcp_out.o [1]
+  .rodata             const    0x00016584     0x30  tcp_out.o [1]
+  .rodata             const    0x000165b4     0x30  tcp_out.o [1]
+  .rodata             const    0x000165e4     0x30  tcp_out.o [1]
+  .rodata             const    0x00016614     0x30  tcp_out.o [1]
+  .rodata             const    0x00016644     0x30  tcp_out.o [1]
+  .rodata             const    0x00016674     0x30  udp.o [1]
+  .rodata             const    0x000166a4     0x2c  dhcp.o [1]
+  .rodata             const    0x000166d0     0x2c  dhcp.o [1]
+  .rodata             const    0x000166fc     0x2c  dhcp.o [1]
+  .rodata             const    0x00016728     0x2c  dhcp.o [1]
+  .rodata             const    0x00016754     0x2c  etharp.o [1]
+  .rodata             const    0x00016780     0x2c  httpd.o [1]
+  .rodata             const    0x000167ac     0x2c  httpd.o [1]
+  .rodata             const    0x000167d8     0x2c  icmp.o [1]
+  .rodata             const    0x00016804     0x2c  mem.o [1]
+  .rodata             const    0x00016830     0x2c  mem.o [1]
+  .rodata             const    0x0001685c     0x2c  pbuf.o [1]
+  .rodata             const    0x00016888     0x2c  pbuf.o [1]
+  .rodata             const    0x000168b4     0x2c  tcp.o [1]
+  .rodata             const    0x000168e0     0x2c  tcp.o [1]
+  .rodata             const    0x0001690c     0x2c  tcp.o [1]
+  .rodata             const    0x00016938     0x2c  tcp.o [1]
+  .rodata             const    0x00016964     0x2c  tcp.o [1]
+  .rodata             const    0x00016990     0x2c  tcp.o [1]
+  .rodata             const    0x000169bc     0x2c  tcp.o [1]
+  .rodata             const    0x000169e8     0x2c  tcp_in.o [1]
+  .rodata             const    0x00016a14     0x2c  tcp_in.o [1]
+  .rodata             const    0x00016a40     0x2c  tcp_in.o [1]
+  .rodata             const    0x00016a6c     0x2c  tcp_out.o [1]
+  .rodata             const    0x00016a98     0x2c  tcp_out.o [1]
+  .rodata             const    0x00016ac4     0x28  dhcp.o [1]
+  .rodata             const    0x00016aec     0x28  dhcp.o [1]
+  .rodata             const    0x00016b14     0x28  dhcp.o [1]
+  .rodata             const    0x00016b3c     0x28  dhcp.o [1]
+  .rodata             const    0x00016b64     0x28  dhcp.o [1]
+  .rodata             const    0x00016b8c     0x28  dhcp.o [1]
+  .rodata             const    0x00016bb4     0x28  dhcp.o [1]
+  .rodata             const    0x00016bdc     0x28  echo.o [1]
+  .rodata             const    0x00016c04     0x28  etharp.o [1]
+  .rodata             const    0x00016c2c     0x28  etharp.o [1]
+  .rodata             const    0x00016c54     0x28  etharp.o [1]
+  .rodata             const    0x00016c7c     0x28  httpd.o [1]
+  .rodata             const    0x00016ca4     0x28  httpd.o [1]
+  .rodata             const    0x00016ccc     0x28  icmp.o [1]
+  .rodata             const    0x00016cf4     0x28  icmp.o [1]
+  .rodata             const    0x00016d1c     0x28  ip.o [1]
+  .rodata             const    0x00016d44     0x28  ip.o [1]
+  .rodata             const    0x00016d6c     0x28  ip_frag.o [1]
+  .rodata             const    0x00016d94     0x28  mem.o [1]
+  .rodata             const    0x00016dbc     0x28  memp.o [1]
+  .rodata             const    0x00016de4     0x28  memp.o [1]
+  .rodata             const    0x00016e0c     0x28  netif.o [1]
+  .rodata             const    0x00016e34     0x28  pbuf.o [1]
+  .rodata             const    0x00016e5c     0x28  stats.o [1]
+  .rodata             const    0x00016e84     0x28  tcp.o [1]
+  .rodata             const    0x00016eac     0x28  tcp.o [1]
+  .rodata             const    0x00016ed4     0x28  tcp.o [1]
+  .rodata             const    0x00016efc     0x28  tcp.o [1]
+  .rodata             const    0x00016f24     0x28  tcp.o [1]
+  .rodata             const    0x00016f4c     0x28  tcp.o [1]
+  .rodata             const    0x00016f74     0x28  tcp.o [1]
+  .rodata             const    0x00016f9c     0x28  tcp.o [1]
+  .rodata             const    0x00016fc4     0x28  tcp_in.o [1]
+  .rodata             const    0x00016fec     0x28  tcp_in.o [1]
+  .rodata             const    0x00017014     0x28  tcp_in.o [1]
+  .rodata             const    0x0001703c     0x28  tcp_in.o [1]
+  .rodata             const    0x00017064     0x28  tcp_in.o [1]
+  .rodata             const    0x0001708c     0x28  tcp_out.o [1]
+  .rodata             const    0x000170b4     0x28  tcp_out.o [1]
+  .rodata             const    0x000170dc     0x28  tcp_out.o [1]
+  .rodata             const    0x00017104     0x28  tcp_out.o [1]
+  .rodata             const    0x0001712c     0x28  tcp_out.o [1]
+  .rodata             const    0x00017154     0x28  timers.o [1]
+  .rodata             const    0x0001717c     0x28  udp.o [1]
+  .rodata             const    0x000171a4     0x28  udp.o [1]
+  .rodata             const    0x000171cc     0x28  webserver.o [1]
+  .rodata             const    0x000171f4     0x28  webserver.o [1]
+  .text               ro code  0x0001721c     0x28  putchar.o [3]
+  .text               ro code  0x00017244     0x28  data_init.o [5]
+  .rodata             const    0x0001726c     0x24  dhcp.o [1]
+  .rodata             const    0x00017290     0x24  etharp.o [1]
+  .rodata             const    0x000172b4     0x24  httpd.o [1]
+  .rodata             const    0x000172d8     0x24  icmp.o [1]
+  .rodata             const    0x000172fc     0x24  ip.o [1]
+  .rodata             const    0x00017320     0x24  ip.o [1]
+  .rodata             const    0x00017344     0x24  ip_frag.o [1]
+  .rodata             const    0x00017368     0x24  mem.o [1]
+  .rodata             const    0x0001738c     0x24  mem.o [1]
+  .rodata             const    0x000173b0     0x24  mem.o [1]
+  .rodata             const    0x000173d4     0x24  memp.o [1]
+  .rodata             const    0x000173f8     0x24  pbuf.o [1]
+  .rodata             const    0x0001741c     0x24  pbuf.o [1]
+  .rodata             const    0x00017440     0x24  pbuf.o [1]
+  .rodata             const    0x00017464     0x24  pbuf.o [1]
+  .rodata             const    0x00017488     0x24  tcp.o [1]
+  .rodata             const    0x000174ac     0x24  tcp.o [1]
+  .rodata             const    0x000174d0     0x24  tcp_out.o [1]
+  .rodata             const    0x000174f4     0x24  udp.o [1]
+  .rodata             const    0x00017518     0x24  webserver.o [1]
+  .rodata             const    0x0001753c     0x24  webserver.o [1]
+  .rodata             const    0x00017560     0x24  webserver.o [1]
+  .iar.init_table     const    0x00017584     0x20  - Linker created -
+  .rodata             const    0x000175a4     0x20  dhcp.o [1]
+  .rodata             const    0x000175c4     0x20  dhcp.o [1]
+  .rodata             const    0x000175e4     0x20  dhcp.o [1]
+  .rodata             const    0x00017604     0x20  httpd.o [1]
+  .rodata             const    0x00017624     0x20  httpd.o [1]
+  .rodata             const    0x00017644     0x20  ip_frag.o [1]
+  .rodata             const    0x00017664     0x20  ip_frag.o [1]
+  .rodata             const    0x00017684     0x20  ip_frag.o [1]
+  .rodata             const    0x000176a4     0x20  ksz8851snl.o [1]
+  .rodata             const    0x000176c4     0x20  ksz8851snl.o [1]
+  .rodata             const    0x000176e4     0x20  ksz8851snl.o [1]
+  .rodata             const    0x00017704     0x20  ksz8851snl.o [1]
+  .rodata             const    0x00017724     0x20  ksz8851snl.o [1]
+  .rodata             const    0x00017744     0x20  ksz8851snl.o [1]
+  .rodata             const    0x00017764     0x20  ksz8851snl.o [1]
+  .rodata             const    0x00017784     0x20  ksz8851snl.o [1]
+  .rodata             const    0x000177a4     0x20  ksz8851snl.o [1]
+  .rodata             const    0x000177c4     0x20  ksz8851snl.o [1]
+  .rodata             const    0x000177e4     0x20  ksz8851snl.o [1]
+  .rodata             const    0x00017804     0x20  ksz8851snl.o [1]
+  .rodata             const    0x00017824     0x20  ksz8851snl.o [1]
+  .rodata             const    0x00017844     0x20  ksz8851snl.o [1]
+  .rodata             const    0x00017864     0x20  ksz8851snl.o [1]
+  .rodata             const    0x00017884     0x20  ksz8851snl.o [1]
+  .rodata             const    0x000178a4     0x20  ksz8851snl.o [1]
+  .rodata             const    0x000178c4     0x20  ksz8851snl.o [1]
+  .rodata             const    0x000178e4     0x20  mem.o [1]
+  .rodata             const    0x00017904     0x20  memp.o [1]
+  .rodata             const    0x00017924     0x20  memp.o [1]
+  .rodata             const    0x00017944     0x20  pbuf.o [1]
+  .rodata             const    0x00017964     0x20  pbuf.o [1]
+  .rodata             const    0x00017984     0x20  tcp.o [1]
+  .rodata             const    0x000179a4     0x20  tcp.o [1]
+  .rodata             const    0x000179c4     0x20  tcp_in.o [1]
+  .rodata             const    0x000179e4     0x20  tcp_in.o [1]
+  .rodata             const    0x00017a04     0x20  tcp_in.o [1]
+  .rodata             const    0x00017a24     0x20  tcp_out.o [1]
+  .rodata             const    0x00017a44     0x20  tcp_out.o [1]
+  .rodata             const    0x00017a64     0x20  tcp_out.o [1]
+  .rodata             const    0x00017a84     0x20  tcp_out.o [1]
+  .rodata             const    0x00017aa4     0x20  webserver.o [1]
+  .rodata             const    0x00017ac4     0x20  webserver.o [1]
+  .rodata             const    0x00017ae4     0x20  webserver.o [1]
+  .rodata             const    0x00017b04     0x1c  dhcp.o [1]
+  .rodata             const    0x00017b20     0x1c  dhcp.o [1]
+  .rodata             const    0x00017b3c     0x1c  etharp.o [1]
+  .rodata             const    0x00017b58     0x1c  httpd.o [1]
+  .rodata             const    0x00017b74     0x1c  httpd.o [1]
+  .rodata             const    0x00017b90     0x1c  ip_frag.o [1]
+  .rodata             const    0x00017bac     0x1c  ip_frag.o [1]
+  .rodata             const    0x00017bc8     0x1c  ksz8851snl_spi.o [1]
+  .rodata             const    0x00017be4     0x1c  mem.o [1]
+  .rodata             const    0x00017c00     0x1c  mem.o [1]
+  .rodata             const    0x00017c1c     0x1c  mem.o [1]
+  .rodata             const    0x00017c38     0x1c  mem.o [1]
+  .rodata             const    0x00017c54     0x1c  mem.o [1]
+  .rodata             const    0x00017c70     0x1c  pbuf.o [1]
+  .rodata             const    0x00017c8c     0x1c  pbuf.o [1]
+  .rodata             const    0x00017ca8     0x1c  pbuf.o [1]
+  .rodata             const    0x00017cc4     0x1c  pbuf.o [1]
+  .rodata             const    0x00017ce0     0x1c  pbuf.o [1]
+  .rodata             const    0x00017cfc     0x1c  tcp.o [1]
+  .rodata             const    0x00017d18     0x1c  tcp.o [1]
+  .rodata             const    0x00017d34     0x1c  tcp.o [1]
+  .rodata             const    0x00017d50     0x1c  tcp_in.o [1]
+  .rodata             const    0x00017d6c     0x1c  tcp_in.o [1]
+  .rodata             const    0x00017d88     0x1c  tcp_in.o [1]
+  .rodata             const    0x00017da4     0x1c  tftconsole.o [1]
+  .rodata             const    0x00017dc0     0x1c  webserver.o [1]
+  .text               ro code  0x00017ddc     0x1a  cmain.o [5]
+  .text               ro code  0x00017df6      0x4  low_level_init.o [3]
+  .text               ro code  0x00017dfa      0x4  exit.o [3]
+  .text               ro code  0x00017e00      0xa  cexit.o [5]
+  .text               ro code  0x00017e0c      0xc  XXexit.o [5]
+  .rodata             const    0x00017e18     0x18  bsp_dk_3201.o [1]
+  .rodata             const    0x00017e30     0x18  dhcp.o [1]
+  .rodata             const    0x00017e48     0x18  dhcp.o [1]
+  .rodata             const    0x00017e60     0x18  etharp.o [1]
+  .rodata             const    0x00017e78     0x18  ksz8851snl.o [1]
+  .rodata             const    0x00017e90     0x18  ksz8851snl.o [1]
+  .rodata             const    0x00017ea8     0x18  ksz8851snl.o [1]
+  .rodata             const    0x00017ec0     0x18  ksz8851snl.o [1]
+  .rodata             const    0x00017ed8     0x18  ksz8851snl.o [1]
+  .rodata             const    0x00017ef0     0x18  ksz8851snl.o [1]
+  .rodata             const    0x00017f08     0x18  ksz8851snl.o [1]
+  .rodata             const    0x00017f20     0x18  ksz8851snl.o [1]
+  .rodata             const    0x00017f38     0x18  ksz8851snl.o [1]
+  .rodata             const    0x00017f50     0x18  ksz8851snl.o [1]
+  .rodata             const    0x00017f68     0x18  ksz8851snl.o [1]
+  .rodata             const    0x00017f80     0x18  ksz8851snl.o [1]
+  .rodata             const    0x00017f98     0x18  ksz8851snl.o [1]
+  .rodata             const    0x00017fb0     0x18  ksz8851snl.o [1]
+  .rodata             const    0x00017fc8     0x18  ksz8851snl.o [1]
+  .rodata             const    0x00017fe0     0x18  ksz8851snl.o [1]
+  .rodata             const    0x00017ff8     0x18  ksz8851snl.o [1]
+  .rodata             const    0x00018010     0x18  ksz8851snl.o [1]
+  .rodata             const    0x00018028     0x18  ksz8851snl.o [1]
+  .rodata             const    0x00018040     0x18  ksz8851snl.o [1]
+  .rodata             const    0x00018058     0x18  mem.o [1]
+  .rodata             const    0x00018070     0x18  mem.o [1]
+  .rodata             const    0x00018088     0x18  mem.o [1]
+  .rodata             const    0x000180a0     0x18  netif.o [1]
+  .rodata             const    0x000180b8     0x18  pbuf.o [1]
+  .rodata             const    0x000180d0     0x18  pbuf.o [1]
+  .rodata             const    0x000180e8     0x18  pbuf.o [1]
+  .rodata             const    0x00018100     0x18  pbuf.o [1]
+  .rodata             const    0x00018118     0x18  pbuf.o [1]
+  .rodata             const    0x00018130     0x18  retargetserial.o [1]
+  .rodata             const    0x00018148     0x18  spidrv.o [1]
+  .rodata             const    0x00018160     0x18  tcp.o [1]
+  .rodata             const    0x00018178     0x18  tcp.o [1]
+  .rodata             const    0x00018190     0x18  tcp_in.o [1]
+  .rodata             const    0x000181a8     0x18  tcp_out.o [1]
+  .rodata             const    0x000181c0     0x18  tcp_out.o [1]
+  .rodata             const    0x000181d8     0x18  webserver.o [1]
+  .rodata             const    0x000181f0     0x18  webserver.o [1]
+  .rodata             const    0x00018208     0x18  webserver.o [1]
+  .rodata             const    0x00018220     0x18  webserver.o [1]
+  .rodata             const    0x00018238     0x18  webserver.o [1]
+  .text               ro code  0x00018250     0x16  xprout.o [3]
+  .rodata             const    0x00018268     0x14  dhcp.o [1]
+  .rodata             const    0x0001827c     0x14  dhcp.o [1]
+  .rodata             const    0x00018290     0x14  dhcp.o [1]
+  .rodata             const    0x000182a4     0x14  dhcp.o [1]
+  .rodata             const    0x000182b8     0x14  dhcp.o [1]
+  .rodata             const    0x000182cc     0x14  dhcp.o [1]
+  .rodata             const    0x000182e0     0x14  etharp.o [1]
+  .rodata             const    0x000182f4     0x14  fs.o [1]
+  .rodata             const    0x00018308     0x14  fs.o [1]
+  .rodata             const    0x0001831c     0x14  fs.o [1]
+  .rodata             const    0x00018330     0x14  ip_frag.o [1]
+  .rodata             const    0x00018344     0x14  ksz8851snl.o [1]
+  .rodata             const    0x00018358     0x14  mem.o [1]
+  .rodata             const    0x0001836c     0x14  memp.o [1]
+  .rodata             const    0x00018380     0x14  memp.o [1]
+  .rodata             const    0x00018394     0x14  pbuf.o [1]
+  .rodata             const    0x000183a8     0x14  pbuf.o [1]
+  .rodata             const    0x000183bc     0x14  tcp_in.o [1]
+  .rodata             const    0x000183d0     0x14  tcp_in.o [1]
+  .rodata             const    0x000183e4     0x14  tcp_out.o [1]
+  .rodata             const    0x000183f8     0x14  tcp_out.o [1]
+  .rodata             const    0x0001840c     0x14  timers.o [1]
+  .rodata             const    0x00018420     0x14  udp.o [1]
+  .rodata             const    0x00018434     0x14  udp.o [1]
+  .rodata             const    0x00018448     0x14  webserver.o [1]
+  .rodata             const    0x0001845c     0x14  webserver.o [1]
+  .rodata             const    0x00018470     0x14  webserver.o [1]
+  .rodata             const    0x00018484     0x14  webserver.o [1]
+  .rodata             const    0x00018498     0x14  webserver.o [1]
+  .rodata             const    0x000184ac     0x14  webserver.o [1]
+  .rodata             const    0x000184c0     0x14  webserver.o [1]
+  .rodata             const    0x000184d4     0x10  dhcp.o [1]
+  .rodata             const    0x000184e4     0x10  dhcp.o [1]
+  .rodata             const    0x000184f4     0x10  etharp.o [1]
+  .rodata             const    0x00018504     0x10  etharp.o [1]
+  .rodata             const    0x00018514     0x10  httpd.o [1]
+  .rodata             const    0x00018524     0x10  httpd.o [1]
+  .rodata             const    0x00018534     0x10  ip_frag.o [1]
+  .rodata             const    0x00018544     0x10  memp.o [1]
+  .rodata             const    0x00018554     0x10  memp.o [1]
+  .rodata             const    0x00018564     0x10  memp.o [1]
+  .rodata             const    0x00018574     0x10  memp.o [1]
+  .rodata             const    0x00018584     0x10  memp.o [1]
+  .rodata             const    0x00018594     0x10  pbuf.o [1]
+  .rodata             const    0x000185a4     0x10  pbuf.o [1]
+  .rodata             const    0x000185b4     0x10  pbuf.o [1]
+  .rodata             const    0x000185c4     0x10  stats.o [1]
+  .rodata             const    0x000185d4     0x10  stats.o [1]
+  .rodata             const    0x000185e4     0x10  tcp.o [1]
+  .rodata             const    0x000185f4     0x10  tcp.o [1]
+  .rodata             const    0x00018604     0x10  tcp_in.o [1]
+  .rodata             const    0x00018614     0x10  tcp_in.o [1]
+  .rodata             const    0x00018624     0x10  tcp_in.o [1]
+  .rodata             const    0x00018634     0x10  tcp_out.o [1]
+  .rodata             const    0x00018644     0x10  timers.o [1]
+  .rodata             const    0x00018654     0x10  timers.o [1]
+  .rodata             const    0x00018664     0x10  timers.o [1]
+  .text               ro code  0x00018674     0x10  startup_efm32gg.o [1]
+  .rodata             const    0x00018684      0xc  dhcp.o [1]
+  .rodata             const    0x00018690      0xc  dhcp.o [1]
+  .rodata             const    0x0001869c      0xc  echo.o [1]
+  .rodata             const    0x000186a8      0xc  etharp.o [1]
+  .rodata             const    0x000186b4      0xc  httpd.o [1]
+  .rodata             const    0x000186c0      0xc  httpd.o [1]
+  .rodata             const    0x000186cc      0xc  httpd.o [1]
+  .rodata             const    0x000186d8      0xc  httpd.o [1]
+  .rodata             const    0x000186e4      0xc  httpd.o [1]
+  .rodata             const    0x000186f0      0xc  httpd.o [1]
+  .rodata             const    0x000186fc      0xc  httpd.o [1]
+  .rodata             const    0x00018708      0xc  httpd.o [1]
+  .rodata             const    0x00018714      0xc  httpd.o [1]
+  .rodata             const    0x00018720      0xc  ip.o [1]
+  .rodata             const    0x0001872c      0xc  ip_frag.o [1]
+  .rodata             const    0x00018738      0xc  ip_frag.o [1]
+  .rodata             const    0x00018744      0xc  ip_frag.o [1]
+  .rodata             const    0x00018750      0xc  ip_frag.o [1]
+  .rodata             const    0x0001875c      0xc  memp.o [1]
+  .rodata             const    0x00018768      0xc  memp.o [1]
+  .rodata             const    0x00018774      0xc  memp.o [1]
+  .rodata             const    0x00018780      0xc  memp.o [1]
+  .rodata             const    0x0001878c      0xc  memp.o [1]
+  .rodata             const    0x00018798      0xc  memp.o [1]
+  .rodata             const    0x000187a4      0xc  memp.o [1]
+  .rodata             const    0x000187b0      0xc  memp.o [1]
+  .rodata             const    0x000187bc      0xc  memp.o [1]
+  .rodata             const    0x000187c8      0xc  memp.o [1]
+  .rodata             const    0x000187d4      0xc  memp.o [1]
+  .rodata             const    0x000187e0      0xc  memp.o [1]
+  .rodata             const    0x000187ec      0xc  pbuf.o [1]
+  .rodata             const    0x000187f8      0xc  stats.o [1]
+  .rodata             const    0x00018804      0xc  stats.o [1]
+  .rodata             const    0x00018810      0xc  stats.o [1]
+  .rodata             const    0x0001881c      0xc  stats.o [1]
+  .rodata             const    0x00018828      0xc  timers.o [1]
+  .rodata             const    0x00018834      0xc  udp.o [1]
+  .rodata             const    0x00018840      0xc  webserver.o [1]
+  .text               ro code  0x0001884c      0xc  cstartup_M.o [5]
+  .rodata             const    0x00018858      0x8  etharp.o [1]
+  .rodata             const    0x00018860      0x8  etharp.o [1]
+  .rodata             const    0x00018868      0x8  httpd.o [1]
+  .rodata             const    0x00018870      0x8  httpd.o [1]
+  .rodata             const    0x00018878      0x8  memp.o [1]
+  .rodata             const    0x00018880      0x8  memp.o [1]
+  .rodata             const    0x00018888      0x8  memp.o [1]
+  .rodata             const    0x00018890      0x8  memp.o [1]
+  .rodata             const    0x00018898      0x8  stats.o [1]
+  .rodata             const    0x000188a0      0x8  stats.o [1]
+  .rodata             const    0x000188a8      0x8  stats.o [1]
+  .rodata             const    0x000188b0      0x8  stats.o [1]
+  .rodata             const    0x000188b8      0x8  tcp.o [1]
+  .rodata             const    0x000188c0      0x8  webserver.o [1]
+  .rodata             const    0x000188c8      0x8  webserver.o [1]
+  .rodata             const    0x000188d0      0x8  webserver.o [1]
+  .rodata             const    0x000188d8      0x8  webserver.o [1]
+  .rodata             const    0x000188e0      0x4  ip_addr.o [1]
+  .rodata             const    0x000188e4      0x4  ip_addr.o [1]
+  .rodata             const    0x000188e8      0x4  rtcdriver.o [1]
+  .text               ro code  0x000188ec      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000188f0      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000188f4      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000188f8      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000188fc      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018900      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018904      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018908      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x0001890c      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018910      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018914      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018918      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x0001891c      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018920      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018924      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018928      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x0001892c      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018930      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018934      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018938      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x0001893c      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018940      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018944      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018948      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x0001894c      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018950      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018954      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018958      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x0001895c      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018960      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018964      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018968      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x0001896c      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018970      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018974      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018978      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x0001897c      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018980      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018984      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018988      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x0001898c      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018990      0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00018994      0x4  startup_efm32gg.o [1]
+  .rodata             const    0x00018998      0x0  zero_init3.o [5]
+  .rodata             const    0x00018998      0x0  packbits_init_single.o [5]
+  Initializer bytes   const    0x00018998     0x71  <for P2-1>
+                             - 0x00018a09  0x1892d
+
+"P2", part 1 of 3:                           0x10b
+  P2-1                         0x20000000    0x10b  <Init block>
+    .data             inited   0x20000000      0x4  ksz8851snl_spi.o [1]
+    .data             inited   0x20000004     0x28  memp.o [1]
+    .data             inited   0x2000002c     0x28  memp.o [1]
+    .data             inited   0x20000054      0x4  system_efm32gg.o [1]
+    .data             inited   0x20000058      0x4  system_efm32gg.o [1]
+    .data             inited   0x2000005c      0x4  tcp.o [1]
+    .data             inited   0x20000060      0x8  webserver.o [1]
+    .data             inited   0x20000068      0x8  webserver.o [1]
+    .data             inited   0x20000070      0x8  webserver.o [1]
+    __DLIB_PERTHREAD  inited   0x20000078     0x8c  rand.o [3]
+    .data             inited   0x20000104      0x2  tcp.o [1]
+    .data             inited   0x20000106      0x2  udp.o [1]
+    .data             inited   0x20000108      0x1  tftconsole.o [1]
+    .data             inited   0x20000109      0x1  tftconsole.o [1]
+    .data             inited   0x2000010a      0x1  tftconsole.o [1]
+                             - 0x2000010b    0x10b
+
+"P2", part 2 of 3:                           0x400
+  CSTACK                       0x20000110    0x400  <Block>
+    CSTACK            uninit   0x20000110    0x400  <Block tail>
+                             - 0x20000510    0x400
+
+"P2", part 3 of 3:                         0x1ed58
+  .bss                zero     0x20000510  0x15960  memp.o [1]
+  .bss                zero     0x20015e70   0x8014  mem.o [1]
+  .bss                zero     0x2001de84    0x4b0  tftconsole.o [1]
+  .bss                zero     0x2001e334    0x400  httpd.o [1]
+  .bss                zero     0x2001e734    0x320  etharp.o [1]
+  .bss                zero     0x2001eb00    0x200  dmactrl.o [1]
+  .bss                zero     0x2001ed00    0x128  stats.o [1]
+  .bss                zero     0x2001ee28     0xf0  dmadrv.o [1]
+  .bss                zero     0x2001ef18     0xa0  rtcdriver.o [1]
+  .bss                zero     0x2001efb8     0x90  dmadrv.o [1]
+  .bss                zero     0x2001f048     0x58  ksz8851snl_spi.o [1]
+  .bss                zero     0x2001f0a0     0x48  ksz8851snl.o [1]
+  .bss                zero     0x2001f0e8     0x28  dhcp.o [1]
+  .bss                zero     0x2001f110     0x28  memp.o [1]
+  .bss                zero     0x2001f138     0x14  tcp_in.o [1]
+  .bss                zero     0x2001f14c     0x10  ip_addr.o [1]
+  .bss                zero     0x2001f15c      0xc  dhcp.o [1]
+  .bss                zero     0x2001f168      0xc  dmd_ssd2119_16bit.o [1]
+  .bss                zero     0x2001f174      0x8  ksz8851snl.o [1]
+  .bss                zero     0x2001f17c      0x8  retargetserial.o [1]
+  .bss                zero     0x2001f184      0x4  bsp_dk_3201.o [1]
+  .bss                zero     0x2001f188      0x4  bsp_dk_3201.o [1]
+  .bss                zero     0x2001f18c      0x4  dhcp.o [1]
+  .bss                zero     0x2001f190      0x4  dmd_ssd2119_16bit.o [1]
+  .bss                zero     0x2001f194      0x4  dmdif_ssd2119_ebi16.o [1]
+  .bss                zero     0x2001f198      0x4  dmdif_ssd2119_ebi16.o [1]
+  .bss                zero     0x2001f19c      0x4  echo.o [1]
+  .bss                zero     0x2001f1a0      0x4  ip.o [1]
+  .bss                zero     0x2001f1a4      0x4  ip.o [1]
+  .bss                zero     0x2001f1a8      0x4  ip.o [1]
+  .bss                zero     0x2001f1ac      0x4  ip.o [1]
+  .bss                zero     0x2001f1b0      0x4  ip_frag.o [1]
+  .bss                zero     0x2001f1b4      0x4  ksz8851snl.o [1]
+  .bss                zero     0x2001f1b8      0x4  mem.o [1]
+  .bss                zero     0x2001f1bc      0x4  mem.o [1]
+  .bss                zero     0x2001f1c0      0x4  mem.o [1]
+  .bss                zero     0x2001f1c4      0x4  netif.o [1]
+  .bss                zero     0x2001f1c8      0x4  netif.o [1]
+  .bss                zero     0x2001f1cc      0x4  raw.o [1]
+  .bss                zero     0x2001f1d0      0x4  retargetserial.o [1]
+  .bss                zero     0x2001f1d4      0x4  retargetserial.o [1]
+  .bss                zero     0x2001f1d8      0x4  retargetserial.o [1]
+  .bss                zero     0x2001f1dc      0x4  rtcdriver.o [1]
+  .bss                zero     0x2001f1e0      0x4  rtcdriver.o [1]
+  .bss                zero     0x2001f1e4      0x4  system_efm32gg.o [1]
+  .bss                zero     0x2001f1e8      0x4  tcp.o [1]
+  .bss                zero     0x2001f1ec      0x4  tcp.o [1]
+  .bss                zero     0x2001f1f0      0x4  tcp.o [1]
+  .bss                zero     0x2001f1f4      0x4  tcp.o [1]
+  .bss                zero     0x2001f1f8      0x4  tcp.o [1]
+  .bss                zero     0x2001f1fc      0x4  tcp.o [1]
+  .bss                zero     0x2001f200      0x4  tcp_in.o [1]
+  .bss                zero     0x2001f204      0x4  tcp_in.o [1]
+  .bss                zero     0x2001f208      0x4  tcp_in.o [1]
+  .bss                zero     0x2001f20c      0x4  tcp_in.o [1]
+  .bss                zero     0x2001f210      0x4  tcp_in.o [1]
+  .bss                zero     0x2001f214      0x4  tcp_in.o [1]
+  .bss                zero     0x2001f218      0x4  tftconsole.o [1]
+  .bss                zero     0x2001f21c      0x4  tftconsole.o [1]
+  .bss                zero     0x2001f220      0x4  tftconsole.o [1]
+  .bss                zero     0x2001f224      0x4  timers.o [1]
+  .bss                zero     0x2001f228      0x4  timers.o [1]
+  .bss                zero     0x2001f22c      0x4  timers.o [1]
+  .bss                zero     0x2001f230      0x4  udp.o [1]
+  .bss                zero     0x2001f234      0x4  webserver.o [1]
+  .bss                zero     0x2001f238      0x4  webserver.o [1]
+  .bss                zero     0x2001f23c      0x4  webserver.o [1]
+  .bss                zero     0x2001f240      0x4  webserver.o [1]
+  .bss                zero     0x2001f244      0x2  bsp_dk_3201.o [1]
+  .bss                zero     0x2001f246      0x2  dmd_ssd2119_16bit.o [1]
+  .bss                zero     0x2001f248      0x2  ip.o [1]
+  .bss                zero     0x2001f24a      0x2  ip_frag.o [1]
+  .bss                zero     0x2001f24c      0x2  ksz8851snl.o [1]
+  .bss                zero     0x2001f24e      0x2  ksz8851snl.o [1]
+  .bss                zero     0x2001f250      0x2  tcp_in.o [1]
+  .bss                zero     0x2001f252      0x2  webserver.o [1]
+  .bss                zero     0x2001f254      0x1  bsp_dk_3201.o [1]
+  .bss                zero     0x2001f255      0x1  dmadrv.o [1]
+  .bss                zero     0x2001f256      0x1  etharp.o [1]
+  .bss                zero     0x2001f257      0x1  netif.o [1]
+  .bss                zero     0x2001f258      0x1  pbuf.o [1]
+  .bss                zero     0x2001f259      0x1  retargetserial.o [1]
+  .bss                zero     0x2001f25a      0x1  retargetserial.o [1]
+  .bss                zero     0x2001f25b      0x1  rtcdriver.o [1]
+  .bss                zero     0x2001f25c      0x1  rtcdriver.o [1]
+  .bss                zero     0x2001f25d      0x1  rtcdriver.o [1]
+  .bss                zero     0x2001f25e      0x1  spidrv.o [1]
+  .bss                zero     0x2001f25f      0x1  tcp.o [1]
+  .bss                zero     0x2001f260      0x1  tcp.o [1]
+  .bss                zero     0x2001f261      0x1  tcp.o [1]
+  .bss                zero     0x2001f262      0x1  tcp_in.o [1]
+  .bss                zero     0x2001f263      0x1  tcp_in.o [1]
+  .bss                zero     0x2001f264      0x1  tftconsole.o [1]
+  .bss                zero     0x2001f265      0x1  tftconsole.o [1]
+  .bss                zero     0x2001f266      0x1  webserver.o [1]
+                             - 0x2001f267  0x1ed57
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x1ed57:
+          0x20000510  0x1ed57
+
+Copy/packbits (__iar_packbits_init_single3)
+    1 source range, total size 0x71 (42% of destination):
+          0x00018998     0x71
+    1 destination range, total size 0x10b:
+          0x20000000    0x10b
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                  ro code  ro data  rw data
+    ------                  -------  -------  -------
+D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj: [1]
+    bsp_dk_3201.o             3 000      240       11
+    bsp_dk_leds.o               156
+    dhcp.o                    5 552    1 984       56
+    dmactrl.o                                     512
+    dmadrv.o                  1 144               385
+    dmd_ssd2119_16bit.o       1 016                18
+    dmdif_ssd2119_ebi16.o       120                 8
+    echo.o                      826      156        4
+    em_assert.o                   2
+    em_cmu.o                  3 556      212
+    em_core.o                   256       76
+    em_dma.o                  1 488       76
+    em_ebi.o                  1 976       76
+    em_gpio.o                 1 020      212
+    em_rtc.o                    208       76
+    em_system.o                  96       76
+    em_usart.o                  836       76
+    etharp.o                  3 980      924      801
+    fs.o                         90    5 700
+    httpd.o                   2 340      692    1 024
+    icmp.o                      748      416
+    inet_chksum.o               300
+    init.o                       32
+    ip.o                      1 112      544       18
+    ip_addr.o                   266        8       16
+    ip_frag.o                 2 360      512        6
+    ksz8851snl.o              2 642    1 488       88
+    ksz8851snl_driver.o         712      540
+    ksz8851snl_spi.o            974      257       92
+    mem.o                     1 404      684   32 800
+    memp.o                    1 280      858   88 536
+    netif.o                     602      156        9
+    pbuf.o                    2 628    1 316        1
+    raw.o                       156                 4
+    retargetio.o                 86
+    retargetserial.o            516       24       22
+    rtcdriver.o               1 380        4      171
+    spidrv.o                  2 714       24        1
+    startup_efm32gg.o           408
+    stats.o                      56      152      296
+    system_efm32gg.o            312        3       12
+    tcp.o                     4 412    1 222       33
+    tcp_in.o                  6 996      880       48
+    tcp_out.o                 4 354    1 604
+    tftconsole.o              2 300      830    1 217
+    timers.o                    688      276       12
+    udp.o                     1 398      305        6
+    webserver.o               1 600      726       43
+    -------------------------------------------------
+    Total:                   70 098   23 405  126 250
+
+command line: [2]
+    -------------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    div.o                        14
+    exit.o                        4
+    low_level_init.o              4
+    printf.o                     36
+    putchar.o                    40
+    rand.o                      224       60      140
+    strcat.o                     28
+    strncmp.o                    44
+    vsnprint.o                   60
+    xprintffull.o             3 538
+    xprout.o                     22
+    xsnprout.o                   26
+    xtls.o                        2
+    -------------------------------------------------
+    Total:                    4 042       60      140
+
+m7M_tl.a: [4]
+    DblAdd.o                    212
+    DblCmpGe.o                   46
+    DblCmpLe.o                   46
+    DblDiv.o                    598
+    DblMul.o                    418
+    DblSub.o                    384
+    DblToI32.o                   88
+    I32ToDbl.o                   48
+    xdnorm.o                     68
+    xdscale.o                   268
+    -------------------------------------------------
+    Total:                    2 176
+
+rt7M_tl.a: [5]
+    ABImemclr.o                   6
+    ABImemcpy_unaligned.o       118
+    ABImemset.o                 102
+    I64DivMod.o                 238
+    I64DivZer.o                   2
+    XXexit.o                     12
+    cexit.o                      10
+    cmain.o                      26
+    cstartup_M.o                 12
+    data_init.o                  40
+    memchr.o                     88
+    memcmp_unaligned.o           98
+    packbits_init_single.o       56
+    strchr.o                     22
+    strcmp_unaligned.o           66
+    strlen.o                     54
+    zero_init3.o                 64
+    -------------------------------------------------
+    Total:                    1 014
+
+    Gaps                         42        4      172
+    Linker created                        32    1 024
+-----------------------------------------------------
+    Grand Total:             77 372   23 501  127 586
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address     Size  Type      Object
+-----                      -------     ----  ----      ------
+.iar.init_table$$Base   0x00017584            --   Gb  - Linker created -
+.iar.init_table$$Limit  0x000175a4            --   Gb  - Linker created -
+?main                   0x00017ddd           Code  Gb  cmain.o [5]
+BSP_BusControlModeSet   0x0000bcd7     0x9c  Code  Gb  bsp_dk_3201.o [1]
+BSP_DisplayControl      0x0000bd73     0xfc  Code  Gb  bsp_dk_3201.o [1]
+BSP_EbiExtendedAddressRange
+                        0x0000be6f     0x24  Code  Gb  bsp_dk_3201.o [1]
+BSP_Init                0x0000bc7d     0x5a  Code  Gb  bsp_dk_3201.o [1]
+BSP_InterruptDisable    0x0000be93     0x24  Code  Gb  bsp_dk_3201.o [1]
+BSP_InterruptEnable     0x0000beb7     0x20  Code  Gb  bsp_dk_3201.o [1]
+BSP_InterruptFlagsClear
+                        0x0000bed7     0x3a  Code  Gb  bsp_dk_3201.o [1]
+BSP_InterruptFlagsGet   0x0000bf11      0xc  Code  Gb  bsp_dk_3201.o [1]
+BSP_LedClear            0x0000ba9b     0x2e  Code  Gb  bsp_dk_leds.o [1]
+BSP_LedSet              0x0000bac9     0x2e  Code  Gb  bsp_dk_leds.o [1]
+BSP_LedToggle           0x0000baf7     0x2e  Code  Gb  bsp_dk_leds.o [1]
+BSP_LedsInit            0x0000ba8d      0xe  Code  Gb  bsp_dk_leds.o [1]
+BSP_PeripheralAccess    0x0000bf1d    0x236  Code  Gb  bsp_dk_3201.o [1]
+BSP_RegisterRead        0x0000c153     0x1a  Code  Gb  bsp_dk_3201.o [1]
+BSP_RegisterWrite       0x0000c16d     0x22  Code  Gb  bsp_dk_3201.o [1]
+BUS_RegBitRead          0x0000df0b     0x10  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x0000defd      0xe  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x0001253f      0xe  Code  Lc  em_dma.o [1]
+BUS_RegBitWrite         0x0000fa3d      0xe  Code  Lc  em_ebi.o [1]
+BUS_RegBitWrite         0x0000b631      0xe  Code  Lc  em_gpio.o [1]
+BUS_RegBitWrite         0x00012acd      0xe  Code  Lc  em_rtc.o [1]
+BUS_RegMaskedWrite      0x0000b63f      0xa  Code  Lc  em_gpio.o [1]
+BUS_RegMaskedWrite      0x000101f5      0xa  Code  Lc  em_usart.o [1]
+BlockingComplete        0x000112b9      0xa  Code  Lc  spidrv.o [1]
+CHIP_Init               0x00009993     0x34  Code  Lc  webserver.o [1]
+CMU_ClockDivSet         0x0000e2d7    0x294  Code  Gb  em_cmu.o [1]
+CMU_ClockEnable         0x0000e56b     0xa6  Code  Gb  em_cmu.o [1]
+CMU_ClockFreqGet        0x0000e625    0x188  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectGet      0x0000e7e9    0x134  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectSet      0x0000e941    0x292  Code  Gb  em_cmu.o [1]
+CMU_DivToLog2           0x0000df1b     0x28  Code  Lc  em_cmu.o [1]
+CMU_OscillatorEnable    0x0000ec09     0x9c  Code  Gb  em_cmu.o [1]
+CORE_EnterAtomic        0x00010539      0x8  Code  Wk  em_core.o [1]
+CORE_ExitAtomic         0x00010541      0x8  Code  Wk  em_core.o [1]
+CORE_IrqIsBlocked       0x00012479     0x84  Code  Wk  em_core.o [1]
+CORE_NvicIRQDisabled    0x00012bbf     0x38  Code  Gb  em_core.o [1]
+CSTACK$$Base            0x20000110            --   Gb  - Linker created -
+CSTACK$$Limit           0x20000510            --   Gb  - Linker created -
+ConfigGPIO              0x000112c5    0x4ec  Code  Lc  spidrv.o [1]
+DMADRV_AllocateChannel  0x0001202b     0x7a  Code  Gb  dmadrv.o [1]
+DMADRV_Init             0x000120a5     0x68  Code  Gb  dmadrv.o [1]
+DMADRV_MemoryPeripheral
+                        0x0001210d     0x50  Code  Gb  dmadrv.o [1]
+DMADRV_PeripheralMemory
+                        0x0001215d     0x50  Code  Gb  dmadrv.o [1]
+DMA_ActivateBasic       0x000126eb     0x5e  Code  Gb  em_dma.o [1]
+DMA_ActivatePingPong    0x00012749     0x8e  Code  Gb  em_dma.o [1]
+DMA_CfgChannel          0x000127d7     0x88  Code  Gb  em_dma.o [1]
+DMA_CfgDescr            0x0001285f     0x6a  Code  Gb  em_dma.o [1]
+DMA_IRQHandler          0x0001263d     0xae  Code  Gb  em_dma.o [1]
+DMA_Init                0x000128c9     0x56  Code  Gb  em_dma.o [1]
+DMA_Prepare             0x0001254d     0xf0  Code  Lc  em_dma.o [1]
+DMA_RefreshPingPong     0x0001291f     0xee  Code  Gb  em_dma.o [1]
+DMA_Reset               0x00012a0d     0x5e  Code  Gb  em_dma.o [1]
+DMDIF_init              0x00010d11      0xe  Code  Gb  dmdif_ssd2119_ebi16.o [1]
+DMDIF_prepareDataAccess
+                        0x00010d37      0xc  Code  Gb  dmdif_ssd2119_ebi16.o [1]
+DMDIF_writeData         0x00010d43      0xc  Code  Gb  dmdif_ssd2119_ebi16.o [1]
+DMDIF_writeDataRepeated
+                        0x00010d4f     0x20  Code  Gb  dmdif_ssd2119_ebi16.o [1]
+DMDIF_writeReg          0x00010d1f     0x18  Code  Gb  dmdif_ssd2119_ebi16.o [1]
+DMD_flipDisplay         0x00010cbf     0x42  Code  Gb  dmd_ssd2119_16bit.o [1]
+DMD_init                0x00010919    0x236  Code  Gb  dmd_ssd2119_16bit.o [1]
+DMD_writeColor          0x00010c2b     0x78  Code  Gb  dmd_ssd2119_16bit.o [1]
+DMD_writeData           0x00010b99     0x92  Code  Gb  dmd_ssd2119_16bit.o [1]
+DmaBasicCallback        0x000121ad     0x2c  Code  Lc  dmadrv.o [1]
+DmaPingPongCallback     0x000121d9     0x6a  Code  Lc  dmadrv.o [1]
+EBI_BankAddressTimingConfig
+                        0x0000ff7f     0x5a  Code  Gb  em_ebi.o [1]
+EBI_BankAddressTimingSet
+                        0x0000ffd9     0x86  Code  Gb  em_ebi.o [1]
+EBI_BankPolaritySet     0x00010069    0x12a  Code  Gb  em_ebi.o [1]
+EBI_BankReadTimingConfig
+                        0x0000fc9b     0xd8  Code  Gb  em_ebi.o [1]
+EBI_BankReadTimingSet   0x0000fd73     0xc6  Code  Gb  em_ebi.o [1]
+EBI_BankWriteTimingConfig
+                        0x0000fe39     0x9e  Code  Gb  em_ebi.o [1]
+EBI_BankWriteTimingSet  0x0000fed7     0xa8  Code  Gb  em_ebi.o [1]
+EBI_ChipSelectEnable    0x0000fc4b     0x50  Code  Gb  em_ebi.o [1]
+EBI_Init                0x0000fa4b    0x200  Code  Gb  em_ebi.o [1]
+EbiInit                 0x0000c18f    0x30a  Code  Lc  bsp_dk_3201.o [1]
+GPIO_EVEN_IRQHandler    0x000099f5     0x24  Code  Gb  webserver.o [1]
+GPIO_ExtIntConfig       0x0000b79d    0x11c  Code  Gb  em_gpio.o [1]
+GPIO_IntClear           0x0000995d      0x8  Code  Lc  webserver.o [1]
+GPIO_IntConfig          0x00009965     0x2e  Code  Lc  webserver.o [1]
+GPIO_PinModeSet         0x0000b8b9    0x14e  Code  Gb  em_gpio.o [1]
+GPIO_PinOutClear        0x0000bb29     0xaa  Code  Lc  bsp_dk_3201.o [1]
+GPIO_PinOutClear        0x0000b649     0xaa  Code  Lc  em_gpio.o [1]
+GPIO_PinOutClear        0x00010549     0xa6  Code  Lc  ksz8851snl_spi.o [1]
+GPIO_PinOutSet          0x0000bbd3     0xaa  Code  Lc  bsp_dk_3201.o [1]
+GPIO_PinOutSet          0x0000b6f3     0xaa  Code  Lc  em_gpio.o [1]
+GPIO_PinOutSet          0x000105ef     0xa6  Code  Lc  ksz8851snl_spi.o [1]
+GetProdRev              0x00010dc5      0xa  Code  Lc  system_efm32gg.o [1]
+KSZ8851SNL_AllRegistersDump
+                        0x0000cb8d     0x54  Code  Gb  ksz8851snl.o [1]
+KSZ8851SNL_Enable       0x0000cfcb     0x3a  Code  Gb  ksz8851snl.o [1]
+KSZ8851SNL_FrameCounterGet
+                        0x0000ceab      0x8  Code  Gb  ksz8851snl.o [1]
+KSZ8851SNL_FrameCounterSet
+                        0x0000ce03     0x16  Code  Gb  ksz8851snl.o [1]
+KSZ8851SNL_Init         0x0000ceb3    0x118  Code  Gb  ksz8851snl.o [1]
+KSZ8851SNL_IntClear     0x0000cdcf     0x10  Code  Gb  ksz8851snl.o [1]
+KSZ8851SNL_IntDisable   0x0000cdb5     0x1a  Code  Gb  ksz8851snl.o [1]
+KSZ8851SNL_IntEnable    0x0000cd85     0x30  Code  Gb  ksz8851snl.o [1]
+KSZ8851SNL_IntGet       0x0000cddf      0xa  Code  Gb  ksz8851snl.o [1]
+KSZ8851SNL_MIBCountersDump
+                        0x0000ca7d    0x110  Code  Gb  ksz8851snl.o [1]
+KSZ8851SNL_MIBCountersUpdate
+                        0x0000c911    0x16c  Code  Gb  ksz8851snl.o [1]
+KSZ8851SNL_MacAddressGet
+                        0x0000d215     0x4a  Code  Gb  ksz8851snl.o [1]
+KSZ8851SNL_PHYStatusGet
+                        0x0000d32d      0xa  Code  Gb  ksz8851snl.o [1]
+KSZ8851SNL_PMECRStatusClear
+                        0x0000cde9     0x1a  Code  Gb  ksz8851snl.o [1]
+KSZ8851SNL_Receive      0x0000d145     0xd0  Code  Gb  ksz8851snl.o [1]
+KSZ8851SNL_RegistersDump
+                        0x0000cbe1    0x1a4  Code  Gb  ksz8851snl.o [1]
+KSZ8851SNL_RxQueueReset
+                        0x0000ce69     0x42  Code  Gb  ksz8851snl.o [1]
+KSZ8851SNL_SPI_Init     0x00010695     0x54  Code  Gb  ksz8851snl_spi.o [1]
+KSZ8851SNL_SPI_ReadFifo
+                        0x00010851     0x58  Code  Gb  ksz8851snl_spi.o [1]
+KSZ8851SNL_SPI_ReadRegister
+                        0x0001078f     0x6a  Code  Gb  ksz8851snl_spi.o [1]
+KSZ8851SNL_SPI_Receive  0x0001072d     0x44  Code  Lc  ksz8851snl_spi.o [1]
+KSZ8851SNL_SPI_SetChipSelect
+                        0x00010771     0x1e  Code  Lc  ksz8851snl_spi.o [1]
+KSZ8851SNL_SPI_Transmit
+                        0x000106e9     0x44  Code  Lc  ksz8851snl_spi.o [1]
+KSZ8851SNL_SPI_WriteFifo
+                        0x000108c1     0x34  Code  Gb  ksz8851snl_spi.o [1]
+KSZ8851SNL_SPI_WriteFifoBegin
+                        0x000108a9     0x18  Code  Gb  ksz8851snl_spi.o [1]
+KSZ8851SNL_SPI_WriteFifoEnd
+                        0x0001090d      0xa  Code  Gb  ksz8851snl_spi.o [1]
+KSZ8851SNL_SPI_WriteRegister
+                        0x000107f9     0x58  Code  Gb  ksz8851snl_spi.o [1]
+KSZ8851SNL_Transmit     0x0000d095     0x20  Code  Gb  ksz8851snl.o [1]
+KSZ8851SNL_TransmitBegin
+                        0x0000d005     0x90  Code  Gb  ksz8851snl.o [1]
+KSZ8851SNL_TransmitEnd  0x0000d0b5     0x6c  Code  Gb  ksz8851snl.o [1]
+KSZ8851SNL_TxQueueReset
+                        0x0000ce21     0x48  Code  Gb  ksz8851snl.o [1]
+LFtoCRLF                0x2001f259      0x1  Data  Lc  retargetserial.o [1]
+LFtoCRLF                0x2001f264      0x1  Data  Lc  tftconsole.o [1]
+LoadInt                 0x00006207     0x6e  Code  Lc  xprintffull.o [3]
+MIBCountersRead         0x0000c8e5     0x2c  Code  Lc  ksz8851snl.o [1]
+NVIC_ClearPendingIRQ    0x00012529     0x16  Code  Lc  em_dma.o [1]
+NVIC_ClearPendingIRQ    0x0000c6f5     0x14  Code  Lc  retargetserial.o [1]
+NVIC_ClearPendingIRQ    0x00011ab3     0x16  Code  Lc  rtcdriver.o [1]
+NVIC_ClearPendingIRQ    0x000098db     0x16  Code  Lc  webserver.o [1]
+NVIC_DisableIRQ         0x00012513     0x16  Code  Lc  em_dma.o [1]
+NVIC_EnableIRQ          0x000124fd     0x16  Code  Lc  em_dma.o [1]
+NVIC_EnableIRQ          0x0000c6e1     0x14  Code  Lc  retargetserial.o [1]
+NVIC_EnableIRQ          0x00011a9d     0x16  Code  Lc  rtcdriver.o [1]
+NVIC_EnableIRQ          0x000098c5     0x16  Code  Lc  webserver.o [1]
+NVIC_GetPriority        0x00012b9d     0x22  Code  Lc  em_core.o [1]
+NVIC_SetPriority        0x00012001     0x2a  Code  Lc  dmadrv.o [1]
+NVIC_SetPriority        0x000098f1     0x2a  Code  Lc  webserver.o [1]
+RETARGET_ReadChar       0x0000c809     0x56  Code  Gb  retargetserial.o [1]
+RETARGET_SerialCrLf     0x0000c76b     0x14  Code  Gb  retargetserial.o [1]
+RETARGET_SerialInit     0x0000c77f     0x8a  Code  Gb  retargetserial.o [1]
+RETARGET_WriteChar      0x0000c85f     0x4c  Code  Gb  retargetserial.o [1]
+RTCDRV_AllocateTimer    0x00011b0b     0x60  Code  Gb  rtcdriver.o [1]
+RTCDRV_Init             0x00011b6b     0x92  Code  Gb  rtcdriver.o [1]
+RTCDRV_StopTimer        0x00011bfd     0x4c  Code  Gb  rtcdriver.o [1]
+RTC_CompareGet          0x00012adb     0x32  Code  Gb  em_rtc.o [1]
+RTC_CompareSet          0x00012b0d     0x34  Code  Gb  em_rtc.o [1]
+RTC_CounterGet          0x00011ac9      0x8  Code  Lc  rtcdriver.o [1]
+RTC_CounterReset        0x00012b8d     0x10  Code  Gb  em_rtc.o [1]
+RTC_Enable              0x00012b41     0x12  Code  Gb  em_rtc.o [1]
+RTC_IRQHandler          0x00011c49     0x9a  Code  Gb  rtcdriver.o [1]
+RTC_Init                0x00012b53     0x2a  Code  Gb  em_rtc.o [1]
+RTC_IntClear            0x00011ad1      0x8  Code  Lc  rtcdriver.o [1]
+RTC_IntDisable          0x00011ad9     0x10  Code  Lc  rtcdriver.o [1]
+RTC_IntEnable           0x00011ae9     0x10  Code  Lc  rtcdriver.o [1]
+RTC_IntGetEnabled       0x00011af9     0x12  Code  Lc  rtcdriver.o [1]
+Region$$Table$$Base     0x00017584            --   Gb  - Linker created -
+Region$$Table$$Limit    0x000175a4            --   Gb  - Linker created -
+ReleaseIncosistentFrame
+                        0x0000d121     0x24  Code  Lc  ksz8851snl.o [1]
+RxDMAComplete           0x000117b5     0x56  Code  Lc  spidrv.o [1]
+SPIDRV_Init             0x00010fbd    0x1f2  Code  Gb  spidrv.o [1]
+SPIDRV_MReceiveB        0x000111af     0x40  Code  Gb  spidrv.o [1]
+SPIDRV_MTransferB       0x000111ef     0x56  Code  Gb  spidrv.o [1]
+SPIDRV_MTransmitB       0x00011245     0x40  Code  Gb  spidrv.o [1]
+SYSTEM_ChipRevisionGet  0x0000ba2d     0x4a  Code  Gb  em_system.o [1]
+SYSTEM_GetFamily        0x0000df4f      0xc  Code  Lc  em_cmu.o [1]
+SYSTEM_GetProdRev       0x0000df43      0xc  Code  Lc  em_cmu.o [1]
+SYSTEM_GetProdRev       0x00009951      0xc  Code  Lc  webserver.o [1]
+SpiBcAccess             0x0000c499     0x60  Code  Lc  bsp_dk_3201.o [1]
+SpiBcInit               0x0000c4f9     0x60  Code  Lc  bsp_dk_3201.o [1]
+SpiControl              0x0000c559     0x44  Code  Lc  bsp_dk_3201.o [1]
+SpiInit                 0x0000c59d     0x30  Code  Lc  bsp_dk_3201.o [1]
+SpiRegisterRead         0x0000c5cd     0x56  Code  Lc  bsp_dk_3201.o [1]
+SpiRegisterWrite        0x0000c629     0x48  Code  Lc  bsp_dk_3201.o [1]
+StartReceiveDMA         0x0001180d     0x96  Code  Lc  spidrv.o [1]
+StartTransfer           0x00012243    0x1fe  Code  Lc  dmadrv.o [1]
+StartTransferDMA        0x000118a3     0x9a  Code  Lc  spidrv.o [1]
+StartTransmitDMA        0x00011941     0x96  Code  Lc  spidrv.o [1]
+SysTick_Config          0x0000991b     0x36  Code  Lc  webserver.o [1]
+SysTick_Handler         0x000099c7     0x2e  Code  Gb  webserver.o [1]
+SystemCoreClock         0x2001f1e4      0x4  Data  Gb  system_efm32gg.o [1]
+SystemCoreClockGet      0x00010dcf     0x1a  Code  Gb  system_efm32gg.o [1]
+SystemHFClockGet        0x00010ded     0xb2  Code  Gb  system_efm32gg.o [1]
+SystemHFXOClock         0x20000054      0x4  Data  Lc  system_efm32gg.o [1]
+SystemHFXOClockGet      0x00010e9f      0x6  Code  Gb  system_efm32gg.o [1]
+SystemInit              0x00010ea5      0x2  Code  Gb  system_efm32gg.o [1]
+SystemLFRCOClockGet     0x00010ea7      0x6  Code  Gb  system_efm32gg.o [1]
+SystemLFXOClock         0x20000058      0x4  Data  Lc  system_efm32gg.o [1]
+SystemLFXOClockGet      0x00010eb3      0x6  Code  Gb  system_efm32gg.o [1]
+SystemMaxCoreClockGet   0x00010de9      0x4  Code  Gb  system_efm32gg.o [1]
+SystemULFRCOClockGet    0x00010ead      0x6  Code  Gb  system_efm32gg.o [1]
+TFT_Init                0x0000d9f3     0xe0  Code  Gb  tftconsole.o [1]
+TFT_PosGet              0x0000dbcb      0xe  Code  Gb  tftconsole.o [1]
+TFT_PosSet              0x0000dbd9     0x1e  Code  Gb  tftconsole.o [1]
+TFT_Print               0x0000db9f     0x2c  Code  Gb  tftconsole.o [1]
+TFT_Puts                0x0000db89     0x16  Code  Gb  tftconsole.o [1]
+TFT_TX                  0x0000d3a7     0xe4  Code  Lc  tftconsole.o [1]
+TFT_Update              0x0000d48b    0x568  Code  Lc  tftconsole.o [1]
+TFT_WriteChar           0x0000dad3     0xb6  Code  Gb  tftconsole.o [1]
+TransferApiBlockingPrologue
+                        0x000119d7     0x4a  Code  Lc  spidrv.o [1]
+TxBuf                   0x00015065     0x1e  Code  Lc  retargetio.o [1]
+UART1_RX_IRQHandler     0x0000c715     0x56  Code  Gb  retargetserial.o [1]
+USART_BaudrateAsyncSet  0x000101ff     0xf8  Code  Gb  em_usart.o [1]
+USART_BaudrateSyncSet   0x000102f7     0x54  Code  Gb  em_usart.o [1]
+USART_Enable            0x0001034b     0x42  Code  Gb  em_usart.o [1]
+USART_InitAsync         0x0001038d     0x72  Code  Gb  em_usart.o [1]
+USART_InitSync          0x000103ff     0x8a  Code  Gb  em_usart.o [1]
+USART_IntClear          0x0000c709      0x4  Code  Lc  retargetserial.o [1]
+USART_IntEnable         0x0000c70d      0x8  Code  Lc  retargetserial.o [1]
+USART_Reset             0x00010489     0x72  Code  Gb  em_usart.o [1]
+USART_Rx                0x00010521      0xc  Code  Gb  em_usart.o [1]
+USART_Tx                0x0001052d      0xc  Code  Gb  em_usart.o [1]
+WaitForTransferCompletion
+                        0x00011a31     0x26  Code  Lc  spidrv.o [1]
+_GenldFull              0x00006781    0x26a  Code  Lc  xprintffull.o [3]
+_LdtobFull              0x00006381    0x3fa  Code  Lc  xprintffull.o [3]
+_LitobFull              0x00006275    0x10a  Code  Lc  xprintffull.o [3]
+_PrintfFull             0x00005c61    0x5a0  Code  Gb  xprintffull.o [3]
+_Prout                  0x00018251     0x16  Code  Gb  xprout.o [3]
+_PutcharsFull           0x000069eb     0x2e  Code  Lc  xprintffull.o [3]
+_Rand_idx               0x20000080      0x4  Data  Lc  rand.o [3]
+_Rand_rv                0x20000084     0x80  Data  Lc  rand.o [3]
+_Randinit               0x20000078      0x1  Data  Gb  rand.o [3]
+_Randseed               0x2000007c      0x4  Data  Gb  rand.o [3]
+_SNProut                0x000038bb     0x1a  Code  Gb  xsnprout.o [3]
+__Vectors               0x00000000            --   Gb  startup_efm32gg.o [1]
+__Vectors_End           0x000000dc           Data  Gb  startup_efm32gg.o [1]
+__Vectors_Size {Abs}    0x000000dc            --   Gb  startup_efm32gg.o [1]
+__aeabi_cdcmple         0x0000a9e1           Code  Gb  DblCmpLe.o [4]
+__aeabi_cdrcmple        0x0000aa11           Code  Gb  DblCmpGe.o [4]
+__aeabi_d2iz            0x0000ab4d           Code  Gb  DblToI32.o [4]
+__aeabi_d2uiz           0x0000ab79           Code  Gb  DblToI32.o [4]
+__aeabi_ddiv            0x0000aef9           Code  Gb  DblDiv.o [4]
+__aeabi_dmul            0x0000ad55           Code  Gb  DblMul.o [4]
+__aeabi_dsub            0x0000abd5           Code  Gb  DblSub.o [4]
+__aeabi_i2d             0x0000aba5           Code  Gb  I32ToDbl.o [4]
+__aeabi_ldiv0           0x0000f961           Code  Gb  I64DivZer.o [5]
+__aeabi_memclr          0x0000b289           Code  Gb  ABImemclr.o [5]
+__aeabi_memset          0x00005225           Code  Gb  ABImemset.o [5]
+__aeabi_ui2d            0x0000abb9           Code  Gb  I32ToDbl.o [4]
+__aeabi_uldivmod        0x0000a8ad           Code  Gb  I64DivMod.o [5]
+__cmain                 0x00017ddd           Code  Gb  cmain.o [5]
+__exit                  0x00017e0d           Code  Gb  XXexit.o [5]
+__iar_Dnorm             0x0000a99b     0x44  Code  Gb  xdnorm.o [4]
+__iar_Dscale            0x0000aa41    0x10c  Code  Gb  xdscale.o [4]
+__iar_Memchr            0x0000a855           Code  Gb  memchr.o [5]
+__iar_Memset            0x00005225           Code  Gb  ABImemset.o [5]
+__iar_Memset_word       0x0000522d           Code  Gb  ABImemset.o [5]
+__iar_Strchr            0x0000a805           Code  Gb  strchr.o [5]
+__iar_d2uiz             0x0000ab85           Code  Gb  DblToI32.o [4]
+__iar_dadd              0x0000f965           Code  Gb  DblAdd.o [4]
+__iar_data_init3        0x00017245     0x28  Code  Gb  data_init.o [5]
+__iar_dlib_perthread_access
+                        0x0000fa39      0x2  Code  Gb  xtls.o [3]
+__iar_dsub              0x0000abe9           Code  Gb  DblSub.o [4]
+__iar_dsubStart         0x0000abfb           Code  Gb  DblSub.o [4]
+__iar_packbits_init_single3
+                        0x00015e25     0x38  Code  Gb  packbits_init_single.o [5]
+__iar_program_start     0x0001884d           Code  Gb  cstartup_M.o [5]
+__iar_ui2d              0x0000abbd           Code  Gb  I32ToDbl.o [4]
+__iar_unaligned___aeabi_memcpy
+                        0x000051ad           Code  Gb  ABImemcpy_unaligned.o [5]
+__iar_unaligned___aeabi_memcpy4
+                        0x000051cd           Code  Gb  ABImemcpy_unaligned.o [5]
+__iar_unaligned___aeabi_memcpy8
+                        0x000051cd           Code  Gb  ABImemcpy_unaligned.o [5]
+__iar_unaligned_memcmp  0x0000b291           Code  Gb  memcmp_unaligned.o [5]
+__iar_unaligned_strcmp  0x00011a59           Code  Gb  strcmp_unaligned.o [5]
+__iar_zero_init3        0x00015939     0x40  Code  Gb  zero_init3.o [5]
+__low_level_init        0x00017df7      0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000           Data  Gb  startup_efm32gg.o [1]
+__vector_table_0x1c     0x0000001c           Data  Gb  startup_efm32gg.o [1]
+__write                 0x00015083     0x38  Code  Gb  retargetio.o [1]
+_call_main              0x00017de9           Code  Gb  cmain.o [5]
+_exit                   0x00017e01           Code  Gb  cexit.o [5]
+_main                   0x00017df3           Code  Gb  cmain.o [5]
+ackno                   0x2001f20c      0x4  Data  Lc  tcp_in.o [1]
+arp_table               0x2001e734    0x320  Data  Lc  etharp.o [1]
+arp_timer               0x00004f71     0x18  Code  Lc  timers.o [1]
+assertEFM               0x0000f95f      0x2  Code  Gb  em_assert.o [1]
+auxClkGet               0x0000e011     0x94  Code  Lc  em_cmu.o [1]
+bcFwVersion             0x2001f244      0x2  Data  Lc  bsp_dk_3201.o [1]
+bspIrqInit              0x00009a37     0x1a  Code  Lc  webserver.o [1]
+bspOperationMode        0x2001f184      0x4  Data  Lc  bsp_dk_3201.o [1]
+bufferReset             0x20000109      0x1  Data  Lc  tftconsole.o [1]
+busMode                 0x2001f254      0x1  Data  Lc  bsp_dk_3201.o [1]
+chTable                 0x2001ee28     0xf0  Data  Lc  dmadrv.o [1]
+charBuffer              0x2001de84    0x4b0  Data  Lc  tftconsole.o [1]
+chars_8x8_bits          0x00013f60    0x320  Data  Lc  tftconsole.o [1]
+checkAllTimers          0x00011ce3    0x1da  Code  Lc  rtcdriver.o [1]
+colorTransform24To16bpp
+                        0x00010ca3     0x1c  Code  Lc  dmd_ssd2119_16bit.o [1]
+command_register        0x2001f194      0x4  Data  Lc  dmdif_ssd2119_ebi16.o [1]
+consoleRead             0x00009aa1     0x7e  Code  Lc  webserver.o [1]
+current_header          0x2001f1a4      0x4  Data  Gb  ip.o [1]
+current_iphdr_dest      0x2001f1ac      0x4  Data  Gb  ip.o [1]
+current_iphdr_src       0x2001f1a8      0x4  Data  Gb  ip.o [1]
+current_netif           0x2001f1a0      0x4  Data  Gb  ip.o [1]
+data__index_html        0x00014280    0x2b0  Data  Lc  fs.o [1]
+data__silabs_logo_svg   0x00012c08    0xca8  Data  Lc  fs.o [1]
+data__styles_css        0x000138b0    0x6b0  Data  Lc  fs.o [1]
+data_register           0x2001f198      0x4  Data  Lc  dmdif_ssd2119_ebi16.o [1]
+dbgClkGet               0x0000e0a5     0x3c  Code  Lc  em_cmu.o [1]
+delay                   0x00009a21     0x16  Code  Lc  webserver.o [1]
+dhcp_arp_reply          0x00008815     0x48  Code  Gb  dhcp.o [1]
+dhcp_bind               0x000089b5    0x120  Code  Lc  dhcp.o [1]
+dhcp_check              0x0000834f     0x48  Code  Lc  dhcp.o [1]
+dhcp_coarse_tmr         0x000084b9     0x46  Code  Gb  dhcp.o [1]
+dhcp_create_msg         0x0000958d    0x1be  Code  Lc  dhcp.o [1]
+dhcp_create_msg::xid    0x2001f18c      0x4  Data  Lc  dhcp.o [1]
+dhcp_decline            0x0000885d     0x8c  Code  Lc  dhcp.o [1]
+dhcp_delete_msg         0x0000974b     0x56  Code  Lc  dhcp.o [1]
+dhcp_discover           0x000088e9     0xcc  Code  Lc  dhcp.o [1]
+dhcp_fine_tmr           0x000084ff     0x44  Code  Gb  dhcp.o [1]
+dhcp_handle_ack         0x00008627     0x88  Code  Lc  dhcp.o [1]
+dhcp_handle_nak         0x00008315     0x3a  Code  Lc  dhcp.o [1]
+dhcp_handle_offer       0x00008397     0x34  Code  Lc  dhcp.o [1]
+dhcp_network_changed    0x000087db     0x3a  Code  Gb  dhcp.o [1]
+dhcp_option             0x00008de1     0x48  Code  Lc  dhcp.o [1]
+dhcp_option_byte        0x00008e29     0x30  Code  Lc  dhcp.o [1]
+dhcp_option_long        0x00008ea1     0x66  Code  Lc  dhcp.o [1]
+dhcp_option_short       0x00008e59     0x44  Code  Lc  dhcp.o [1]
+dhcp_option_trailer     0x000097a5     0x7c  Code  Lc  dhcp.o [1]
+dhcp_parse_reply        0x00008f39    0x494  Code  Lc  dhcp.o [1]
+dhcp_rebind             0x00008b6d     0x96  Code  Lc  dhcp.o [1]
+dhcp_reboot             0x00008c03     0xac  Code  Lc  dhcp.o [1]
+dhcp_recv               0x000093d1    0x1a8  Code  Lc  dhcp.o [1]
+dhcp_release            0x00008caf     0xbc  Code  Gb  dhcp.o [1]
+dhcp_renew              0x00008ad5     0x98  Code  Gb  dhcp.o [1]
+dhcp_rx_options_given   0x2001f15c      0xc  Data  Gb  dhcp.o [1]
+dhcp_rx_options_val     0x2001f0e8     0x28  Data  Gb  dhcp.o [1]
+dhcp_select             0x000083cb     0xee  Code  Lc  dhcp.o [1]
+dhcp_set_state          0x00008dcb     0x16  Code  Lc  dhcp.o [1]
+dhcp_start              0x000086af    0x12c  Code  Gb  dhcp.o [1]
+dhcp_stop               0x00008d6b     0x60  Code  Gb  dhcp.o [1]
+dhcp_t1_timeout         0x000085e7     0x20  Code  Lc  dhcp.o [1]
+dhcp_t2_timeout         0x00008607     0x20  Code  Lc  dhcp.o [1]
+dhcp_timeout            0x00008543     0xa4  Code  Lc  dhcp.o [1]
+dhcp_timer_coarse       0x00004f89     0x18  Code  Lc  timers.o [1]
+dhcp_timer_fine         0x00004fa1     0x18  Code  Lc  timers.o [1]
+dimensions              0x2001f168      0xc  Data  Gb  dmd_ssd2119_16bit.o [1]
+div                     0x0000b14f      0xe  Code  Gb  div.o [3]
+dmaCallBack             0x2001efb8     0x90  Data  Lc  dmadrv.o [1]
+dmaControlBlock         0x2001eb00    0x200  Data  Gb  dmactrl.o [1]
+echo_accept             0x0000f669     0x72  Code  Gb  echo.o [1]
+echo_close              0x0000f91d     0x42  Code  Gb  echo.o [1]
+echo_error              0x0000f7f1     0x14  Code  Gb  echo.o [1]
+echo_init               0x0000f625     0x42  Code  Gb  echo.o [1]
+echo_pcb                0x2001f19c      0x4  Data  Lc  echo.o [1]
+echo_poll               0x0000f805     0x4c  Code  Gb  echo.o [1]
+echo_recv               0x0000f6dd    0x114  Code  Gb  echo.o [1]
+echo_send               0x0000f8a1     0x7c  Code  Gb  echo.o [1]
+echo_sent               0x0000f851     0x38  Code  Gb  echo.o [1]
+en0                     0x2001f238      0x4  Data  Lc  webserver.o [1]
+ethEvent                0x2001f266      0x1  Data  Lc  webserver.o [1]
+etharp_arp_input        0x00007987    0x228  Code  Lc  etharp.o [1]
+etharp_cached_entry     0x2001f256      0x1  Data  Lc  etharp.o [1]
+etharp_cleanup_netif    0x000078f5     0x46  Code  Gb  etharp.o [1]
+etharp_find_entry       0x000074c7    0x2bc  Code  Lc  etharp.o [1]
+etharp_free_entry       0x00007389     0x88  Code  Lc  etharp.o [1]
+etharp_ip_input         0x0000793b     0x4c  Code  Lc  etharp.o [1]
+etharp_output           0x00007c53    0x1c0  Code  Gb  etharp.o [1]
+etharp_output_to_arp_index
+                        0x00007baf     0xa4  Code  Lc  etharp.o [1]
+etharp_query            0x00007e13    0x228  Code  Gb  etharp.o [1]
+etharp_raw              0x0000804d    0x14a  Code  Lc  etharp.o [1]
+etharp_request          0x00008197     0x2a  Code  Gb  etharp.o [1]
+etharp_send_ip          0x00007783     0x5a  Code  Lc  etharp.o [1]
+etharp_tmr              0x00007411     0xb6  Code  Gb  etharp.o [1]
+etharp_update_arp_entry
+                        0x000077dd    0x118  Code  Lc  etharp.o [1]
+ethbroadcast            0x00018858      0x8  Data  Gb  etharp.o [1]
+ethernet_input          0x000081c5     0xf2  Code  Gb  etharp.o [1]
+ethzero                 0x00018860      0x8  Data  Gb  etharp.o [1]
+executeTimerCallbacks   0x00011ebd     0x3c  Code  Lc  rtcdriver.o [1]
+exit                    0x00017dfb      0x4  Code  Gb  exit.o [3]
+file__index_html        0x000182f4     0x14  Data  Gb  fs.o [1]
+file__silabs_logo_svg   0x00018308     0x14  Data  Gb  fs.o [1]
+file__styles_css        0x0001831c     0x14  Data  Gb  fs.o [1]
+flags                   0x2001f262      0x1  Data  Lc  tcp_in.o [1]
+flashWaitStateControl   0x0000e0e1     0xa2  Code  Lc  em_cmu.o [1]
+flashWaitStateMax       0x0000e183      0xc  Code  Lc  em_cmu.o [1]
+frameId                 0x2001f24c      0x2  Data  Lc  ksz8851snl.o [1]
+fs_bytes_left           0x00010fb3      0x8  Code  Gb  fs.o [1]
+fs_close                0x00010fb1      0x2  Code  Gb  fs.o [1]
+fs_open                 0x00010f61     0x4a  Code  Gb  fs.o [1]
+fullUpdate              0x20000108      0x1  Data  Lc  tftconsole.o [1]
+g_psDefaultFilenames    0x00016ca4     0x28  Data  Gb  httpd.o [1]
+getHfLeConfig           0x0000dfe5     0x2c  Code  Lc  em_cmu.o [1]
+gpioIrqInit             0x00009a51     0x2c  Code  Lc  webserver.o [1]
+http_accept             0x0000f4d1     0x6c  Code  Lc  httpd.o [1]
+http_check_eof          0x0000eed5     0x46  Code  Lc  httpd.o [1]
+http_close_conn         0x0000eeb3     0x12  Code  Lc  httpd.o [1]
+http_close_or_abort_conn
+                        0x0000ee47     0x6c  Code  Lc  httpd.o [1]
+http_eof                0x0000eec5     0x10  Code  Lc  httpd.o [1]
+http_err                0x0000f369     0x14  Code  Lc  httpd.o [1]
+http_find_file          0x0000f221     0xb4  Code  Lc  httpd.o [1]
+http_get_404_file       0x0000f033     0x54  Code  Lc  httpd.o [1]
+http_init_file          0x0000f2d5     0x8c  Code  Lc  httpd.o [1]
+http_parse_request      0x0000f087    0x19a  Code  Lc  httpd.o [1]
+http_poll               0x0000f3a1     0x58  Code  Lc  httpd.o [1]
+http_recv               0x0000f3f9     0xd8  Code  Lc  httpd.o [1]
+http_send               0x0000efe1     0x52  Code  Lc  httpd.o [1]
+http_send_data_nonssi   0x0000ef1b     0xc6  Code  Lc  httpd.o [1]
+http_sent               0x0000f37d     0x24  Code  Lc  httpd.o [1]
+http_state_alloc        0x0000ed67     0x18  Code  Lc  httpd.o [1]
+http_state_eof          0x0000ed7f     0x16  Code  Lc  httpd.o [1]
+http_state_free         0x0000ed95     0x16  Code  Lc  httpd.o [1]
+http_state_init         0x0000ed53     0x14  Code  Lc  httpd.o [1]
+http_write              0x0000edab     0x9c  Code  Lc  httpd.o [1]
+httpd_init              0x0000f5af      0xa  Code  Gb  httpd.o [1]
+httpd_init_addr         0x0000f53d     0x72  Code  Lc  httpd.o [1]
+httpd_req_buf           0x2001e334    0x400  Data  Lc  httpd.o [1]
+icmp_dest_unreach       0x0000a719     0x14  Code  Gb  icmp.o [1]
+icmp_input              0x0000a519    0x200  Code  Gb  icmp.o [1]
+icmp_send_response      0x0000a741     0x9c  Code  Lc  icmp.o [1]
+icmp_time_exceeded      0x0000a72d     0x14  Code  Gb  icmp.o [1]
+inTimerIRQ              0x2001f25b      0x1  Data  Lc  rtcdriver.o [1]
+inet_chksum             0x0000b21f     0x16  Code  Gb  inet_chksum.o [1]
+inet_chksum_pbuf        0x0000b235     0x54  Code  Gb  inet_chksum.o [1]
+infoPos                 0x20000070      0x8  Data  Lc  webserver.o [1]
+initRTC                 0x000188e8      0x4  Data  Lc  rtcdriver.o [1]
+initialized             0x2001f255      0x1  Data  Lc  dmadrv.o [1]
+initialized             0x2001f190      0x4  Data  Lc  dmd_ssd2119_16bit.o [1]
+initialized             0x2001f25a      0x1  Data  Lc  retargetserial.o [1]
+initialized             0x2001f265      0x1  Data  Lc  tftconsole.o [1]
+inseg                   0x2001f138     0x14  Data  Lc  tcp_in.o [1]
+interruptCnt            0x2001f1b4      0x4  Data  Lc  ksz8851snl.o [1]
+ip4_addr_isbroadcast    0x000037b1     0x50  Code  Gb  ip_addr.o [1]
+ipDisplay               0x00009b1f     0xb8  Code  Lc  webserver.o [1]
+ip_addr_any             0x000188e0      0x4  Data  Gb  ip_addr.o [1]
+ip_addr_broadcast       0x000188e4      0x4  Data  Gb  ip_addr.o [1]
+ip_debug_print          0x000056e1      0x4  Code  Gb  ip.o [1]
+ip_frag                 0x0000713b    0x202  Code  Gb  ip_frag.o [1]
+ip_frag_alloc_pbuf_custom_ref
+                        0x000070cd     0x10  Code  Lc  ip_frag.o [1]
+ip_frag_free_pbuf_custom_ref
+                        0x000070dd     0x20  Code  Lc  ip_frag.o [1]
+ip_id                   0x2001f248      0x2  Data  Lc  ip.o [1]
+ip_input                0x000052f3    0x236  Code  Gb  ip.o [1]
+ip_output               0x0000563b     0x5c  Code  Gb  ip.o [1]
+ip_output_if            0x00005529    0x112  Code  Gb  ip.o [1]
+ip_reass                0x00006f05    0x1c8  Code  Gb  ip_frag.o [1]
+ip_reass_chain_frag_into_datagram_and_validate
+                        0x00006d01    0x204  Code  Lc  ip_frag.o [1]
+ip_reass_dequeue_datagram
+                        0x00006cc1     0x40  Code  Lc  ip_frag.o [1]
+ip_reass_enqueue_new_datagram
+                        0x00006c47     0x7a  Code  Lc  ip_frag.o [1]
+ip_reass_free_complete_datagram
+                        0x00006a83    0x13a  Code  Lc  ip_frag.o [1]
+ip_reass_pbufcount      0x2001f24a      0x2  Data  Lc  ip_frag.o [1]
+ip_reass_remove_oldest_datagram
+                        0x00006bbd     0x8a  Code  Lc  ip_frag.o [1]
+ip_reass_timer          0x00004f59     0x18  Code  Lc  timers.o [1]
+ip_reass_tmr            0x00006a51     0x32  Code  Gb  ip_frag.o [1]
+ip_route                0x0000528d     0x66  Code  Gb  ip.o [1]
+ipaddr_ntoa             0x00003801     0x10  Code  Gb  ip_addr.o [1]
+ipaddr_ntoa::str        0x2001f14c     0x10  Data  Lc  ip_addr.o [1]
+ipaddr_ntoa_r           0x00003815     0xa6  Code  Gb  ip_addr.o [1]
+ipfrag_free_pbuf_custom
+                        0x000070fd     0x3e  Code  Lc  ip_frag.o [1]
+iphdr                   0x2001f204      0x4  Data  Lc  tcp_in.o [1]
+ksz8851snl_driver_init  0x0000dc35     0x48  Code  Gb  ksz8851snl_driver.o [1]
+ksz8851snl_driver_input
+                        0x0000dd25     0xbe  Code  Gb  ksz8851snl_driver.o [1]
+ksz8851snl_driver_isr   0x0000dea7     0x56  Code  Gb  ksz8851snl_driver.o [1]
+ksz8851snl_driver_low_level_input
+                        0x0000dde3     0x7c  Code  Lc  ksz8851snl_driver.o [1]
+ksz8851snl_driver_output
+                        0x0000dc7d     0xa8  Code  Gb  ksz8851snl_driver.o [1]
+ksz8851snl_driver_phy   0x0000de89     0x1e  Code  Lc  ksz8851snl_driver.o [1]
+lastAddr                0x2001f188      0x4  Data  Lc  bsp_dk_3201.o [1]
+lastMIBTime             0x2001f23c      0x4  Data  Lc  webserver.o [1]
+lastStart               0x2001f1dc      0x4  Data  Lc  rtcdriver.o [1]
+lastStatTime            0x2001f240      0x4  Data  Lc  webserver.o [1]
+lfClkGet                0x0000e18f     0xf4  Code  Lc  em_cmu.o [1]
+lfree                   0x2001f1c0      0x4  Data  Lc  mem.o [1]
+linkCallback            0x00009bd7     0x48  Code  Lc  webserver.o [1]
+lwip_init               0x0000ece1     0x20  Code  Gb  init.o [1]
+lwip_standard_chksum    0x0000b15d     0xc2  Code  Lc  inet_chksum.o [1]
+lwip_stats              0x2001ed00    0x128  Data  Gb  stats.o [1]
+macAddress              0x2001f174      0x8  Data  Lc  ksz8851snl.o [1]
+main                    0x00009d75     0xb6  Code  Gb  webserver.o [1]
+mainLoop                0x00009d37     0x36  Code  Lc  webserver.o [1]
+maxFreqHfle             0x0000df5b     0x60  Code  Lc  em_cmu.o [1]
+mem_free                0x00005841     0xb0  Code  Gb  mem.o [1]
+mem_init                0x000057db     0x66  Code  Gb  mem.o [1]
+mem_malloc              0x00005a79    0x18a  Code  Gb  mem.o [1]
+mem_trim                0x000058f1    0x188  Code  Gb  mem.o [1]
+memchr                  0x0000a855           Code  Gb  memchr.o [5]
+memp_desc               0x20000004     0x28  Data  Lc  memp.o [1]
+memp_free               0x00003d39     0x76  Code  Gb  memp.o [1]
+memp_init               0x00003b87     0xbe  Code  Gb  memp.o [1]
+memp_malloc_fn          0x00003c45     0xf4  Code  Gb  memp.o [1]
+memp_memory             0x20000510  0x15960  Data  Lc  memp.o [1]
+memp_num                0x00018380     0x14  Data  Lc  memp.o [1]
+memp_overflow_check_all
+                        0x00003a79     0x92  Code  Lc  memp.o [1]
+memp_overflow_check_element_overflow
+                        0x00003949     0x9c  Code  Lc  memp.o [1]
+memp_overflow_check_element_underflow
+                        0x000039e5     0x94  Code  Lc  memp.o [1]
+memp_overflow_init      0x00003b0b     0x7c  Code  Lc  memp.o [1]
+memp_overflow_names     0x2000002c     0x28  Data  Lc  memp.o [1]
+memp_sanity             0x000038f9     0x50  Code  Lc  memp.o [1]
+memp_sizes              0x0001836c     0x14  Data  Lc  memp.o [1]
+memp_tab                0x2001f110     0x28  Data  Lc  memp.o [1]
+mibCounters             0x2001f0a0     0x48  Data  Lc  ksz8851snl.o [1]
+msTicks                 0x2001f234      0x4  Data  Lc  webserver.o [1]
+netifInit               0x00009c4f     0x5a  Code  Lc  webserver.o [1]
+netif_add               0x0000b2f7     0x8a  Code  Gb  netif.o [1]
+netif_default           0x2001f1c8      0x4  Data  Gb  netif.o [1]
+netif_init              0x0000b2f5      0x2  Code  Gb  netif.o [1]
+netif_list              0x2001f1c4      0x4  Data  Gb  netif.o [1]
+netif_num               0x2001f257      0x1  Data  Lc  netif.o [1]
+netif_set_addr          0x0000b381     0x24  Code  Gb  netif.o [1]
+netif_set_default       0x0000b435      0x6  Code  Gb  netif.o [1]
+netif_set_down          0x0000b49b     0x34  Code  Gb  netif.o [1]
+netif_set_gw            0x0000b419      0xe  Code  Gb  netif.o [1]
+netif_set_ipaddr        0x0000b3a5     0x74  Code  Gb  netif.o [1]
+netif_set_link_callback
+                        0x0000b547      0x8  Code  Gb  netif.o [1]
+netif_set_link_down     0x0000b521     0x26  Code  Gb  netif.o [1]
+netif_set_link_up       0x0000b4d7     0x4a  Code  Gb  netif.o [1]
+netif_set_netmask       0x0000b427      0xe  Code  Gb  netif.o [1]
+netif_set_status_callback
+                        0x0000b4cf      0x8  Code  Gb  netif.o [1]
+netif_set_up            0x0000b45d     0x3e  Code  Gb  netif.o [1]
+next_timeout            0x2001f224      0x4  Data  Lc  timers.o [1]
+pbuf_alloc              0x00002da5    0x2d2  Code  Gb  pbuf.o [1]
+pbuf_alloced_custom     0x00003077     0xc2  Code  Gb  pbuf.o [1]
+pbuf_cat                0x0000347d     0x7a  Code  Gb  pbuf.o [1]
+pbuf_chain              0x000034f7     0x16  Code  Gb  pbuf.o [1]
+pbuf_clen               0x0000345d     0x14  Code  Gb  pbuf.o [1]
+pbuf_copy               0x0000350d    0x140  Code  Gb  pbuf.o [1]
+pbuf_copy_partial       0x0000364d     0xca  Code  Gb  pbuf.o [1]
+pbuf_free               0x00003357    0x106  Code  Gb  pbuf.o [1]
+pbuf_free_ooseq         0x00002d6d     0x2e  Code  Gb  pbuf.o [1]
+pbuf_free_ooseq_pending
+                        0x2001f258      0x1  Data  Gb  pbuf.o [1]
+pbuf_header             0x00003245    0x112  Code  Gb  pbuf.o [1]
+pbuf_pool_is_empty      0x00002d9b      0xa  Code  Lc  pbuf.o [1]
+pbuf_realloc            0x00003139    0x102  Code  Gb  pbuf.o [1]
+pbuf_ref                0x00003471      0xc  Code  Gb  pbuf.o [1]
+phyStatus               0x2001f252      0x2  Data  Lc  webserver.o [1]
+plug_holes              0x000056e5     0xf6  Code  Lc  mem.o [1]
+printf                  0x000038d5     0x24  Code  Gb  printf.o [3]
+putchar                 0x0001721d     0x28  Code  Gb  putchar.o [3]
+ram                     0x2001f1b8      0x4  Data  Lc  mem.o [1]
+ram_end                 0x2001f1bc      0x4  Data  Lc  mem.o [1]
+ram_heap                0x20015e70   0x8014  Data  Gb  mem.o [1]
+rand                    0x0000b551     0xe0  Code  Gb  rand.o [3]
+raw_input               0x00009f05     0x8e  Code  Gb  raw.o [1]
+raw_pcbs                0x2001f1cc      0x4  Data  Lc  raw.o [1]
+rcDriverOutputControl   0x2001f246      0x2  Data  Lc  dmd_ssd2119_16bit.o [1]
+reassdatagrams          0x2001f1b0      0x4  Data  Lc  ip_frag.o [1]
+recv_data               0x2001f210      0x4  Data  Lc  tcp_in.o [1]
+recv_flags              0x2001f263      0x1  Data  Lc  tcp_in.o [1]
+rescheduleRtc           0x00011ef9     0xb2  Code  Lc  rtcdriver.o [1]
+resetEthernetController
+                        0x00009a7d     0x24  Code  Lc  webserver.o [1]
+rgbColor                0x2001f218      0x4  Data  Lc  tftconsole.o [1]
+rtcRunning              0x2001f25c      0x1  Data  Lc  rtcdriver.o [1]
+rtcdrvIsInitialized     0x2001f25d      0x1  Data  Lc  rtcdriver.o [1]
+rxBuffer                0x2001f17c      0x8  Data  Lc  retargetserial.o [1]
+rxCount                 0x2001f1d8      0x4  Data  Lc  retargetserial.o [1]
+rxFrameCount            0x2001f24e      0x2  Data  Lc  ksz8851snl.o [1]
+rxReadIndex             0x2001f1d0      0x4  Data  Lc  retargetserial.o [1]
+rxStatPos               0x20000060      0x8  Data  Lc  webserver.o [1]
+rxWriteIndex            0x2001f1d4      0x4  Data  Lc  retargetserial.o [1]
+scrollUp                0x0000d339     0x6e  Code  Lc  tftconsole.o [1]
+seqno                   0x2001f208      0x4  Data  Lc  tcp_in.o [1]
+setHfLeConfig           0x0000dfbb     0x2a  Code  Lc  em_cmu.o [1]
+setNextReg              0x00010d6f     0x10  Code  Lc  dmdif_ssd2119_ebi16.o [1]
+setPixelAddress         0x00010b4f     0x4a  Code  Gb  dmd_ssd2119_16bit.o [1]
+spiHandle               0x20000000      0x4  Data  Lc  ksz8851snl_spi.o [1]
+spiHandleData           0x2001f048     0x58  Data  Lc  ksz8851snl_spi.o [1]
+spidrvIsInitialized     0x2001f25e      0x1  Data  Lc  spidrv.o [1]
+startTimerNestingLevel  0x2001f1e0      0x4  Data  Lc  rtcdriver.o [1]
+statisticUpdate         0x00009ca9     0x8e  Code  Lc  webserver.o [1]
+stats_init              0x00010efd     0x38  Code  Gb  stats.o [1]
+statusCallback          0x00009c1f     0x30  Code  Lc  webserver.o [1]
+strcat                  0x00006a33     0x1c  Code  Gb  strcat.o [3]
+strchr                  0x0000a805           Code  Gb  strchr.o [5]
+strlen                  0x0000a81d           Code  Gb  strlen.o [5]
+strncmp                 0x00010f35     0x2c  Code  Gb  strncmp.o [3]
+strnstr                 0x0000ed01     0x52  Code  Lc  httpd.o [1]
+syncReg                 0x0000e283     0x16  Code  Lc  em_cmu.o [1]
+sys_check_timeouts      0x000050e3     0x7c  Code  Gb  timers.o [1]
+sys_now                 0x00009a19      0x8  Code  Gb  webserver.o [1]
+sys_timeout_debug       0x00004ffd     0xe6  Code  Gb  timers.o [1]
+sys_timeouts_init       0x00004fb9     0x44  Code  Gb  timers.o [1]
+tcp_abandon             0x00001e8b     0xb8  Code  Gb  tcp.o [1]
+tcp_abort               0x00001f43      0xe  Code  Gb  tcp.o [1]
+tcp_accept              0x00002a93      0x4  Code  Gb  tcp.o [1]
+tcp_accept_null         0x00002017      0x8  Code  Lc  tcp.o [1]
+tcp_active_pcbs         0x2001f1f4      0x4  Data  Gb  tcp.o [1]
+tcp_active_pcbs_changed
+                        0x2001f25f      0x1  Data  Gb  tcp.o [1]
+tcp_alloc               0x00002905    0x112  Code  Gb  tcp.o [1]
+tcp_arg                 0x00002a27      0x4  Code  Gb  tcp.o [1]
+tcp_backoff             0x000185e4     0x10  Data  Gb  tcp.o [1]
+tcp_bind                0x00001f51     0xc6  Code  Gb  tcp.o [1]
+tcp_bound_pcbs          0x2001f1ec      0x4  Data  Gb  tcp.o [1]
+tcp_close               0x00001e69     0x22  Code  Gb  tcp.o [1]
+tcp_close_shutdown      0x00001c57    0x212  Code  Lc  tcp.o [1]
+tcp_create_segment      0x00003edd     0xdc  Code  Lc  tcp_out.o [1]
+tcp_debug_print         0x00002c3f     0x12  Code  Gb  tcp.o [1]
+tcp_debug_print_flags   0x00002c53     0x12  Code  Gb  tcp.o [1]
+tcp_debug_print_state   0x00002c51      0x2  Code  Gb  tcp.o [1]
+tcp_eff_send_mss        0x00002c0d     0x32  Code  Gb  tcp.o [1]
+tcp_enqueue_flags       0x00004721    0x1ae  Code  Gb  tcp_out.o [1]
+tcp_err                 0x00002a73     0x20  Code  Gb  tcp.o [1]
+tcp_fasttmr             0x0000269d     0x78  Code  Gb  tcp.o [1]
+tcp_init                0x00001c31      0x2  Code  Gb  tcp.o [1]
+tcp_input               0x000000dd    0x5c2  Code  Gb  tcp_in.o [1]
+tcp_input_pcb           0x2001f214      0x4  Data  Gb  tcp_in.o [1]
+tcp_keepalive           0x00004e13     0x38  Code  Gb  tcp_out.o [1]
+tcp_kill_prio           0x00002859     0x64  Code  Lc  tcp.o [1]
+tcp_kill_timewait       0x000028bd     0x42  Code  Lc  tcp.o [1]
+tcp_listen_input        0x0000069f    0x12c  Code  Lc  tcp_in.o [1]
+tcp_listen_pcbs         0x2001f1f0      0x4  Data  Gb  tcp.o [1]
+tcp_listen_with_backlog
+                        0x0000201f     0xf4  Code  Gb  tcp.o [1]
+tcp_new                 0x00002a1d      0xa  Code  Gb  tcp.o [1]
+tcp_new_port            0x000021eb     0x70  Code  Lc  tcp.o [1]
+tcp_next_iss            0x00002bf1     0x14  Code  Gb  tcp.o [1]
+tcp_next_iss::iss       0x2000005c      0x4  Data  Lc  tcp.o [1]
+tcp_oos_insert_segment  0x00000dd9     0x86  Code  Lc  tcp_in.o [1]
+tcp_output              0x00004923    0x1f0  Code  Gb  tcp_out.o [1]
+tcp_output_alloc_header
+                        0x00003df9     0x9e  Code  Lc  tcp_out.o [1]
+tcp_output_segment      0x00004b19     0xca  Code  Lc  tcp_out.o [1]
+tcp_parseopt            0x00001b17     0xc0  Code  Lc  tcp_in.o [1]
+tcp_pbuf_prealloc       0x00003fb9     0xbe  Code  Lc  tcp_out.o [1]
+tcp_pcb_lists           0x000185f4     0x10  Data  Gb  tcp.o [1]
+tcp_pcb_purge           0x00002ac9     0x5e  Code  Gb  tcp.o [1]
+tcp_pcb_remove          0x00002b27     0xca  Code  Gb  tcp.o [1]
+tcp_pcbs_sane           0x00002c65     0x72  Code  Gb  tcp.o [1]
+tcp_persist_backoff     0x000188b8      0x8  Data  Gb  tcp.o [1]
+tcp_poll                0x00002a97     0x26  Code  Gb  tcp.o [1]
+tcp_port                0x20000104      0x2  Data  Lc  tcp.o [1]
+tcp_process             0x00000875    0x55c  Code  Lc  tcp_in.o [1]
+tcp_process_refused_data
+                        0x00002725     0x90  Code  Gb  tcp.o [1]
+tcp_receive             0x00000ed1    0xc46  Code  Lc  tcp_in.o [1]
+tcp_recv                0x00002a2b     0x24  Code  Gb  tcp.o [1]
+tcp_recv_null           0x00002829     0x30  Code  Gb  tcp.o [1]
+tcp_recved              0x00002177     0x74  Code  Gb  tcp.o [1]
+tcp_rexmit              0x00004d4b     0x58  Code  Gb  tcp_out.o [1]
+tcp_rexmit_fast         0x00004da3     0x70  Code  Gb  tcp_out.o [1]
+tcp_rexmit_rto          0x00004d11     0x3a  Code  Gb  tcp_out.o [1]
+tcp_rst                 0x00004be9     0x96  Code  Gb  tcp_out.o [1]
+tcp_seg_copy            0x000027f1     0x32  Code  Gb  tcp.o [1]
+tcp_seg_free            0x000027cb     0x22  Code  Gb  tcp.o [1]
+tcp_segs_free           0x000027b5     0x16  Code  Gb  tcp.o [1]
+tcp_send_empty_ack      0x000048d9     0x4a  Code  Gb  tcp_out.o [1]
+tcp_send_fin            0x00003e97     0x46  Code  Gb  tcp_out.o [1]
+tcp_sent                0x00002a55     0x1e  Code  Gb  tcp.o [1]
+tcp_setprio             0x000027ed      0x4  Code  Gb  tcp.o [1]
+tcp_slowtmr             0x00002261    0x42c  Code  Gb  tcp.o [1]
+tcp_ticks               0x2001f1e8      0x4  Data  Gb  tcp.o [1]
+tcp_timer               0x2001f260      0x1  Data  Lc  tcp.o [1]
+tcp_timer_ctr           0x2001f261      0x1  Data  Lc  tcp.o [1]
+tcp_timer_needed        0x00004f2b     0x2e  Code  Gb  timers.o [1]
+tcp_timewait_input      0x000007cb     0xa4  Code  Lc  tcp_in.o [1]
+tcp_tmp_pcb             0x2001f1fc      0x4  Data  Gb  tcp.o [1]
+tcp_tmr                 0x00001c33     0x24  Code  Gb  tcp.o [1]
+tcp_tw_pcbs             0x2001f1f8      0x4  Data  Gb  tcp.o [1]
+tcp_update_rcv_ann_wnd  0x00002113     0x64  Code  Gb  tcp.o [1]
+tcp_write               0x00004155    0x5cc  Code  Gb  tcp_out.o [1]
+tcp_write_checks        0x00004077     0xde  Code  Lc  tcp_out.o [1]
+tcp_zero_window_probe   0x00004e4b     0xb0  Code  Gb  tcp_out.o [1]
+tcphdr                  0x2001f200      0x4  Data  Lc  tcp_in.o [1]
+tcpip_tcp_timer         0x00004efd     0x2e  Code  Lc  timers.o [1]
+tcpip_tcp_timer_active  0x2001f22c      0x4  Data  Lc  timers.o [1]
+tcplen                  0x2001f250      0x2  Data  Lc  tcp_in.o [1]
+tftReset                0x2000010a      0x1  Data  Lc  tftconsole.o [1]
+timeouts_last_time      0x2001f228      0x4  Data  Lc  timers.o [1]
+timer                   0x2001ef18     0xa0  Data  Lc  rtcdriver.o [1]
+txStatPos               0x20000068      0x8  Data  Lc  webserver.o [1]
+udp_bind                0x0000a36b     0xaa  Code  Gb  udp.o [1]
+udp_connect             0x0000a415     0x5c  Code  Gb  udp.o [1]
+udp_debug_print         0x0000a515      0x2  Code  Gb  udp.o [1]
+udp_init                0x00009fa1      0x2  Code  Gb  udp.o [1]
+udp_input               0x00009fff    0x256  Code  Gb  udp.o [1]
+udp_new                 0x0000a4b7     0x2a  Code  Gb  udp.o [1]
+udp_new_port            0x00009fa3     0x5c  Code  Lc  udp.o [1]
+udp_pcbs                0x2001f230      0x4  Data  Gb  udp.o [1]
+udp_port                0x20000106      0x2  Data  Lc  udp.o [1]
+udp_recv                0x0000a471      0x6  Code  Gb  udp.o [1]
+udp_remove              0x0000a477     0x40  Code  Gb  udp.o [1]
+udp_sendto_if           0x0000a255    0x116  Code  Gb  udp.o [1]
+usbCClkGet              0x0000e299     0x3e  Code  Lc  em_cmu.o [1]
+vsnprintf               0x00010d89     0x3c  Code  Gb  vsnprint.o [3]
+xpos                    0x2001f21c      0x4  Data  Lc  tftconsole.o [1]
+ypos                    0x2001f220      0x4  Data  Lc  tftconsole.o [1]
+
+
+[1] = D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\webserver\iar\webserver\Debug\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = m7M_tl.a
+[5] = rt7M_tl.a
+
+   77 372 bytes of readonly  code memory
+   23 501 bytes of readonly  data memory
+  127 586 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

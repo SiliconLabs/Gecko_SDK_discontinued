@@ -4,12 +4,12 @@
 *                                          The Real-Time Kernel
 *                                  MUTUAL EXCLUSION SEMAPHORE MANAGEMENT
 *
-*                              (c) Copyright 1992-2012, Micrium, Weston, FL
+*                              (c) Copyright 1992-2016, Micrium, Weston, FL
 *                                           All Rights Reserved
 *
 * File    : OS_MUTEX.C
 * By      : Jean J. Labrosse
-* Version : V2.92.07
+* Version : V2.92.12
 *
 * LICENSING TERMS:
 * ---------------
@@ -18,6 +18,15 @@
 * its use in your product. We provide ALL the source code for your convenience and to help you experience
 * uC/OS-II.   The fact that the  source is provided does  NOT  mean that you can use it without  paying a
 * licensing fee.
+*
+* Knowledge of the source code may NOT be used to develop a similar product.
+*
+* Please help us continue to provide the embedded community with the finest software available.
+* Your honesty is greatly appreciated.
+*
+* You can find our product's user manual, API reference, release notes and
+* more information at https://doc.micrium.com.
+* You can contact us at www.micrium.com.
 *********************************************************************************************************
 */
 
@@ -48,7 +57,7 @@
 
 static  void  OSMutex_RdyAtPrio(OS_TCB *ptcb, INT8U prio);
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                  ACCEPT MUTUAL EXCLUSION SEMAPHORE
@@ -136,7 +145,7 @@ BOOLEAN  OSMutexAccept (OS_EVENT  *pevent,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                 CREATE A MUTUAL EXCLUSION SEMAPHORE
@@ -153,13 +162,16 @@ BOOLEAN  OSMutexAccept (OS_EVENT  *pevent,
 *                            semaphore do not have their priority promoted.
 *
 *              perr          is a pointer to an error code which will be returned to your application:
-*                               OS_ERR_NONE         if the call was successful.
-*                               OS_ERR_CREATE_ISR   if you attempted to create a MUTEX from an ISR
-*                               OS_ERR_PRIO_EXIST   if a task at the priority ceiling priority
-*                                                   already exist.
-*                               OS_ERR_PEVENT_NULL  No more event control blocks available.
-*                               OS_ERR_PRIO_INVALID if the priority you specify is higher that the
-*                                                   maximum allowed (i.e. > OS_LOWEST_PRIO)
+*                               OS_ERR_NONE                     if the call was successful.
+*                               OS_ERR_CREATE_ISR               if you attempted to create a MUTEX from an
+*                                                               ISR
+*                               OS_ERR_ILLEGAL_CREATE_RUN_TIME  if you tried to create a mutex after
+*                                                               safety critical operation started.
+*                               OS_ERR_PRIO_EXIST               if a task at the priority ceiling priority
+*                                                               already exist.
+*                               OS_ERR_PEVENT_NULL              No more event control blocks available.
+*                               OS_ERR_PRIO_INVALID             if the priority you specify is higher that
+*                                                               the maximum allowed (i.e. > OS_LOWEST_PRIO)
 *
 * Returns    : != (void *)0  is a pointer to the event control clock (OS_EVENT) associated with the
 *                            created mutex.
@@ -194,6 +206,7 @@ OS_EVENT  *OSMutexCreate (INT8U   prio,
 #ifdef OS_SAFETY_CRITICAL_IEC61508
     if (OSSafetyCriticalStartFlag == OS_TRUE) {
         OS_SAFETY_CRITICAL_EXCEPTION();
+        *perr = OS_ERR_ILLEGAL_CREATE_RUN_TIME;
         return ((OS_EVENT *)0);
     }
 #endif
@@ -242,7 +255,7 @@ OS_EVENT  *OSMutexCreate (INT8U   prio,
     return (pevent);
 }
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                           DELETE A MUTEX
@@ -257,12 +270,14 @@ OS_EVENT  *OSMutexCreate (INT8U   prio,
 *                                                    In this case, all the tasks pending will be readied.
 *
 *              perr          is a pointer to an error code that can contain one of the following values:
-*                            OS_ERR_NONE             The call was successful and the mutex was deleted
-*                            OS_ERR_DEL_ISR          If you attempted to delete the MUTEX from an ISR
-*                            OS_ERR_INVALID_OPT      An invalid option was specified
-*                            OS_ERR_TASK_WAITING     One or more tasks were waiting on the mutex
-*                            OS_ERR_EVENT_TYPE       If you didn't pass a pointer to a mutex
-*                            OS_ERR_PEVENT_NULL      If 'pevent' is a NULL pointer.
+*                            OS_ERR_NONE                  The call was successful and the mutex was deleted
+*                            OS_ERR_DEL_ISR               If you attempted to delete the MUTEX from an ISR
+*                            OS_ERR_INVALID_OPT           An invalid option was specified
+*                            OS_ERR_ILLEGAL_DEL_RUN_TIME  If you tried to delete a mutex after safety
+*                                                         critical operation started.
+*                            OS_ERR_TASK_WAITING          One or more tasks were waiting on the mutex
+*                            OS_ERR_EVENT_TYPE            If you didn't pass a pointer to a mutex
+*                            OS_ERR_PEVENT_NULL           If 'pevent' is a NULL pointer.
 *
 * Returns    : pevent        upon error
 *              (OS_EVENT *)0 if the mutex was successfully deleted.
@@ -302,6 +317,14 @@ OS_EVENT  *OSMutexDel (OS_EVENT  *pevent,
 #ifdef OS_SAFETY_CRITICAL
     if (perr == (INT8U *)0) {
         OS_SAFETY_CRITICAL_EXCEPTION();
+        return ((OS_EVENT *)0);
+    }
+#endif
+
+#ifdef OS_SAFETY_CRITICAL_IEC61508
+    if (OSSafetyCriticalStartFlag == OS_TRUE) {
+        OS_SAFETY_CRITICAL_EXCEPTION();
+        *perr = OS_ERR_ILLEGAL_DEL_RUN_TIME;
         return ((OS_EVENT *)0);
     }
 #endif
@@ -393,7 +416,7 @@ OS_EVENT  *OSMutexDel (OS_EVENT  *pevent,
 }
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                 PEND ON MUTUAL EXCLUSION SEMAPHORE
@@ -475,7 +498,7 @@ void  OSMutexPend (OS_EVENT  *pevent,
         *perr = OS_ERR_PEND_LOCKED;                        /* ... can't PEND when locked               */
         return;
     }
-/*$PAGE*/
+
     OS_ENTER_CRITICAL();
     pcp = (INT8U)(pevent->OSEventCnt >> 8u);               /* Get PCP from mutex                       */
                                                            /* Is Mutex available?                      */
@@ -571,7 +594,8 @@ void  OSMutexPend (OS_EVENT  *pevent,
 #endif
     OS_EXIT_CRITICAL();
 }
-/*$PAGE*/
+
+
 /*
 *********************************************************************************************************
 *                                POST TO A MUTUAL EXCLUSION SEMAPHORE
@@ -652,7 +676,8 @@ INT8U  OSMutexPost (OS_EVENT *pevent)
     OS_EXIT_CRITICAL();
     return (OS_ERR_NONE);
 }
-/*$PAGE*/
+
+
 /*
 *********************************************************************************************************
 *                                 QUERY A MUTUAL EXCLUSION SEMAPHORE
@@ -717,7 +742,7 @@ INT8U  OSMutexQuery (OS_EVENT       *pevent,
 }
 #endif                                                     /* OS_MUTEX_QUERY_EN                        */
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                            RESTORE A TASK BACK TO ITS ORIGINAL PRIORITY

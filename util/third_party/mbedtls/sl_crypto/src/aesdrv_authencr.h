@@ -23,19 +23,19 @@
 
 #define CCM_MAX_DATA_LENGTH         (0x10000-1)
 
-Ecode_t AESDRV_CCM_Generalized(AESDRV_Context_t*       pAesdrvContext,
-                               const uint8_t*          pDataInput,
-                                     uint8_t*          pOutputData,
-                               const uint32_t          dataLength,
-                               const uint8_t*          pHdr,
-                               const uint32_t          hdrLength,
-                               const uint8_t*          pKey,
-                               const uint32_t          keyLength,
-                               const uint8_t*          pNonce,
-                               const uint32_t          nonceLength,
-                               uint8_t*                pAuthTag,
-                               const uint8_t           authTagLength,
-                               const bool              encrypt,
-                               const bool              encryptedPayload);
+int AESDRV_CCM_Generalized(AESDRV_Context_t*       pAesdrvContext,
+                           const uint8_t*          pDataInput,
+                                 uint8_t*          pOutputData,
+                           const uint32_t          dataLength,
+                           const uint8_t*          pHdr,
+                           const uint32_t          hdrLength,
+                           const uint8_t*          pKey,
+                           const uint32_t          keyLength,
+                           const uint8_t*          pNonce,
+                           const uint32_t          nonceLength,
+                                 uint8_t*          pAuthTag,
+                           const uint8_t           authTagLength,
+                           const bool              encrypt,
+                           const bool              encryptedPayload);
 
 #endif /* __SILICON_LABS_AESDRV_AUTHENCR_H */

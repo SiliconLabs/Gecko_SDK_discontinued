@@ -93,13 +93,12 @@ void GLIB_normalizeRect(GLIB_Rectangle_t *pRect)
 *  @return
 *  Returns GLIB_OK on success, or else error code
 ******************************************************************************/
-EMSTATUS GLIB_drawRect(GLIB_Context_t *pContext, GLIB_Rectangle_t *pRect)
+EMSTATUS GLIB_drawRect(GLIB_Context_t *pContext, const GLIB_Rectangle_t *pRect)
 {
   EMSTATUS status;
-  GLIB_Rectangle_t tmpRectangle;
+  GLIB_Rectangle_t tmpRectangle = *pRect;
 
-  GLIB_normalizeRect(pRect);
-  tmpRectangle = *pRect;
+  GLIB_normalizeRect(&tmpRectangle);
 
   /* Clip rectangle if necessary */
   if (tmpRectangle.xMin < pContext->clippingRegion.xMin) {
@@ -160,8 +159,7 @@ EMSTATUS GLIB_drawRect(GLIB_Context_t *pContext, GLIB_Rectangle_t *pRect)
 *  @return
 *  Returns GLIB_OK on success, or else error code
 ******************************************************************************/
-
-EMSTATUS GLIB_drawRectFilled(GLIB_Context_t *pContext, GLIB_Rectangle_t *pRect)
+EMSTATUS GLIB_drawRectFilled(GLIB_Context_t *pContext, const GLIB_Rectangle_t *pRect)
 {
   EMSTATUS status;
   uint8_t red;
@@ -169,10 +167,9 @@ EMSTATUS GLIB_drawRectFilled(GLIB_Context_t *pContext, GLIB_Rectangle_t *pRect)
   uint8_t blue;
   int32_t width;
   int32_t height;
-  GLIB_Rectangle_t tmpRectangle;
+  GLIB_Rectangle_t tmpRectangle = *pRect;
 
-  GLIB_normalizeRect(pRect);
-  tmpRectangle = *pRect;
+  GLIB_normalizeRect(&tmpRectangle);
 
   /* Clip rectangle if necessary */
   if (tmpRectangle.xMin < pContext->clippingRegion.xMin) {
@@ -201,8 +198,5 @@ EMSTATUS GLIB_drawRectFilled(GLIB_Context_t *pContext, GLIB_Rectangle_t *pRect)
   if (status != DMD_OK) return status;
 
   /* Reset driver clipping area to GLIB clipping region */
-  return DMD_setClippingArea(pContext->clippingRegion.xMin,
-                               pContext->clippingRegion.yMin,
-                               pContext->clippingRegion.xMin + pContext->clippingRegion.xMax + 1,
-                               pContext->clippingRegion.yMin + pContext->clippingRegion.yMax + 1);
+  return GLIB_applyClippingRegion(pContext);
 }

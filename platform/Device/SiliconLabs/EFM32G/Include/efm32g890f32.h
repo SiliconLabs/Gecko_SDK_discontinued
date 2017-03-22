@@ -2,10 +2,10 @@
  * @file efm32g890f32.h
  * @brief CMSIS Cortex-M3 Peripheral Access Layer Header File
  *        for EFM EFM32G890F32
- * @version 5.0.0
+ * @version 5.1.2
  ******************************************************************************
  * @section License
- * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -113,12 +113,14 @@ typedef enum IRQn
 ******************************************************************************/
 
 /** Part family */
-#define _EFM32_GECKO_FAMILY             1 /**< Gecko EFM32G MCU Family */
-#define _EFM_DEVICE                       /**< Silicon Labs EFM-type microcontroller */
-#define _SILICON_LABS_32B_SERIES_0        /**< Silicon Labs series number */
-#define _SILICON_LABS_32B_SERIES        0 /**< Silicon Labs series number */
-#define _SILICON_LABS_32B_PLATFORM_1      /**< Silicon Labs platform name */
-#define _SILICON_LABS_32B_PLATFORM      1 /**< Silicon Labs platform name */
+#define _EFM32_GECKO_FAMILY                     1  /**< Gecko EFM32G MCU Family */
+#define _EFM_DEVICE                                /**< Silicon Labs EFM-type microcontroller */
+#define _SILICON_LABS_32B_SERIES_0                 /**< Silicon Labs series number */
+#define _SILICON_LABS_32B_SERIES                0  /**< Silicon Labs series number */
+#define _SILICON_LABS_GECKO_INTERNAL_SDID       71 /** Silicon Labs internal use only, may change any time */
+#define _SILICON_LABS_GECKO_INTERNAL_SDID_71       /** Silicon Labs internal use only, may change any time */
+#define _SILICON_LABS_32B_PLATFORM_1               /**< @deprecated Silicon Labs platform name */
+#define _SILICON_LABS_32B_PLATFORM              1  /**< @deprecated Silicon Labs platform name */
 
 /* If part number is not defined as compiler option, define it */
 #if !defined(EFM32G890F32)

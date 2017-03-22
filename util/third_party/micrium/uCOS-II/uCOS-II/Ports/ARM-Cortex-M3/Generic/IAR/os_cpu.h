@@ -4,13 +4,13 @@
 *                                         The Real-Time Kernel
 *
 *
-*                                (c) Copyright 2006, Micrium, Weston, FL
+*                             (c) Copyright 2006-2016, Micrium, Weston, FL
 *                                          All Rights Reserved
 *
 *                                           ARM Cortex-M3 Port
 *
 * File      : OS_CPU.H
-* Version   : V2.89
+* Version   : V2.92.12.00
 * By        : Jean J. Labrosse
 *             Brian Nagel
 *

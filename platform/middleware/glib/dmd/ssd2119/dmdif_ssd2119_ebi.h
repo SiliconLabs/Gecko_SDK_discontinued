@@ -1,5 +1,5 @@
  /*************************************************************************//**
- * @file dmd_if_ssd2119_ebi.h
+ * @file dmdif_ssd2119_ebi.h
  * @brief Dot matrix display SSD2119 interface using EBI
  ******************************************************************************
  * @section License
@@ -19,6 +19,8 @@
 #include <stdint.h>
 #include "em_types.h"
 
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
+
 /* Module Prototypes */
 EMSTATUS DMDIF_init(uint32_t cmdRegAddr, uint32_t dataRegAddr);
 EMSTATUS DMDIF_writeReg(uint8_t reg, uint16_t data);
@@ -28,5 +30,7 @@ EMSTATUS DMDIF_writeData(uint32_t data);
 EMSTATUS DMDIF_writeDataRepeated(uint32_t data, int len);
 uint32_t DMDIF_readData(void);
 EMSTATUS DMDIF_delay(uint32_t ms);
+
+/** @endcond */
 
 #endif

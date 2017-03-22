@@ -199,7 +199,7 @@ void SendByte( uint8_t byte_value, uint8_t transfer_type )
  */
 uint8_t GetByte( uint8_t transfer_type )
 {
-   uint8_t data_buf;
+   uint8_t data_buf = 0;
 
    switch( transfer_type )
    {

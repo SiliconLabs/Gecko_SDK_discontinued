@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file ezradio_hal.h
  * @brief This file contains EZRadio HAL.
- * @version 5.0.0
+ * @version 5.1.2
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>

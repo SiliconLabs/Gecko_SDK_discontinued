@@ -58,16 +58,16 @@
  *  key is used for some cipher modes when decrypting.
  *  Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_DecryptKey128(AESDRV_Context_t* pAesdrvContext,
-                             uint8_t*          out,
-                             const uint8_t*    in)
+int AESDRV_DecryptKey128(AESDRV_Context_t* pAesdrvContext,
+                         uint8_t*          out,
+                         const uint8_t*    in)
 {
   (void) pAesdrvContext;  /* The pAesdrvContext parameter is not used for
                              basic AES block cipher mode. */
   AESDRV_CLOCK_ENABLE;
   AES_DecryptKey128(out,in);
   AESDRV_CLOCK_DISABLE;
-  return ECODE_OK;
+  return 0;
 }
 
 /*
@@ -75,9 +75,9 @@ Ecode_t AESDRV_DecryptKey128(AESDRV_Context_t* pAesdrvContext,
  *  key is used for some cipher modes when decrypting.
  *  Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_DecryptKey256(AESDRV_Context_t* pAesdrvContext,
-                             uint8_t*          out,
-                             const uint8_t *   in)
+int AESDRV_DecryptKey256(AESDRV_Context_t* pAesdrvContext,
+                         uint8_t*          out,
+                         const uint8_t *   in)
 {
   (void) pAesdrvContext;  /* The pAesdrvContext parameter is not used for
                              basic AES block cipher mode. */
@@ -85,7 +85,7 @@ Ecode_t AESDRV_DecryptKey256(AESDRV_Context_t* pAesdrvContext,
   AESDRV_CLOCK_ENABLE;
   AES_DecryptKey256(out,in);
   AESDRV_CLOCK_DISABLE;
-  return ECODE_OK;
+  return 0;
 #else
   (void) out; (void) in;
   return MBEDTLS_ECODE_AESDRV_NOT_SUPPORTED;
@@ -96,14 +96,14 @@ Ecode_t AESDRV_DecryptKey256(AESDRV_Context_t* pAesdrvContext,
  * Cipher-block chaining (CBC) cipher mode encryption/decryption, 128 bit key.
  * Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_CBC128(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      uint8_t*          iv,
-                      bool              encrypt
-                      )
+int AESDRV_CBC128(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  uint8_t*          iv,
+                  bool              encrypt
+                  )
 {
   (void) pAesdrvContext;  /* The pAesdrvContext parameter is not used for
                              basic AES block cipher mode. */
@@ -123,21 +123,21 @@ Ecode_t AESDRV_CBC128(AESDRV_Context_t* pAesdrvContext,
     else
       memcpy(iv, tmpIv, 16);
   }
-  return ECODE_OK;
+  return 0;
 }
 
  /*
   * Cipher-block chaining (CBC) cipher mode encryption/decryption, 256 bit key.
   * Please refer to aesdrv.h for detailed description.
   */
-Ecode_t AESDRV_CBC256(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      uint8_t*          iv,
-                      bool              encrypt
-                      )
+int AESDRV_CBC256(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  uint8_t*          iv,
+                  bool              encrypt
+                  )
 {
   (void) pAesdrvContext;  /* The pAesdrvContext parameter is not used for
                              basic AES block cipher mode. */
@@ -160,7 +160,7 @@ Ecode_t AESDRV_CBC256(AESDRV_Context_t* pAesdrvContext,
     else
       memcpy(iv, tmpIv, 16);
   }
-  return ECODE_OK;
+  return 0;
 #else
   (void) out; (void) in; (void) len; (void) key; (void) iv; (void) encrypt;
   return MBEDTLS_ECODE_AESDRV_NOT_SUPPORTED;
@@ -171,14 +171,14 @@ Ecode_t AESDRV_CBC256(AESDRV_Context_t* pAesdrvContext,
  *  Cipher feedback (CFB) cipher mode encryption/decryption, 128 bit key.
  *  Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_CFB128(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      uint8_t*          iv,
-                      bool              encrypt
-                      )
+int AESDRV_CFB128(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  uint8_t*          iv,
+                  bool              encrypt
+                  )
 {
   (void) pAesdrvContext;  /* The pAesdrvContext parameter is not used for
                              basic AES block cipher mode. */
@@ -200,21 +200,21 @@ Ecode_t AESDRV_CFB128(AESDRV_Context_t* pAesdrvContext,
     else
       memcpy(iv, tmpIv, 16);
   }
-  return ECODE_OK;
+  return 0;
 }
 
 /*
  *  Cipher feedback (CFB) cipher mode encryption/decryption, 256 bit key.
  *  Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_CFB256(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      uint8_t*          iv,
-                      bool              encrypt
-                      )
+int AESDRV_CFB256(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  uint8_t*          iv,
+                  bool              encrypt
+                  )
 {
   (void) pAesdrvContext;  /* The pAesdrvContext parameter is not used for
                              basic AES block cipher mode. */
@@ -237,7 +237,7 @@ Ecode_t AESDRV_CFB256(AESDRV_Context_t* pAesdrvContext,
     else
       memcpy(iv, tmpIv, 16);
   }
-  return ECODE_OK;
+  return 0;
 #else
   (void) out; (void) in; (void) len; (void) key; (void) iv; (void) encrypt;
   return MBEDTLS_ECODE_AESDRV_NOT_SUPPORTED;
@@ -248,14 +248,14 @@ Ecode_t AESDRV_CFB256(AESDRV_Context_t* pAesdrvContext,
  *  Counter (CTR) cipher mode encryption/decryption, 128 bit key.
  *  Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_CTR128(AESDRV_Context_t*    pAesdrvContext,
-                      uint8_t*             out,
-                      const uint8_t*       in,
-                      unsigned int         len,
-                      const uint8_t*       key,
-                      uint8_t*             ctr,
-                      AESDRV_CtrCallback_t ctrCallback
-                      )
+int AESDRV_CTR128(AESDRV_Context_t*    pAesdrvContext,
+                  uint8_t*             out,
+                  const uint8_t*       in,
+                  unsigned int         len,
+                  const uint8_t*       key,
+                  uint8_t*             ctr,
+                  AESDRV_CtrCallback_t ctrCallback
+                  )
 {
   (void) pAesdrvContext;  /* The pAesdrvContext parameter is not used for
                              basic AES block cipher mode. */
@@ -273,21 +273,21 @@ Ecode_t AESDRV_CTR128(AESDRV_Context_t*    pAesdrvContext,
   AESDRV_CLOCK_ENABLE;
   AES_CTR128(out,in,len,key,ctr,pCtrFunc);
   AESDRV_CLOCK_DISABLE;
-  return ECODE_OK;
+  return 0;
 }
 
 /*
  *  Counter (CTR) cipher mode encryption/decryption, 256 bit key.
  *  Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_CTR256(AESDRV_Context_t*    pAesdrvContext,
-                      uint8_t*             out,
-                      const uint8_t*       in,
-                      unsigned int         len,
-                      const uint8_t*       key,
-                      uint8_t*             ctr,
-                      AESDRV_CtrCallback_t ctrCallback
-                      )
+int AESDRV_CTR256(AESDRV_Context_t*    pAesdrvContext,
+                  uint8_t*             out,
+                  const uint8_t*       in,
+                  unsigned int         len,
+                  const uint8_t*       key,
+                  uint8_t*             ctr,
+                  AESDRV_CtrCallback_t ctrCallback
+                  )
 {
   (void) pAesdrvContext;  /* The pAesdrvContext parameter is not used for
                              basic AES block cipher mode. */
@@ -306,7 +306,7 @@ Ecode_t AESDRV_CTR256(AESDRV_Context_t*    pAesdrvContext,
   AESDRV_CLOCK_ENABLE;
   AES_CTR256(out,in,len,key,ctr,pCtrFunc);
   AESDRV_CLOCK_DISABLE;
-  return ECODE_OK;
+  return 0;
 #else
   (void) out; (void) in; (void) len; (void) key; (void) ctr; (void) ctrCallback;
   return MBEDTLS_ECODE_AESDRV_NOT_SUPPORTED;
@@ -317,32 +317,32 @@ Ecode_t AESDRV_CTR256(AESDRV_Context_t*    pAesdrvContext,
  *  Electronic Codebook (ECB) cipher mode encryption/decryption, 128 bit key.
  *  Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_ECB128(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      bool              encrypt
-                      )
+int AESDRV_ECB128(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  bool              encrypt
+                  )
 {
   (void) pAesdrvContext;  /* The pAesdrvContext parameter is not used for
                              basic AES block cipher mode. */
   AESDRV_CLOCK_ENABLE;
   AES_ECB128(out,in,len,key,encrypt);
   AESDRV_CLOCK_DISABLE;
-  return ECODE_OK;
+  return 0;
 }
 
 /*
  *  Electronic Codebook (ECB) cipher mode encryption/decryption, 256 bit key.
  *  Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_ECB256(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      bool              encrypt)
+int AESDRV_ECB256(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  bool              encrypt)
 {
   (void) pAesdrvContext;  /* The pAesdrvContext parameter is not used for
                              basic AES block cipher mode. */
@@ -350,7 +350,7 @@ Ecode_t AESDRV_ECB256(AESDRV_Context_t* pAesdrvContext,
   AESDRV_CLOCK_ENABLE;
   AES_ECB256(out,in,len,key,encrypt);
   AESDRV_CLOCK_DISABLE;
-  return ECODE_OK;
+  return 0;
 #else
   (void) out; (void) in; (void) len; (void) key; (void) encrypt;
   return MBEDTLS_ECODE_AESDRV_NOT_SUPPORTED;
@@ -361,31 +361,31 @@ Ecode_t AESDRV_ECB256(AESDRV_Context_t* pAesdrvContext,
  *  Output feedback (OFB) cipher mode encryption/decryption, 128 bit key.
  *  Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_OFB128(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      uint8_t*          iv)
+int AESDRV_OFB128(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  uint8_t*          iv)
 {
   (void) pAesdrvContext;  /* The pAesdrvContext parameter is not used for
                              basic AES block cipher mode. */
   AESDRV_CLOCK_ENABLE;
   AES_OFB128(out,in,len,key,iv);
   AESDRV_CLOCK_DISABLE;
-  return ECODE_OK;
+  return 0;
 }
 
 /*
  *  Output feedback (OFB) cipher mode encryption/decryption, 256 bit key.
  *  Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_OFB256(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      uint8_t*          iv)
+int AESDRV_OFB256(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  uint8_t*          iv)
 {
   (void) pAesdrvContext;  /* The pAesdrvContext parameter is not used for
                              basic AES block cipher mode. */
@@ -393,7 +393,7 @@ Ecode_t AESDRV_OFB256(AESDRV_Context_t* pAesdrvContext,
   AESDRV_CLOCK_ENABLE;
   AES_OFB256(out,in,len,key,iv);
   AESDRV_CLOCK_DISABLE;
-  return ECODE_OK;
+  return 0;
 #else
   (void) out; (void) in; (void) len; (void) key; (void) iv;
   return MBEDTLS_ECODE_AESDRV_NOT_SUPPORTED;

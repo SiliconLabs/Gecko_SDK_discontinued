@@ -1,0 +1,13 @@
+
+/** @brief Gesture Received
+ *
+ * This function is called whenever the sb1 receives a gesture
+ *
+ * @param gestureReceived The (enumerated) gesture received  Ver.: always
+ * @param switchNumber The switch that received the gesture  Ver.: always
+ */
+void emberAfPluginSb1GestureSensorGestureReceivedCallback(uint8_t gestureReceived,
+                                                          uint8_t switchNumber)
+{
+
+}

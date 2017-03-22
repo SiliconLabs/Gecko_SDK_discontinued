@@ -1,5 +1,5 @@
 /*************************************************************************//***
- * @file dmdif_ssd2119_ebi.c
+ * @file dmdif_ssd2119_ebi16.c
  * @brief Dot matrix display interface using EBI
  ******************************************************************************
  * @section License
@@ -19,6 +19,8 @@
 #include "dmd_ssd2119.h"
 #include "dmdif_ssd2119_ebi.h"
 #include "bsp.h"
+
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 
 /* Local function prototypes */
 static EMSTATUS setNextReg(uint8_t reg);
@@ -218,3 +220,5 @@ static EMSTATUS setNextReg(uint8_t reg)
 
   return DMD_OK;
 }
+
+/** @endcond */

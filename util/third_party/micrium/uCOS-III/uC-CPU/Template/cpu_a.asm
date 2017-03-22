@@ -2,7 +2,7 @@
 ;                                                uC/CPU
 ;                                    CPU CONFIGURATION & PORT LAYER
 ;
-;                          (c) Copyright 2004-2013; Micrium, Inc.; Weston, FL
+;                          (c) Copyright 2004-2016; Micrium, Inc.; Weston, FL
 ;
 ;               All rights reserved.  Protected by international copyright laws.
 ;
@@ -14,6 +14,8 @@
 ;               Please help us continue to provide the Embedded community with the finest 
 ;               software available.  Your honesty is greatly appreciated.
 ;
+;               You can find our product's user manual, API reference, release notes and
+;               more information at https://doc.micrium.com.
 ;               You can contact us at www.micrium.com.
 ;********************************************************************************************************
 
@@ -27,7 +29,7 @@
 ;                                      $$$$ Insert Compiler Name
 ;
 ; Filename      : cpu_a.asm            $$$$ Insert CPU assembly port file name
-; Version       : V1.29.02.00          $$$$ Insert CPU assembly port file version number
+; Version       : V1.31.00          $$$$ Insert CPU assembly port file version number
 ; Programmer(s) : ITJ                  $$$$ Insert CPU assembly port file programmer(s) initials
 ;********************************************************************************************************
 ; Note(s)       : (1) To provide the required CPU port functionality, insert the appropriate CPU- &/or

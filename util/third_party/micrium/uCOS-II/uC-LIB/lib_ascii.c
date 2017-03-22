@@ -3,19 +3,22 @@
 *                                                uC/LIB
 *                                        CUSTOM LIBRARY MODULES
 *
-*                          (c) Copyright 2004-2013; Micrium, Inc.; Weston, FL
+*                         (c) Copyright 2004-2015; Micrium, Inc.; Weston, FL
 *
-*               All rights reserved.  Protected by international copyright laws.
+*                  All rights reserved.  Protected by international copyright laws.
 *
-*               uC/LIB is provided in source form to registered licensees ONLY.  It is 
-*               illegal to distribute this source code to any third party unless you receive 
-*               written permission by an authorized Micrium representative.  Knowledge of 
-*               the source code may NOT be used to develop a similar product.
+*                  uC/LIB is provided in source form to registered licensees ONLY.  It is
+*                  illegal to distribute this source code to any third party unless you receive
+*                  written permission by an authorized Micrium representative.  Knowledge of
+*                  the source code may NOT be used to develop a similar product.
 *
-*               Please help us continue to provide the Embedded community with the finest 
-*               software available.  Your honesty is greatly appreciated.
+*                  Please help us continue to provide the Embedded community with the finest
+*                  software available.  Your honesty is greatly appreciated.
 *
-*               You can contact us at www.micrium.com.
+*                  You can find our product's user manual, API reference, release notes and
+*                  more information at: https://doc.micrium.com
+*
+*                  You can contact us at: http://www.micrium.com
 *********************************************************************************************************
 */
 
@@ -25,7 +28,7 @@
 *                                     ASCII CHARACTER OPERATIONS
 *
 * Filename      : lib_ascii.c
-* Version       : V1.37.01
+* Version       : V1.38.02
 * Programmer(s) : BAN
 *                 ITJ
 *********************************************************************************************************
@@ -82,7 +85,6 @@
 #include  <lib_ascii.h>
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                            LOCAL DEFINES
@@ -132,7 +134,6 @@
 */
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                           ASCII_IsAlpha()
@@ -143,7 +144,7 @@
 *
 * Return(s)   : DEF_YES, if character is     an alphabetic character.
 *
-*               DEF_NO,	 if character is NOT an alphabetic character.
+*               DEF_NO,     if character is NOT an alphabetic character.
 *
 * Caller(s)   : Application.
 *
@@ -173,7 +174,7 @@ CPU_BOOLEAN  ASCII_IsAlpha (CPU_CHAR  c)
 *
 * Return(s)   : DEF_YES, if character is     an alphanumeric character.
 *
-*               DEF_NO,	 if character is NOT an alphanumeric character.
+*               DEF_NO,     if character is NOT an alphanumeric character.
 *
 * Caller(s)   : Application.
 *
@@ -193,7 +194,6 @@ CPU_BOOLEAN  ASCII_IsAlphaNum (CPU_CHAR  c)
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                           ASCII_IsLower()
@@ -204,7 +204,7 @@ CPU_BOOLEAN  ASCII_IsAlphaNum (CPU_CHAR  c)
 *
 * Return(s)   : DEF_YES, if character is     a lowercase alphabetic character.
 *
-*               DEF_NO,	 if character is NOT a lowercase alphabetic character.
+*               DEF_NO,     if character is NOT a lowercase alphabetic character.
 *
 * Caller(s)   : Application.
 *
@@ -234,7 +234,7 @@ CPU_BOOLEAN  ASCII_IsLower (CPU_CHAR  c)
 *
 * Return(s)   : DEF_YES, if character is     an uppercase alphabetic character.
 *
-*               DEF_NO,	 if character is NOT an uppercase alphabetic character.
+*               DEF_NO,     if character is NOT an uppercase alphabetic character.
 *
 * Caller(s)   : Application.
 *
@@ -254,7 +254,6 @@ CPU_BOOLEAN  ASCII_IsUpper (CPU_CHAR  c)
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                            ASCII_IsDig()
@@ -265,7 +264,7 @@ CPU_BOOLEAN  ASCII_IsUpper (CPU_CHAR  c)
 *
 * Return(s)   : DEF_YES, if character is     a decimal-digit character.
 *
-*               DEF_NO,	 if character is NOT a decimal-digit character.
+*               DEF_NO,     if character is NOT a decimal-digit character.
 *
 * Caller(s)   : Application.
 *
@@ -295,7 +294,7 @@ CPU_BOOLEAN  ASCII_IsDig (CPU_CHAR  c)
 *
 * Return(s)   : DEF_YES, if character is     an octal-digit character.
 *
-*               DEF_NO,	 if character is NOT an octal-digit character.
+*               DEF_NO,     if character is NOT an octal-digit character.
 *
 * Caller(s)   : Application.
 *
@@ -324,7 +323,7 @@ CPU_BOOLEAN  ASCII_IsDigOct (CPU_CHAR  c)
 *
 * Return(s)   : DEF_YES, if character is     a hexadecimal-digit character.
 *
-*               DEF_NO,	 if character is NOT a hexadecimal-digit character.
+*               DEF_NO,     if character is NOT a hexadecimal-digit character.
 *
 * Caller(s)   : Application.
 *
@@ -344,7 +343,6 @@ CPU_BOOLEAN  ASCII_IsDigHex (CPU_CHAR  c)
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                           ASCII_IsBlank()
@@ -355,7 +353,7 @@ CPU_BOOLEAN  ASCII_IsDigHex (CPU_CHAR  c)
 *
 * Return(s)   : DEF_YES, if character is     a standard blank character.
 *
-*               DEF_NO,	 if character is NOT a standard blank character.
+*               DEF_NO,     if character is NOT a standard blank character.
 *
 * Caller(s)   : Application.
 *
@@ -388,7 +386,7 @@ CPU_BOOLEAN  ASCII_IsBlank (CPU_CHAR  c)
 *
 * Return(s)   : DEF_YES, if character is     a white-space character.
 *
-*               DEF_NO,	 if character is NOT a white-space character.
+*               DEF_NO,     if character is NOT a white-space character.
 *
 * Caller(s)   : Application.
 *
@@ -412,7 +410,6 @@ CPU_BOOLEAN  ASCII_IsSpace (CPU_CHAR  c)
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                           ASCII_IsPrint()
@@ -423,7 +420,7 @@ CPU_BOOLEAN  ASCII_IsSpace (CPU_CHAR  c)
 *
 * Return(s)   : DEF_YES, if character is     a printing character.
 *
-*               DEF_NO,	 if character is NOT a printing character.
+*               DEF_NO,     if character is NOT a printing character.
 *
 * Caller(s)   : Application.
 *
@@ -457,7 +454,7 @@ CPU_BOOLEAN  ASCII_IsPrint (CPU_CHAR  c)
 *
 * Return(s)   : DEF_YES, if character is     a graphic character.
 *
-*               DEF_NO,	 if character is NOT a graphic character.
+*               DEF_NO,     if character is NOT a graphic character.
 *
 * Caller(s)   : Application.
 *
@@ -481,7 +478,6 @@ CPU_BOOLEAN  ASCII_IsGraph (CPU_CHAR  c)
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                           ASCII_IsPunct()
@@ -492,7 +488,7 @@ CPU_BOOLEAN  ASCII_IsGraph (CPU_CHAR  c)
 *
 * Return(s)   : DEF_YES, if character is     a punctuation character.
 *
-*               DEF_NO,	 if character is NOT a punctuation character.
+*               DEF_NO,     if character is NOT a punctuation character.
 *
 * Caller(s)   : Application.
 *
@@ -522,7 +518,7 @@ CPU_BOOLEAN  ASCII_IsPunct (CPU_CHAR  c)
 *
 * Return(s)   : DEF_YES, if character is     a control character.
 *
-*               DEF_NO,	 if character is NOT a control character.
+*               DEF_NO,     if character is NOT a control character.
 *
 * Caller(s)   : Application.
 *
@@ -546,7 +542,6 @@ CPU_BOOLEAN  ASCII_IsCtrl (CPU_CHAR  c)
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                           ASCII_ToLower()
@@ -623,7 +618,6 @@ CPU_CHAR  ASCII_ToUpper (CPU_CHAR  c)
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                             ASCII_Cmp()

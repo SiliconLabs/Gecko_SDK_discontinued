@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file
  * @brief Driver for the Si7013 Temperature / Humidity sensor
- * @version 5.0.0
+ * @version 5.1.1
  *******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -399,10 +399,10 @@ int32_t Si7013_MeasureV(I2C_TypeDef *i2c, uint8_t addr, int32_t *vData)
  * @param[in] addr
  *   The I2C address to probe.
  * @param[out] deviceId
- *   Write device ID from SNB_3 if device reponds. Pass in NULL to discard.
+ *   Write device ID from SNB_3 if device responds. Pass in NULL to discard.
  *   Should be 0x0D for Si7013, 0x14 for Si7020 or 0x15 for Si7021
  * @return
- *   True if a Si7013 is detected, false otherwise.
+ *   True if a Si70xx is detected, false otherwise.
  *****************************************************************************/
 bool Si7013_Detect(I2C_TypeDef *i2c, uint8_t addr, uint8_t *deviceId)
 {

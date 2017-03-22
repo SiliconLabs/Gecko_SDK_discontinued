@@ -1,0 +1,22 @@
+
+/** @brief Tamper Active
+ *
+ * This function is called whenever the tamper switch detects that it has
+ * entered the enclosure, thus activating tamper monitoring.
+ *
+ */
+void emberAfPluginTamperSwitchTamperActiveCallback(void)
+{
+
+}
+
+/** @brief Tamper Alarm
+ *
+ * This function is called when the plugin detects that the enclosure has been
+ * opened.
+ *
+ */
+void emberAfPluginTamperSwitchTamperAlarmCallback(void)
+{
+
+}

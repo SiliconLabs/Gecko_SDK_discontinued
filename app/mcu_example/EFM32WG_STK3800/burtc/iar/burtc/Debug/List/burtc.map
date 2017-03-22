@@ -1,0 +1,614 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.2.11947/W32 for ARM                09/Mar/2017  19:53:07
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\Exe\burtc.out
+#    Map file     =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\List\burtc.map
+#    Command line =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\Obj\bsp_trace.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\Obj\clock.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\Obj\clockApp.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\Obj\em_assert.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\Obj\em_burtc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\Obj\em_cmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\Obj\em_emu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\Obj\em_gpio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\Obj\em_lcd.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\Obj\em_rmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\Obj\em_system.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\Obj\main.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\Obj\segmentlcd.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\Obj\startup_efm32gg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\Obj\system_efm32gg.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\Exe\burtc.out
+#        --map
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\List\burtc.map
+#        --config
+#        T:\iar_ew_7802_win32_rel_1\arm\config\linker\SiliconLaboratories\EFM32GG990F1024.icf
+#        --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__Heap_Handler  = Basic
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x000fffff] { ro };
+"P2":  place in [from 0x20000000 to 0x2001ffff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+ { section .intvec };
+
+  Section             Kind        Address    Size  Object
+  -------             ----        -------    ----  ------
+"A0":                                        0xdc
+  .intvec             ro code  0x00000000    0xdc  startup_efm32gg.o [1]
+                             - 0x000000dc    0xdc
+
+"P1":                                      0x539b
+  .text               ro code  0x000000dc   0xe14  em_cmu.o [1]
+  .text               ro code  0x00000ef0     0x2  em_assert.o [1]
+  .text               ro code  0x00000ef2     0xa  xsprout.o [3]
+  .text               ro code  0x00000efc   0x138  system_efm32gg.o [1]
+  .text               ro code  0x00001034   0xdd2  xprintffull.o [3]
+  .text               ro code  0x00001e08    0x16  strchr.o [5]
+  .text               ro code  0x00001e20    0x36  strlen.o [5]
+  .text               ro code  0x00001e58    0x58  memchr.o [5]
+  .text               ro code  0x00001eb0    0xee  I64DivMod.o [5]
+  .text               ro code  0x00001fa0    0x76  ABImemcpy_unaligned.o [5]
+  .text               ro code  0x00002016    0x44  xdnorm.o [4]
+  .text               ro code  0x0000205c    0x2e  DblCmpLe.o [4]
+  .text               ro code  0x0000208c    0x2e  DblCmpGe.o [4]
+  .text               ro code  0x000020bc   0x10c  xdscale.o [4]
+  .text               ro code  0x000021c8    0x58  DblToI32.o [4]
+  .text               ro code  0x00002220    0x30  I32ToDbl.o [4]
+  .text               ro code  0x00002250   0x180  DblSub.o [4]
+  .text               ro code  0x000023d0   0x1a2  DblMul.o [4]
+  .text               ro code  0x00002574   0x256  DblDiv.o [4]
+  .text               ro code  0x000027ca     0xe  div.o [3]
+  .text               ro code  0x000027d8     0x2  I64DivZer.o [5]
+  .text               ro code  0x000027dc    0xd4  DblAdd.o [4]
+  .text               ro code  0x000028b0   0x46c  em_lcd.o [1]
+  .text               ro code  0x00002d1c   0x410  segmentlcd.o [1]
+  .text               ro code  0x0000312c   0x3fc  em_gpio.o [1]
+  .text               ro code  0x00003528   0x354  clockApp.o [1]
+  .text               ro code  0x0000387c    0xbc  clock.o [1]
+  .text               ro code  0x00003938    0xb6  localtim.o [3]
+  .text               ro code  0x000039f0    0xd0  mktime.o [3]
+  .text               ro code  0x00003ac0   0x1c0  em_burtc.o [1]
+  .text               ro code  0x00003c80    0x34  sprintf.o [3]
+  .text               ro code  0x00003cb4     0x2  xtls.o [3]
+  .text               ro code  0x00003cb8    0x29  setlocale.o [3]
+  .text               ro code  0x00003ce4     0xa  getzone.o [3]
+  .text               ro code  0x00003cee    0x42  xgettime.o [3]
+  .text               ro code  0x00003d30    0x86  xstol.o [3]
+  .text               ro code  0x00003db8   0x188  xttotm.o [3]
+  .text               ro code  0x00003f40   0x198  xstoul.o [3]
+  .text               ro code  0x000040d8     0xc  errno.o [3]
+  .text               ro code  0x000040e4   0x134  xisdst.o [3]
+  .text               ro code  0x00004218   0x15e  xgetdst.o [3]
+  .text               ro code  0x00004378    0x80  xxmemxfree.o [3]
+  .text               ro code  0x000043f8    0xb0  xxmemxmalloc.o [3]
+  .text               ro code  0x000044a8    0x2c  xgetmemchunk.o [3]
+  .text               ro code  0x000044d4   0x2b8  em_emu.o [1]
+  .text               ro code  0x0000478c   0x270  main.o [1]
+  .text               ro code  0x000049fc    0x60  em_system.o [1]
+  .text               ro code  0x00004a5c   0x114  bsp_trace.o [1]
+  .text               ro code  0x00004b70    0x9c  em_rmu.o [1]
+  .rodata             const    0x00004c0c   0x200  segmentlcd.o [1]
+  .rodata             const    0x00004e0c    0xb8  segmentlcd.o [1]
+  .rodata             const    0x00004ec4    0x84  clockApp.o [1]
+  .rodata             const    0x00004f48    0x84  em_burtc.o [1]
+  .rodata             const    0x00004fcc    0x84  em_cmu.o [1]
+  .rodata             const    0x00005050    0x84  em_gpio.o [1]
+  .rodata             const    0x000050d4    0x4c  em_burtc.o [1]
+  .rodata             const    0x00005120    0x4c  em_cmu.o [1]
+  .rodata             const    0x0000516c    0x4c  em_gpio.o [1]
+  .rodata             const    0x000051b8    0x4c  em_lcd.o [1]
+  .rodata             const    0x00005204    0x4c  em_system.o [1]
+  .text               ro code  0x00005250    0x40  zero_init3.o [5]
+  .text               ro code  0x00005290    0x38  packbits_init_single.o [5]
+  .text               ro code  0x000052c8    0x28  data_init.o [5]
+  .iar.init_table     const    0x000052f0    0x20  - Linker created -
+  .text               ro code  0x00005310    0x1a  cmain.o [5]
+  .text               ro code  0x0000532a     0x4  low_level_init.o [3]
+  .text               ro code  0x0000532e     0x4  exit.o [3]
+  .text               ro code  0x00005334     0xa  cexit.o [5]
+  .text               ro code  0x00005340     0xc  XXexit.o [5]
+  .rodata             const    0x0000534c    0x14  main.o [1]
+  .rodata             const    0x00005360    0x14  segmentlcd.o [1]
+  .rodata             const    0x00005374    0x10  clockApp.o [1]
+  .text               ro code  0x00005384    0x10  startup_efm32gg.o [1]
+  .rodata             const    0x00005394     0xc  main.o [1]
+  .text               ro code  0x000053a0     0xc  cstartup_M.o [5]
+  .rodata             const    0x000053ac     0x8  main.o [1]
+  .text               ro code  0x000053b4     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000053b8     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000053bc     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000053c0     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000053c4     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000053c8     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000053cc     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000053d0     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000053d4     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000053d8     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000053dc     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000053e0     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000053e4     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000053e8     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000053ec     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000053f0     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000053f4     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000053f8     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x000053fc     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00005400     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00005404     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00005408     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x0000540c     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00005410     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00005414     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00005418     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x0000541c     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00005420     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00005424     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00005428     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x0000542c     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00005430     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00005434     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00005438     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x0000543c     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00005440     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00005444     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00005448     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x0000544c     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00005450     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00005454     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00005458     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x0000545c     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00005460     0x4  startup_efm32gg.o [1]
+  .text               ro code  0x00005464     0x4  startup_efm32gg.o [1]
+  .rodata             const    0x00005468     0x0  zero_init3.o [5]
+  .rodata             const    0x00005468     0x0  packbits_init_single.o [5]
+  Initializer bytes   const    0x00005468     0xf  <for P2-1>
+                             - 0x00005477  0x539b
+
+"P2", part 1 of 3:                           0x55
+  P2-1                         0x20000000    0x55  <Init block>
+    .data             inited   0x20000000     0x4  clockApp.o [1]
+    .data             inited   0x20000004     0x4  system_efm32gg.o [1]
+    .data             inited   0x20000008     0x4  system_efm32gg.o [1]
+    __DLIB_PERTHREAD  inited   0x2000000c     0x8  localtim.o [3]
+    __DLIB_PERTHREAD  inited   0x20000014    0x2c  xttotm.o [3]
+    __DLIB_PERTHREAD  inited   0x20000040     0x8  setlocale.o [3]
+    __DLIB_PERTHREAD  inited   0x20000048     0x4  xisdst.o [3]
+    __DLIB_PERTHREAD  inited   0x2000004c     0x4  errno.o [3]
+    __DLIB_PERTHREAD  inited   0x20000050     0x4  xisdstData.o [3]
+    .data             inited   0x20000054     0x1  clockApp.o [1]
+                             - 0x20000055    0x55
+
+"P2", part 2 of 3:                          0xc00
+  CSTACK                       0x20000058   0x400  <Block>
+    CSTACK            uninit   0x20000058   0x400  <Block tail>
+  HEAP                         0x20000458   0x800  <Block>
+    HEAP              uninit   0x20000458   0x800  <Block tail>
+                             - 0x20000c58   0xc00
+
+"P2", part 3 of 3:                           0xa8
+  .bss                zero     0x20000c58    0x2c  clockApp.o [1]
+  .bss                zero     0x20000c84    0x2c  main.o [1]
+  .bss                zero     0x20000cb0     0x8  clockApp.o [1]
+  .bss                zero     0x20000cb8     0x8  xxmemxmalloc.o [3]
+  .bss                zero     0x20000cc0     0x4  clock.o [1]
+  .bss                zero     0x20000cc4     0x4  clock.o [1]
+  .bss                zero     0x20000cc8     0x4  clock.o [1]
+  .bss                zero     0x20000ccc     0x4  clock.o [1]
+  .bss                zero     0x20000cd0     0x4  clockApp.o [1]
+  .bss                zero     0x20000cd4     0x4  clockApp.o [1]
+  .bss                zero     0x20000cd8     0x4  clockApp.o [1]
+  .bss                zero     0x20000cdc     0x4  clockApp.o [1]
+  .bss                zero     0x20000ce0     0x4  clockApp.o [1]
+  .bss                zero     0x20000ce4     0x4  clockApp.o [1]
+  .bss                zero     0x20000ce8     0x4  em_emu.o [1]
+  .bss                zero     0x20000cec     0x4  main.o [1]
+  .bss                zero     0x20000cf0     0x4  main.o [1]
+  .bss                zero     0x20000cf4     0x4  system_efm32gg.o [1]
+  .bss                zero     0x20000cf8     0x4  xgetmemchunk.o [3]
+  .bss                zero     0x20000cfc     0x1  clockApp.o [1]
+  .bss                zero     0x20000cfd     0x1  em_emu.o [1]
+                             - 0x20000cfe    0xa6
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0xa6:
+          0x20000c58  0xa6
+
+Copy/packbits (__iar_packbits_init_single3)
+    1 source range, total size 0xf (17% of destination):
+          0x00005468   0xf
+    1 destination range, total size 0x55:
+          0x20000000  0x55
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                  ro code  ro data  rw data
+    ------                  -------  -------  -------
+D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\Obj: [1]
+    bsp_trace.o                 276
+    clock.o                     188                16
+    clockApp.o                  852      149       82
+    em_assert.o                   2
+    em_burtc.o                  448      208
+    em_cmu.o                  3 604      208
+    em_emu.o                    696                 5
+    em_gpio.o                 1 020      208
+    em_lcd.o                  1 132       76
+    em_rmu.o                    156
+    em_system.o                  96       76
+    main.o                      624       40       52
+    segmentlcd.o              1 040      716
+    startup_efm32gg.o           416
+    system_efm32gg.o            312        2       12
+    -------------------------------------------------
+    Total:                   10 862    1 683      167
+
+command line: [2]
+    -------------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    div.o                        14
+    errno.o                      12        1        4
+    exit.o                        4
+    getzone.o                    10
+    localtim.o                  182        1        8
+    low_level_init.o              4
+    mktime.o                    208
+    setlocale.o                  41        1        8
+    sprintf.o                    52
+    xgetdst.o                   350
+    xgetmemchunk.o               44                 4
+    xgettime.o                   66
+    xisdst.o                    308        1        4
+    xisdstData.o                                    4
+    xprintffull.o             3 538
+    xsprout.o                    10
+    xstol.o                     134
+    xstoul.o                    408
+    xtls.o                        2
+    xttotm.o                    392        8       44
+    xxmemxfree.o                128
+    xxmemxmalloc.o              176                 8
+    -------------------------------------------------
+    Total:                    6 083       12       84
+
+m7M_tl.a: [4]
+    DblAdd.o                    212
+    DblCmpGe.o                   46
+    DblCmpLe.o                   46
+    DblDiv.o                    598
+    DblMul.o                    418
+    DblSub.o                    384
+    DblToI32.o                   88
+    I32ToDbl.o                   48
+    xdnorm.o                     68
+    xdscale.o                   268
+    -------------------------------------------------
+    Total:                    2 176
+
+rt7M_tl.a: [5]
+    ABImemcpy_unaligned.o       118
+    I64DivMod.o                 238
+    I64DivZer.o                   2
+    XXexit.o                     12
+    cexit.o                      10
+    cmain.o                      26
+    cstartup_M.o                 12
+    data_init.o                  40
+    memchr.o                     88
+    packbits_init_single.o       56
+    strchr.o                     22
+    strlen.o                     54
+    zero_init3.o                 64
+    -------------------------------------------------
+    Total:                      742
+
+    Gaps                         33
+    Linker created                        32    3 072
+-----------------------------------------------------
+    Grand Total:             19 896    1 727    3 323
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x000052f0          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x00005310          --   Gb  - Linker created -
+?main                   0x00005311         Code  Gb  cmain.o [5]
+BSP_TraceProfilerSetup  0x00004b59   0x18  Code  Gb  bsp_trace.o [1]
+BSP_TraceSwoSetup       0x00004a5d   0xac  Code  Gb  bsp_trace.o [1]
+BURTC_CompareSet        0x00003c43   0x1e  Code  Gb  em_burtc.o [1]
+BURTC_CounterGet        0x00003591    0x6  Code  Lc  clockApp.o [1]
+BURTC_CounterGet        0x00004833    0x6  Code  Lc  main.o [1]
+BURTC_Enable            0x00003ad5   0x42  Code  Lc  em_burtc.o [1]
+BURTC_FreezeEnable      0x00003b17   0x12  Code  Lc  em_burtc.o [1]
+BURTC_IRQHandler        0x0000366f   0x34  Code  Gb  clockApp.o [1]
+BURTC_Init              0x00003b6b   0xd8  Code  Gb  em_burtc.o [1]
+BURTC_IntClear          0x00003585    0x6  Code  Lc  clockApp.o [1]
+BURTC_IntClear          0x00003acf    0x6  Code  Lc  em_burtc.o [1]
+BURTC_IntClear          0x00004819    0x6  Code  Lc  main.o [1]
+BURTC_IntEnable         0x0000481f    0xc  Code  Lc  main.o [1]
+BURTC_IntGet            0x0000358b    0x6  Code  Lc  clockApp.o [1]
+BURTC_RetRegGet         0x000035b9   0x1a  Code  Lc  clockApp.o [1]
+BURTC_RetRegSet         0x0000359d   0x1c  Code  Lc  clockApp.o [1]
+BURTC_StatusClear       0x0000482b    0x8  Code  Lc  main.o [1]
+BURTC_TimestampGet      0x00003597    0x6  Code  Lc  clockApp.o [1]
+BUS_RegBitRead          0x000000eb   0x10  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x00003ac1    0xe  Code  Lc  em_burtc.o [1]
+BUS_RegBitWrite         0x000000dd    0xe  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x000044dd    0xe  Code  Lc  em_emu.o [1]
+BUS_RegBitWrite         0x0000312d    0xe  Code  Lc  em_gpio.o [1]
+BUS_RegBitWrite         0x000028db    0xe  Code  Lc  em_lcd.o [1]
+BUS_RegBitWrite         0x00004b7d    0xe  Code  Lc  em_rmu.o [1]
+BUS_RegBitWrite         0x000047bf    0xe  Code  Lc  main.o [1]
+BUS_RegMaskedWrite      0x0000313b    0xa  Code  Lc  em_gpio.o [1]
+CHIP_Init               0x000047cd   0x30  Code  Lc  main.o [1]
+CMU_ClockDivSet         0x000004b7  0x294  Code  Gb  em_cmu.o [1]
+CMU_ClockEnable         0x0000074b   0xa6  Code  Gb  em_cmu.o [1]
+CMU_ClockFreqGet        0x00000805  0x188  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectGet      0x000009c9  0x134  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectSet      0x00000b21  0x292  Code  Gb  em_cmu.o [1]
+CMU_DivToLog2           0x000000fb   0x28  Code  Lc  em_cmu.o [1]
+CMU_LCDClkFDIVSet       0x00000dc9   0x2e  Code  Gb  em_cmu.o [1]
+CMU_Lock                0x000044ff    0xa  Code  Lc  em_emu.o [1]
+CMU_OscillatorEnable    0x00000e19   0x9c  Code  Gb  em_cmu.o [1]
+CMU_Unlock              0x00004509    0xc  Code  Lc  em_emu.o [1]
+CSTACK$$Base            0x20000058          --   Gb  - Linker created -
+CSTACK$$Limit           0x20000458          --   Gb  - Linker created -
+EFM_Alphabet            0x00004e0c   0xb8  Data  Lc  segmentlcd.o [1]
+EFM_Display             0x00004c0c  0x200  Data  Lc  segmentlcd.o [1]
+EMU_BUPDInit            0x000046af   0x84  Code  Gb  em_emu.o [1]
+EMU_BUPinEnable         0x000044eb   0x14  Code  Lc  em_emu.o [1]
+EMU_BUReady             0x0000480f    0xa  Code  Lc  main.o [1]
+EMU_EM4Init             0x0000468d   0x22  Code  Gb  em_emu.o [1]
+EMU_EM4Lock             0x000047fd   0x12  Code  Lc  main.o [1]
+EMU_EnterEM2            0x00004621   0x6c  Code  Gb  em_emu.o [1]
+EMU_Lock                0x00004b8b    0x8  Code  Lc  em_rmu.o [1]
+EMU_Unlock              0x00004b93    0xa  Code  Lc  em_rmu.o [1]
+GPIO_EVEN_IRQHandler    0x00003621   0x4e  Code  Gb  clockApp.o [1]
+GPIO_ExtIntConfig       0x00003299  0x11c  Code  Gb  em_gpio.o [1]
+GPIO_IntClear           0x00003551    0x6  Code  Lc  clockApp.o [1]
+GPIO_IntConfig          0x00003557   0x2e  Code  Lc  clockApp.o [1]
+GPIO_ODD_IRQHandler     0x000035d3   0x4e  Code  Gb  clockApp.o [1]
+GPIO_PinModeSet         0x000033b5  0x14e  Code  Gb  em_gpio.o [1]
+GPIO_PinOutClear        0x00003145   0xaa  Code  Lc  em_gpio.o [1]
+GPIO_PinOutSet          0x000031ef   0xaa  Code  Lc  em_gpio.o [1]
+GetProdRev              0x00000efd    0xa  Code  Lc  system_efm32gg.o [1]
+HEAP$$Base              0x20000458          --   Gb  - Linker created -
+HEAP$$Limit             0x20000c58          --   Gb  - Linker created -
+LCD_Enable              0x000028b1   0x2a  Code  Lc  em_lcd.o [1]
+LCD_FreezeEnable        0x00002d1d   0x1a  Code  Lc  segmentlcd.o [1]
+LCD_Init                0x000028e9   0x4c  Code  Gb  em_lcd.o [1]
+LCD_IntDisable          0x00002d43   0x10  Code  Lc  segmentlcd.o [1]
+LCD_SegmentRangeEnable  0x0000295b   0x2a  Code  Gb  em_lcd.o [1]
+LCD_SegmentSet          0x00002985  0x182  Code  Gb  em_lcd.o [1]
+LCD_SegmentSetHigh      0x00002be5   0xd4  Code  Gb  em_lcd.o [1]
+LCD_SegmentSetLow       0x00002b07   0xde  Code  Gb  em_lcd.o [1]
+LCD_SyncBusyDelay       0x00002d37    0xc  Code  Lc  segmentlcd.o [1]
+LCD_VBoostSet           0x00002cb9   0x10  Code  Gb  em_lcd.o [1]
+LCD_VLCDSelect          0x00002935   0x26  Code  Gb  em_lcd.o [1]
+LoadInt                 0x000015db   0x6e  Code  Lc  xprintffull.o [3]
+NVIC_ClearPendingIRQ    0x0000353d   0x14  Code  Lc  clockApp.o [1]
+NVIC_ClearPendingIRQ    0x000047a1   0x14  Code  Lc  main.o [1]
+NVIC_EnableIRQ          0x00003529   0x14  Code  Lc  clockApp.o [1]
+NVIC_EnableIRQ          0x0000478d   0x14  Code  Lc  main.o [1]
+RMU_ResetCauseClear     0x00004bc3   0x38  Code  Gb  em_rmu.o [1]
+RMU_ResetControl        0x00004b9d   0x26  Code  Gb  em_rmu.o [1]
+Region$$Table$$Base     0x000052f0          --   Gb  - Linker created -
+Region$$Table$$Limit    0x00005310          --   Gb  - Linker created -
+SL_CTZ                  0x00004b71    0xc  Code  Lc  em_rmu.o [1]
+SYSTEM_ChipRevisionGet  0x000049fd   0x4a  Code  Gb  em_system.o [1]
+SYSTEM_GetFamily        0x0000012f    0xc  Code  Lc  em_cmu.o [1]
+SYSTEM_GetProdRev       0x00000123    0xc  Code  Lc  em_cmu.o [1]
+SYSTEM_GetProdRev       0x000047b5    0xa  Code  Lc  main.o [1]
+SegmentLCD_AllOff       0x00002d53   0xb4  Code  Gb  segmentlcd.o [1]
+SegmentLCD_AlphaNumberOff
+                        0x00002e07   0xaa  Code  Gb  segmentlcd.o [1]
+SegmentLCD_Init         0x00002eb1   0xa2  Code  Gb  segmentlcd.o [1]
+SegmentLCD_Symbol       0x00002f53  0x106  Code  Gb  segmentlcd.o [1]
+SegmentLCD_Write        0x00003059   0x9c  Code  Gb  segmentlcd.o [1]
+SystemCoreClock         0x20000cf4    0x4  Data  Gb  system_efm32gg.o [1]
+SystemCoreClockGet      0x00000f07   0x1a  Code  Gb  system_efm32gg.o [1]
+SystemCoreClockUpdate   0x000044d5    0x8  Code  Lc  em_emu.o [1]
+SystemHFClockGet        0x00000f25   0xb2  Code  Gb  system_efm32gg.o [1]
+SystemHFXOClock         0x20000004    0x4  Data  Lc  system_efm32gg.o [1]
+SystemHFXOClockGet      0x00000fd7    0x6  Code  Gb  system_efm32gg.o [1]
+SystemInit              0x00000fdd    0x2  Code  Gb  system_efm32gg.o [1]
+SystemLFRCOClockGet     0x00000fdf    0x6  Code  Gb  system_efm32gg.o [1]
+SystemLFXOClock         0x20000008    0x4  Data  Lc  system_efm32gg.o [1]
+SystemLFXOClockGet      0x00000feb    0x6  Code  Gb  system_efm32gg.o [1]
+SystemMaxCoreClockGet   0x00000f21    0x4  Code  Gb  system_efm32gg.o [1]
+SystemULFRCOClockGet    0x00000fe5    0x6  Code  Gb  system_efm32gg.o [1]
+_GenldFull              0x00001b55  0x26a  Code  Lc  xprintffull.o [3]
+_Getdst                 0x00004245  0x132  Code  Gb  xgetdst.o [3]
+_Gettime                0x00003cef   0x42  Code  Gb  xgettime.o [3]
+_IsdstStr               0x20000044    0x4  Data  Gb  setlocale.o [3]
+_Isdst_olddst           0x20000048    0x4  Data  Lc  xisdst.o [3]
+_Isdst_rules            0x20000050    0x4  Data  Gb  xisdstData.o [3]
+_LdtobFull              0x00001755  0x3fa  Code  Lc  xprintffull.o [3]
+_LitobFull              0x00001649  0x10a  Code  Lc  xprintffull.o [3]
+_Localtime_oldzone      0x2000000c    0x4  Data  Lc  localtim.o [3]
+_Localtime_tzoff        0x20000010    0x4  Data  Lc  localtim.o [3]
+_PrintfFull             0x00001035  0x5a0  Code  Gb  xprintffull.o [3]
+_PutcharsFull           0x00001dbf   0x2e  Code  Lc  xprintffull.o [3]
+_SProut                 0x00000ef3    0xa  Code  Gb  xsprout.o [3]
+_Ttotm_ts               0x20000014   0x2c  Data  Lc  xttotm.o [3]
+_Tzoff                  0x00003939   0x94  Code  Gb  localtim.o [3]
+_TzoneStr               0x20000040    0x4  Data  Gb  setlocale.o [3]
+__Vectors               0x00000000          --   Gb  startup_efm32gg.o [1]
+__Vectors_End           0x000000dc         Data  Gb  startup_efm32gg.o [1]
+__Vectors_Size {Abs}    0x000000dc          --   Gb  startup_efm32gg.o [1]
+__aeabi_cdcmple         0x0000205d         Code  Gb  DblCmpLe.o [4]
+__aeabi_cdrcmple        0x0000208d         Code  Gb  DblCmpGe.o [4]
+__aeabi_d2iz            0x000021c9         Code  Gb  DblToI32.o [4]
+__aeabi_d2uiz           0x000021f5         Code  Gb  DblToI32.o [4]
+__aeabi_ddiv            0x00002575         Code  Gb  DblDiv.o [4]
+__aeabi_dmul            0x000023d1         Code  Gb  DblMul.o [4]
+__aeabi_dsub            0x00002251         Code  Gb  DblSub.o [4]
+__aeabi_errno_addr      0x000040d9    0x6  Code  Gb  errno.o [3]
+__aeabi_i2d             0x00002221         Code  Gb  I32ToDbl.o [4]
+__aeabi_ldiv0           0x000027d9         Code  Gb  I64DivZer.o [5]
+__aeabi_ui2d            0x00002235         Code  Gb  I32ToDbl.o [4]
+__aeabi_uldivmod        0x00001eb1         Code  Gb  I64DivMod.o [5]
+__cmain                 0x00005311         Code  Gb  cmain.o [5]
+__data_Aldata           0x20000cb8    0x8  Data  Gb  xxmemxmalloc.o [3]
+__data_GetMemChunk      0x000044a9   0x2c  Code  Gb  xgetmemchunk.o [3]
+__data_GetMemChunk::start
+                        0x20000cf8    0x4  Data  Lc  xgetmemchunk.o [3]
+__exit                  0x00005341         Code  Gb  XXexit.o [5]
+__getzone               0x00003ce5    0x6  Code  Gb  getzone.o [3]
+__iar_Daysto32          0x00003db9   0x3a  Code  Gb  xttotm.o [3]
+__iar_Dnorm             0x00002017   0x44  Code  Gb  xdnorm.o [4]
+__iar_Dscale            0x000020bd  0x10c  Code  Gb  xdscale.o [4]
+__iar_Errno             0x2000004c    0x4  Data  Gb  errno.o [3]
+__iar_Isdst32           0x000040e5  0x134  Code  Gb  xisdst.o [3]
+__iar_Memchr            0x00001e59         Code  Gb  memchr.o [5]
+__iar_Stolx             0x00003d31   0x86  Code  Gb  xstol.o [3]
+__iar_Stoulx            0x00003f41  0x142  Code  Gb  xstoul.o [3]
+__iar_Strchr            0x00001e09         Code  Gb  strchr.o [5]
+__iar_Ttotm32           0x00003df3  0x112  Code  Gb  xttotm.o [3]
+__iar_TzoneStr_init     0x00003cb9   0x24  Code  Gb  setlocale.o [3]
+__iar_d2uiz             0x00002201         Code  Gb  DblToI32.o [4]
+__iar_dadd              0x000027dd         Code  Gb  DblAdd.o [4]
+__iar_data_init3        0x000052c9   0x28  Code  Gb  data_init.o [5]
+__iar_dlib_perthread_access
+                        0x00003cb5    0x2  Code  Gb  xtls.o [3]
+__iar_dsub              0x00002265         Code  Gb  DblSub.o [4]
+__iar_dsubStart         0x00002277         Code  Gb  DblSub.o [4]
+__iar_packbits_init_single3
+                        0x00005291   0x38  Code  Gb  packbits_init_single.o [5]
+__iar_program_start     0x000053a1         Code  Gb  cstartup_M.o [5]
+__iar_ui2d              0x00002239         Code  Gb  I32ToDbl.o [4]
+__iar_unaligned___aeabi_memcpy
+                        0x00001fa1         Code  Gb  ABImemcpy_unaligned.o [5]
+__iar_unaligned___aeabi_memcpy4
+                        0x00001fc1         Code  Gb  ABImemcpy_unaligned.o [5]
+__iar_unaligned___aeabi_memcpy8
+                        0x00001fc1         Code  Gb  ABImemcpy_unaligned.o [5]
+__iar_zero_init3        0x00005251   0x40  Code  Gb  zero_init3.o [5]
+__localtime32           0x000039d5   0x1a  Code  Gb  localtim.o [3]
+__low_level_init        0x0000532b    0x4  Code  Gb  low_level_init.o [3]
+__mktime32              0x000039f1   0xd0  Code  Gb  mktime.o [3]
+__time32                0x0000387d   0x4e  Code  Gb  clock.o [1]
+__vector_table          0x00000000         Data  Gb  startup_efm32gg.o [1]
+__vector_table_0x1c     0x0000001c         Data  Gb  startup_efm32gg.o [1]
+_call_main              0x0000531d         Code  Gb  cmain.o [5]
+_exit                   0x00005335         Code  Gb  cexit.o [5]
+_main                   0x00005327         Code  Gb  cmain.o [5]
+assertEFM               0x00000ef1    0x2  Code  Gb  em_assert.o [1]
+auxClkGet               0x000001f1   0x94  Code  Lc  em_cmu.o [1]
+budSetup                0x000048f7   0x72  Code  Gb  main.o [1]
+burtcCount              0x20000cd4    0x4  Data  Lc  clockApp.o [1]
+burtcCountAtWakeup      0x20000cf0    0x4  Data  Lc  main.o [1]
+burtcOverflowCounter    0x20000cd8    0x4  Data  Lc  clockApp.o [1]
+burtcOverflowIntervalRem
+                        0x20000cdc    0x4  Data  Lc  clockApp.o [1]
+burtcSetup              0x00004969   0x48  Code  Gb  main.o [1]
+burtcTimestamp          0x20000ce0    0x4  Data  Lc  clockApp.o [1]
+calendar                0x20000c58   0x2c  Data  Lc  clockApp.o [1]
+clockAppBackup          0x000036c9   0x1c  Code  Gb  clockApp.o [1]
+clockAppDisplay         0x0000375b   0x6e  Code  Gb  clockApp.o [1]
+clockAppDisplay::initialized
+                        0x20000cfc    0x1  Data  Lc  clockApp.o [1]
+clockAppInit            0x000036a3   0x26  Code  Gb  clockApp.o [1]
+clockAppRestore         0x000036e5   0x76  Code  Gb  clockApp.o [1]
+clockGetOverflowCounter
+                        0x0000391d    0x6  Code  Gb  clock.o [1]
+clockGetStartTime       0x000038e1    0x6  Code  Gb  clock.o [1]
+clockInit               0x000038e7   0x20  Code  Gb  clock.o [1]
+clockOverflow           0x00003907   0x10  Code  Gb  clock.o [1]
+clockSetCal             0x000038cb   0x10  Code  Gb  clock.o [1]
+clockSetOverflowCounter
+                        0x00003917    0x6  Code  Gb  clock.o [1]
+clockSetStartTime       0x000038db    0x6  Code  Gb  clock.o [1]
+currentTime             0x20000ce4    0x4  Data  Lc  clockApp.o [1]
+dbgClkGet               0x00000285   0x3c  Code  Lc  em_cmu.o [1]
+digits                  0x00004088   0x28  Data  Lc  xstoul.o [3]
+div                     0x000027cb    0xe  Code  Gb  div.o [3]
+divToLog2               0x00003b29   0x24  Code  Lc  em_burtc.o [1]
+emState                 0x00004515   0xcc  Code  Lc  em_emu.o [1]
+emState::cmuStatus      0x20000ce8    0x4  Data  Lc  em_emu.o [1]
+emState::hfClock        0x20000cfd    0x1  Data  Lc  em_emu.o [1]
+exit                    0x0000532f    0x4  Code  Gb  exit.o [3]
+flashWaitStateControl   0x000002c1   0xa2  Code  Lc  em_cmu.o [1]
+flashWaitStateMax       0x00000363    0xc  Code  Lc  em_cmu.o [1]
+free                    0x00004379   0x7a  Code  Gb  xxmemxfree.o [3]
+getErrataFixEmuE107En   0x000045e1   0x40  Code  Lc  em_emu.o [1]
+getHfLeConfig           0x000001c5   0x2c  Code  Lc  em_cmu.o [1]
+getint                  0x00004219   0x2c  Code  Lc  xgetdst.o [3]
+gpioIrqInit             0x000037c9   0x5c  Code  Gb  clockApp.o [1]
+initialCalendar         0x20000c84   0x2c  Data  Gb  main.o [1]
+lcdInit                 0x00005360   0x14  Data  Lc  segmentlcd.o [1]
+lcdString               0x20000000    0x4  Data  Lc  clockApp.o [1]
+lcdStringBuf            0x20000cb0    0x8  Data  Lc  clockApp.o [1]
+lcdUpdate               0x20000054    0x1  Data  Lc  clockApp.o [1]
+lfClkGet                0x0000036f   0xf4  Code  Lc  em_cmu.o [1]
+lmos                    0x00003f10   0x18  Data  Lc  xttotm.o [3]
+main                    0x00004839   0xbe  Code  Gb  main.o [1]
+malloc                  0x000043f9   0xac  Code  Gb  xxmemxmalloc.o [3]
+maxFreqHfle             0x0000013b   0x60  Code  Lc  em_cmu.o [1]
+memchr                  0x00001e59         Code  Gb  memchr.o [5]
+mos                     0x00003f28   0x18  Data  Lc  xttotm.o [3]
+ndigs                   0x000040b0   0x28  Data  Lc  xstoul.o [3]
+overflow_interval       0x20000cc8    0x4  Data  Lc  clock.o [1]
+overflow_interval_r     0x20000ccc    0x4  Data  Lc  clock.o [1]
+regSync                 0x00003b4d   0x1e  Code  Lc  em_burtc.o [1]
+resetcause              0x20000cec    0x4  Data  Lc  main.o [1]
+rtcOverflowCounter      0x20000cc4    0x4  Data  Lc  clock.o [1]
+rtcStartTime            0x20000cc0    0x4  Data  Lc  clock.o [1]
+setHfLeConfig           0x0000019b   0x2a  Code  Lc  em_cmu.o [1]
+sprintf                 0x00003c81   0x34  Code  Gb  sprintf.o [3]
+startTime               0x20000cd0    0x4  Data  Lc  clockApp.o [1]
+strchr                  0x00001e09         Code  Gb  strchr.o [5]
+strlen                  0x00001e21         Code  Gb  strlen.o [5]
+syncReg                 0x00000463   0x16  Code  Lc  em_cmu.o [1]
+usbCClkGet              0x00000479   0x3e  Code  Lc  em_cmu.o [1]
+
+
+[1] = D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\burtc\iar\burtc\Debug\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = m7M_tl.a
+[5] = rt7M_tl.a
+
+  19 896 bytes of readonly  code memory
+   1 727 bytes of readonly  data memory
+   3 323 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

@@ -23,17 +23,25 @@
 /* GLIB files */
 #include "glib.h"
 
-/* Define the default font */
+/** Define the default font. An application can override the default font
+ *  by defining GLIB_NO_DEFAULT_FONT and by providing a custom
+ *  GLIB_DEFAULT_FONT macro that points to a @ref GLIB_Font_t structure
+ *  that should be used as a default font. */
 #ifndef GLIB_NO_DEFAULT_FONT
 #define GLIB_DEFAULT_FONT       ((GLIB_Font_t *)&GLIB_FontNormal8x8)
 #endif
 
+/**
+ * @cond DO_NOT_INCLUDE_WITH_DOXYGEN
+ * @brief Inline version of the color transformation function.
+ */
 static __INLINE void GLIB_colorTranslate24bppInl(uint32_t color, uint8_t *red, uint8_t *green, uint8_t *blue)
 {
   *red   = (color >> RedShift) & 0xFF;
   *green = (color >> GreenShift) & 0xFF;
   *blue  = (color >> BlueShift) & 0xFF;
 }
+/** @endcond */
 
 /**************************************************************************//**
 *  @brief
@@ -86,7 +94,6 @@ EMSTATUS GLIB_contextInit(GLIB_Context_t *pContext)
 *  @return
 *  Returns DMD_OK on success, or else error code
 ******************************************************************************/
-
 EMSTATUS GLIB_displayWakeUp()
 {
   /* Use display driver's wake up function */
@@ -100,7 +107,6 @@ EMSTATUS GLIB_displayWakeUp()
 *  @return
 *  Returns DMD_OK on success, or else error code
 ******************************************************************************/
-
 EMSTATUS GLIB_displaySleep()
 {
   /* Use Display Driver sleep function */
@@ -122,33 +128,25 @@ EMSTATUS GLIB_displaySleep()
 *  - Returns GLIB_OUT_OF_BOUNDS if clipping region is bigger than display clipping
 *  area
 ******************************************************************************/
-
-EMSTATUS GLIB_setClippingRegion(GLIB_Context_t *pContext, GLIB_Rectangle_t *pRect)
+EMSTATUS GLIB_setClippingRegion(GLIB_Context_t *pContext, const GLIB_Rectangle_t *pRect)
 {
-  EMSTATUS status;
-
   /* Check arguments */
   if ((pContext == NULL) || (pRect == NULL)) return GLIB_ERROR_INVALID_ARGUMENT;
 
   /* Check coordinates against the display region */
   if ((pRect->xMin >= pRect->xMax) ||
-     (pRect->yMin >= pRect->yMax)) return GLIB_ERROR_INVALID_CLIPPINGREGION;
+      (pRect->yMin >= pRect->yMax))
+    return GLIB_ERROR_INVALID_CLIPPINGREGION;
 
-  if ((pRect->xMin < pContext->pDisplayGeometry->xClipStart) ||
-      (pRect->yMin < pContext->pDisplayGeometry->yClipStart) ||
-      (pRect->xMax > pContext->pDisplayGeometry->clipWidth - 1) ||
-      (pRect->yMax > pContext->pDisplayGeometry->clipHeight - 1)) return GLIB_OUT_OF_BOUNDS;
-
-  /* Set clipping region in driver */
-  status = DMD_setClippingArea(pRect->xMin,
-                               pRect->yMin,
-                               pRect->xMin + pRect->xMax + 1,
-                               pRect->yMin + pRect->yMax + 1);
+  if ((pRect->xMin < 0) ||
+      (pRect->yMin < 0) ||
+      (pRect->xMax > pContext->pDisplayGeometry->xSize - 1) ||
+      (pRect->yMax > pContext->pDisplayGeometry->ySize - 1))
+    return GLIB_OUT_OF_BOUNDS;
 
   GLIB_Rectangle_t tmpRect = {pRect->xMin, pRect->yMin, pRect->xMax, pRect->yMax};
   pContext->clippingRegion = tmpRect;
-
-  return status;
+  return GLIB_applyClippingRegion(pContext);
 }
 
 
@@ -157,7 +155,7 @@ EMSTATUS GLIB_setClippingRegion(GLIB_Context_t *pContext, GLIB_Rectangle_t *pRec
 *  Clears the display with the background color of the GLIB_Context_t
 *
 *  @param pContext
-*  Pointer to a GLIB_Context_t which holds the backgroundcolor.
+*  Pointer to a GLIB_Context_t which holds the background color.
 *
 *  @return
 *  Returns GLIB_OK on success, or else error code
@@ -189,6 +187,44 @@ EMSTATUS GLIB_clear(GLIB_Context_t *pContext)
 
 /**************************************************************************//**
 *  @brief
+*  Clears the clipping region by filling it with the background color of
+*  the GLIB_Context_t
+*
+*  @param pContext
+*  Pointer to a GLIB_Context_t which holds the background color.
+*
+*  @return
+*  Returns GLIB_OK on success, or else error code
+******************************************************************************/
+EMSTATUS GLIB_clearRegion(const GLIB_Context_t *pContext)
+{
+  EMSTATUS status;
+  uint8_t  red;
+  uint8_t  green;
+  uint8_t  blue;
+  uint32_t width;
+  uint32_t height;
+
+  /* Check arguments */
+  if (pContext == NULL) return GLIB_ERROR_INVALID_ARGUMENT;
+
+  /* Divide the 24-color into it's components */
+  GLIB_colorTranslate24bpp(pContext->backgroundColor, &red, &green, &blue);
+
+  status = GLIB_applyClippingRegion(pContext);
+  if (status != DMD_OK) return status;
+
+  /* Fill the region with the background color of the GLIB_Context_t */
+  width = pContext->clippingRegion.xMax - pContext->clippingRegion.xMin + 1;
+  height = pContext->clippingRegion.yMax - pContext->clippingRegion.yMin + 1;
+  status = DMD_writeColor(0, 0, red, green, blue, width * height);
+  if (status != DMD_OK) return status;
+  
+  return status;
+}
+
+/**************************************************************************//**
+*  @brief
 *  Reset the display driver clipping area to the whole display
 *
 *  @param pContext
@@ -203,7 +239,7 @@ EMSTATUS GLIB_resetDisplayClippingArea(GLIB_Context_t *pContext)
   if (pContext == NULL) return GLIB_ERROR_INVALID_ARGUMENT;
 
   return DMD_setClippingArea(0, 0, pContext->pDisplayGeometry->xSize,
-                                        pContext->pDisplayGeometry->ySize);
+                                   pContext->pDisplayGeometry->ySize);
 }
 
 /**************************************************************************//**
@@ -221,12 +257,34 @@ EMSTATUS GLIB_resetClippingRegion(GLIB_Context_t *pContext)
   /* Check arguments */
   if (pContext == NULL) return GLIB_ERROR_INVALID_ARGUMENT;
 
-  pContext->clippingRegion.xMin = pContext->pDisplayGeometry->xClipStart;
-  pContext->clippingRegion.yMin = pContext->pDisplayGeometry->yClipStart;
-  pContext->clippingRegion.xMax = pContext->clippingRegion.xMin + pContext->pDisplayGeometry->clipWidth - 1;
-  pContext->clippingRegion.yMax = pContext->clippingRegion.yMin + pContext->pDisplayGeometry->clipHeight - 1;
+  pContext->clippingRegion.xMin = 0;
+  pContext->clippingRegion.yMin = 0;
+  pContext->clippingRegion.xMax = pContext->pDisplayGeometry->xSize - 1;
+  pContext->clippingRegion.yMax = pContext->pDisplayGeometry->ySize - 1;
 
   return GLIB_OK;
+}
+
+/**************************************************************************//**
+*  @brief
+*  Apply the clipping region from the GLIB_Context_t in the DMD driver.
+*
+*  @param pContext
+*  Pointer to a GLIB_Context_t
+*
+*  @return
+*  Returns GLIB_OK on success, or else error code
+******************************************************************************/
+EMSTATUS GLIB_applyClippingRegion(const GLIB_Context_t *pContext)
+{
+  /* Check arguments */
+  if (pContext == NULL) return GLIB_ERROR_INVALID_ARGUMENT;
+
+  /* Reset driver clipping area to GLIB clipping region */
+  return DMD_setClippingArea(pContext->clippingRegion.xMin,
+                             pContext->clippingRegion.yMin,
+                             pContext->clippingRegion.xMax - pContext->clippingRegion.xMin + 1,
+                             pContext->clippingRegion.yMax - pContext->clippingRegion.yMin + 1);
 }
 
 /**************************************************************************//**
@@ -270,7 +328,6 @@ void GLIB_colorTranslate24bpp(uint32_t color, uint8_t *red, uint8_t *green, uint
 *  the next 8 is green and the next 8 is red. 0x00RRGGBB
 *
 ******************************************************************************/
-
 uint32_t GLIB_rgbColor(uint8_t red, uint8_t green, uint8_t blue)
 {
   return (red << RedShift) | (green << GreenShift) | (blue << BlueShift);

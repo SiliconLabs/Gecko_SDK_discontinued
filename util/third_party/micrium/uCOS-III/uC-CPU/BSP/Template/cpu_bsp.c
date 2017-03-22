@@ -3,7 +3,7 @@
 *                                                uC/CPU
 *                                    CPU CONFIGURATION & PORT LAYER
 *
-*                          (c) Copyright 2004-2013; Micrium, Inc.; Weston, FL
+*                          (c) Copyright 2004-2016; Micrium, Inc.; Weston, FL
 *
 *               All rights reserved.  Protected by international copyright laws.
 *
@@ -15,6 +15,8 @@
 *               Please help us continue to provide the Embedded community with the finest 
 *               software available.  Your honesty is greatly appreciated.
 *
+*               You can find our product's user manual, API reference, release notes and
+*               more information at https://doc.micrium.com.
 *               You can contact us at www.micrium.com.
 *********************************************************************************************************
 */
@@ -27,7 +29,7 @@
 *                                              TEMPLATE
 *
 * Filename      : cpu_bsp.c
-* Version       : V1.29.02
+* Version       : V1.31.00
 * Programmer(s) : ITJ
 *                 JBL
 *********************************************************************************************************
@@ -312,6 +314,7 @@ CPU_INT64U  CPU_TS32_to_uSec (CPU_TS32  ts_cnts)
 
     /* $$$$ Insert code to convert (up to) 64-bits of 32-bit CPU timestamp to microseconds (see Note #2) */
 
+    return (0u);
 }
 #endif
 
@@ -322,6 +325,7 @@ CPU_INT64U  CPU_TS64_to_uSec (CPU_TS64  ts_cnts)
 
     /* $$$$ Insert code to convert (up to) 64-bits of 64-bit CPU timestamp to microseconds (see Note #2) */
 
+    return (0u);
 }
 #endif
 

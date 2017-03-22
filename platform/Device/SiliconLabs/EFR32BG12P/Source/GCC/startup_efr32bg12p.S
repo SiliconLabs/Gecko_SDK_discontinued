@@ -1,7 +1,7 @@
 /* @file startup_efr32bg12p.S
  * @brief startup file for Silicon Labs EFR32BG12P devices.
  *        For use with GCC for ARM Embedded Processors
- * @version 5.0.0
+ * @version 5.1.2
  * Date:    12 June 2014
  *
  */

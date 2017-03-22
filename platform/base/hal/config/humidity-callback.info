@@ -1,0 +1,11 @@
+/** @brief Humidity Reading Complete
+ *
+ * This callback is called when a humidity reading is complete.
+ *
+ * @param humidity The humidity in centi Percentage (0.01%)
+ *
+ * @param readSuccess if the humidity reading is successful
+ */
+void halHumidityReadingCompleteCallback(uint16_t humidity, bool readSuccess)
+{
+}

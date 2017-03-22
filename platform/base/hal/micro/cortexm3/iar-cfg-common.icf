@@ -1,0 +1,258 @@
+// IAR V5 ILINK linker common configuration file.
+//
+// Copyright 2008-2009 by Ember Corporation. All rights reserved.           *80*
+//=============================================================================
+
+// This configuration file is common to all ember cortex chips.  It is
+// included from a chip specific file which defines the following symbols:
+//   RAM_BOTTOM
+//   RAM_TOP
+//   MFB_BOTTOM
+//   MFB_TOP
+//   CIB_BOTTOM
+//   CIB_TOP
+//   FIB_BOTTOM
+//   FIB_TOP
+
+//=============================================================================
+// Flash placement.
+
+// Basic memory layout of a NULL_BTL application in FLASH:
+//  ---------------- MFB_TOP
+//  | Storage      | 
+//  |--------------| MFB_TOP-INTERNAL_STORAGE_SIZE
+//  | SIMEE        |
+//  |--------------| MFB_TOP-INTERNAL_STORAGE_SIZE-0x2000 or MFB_TOP-INTERNAL_STORAGE_SIZE-0x1000
+//  | Unused       |
+//  |--------------| 0x080XXXXX
+//  | DATA_INIT    |
+//  |--------------| 0x080XXXXX
+//  | CONST        |
+//  |--------------| 0x080XXXXX
+//  | CODE         |
+//  |--------------| 0x080002XX
+//  | Vector Table | 
+//  |--------------| 0x08000200
+//  | Reserved     |
+//  |--------------| 0x080000XX
+//  | AAT          |
+//  |--------------| 0x080000XX
+//  | NULL BAT     |
+//  |--------------| 0x08000000
+
+// Basic memory layout of an MFB bootloader application in FLASH:
+//  ---------------- MFB_TOP
+//  | Storage      | 
+//  |--------------| MFB_TOP-INTERNAL_STORAGE_SIZE
+//  | SIMEE        |
+//  |--------------| MFB_TOP-INTERNAL_STORAGE_SIZE-0x2000 or MFB_TOP-INTERNAL_STORAGE_SIZE-0x1000
+//  | Unused       |
+//  |--------------| 0x080XXXXX
+//  | DATA_INIT    |
+//  |--------------| 0x080XXXXX
+//  | CONST        |
+//  |--------------| 0x080XXXXX
+//  | CODE         |
+//  |--------------| 0x080002XX + BTL_SIZE
+//  | Vector Table | 
+//  |--------------| 0x08000200 + BTL_SIZE
+//  | Reserved     |
+//  |--------------| 0x080000XX + BTL_SIZE
+//  | AAT          |
+//  |--------------| 0x08000000 + BTL_SIZE
+//  | Bootloader   |
+//  |--------------| 0x080000XX
+//  | BAT          |
+//  |--------------| 0x08000000
+
+// Basic memory layout of a info page bootloader application in FLASH:
+//  ---------------- MFB_TOP
+//  | Storage      | 
+//  |--------------| MFB_TOP-INTERNAL_STORAGE_SIZE
+//  | SIMEE        |
+//  |--------------| MFB_TOP-INTERNAL_STORAGE_SIZE-0x2000 or MFB_TOP-INTERNAL_STORAGE_SIZE-0x1000
+//  | Unused       |
+//  |--------------| 0x080XXXXX
+//  | DATA_INIT    |
+//  |--------------| 0x080XXXXX
+//  | CONST        |
+//  |--------------| 0x080XXXXX
+//  | CODE         |
+//  |--------------| 0x080002XX
+//  | Vector Table | 
+//  |--------------| 0x08000200
+//  | Reserved     |
+//  |--------------| 0x080000XX
+//  | AAT          |
+//  |--------------| 0x08000000
+
+
+if( isdefinedsymbol(GECKO_INFO_PAGE_BTL)
+    || isdefinedsymbol(APP_GECKO_INFO_PAGE_BTL)
+    || isdefinedsymbol(STA_GECKO_INFO_PAGE_BTL)
+    || isdefinedsymbol(LOCAL_STORAGE_GECKO_INFO_PAGE_BTL) ) {
+  // The Gecko bootloaders do not need a BAT
+  define symbol NO_BAT = 1;
+  define symbol BTL_SIZE = 0;
+} else if( !isdefinedsymbol(BTL_SIZE) ) {
+  // Determine the size of the bootloader if not specified
+  if( isdefinedsymbol(NULL_BTL) ) {
+    define symbol BTL_SIZE = 0;
+  } else {
+    // use the default bootloader size for this micro
+    define symbol BTL_SIZE = DEFAULT_BTL_SIZE;
+  }
+}
+
+// Define a Header region and associated block where the AAT will 
+//  live (as well as a NULL BAT in the case of a NULL_BTL image)
+
+// The header size must be a multiple of a power of two greater than or equal to
+// the vector table size because we place the real vector table (which must be
+// correctly aligned) right after it. The alignment can be as much as 512 bytes.
+define symbol HEADER_SIZE = 512;
+define symbol HEADER_BOTTOM       = MFB_BOTTOM + BTL_SIZE;
+define symbol HEADER_TOP          = HEADER_BOTTOM + (HEADER_SIZE-1);
+define region HEADER_region       = mem:[from HEADER_BOTTOM to HEADER_TOP];
+if( isdefinedsymbol(NULL_BTL) ) {
+  // In the case of NULL_BTL, the dummy BAT gets placed at the beginning of
+  //  all the headers
+  define block HEADER_block with fixed order { ro section BAT, ro section AAT };
+} else {
+  // In other cases, the BAT is located at a fixed address in the bootloader, 
+  //  and only the AAT occupies the HEADERS block
+  define block HEADER_block with fixed order { ro section AAT };
+
+  if(!isdefinedsymbol(NO_BAT)) {
+    "BAT": place at address mem:MFB_BOTTOM { section BAT };
+  }
+}
+"HEADERS": place at start of HEADER_region { block HEADER_block };
+
+// Define a region and block for containing the rest of the application RO sections
+// The Application image lives in the flash remaining after the headers.
+define symbol APPRO_BOTTOM          = HEADER_TOP + 1;
+define symbol APPRO_TOP             = MFB_TOP;
+define region APPRO_region          = mem:[from APPRO_BOTTOM to APPRO_TOP];
+define block APPRO_block with fixed order { ro section .intvec, 
+                                            ro section .textrw_init, 
+                                            ro section .text,
+                                            ro section CODE, 
+                                            ro section .rodata,
+                                            ro section .data_init,
+                                            ro section __DLIB_PERTHREAD_init };
+"APP ro": place at start of APPRO_region { block APPRO_block };
+"NVM&SIMEE": place at end of APPRO_region {zi section NVM,
+                                           zi section SIMEE,
+                                           zi section PSSTORE,
+                                           zi section INTERNAL_STORAGE};
+
+//NOTE:  Simulated EEPROM size is determined by the sizing of the the
+//       storage variable simulatedEepromStorage which is placed into
+//       SIMEE section (which is placed at the end of the app).
+
+if ( !isdefinedsymbol(NO_FIB) )
+{
+  // The FAT lives at a fixed address within the FIB
+  "FAT": place at address mem:FIB_BOTTOM { section FAT };
+}
+//=============================================================================
+// RAM placement.
+
+// Basic RAM layout
+//  ---------------- RAM_TOP
+//  | UNUSED_RAM   |
+//  |--------------| RAM_TOP - UNUSED_RAM_SIZE
+//  | DEBUGCHANNEL |
+//  |--------------| RAM_TOP - UNUSED_RAM_SIZE - 0x00000010
+//  | NOINIT       |
+//  |--------------| 0x2000XXXX
+//  | APP_RAM      |
+//  |--------------| 0x2000XXXX
+//  | BSS          |
+//  |--------------| 0x2000XXXX
+//  | DATA         |
+//  |--------------| 0x2000XXXX
+//  | TEXTRW       |
+//  |--------------| 0x2000XXXX
+//  | CSTACK       |
+//  |--------------| 0x2000XXXX
+//  | GUARD REGION | MPU protected block to catch stack overflows
+//  |--------------| 0x2000XXXX
+//  | EXTRA SPACE  | This extra space will be used by either the heap or stack as needed
+//  |--------------| 0x2000XXXX
+//  | EMHEAP       |
+//  |   -   -   -  | 0x20000098
+//  | RESETINFO    | (Note: EMHEAP extends down over RESETINFO when running)
+//  |--------------| 0x20000000
+
+// Make sure the UNUSED_RAM_SIZE symbol is always defined for the if statement
+// below. If it wasn't specified then it should be 0.
+if( !isdefinedsymbol(UNUSED_RAM_SIZE) ) {
+  define symbol UNUSED_RAM_SIZE = 0;
+} 
+
+// Only create a region and segment for the unretained ram if some space is
+// allocated for it
+if( (UNUSED_RAM_SIZE != 0) ) {
+  define symbol UNUSED_RAM_BOTTOM  = RAM_TOP - (UNUSED_RAM_SIZE-1);
+  define symbol UNUSED_RAM_TOP     = RAM_TOP;
+  define region UNUSED_RAM_region  = mem:[from UNUSED_RAM_BOTTOM to UNUSED_RAM_TOP];
+  define block UNRETAINED_RAM with size = UNUSED_RAM_SIZE { rw section UNRETAINED_RAM };
+  "UNUSED_RAM": place at start of UNUSED_RAM_region { block UNRETAINED_RAM };
+} else {
+  define symbol UNUSED_RAM_BOTTOM = RAM_TOP + 1;
+}
+
+// Define the call stack and reset info sections so that they overlay on top
+// of each other.  The reset info is used to store reset/crash information and
+// bootloader parameters across resets.  It is overlaid across the bottom of the
+// call stack to avoid always dedicating RAM for this purpose even though it is
+// only used just before and just after a software reset.
+// These will be placed at the bottom of RAM so that a stack overflow will
+// cause a memory fault and so the reset info can be found at a well
+// known location.
+
+define overlay EMHEAP_overlay { rw section EMHEAP };
+define overlay EMHEAP_overlay { rw section RESETINFO };
+
+// Define a dedicated region for the debug channel which is a fixed size.
+//  The size of ram available to the application will be reduced by this amount
+if( !isdefinedsymbol(DEBUGCHAN_SIZE) ) {
+  define symbol DEBUGCHAN_SIZE    = 16;
+}
+define symbol DEBUGCHAN_TOP     = UNUSED_RAM_BOTTOM - 1;
+define symbol DEBUGCHAN_BOTTOM  = DEBUGCHAN_TOP - (DEBUGCHAN_SIZE-1);
+define region DEBUGCHAN_region  = mem:[from DEBUGCHAN_BOTTOM to DEBUGCHAN_TOP];
+"DEBUGCHAN": place at start of DEBUGCHAN_region { rw section DEBUG_CHANNEL };
+
+//Do not include the intializer tables or IAR init library code for any RW.
+do not initialize { rw };
+//But, .data and .textrw will be manually initialized so include init tables
+// for them.
+initialize manually { section .data, section .textrw, rw section __DLIB_PERTHREAD };
+
+// Create blocks for the DLIB_PERTHREAD regions used by IAR's standard libraries
+define block DLIB_PERTHREAD_ZERO_DATA { zi section __DLIB_PERTHREAD };
+define block DLIB_PERTHREAD_INITIALIZED_DATA { rw section __DLIB_PERTHREAD };
+
+// Define a region and block for containing the rest of the application RW sections
+define symbol APPRW_BOTTOM      = RAM_BOTTOM;
+define symbol APPRW_TOP         = DEBUGCHAN_BOTTOM - 1;
+define region APPRW_region      = mem:[from APPRW_BOTTOM to APPRW_TOP];
+
+// 8-byte align the CSTACK so that we're compliant with the ARM AAPCS
+define block ALIGN_CSTACK with alignment = 8 { rw section CSTACK };
+
+define block APPRW_block with fixed order { block ALIGN_CSTACK, 
+                                            rw section .textrw,
+                                            rw section .data,
+                                            block DLIB_PERTHREAD_INITIALIZED_DATA,
+                                            block DLIB_PERTHREAD_ZERO_DATA,
+                                            rw section .bss,
+                                            rw section APP_RAM,
+                                            rw section .noinit };
+
+"APP rw": place at end of APPRW_region { block APPRW_block };
+"Heap": place at start of APPRW_region { overlay EMHEAP_overlay };
+"Guard": place in APPRW_region { rw section GUARD_REGION };

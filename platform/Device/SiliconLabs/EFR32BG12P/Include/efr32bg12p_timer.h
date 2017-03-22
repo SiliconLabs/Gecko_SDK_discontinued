@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file efr32bg12p_timer.h
  * @brief EFR32BG12P_TIMER register and bit field definitions
- * @version 5.0.0
+ * @version 5.1.2
  ******************************************************************************
  * @section License
- * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -188,7 +188,7 @@ typedef struct
 #define _TIMER_CTRL_ATI_MASK                       0x10000000UL                             /**< Bit mask for TIMER_ATI */
 #define _TIMER_CTRL_ATI_DEFAULT                    0x00000000UL                             /**< Mode DEFAULT for TIMER_CTRL */
 #define TIMER_CTRL_ATI_DEFAULT                     (_TIMER_CTRL_ATI_DEFAULT << 28)          /**< Shifted mode DEFAULT for TIMER_CTRL */
-#define TIMER_CTRL_RSSCOIST                        (0x1UL << 29)                            /**< Reload-Start Sets Compare Ouptut initial State */
+#define TIMER_CTRL_RSSCOIST                        (0x1UL << 29)                            /**< Reload-Start Sets Compare Output initial State */
 #define _TIMER_CTRL_RSSCOIST_SHIFT                 29                                       /**< Shift value for TIMER_RSSCOIST */
 #define _TIMER_CTRL_RSSCOIST_MASK                  0x20000000UL                             /**< Bit mask for TIMER_RSSCOIST */
 #define _TIMER_CTRL_RSSCOIST_DEFAULT               0x00000000UL                             /**< Mode DEFAULT for TIMER_CTRL */
@@ -545,25 +545,25 @@ typedef struct
 
 /* Bit fields for TIMER TOP */
 #define _TIMER_TOP_RESETVALUE                      0x0000FFFFUL                  /**< Default value for TIMER_TOP */
-#define _TIMER_TOP_MASK                            0xFFFFFFFFUL                  /**< Mask for TIMER_TOP */
+#define _TIMER_TOP_MASK                            0x0000FFFFUL                  /**< Mask for TIMER_TOP */
 #define _TIMER_TOP_TOP_SHIFT                       0                             /**< Shift value for TIMER_TOP */
-#define _TIMER_TOP_TOP_MASK                        0xFFFFFFFFUL                  /**< Bit mask for TIMER_TOP */
+#define _TIMER_TOP_TOP_MASK                        0xFFFFUL                      /**< Bit mask for TIMER_TOP */
 #define _TIMER_TOP_TOP_DEFAULT                     0x0000FFFFUL                  /**< Mode DEFAULT for TIMER_TOP */
 #define TIMER_TOP_TOP_DEFAULT                      (_TIMER_TOP_TOP_DEFAULT << 0) /**< Shifted mode DEFAULT for TIMER_TOP */
 
 /* Bit fields for TIMER TOPB */
 #define _TIMER_TOPB_RESETVALUE                     0x00000000UL                    /**< Default value for TIMER_TOPB */
-#define _TIMER_TOPB_MASK                           0xFFFFFFFFUL                    /**< Mask for TIMER_TOPB */
+#define _TIMER_TOPB_MASK                           0x0000FFFFUL                    /**< Mask for TIMER_TOPB */
 #define _TIMER_TOPB_TOPB_SHIFT                     0                               /**< Shift value for TIMER_TOPB */
-#define _TIMER_TOPB_TOPB_MASK                      0xFFFFFFFFUL                    /**< Bit mask for TIMER_TOPB */
+#define _TIMER_TOPB_TOPB_MASK                      0xFFFFUL                        /**< Bit mask for TIMER_TOPB */
 #define _TIMER_TOPB_TOPB_DEFAULT                   0x00000000UL                    /**< Mode DEFAULT for TIMER_TOPB */
 #define TIMER_TOPB_TOPB_DEFAULT                    (_TIMER_TOPB_TOPB_DEFAULT << 0) /**< Shifted mode DEFAULT for TIMER_TOPB */
 
 /* Bit fields for TIMER CNT */
 #define _TIMER_CNT_RESETVALUE                      0x00000000UL                  /**< Default value for TIMER_CNT */
-#define _TIMER_CNT_MASK                            0xFFFFFFFFUL                  /**< Mask for TIMER_CNT */
+#define _TIMER_CNT_MASK                            0x0000FFFFUL                  /**< Mask for TIMER_CNT */
 #define _TIMER_CNT_CNT_SHIFT                       0                             /**< Shift value for TIMER_CNT */
-#define _TIMER_CNT_CNT_MASK                        0xFFFFFFFFUL                  /**< Bit mask for TIMER_CNT */
+#define _TIMER_CNT_CNT_MASK                        0xFFFFUL                      /**< Bit mask for TIMER_CNT */
 #define _TIMER_CNT_CNT_DEFAULT                     0x00000000UL                  /**< Mode DEFAULT for TIMER_CNT */
 #define TIMER_CNT_CNT_DEFAULT                      (_TIMER_CNT_CNT_DEFAULT << 0) /**< Shifted mode DEFAULT for TIMER_CNT */
 
@@ -1249,25 +1249,25 @@ typedef struct
 
 /* Bit fields for TIMER CC_CCV */
 #define _TIMER_CC_CCV_RESETVALUE                   0x00000000UL                     /**< Default value for TIMER_CC_CCV */
-#define _TIMER_CC_CCV_MASK                         0xFFFFFFFFUL                     /**< Mask for TIMER_CC_CCV */
+#define _TIMER_CC_CCV_MASK                         0x0000FFFFUL                     /**< Mask for TIMER_CC_CCV */
 #define _TIMER_CC_CCV_CCV_SHIFT                    0                                /**< Shift value for TIMER_CCV */
-#define _TIMER_CC_CCV_CCV_MASK                     0xFFFFFFFFUL                     /**< Bit mask for TIMER_CCV */
+#define _TIMER_CC_CCV_CCV_MASK                     0xFFFFUL                         /**< Bit mask for TIMER_CCV */
 #define _TIMER_CC_CCV_CCV_DEFAULT                  0x00000000UL                     /**< Mode DEFAULT for TIMER_CC_CCV */
 #define TIMER_CC_CCV_CCV_DEFAULT                   (_TIMER_CC_CCV_CCV_DEFAULT << 0) /**< Shifted mode DEFAULT for TIMER_CC_CCV */
 
 /* Bit fields for TIMER CC_CCVP */
 #define _TIMER_CC_CCVP_RESETVALUE                  0x00000000UL                       /**< Default value for TIMER_CC_CCVP */
-#define _TIMER_CC_CCVP_MASK                        0xFFFFFFFFUL                       /**< Mask for TIMER_CC_CCVP */
+#define _TIMER_CC_CCVP_MASK                        0x0000FFFFUL                       /**< Mask for TIMER_CC_CCVP */
 #define _TIMER_CC_CCVP_CCVP_SHIFT                  0                                  /**< Shift value for TIMER_CCVP */
-#define _TIMER_CC_CCVP_CCVP_MASK                   0xFFFFFFFFUL                       /**< Bit mask for TIMER_CCVP */
+#define _TIMER_CC_CCVP_CCVP_MASK                   0xFFFFUL                           /**< Bit mask for TIMER_CCVP */
 #define _TIMER_CC_CCVP_CCVP_DEFAULT                0x00000000UL                       /**< Mode DEFAULT for TIMER_CC_CCVP */
 #define TIMER_CC_CCVP_CCVP_DEFAULT                 (_TIMER_CC_CCVP_CCVP_DEFAULT << 0) /**< Shifted mode DEFAULT for TIMER_CC_CCVP */
 
 /* Bit fields for TIMER CC_CCVB */
 #define _TIMER_CC_CCVB_RESETVALUE                  0x00000000UL                       /**< Default value for TIMER_CC_CCVB */
-#define _TIMER_CC_CCVB_MASK                        0xFFFFFFFFUL                       /**< Mask for TIMER_CC_CCVB */
+#define _TIMER_CC_CCVB_MASK                        0x0000FFFFUL                       /**< Mask for TIMER_CC_CCVB */
 #define _TIMER_CC_CCVB_CCVB_SHIFT                  0                                  /**< Shift value for TIMER_CCVB */
-#define _TIMER_CC_CCVB_CCVB_MASK                   0xFFFFFFFFUL                       /**< Bit mask for TIMER_CCVB */
+#define _TIMER_CC_CCVB_CCVB_MASK                   0xFFFFUL                           /**< Bit mask for TIMER_CCVB */
 #define _TIMER_CC_CCVB_CCVB_DEFAULT                0x00000000UL                       /**< Mode DEFAULT for TIMER_CC_CCVB */
 #define TIMER_CC_CCVB_CCVB_DEFAULT                 (_TIMER_CC_CCVB_CCVB_DEFAULT << 0) /**< Shifted mode DEFAULT for TIMER_CC_CCVB */
 

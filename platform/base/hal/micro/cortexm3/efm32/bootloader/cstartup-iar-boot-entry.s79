@@ -1,0 +1,102 @@
+/***************************************************************************//**
+ * @file cstartup-iar-boot.s79
+ * @brief Defines halEntryPoint in raw assembly.
+ * @version 3.20.2
+ *******************************************************************************
+ * @section License
+ * <b>(C) Copyright 2015 Silicon Labs, http://www.silabs.com</b>
+ *******************************************************************************
+ *
+ * Permission is granted to anyone to use this software for any purpose,
+ * including commercial applications, and to alter it and redistribute it
+ * freely, subject to the following restrictions:
+ *
+ * 1. The origin of this software must not be misrepresented; you must not
+ *    claim that you wrote the original software.
+ * 2. Altered source versions must be plainly marked as such, and must not be
+ *    misrepresented as being the original software.
+ * 3. This notice may not be removed or altered from any source distribution.
+ *
+ * DISCLAIMER OF WARRANTY/LIMITATION OF REMEDIES: Silicon Labs has no
+ * obligation to support this Software. Silicon Labs is providing the
+ * Software "AS IS", with no express or implied warranties of any kind,
+ * including, but not limited to, any implied warranties of merchantability
+ * or fitness for any particular purpose or warranties against infringement
+ * of any proprietary rights of a third party.
+ *
+ * Silicon Labs will not be liable for any consequential, incidental, or
+ * special damages, or any other relief, or for any claim by any third party,
+ * arising from your use of this Software.
+ *
+ ******************************************************************************/
+#include "../../compiler/asm.h"
+
+//TODO: Where can we pull these definitions from? Do all Geckos have EM4?
+__EQU__(RMU_RSTCAUSE,  0x400E5004)
+__EQU__(RMU_RSTCAUSE_EM4RST, 0x00010000) 
+        
+        //Export the halEntryPoint to the rest of the system, including linker
+        __EXPORT__ halEntryPoint
+        
+        //These symbols are found in cstartup-iar-boot.c
+        __IMPORT__ checkAppJumpToApp
+        __IMPORT__ bootloaderEntryPoint
+        __IMPORT__ halAppAddressTable
+        
+        __CODE__
+        __THUMB__
+checkEm4JumpToApp:
+        //Compare the value in RMU_RSTCAUSE against RMU_RSTCAUSE_EM4RST. We are
+        //checking for equality rather than just the flag being set. If multiple
+        //flags are set, either EM4RST isn't valid, there were mutliple reset
+        //types in quick succession, or RMU_RSTCAUSE is not being cleared
+        //correctly. The safest course of action in these cases is to continue
+        //into checkAppJumpToApp to do more thorough checking.
+        LDR  R0, =RMU_RSTCAUSE
+        LDR  R0, [R0]
+        LDR  R1, =RMU_RSTCAUSE_EM4RST
+        CMP  R0, R1
+        BNE  doNotJumpToApp
+
+        //Getting to this point means we think we woke up out of EM4. While we
+        //support EM3xx bootloaders that go into DeepSleep, we do not currently
+        //allow EFM bootloaders to go into EM4. Therefore unconditionally jump
+        //back into the app.
+
+        //Grab the address of the halAppAddressTable
+        LDR  R0, =halAppAddressTable
+        //Load halAppAddressTable.baseTable.topOfStack (SP is first word)
+        LDR  R1, [R0, #+0]
+        //Load halAppAddressTable.baseTable.resetVector (PC is second word)
+        LDR  R2, [R0, #+4]
+        //Set the SP to the application's stack
+        MOVS SP, R1
+        //Branch to the app's reset vector
+        BX   R2
+
+doNotJumpToApp:
+        BX   LR //it was not an EM4 reset, so return back to halEntryPoint
+
+
+//=============================================================================
+// This is the entry point from a reset where code execution begins.  This
+// function is defined in the vector table as the Reset Handler.
+//=============================================================================
+        __CODE__
+        __THUMB__
+halEntryPoint:
+        //If we woke up from EM4, short circuit other checks and jump into app
+        BL checkEm4JumpToApp
+        //It was not EM4, so check if we're not going to run the
+        //bootloader and jump to the app's hal entry if we're not going to.
+        BL checkAppJumpToApp
+        //We're executing the bootloader, jump to the bootloader's hal entry.
+        // NOTE: This function takes a boolean parameter for whether this is
+        // a forced start. This value is returned from checkAppJumpToApp so
+        // it's already in R0. Do not do anything here that will change R0
+        // before calling bootloaderEntryPoint().
+        BL bootloaderEntryPoint
+        //One of the above three will trigger, so we'll never return here
+        
+        
+        __END__

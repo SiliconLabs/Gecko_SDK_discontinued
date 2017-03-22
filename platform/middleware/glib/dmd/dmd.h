@@ -1,7 +1,7 @@
  /*************************************************************************//**
  * @file dmd.h
  * @brief Dot Matrix Display interface
- * @version x.xx
+ * @version 5.1.2
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, http://www.silabs.com</b>
@@ -17,6 +17,32 @@
 
 #ifndef __DMD_H__
 #define __DMD_H__
+
+/***************************************************************************//**
+ * @addtogroup glib
+ * @{
+ ******************************************************************************/
+
+/***************************************************************************//**
+ * @addtogroup DMD Dot Matrix Display
+ * @{
+ *
+ * The DMD interface is the hardware abstraction layer for a physical display.
+ * The DMD interface provides functions for treating a connected display as
+ * a matrix of pixels of a specific size. The DMD provides functions for
+ * initializing the display hardware interface by calling DMD_init() and
+ * writing pixel data to the display by calling the function DMD_writeData().
+ *
+ * @section dmd_drivers DMD Drivers
+ *
+ * GLIB provides a dot matrix display driver for the LCD controller SSD2119
+ * (@ref dmd_ssd2119.c) which is used on the Silicon Labs Development Kit.
+ *
+ * GLIB also provides a DMD driver for the Sharp Memory LCD screens used
+ * on the Silicon Labs Starter Kit (@ref dmd_display.c). This driver
+ * must be used together with the kit display drivers (@ref Display).
+ *
+ ******************************************************************************/
 
 #include <stdint.h>
 #include "em_types.h"
@@ -127,6 +153,7 @@ EMSTATUS DMD_flipDisplay(int horizontal, int vertical);
 EMSTATUS DMD_selectFramebuffer (void* framebuffer);
 EMSTATUS DMD_updateDisplay (void);
 
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 /* Test functions */
 EMSTATUS DMD_testParameterChecks(void);
 EMSTATUS DMD_testMemory(uint16_t x, uint16_t y,
@@ -138,5 +165,10 @@ EMSTATUS DMD_testDeviceCode(void);
 EMSTATUS DMD_testColors(uint32_t delay);
 EMSTATUS DMD_testClipping(void);
 EMSTATUS DMD_runTests(uint32_t tests, uint32_t *result);
+/** @endcond */
+
+/**
+ * @} (end addtogroup DMD)
+ * @} (end addtogroup glib) */
 
 #endif  /* __DISPLAY_DMD_H__ */

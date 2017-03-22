@@ -41,7 +41,7 @@
 /*******************************************************************************
  ******************************   PROTOTYPES   *********************************
  ******************************************************************************/
-static Ecode_t aesdrv_CCM_MICCompute(AESDRV_Context_t* pAesdrvContext,
+static int aesdrv_CCM_MICCompute(AESDRV_Context_t* pAesdrvContext,
                                      const uint8_t*    pDataInput,
                                      const uint32_t    dataLength,
                                      const uint8_t*    pHdr,
@@ -110,11 +110,11 @@ static inline void aesdrv_CCM_XorDataRevWrite(const uint32_t* in);
  *  false - decrypt
  *
  * @return
- *   ECODE_OK if success. Error code if failure.
+ *   0 if success. Error code if failure.
  *   Encryption will always succeed.
  *   Decryption may fail if the authentication fails.
  */
-Ecode_t AESDRV_CCMBLE(AESDRV_Context_t* pAesdrvContext,
+int AESDRV_CCMBLE(AESDRV_Context_t* pAesdrvContext,
                       uint8_t*          pData,
                       const uint32_t    dataLength,
                       uint8_t           hdr,
@@ -139,7 +139,7 @@ Ecode_t AESDRV_CCMBLE(AESDRV_Context_t* pAesdrvContext,
  * @brief
  *   Generalized, internal CCM function supporting both CCM and CCM*.
  ******************************************************************************/
-Ecode_t AESDRV_CCM_Generalized(AESDRV_Context_t* pAesdrvContext,
+int AESDRV_CCM_Generalized(AESDRV_Context_t* pAesdrvContext,
                                const uint8_t*    pDataInput,
                                      uint8_t*    pDataOutput,
                                const uint32_t    dataLength,
@@ -158,7 +158,7 @@ Ecode_t AESDRV_CCM_Generalized(AESDRV_Context_t* pAesdrvContext,
   uint8_t lastBlock[16];
   uint32_t lastBlockLen;
   uint32_t wholeBlockLen;
-  Ecode_t status = ECODE_OK;
+  int status = 0;
   const uint32_t * const _pKey = (const uint32_t *)pKey;
 
   if ( (keyLength != 128/8) ||
@@ -281,7 +281,7 @@ Ecode_t AESDRV_CCM_Generalized(AESDRV_Context_t* pAesdrvContext,
  *
  * @return Error code
  */
-static Ecode_t aesdrv_CCM_MICCompute(AESDRV_Context_t* pAesdrvContext,
+static int aesdrv_CCM_MICCompute(AESDRV_Context_t* pAesdrvContext,
                                      const uint8_t*    pDataInput,
                                      const uint32_t    dataLength,
                                      const uint8_t*    pHdr,
@@ -296,7 +296,7 @@ static Ecode_t aesdrv_CCM_MICCompute(AESDRV_Context_t* pAesdrvContext,
   uint32_t *pTag = (uint32_t*)pAuthTag;
   uint32_t lm;
   uint32_t la;
-  Ecode_t  status = ECODE_OK;
+  int      status = 0;
 
   if (encryptedPayload)
   {

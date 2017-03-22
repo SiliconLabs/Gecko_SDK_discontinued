@@ -49,6 +49,7 @@ static bool GLIB_clipLine(GLIB_Context_t *pContext, int32_t *pX1, int32_t *pY1,
 EMSTATUS GLIB_drawLineH(GLIB_Context_t *pContext, int32_t x1, int32_t y1,
                         int32_t x2)
 {
+  EMSTATUS status;
   int32_t swap;
   uint8_t red;
   uint8_t green;
@@ -81,8 +82,15 @@ EMSTATUS GLIB_drawLineH(GLIB_Context_t *pContext, int32_t x1, int32_t y1,
 
   /* Translate color and draw line using display driver */
   length = x2 - x1 + 1;
+  status = DMD_setClippingArea(x1, y1, length, 1);
+  if (status != DMD_OK) return status;
+
   GLIB_colorTranslate24bpp(pContext->foregroundColor, &red, &green, &blue);
-  return DMD_writeColor(x1, y1, red, green, blue, length);
+  status = DMD_writeColor(0, 0, red, green, blue, length);
+  if (status != DMD_OK) return status;
+
+  /* Reset driver clipping area to GLIB clipping region */
+  return GLIB_applyClippingRegion(pContext);
 }
 
 /**************************************************************************//**
@@ -102,7 +110,6 @@ EMSTATUS GLIB_drawLineH(GLIB_Context_t *pContext, int32_t x1, int32_t y1,
 *  @return
 *  Returns GLIB_OK on success, or else error code
 ******************************************************************************/
-
 EMSTATUS GLIB_drawLineV(GLIB_Context_t *pContext, int32_t x1, int32_t y1,
                         int32_t y2)
 {
@@ -147,10 +154,7 @@ EMSTATUS GLIB_drawLineV(GLIB_Context_t *pContext, int32_t x1, int32_t y1,
   if (status != DMD_OK) return status;
 
   /* Reset driver clipping area to GLIB clipping region */
-  return DMD_setClippingArea(pContext->clippingRegion.xMin,
-                             pContext->clippingRegion.yMin,
-                             pContext->clippingRegion.xMin + pContext->clippingRegion.xMax + 1,
-                             pContext->clippingRegion.yMin + pContext->clippingRegion.yMax + 1);
+  return GLIB_applyClippingRegion(pContext);
 }
 
 /**************************************************************************//**
@@ -168,7 +172,6 @@ EMSTATUS GLIB_drawLineV(GLIB_Context_t *pContext, int32_t x1, int32_t y1,
 *  Returns the 4-bit clip code
 *
 ******************************************************************************/
-
 static uint8_t GLIB_getClipCode(GLIB_Context_t *pContext, int32_t x, int32_t y)
 {
   uint8_t code = 0;
@@ -297,7 +300,6 @@ static bool GLIB_clipLine(GLIB_Context_t *pContext, int32_t *pX1,
 *  @return
 *  Returns GLIB_OK on success, or else error code
 ******************************************************************************/
-
 EMSTATUS GLIB_drawLine(GLIB_Context_t *pContext, int32_t x1, int32_t y1,
                        int32_t x2, int32_t y2)
 {

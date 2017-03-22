@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file em_usbd.c
  * @brief USB protocol stack library API for EFM32/EZR32.
- * @version 5.0.0
+ * @version 5.1.2
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -921,6 +921,53 @@ int USBD_Write( int epAddr, void *data, int byteCount,
   CORE_EXIT_ATOMIC();
   return USB_STATUS_OK;
 }
+
+#if defined(USB_HOST)
+/***************************************************************************//**
+ * @defgroup USB
+ * @{
+ * @brief Gecko USB HOST and DEVICE protocol stacks.
+ * @} 
+ ******************************************************************************/
+
+/***************************************************************************//**
+ * @defgroup USB_COMMON
+ * @{
+ * @brief Common parts for both HOST and DEVICE USB stacks, see @ref usb_device
+ *        and @ref usb_host pages for device and host library documentation.
+ * @}
+ ******************************************************************************/
+
+/***************************************************************************//**
+ * @defgroup USB_HOST
+ * @{
+ * @brief Gecko USB HOST protocol stack, see @ref usb_host page for detailed documentation.
+ * @}
+ ******************************************************************************/
+#else
+/***************************************************************************//**
+ * @defgroup USB
+ * @{
+ * @brief Gecko USB DEVICE protocol stack.
+ * @}
+ ******************************************************************************/
+
+/***************************************************************************//**
+ * @defgroup USB_COMMON
+ * @{
+ * @brief Common parts for both HOST and DEVICE USB stacks, see @ref usb_device
+ *        pages for device library documentation.
+ * @}
+ ******************************************************************************/
+#endif
+/***************************************************************************//**
+ * @defgroup USB_DEVICE
+ * @{
+ * @brief Gecko USB DEVICE protocol stack, see @ref usb_device page for detailed documentation.
+ * @}
+ ******************************************************************************/
+
+
 
 /******** THE REST OF THE FILE IS DOCUMENTATION ONLY !**********************//**
  * @addtogroup USB

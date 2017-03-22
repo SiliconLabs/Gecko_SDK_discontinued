@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file
  * @brief Board support package API definitions.
- * @version 5.0.0
+ * @version 5.1.1
  *******************************************************************************
  * @section License
- * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2016 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -34,7 +34,7 @@ extern "C" {
  * @details
  *  The BSP provides an API for board controllers, I/O control for buttons,
  *  LEDs, etc and trace control for EFM32, EZR32 and EFR32 kits.
- *  
+ *
  * @{
  ******************************************************************************/
 /***************************************************************************//**
@@ -46,11 +46,13 @@ extern "C" {
 #define BSP_STATUS_ILLEGAL_PARAM      (-1)  /**< BSP API return code, illegal input parameter. */
 #define BSP_STATUS_NOT_IMPLEMENTED    (-2)  /**< BSP API return code, function not implemented (dummy). */
 #define BSP_STATUS_UNSUPPORTED_MODE   (-3)  /**< BSP API return code, unsupported BSP mode. */
+#define BSP_STATUS_IOEXP_FAILURE      (-4)  /**< BSP API return code, io-expander communication failed */
 
 /* Initialization flag bitmasks for BSP_Init(). */
 #define BSP_INIT_DK_SPI     0x01  /**< Mode flag for @ref BSP_Init(), init DK in SPI mode (DK3x50 only). */
 #define BSP_INIT_DK_EBI     0x02  /**< Mode flag for @ref BSP_Init(), init DK in EBI mode (DK3x50 only). */
 #define BSP_INIT_BCC        0x04  /**< Mode flag for @ref BSP_Init(), init board controller communication. */
+#define BSP_INIT_IOEXP      0x08  /**< Mode flag for @ref BSP_Init(), init io-expander on some radio boards */
 
 /** @} (end BSPCOMMON) */
 
@@ -134,6 +136,21 @@ typedef enum
 /** @} */
 #endif  /* BSP_DK */
 
+#if defined( BSP_STK )
+/** @addtogroup BSP_STK */ /** @{ */
+
+/** Peripherals control structure for WSTK's with onboard I/O expander. */
+typedef enum
+{
+  BSP_IOEXP_LEDS,     /**< LED control */
+  BSP_IOEXP_SENSORS,  /**< Humidity & temperature sensor control */
+  BSP_IOEXP_DISPLAY,  /**< Memory LCD control */
+  BSP_IOEXP_VCOM,     /**< VCOM (virtual com port) control */
+} BSP_Peripheral_TypeDef;
+
+/** @} */
+#endif  /* BSP_STK */
+
 /************************** The BSP API *******************************/
 /***************************************************************************//**
  * @addtogroup BSPCOMMON Common BSP for all kits
@@ -149,6 +166,7 @@ uint32_t        BSP_LedsGet                 ( void );
 int             BSP_LedsInit                ( void );
 int             BSP_LedsSet                 ( uint32_t leds );
 int             BSP_LedToggle               ( int ledNo );
+int             BSP_PeripheralAccess        ( BSP_Peripheral_TypeDef perf, bool enable );
 /** @} */ /* endgroup BSPCOMMON */
 
 
@@ -174,7 +192,6 @@ int             BSP_McuBoard_Init           ( void );
 int             BSP_McuBoard_UsbStatusLedEnable ( bool enable );
 bool            BSP_McuBoard_UsbVbusOcFlagGet   ( void );
 int             BSP_McuBoard_UsbVbusPowerEnable ( bool enable );
-int             BSP_PeripheralAccess        ( BSP_Peripheral_TypeDef perf, bool enable );
 uint16_t        BSP_PushButtonsGet          ( void );
 uint16_t        BSP_RegisterRead            ( volatile uint16_t *addr );
 int             BSP_RegisterWrite           ( volatile uint16_t *addr, uint16_t data );
@@ -195,6 +212,8 @@ float           BSP_CurrentGet              ( void );
 int             BSP_EbiDeInit               ( void );
 int             BSP_EbiInit                 ( void );
 float           BSP_VoltageGet              ( void );
+uint32_t        BSP_IOExpGetDeviceId        ( void );
+
 /** @} */ /* endgroup BSP_STK */
 #endif
 

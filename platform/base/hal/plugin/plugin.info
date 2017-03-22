@@ -1,0 +1,753 @@
+#
+# This plugin.info file is for HAL-related plugins.
+#
+
+# New plugins should be based on the following template.  Unused sections from
+# the template should be removed.  Other options are available.  Ask tools_dev
+# for help.  Sort plugins alphabetically by id.
+#plugin(my-plugin) {
+#  name=My Plugin
+#  description=An example plugin.
+#  category=HAL
+#  quality=sample
+#  root=$HAL/my-plugin
+#
+#  architecture=efr32,em357,simulation
+#
+#  providedApis=my-provided-api1,my-provided-api2
+#  api.my-provided-api1.header=my-provided-api1.h
+#  api.my-provided-api2.header=my-provided-api2.h
+#
+#  requiredApis=my-required-api1,my-required-api2
+#
+#  my-file-common.c
+#  my-file-efr32.c      (efr32)
+#  my-file-em357.c      (em357)
+#  my-file-simulation.c (simulation)
+#
+#  callbacks=my-callback.info
+#
+#  options=myBooleanOption,myNumberOption
+#
+#  myBooleanOption.name=My boolean option
+#  myBooleanOption.description=An option that sets a boolean.
+#  myBooleanOption.type=BOOLEAN
+#  myBooleanOption.default=FALSE
+#
+#  myNumberOption.name=My number option
+#  myNumberOption.description=An option that sets a number.
+#  myNumberOption.type=NUMBER
+#  myNumberOption.default=0
+#
+#  setup(bookkeeping) {
+#    init=myInitHandler
+#    tick=myTickHandler
+#  }
+#
+#  setup(eventConfiguration) {
+#    myEvent1Control, myEvent1Handler
+#    myEvent2Control, myEvent2Handler
+#  }
+#
+#  setup(macros) {
+#    MY_CONFIGURATION_HEADER_MACRO
+#    -DMY_PROJECT_MACRO
+#  }
+#}
+
+pluginDirectory=.
+
+plugin(accelerometer-led) {
+  name=Accelerometer LED
+  description=Implements Bosch BMA222E interface via I2C for GPIO wake-up on motion and sets a status LED to reflect accelerometer activity.
+  category=HAL
+  quality=sample
+  root=$HAL
+
+  # TODO: Port this plugin to the EFR32 (EMHAL-1094).
+  architecture=em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598
+
+  providedApis=accelerometer-led
+  api.accelerometer-led.header=micro/accelerometer-led.h
+
+  requiredApis=event,i2c-driver
+
+  micro/cortexm3/accelerometer-led.c
+
+  setup(bookkeeping) {
+    init=halAccelerometerLedInitialize
+  }
+
+  setup(eventConfiguration) {
+    halAccelerometerLedTimeoutEventControl, halAccelerometerLedTimeoutEventHandler
+  }
+}
+
+plugin(button) {
+  name=Button
+  description=Sample API functions for operating buttons (external interrupts).
+  category=HAL
+  quality=sample
+  root=$HAL
+
+  architecture=efr32,em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation,stm32f103ret
+
+  providedApis=button
+  api.button.header=micro/button.h
+
+  requiredApis=hal
+
+  host/cortexm3/stm32f103ret/button.c (stm32f103ret)
+  micro/cortexm3/button.c             (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/efm32/button.c       (efr32)
+  micro/unix/simulation/button.c      (simulation)
+
+  callbacks=config/button-callback.info
+}
+
+plugin(button-stub) {
+  name=Button Stub
+  description=Stub implementation of the button API for devices that do not use buttons.
+  category=HAL
+  quality=stub
+  root=$HAL
+
+  providedApis=button
+  api.button.header=micro/button.h
+
+  micro/generic/button-stub.c
+}
+
+plugin(buzzer) {
+  name=Buzzer
+  description=Sample API functions for using a timer to play tunes on a buzzer.
+  category=HAL
+  quality=sample
+  root=$HAL
+
+  architecture=efr32,em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation,stm32f103ret
+
+  providedApis=buzzer
+  api.buzzer.header=plugin/buzzer/buzzer.h
+
+  requiredApis=hal
+
+  plugin/buzzer-stub/buzzer-stub.c    (simulation)
+  plugin/buzzer/buzzer-efr32.c        (efr32)
+  plugin/buzzer/buzzer-em3xx.c        (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  plugin/buzzer/buzzer-stm32f103ret.c (stm32f103ret)
+}
+
+plugin(buzzer-stub) {
+  name=Buzzer Stub
+  description=Stub implementation of the buzzer API for devices that do not use buzzers.
+  category=HAL
+  quality=stub
+  root=$HAL
+
+  providedApis=buzzer
+  api.buzzer.header=plugin/buzzer/buzzer.h
+
+  plugin/buzzer-stub/buzzer-stub.c
+}
+
+plugin(diagnostic) {
+  name=Diagnostic
+  description=Program counter diagnostic functions.
+  category=HAL
+  quality=production
+  root=$HAL
+
+  architecture=efr32,em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=diagnostic-cortexm3,diagnostic
+  api.diagnostic-cortexm3.header=micro/cortexm3/diagnostic.h
+  api.diagnostic-cortexm3.condition=conf.architectureMatches("efr32,em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598")
+  api.diagnostic.header=micro/diagnostic.h
+
+  requiredApis=hal,printf,serial
+
+  micro/cortexm3/diagnostic.c       (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/efm32/diagnostic.c (efr32)
+  micro/generic/diagnostic-stub.c   (simulation)
+}
+
+plugin(diagnostic-stub) {
+  name=Diagnostic Stub
+  description=Stub implementation of the diagnostic API for devices that do not use diagnostics.
+  category=HAL
+  quality=stub
+  root=$HAL
+
+  architecture=efr32,em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=diagnostic
+  api.diagnostic.header=micro/diagnostic.h
+
+  micro/generic/diagnostic-stub.c
+}
+
+plugin(ext-device) {
+  name=External Device GPIO Driver
+  description=This plugin provides functionality to drive an external device's GPIO.
+  category=HAL
+  quality=production
+  root=$HAL
+
+  architecture=efr32,em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=ext-device
+  api.diagnostic.header=micro/cortexm3/ext-device.h
+
+  micro/cortexm3/efm32/ext-device.c (efr32)
+  micro/cortexm3/ext-device.c       (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+}
+
+plugin(hal-library) {
+  name=HAL Library
+  description=Common functionality for systems-on-chip (SoCs).
+  category=HAL
+  quality=production
+  root=$HAL
+
+  architecture=efr32,em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=aes,crc,endian,hal,random,system-timer,token-cortexm3,token
+  api.crc.header=micro/crc.h
+  api.endian.header=micro/endian.h
+  api.hal.header=hal.h
+  api.random.header=micro/random.h
+  api.system-timer.header=micro/system-timer.h
+  api.token-cortexm3.header=micro/cortexm3/token.h
+  api.token-cortexm3.condition=conf.architectureMatches("efr32,em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598")
+  api.token.header=micro/token.h
+
+  requiredApis=adc,serial,sim-eeprom
+
+  # TODO: What else is required for EFR32?
+  $FRAMEWORK/../../tool/simulator/child/child-main.c (simulation)
+  $FRAMEWORK/../../tool/simulator/child/timer.c      (simulation)
+  $FRAMEWORK/../../tool/simulator/child/uart.c       (simulation)
+  micro/cortexm3/assert-crash-handlers.c             (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/caladc.c                            (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/clocks.c                            (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/context-switch.s79                  (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/cstartup-common.c                   (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/efm32/assert-crash-handlers.c       (efr32)
+  micro/cortexm3/efm32/clocks.c                      (efr32)
+  micro/cortexm3/efm32/context-switch-v7m.s79        (efr32)
+  micro/cortexm3/efm32/cstartup-common.c             (efr32)
+  micro/cortexm3/efm32/cstartup-iar.c                (efr32)
+  micro/cortexm3/efm32/faults-v7m.s79                (efr32)
+  micro/cortexm3/efm32/flash.c                       (efr32)
+  micro/cortexm3/efm32/isr-stubs.s79                 (efr32)
+  micro/cortexm3/efm32/mfg-token.c                   (efr32)
+  micro/cortexm3/efm32/micro-common-internal.c       (efr32)
+  micro/cortexm3/efm32/micro-common.c                (efr32)
+  micro/cortexm3/efm32/micro-internal.c              (efr32)
+  micro/cortexm3/efm32/micro.c                       (efr32)
+  micro/cortexm3/efm32/mpu.c                         (efr32)
+  micro/cortexm3/efm32/register-access.c             (efr32)
+  micro/cortexm3/efm32/sleep-efm32.c                 (efr32)
+  micro/cortexm3/efm32/system-timer.c                (efr32)
+  micro/cortexm3/efm32/token.c                       (efr32)
+  micro/cortexm3/em35x/cstartup-iar.c                (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/faults.s79                          (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/flash.c                             (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/isr-stubs.s79                       (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/mfg-token.c                         (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/micro-common-internal.c             (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/micro-common.c                      (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/micro-internal.c                    (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/micro.c                             (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/mpu.c                               (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/sleep.c                             (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/spmr.s79                            (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/system-timer.c                      (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/token.c                             (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/uart.c                              (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/cortexm3/usb/cdc/callbacks.c                 (em3582,em3586,em3588,em3592,em3596,em3598)
+  micro/cortexm3/usb/cdc/descriptors.c               (em3582,em3586,em3588,em3592,em3596,em3598)
+  micro/cortexm3/usb/em_usbd.c                       (em3582,em3586,em3588,em3592,em3596,em3598)
+  micro/cortexm3/usb/em_usbdch9.c                    (em3582,em3586,em3588,em3592,em3596,em3598)
+  micro/cortexm3/usb/em_usbdep.c                     (em3582,em3586,em3588,em3592,em3596,em3598)
+  micro/cortexm3/usb/em_usbhal.c                     (em3582,em3586,em3588,em3592,em3596,em3598)
+  micro/cortexm3/usb/em_usbint.c                     (em3582,em3586,em3588,em3592,em3596,em3598)
+  micro/cortexm3/usb/em_usbtimer.c                   (em3582,em3586,em3588,em3592,em3596,em3598)
+  micro/generic/aes/rijndael-alg-fst.c               (simulation)
+  micro/generic/aes/rijndael-api-fst.c               (simulation)
+  micro/generic/crc.c                                (efr32,em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/generic/endian.c                             (efr32,em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation)
+  micro/generic/mem-util.c                           (efr32,em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/generic/random.c                             (efr32,em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/generic/token-def.c                          (efr32,em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/generic/token-ram.c                          (simulation)
+  micro/unix/simulation/bootloader.c                 (simulation) # TODO: Should this be added by the bootloader setup?
+  micro/unix/simulation/crc-sim.c                    (simulation) # TODO: Can we use micro/generic/crc.c instead?
+  micro/unix/simulation/fake-eeprom.c                (simulation)
+  micro/unix/simulation/micro.c                      (simulation)
+  micro/unix/simulation/random-sim.c                 (simulation)
+  micro/unix/simulation/symbol-timer-sim.c           (simulation)
+  micro/unix/simulation/system-timer-sim.c           (simulation)
+
+  plugin/coexistence/coexistence-efr32.c             (efr32)
+  plugin/coexistence/coexistence-em3xx.c             (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582, em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+
+  callbacks=config/hal-callback.info
+
+  precompiled(efr32) {
+    file=$FRAMEWORK/../../build/hal-library-cortexm3-iar-$--chipFamily;L--$-rail/hal-library.a
+    micro/cortexm3/efm32/clocks.c
+    micro/cortexm3/efm32/context-switch-v7m.s79
+    micro/cortexm3/efm32/cstartup-iar.c
+    micro/cortexm3/efm32/flash.c
+    micro/cortexm3/efm32/micro-common-internal.c
+    micro/cortexm3/efm32/micro-internal.c
+    micro/cortexm3/efm32/register-access.c
+    micro/cortexm3/efm32/system-timer.c
+  }
+
+  precompiled(em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=$FRAMEWORK/../../build/hal-library-cortexm3-iar-$--architectureId;L--$-em3xx/hal-library.a
+    micro/cortexm3/caladc.c
+    micro/cortexm3/clocks.c
+    micro/cortexm3/context-switch.s79
+    micro/cortexm3/em35x/cstartup-iar.c
+    micro/cortexm3/flash.c
+    micro/cortexm3/micro-common-internal.c
+    micro/cortexm3/micro-internal.c
+    micro/cortexm3/spmr.s79
+    micro/cortexm3/system-timer.c
+  }
+
+  precompiled(simulation) {
+    file=$FRAMEWORK/../../build/hal-library-unix-gcc-simulation-simulation/hal-library.a
+    micro/generic/aes/rijndael-alg-fst.c
+    micro/generic/aes/rijndael-api-fst.c
+  }
+  
+  setup(macros){
+    -DEMLIB_USER_CONFIG
+  }
+}
+
+plugin(i2c-driver) {
+  name=I2C Driver
+  description=Implements an I2C driver that can be called by other plugins at main() level.
+  category=HAL
+  quality=sample
+  root=$HAL
+
+  # TODO: Port this plugin to the EFR32 (EMHAL-1095).
+  architecture=em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=i2c-driver
+  api.i2c-driver.header=plugin/i2c-driver/i2c-driver.h
+
+  plugin/i2c-driver-stub/i2c-driver-stub.c (simulation)
+  plugin/i2c-driver/i2c-driver-em3xx.c     (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+
+  setup(bookkeeping) {
+    init=halI2cInitialize
+  }
+
+  options=transactionTimeout
+
+  transactionTimeout.name=Transaction timeout (ms)
+  transactionTimeout.description=The amount of time (in ms) the I2C host will wait before marking a (possibly clock stretched) transaction as failed.
+  transactionTimeout.type=NUMBER:1,1000
+  transactionTimeout.default=50
+}
+
+plugin(infrared-led) {
+  name=Infrared LED
+  description=Drives an infrared LED using either the UIRD or SIRD IR database format.
+  category=HAL
+  quality=sample
+  root=$HAL
+
+  # TODO: Port this plugin to the EFR32 (EMHAL-1093).
+  architecture=em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598
+
+  providedApis=infrared-led-sird,infrared-led-uird,infrared-led
+  api.infrared-led-sird.header=micro/infrared-led-driver-sird.h
+  api.infrared-led-uird.header=micro/infrared-led-driver-uird.h
+  api.infrared-led.header=micro/infrared-led-driver.h
+
+  requiredApis=hal,event
+
+  micro/cortexm3/infrared-led-driver-emit.c
+  micro/cortexm3/infrared-led-driver-sird.c
+  micro/cortexm3/infrared-led-driver-uird.c
+  micro/cortexm3/infrared-led-driver.c
+
+  precompiled(em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=$FRAMEWORK/../../build/encrypted-uird-ir-driver-library-cortexm3-iar-$--architectureId;L--$-em3xx/encrypted-uird-ir-driver-library.a
+    micro/cortexm3/infrared-led-driver-uird.c
+  }
+
+  setup(bookkeeping) {
+    init=halInfraredLedInitialize
+  }
+
+  setup(eventConfiguration) {
+    halInfraredLedEventControl, halInfraredLedEventHandler
+  }
+}
+
+plugin(key-matrix) {
+  name=Key Matrix
+  description=Sample API functions for operating key-matrix scanning (GPIO polling).
+  category=HAL
+  quality=sample
+  root=$HAL
+
+  # TODO: Port this plugin to the EFR32 (EMHAL-1096).
+  architecture=em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598
+
+  providedApis=key-matrix
+  api.key-matrix.header=micro/key-matrix-driver.h
+
+  requiredApis=hal
+
+  micro/cortexm3/key-matrix-driver.c
+
+  setup(bookkeeping) {
+    init=halKeyMatrixInitialize
+  }
+}
+
+plugin(led) {
+  name=LED
+  description=LED manipulation routines and example APIs.
+  category=HAL
+  quality=sample
+  root=$HAL
+
+  architecture=efr32,em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation,stm32f103ret
+
+  providedApis=led
+  api.led.header=micro/led.h
+
+  requiredApis=hal
+
+  host/cortexm3/stm32f103ret/led.c (stm32f103ret)
+  micro/cortexm3/efm32/led.c       (efr32)
+  micro/cortexm3/led.c             (em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  micro/generic/led-stub.c         (simulation)
+}
+
+plugin(led-stub) {
+  name=LED Stub
+  description=Stub implementation of the LED API for devices that do not use LEDs.
+  category=HAL
+  quality=stub
+  root=$HAL
+
+  providedApis=led
+  api.led.header=micro/led.h
+
+  micro/generic/led-stub.c
+}
+
+plugin(microphone-codec-msadpcm) {
+  name=Microphone Codec MSADPCM
+  description=Implements digital microphone interface via an external codec, timer, I2C, and SPI (as I2S input) for 16kSps of 16-bit data using MS ADPCM 4:1 compression.
+  category=HAL
+  quality=sample
+  root=$HAL
+
+  # TODO: Port this plugin to the EFR32 (EMHAL-1097).
+  architecture=em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598
+
+  providedApis=microphone-codec-msadpcm
+  api.microphone-codec-msadpcm.header=micro/microphone-codec-msadpcm.h
+
+  requiredApis=event,i2c-driver
+
+  micro/cortexm3/microphone-codec-msadpcm.c
+  micro/cortexm3/msadpcm.c
+
+  callbacks=config/microphone-codec-msadpcm-callback.info
+
+  setup(bookkeeping) {
+    init=halMicrophoneCodecMsadpcmInitialize
+  }
+
+  setup(eventConfiguration) {
+    halMicrophoneCodecMsadpcmDataReadyEventControl, halMicrophoneCodecMsadpcmDataReadyEventHandler
+  }
+}
+
+plugin(microphone-imaadpcm) {
+  name=Microphone IMAADPCM
+  description=Implements digital microphone interface via a SPI interface to convert 1.2MSps of 1-bit PDM data to 16kSps of 16-bit data using IMA ADPCM 4:1 compression.
+  category=HAL
+  quality=sample
+  root=$HAL
+
+  # TODO: Port this plugin to the EFR32 (EMHAL-1134).
+  architecture=em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598
+
+  providedApis=microphone-imaadpcm
+  api.microphone-imaadpcm.header=micro/microphone-imaadpcm.h
+
+  requiredApis=event
+
+  micro/cortexm3/imaadpcm.c
+  micro/cortexm3/microphone-imaadpcm-equalizer.c
+  micro/cortexm3/microphone-imaadpcm.c
+
+  callbacks=config/microphone-imaadpcm-callback.info
+
+  precompiled(em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=$FRAMEWORK/../../build/microphone-imaadpcm-library-cortexm3-iar-$--architectureId;L--$-em3xx/microphone-imaadpcm-library.a
+    micro/cortexm3/imaadpcm.c
+    micro/cortexm3/microphone-imaadpcm.c
+  }
+
+  setup(eventConfiguration) {
+    halMicrophoneImaadpcmDataReadyEventControl, halMicrophoneImaadpcmDataReadyEventHandler
+  }
+}
+
+plugin(sim-eeprom1) {
+  name=Simulated EEPROM version 1 Library
+  description=This library simulates an EEPROM within the internal flash of the chip to maximize the lifetime of flash pages and reduce write cycles.  The simulated EEPROM extends the lifetime of flash by wear leveling writes across the flash.  It is used for persistent storage of tokens for the network and application layers.  The network tokens are automatically managed by the network stack.  The application may add its own tokens.  SimEE1 and SimEE2 share the same fundamental limits on maximum number of tokens, maximum token or element size, and maximum number of elements in an indexed token. Maximum sum total of all token sizes is 2 kB in version 1 and 8 kB in version 2.  Version 1 uses less flash than Version 2, but version 1 is not optimized for writes during time critical operations.  Page erasure is under application control due to requiring the chip to disable interrupts during the erasure.  See Application note AN703 for more information.
+  category=HAL
+  quality=production
+  root=$HAL
+
+  architecture=efr32,em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=sim-eeprom
+  api.sim-eeprom.header=plugin/sim-eeprom/sim-eeprom.h
+
+  requiredApis=hal
+
+  plugin/sim-eeprom1/sim-eeprom-internal.c (efr32,em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  plugin/sim-eeprom1/sim-eeprom.c          (efr32,em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+
+  options=destructiveSimee2To1Downgrade
+
+  destructiveSimee2To1Downgrade.name=Destructive SimEE version 2 to version 1 downgrade
+  destructiveSimee2To1Downgrade.description=Enabling this option will cause SimEE version 1 to not check for the existence of SimEE version 2 data in flash.  The consequence of enabling the destructive downgrade is any and all SimEE data from using version 2 will be ignored, eventually deleted, and all SimEE tokens will be instantiated with their default, compile time values.  Not enabling this option will cause SimEE version 1 to assert if SimEE version 2 is found in the flash.  Asserting if SimEE2 is found prevents any accidental token deletion by running version 1 on a device.  Destructive downgrade is the only downgrade option.
+  destructiveSimee2To1Downgrade.type=BOOLEAN
+  destructiveSimee2To1Downgrade.default=FALSE
+  destructiveSimee2To1Downgrade.define=DESTRUCTIVE_SIMEE2TO1_DOWNGRADE
+
+  precompiled(efr32) {
+    file=$FRAMEWORK/../../build/sim-eeprom1-library-cortexm3-iar-$--chipFamily;L--$-rail/sim-eeprom1-library.a
+    plugin/sim-eeprom1/sim-eeprom-internal.c
+  }
+
+  precompiled(em341,em342,em346,em351,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=$FRAMEWORK/../../build/sim-eeprom1-library-cortexm3-iar-$--architectureId;L--$-em3xx/sim-eeprom1-library.a
+    plugin/sim-eeprom1/sim-eeprom-internal.c
+  }
+}
+
+plugin(sim-eeprom2) {
+  name=Simulated EEPROM version 2 Library
+  description=This library simulates an EEPROM within the internal flash of the chip to maximize the lifetime of flash pages and reduce write cycles.  The simulated EEPROM extends the lifetime of flash by wear leveling writes across the flash.  It is used for persistent storage of tokens for the network and application layers.  The network tokens are automatically managed by the network stack.  The application may add its own tokens.  SimEE1 and SimEE2 share the same fundamental limits on maximum number of tokens, maximum token or element size, and maximum number of elements in an indexed token. Maximum sum total of all token sizes is 2 kB in version 1 and 8 kB in version 2.  Version 2 is designed to reduce the time needed when an application writes a token, at the expense of consuming more flash.  Therefore SimEE2 is more appropriate when writing an element within a large set of tokens during time critical operations.  For example setting a binding within a 100 entry binding table.  Page erasure is under application control, via a callback, due to requiring the chip to disable interrupts during the erasure.  See Application note AN703 for more information.  This library requires the Simulated EEPROM version 1 to version 2 upgrade library or stub upgrade library.
+  category=HAL
+  quality=production
+  root=$HAL
+
+  architecture=efr32,em346,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=sim-eeprom
+  api.sim-eeprom.header=plugin/sim-eeprom/sim-eeprom.h
+  requiredApis=hal,sim-eeprom2-1to2-upgrade
+
+  plugin/sim-eeprom2/sim-eeprom2-internal.c (efr32,em346,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+  plugin/sim-eeprom2/sim-eeprom2.c          (efr32,em346,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+
+  options=password
+  conditions=verify
+
+  password.name=Password
+  password.description=The Simulated EEPROM 2 Library requires a password with which the user can access the data.
+  password.type=STRING
+  password.default=
+
+  verify.expression=password.equals("!spoon")
+  verify.message=Invalid password specified in the plugin options.  Please see Application Note AN703 to obtain the password and for more information on choosing SimEE2.
+
+  precompiled(efr32) {
+    file=$FRAMEWORK/../../build/sim-eeprom2-library-cortexm3-iar-$--chipFamily;L--$-rail/sim-eeprom2-library.a
+    plugin/sim-eeprom2/sim-eeprom2-internal.c
+  }
+
+  precompiled(em346,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=$FRAMEWORK/../../build/sim-eeprom2-library-cortexm3-iar-$--architectureId;L--$-em3xx/sim-eeprom2-library.a
+    plugin/sim-eeprom2/sim-eeprom2-internal.c
+  }
+
+  setup(macros) {
+    -DUSE_SIMEE2
+  }
+}
+
+plugin(sim-eeprom2-1to2-upgrade) {
+  name=Simulated EEPROM version 1 to version 2 Upgrade Library
+  description=Systems using SimEE2 must have this upgrade library or the upgrade stub library.  This library upgrades a device that used Simulated EEPROM version 1 to Simulated EEPROM version 2.  This upgrade code is a companion to the main Simulated EEPROM 2 library and the upgrade cannot be run on its own.  This upgrade library runs a simplified copy of the Simulated EEPROM version 1 startup process to find all existing tokens in flash.  This upgrade library only ever reads flash.  An official token repair process handled by the full Simulated EEPROM version 2 will then perform a standard repair.  A standard repair process copies over the found tokens and fills missing tokens with their default, compile time values.
+  category=HAL
+  quality=production
+  root=$HAL
+
+  architecture=efr32,em346,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=sim-eeprom2-1to2-upgrade
+
+  plugin/sim-eeprom2-1to2upgrade/sim-eeprom2-internal-1to2upgrade.c (efr32,em346,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+
+  precompiled(efr32) {
+    file=$FRAMEWORK/../../build/sim-eeprom2-1to2-upgrade-library-cortexm3-iar-$--chipFamily;L--$-rail/sim-eeprom2-1to2-upgrade-library.a
+    plugin/sim-eeprom2-1to2upgrade/sim-eeprom2-internal-1to2upgrade.c
+  }
+
+  precompiled(em346,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=$FRAMEWORK/../../build/sim-eeprom2-1to2-upgrade-library-cortexm3-iar-$--architectureId;L--$-em3xx/sim-eeprom2-1to2-upgrade-library.a
+    plugin/sim-eeprom2-1to2upgrade/sim-eeprom2-internal-1to2upgrade.c
+  }
+}
+
+plugin(sim-eeprom2-1to2-upgrade-stub) {
+  name=Simulated EEPROM version 1 to version 2 Upgrade Stub
+  description=This library provides stub functionality for the sim-eeprom2-1to2-upgrade library.
+  category=HAL
+  quality=production
+  root=$HAL
+
+  architecture=efr32,em346,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598,simulation
+
+  providedApis=sim-eeprom2-1to2-upgrade
+
+  plugin/sim-eeprom2-1to2upgrade-stub/sim-eeprom2-internal-1to2upgrade-stub.c (efr32,em346,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598)
+
+  precompiled(efr32) {
+    file=$FRAMEWORK/../../build/sim-eeprom2-1to2-upgrade-stub-library-cortexm3-iar-$--chipFamily;L--$-rail/sim-eeprom2-1to2-upgrade-stub-library.a
+    plugin/sim-eeprom2-1to2upgrade-stub/sim-eeprom2-internal-1to2upgrade-stub.c
+  }
+
+  precompiled(em346,em355,em3555,em357,em3581,em3582,em3585,em3586,em3587,em3588,em3591,em3592,em3595,em3596,em3597,em3598) {
+    file=$FRAMEWORK/../../build/sim-eeprom2-1to2-upgrade-stub-library-cortexm3-iar-$--architectureId;L--$-em3xx/sim-eeprom2-1to2-upgrade-stub-library.a
+    plugin/sim-eeprom2-1to2upgrade-stub/sim-eeprom2-internal-1to2upgrade-stub.c
+  }
+}
+
+plugin(psstore) {
+  name=PS Store
+  description=Persistent Store (PS Store) can be used to manage the data in the flash memory of the device. Data stored in PS keys within the flash memory is persistent across reset and power cycling of the device.
+  category=HAL
+  quality=development
+  root=$HAL/plugin/psstore
+
+  architecture=efr32
+
+  providedApis=psstore
+  api.psstore.header=store.h
+
+  requiredApis=hal
+
+  crc32.c
+  psstore-cli.c
+  psstore-flash.c
+  store.c
+
+  setup(commandLineConfiguration) {
+    plugin ps-store dump, emAfPluginPsStoreDump
+    plugin ps-store init, emAfPluginPsStoreInit
+    plugin ps-store print-tags, emAfPluginPsStorePrintTags
+    plugin ps-store write-tag, emAfPluginPsStoreWriteTag
+    plugin ps-store delete-tag, emAfPluginPsStoreDeleteTag
+  }
+}
+
+plugin(stm32f103ret-library) {
+  name=STM32F103RET Library
+  description=Common functionality for STM32F103RET hosts.
+  category=HAL
+  quality=production
+  root=$HAL
+
+  architecture=stm32f103ret
+
+  providedApis=crc,hal,spi-protocol,system-timer
+  api.crc.header=host/crc.h
+  api.hal.header=hal.h
+  api.spi-protocol.header=host/spi-protocol-common.h
+  api.system-timer.header=host/system-timer.h
+
+  requiredApis=adc
+
+  host/cortexm3/stm32f103ret/Libraries/CMSIS/CM3/CoreSupport/core_cm3.c
+  host/cortexm3/stm32f103ret/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/iar/startup_stm32f10x_hd.s
+  host/cortexm3/stm32f103ret/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_stm32f10x.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/misc.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_adc.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_bkp.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_can.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_cec.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_crc.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_dac.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_dbgmcu.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_dma.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_exti.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_flash.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_fsmc.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_gpio.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_i2c.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_iwdg.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_pwr.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_rcc.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_rtc.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_sdio.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_spi.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_usart.c
+  host/cortexm3/stm32f103ret/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_wwdg.c
+  host/cortexm3/stm32f103ret/micro.c
+  host/cortexm3/stm32f103ret/spi-protocol.c
+  host/cortexm3/stm32f103ret/system-timer.c
+  host/cortexm3/stm32f103ret/uart.c
+  host/generic/crc.c
+
+  callbacks=config/spi-protocol-callback.info
+}
+
+plugin(unix-library) {
+  name=Unix Library
+  description=Common functionality for Unix hosts.
+  category=HAL
+  quality=production
+  root=$HAL
+
+  architecture=simulation,unix
+
+  providedApis=crc,endian,hal,random,system-timer,token
+  api.crc.header=micro/crc.h
+  api.endian.header=micro/endian.h
+  api.hal.header=hal.h
+  api.random.header=micro/random.h
+  api.system-timer.header=micro/system-timer.h
+  api.token.header=micro/token.h
+  api.token.condition=tokenSupport
+
+  options=tokenSupport
+
+  tokenSupport.name=Token support (experimental)
+  tokenSupport.description=Indicates whether the application will include experimental support for a file-based token system.
+  tokenSupport.type=BOOLEAN
+  tokenSupport.default=FALSE
+
+  micro/generic/crc.c               (unix)
+  micro/generic/endian.c            (unix)
+  micro/generic/random.c            (unix)
+  micro/generic/system-timer.c      (unix)
+  micro/unix/host/micro.c           (unix)
+  micro/unix/host/token-def-unix.c  (unix)
+  micro/unix/host/token-ram-unix.c  (simulation)
+  micro/unix/host/token.c           (unix)
+}

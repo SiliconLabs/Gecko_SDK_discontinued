@@ -1,0 +1,420 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.2.11947/W32 for ARM                09/Mar/2017  19:48:42
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\Exe\life.out
+#    Map file     =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\List\life.map
+#    Command line =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\Obj\bsp_dk_3201.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\Obj\bsp_dk_leds.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\Obj\bsp_trace.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\Obj\dmd_ssd2119_direct.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\Obj\em_assert.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\Obj\em_cmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\Obj\em_ebi.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\Obj\em_emu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\Obj\em_gpio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\Obj\em_system.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\Obj\em_usart.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\Obj\life.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\Obj\startup_efm32gg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\Obj\system_efm32gg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\Obj\tftdirect.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\Obj\tftspi.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\Exe\life.out
+#        --map
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\List\life.map
+#        --config
+#        T:\iar_ew_7802_win32_rel_1\arm\config\linker\SiliconLaboratories\EFM32GG990F1024.icf
+#        --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x000fffff] { ro };
+"P2":  place in [from 0x20000000 to 0x2001ffff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+ { section .intvec };
+
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A0":                                       0xdc
+  .intvec            ro code  0x00000000    0xdc  startup_efm32gg.o [1]
+                            - 0x000000dc    0xdc
+
+"P1":                                     0x37f8
+  .text              ro code  0x000000dc   0xb38  em_cmu.o [1]
+  .text              ro code  0x00000c14     0x2  em_assert.o [1]
+  .text              ro code  0x00000c18   0x138  system_efm32gg.o [1]
+  .text              ro code  0x00000d50   0xb24  bsp_dk_3201.o [1]
+  .text              ro code  0x00001874   0x2b0  em_gpio.o [1]
+  .text              ro code  0x00001b24    0x56  ABImemcpy_unaligned.o [4]
+  .text              ro code  0x00001b7c   0xb24  em_ebi.o [1]
+  .text              ro code  0x000026a0   0x194  em_usart.o [1]
+  .text              ro code  0x00002834   0x540  life.o [1]
+  .text              ro code  0x00002d74   0x118  bsp_trace.o [1]
+  .text              ro code  0x00002e8c    0x18  bsp_dk_leds.o [1]
+  .text              ro code  0x00002ea4    0xec  tftdirect.o [1]
+  .text              ro code  0x00002f90    0xf8  dmd_ssd2119_direct.o [1]
+  .text              ro code  0x00003088   0x234  tftspi.o [1]
+  .rodata            const    0x000032bc    0x84  bsp_dk_3201.o [1]
+  .rodata            const    0x00003340    0x84  em_gpio.o [1]
+  .rodata            const    0x000033c4    0x84  tftspi.o [1]
+  .rodata            const    0x00003448    0x80  em_cmu.o [1]
+  .rodata            const    0x000034c8    0x50  bsp_dk_3201.o [1]
+  .rodata            const    0x00003518    0x4c  em_cmu.o [1]
+  .rodata            const    0x00003564    0x4c  em_ebi.o [1]
+  .rodata            const    0x000035b0    0x4c  em_gpio.o [1]
+  .rodata            const    0x000035fc    0x4c  em_usart.o [1]
+  .rodata            const    0x00003648    0x4c  life.o [1]
+  .text              ro code  0x00003694    0x40  zero_init3.o [4]
+  .rodata            const    0x000036d4    0x34  life.o [1]
+  .text              ro code  0x00003708    0x2c  copy_init3.o [4]
+  .text              ro code  0x00003734    0x28  data_init.o [4]
+  .iar.init_table    const    0x0000375c    0x24  - Linker created -
+  .text              ro code  0x00003780    0x1a  cmain.o [4]
+  .text              ro code  0x0000379a     0x4  low_level_init.o [3]
+  .text              ro code  0x0000379e     0x4  exit.o [3]
+  .text              ro code  0x000037a4     0xa  cexit.o [4]
+  .text              ro code  0x000037b0     0xc  XXexit.o [4]
+  .rodata            const    0x000037bc    0x18  bsp_dk_3201.o [1]
+  .rodata            const    0x000037d4    0x18  tftspi.o [1]
+  Initializer bytes  const    0x000037ec    0x14  <for P2-1>
+  .text              ro code  0x00003800    0x10  startup_efm32gg.o [1]
+  .text              ro code  0x00003810     0xc  cstartup_M.o [4]
+  .text              ro code  0x0000381c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003820     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003824     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003828     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000382c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003830     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003834     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003838     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000383c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003840     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003844     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003848     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000384c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003850     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003854     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003858     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000385c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003860     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003864     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003868     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000386c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003870     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003874     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003878     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000387c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003880     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003884     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003888     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000388c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003890     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003894     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00003898     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000389c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000038a0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000038a4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000038a8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000038ac     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000038b0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000038b4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000038b8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000038bc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000038c0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000038c4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000038c8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000038cc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000038d0     0x4  startup_efm32gg.o [1]
+  .rodata            const    0x000038d4     0x0  zero_init3.o [4]
+  .rodata            const    0x000038d4     0x0  copy_init3.o [4]
+                            - 0x000038d4  0x37f8
+
+"P2", part 1 of 3:                          0x14
+  P2-1                        0x20000000    0x11  <Init block>
+    .data            inited   0x20000000     0x4  life.o [1]
+    .data            inited   0x20000004     0x4  life.o [1]
+    .data            inited   0x20000008     0x4  system_efm32gg.o [1]
+    .data            inited   0x2000000c     0x4  system_efm32gg.o [1]
+    .data            inited   0x20000010     0x1  tftdirect.o [1]
+                            - 0x20000011    0x11
+
+"P2", part 2 of 3:                         0x400
+  CSTACK                      0x20000018   0x400  <Block>
+    CSTACK           uninit   0x20000018   0x400  <Block tail>
+                            - 0x20000418   0x400
+
+"P2", part 3 of 3:                        0x181c
+  .bss               zero     0x20000418   0xc00  life.o [1]
+  .bss               zero     0x20001018   0xc00  life.o [1]
+  .bss               zero     0x20001c18     0x4  bsp_dk_3201.o [1]
+  .bss               zero     0x20001c1c     0x4  bsp_dk_3201.o [1]
+  .bss               zero     0x20001c20     0x4  dmd_ssd2119_direct.o [1]
+  .bss               zero     0x20001c24     0x4  dmd_ssd2119_direct.o [1]
+  .bss               zero     0x20001c28     0x4  life.o [1]
+  .bss               zero     0x20001c2c     0x4  system_efm32gg.o [1]
+  .bss               zero     0x20001c30     0x2  bsp_dk_3201.o [1]
+  .bss               zero     0x20001c32     0x1  bsp_dk_3201.o [1]
+                            - 0x20001c33  0x181b
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x181b:
+          0x20000418  0x181b
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0x14 (117% of destination):
+          0x000037ec    0x14
+    1 destination range, total size 0x11:
+          0x20000000    0x11
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                 ro code  ro data  rw data
+    ------                 -------  -------  -------
+D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\Obj: [1]
+    bsp_dk_3201.o            2 852      236       11
+    bsp_dk_leds.o               24
+    bsp_trace.o                280
+    dmd_ssd2119_direct.o       248                 8
+    em_assert.o                  2
+    em_cmu.o                 2 872      204
+    em_ebi.o                 2 852       76
+    em_gpio.o                  688      208
+    em_usart.o                 404       76
+    life.o                   1 344      136    6 156
+    startup_efm32gg.o          420
+    system_efm32gg.o           312        8       12
+    tftdirect.o                236        1        1
+    tftspi.o                   564      156
+    ------------------------------------------------
+    Total:                  13 098    1 101    6 188
+
+command line: [2]
+    ------------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    exit.o                       4
+    low_level_init.o             4
+    ------------------------------------------------
+    Total:                       8
+
+rt7M_tl.a: [4]
+    ABImemcpy_unaligned.o       86
+    XXexit.o                    12
+    cexit.o                     10
+    cmain.o                     26
+    copy_init3.o                44
+    cstartup_M.o                12
+    data_init.o                 40
+    zero_init3.o                64
+    ------------------------------------------------
+    Total:                     294
+
+    Gaps                         8
+    Linker created                       39    1 024
+----------------------------------------------------
+    Grand Total:            13 408    1 140    7 212
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x0000375c          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x00003780          --   Gb  - Linker created -
+?main                   0x00003781         Code  Gb  cmain.o [4]
+BSP_BusControlModeSet   0x00000eff   0x9c  Code  Gb  bsp_dk_3201.o [1]
+BSP_DisplayControl      0x00000f9b   0xfc  Code  Gb  bsp_dk_3201.o [1]
+BSP_EbiExtendedAddressRange
+                        0x00001097   0x24  Code  Gb  bsp_dk_3201.o [1]
+BSP_Init                0x00000ea5   0x5a  Code  Gb  bsp_dk_3201.o [1]
+BSP_LedsSet             0x00002e8d   0x12  Code  Gb  bsp_dk_leds.o [1]
+BSP_PeripheralAccess    0x000010bb  0x236  Code  Gb  bsp_dk_3201.o [1]
+BSP_RegisterRead        0x000012f1   0x1a  Code  Gb  bsp_dk_3201.o [1]
+BSP_RegisterWrite       0x0000130b   0x22  Code  Gb  bsp_dk_3201.o [1]
+BSP_TraceProfilerSetup  0x00002e75   0x18  Code  Gb  bsp_trace.o [1]
+BSP_TraceSwoSetup       0x00002d75   0xac  Code  Gb  bsp_trace.o [1]
+BUS_RegBitRead          0x000000eb   0x10  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x000000dd    0xe  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x00001b85    0xe  Code  Lc  em_ebi.o [1]
+BUS_RegMaskedWrite      0x000026a1    0xa  Code  Lc  em_usart.o [1]
+CMU_ClockEnable         0x000004b7   0xa6  Code  Gb  em_cmu.o [1]
+CMU_ClockFreqGet        0x00000571  0x188  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectGet      0x00000735  0x134  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectSet      0x0000088d  0x292  Code  Gb  em_cmu.o [1]
+CMU_DivToLog2           0x000000fb   0x28  Code  Lc  em_cmu.o [1]
+CMU_OscillatorEnable    0x00000b3d   0x9c  Code  Gb  em_cmu.o [1]
+CSTACK$$Base            0x20000018          --   Gb  - Linker created -
+CSTACK$$Limit           0x20000418          --   Gb  - Linker created -
+DMDIF_writeReg          0x00002f91   0x16  Code  Gb  dmd_ssd2119_direct.o [1]
+DMD_init                0x00002fa7   0xbe  Code  Gb  dmd_ssd2119_direct.o [1]
+DMD_selectFramebuffer   0x00003065   0x16  Code  Gb  dmd_ssd2119_direct.o [1]
+Delay                   0x00002909   0x16  Code  Gb  life.o [1]
+EBI_BankAddress         0x00001d93   0x82  Code  Gb  em_ebi.o [1]
+EBI_BankAddressTimingConfig
+                        0x00002415   0x5a  Code  Gb  em_ebi.o [1]
+EBI_BankAddressTimingSet
+                        0x0000246f   0x86  Code  Gb  em_ebi.o [1]
+EBI_BankPolaritySet     0x000024fd  0x12a  Code  Gb  em_ebi.o [1]
+EBI_BankReadTimingConfig
+                        0x00002131   0xd8  Code  Gb  em_ebi.o [1]
+EBI_BankReadTimingSet   0x00002209   0xc6  Code  Gb  em_ebi.o [1]
+EBI_BankWriteTimingConfig
+                        0x000022cf   0x9e  Code  Gb  em_ebi.o [1]
+EBI_BankWriteTimingSet  0x0000236d   0xa8  Code  Gb  em_ebi.o [1]
+EBI_ChipSelectEnable    0x00001e15   0x50  Code  Gb  em_ebi.o [1]
+EBI_IRQHandler          0x000029b7   0x34  Code  Gb  life.o [1]
+EBI_Init                0x00001b93  0x200  Code  Gb  em_ebi.o [1]
+EBI_IntClear            0x000028c9    0x8  Code  Lc  life.o [1]
+EBI_IntDisable          0x000028d1   0x10  Code  Lc  life.o [1]
+EBI_IntEnable           0x000028e1   0x10  Code  Lc  life.o [1]
+EBI_IntGet              0x000028f1    0x8  Code  Lc  life.o [1]
+EBI_PolaritySet         0x00001e65   0xea  Code  Gb  em_ebi.o [1]
+EBI_TFTFrameBaseSet     0x00001b7d    0x8  Code  Lc  em_ebi.o [1]
+EBI_TFTFrameBaseSet     0x000028c1    0x8  Code  Lc  life.o [1]
+EBI_TFTHPorchSet        0x00002037   0x4c  Code  Gb  em_ebi.o [1]
+EBI_TFTInit             0x00001f4f   0xaa  Code  Gb  em_ebi.o [1]
+EBI_TFTSizeSet          0x00001ff9   0x3e  Code  Gb  em_ebi.o [1]
+EBI_TFTTimingSet        0x000020cf   0x62  Code  Gb  em_ebi.o [1]
+EBI_TFTVPorchSet        0x00002083   0x4c  Code  Gb  em_ebi.o [1]
+EbiInit                 0x0000132d  0x30a  Code  Lc  bsp_dk_3201.o [1]
+GPIO_PinModeSet         0x000019c9  0x14e  Code  Gb  em_gpio.o [1]
+GPIO_PinOutClear        0x00000d51   0xaa  Code  Lc  bsp_dk_3201.o [1]
+GPIO_PinOutClear        0x00001875   0xaa  Code  Lc  em_gpio.o [1]
+GPIO_PinOutClear        0x00003089   0xa6  Code  Lc  tftspi.o [1]
+GPIO_PinOutSet          0x00000dfb   0xaa  Code  Lc  bsp_dk_3201.o [1]
+GPIO_PinOutSet          0x0000191f   0xaa  Code  Lc  em_gpio.o [1]
+GPIO_PinOutSet          0x0000312f   0xa6  Code  Lc  tftspi.o [1]
+GameOfLife              0x00002a3d  0x180  Code  Gb  life.o [1]
+GameOfLifeInit          0x00002bbd   0x68  Code  Gb  life.o [1]
+GetProdRev              0x00000c19    0xa  Code  Lc  system_efm32gg.o [1]
+NVIC_ClearPendingIRQ    0x0000284b   0x16  Code  Lc  life.o [1]
+NVIC_EnableIRQ          0x00002835   0x16  Code  Lc  life.o [1]
+NVIC_SetPriority        0x00002861   0x2a  Code  Lc  life.o [1]
+Region$$Table$$Base     0x0000375c          --   Gb  - Linker created -
+Region$$Table$$Limit    0x00003780          --   Gb  - Linker created -
+SPI_TFT_Init            0x000031d5   0x62  Code  Gb  tftspi.o [1]
+SPI_TFT_WriteRegister   0x00003237   0x64  Code  Gb  tftspi.o [1]
+SYSTEM_GetFamily        0x0000012f    0xc  Code  Lc  em_cmu.o [1]
+SYSTEM_GetProdRev       0x00000123    0xc  Code  Lc  em_cmu.o [1]
+SpiBcAccess             0x00001637   0x60  Code  Lc  bsp_dk_3201.o [1]
+SpiBcInit               0x00001697   0x60  Code  Lc  bsp_dk_3201.o [1]
+SpiControl              0x000016f7   0x44  Code  Lc  bsp_dk_3201.o [1]
+SpiInit                 0x0000173b   0x30  Code  Lc  bsp_dk_3201.o [1]
+SpiRegisterRead         0x0000176b   0x56  Code  Lc  bsp_dk_3201.o [1]
+SpiRegisterWrite        0x000017c9   0x48  Code  Lc  bsp_dk_3201.o [1]
+SysTick_Config          0x0000288b   0x36  Code  Lc  life.o [1]
+SysTick_Handler         0x000028f9   0x10  Code  Gb  life.o [1]
+SystemCoreClock         0x20001c2c    0x4  Data  Gb  system_efm32gg.o [1]
+SystemCoreClockGet      0x00000c23   0x1a  Code  Gb  system_efm32gg.o [1]
+SystemHFClockGet        0x00000c41   0xb2  Code  Gb  system_efm32gg.o [1]
+SystemHFXOClock         0x20000008    0x4  Data  Lc  system_efm32gg.o [1]
+SystemHFXOClockGet      0x00000cf3    0x6  Code  Gb  system_efm32gg.o [1]
+SystemInit              0x00000cf9    0x2  Code  Gb  system_efm32gg.o [1]
+SystemLFRCOClockGet     0x00000cfb    0x6  Code  Gb  system_efm32gg.o [1]
+SystemLFXOClock         0x2000000c    0x4  Data  Lc  system_efm32gg.o [1]
+SystemLFXOClockGet      0x00000d07    0x6  Code  Gb  system_efm32gg.o [1]
+SystemMaxCoreClockGet   0x00000c3d    0x4  Code  Gb  system_efm32gg.o [1]
+SystemULFRCOClockGet    0x00000d01    0x6  Code  Gb  system_efm32gg.o [1]
+TFT_DirectGPIOConfig    0x00002ea5   0x34  Code  Gb  tftdirect.o [1]
+TFT_DirectInit          0x00002ed9   0xac  Code  Gb  tftdirect.o [1]
+TFT_DrawLife            0x0000291f   0x98  Code  Gb  life.o [1]
+TFT_IRQEnable           0x00002c25   0x24  Code  Gb  life.o [1]
+TFT_SwapBuffer          0x000029eb   0x52  Code  Gb  life.o [1]
+USART_BaudrateSyncSet   0x000026ab   0x54  Code  Gb  em_usart.o [1]
+USART_InitSync          0x000026ff   0x8a  Code  Gb  em_usart.o [1]
+USART_Reset             0x00002789   0x72  Code  Gb  em_usart.o [1]
+USART_Rx                0x0000281d    0xc  Code  Gb  em_usart.o [1]
+USART_Tx                0x00002829    0xc  Code  Gb  em_usart.o [1]
+__Vectors               0x00000000          --   Gb  startup_efm32gg.o [1]
+__Vectors_End           0x000000dc         Data  Gb  startup_efm32gg.o [1]
+__Vectors_Size {Abs}    0x000000dc          --   Gb  startup_efm32gg.o [1]
+__cmain                 0x00003781         Code  Gb  cmain.o [4]
+__exit                  0x000037b1         Code  Gb  XXexit.o [4]
+__iar_copy_init3        0x00003709   0x2c  Code  Gb  copy_init3.o [4]
+__iar_data_init3        0x00003735   0x28  Code  Gb  data_init.o [4]
+__iar_program_start     0x00003811         Code  Gb  cstartup_M.o [4]
+__iar_unaligned___aeabi_memcpy4
+                        0x00001b25         Code  Gb  ABImemcpy_unaligned.o [4]
+__iar_unaligned___aeabi_memcpy8
+                        0x00001b25         Code  Gb  ABImemcpy_unaligned.o [4]
+__iar_zero_init3        0x00003695   0x40  Code  Gb  zero_init3.o [4]
+__low_level_init        0x0000379b    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000         Data  Gb  startup_efm32gg.o [1]
+__vector_table_0x1c     0x0000001c         Data  Gb  startup_efm32gg.o [1]
+_call_main              0x0000378d         Code  Gb  cmain.o [4]
+_exit                   0x000037a5         Code  Gb  cexit.o [4]
+_main                   0x00003797         Code  Gb  cmain.o [4]
+assertEFM               0x00000c15    0x2  Code  Gb  em_assert.o [1]
+auxClkGet               0x000001f1   0x94  Code  Lc  em_cmu.o [1]
+bcFwVersion             0x20001c30    0x2  Data  Lc  bsp_dk_3201.o [1]
+bspOperationMode        0x20001c18    0x4  Data  Lc  bsp_dk_3201.o [1]
+busMode                 0x20001c32    0x1  Data  Lc  bsp_dk_3201.o [1]
+dbgClkGet               0x00000285   0x3c  Code  Lc  em_cmu.o [1]
+exit                    0x0000379f    0x4  Code  Gb  exit.o [3]
+flashWaitStateControl   0x000002c1   0xa2  Code  Lc  em_cmu.o [1]
+flashWaitStateMax       0x00000363    0xc  Code  Lc  em_cmu.o [1]
+frameBuffer             0x20001c20    0x4  Data  Lc  dmd_ssd2119_direct.o [1]
+getHfLeConfig           0x000001c5   0x2c  Code  Lc  em_cmu.o [1]
+greendot                0x000036d4   0x34  Data  Lc  life.o [1]
+initialized             0x20001c24    0x4  Data  Lc  dmd_ssd2119_direct.o [1]
+inittft                 0x000037d4   0x18  Data  Lc  tftspi.o [1]
+lastAddr                0x20001c1c    0x4  Data  Lc  bsp_dk_3201.o [1]
+lfClkGet                0x0000036f   0xf4  Code  Lc  em_cmu.o [1]
+life1                   0x20000418  0xc00  Data  Lc  life.o [1]
+life2                   0x20001018  0xc00  Data  Lc  life.o [1]
+main                    0x00002c49   0xd2  Code  Gb  life.o [1]
+maxFreqHfle             0x0000013b   0x60  Code  Lc  em_cmu.o [1]
+msTicks                 0x20001c28    0x4  Data  Lc  life.o [1]
+nextOffset              0x20000004    0x4  Data  Lc  life.o [1]
+randomNumber            0x20000000    0x4  Data  Lc  life.o [1]
+runOnce                 0x20000010    0x1  Data  Lc  tftdirect.o [1]
+setHfLeConfig           0x0000019b   0x2a  Code  Lc  em_cmu.o [1]
+syncReg                 0x00000463   0x16  Code  Lc  em_cmu.o [1]
+tftInit                 0x00003648   0x4c  Data  Lc  life.o [1]
+usbCClkGet              0x00000479   0x3e  Code  Lc  em_cmu.o [1]
+
+
+[1] = D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\life\iar\life\Debug\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = rt7M_tl.a
+
+  13 408 bytes of readonly  code memory
+   1 140 bytes of readonly  data memory
+   7 212 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

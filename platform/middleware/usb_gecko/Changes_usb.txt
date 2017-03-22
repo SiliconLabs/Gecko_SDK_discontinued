@@ -1,4 +1,13 @@
 ================ Revision history ============================================
+5.1.2:
+ - No changes.
+
+5.1.1:
+ - No changes.
+
+5.1.0:
+ - No changes.
+
 5.0.0:
  - Update to use em_core instead of em_int to implement critical regions.
  - Removed iprintf usage since nanolib is now used by default.

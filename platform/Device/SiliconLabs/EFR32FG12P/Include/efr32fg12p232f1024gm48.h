@@ -2,10 +2,10 @@
  * @file efr32fg12p232f1024gm48.h
  * @brief CMSIS Cortex-M Peripheral Access Layer Header File
  *        for EFR32FG12P232F1024GM48
- * @version 5.0.0
+ * @version 5.1.2
  ******************************************************************************
  * @section License
- * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -65,14 +65,8 @@ typedef enum IRQn
 /******  EFR32FG12P Peripheral Interrupt Numbers ********************************************/
 
   EMU_IRQn              = 0,  /*!< 0 EFR32 EMU Interrupt */
-  FRC_PRI_IRQn          = 1,  /*!< 1 EFR32 FRC_PRI Interrupt */
   WDOG0_IRQn            = 2,  /*!< 2 EFR32 WDOG0 Interrupt */
   WDOG1_IRQn            = 3,  /*!< 3 EFR32 WDOG1 Interrupt */
-  FRC_IRQn              = 4,  /*!< 4 EFR32 FRC Interrupt */
-  MODEM_IRQn            = 5,  /*!< 5 EFR32 MODEM Interrupt */
-  RAC_SEQ_IRQn          = 6,  /*!< 6 EFR32 RAC_SEQ Interrupt */
-  RAC_RSM_IRQn          = 7,  /*!< 7 EFR32 RAC_RSM Interrupt */
-  BUFC_IRQn             = 8,  /*!< 8 EFR32 BUFC Interrupt */
   LDMA_IRQn             = 9,  /*!< 9 EFR32 LDMA Interrupt */
   GPIO_EVEN_IRQn        = 10, /*!< 10 EFR32 GPIO_EVEN Interrupt */
   TIMER0_IRQn           = 11, /*!< 11 EFR32 TIMER0 Interrupt */
@@ -92,12 +86,8 @@ typedef enum IRQn
   MSC_IRQn              = 25, /*!< 25 EFR32 MSC Interrupt */
   CRYPTO0_IRQn          = 26, /*!< 26 EFR32 CRYPTO0 Interrupt */
   LETIMER0_IRQn         = 27, /*!< 27 EFR32 LETIMER0 Interrupt */
-  AGC_IRQn              = 28, /*!< 28 EFR32 AGC Interrupt */
-  PROTIMER_IRQn         = 29, /*!< 29 EFR32 PROTIMER Interrupt */
   RTCC_IRQn             = 30, /*!< 30 EFR32 RTCC Interrupt */
-  SYNTH_IRQn            = 31, /*!< 31 EFR32 SYNTH Interrupt */
   CRYOTIMER_IRQn        = 32, /*!< 32 EFR32 CRYOTIMER Interrupt */
-  RFSENSE_IRQn          = 33, /*!< 33 EFR32 RFSENSE Interrupt */
   FPUEH_IRQn            = 34, /*!< 34 EFR32 FPUEH Interrupt */
   SMU_IRQn              = 35, /*!< 35 EFR32 SMU Interrupt */
   WTIMER0_IRQn          = 36, /*!< 36 EFR32 WTIMER0 Interrupt */
@@ -137,17 +127,22 @@ typedef enum IRQn
 ******************************************************************************/
 
 /** Part family */
-
-#define _EFR32_FLEX_FAMILY                     1 /**< FLEX Gecko RF SoC Family  */
-#define _EFR_DEVICE                              /**< Silicon Labs EFR-type RF SoC */
-#define _SILICON_LABS_32B_SERIES_1               /**< Silicon Labs series number */
-#define _SILICON_LABS_32B_SERIES               1 /**< Silicon Labs series number */
-#define _SILICON_LABS_32B_SERIES_1_CONFIG_2      /**< Series 1, Configuration 2 */
-#define _SILICON_LABS_32B_SERIES_1_CONFIG      2 /**< Series 1, Configuration 2 */
-#define _SILICON_LABS_32B_PLATFORM_2             /**< Silicon Labs platform name */
-#define _SILICON_LABS_32B_PLATFORM             2 /**< Silicon Labs platform name */
-#define _SILICON_LABS_32B_PLATFORM_2_GEN_2       /**< Platform 2, generation 2 */
-#define _SILICON_LABS_32B_PLATFORM_2_GEN       2 /**< Platform 2, generation 2 */
+#define _EFR32_FLEX_FAMILY                      1  /**< FLEX Gecko RF SoC Family  */
+#define _EFR_DEVICE                                /**< Silicon Labs EFR-type RF SoC */
+#define _SILICON_LABS_32B_SERIES_1                 /**< Silicon Labs series number */
+#define _SILICON_LABS_32B_SERIES                1  /**< Silicon Labs series number */
+#define _SILICON_LABS_32B_SERIES_1_CONFIG_2        /**< Series 1, Configuration 2 */
+#define _SILICON_LABS_32B_SERIES_1_CONFIG       2  /**< Series 1, Configuration 2 */
+#define _SILICON_LABS_GECKO_INTERNAL_SDID       84 /** Silicon Labs internal use only, may change any time */
+#define _SILICON_LABS_GECKO_INTERNAL_SDID_84       /** Silicon Labs internal use only, may change any time */
+#define _SILICON_LABS_EFR32_RADIO_SUBGHZ        1
+#define _SILICON_LABS_EFR32_RADIO_2G4HZ         2
+#define _SILICON_LABS_EFR32_RADIO_DUALBAND      3
+#define _SILICON_LABS_EFR32_RADIO_TYPE          _SILICON_LABS_EFR32_RADIO_2G4HZ
+#define _SILICON_LABS_32B_PLATFORM_2              /**< @deprecated Silicon Labs platform name */
+#define _SILICON_LABS_32B_PLATFORM              2 /**< @deprecated Silicon Labs platform name */
+#define _SILICON_LABS_32B_PLATFORM_2_GEN_2        /**< @deprecated Platform 2, generation 2 */
+#define _SILICON_LABS_32B_PLATFORM_2_GEN        2 /**< @deprecated Platform 2, generation 2 */
 
 /* If part number is not defined as compiler option, define it */
 #if !defined(EFR32FG12P232F1024GM48)
@@ -161,43 +156,39 @@ typedef enum IRQn
 #define RAM0_CODE_MEM_BASE         ((uint32_t) 0x10000000UL) /**< RAM0_CODE base address  */
 #define RAM0_CODE_MEM_SIZE         ((uint32_t) 0x20000UL)    /**< RAM0_CODE available address space  */
 #define RAM0_CODE_MEM_END          ((uint32_t) 0x1001FFFFUL) /**< RAM0_CODE end address  */
-#define RAM0_CODE_MEM_BITS         ((uint32_t) 0x17UL)       /**< RAM0_CODE used bits  */
-#define SEQRAM_MEM_BASE            ((uint32_t) 0x21000000UL) /**< SEQRAM base address  */
-#define SEQRAM_MEM_SIZE            ((uint32_t) 0x2000UL)     /**< SEQRAM available address space  */
-#define SEQRAM_MEM_END             ((uint32_t) 0x21001FFFUL) /**< SEQRAM end address  */
-#define SEQRAM_MEM_BITS            ((uint32_t) 0x13UL)       /**< SEQRAM used bits  */
+#define RAM0_CODE_MEM_BITS         ((uint32_t) 0x00000011UL) /**< RAM0_CODE used bits  */
 #define RAM2_MEM_BASE              ((uint32_t) 0x20040000UL) /**< RAM2 base address  */
 #define RAM2_MEM_SIZE              ((uint32_t) 0x800UL)      /**< RAM2 available address space  */
 #define RAM2_MEM_END               ((uint32_t) 0x200407FFUL) /**< RAM2 end address  */
-#define RAM2_MEM_BITS              ((uint32_t) 0x11UL)       /**< RAM2 used bits  */
+#define RAM2_MEM_BITS              ((uint32_t) 0x0000000BUL) /**< RAM2 used bits  */
 #define RAM1_MEM_BASE              ((uint32_t) 0x20020000UL) /**< RAM1 base address  */
 #define RAM1_MEM_SIZE              ((uint32_t) 0x20000UL)    /**< RAM1 available address space  */
 #define RAM1_MEM_END               ((uint32_t) 0x2003FFFFUL) /**< RAM1 end address  */
-#define RAM1_MEM_BITS              ((uint32_t) 0x17UL)       /**< RAM1 used bits  */
+#define RAM1_MEM_BITS              ((uint32_t) 0x00000011UL) /**< RAM1 used bits  */
 #define CRYPTO1_BITCLR_MEM_BASE    ((uint32_t) 0x440F0400UL) /**< CRYPTO1_BITCLR base address  */
 #define CRYPTO1_BITCLR_MEM_SIZE    ((uint32_t) 0x400UL)      /**< CRYPTO1_BITCLR available address space  */
 #define CRYPTO1_BITCLR_MEM_END     ((uint32_t) 0x440F07FFUL) /**< CRYPTO1_BITCLR end address  */
-#define CRYPTO1_BITCLR_MEM_BITS    ((uint32_t) 0x10UL)       /**< CRYPTO1_BITCLR used bits  */
+#define CRYPTO1_BITCLR_MEM_BITS    ((uint32_t) 0x0000000AUL) /**< CRYPTO1_BITCLR used bits  */
 #define PER_MEM_BASE               ((uint32_t) 0x40000000UL) /**< PER base address  */
 #define PER_MEM_SIZE               ((uint32_t) 0xF0000UL)    /**< PER available address space  */
 #define PER_MEM_END                ((uint32_t) 0x400EFFFFUL) /**< PER end address  */
-#define PER_MEM_BITS               ((uint32_t) 0x20UL)       /**< PER used bits  */
+#define PER_MEM_BITS               ((uint32_t) 0x00000014UL) /**< PER used bits  */
 #define RAM1_CODE_MEM_BASE         ((uint32_t) 0x10020000UL) /**< RAM1_CODE base address  */
 #define RAM1_CODE_MEM_SIZE         ((uint32_t) 0x20000UL)    /**< RAM1_CODE available address space  */
 #define RAM1_CODE_MEM_END          ((uint32_t) 0x1003FFFFUL) /**< RAM1_CODE end address  */
-#define RAM1_CODE_MEM_BITS         ((uint32_t) 0x17UL)       /**< RAM1_CODE used bits  */
+#define RAM1_CODE_MEM_BITS         ((uint32_t) 0x00000011UL) /**< RAM1_CODE used bits  */
 #define CRYPTO1_MEM_BASE           ((uint32_t) 0x400F0400UL) /**< CRYPTO1 base address  */
 #define CRYPTO1_MEM_SIZE           ((uint32_t) 0x400UL)      /**< CRYPTO1 available address space  */
 #define CRYPTO1_MEM_END            ((uint32_t) 0x400F07FFUL) /**< CRYPTO1 end address  */
-#define CRYPTO1_MEM_BITS           ((uint32_t) 0x10UL)       /**< CRYPTO1 used bits  */
+#define CRYPTO1_MEM_BITS           ((uint32_t) 0x0000000AUL) /**< CRYPTO1 used bits  */
 #define FLASH_MEM_BASE             ((uint32_t) 0x00000000UL) /**< FLASH base address  */
 #define FLASH_MEM_SIZE             ((uint32_t) 0x10000000UL) /**< FLASH available address space  */
 #define FLASH_MEM_END              ((uint32_t) 0x0FFFFFFFUL) /**< FLASH end address  */
-#define FLASH_MEM_BITS             ((uint32_t) 0x28UL)       /**< FLASH used bits  */
+#define FLASH_MEM_BITS             ((uint32_t) 0x0000001CUL) /**< FLASH used bits  */
 #define CRYPTO0_MEM_BASE           ((uint32_t) 0x400F0000UL) /**< CRYPTO0 base address  */
 #define CRYPTO0_MEM_SIZE           ((uint32_t) 0x400UL)      /**< CRYPTO0 available address space  */
 #define CRYPTO0_MEM_END            ((uint32_t) 0x400F03FFUL) /**< CRYPTO0 end address  */
-#define CRYPTO0_MEM_BITS           ((uint32_t) 0x10UL)       /**< CRYPTO0 used bits  */
+#define CRYPTO0_MEM_BITS           ((uint32_t) 0x0000000AUL) /**< CRYPTO0 used bits  */
 #define CRYPTO_MEM_BASE            CRYPTO0_MEM_BASE          /**< Alias for CRYPTO0_MEM_BASE */
 #define CRYPTO_MEM_SIZE            CRYPTO0_MEM_SIZE          /**< Alias for CRYPTO0_MEM_SIZE */
 #define CRYPTO_MEM_END             CRYPTO0_MEM_END           /**< Alias for CRYPTO0_MEM_END  */
@@ -205,11 +196,11 @@ typedef enum IRQn
 #define PER_BITCLR_MEM_BASE        ((uint32_t) 0x44000000UL) /**< PER_BITCLR base address  */
 #define PER_BITCLR_MEM_SIZE        ((uint32_t) 0xF0000UL)    /**< PER_BITCLR available address space  */
 #define PER_BITCLR_MEM_END         ((uint32_t) 0x440EFFFFUL) /**< PER_BITCLR end address  */
-#define PER_BITCLR_MEM_BITS        ((uint32_t) 0x20UL)       /**< PER_BITCLR used bits  */
+#define PER_BITCLR_MEM_BITS        ((uint32_t) 0x00000014UL) /**< PER_BITCLR used bits  */
 #define CRYPTO0_BITSET_MEM_BASE    ((uint32_t) 0x460F0000UL) /**< CRYPTO0_BITSET base address  */
 #define CRYPTO0_BITSET_MEM_SIZE    ((uint32_t) 0x400UL)      /**< CRYPTO0_BITSET available address space  */
 #define CRYPTO0_BITSET_MEM_END     ((uint32_t) 0x460F03FFUL) /**< CRYPTO0_BITSET end address  */
-#define CRYPTO0_BITSET_MEM_BITS    ((uint32_t) 0x10UL)       /**< CRYPTO0_BITSET used bits  */
+#define CRYPTO0_BITSET_MEM_BITS    ((uint32_t) 0x0000000AUL) /**< CRYPTO0_BITSET used bits  */
 #define CRYPTO_BITSET_MEM_BASE     CRYPTO0_BITSET_MEM_BASE   /**< Alias for CRYPTO0_BITSET_MEM_BASE */
 #define CRYPTO_BITSET_MEM_SIZE     CRYPTO0_BITSET_MEM_SIZE   /**< Alias for CRYPTO0_BITSET_MEM_SIZE */
 #define CRYPTO_BITSET_MEM_END      CRYPTO0_BITSET_MEM_END    /**< Alias for CRYPTO0_BITSET_MEM_END  */
@@ -217,7 +208,7 @@ typedef enum IRQn
 #define CRYPTO0_BITCLR_MEM_BASE    ((uint32_t) 0x440F0000UL) /**< CRYPTO0_BITCLR base address  */
 #define CRYPTO0_BITCLR_MEM_SIZE    ((uint32_t) 0x400UL)      /**< CRYPTO0_BITCLR available address space  */
 #define CRYPTO0_BITCLR_MEM_END     ((uint32_t) 0x440F03FFUL) /**< CRYPTO0_BITCLR end address  */
-#define CRYPTO0_BITCLR_MEM_BITS    ((uint32_t) 0x10UL)       /**< CRYPTO0_BITCLR used bits  */
+#define CRYPTO0_BITCLR_MEM_BITS    ((uint32_t) 0x0000000AUL) /**< CRYPTO0_BITCLR used bits  */
 #define CRYPTO_BITCLR_MEM_BASE     CRYPTO0_BITCLR_MEM_BASE   /**< Alias for CRYPTO0_BITCLR_MEM_BASE */
 #define CRYPTO_BITCLR_MEM_SIZE     CRYPTO0_BITCLR_MEM_SIZE   /**< Alias for CRYPTO0_BITCLR_MEM_SIZE */
 #define CRYPTO_BITCLR_MEM_END      CRYPTO0_BITCLR_MEM_END    /**< Alias for CRYPTO0_BITCLR_MEM_END  */
@@ -225,19 +216,19 @@ typedef enum IRQn
 #define PER_BITSET_MEM_BASE        ((uint32_t) 0x46000000UL) /**< PER_BITSET base address  */
 #define PER_BITSET_MEM_SIZE        ((uint32_t) 0xF0000UL)    /**< PER_BITSET available address space  */
 #define PER_BITSET_MEM_END         ((uint32_t) 0x460EFFFFUL) /**< PER_BITSET end address  */
-#define PER_BITSET_MEM_BITS        ((uint32_t) 0x20UL)       /**< PER_BITSET used bits  */
+#define PER_BITSET_MEM_BITS        ((uint32_t) 0x00000014UL) /**< PER_BITSET used bits  */
 #define CRYPTO1_BITSET_MEM_BASE    ((uint32_t) 0x460F0400UL) /**< CRYPTO1_BITSET base address  */
 #define CRYPTO1_BITSET_MEM_SIZE    ((uint32_t) 0x400UL)      /**< CRYPTO1_BITSET available address space  */
 #define CRYPTO1_BITSET_MEM_END     ((uint32_t) 0x460F07FFUL) /**< CRYPTO1_BITSET end address  */
-#define CRYPTO1_BITSET_MEM_BITS    ((uint32_t) 0x10UL)       /**< CRYPTO1_BITSET used bits  */
+#define CRYPTO1_BITSET_MEM_BITS    ((uint32_t) 0x0000000AUL) /**< CRYPTO1_BITSET used bits  */
 #define RAM2_CODE_MEM_BASE         ((uint32_t) 0x10040000UL) /**< RAM2_CODE base address  */
 #define RAM2_CODE_MEM_SIZE         ((uint32_t) 0x800UL)      /**< RAM2_CODE available address space  */
 #define RAM2_CODE_MEM_END          ((uint32_t) 0x100407FFUL) /**< RAM2_CODE end address  */
-#define RAM2_CODE_MEM_BITS         ((uint32_t) 0x11UL)       /**< RAM2_CODE used bits  */
+#define RAM2_CODE_MEM_BITS         ((uint32_t) 0x0000000BUL) /**< RAM2_CODE used bits  */
 #define RAM_MEM_BASE               ((uint32_t) 0x20000000UL) /**< RAM base address  */
 #define RAM_MEM_SIZE               ((uint32_t) 0x20000UL)    /**< RAM available address space  */
 #define RAM_MEM_END                ((uint32_t) 0x2001FFFFUL) /**< RAM end address  */
-#define RAM_MEM_BITS               ((uint32_t) 0x17UL)       /**< RAM used bits  */
+#define RAM_MEM_BITS               ((uint32_t) 0x00000011UL) /**< RAM used bits  */
 
 /** Bit banding area */
 #define BITBAND_PER_BASE           ((uint32_t) 0x42000000UL) /**< Peripheral Address Space bit-band area */
@@ -246,7 +237,7 @@ typedef enum IRQn
 /** Flash and SRAM limits for EFR32FG12P232F1024GM48 */
 #define FLASH_BASE                 (0x00000000UL) /**< Flash Base Address */
 #define FLASH_SIZE                 (0x00100000UL) /**< Available Flash Memory */
-#define FLASH_PAGE_SIZE            2048           /**< Flash Memory page size */
+#define FLASH_PAGE_SIZE            2048           /**< Flash Memory page size (interleaving off) */
 #define SRAM_BASE                  (0x20000000UL) /**< SRAM Base Address */
 #define SRAM_SIZE                  (0x00020000UL) /**< Available SRAM Memory */
 #define __CM4_REV                  0x001          /**< Cortex-M4 Core revision r0p1 */
@@ -635,7 +626,7 @@ typedef enum IRQn
 #define _WTIMER_CTRL_ATI_MASK                       0x10000000UL                              /**< Bit mask for TIMER_ATI */
 #define _WTIMER_CTRL_ATI_DEFAULT                    0x00000000UL                              /**< Mode DEFAULT for WTIMER_CTRL */
 #define WTIMER_CTRL_ATI_DEFAULT                     (_WTIMER_CTRL_ATI_DEFAULT << 28)          /**< Shifted mode DEFAULT for WTIMER_CTRL */
-#define WTIMER_CTRL_RSSCOIST                        (0x1UL << 29)                             /**< Reload-Start Sets Compare Ouptut initial State */
+#define WTIMER_CTRL_RSSCOIST                        (0x1UL << 29)                             /**< Reload-Start Sets Compare Output initial State */
 #define _WTIMER_CTRL_RSSCOIST_SHIFT                 29                                        /**< Shift value for TIMER_RSSCOIST */
 #define _WTIMER_CTRL_RSSCOIST_MASK                  0x20000000UL                              /**< Bit mask for TIMER_RSSCOIST */
 #define _WTIMER_CTRL_RSSCOIST_DEFAULT               0x00000000UL                              /**< Mode DEFAULT for WTIMER_CTRL */
@@ -2034,14 +2025,13 @@ typedef enum IRQn
  * @defgroup EFR32FG12P232F1024GM48_UNLOCK EFR32FG12P232F1024GM48 Unlock Codes
  * @{
  *****************************************************************************/
-#define MSC_UNLOCK_CODE         0x1B71 /**< MSC unlock code */
-#define EMU_UNLOCK_CODE         0xADE8 /**< EMU unlock code */
-#define RMU_UNLOCK_CODE         0xE084 /**< RMU unlock code */
-#define CMU_UNLOCK_CODE         0x580E /**< CMU unlock code */
-#define GPIO_UNLOCK_CODE        0xA534 /**< GPIO unlock code */
-#define TIMER_UNLOCK_CODE       0xCE80 /**< TIMER unlock code */
-#define PROTIMER_UNLOCK_CODE    0xCE80 /**< PROTIMER unlock code */
-#define RTCC_UNLOCK_CODE        0xAEE8 /**< RTCC unlock code */
+#define MSC_UNLOCK_CODE      0x1B71 /**< MSC unlock code */
+#define EMU_UNLOCK_CODE      0xADE8 /**< EMU unlock code */
+#define RMU_UNLOCK_CODE      0xE084 /**< RMU unlock code */
+#define CMU_UNLOCK_CODE      0x580E /**< CMU unlock code */
+#define GPIO_UNLOCK_CODE     0xA534 /**< GPIO unlock code */
+#define TIMER_UNLOCK_CODE    0xCE80 /**< TIMER unlock code */
+#define RTCC_UNLOCK_CODE     0xAEE8 /**< RTCC unlock code */
 
 /** @} End of group EFR32FG12P232F1024GM48_UNLOCK */
 
@@ -2056,22 +2046,6 @@ typedef enum IRQn
 #include "efr32fg12p_af_pins.h"
 
 /** @} End of group EFR32FG12P232F1024GM48_Alternate_Function */
-
-/**************************************************************************//**
- *  @brief Set the value of a bit field within a register.
- *
- *  @param REG
- *       The register to update
- *  @param MASK
- *       The mask for the bit field to update
- *  @param VALUE
- *       The value to write to the bit field
- *  @param OFFSET
- *       The number of bits that the field is offset within the register.
- *       0 (zero) means LSB.
- *****************************************************************************/
-#define SET_BIT_FIELD(REG, MASK, VALUE, OFFSET) \
-  REG = ((REG) &~(MASK)) | (((VALUE) << (OFFSET)) & (MASK));
 
 /** @} End of group EFR32FG12P232F1024GM48 */
 

@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file  msdd.h
  * @brief Mass Storage class Device (MSD) driver.
- * @version 5.0.0
+ * @version 5.1.1
  *******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>

@@ -1,0 +1,679 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.2.11947/W32 for ARM                09/Mar/2017  19:51:52
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Exe\usbhenum.out
+#    Map file     =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\List\usbhenum.map
+#    Command line =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\bsp_dk_3201.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\bsp_trace.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\em_assert.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\em_cmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\em_core.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\em_ebi.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\em_emu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\em_gpio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\em_system.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\em_timer.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\em_usart.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\em_usbh.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\em_usbhal.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\em_usbhep.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\em_usbhint.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\em_usbtimer.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\main.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\retargetio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\retargetserial.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\startup_efm32gg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj\system_efm32gg.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Exe\usbhenum.out
+#        --map
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\List\usbhenum.map
+#        --config
+#        T:\iar_ew_7802_win32_rel_1\arm\config\linker\SiliconLaboratories\EFM32GG990F1024.icf
+#        --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x000fffff] { ro };
+"P2":  place in [from 0x20000000 to 0x2001ffff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+ { section .intvec };
+
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A0":                                       0xdc
+  .intvec            ro code  0x00000000    0xdc  startup_efm32gg.o [1]
+                            - 0x000000dc    0xdc
+
+"P1":                                     0x7080
+  .text              ro code  0x000000dc   0xf24  em_usbh.o [1]
+  .text              ro code  0x00001000   0x3c4  em_usbhal.o [1]
+  .text              ro code  0x000013c4   0x1d8  em_usbhep.o [1]
+  .text              ro code  0x0000159c   0x480  em_usbtimer.o [1]
+  .text              ro code  0x00001a1c     0x8  em_core.o [1]
+  .text              ro code  0x00001a24     0x8  em_core.o [1]
+  .text              ro code  0x00001a2c     0xa  em_core.o [1]
+  .text              ro code  0x00001a38    0x18  em_core.o [1]
+  .text              ro code  0x00001a50    0x76  ABImemcpy_unaligned.o [5]
+  .text              ro code  0x00001ac8   0xb38  em_cmu.o [1]
+  .text              ro code  0x00002600    0x66  ABImemset.o [5]
+  .text              ro code  0x00002668   0x1b0  retargetserial.o [1]
+  .text              ro code  0x00002818   0x2b0  em_gpio.o [1]
+  .text              ro code  0x00002ac8     0x4  em_core.o [1]
+  .text              ro code  0x00002acc     0x4  em_core.o [1]
+  .text              ro code  0x00002ad0   0x1a8  em_timer.o [1]
+  .text              ro code  0x00002c78   0x138  system_efm32gg.o [1]
+  .text              ro code  0x00002db0   0x344  em_usart.o [1]
+  .text              ro code  0x000030f4   0xa20  bsp_dk_3201.o [1]
+  .text              ro code  0x00003b14   0x7b8  em_ebi.o [1]
+  .text              ro code  0x000042cc   0xdd2  xprintffull.o [3]
+  .text              ro code  0x000050a0    0x16  strchr.o [5]
+  .text              ro code  0x000050b8    0x36  strlen.o [5]
+  .text              ro code  0x000050f0    0x58  memchr.o [5]
+  .text              ro code  0x00005148    0xee  I64DivMod.o [5]
+  .text              ro code  0x00005236    0x44  xdnorm.o [4]
+  .text              ro code  0x0000527c    0x2e  DblCmpLe.o [4]
+  .text              ro code  0x000052ac    0x2e  DblCmpGe.o [4]
+  .text              ro code  0x000052dc   0x10c  xdscale.o [4]
+  .text              ro code  0x000053e8    0x58  DblToI32.o [4]
+  .text              ro code  0x00005440    0x30  I32ToDbl.o [4]
+  .text              ro code  0x00005470   0x180  DblSub.o [4]
+  .text              ro code  0x000055f0   0x1a2  DblMul.o [4]
+  .text              ro code  0x00005794   0x256  DblDiv.o [4]
+  .text              ro code  0x000059ea     0xe  div.o [3]
+  .text              ro code  0x000059f8     0x2  I64DivZer.o [5]
+  .text              ro code  0x000059fc    0xd4  DblAdd.o [4]
+  .text              ro code  0x00005ad0   0x5bc  em_usbhint.o [1]
+  .text              ro code  0x0000608c   0x1ca  main.o [1]
+  .text              ro code  0x00006258   0x118  bsp_trace.o [1]
+  .text              ro code  0x00006370    0x24  printf.o [3]
+  .rodata            const    0x00006394    0x88  bsp_dk_3201.o [1]
+  .rodata            const    0x0000641c    0x88  em_gpio.o [1]
+  .rodata            const    0x000064a4    0x88  em_usbh.o [1]
+  .rodata            const    0x0000652c    0x88  em_usbhint.o [1]
+  .rodata            const    0x000065b4    0x88  em_usbtimer.o [1]
+  .rodata            const    0x0000663c    0x84  em_cmu.o [1]
+  .rodata            const    0x000066c0    0x5c  em_usbh.o [1]
+  .text              ro code  0x0000671c    0x56  retargetio.o [1]
+  .rodata            const    0x00006774    0x50  bsp_dk_3201.o [1]
+  .rodata            const    0x000067c4    0x4c  em_cmu.o [1]
+  .rodata            const    0x00006810    0x4c  em_ebi.o [1]
+  .rodata            const    0x0000685c    0x4c  em_gpio.o [1]
+  .rodata            const    0x000068a8    0x4c  em_timer.o [1]
+  .rodata            const    0x000068f4    0x4c  em_usart.o [1]
+  .text              ro code  0x00006940    0x40  zero_init3.o [5]
+  .rodata            const    0x00006980    0x3c  em_usbh.o [1]
+  .rodata            const    0x000069bc    0x3c  main.o [1]
+  .rodata            const    0x000069f8    0x3c  main.o [1]
+  .rodata            const    0x00006a34    0x38  em_usbh.o [1]
+  .rodata            const    0x00006a6c    0x38  em_usbh.o [1]
+  .rodata            const    0x00006aa4    0x38  em_usbh.o [1]
+  .rodata            const    0x00006adc    0x38  main.o [1]
+  .rodata            const    0x00006b14    0x34  em_usbh.o [1]
+  .rodata            const    0x00006b48    0x34  em_usbh.o [1]
+  .rodata            const    0x00006b7c    0x34  main.o [1]
+  .rodata            const    0x00006bb0    0x30  em_usbh.o [1]
+  .rodata            const    0x00006be0    0x30  em_usbh.o [1]
+  .rodata            const    0x00006c10    0x30  em_usbh.o [1]
+  .rodata            const    0x00006c40    0x30  em_usbh.o [1]
+  .rodata            const    0x00006c70    0x30  main.o [1]
+  .rodata            const    0x00006ca0    0x2c  em_usbh.o [1]
+  .rodata            const    0x00006ccc    0x2c  em_usbh.o [1]
+  .rodata            const    0x00006cf8    0x2c  em_usbh.o [1]
+  .text              ro code  0x00006d24    0x2c  copy_init3.o [5]
+  .rodata            const    0x00006d50    0x28  em_usbh.o [1]
+  .rodata            const    0x00006d78    0x28  em_usbh.o [1]
+  .rodata            const    0x00006da0    0x28  em_usbh.o [1]
+  .rodata            const    0x00006dc8    0x28  em_usbh.o [1]
+  .rodata            const    0x00006df0    0x28  em_usbh.o [1]
+  .text              ro code  0x00006e18    0x28  putchar.o [3]
+  .text              ro code  0x00006e40    0x28  data_init.o [5]
+  .rodata            const    0x00006e68    0x24  em_usbh.o [1]
+  .rodata            const    0x00006e8c    0x24  main.o [1]
+  .iar.init_table    const    0x00006eb0    0x24  - Linker created -
+  .rodata            const    0x00006ed4    0x20  main.o [1]
+  .rodata            const    0x00006ef4    0x1c  main.o [1]
+  .rodata            const    0x00006f10    0x1c  main.o [1]
+  .rodata            const    0x00006f2c    0x1c  main.o [1]
+  .text              ro code  0x00006f48    0x1a  cmain.o [5]
+  .text              ro code  0x00006f62     0x4  low_level_init.o [3]
+  .text              ro code  0x00006f66     0x4  exit.o [3]
+  .text              ro code  0x00006f6c     0xa  cexit.o [5]
+  .text              ro code  0x00006f78     0xc  XXexit.o [5]
+  .rodata            const    0x00006f84    0x18  bsp_dk_3201.o [1]
+  .rodata            const    0x00006f9c    0x18  em_usbh.o [1]
+  .rodata            const    0x00006fb4    0x18  main.o [1]
+  .rodata            const    0x00006fcc    0x18  main.o [1]
+  .rodata            const    0x00006fe4    0x18  retargetserial.o [1]
+  .text              ro code  0x00006ffc    0x16  xprout.o [3]
+  .rodata            const    0x00007014    0x14  main.o [1]
+  .rodata            const    0x00007028    0x14  main.o [1]
+  .rodata            const    0x0000703c    0x14  main.o [1]
+  .rodata            const    0x00007050    0x10  em_usbtimer.o [1]
+  .rodata            const    0x00007060    0x10  main.o [1]
+  .text              ro code  0x00007070    0x10  startup_efm32gg.o [1]
+  .rodata            const    0x00007080     0xc  em_usbhal.o [1]
+  .text              ro code  0x0000708c     0xc  cstartup_M.o [5]
+  .rodata            const    0x00007098     0x8  main.o [1]
+  Initializer bytes  const    0x000070a0     0x8  <for P2-1>
+  .text              ro code  0x000070a8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070ac     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070b0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070b4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070b8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070bc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070c0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070c4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070c8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070cc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070d0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070d4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070d8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070dc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070e0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070e4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070e8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070ec     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070f0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070f4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070f8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000070fc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00007100     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00007104     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00007108     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000710c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00007110     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00007114     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00007118     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000711c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00007120     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00007124     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00007128     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000712c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00007130     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00007134     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00007138     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000713c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00007140     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00007144     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00007148     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000714c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00007150     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00007154     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00007158     0x4  startup_efm32gg.o [1]
+  .rodata            const    0x0000715c     0x0  zero_init3.o [5]
+  .rodata            const    0x0000715c     0x0  copy_init3.o [5]
+                            - 0x0000715c  0x7080
+
+"P2", part 1 of 3:                           0x8
+  P2-1                        0x20000000     0x8  <Init block>
+    .data            inited   0x20000000     0x4  system_efm32gg.o [1]
+    .data            inited   0x20000004     0x4  system_efm32gg.o [1]
+                            - 0x20000008     0x8
+
+"P2", part 2 of 3:                         0x400
+  CSTACK                      0x20000008   0x400  <Block>
+    CSTACK           uninit   0x20000008   0x400  <Block tail>
+                            - 0x20000408   0x400
+
+"P2", part 3 of 3:                         0x520
+  .bss               zero     0x20000408   0x400  main.o [1]
+  .bss               zero     0x20000808    0x68  main.o [1]
+  .bss               zero     0x20000870    0x38  em_usbh.o [1]
+  .bss               zero     0x200008a8    0x30  em_usbtimer.o [1]
+  .bss               zero     0x200008d8    0x10  em_usbh.o [1]
+  .bss               zero     0x200008e8     0x8  retargetserial.o [1]
+  .bss               zero     0x200008f0     0x4  bsp_dk_3201.o [1]
+  .bss               zero     0x200008f4     0x4  bsp_dk_3201.o [1]
+  .bss               zero     0x200008f8     0x4  em_usbh.o [1]
+  .bss               zero     0x200008fc     0x4  em_usbtimer.o [1]
+  .bss               zero     0x20000900     0x4  em_usbtimer.o [1]
+  .bss               zero     0x20000904     0x4  em_usbtimer.o [1]
+  .bss               zero     0x20000908     0x4  em_usbtimer.o [1]
+  .bss               zero     0x2000090c     0x4  em_usbtimer.o [1]
+  .bss               zero     0x20000910     0x4  retargetserial.o [1]
+  .bss               zero     0x20000914     0x4  retargetserial.o [1]
+  .bss               zero     0x20000918     0x4  retargetserial.o [1]
+  .bss               zero     0x2000091c     0x4  system_efm32gg.o [1]
+  .bss               zero     0x20000920     0x2  bsp_dk_3201.o [1]
+  .bss               zero     0x20000922     0x1  bsp_dk_3201.o [1]
+  .bss               zero     0x20000923     0x1  em_usbh.o [1]
+  .bss               zero     0x20000924     0x1  retargetserial.o [1]
+  .bss               zero     0x20000925     0x1  retargetserial.o [1]
+                            - 0x20000926   0x51e
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x51e:
+          0x20000408  0x51e
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0x8:
+          0x000070a0    0x8
+    1 destination range, total size 0x8:
+          0x20000000    0x8
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                 ro code  ro data  rw data
+    ------                 -------  -------  -------
+D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj: [1]
+    bsp_dk_3201.o            2 592      240       11
+    bsp_trace.o                280
+    em_cmu.o                 2 872      208
+    em_core.o                   58
+    em_ebi.o                 1 976       76
+    em_gpio.o                  688      212
+    em_timer.o                 424       76
+    em_usart.o                 836       76
+    em_usbh.o                3 876    1 144       77
+    em_usbhal.o                964       12
+    em_usbhep.o                472
+    em_usbhint.o             1 468      136
+    em_usbtimer.o            1 152      152       68
+    main.o                     458      560    1 128
+    retargetio.o                86
+    retargetserial.o           432       24       22
+    startup_efm32gg.o          416
+    system_efm32gg.o           312        8       12
+    ------------------------------------------------
+    Total:                  19 362    2 924    1 318
+
+command line: [2]
+    ------------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    div.o                       14
+    exit.o                       4
+    low_level_init.o             4
+    printf.o                    36
+    putchar.o                   40
+    xprintffull.o            3 538
+    xprout.o                    22
+    ------------------------------------------------
+    Total:                   3 658
+
+m7M_tl.a: [4]
+    DblAdd.o                   212
+    DblCmpGe.o                  46
+    DblCmpLe.o                  46
+    DblDiv.o                   598
+    DblMul.o                   418
+    DblSub.o                   384
+    DblToI32.o                  88
+    I32ToDbl.o                  48
+    xdnorm.o                    68
+    xdscale.o                  268
+    ------------------------------------------------
+    Total:                   2 176
+
+rt7M_tl.a: [5]
+    ABImemcpy_unaligned.o      118
+    ABImemset.o                102
+    I64DivMod.o                238
+    I64DivZer.o                  2
+    XXexit.o                    12
+    cexit.o                     10
+    cmain.o                     26
+    copy_init3.o                44
+    cstartup_M.o                12
+    data_init.o                 40
+    memchr.o                    88
+    strchr.o                    22
+    strlen.o                    54
+    zero_init3.o                64
+    ------------------------------------------------
+    Total:                     832
+
+    Gaps                        28        4
+    Linker created                       36    1 024
+----------------------------------------------------
+    Grand Total:            26 056    2 964    2 342
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x00006eb0          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x00006ed4          --   Gb  - Linker created -
+?main                   0x00006f49         Code  Gb  cmain.o [5]
+BSP_BusControlModeSet   0x000032a3   0x9c  Code  Gb  bsp_dk_3201.o [1]
+BSP_EbiExtendedAddressRange
+                        0x0000333f   0x24  Code  Gb  bsp_dk_3201.o [1]
+BSP_Init                0x00003249   0x5a  Code  Gb  bsp_dk_3201.o [1]
+BSP_PeripheralAccess    0x00003363  0x236  Code  Gb  bsp_dk_3201.o [1]
+BSP_RegisterRead        0x00003599   0x1a  Code  Gb  bsp_dk_3201.o [1]
+BSP_RegisterWrite       0x000035b3   0x22  Code  Gb  bsp_dk_3201.o [1]
+BSP_TraceProfilerSetup  0x00006359   0x18  Code  Gb  bsp_trace.o [1]
+BSP_TraceSwoSetup       0x00006259   0xac  Code  Gb  bsp_trace.o [1]
+BUS_RegBitRead          0x00001ad7   0x10  Code  Lc  em_cmu.o [1]
+BUS_RegBitRead          0x00000109   0x10  Code  Lc  em_usbh.o [1]
+BUS_RegBitRead          0x00005b5b   0x10  Code  Lc  em_usbhint.o [1]
+BUS_RegBitWrite         0x00001ac9    0xe  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x00003b15    0xe  Code  Lc  em_ebi.o [1]
+BUS_RegMaskedWrite      0x00002db1    0xa  Code  Lc  em_usart.o [1]
+CMU_ClockEnable         0x00001ea3   0xa6  Code  Gb  em_cmu.o [1]
+CMU_ClockFreqGet        0x00001f5d  0x188  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectGet      0x00002121  0x134  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectSet      0x00002279  0x292  Code  Gb  em_cmu.o [1]
+CMU_DivToLog2           0x00001ae7   0x28  Code  Lc  em_cmu.o [1]
+CMU_OscillatorEnable    0x00002529   0x9c  Code  Gb  em_cmu.o [1]
+CORE_AtomicDisableIrq   0x00002acd    0x4  Code  Wk  em_core.o [1]
+CORE_AtomicEnableIrq    0x00002ac9    0x4  Code  Wk  em_core.o [1]
+CORE_EnterAtomic        0x00001a1d    0x8  Code  Wk  em_core.o [1]
+CORE_ExitAtomic         0x00001a25    0x8  Code  Wk  em_core.o [1]
+CORE_InIrqContext       0x00001a39   0x18  Code  Wk  em_core.o [1]
+CORE_IrqIsDisabled      0x00001a2d    0xa  Code  Wk  em_core.o [1]
+CSTACK$$Base            0x20000008          --   Gb  - Linker created -
+CSTACK$$Limit           0x20000408          --   Gb  - Linker created -
+ConsoleDebugInit        0x00006249    0xe  Code  Lc  main.o [1]
+DelayTicks              0x0000167d   0x32  Code  Lc  em_usbtimer.o [1]
+EBI_BankAddressTimingConfig
+                        0x00004057   0x5a  Code  Gb  em_ebi.o [1]
+EBI_BankAddressTimingSet
+                        0x000040b1   0x86  Code  Gb  em_ebi.o [1]
+EBI_BankPolaritySet     0x00004141  0x12a  Code  Gb  em_ebi.o [1]
+EBI_BankReadTimingConfig
+                        0x00003d73   0xd8  Code  Gb  em_ebi.o [1]
+EBI_BankReadTimingSet   0x00003e4b   0xc6  Code  Gb  em_ebi.o [1]
+EBI_BankWriteTimingConfig
+                        0x00003f11   0x9e  Code  Gb  em_ebi.o [1]
+EBI_BankWriteTimingSet  0x00003faf   0xa8  Code  Gb  em_ebi.o [1]
+EBI_ChipSelectEnable    0x00003d23   0x50  Code  Gb  em_ebi.o [1]
+EBI_Init                0x00003b23  0x200  Code  Gb  em_ebi.o [1]
+EbiInit                 0x000035d5  0x30a  Code  Lc  bsp_dk_3201.o [1]
+GPIO_PinInGet           0x00000203   0xac  Code  Lc  em_usbh.o [1]
+GPIO_PinInGet           0x00005b6b   0xac  Code  Lc  em_usbhint.o [1]
+GPIO_PinModeSet         0x0000296d  0x14e  Code  Gb  em_gpio.o [1]
+GPIO_PinOutClear        0x000030f5   0xaa  Code  Lc  bsp_dk_3201.o [1]
+GPIO_PinOutClear        0x00002819   0xaa  Code  Lc  em_gpio.o [1]
+GPIO_PinOutSet          0x0000319f   0xaa  Code  Lc  bsp_dk_3201.o [1]
+GPIO_PinOutSet          0x000028c3   0xaa  Code  Lc  em_gpio.o [1]
+GetDeviceStrings        0x00006163   0x8e  Code  Lc  main.o [1]
+GetProdRev              0x00002c79    0xa  Code  Lc  system_efm32gg.o [1]
+Handle_HcInInt          0x00005c5d  0x132  Code  Lc  em_usbhint.o [1]
+Handle_HcOutInt         0x00005d8f   0xe6  Code  Lc  em_usbhint.o [1]
+Handle_USB_GINTSTS_DISCONNINT
+                        0x00005e75   0x70  Code  Lc  em_usbhint.o [1]
+Handle_USB_GINTSTS_HCHINT
+                        0x00005ee5   0x40  Code  Lc  em_usbhint.o [1]
+Handle_USB_GINTSTS_PRTINT
+                        0x00005fb9   0x8e  Code  Lc  em_usbhint.o [1]
+InitUsb                 0x00000e03   0x5a  Code  Lc  em_usbh.o [1]
+LFtoCRLF                0x20000924    0x1  Data  Lc  retargetserial.o [1]
+LoadInt                 0x00004873   0x6e  Code  Lc  xprintffull.o [3]
+NVIC_ClearPendingIRQ    0x000000f3   0x16  Code  Lc  em_usbh.o [1]
+NVIC_ClearPendingIRQ    0x000015b3   0x16  Code  Lc  em_usbtimer.o [1]
+NVIC_ClearPendingIRQ    0x0000267d   0x14  Code  Lc  retargetserial.o [1]
+NVIC_EnableIRQ          0x000000dd   0x16  Code  Lc  em_usbh.o [1]
+NVIC_EnableIRQ          0x0000159d   0x16  Code  Lc  em_usbtimer.o [1]
+NVIC_EnableIRQ          0x00002669   0x14  Code  Lc  retargetserial.o [1]
+PortDebounceComplete    0x00005f3d   0x7c  Code  Lc  em_usbhint.o [1]
+PortResetComplete       0x00005f25   0x18  Code  Lc  em_usbhint.o [1]
+PrintI                  0x00001077   0x26  Code  Lc  em_usbhal.o [1]
+RETARGET_SerialCrLf     0x000026f3   0x14  Code  Gb  retargetserial.o [1]
+RETARGET_SerialInit     0x00002707   0x8a  Code  Gb  retargetserial.o [1]
+RETARGET_WriteChar      0x00002791   0x4c  Code  Gb  retargetserial.o [1]
+Region$$Table$$Base     0x00006eb0          --   Gb  - Linker created -
+Region$$Table$$Limit    0x00006ed4          --   Gb  - Linker created -
+SYSTEM_GetFamily        0x00001b1b    0xc  Code  Lc  em_cmu.o [1]
+SYSTEM_GetProdRev       0x00001b0f    0xc  Code  Lc  em_cmu.o [1]
+SpiBcAccess             0x000038df   0x60  Code  Lc  bsp_dk_3201.o [1]
+SpiBcInit               0x0000393f   0x60  Code  Lc  bsp_dk_3201.o [1]
+SpiControl              0x0000399f   0x44  Code  Lc  bsp_dk_3201.o [1]
+SpiInit                 0x000039e3   0x30  Code  Lc  bsp_dk_3201.o [1]
+SpiRegisterRead         0x00003a13   0x56  Code  Lc  bsp_dk_3201.o [1]
+SpiRegisterWrite        0x00003a71   0x48  Code  Lc  bsp_dk_3201.o [1]
+SystemCoreClock         0x2000091c    0x4  Data  Gb  system_efm32gg.o [1]
+SystemCoreClockGet      0x00002c83   0x1a  Code  Gb  system_efm32gg.o [1]
+SystemHFClockGet        0x00002ca1   0xb2  Code  Gb  system_efm32gg.o [1]
+SystemHFXOClock         0x20000000    0x4  Data  Lc  system_efm32gg.o [1]
+SystemHFXOClockGet      0x00002d53    0x6  Code  Gb  system_efm32gg.o [1]
+SystemInit              0x00002d59    0x2  Code  Gb  system_efm32gg.o [1]
+SystemLFRCOClockGet     0x00002d5b    0x6  Code  Gb  system_efm32gg.o [1]
+SystemLFXOClock         0x20000004    0x4  Data  Lc  system_efm32gg.o [1]
+SystemLFXOClockGet      0x00002d67    0x6  Code  Gb  system_efm32gg.o [1]
+SystemMaxCoreClockGet   0x00002c9d    0x4  Code  Gb  system_efm32gg.o [1]
+SystemULFRCOClockGet    0x00002d61    0x6  Code  Gb  system_efm32gg.o [1]
+TIMER0_IRQHandler       0x00001633   0x4a  Code  Gb  em_usbtimer.o [1]
+TIMER_CaptureGet        0x000015d1    0x8  Code  Lc  em_usbtimer.o [1]
+TIMER_CompareSet        0x000015d9   0x26  Code  Lc  em_usbtimer.o [1]
+TIMER_CounterGet        0x000015ff    0x4  Code  Lc  em_usbtimer.o [1]
+TIMER_Init              0x00002af3   0xd2  Code  Gb  em_timer.o [1]
+TIMER_InitCC            0x00002bc5   0xa0  Code  Gb  em_timer.o [1]
+TIMER_IntClear          0x00001603    0x4  Code  Lc  em_usbtimer.o [1]
+TIMER_IntEnable         0x00001607    0x8  Code  Lc  em_usbtimer.o [1]
+TIMER_IntGet            0x0000160f    0x4  Code  Lc  em_usbtimer.o [1]
+TIMER_MaxCount          0x000015c9    0x8  Code  Lc  em_usbtimer.o [1]
+TIMER_TopSet            0x00001613   0x20  Code  Lc  em_usbtimer.o [1]
+TIMER_Valid             0x00002ad1   0x22  Code  Lc  em_timer.o [1]
+Timeout                 0x0000033b   0xca  Code  Lc  em_usbh.o [1]
+Timeout0                0x000002af    0xa  Code  Lc  em_usbh.o [1]
+Timeout1                0x000002b9    0xa  Code  Lc  em_usbh.o [1]
+Timeout10               0x00000313    0xa  Code  Lc  em_usbh.o [1]
+Timeout11               0x0000031d    0xa  Code  Lc  em_usbh.o [1]
+Timeout12               0x00000327    0xa  Code  Lc  em_usbh.o [1]
+Timeout13               0x00000331    0xa  Code  Lc  em_usbh.o [1]
+Timeout2                0x000002c3    0xa  Code  Lc  em_usbh.o [1]
+Timeout3                0x000002cd    0xa  Code  Lc  em_usbh.o [1]
+Timeout4                0x000002d7    0xa  Code  Lc  em_usbh.o [1]
+Timeout5                0x000002e1    0xa  Code  Lc  em_usbh.o [1]
+Timeout6                0x000002eb    0xa  Code  Lc  em_usbh.o [1]
+Timeout7                0x000002f5    0xa  Code  Lc  em_usbh.o [1]
+Timeout8                0x000002ff    0xa  Code  Lc  em_usbh.o [1]
+Timeout9                0x00000309    0xa  Code  Lc  em_usbh.o [1]
+TimerTick               0x00001979   0x5c  Code  Lc  em_usbtimer.o [1]
+TxBuf                   0x0000671d   0x1e  Code  Lc  retargetio.o [1]
+UART1_RX_IRQHandler     0x0000269d   0x56  Code  Gb  retargetserial.o [1]
+USART_BaudrateAsyncSet  0x00002dbb   0xf8  Code  Gb  em_usart.o [1]
+USART_BaudrateSyncSet   0x00002eb3   0x54  Code  Gb  em_usart.o [1]
+USART_Enable            0x00002f07   0x42  Code  Gb  em_usart.o [1]
+USART_InitAsync         0x00002f49   0x72  Code  Gb  em_usart.o [1]
+USART_InitSync          0x00002fbb   0x8a  Code  Gb  em_usart.o [1]
+USART_IntClear          0x00002691    0x4  Code  Lc  retargetserial.o [1]
+USART_IntEnable         0x00002695    0x8  Code  Lc  retargetserial.o [1]
+USART_Reset             0x00003045   0x72  Code  Gb  em_usart.o [1]
+USART_Rx                0x000030dd    0xc  Code  Gb  em_usart.o [1]
+USART_Tx                0x000030e9    0xc  Code  Gb  em_usart.o [1]
+USBHAL_CoreReset        0x000010d3   0x3e  Code  Gb  em_usbhal.o [1]
+USBHAL_DisableGlobalInt
+                        0x00000119   0x12  Code  Lc  em_usbh.o [1]
+USBHAL_DisablePhyPins   0x0000012b    0xa  Code  Lc  em_usbh.o [1]
+USBHAL_EnableGlobalInt  0x00000135   0x12  Code  Lc  em_usbh.o [1]
+USBHAL_FlushRxFifo      0x00001001   0x14  Code  Lc  em_usbhal.o [1]
+USBHAL_FlushTxFifo      0x00001015   0x1a  Code  Lc  em_usbhal.o [1]
+USBHAL_GetCoreInts      0x00005ad1   0x12  Code  Lc  em_usbhint.o [1]
+USBHEP_CtrlEpHandler    0x000013c5   0xd6  Code  Gb  em_usbhep.o [1]
+USBHEP_EpHandler        0x0000149b   0x1c  Code  Gb  em_usbhep.o [1]
+USBHEP_TransferDone     0x000014b7   0xe0  Code  Gb  em_usbhep.o [1]
+USBHHAL_CoreInit        0x00001111  0x12c  Code  Gb  em_usbhal.o [1]
+USBHHAL_EnableInts      0x00000163   0x28  Code  Lc  em_usbh.o [1]
+USBHHAL_GetHcChar       0x0000018b    0xc  Code  Lc  em_usbh.o [1]
+USBHHAL_GetHcInts       0x00005ae3   0x12  Code  Lc  em_usbhint.o [1]
+USBHHAL_GetHostChannelInts
+                        0x00005af5    0x8  Code  Lc  em_usbhint.o [1]
+USBHHAL_GetPortSpeed    0x00000197    0xe  Code  Lc  em_usbh.o [1]
+USBHHAL_HCActivate      0x0000102f   0x48  Code  Lc  em_usbhal.o [1]
+USBHHAL_HCHalt          0x0000123d    0xc  Code  Gb  em_usbhal.o [1]
+USBHHAL_HCInit          0x00001249   0x98  Code  Gb  em_usbhal.o [1]
+USBHHAL_HCStart         0x000012e3   0x9c  Code  Gb  em_usbhal.o [1]
+USBHHAL_InitializedAndPowered
+                        0x00000147   0x1c  Code  Lc  em_usbh.o [1]
+USBHHAL_PortReset       0x000001a5   0x2e  Code  Lc  em_usbh.o [1]
+USBHHAL_PortReset       0x00005afd   0x2e  Code  Lc  em_usbhint.o [1]
+USBHHAL_VbusOn          0x000001d3   0x30  Code  Lc  em_usbh.o [1]
+USBHHAL_VbusOn          0x00005b2b   0x30  Code  Lc  em_usbhint.o [1]
+USBH_ControlMsg         0x00000405  0x124  Code  Gb  em_usbh.o [1]
+USBH_ControlMsgB        0x00000529   0x94  Code  Gb  em_usbh.o [1]
+USBH_CtlReceiveData     0x000005bd   0x36  Code  Gb  em_usbh.o [1]
+USBH_CtlSendData        0x000005f3   0x36  Code  Gb  em_usbh.o [1]
+USBH_CtlSendSetup       0x00000629   0x52  Code  Gb  em_usbh.o [1]
+USBH_DeviceConnected    0x0000067b   0x14  Code  Gb  em_usbh.o [1]
+USBH_GetConfigurationDescriptorB
+                        0x0000068f   0x72  Code  Gb  em_usbh.o [1]
+USBH_GetDeviceDescriptorB
+                        0x00000701   0x6a  Code  Gb  em_usbh.o [1]
+USBH_GetPortSpeed       0x0000076b    0x8  Code  Gb  em_usbh.o [1]
+USBH_GetStringB         0x00000773   0xa6  Code  Gb  em_usbh.o [1]
+USBH_Init               0x00000819   0xb2  Code  Gb  em_usbh.o [1]
+USBH_InitDeviceData     0x000008cb  0x154  Code  Gb  em_usbh.o [1]
+USBH_PortVbusOn         0x00000a1f   0x5a  Code  Gb  em_usbh.o [1]
+USBH_PrintString        0x00000aa9   0x36  Code  Gb  em_usbh.o [1]
+USBH_QGetConfigurationDescriptor
+                        0x00000adf   0x6e  Code  Gb  em_usbh.o [1]
+USBH_QGetDeviceDescriptor
+                        0x00000b4d   0x34  Code  Gb  em_usbh.o [1]
+USBH_QGetEndpointDescriptor
+                        0x00000ba9   0x80  Code  Gb  em_usbh.o [1]
+USBH_QGetInterfaceDescriptor
+                        0x00000c29   0x80  Code  Gb  em_usbh.o [1]
+USBH_QueryDeviceB       0x00000ca9   0xe4  Code  Gb  em_usbh.o [1]
+USBH_Stop               0x00000dbd   0x46  Code  Gb  em_usbh.o [1]
+USBH_WaitForDeviceConnectionB
+                        0x00000e69  0x178  Code  Gb  em_usbh.o [1]
+USBH_attachRetryCount   0x200008f8    0x4  Data  Gb  em_usbh.o [1]
+USBH_attachTiming       0x00006f9c   0x18  Data  Gb  em_usbh.o [1]
+USBH_initData           0x200008d8   0x10  Data  Gb  em_usbh.o [1]
+USBH_portStatus         0x20000923    0x1  Data  Gb  em_usbh.o [1]
+USBTIMER_DelayMs        0x000016af   0x3e  Code  Gb  em_usbtimer.o [1]
+USBTIMER_DelayUs        0x000016ed   0x7a  Code  Gb  em_usbtimer.o [1]
+USBTIMER_Init           0x00001767   0xc2  Code  Gb  em_usbtimer.o [1]
+USBTIMER_Start          0x00001829   0xf0  Code  Gb  em_usbtimer.o [1]
+USBTIMER_Stop           0x00001919   0x60  Code  Gb  em_usbtimer.o [1]
+USB_IRQHandler          0x00005c17   0x46  Code  Gb  em_usbhint.o [1]
+USB_Puts                0x000010bd   0x16  Code  Gb  em_usbhal.o [1]
+_GenldFull              0x00004ded  0x26a  Code  Lc  xprintffull.o [3]
+_LdtobFull              0x000049ed  0x3fa  Code  Lc  xprintffull.o [3]
+_LitobFull              0x000048e1  0x10a  Code  Lc  xprintffull.o [3]
+_PrintfFull             0x000042cd  0x5a0  Code  Gb  xprintffull.o [3]
+_Prout                  0x00006ffd   0x16  Code  Gb  xprout.o [3]
+_PutcharsFull           0x00005057   0x2e  Code  Lc  xprintffull.o [3]
+__Vectors               0x00000000          --   Gb  startup_efm32gg.o [1]
+__Vectors_End           0x000000dc         Data  Gb  startup_efm32gg.o [1]
+__Vectors_Size {Abs}    0x000000dc          --   Gb  startup_efm32gg.o [1]
+__aeabi_cdcmple         0x0000527d         Code  Gb  DblCmpLe.o [4]
+__aeabi_cdrcmple        0x000052ad         Code  Gb  DblCmpGe.o [4]
+__aeabi_d2iz            0x000053e9         Code  Gb  DblToI32.o [4]
+__aeabi_d2uiz           0x00005415         Code  Gb  DblToI32.o [4]
+__aeabi_ddiv            0x00005795         Code  Gb  DblDiv.o [4]
+__aeabi_dmul            0x000055f1         Code  Gb  DblMul.o [4]
+__aeabi_dsub            0x00005471         Code  Gb  DblSub.o [4]
+__aeabi_i2d             0x00005441         Code  Gb  I32ToDbl.o [4]
+__aeabi_ldiv0           0x000059f9         Code  Gb  I64DivZer.o [5]
+__aeabi_memset          0x00002601         Code  Gb  ABImemset.o [5]
+__aeabi_ui2d            0x00005455         Code  Gb  I32ToDbl.o [4]
+__aeabi_uldivmod        0x00005149         Code  Gb  I64DivMod.o [5]
+__cmain                 0x00006f49         Code  Gb  cmain.o [5]
+__exit                  0x00006f79         Code  Gb  XXexit.o [5]
+__iar_Dnorm             0x00005237   0x44  Code  Gb  xdnorm.o [4]
+__iar_Dscale            0x000052dd  0x10c  Code  Gb  xdscale.o [4]
+__iar_Memchr            0x000050f1         Code  Gb  memchr.o [5]
+__iar_Memset            0x00002601         Code  Gb  ABImemset.o [5]
+__iar_Memset_word       0x00002609         Code  Gb  ABImemset.o [5]
+__iar_Strchr            0x000050a1         Code  Gb  strchr.o [5]
+__iar_copy_init3        0x00006d25   0x2c  Code  Gb  copy_init3.o [5]
+__iar_d2uiz             0x00005421         Code  Gb  DblToI32.o [4]
+__iar_dadd              0x000059fd         Code  Gb  DblAdd.o [4]
+__iar_data_init3        0x00006e41   0x28  Code  Gb  data_init.o [5]
+__iar_dsub              0x00005485         Code  Gb  DblSub.o [4]
+__iar_dsubStart         0x00005497         Code  Gb  DblSub.o [4]
+__iar_program_start     0x0000708d         Code  Gb  cstartup_M.o [5]
+__iar_ui2d              0x00005459         Code  Gb  I32ToDbl.o [4]
+__iar_unaligned___aeabi_memcpy
+                        0x00001a51         Code  Gb  ABImemcpy_unaligned.o [5]
+__iar_unaligned___aeabi_memcpy4
+                        0x00001a71         Code  Gb  ABImemcpy_unaligned.o [5]
+__iar_unaligned___aeabi_memcpy8
+                        0x00001a71         Code  Gb  ABImemcpy_unaligned.o [5]
+__iar_zero_init3        0x00006941   0x40  Code  Gb  zero_init3.o [5]
+__low_level_init        0x00006f63    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000         Data  Gb  startup_efm32gg.o [1]
+__vector_table_0x1c     0x0000001c         Data  Gb  startup_efm32gg.o [1]
+__write                 0x0000673b   0x38  Code  Gb  retargetio.o [1]
+_call_main              0x00006f55         Code  Gb  cmain.o [5]
+_exit                   0x00006f6d         Code  Gb  cexit.o [5]
+_main                   0x00006f5f         Code  Gb  cmain.o [5]
+assertEFM               0x0000109d   0x20  Code  Gb  em_usbhal.o [1]
+auxClkGet               0x00001bdd   0x94  Code  Lc  em_cmu.o [1]
+bcFwVersion             0x20000920    0x2  Data  Lc  bsp_dk_3201.o [1]
+bspOperationMode        0x200008f0    0x4  Data  Lc  bsp_dk_3201.o [1]
+busMode                 0x20000922    0x1  Data  Lc  bsp_dk_3201.o [1]
+dbgClkGet               0x00001c71   0x3c  Code  Lc  em_cmu.o [1]
+device                  0x20000808   0x68  Data  Lc  main.o [1]
+div                     0x000059eb    0xe  Code  Gb  div.o [3]
+exit                    0x00006f67    0x4  Code  Gb  exit.o [3]
+flashWaitStateControl   0x00001cad   0xa2  Code  Lc  em_cmu.o [1]
+flashWaitStateMax       0x00001d4f    0xc  Code  Lc  em_cmu.o [1]
+getHfLeConfig           0x00001bb1   0x2c  Code  Lc  em_cmu.o [1]
+hcTimeoutFunc           0x00006aa4   0x38  Data  Lc  em_usbh.o [1]
+hcs                     0x20000870   0x38  Data  Gb  em_usbh.o [1]
+head                    0x200008fc    0x4  Data  Lc  em_usbtimer.o [1]
+initialized             0x20000925    0x1  Data  Lc  retargetserial.o [1]
+lastAddr                0x200008f4    0x4  Data  Lc  bsp_dk_3201.o [1]
+lfClkGet                0x00001d5b   0xf4  Code  Lc  em_cmu.o [1]
+main                    0x0000608d   0xd6  Code  Gb  main.o [1]
+maxFreqHfle             0x00001b27   0x60  Code  Lc  em_cmu.o [1]
+memchr                  0x000050f1         Code  Gb  memchr.o [5]
+printf                  0x00006371   0x24  Code  Gb  printf.o [3]
+putchar                 0x00006e19   0x28  Code  Gb  putchar.o [3]
+rxBuffer                0x200008e8    0x8  Data  Lc  retargetserial.o [1]
+rxCount                 0x20000918    0x4  Data  Lc  retargetserial.o [1]
+rxReadIndex             0x20000910    0x4  Data  Lc  retargetserial.o [1]
+rxWriteIndex            0x20000914    0x4  Data  Lc  retargetserial.o [1]
+setHfLeConfig           0x00001b87   0x2a  Code  Lc  em_cmu.o [1]
+strchr                  0x000050a1         Code  Gb  strchr.o [5]
+strlen                  0x000050b9         Code  Gb  strlen.o [5]
+syncReg                 0x00001e4f   0x16  Code  Lc  em_cmu.o [1]
+ticksPr100us            0x2000090c    0x4  Data  Lc  em_usbtimer.o [1]
+ticksPr10us             0x20000908    0x4  Data  Lc  em_usbtimer.o [1]
+ticksPr1us              0x20000904    0x4  Data  Lc  em_usbtimer.o [1]
+ticksPrMs               0x20000900    0x4  Data  Lc  em_usbtimer.o [1]
+timers                  0x200008a8   0x30  Data  Lc  em_usbtimer.o [1]
+tmpBuf                  0x20000408  0x400  Data  Lc  main.o [1]
+usbCClkGet              0x00001e65   0x3e  Code  Lc  em_cmu.o [1]
+
+
+[1] = D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\usbhenum\iar\usbhenum\Debug\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = m7M_tl.a
+[5] = rt7M_tl.a
+
+  26 056 bytes of readonly  code memory
+   2 964 bytes of readonly  data memory
+   2 342 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

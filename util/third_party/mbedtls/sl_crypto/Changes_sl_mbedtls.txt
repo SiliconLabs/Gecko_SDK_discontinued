@@ -1,4 +1,35 @@
 ================ Revision history ============================================
+5.1.2:
+ - No changes.
+
+5.1.1:
+ - Removed support for moving data with BUFC to/from CRYPTO registers.
+ - In order for backwards compatibility, mbedtls_device_init and
+   mbedtls_device_set_instance are called internally, by default.
+   The user may define MBEDTLS_DEVICE_INIT_INTERNAL_DISABLE in order to disable
+   mbedtls_device_init and mbedtls_device_set_instance being called internally,
+   which may save some RAM when using less than 2 (max) CRYPTO devices because
+   the device context structures are statically instantiated inside the
+   mbedTLS library.
+
+5.1.0:
+ - Added enhanced support for Series 1 Configuration 2 devices (EFR32MG12,
+   EFR32MG13,etc.) including two CRYPTO hardware intances, CRYPTO preemption
+   yield CPU core when a CRYPTO device is busy (in slcl_ecp.c) and short
+   critical regions (in slcl_ecp.c).
+ - Added OS abstraction layer with support for uC/OS-III from Micrium (a
+   Silicon Labs company), FreeRTOS and bare-metal (OS less runtime
+   environments).
+ - Added support for the True Random Number Generator (TRNG) incorporated from
+   Series 1 Configuration 2 devices (EFR32MG12, etc.). The TRNG module
+   implements an entropy source which can be enabled by compiling with
+   MBEDTLS_TRNG_C, MBEDTLS_ENTROPY_ALT, MBEDTLS_ENTROPY_INIT_ALT and
+   MBEDTLS_ENTROPY_FREE_ALT.
+ - The CMAC data length (specified in bits in APIs in cmac_alt.h) is
+   currently restricted to be a multiple of 8 bits (i.e. corresponding
+   to an integer of bytes).
+-  Removed asynchronous APIs in aes_alt.h, ccm_alt.h and cmac_alt.h.
+
 5.0.0:
  - Added basic support for Series 1 Configuration 2 devices (EFR32MG12, etc.)
  - Bugfix: The asynchronous callback of mbedtls_ccm_auth_decrypt and

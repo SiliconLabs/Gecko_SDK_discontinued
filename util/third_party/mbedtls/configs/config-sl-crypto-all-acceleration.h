@@ -48,9 +48,9 @@
 /**
  * \def MBEDTLS_SLCL_PLUGINS
  *
- * Enable slcl_xxx.c plugins including support for CRYPTO preemption,
- * asynchronous API support, DMA and BUFC I/O modes, and support for
- * classic EFM32 devices with AES module, EFM32GG, etc.
+ * Enable class 2 (slcl_xxx.c) plugins including support for CRYPTO preemption,
+ * yield when device busy, DMA I/O mode, and support for classic EFM32
+ * devices with AES module, EFM32GG, etc.
  *
  * Module:  sl_crypto/src/slcl_xxx.c
  *
@@ -145,6 +145,32 @@
 #endif
 
 /**
+ * \def MBEDTLS_DEVICE_YIELD_WHEN_BUSY
+ *
+ * Enable class 2 plugin slcl_ecp.c to yield the CPU core when CRYPTO device
+ * is busy. The slcl_ecp.c plugin accelerates ECC algorithms and needs some
+ * rather lengthy CRYPTO instruction sequences. The longest instruction
+ * sequences will consume more than 1000 clock cycles and in order to utilize
+ * these cycles the slcl_ecp.c plugin can yield the CPU core to other thread(s)
+ * while waiting for the CRYPTO hardware to complete the instruction sequence.
+ *
+ * Module:  sl_crypto/src/slcl_ecp.c
+ *
+ * Caller:  library/ecp.c
+ *          library/ecdh.c
+ *          library/ecdsa.c
+ *          library/ecjpake.c
+ *
+ * Requires: MBEDTLS_SLCL_PLUGINS
+ *           and (CRYPTO_COUNT > 0)
+ *
+ * Comment/uncomment macros to disable/enable
+ */
+#if defined(MBEDTLS_SLCL_PLUGINS) && defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
+//#define MBEDTLS_DEVICE_YIELD_WHEN_BUSY
+#endif
+
+/**
  * \def MBEDTLS_ECP_DEVICE_ALT
  * \def MBEDTLS_ECP_DEVICE_ALT
  * \def MBEDTLS_ECP_DOUBLE_JAC_ALT
@@ -204,12 +230,24 @@
 #endif
 
 /**
- * \def MBEDTLS_CRYPTO_CRITICAL_REGION_ALT
+ * \def MBEDTLS_ECP_CRITICAL_SHORT
  *
- * Enable user defined alternative implementation of CRYPTO critical regions
- * when CRYPTO preemption is enabled.
+ * Enable shorter critical regions in the class 2 plugin slcl_ecp.c.
+ * By defalt the slcl_ecp.c plugin implements rather lengthy critical regions
+ * in order to optimize for speed. However the long critical regions will block
+ * higher priority threads from accessing CRYPTO for a substantial amount of
+ * time. The lengthiest critical regions consume more than 50000 clock cycles
+ * when compiling with IAR High Speed Optimization and ARM GCC -O3.
+ * MBEDTLS_ECP_CRITICAL_SHORT will split up the long critical regions into
+ * shorter critical regions which should be less than 1500 clock cycles.
+ * when compiling with IAR High Speed Optimization and ARM GCC -O3.
  *
- * Module:  sl_crypto/src/cryptodrv.c
+ * Module:  sl_crypto/src/slcl_ecp.c
+ *
+ * Caller:  library/ecp.c
+ *          library/ecdh.c
+ *          library/ecdsa.c
+ *          library/ecjpake.c
  *
  * Requires: MBEDTLS_SLCL_PLUGINS
  *           MBEDTLS_CRYPTO_DEVICE_PREEMPTION
@@ -217,29 +255,8 @@
  *
  * Comment/uncomment macros to disable/enable
  */
-#if defined(MBEDTLS_SLCL_PLUGINS) && defined(MBEDTLS_CRYPTO_DEVICE_PREEMPTION) && \
-  defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
-//#define MBEDTLS_CRYPTO_CRITICAL_REGION_ALT
-#endif
-
-/**
- * \def MBEDTLS_INCLUDE_ASYNCH_API
- *
- * Enable asynchronous (non-blocking) API support.
- *
- * Module:  sl_crypto/src/slcl_aes.c
- *          sl_crypto/src/slcl_ccm.c
- *
- * Requires: MBEDTLS_SLCL_PLUGINS
- *           MBEDTLS_AES_ALT or MBEDTLS_CCM_ALT
- *           and (CRYPTO_COUNT > 0)
- *
- * Comment/uncomment macros to disable/enable
- */
-#if defined(MBEDTLS_SLCL_PLUGINS) && \
-  (defined(MBEDTLS_AES_ALT) || defined(MBEDTLS_CCM_ALT)) && \
-  defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
-//#define MBEDTLS_INCLUDE_ASYNCH_API
+#if defined(MBEDTLS_SLCL_PLUGINS) && defined(MBEDTLS_CRYPTO_DEVICE_PREEMPTION) && defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
+//#define MBEDTLS_ECP_CRITICAL_SHORT
 #endif
 
 /**
@@ -322,6 +339,78 @@
 #define MBEDTLS_TIMING_ALT
 #endif
 
+/**
+ * \def MBEDTLS_TRNG_C
+ *
+ * Enable software support for the True Random Number Generator (TRNG)
+ * incorporated from Series 1 Configuration 2 devices (EFR32MG12, etc.)
+ * from Silicon Labs.
+ *
+ * Requires TRNG_COUNT>0
+ */
+#if defined(TRNG_COUNT) && (TRNG_COUNT > 0)
+#define MBEDTLS_TRNG_C
+#endif
+
+/**
+ * \def MBEDTLS_TRNG_IGNORE_NOISE_ALARMS
+ *
+ * Ignore AIS-31 Noise Alarms and AIS-31 Preliminary Noise Alarms from
+ * the TRNG. The TRNG runs an online AIS-31 test that reports a Preliminary
+ * Noise Alarm if one AIS-31 test suite fails (including up to 8KiB of
+ * random data). If 3 test suites in a row fail, the TRNG will report a Noise
+ * Alarm. The probability of a Noise Alarm is non-zero and the application
+ * should assess whether the frequency of Noise Alarms is critical.
+ * If MBEDTLS_TRNG_IGNORE_NOISE_ALARMS is not defined the TRNG module will
+ * return an error code when the mbedtls entropy module requests random data
+ * which may prevent the application from collecting random data.
+ * The MBEDTLS_TRNG_IGNORE_NOISE_ALARMS does not disable the noise alarms.
+ * The purpose of MBEDTLS_TRNG_IGNORE_NOISE_ALARMS is to _not_ return an
+ * error code from the mbedtls_trng_poll function which will prevent the
+ * entropy accumulator from collecting data.
+ *
+ * Requires TRNG_COUNT>0 and MBEDTLS_TRNG_C.
+ */
+#if defined(TRNG_COUNT) && (TRNG_COUNT > 0) && defined(MBEDTLS_TRNG_C)
+#define MBEDTLS_TRNG_IGNORE_NOISE_ALARMS
+#endif
+
+/**
+ * \def MBEDTLS_TRNG_IGNORE_ALL_ALARMS
+ *
+ * The TRNG is permanently monitoring the generated random numbers using various
+ * tests. The test results for the numbers contained inside the TRNG FIFO can be
+ * read from the TRNG status register. Normally the TRNG read functions will
+ * check these status flags before each read, and reset the TRNG whenever a test
+ * fails.
+ *
+ * When MBEDTLS_TRNG_IGNORE_ALL_ALARMS is used then the TRNG FIFO will be read
+ * without checking the status flags before each read. This configuration can be
+ * used when an application doesn't care about the TRNG self monitoring tests and
+ * just want the fastest and most deterministic way to generate random data.
+ *
+ * Requires TRNG_COUNT>0 and MBEDTLS_TRNG_C.
+ */
+#if defined(TRNG_COUNT) && (TRNG_COUNT > 0) && defined(MBEDTLS_TRNG_C)
+//#define MBEDTLS_TRNG_IGNORE_ALL_ALARMS
+#endif
+
+/**
+ * \def MBEDTLS_ENTROPY_ALT
+ * \def MBEDTLS_ENTROPY_INIT_ALT
+ * \def MBEDTLS_ENTROPY_FREE_ALT
+ *
+ * Enable the TRNG as an entropy source which can serve the entropy module
+ * of mbedtls with random data.
+ *
+ * Requires TRNG_COUNT>0 and MBEDTLS_TRNG_C.
+ */
+#if defined(TRNG_COUNT) && (TRNG_COUNT > 0) && defined(MBEDTLS_TRNG_C)
+#define MBEDTLS_ENTROPY_ALT
+#define MBEDTLS_ENTROPY_INIT_ALT
+#define MBEDTLS_ENTROPY_FREE_ALT
+#endif
+
 /* Default ECC configuration for Silicon Labs devices: */
 
 /* ECC curves supported by CRYPTO hardware module: */
@@ -348,7 +437,7 @@
 /* Significant speed benefit at the expense of some ROM */
 #define MBEDTLS_ECP_NIST_OPTIM
 
-/* Include the default mbedtls config file */
+/* Include the default mbed TLS config file */
 #include "mbedtls/config.h"
 
 #undef MBEDTLS_FS_IO

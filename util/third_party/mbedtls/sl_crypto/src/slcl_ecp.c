@@ -91,7 +91,7 @@ typedef uint32_t ecc_bigint_t[ECC_BIGINT_SIZE_IN_32BIT_WORDS];
 __STATIC_INLINE void mpitobigint( ecc_bigint_t bigint, const mbedtls_mpi* mpi )
 {
     uint32_t* bi = bigint;
-    
+
     if ( mpi->n < 8 )
     {
       memcpy(bigint, mpi->p, mpi->n * sizeof(uint32_t));
@@ -152,6 +152,11 @@ int mbedtls_ecp_group_load( mbedtls_ecp_group *grp, mbedtls_ecp_group_id id )
         /* Set device instance to 0 by default. */
         ret = mbedtls_ecp_set_device_instance(grp, 0);
     }
+    if (ret == 0)
+    {
+        /* Set device lock wait ticks to 0 by default. */
+        ret = mbedtls_ecp_set_device_lock_wait_ticks(grp, 0);
+    }
     return ret;
 }
 #endif /* #if defined( MBEDTLS_ECP_GROUP_LOAD_ALT ) */
@@ -162,13 +167,41 @@ int mbedtls_ecp_group_load( mbedtls_ecp_group *grp, mbedtls_ecp_group_id id )
 int mbedtls_ecp_set_device_instance(mbedtls_ecp_group *grp,
                                     unsigned int       devno)
 {
+    int ret = 0;
+
 #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
-    if (devno > CRYPTO_COUNT)
+
+    if (devno >= CRYPTO_COUNT)
         return( MBEDTLS_ERR_ECP_BAD_INPUT_DATA );
-  
-    return cryptodrvSetDeviceInstance( &grp->cryptodrv_ctx,
-                                       devno );
+
+    ret = cryptodrvSetDeviceInstance( &grp->cryptodrv_ctx,
+                                      devno );
+
 #endif /* #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) */
+
+    return ret;
+}
+
+/*
+ *   Set the number of ticks to wait for the decice lock.
+ */
+int mbedtls_ecp_set_device_lock_wait_ticks(mbedtls_ecp_group *grp,
+                                           int                ticks)
+{
+    int ret = 0;
+
+#if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
+
+    ret = cryptodrvSetDeviceLockWaitTicks( &grp->cryptodrv_ctx, ticks );
+
+#else
+
+    (void) ctx;
+    (void) ticks;
+
+#endif /* #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) */
+
+    return ret;
 }
 
 /**
@@ -228,14 +261,15 @@ bool mbedtls_ecp_device_grp_capable( const mbedtls_ecp_group *grp )
  ******************************************************************************/
 int mbedtls_ecp_device_init( const mbedtls_ecp_group *grp )
 {
-    int ret = 0;
     CRYPTODRV_Context_t* p_cryptodrv_ctx =
       (CRYPTODRV_Context_t*)&grp->cryptodrv_ctx;
     CRYPTO_TypeDef*      crypto = p_cryptodrv_ctx->device->crypto;
-    Ecode_t status = CRYPTODRV_Arbitrate(p_cryptodrv_ctx);
-    if (ECODE_OK != status)
-      return status;
-    
+    int                  ret;
+
+    ret = CRYPTODRV_Arbitrate(p_cryptodrv_ctx);
+    if (0 != ret)
+      return ret;
+
     CRYPTODRV_EnterCriticalRegion(p_cryptodrv_ctx);
 
     /* Setup CRYPTO registers for ECC operation */
@@ -278,9 +312,9 @@ int mbedtls_ecp_device_init( const mbedtls_ecp_group *grp )
             ret = MBEDTLS_ERR_ECP_FEATURE_UNAVAILABLE;
         break;
     }
-    
+
     CRYPTODRV_ExitCriticalRegion(p_cryptodrv_ctx);
-    
+
     return ret;
 }
 
@@ -292,8 +326,7 @@ int mbedtls_ecp_device_deinit( const mbedtls_ecp_group *grp )
 {
     CRYPTODRV_Context_t* p_cryptodrv_ctx =
       (CRYPTODRV_Context_t*)&grp->cryptodrv_ctx;
-    Ecode_t status = CRYPTODRV_Release(p_cryptodrv_ctx);
-    return ECODE_OK != status ? status : 0;
+    return CRYPTODRV_Release(p_cryptodrv_ctx);
 }
 
 /***************************************************************************//**
@@ -317,7 +350,7 @@ __STATIC_INLINE void ecp_crypto_ddata_write(CRYPTO_DDataReg_TypeDef  ddataReg,
   register uint32_t v2;
   register uint32_t v3;
   int      i;
-  
+
   if (mpi->n <4)
   {
     /* Non optimal write of data. */
@@ -357,7 +390,7 @@ __STATIC_INLINE void ecp_crypto_ddata_write(CRYPTO_DDataReg_TypeDef  ddataReg,
       *regPtr = v1;
       *regPtr = v2;
       *regPtr = v3;
-      
+
       v0 = *pVal++;
       v1 = *pVal++;
       v2 = *pVal++;
@@ -439,7 +472,7 @@ __STATIC_INLINE int ecp_crypto_ddata_read(CRYPTO_DDataReg_TypeDef  ddataReg,
  * by Martin Luther
  *
  * Cost: 1D := 4M + 4S          (A == -3)
- *             
+ *
  */
 int ecp_device_double_jac( const mbedtls_ecp_group *grp,
                                  mbedtls_ecp_point *R,
@@ -452,57 +485,64 @@ int ecp_device_double_jac( const mbedtls_ecp_group *grp,
     CRYPTODRV_EnterCriticalRegion(p_cryptodrv_ctx);
 
 #if !defined( MBEDTLS_INCLUDE_IO_MODE_DMA )
-    
+
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    mbedtls_device_context  *mbedtls_device =
+      *grp->cryptodrv_ctx.device->ppMbedtlsDevice;
+    crypto->IFC = _CRYPTO_IFC_MASK;
+    crypto->IEN = CRYPTO_IEN_SEQDONE;
+#endif
+
     ecc_bigint_t _2YY;
     /*
       STEP 1:
-           
+
       Goals:
       ZZ   = Z^2
       R->Z = 2 * Y * Z
       YY   = Y^2
       4YY  = 4 * Y^2
-      
+
       Write Operations:
-      
+
       R2 = Y
       R3 = Z
-      
+
       Instructions to be executed:
-      
+
       1.  R0 = DMA = Z
       2.  R1 = R0 = Z
       3.  R2 = R0 = Z
       4.  Select R1, R2
-      5.  R0 = R1 * R2 = Z^2 = ZZ 
+      5.  R0 = R1 * R2 = Z^2 = ZZ
       6.  R3 = R0 = ZZ
-      
+
       7.  R0 = DMA = Y
       8.  R2 = R0 = Y
       9.  R0 = R1 * R2 = Y * Z
       10. Select R0, R0
       11. R0 = R0 + R0 = 2 * Y * Z = R->Z
-      
+
       12. DMA = R0 = R->Z
-      
+
       13. R1 = R2 = Y
       14. Select R1, R2
       15. R0 = R1 * R2 = Y^2 = YY
       16.  Select R0, R0
       17.  R0 = R0 + R0 = 2YY
-      
+
       Read Operations:
-      
+
       R->Z = R0 = 2 * Y * Z
       2YY  = R0
-      
+
       Output State:
       R0 = 2YY
       R1 = FREE
       R2 = FREE
       R3 = ZZ
       R4 = FREE
-      
+
       STEP 1:
     */
     CRYPTO_EXECUTE_17(crypto,
@@ -512,14 +552,14 @@ int ecp_device_double_jac( const mbedtls_ecp_group *grp,
                       CRYPTO_CMD_INSTR_SELDDATA1DDATA2,
                       CRYPTO_CMD_INSTR_MMUL,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA3,
-                      
+
                       CRYPTO_CMD_INSTR_DMA0TODATA,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA2,
                       CRYPTO_CMD_INSTR_MMUL,
                       CRYPTO_CMD_INSTR_SELDDATA0DDATA0,
                       CRYPTO_CMD_INSTR_MADD,
                       CRYPTO_CMD_INSTR_DATATODMA0,
-                      
+
                       CRYPTO_CMD_INSTR_DDATA2TODDATA1,
                       CRYPTO_CMD_INSTR_SELDDATA1DDATA2,
                       CRYPTO_CMD_INSTR_MMUL,
@@ -529,29 +569,45 @@ int ecp_device_double_jac( const mbedtls_ecp_group *grp,
     ecp_crypto_ddata_write(&crypto->DDATA0, &P->Z);
     ecp_crypto_ddata_write(&crypto->DDATA0, &P->Y);
     MBEDTLS_MPI_CHK( ecp_crypto_ddata_read(&crypto->DDATA0, &R->Z) );
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    ret = SLPAL_WaitForCompletion(&mbedtls_device->operation,
+                                 SLPAL_WAIT_FOREVER);
+#endif
     ecp_crypto_ddata_write(&crypto->DDATA4, &P->X);
     CRYPTO_DDataRead(&crypto->DDATA0, _2YY);
-    
+
+#if defined( MBEDTLS_ECP_CRITICAL_SHORT )
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    crypto->IEN = 0;
+#endif
+    CRYPTODRV_ExitCriticalRegion(p_cryptodrv_ctx);
+    CRYPTODRV_EnterCriticalRegion(p_cryptodrv_ctx);
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    crypto->IFC = _CRYPTO_IFC_MASK;
+    crypto->IEN = CRYPTO_IEN_SEQDONE;
+#endif
+#endif
+
     /*
       STEP 2:
-      
+
       Goals:
       A   = 4YY * X
       C   = 3(X - ZZ)(X + ZZ)
-      
+
       Write Operations:
-      
+
       R4 = X
-      
+
       Input State:
       R0 = 2YY
       R1 = FREE
       R2 = FREE
       R3 = ZZ
       R4 = X
-      
+
       Instructions to be executed:
-      
+
       1.  R0 = R0 + R0 = 4YY
       2.  R1 = R0 = 4YY
       3.  Select R1, R4
@@ -568,19 +624,19 @@ int ecp_device_double_jac( const mbedtls_ecp_group *grp,
       14. Select R0, R1
       15. R0 = R0 + R1 = 2(X + ZZ)(X - ZZ)
       16. R0 = R0 + R1 = 3(X + ZZ)(X - ZZ) = C
-      17. R1 = R0 = C 
-      
+      17. R1 = R0 = C
+
       Output State:
       R0 = FREE
       R1 = C
       R2 = A
       R3 = FREE
       R4 = FREE
-      
+
       STEP 2:
     */
-    
-    CRYPTO_EXECUTE_17(crypto,
+    CRYPTO_EXECUTE_18(crypto,
+                      CRYPTO_CMD_INSTR_SELDDATA0DDATA0,
                       CRYPTO_CMD_INSTR_MADD,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA1,
                       CRYPTO_CMD_INSTR_SELDDATA1DDATA4,
@@ -599,22 +655,26 @@ int ecp_device_double_jac( const mbedtls_ecp_group *grp,
                       CRYPTO_CMD_INSTR_MADD,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA1
                       );
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    ret = SLPAL_WaitForCompletion(&mbedtls_device->operation,
+                                 SLPAL_WAIT_FOREVER);
+#endif
     /*
       STEP 3:
-      
+
       Goals:
       R->X = C^2 - 2A
       D = C(A - R->X)
-      
+
       Input State:
       R0 = FREE
       R1 = C
       R2 = A
       R3 = FREE
       R4 = FREE
-      
+
       Instructions to be executed:
-      
+
       1.  R4 = R1 = C
       2.  Select R1, R4
       3.  R0 = R1 * R4 = C^2
@@ -626,34 +686,34 @@ int ecp_device_double_jac( const mbedtls_ecp_group *grp,
       9.  R2 = R0 = A - R->X
       10  Select R1, R2
       11. R0 = R1 * R2 = C(A - R->X) = D
-      
-      Read Operations:     
-      
+
+      Read Operations:
+
       R->X = R4 = C^2 - 2A
-      
+
       Output State:
       R0   = D
       R1   = FREE
       R2   = FREE
       R3   = FREE
       R4   = FREE
-      
+
       STEP 3:
     */
     CRYPTO_EXECUTE_15(crypto,
                       CRYPTO_CMD_INSTR_SELDDATA2DDATA2,
                       CRYPTO_CMD_INSTR_MADD,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA4,
-                      
+
                       CRYPTO_CMD_INSTR_DDATA1TODDATA3,
                       CRYPTO_CMD_INSTR_SELDDATA1DDATA3,
                       CRYPTO_CMD_INSTR_MMUL,
-                      
+
                       CRYPTO_CMD_INSTR_SELDDATA0DDATA4,
                       CRYPTO_CMD_INSTR_MSUB,
                       CRYPTO_CMD_INSTR_DATATODMA0,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA4,
-                      
+
                       CRYPTO_CMD_INSTR_SELDDATA2DDATA4,
                       CRYPTO_CMD_INSTR_MSUB,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA2,
@@ -661,27 +721,43 @@ int ecp_device_double_jac( const mbedtls_ecp_group *grp,
                       CRYPTO_CMD_INSTR_MMUL
                       );
     MBEDTLS_MPI_CHK( ecp_crypto_ddata_read(&crypto->DDATA0, &R->X) );
-    
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    ret = SLPAL_WaitForCompletion(&mbedtls_device->operation,
+                                 SLPAL_WAIT_FOREVER);
+#endif
+
+#if defined( MBEDTLS_ECP_CRITICAL_SHORT )
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    crypto->IEN = 0;
+#endif
+    CRYPTODRV_ExitCriticalRegion(p_cryptodrv_ctx);
+    CRYPTODRV_EnterCriticalRegion(p_cryptodrv_ctx);
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    crypto->IFC = _CRYPTO_IFC_MASK;
+    crypto->IEN = CRYPTO_IEN_SEQDONE;
+#endif
+#endif
+
     /*
       STEP 4:
-      
+
       Goals:
       B    = 8 * Y^4
       R->Y = D - B
-      
+
       Write Operations:
-      
+
       R1 = YY
-      
+
       Input State:
       R0   = D
       R1   = YY
       R2   = FREE
       R3   = FREE
       R4   = FREE
-      
+
       Instructions to be executed:
-      
+
       1. R3 = R0 = D
       2. R0 = DMA0
       3. R1 = R0 = Y^2
@@ -695,70 +771,74 @@ int ecp_device_double_jac( const mbedtls_ecp_group *grp,
       11. R2 = R0
       12. Select R3, R2
       13. R0 = R3 - R2 = D - B = R->Y
-      
-      Read Operations:     
-      
+
+      Read Operations:
+
       R->Y = R0 = D - B
-      
+
       STEP 4:
     */
     CRYPTO_EXECUTE_11(crypto,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA3,
-                      
+
                       CRYPTO_CMD_INSTR_DMA0TODATA,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA1,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA2,
                       CRYPTO_CMD_INSTR_SELDDATA1DDATA2,
                       CRYPTO_CMD_INSTR_MMUL,
-                      
+
                       CRYPTO_CMD_INSTR_SELDDATA0DDATA0,
                       CRYPTO_CMD_INSTR_MADD,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA2,
-                      
+
                       CRYPTO_CMD_INSTR_SELDDATA3DDATA2,
                       CRYPTO_CMD_INSTR_MSUB
                       );
     CRYPTO_DDataWrite(&crypto->DDATA0, _2YY);
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    ret = SLPAL_WaitForCompletion(&mbedtls_device->operation,
+                                 SLPAL_WAIT_FOREVER);
+#endif
     MBEDTLS_MPI_CHK( ecp_crypto_ddata_read(&crypto->DDATA0, &R->Y) );
-    
+
 #else  /* #if !defined( MBEDTLS_INCLUDE_IO_MODE_DMA ) */
-    
+
     ecc_bigint_t A;
     ecc_bigint_t B;
     ecc_bigint_t _2A;  /* Represents 2A */
-    
+
     /*
-      
+
       Goals:
       B    = 8 * Y1^4
-      Y1Y1 = Y1²
-      
+      Y1Y1 = Y1^2
+
       Write Operations:
-      
+
       R1 = Y1
-      
+
       Instructions to be executed:
-      
+
       1. R2 = R1 = Y1
       2. Select R1, R2
-      3. R0 = R1 * R2 = Y1² = Y1Y1
-      4. R1 = R0 = Y1²
-      5. R2 = R0 = Y1²
+      3. R0 = R1 * R2 = Y1^2 = Y1Y1
+      4. R1 = R0 = Y1^2
+      5. R2 = R0 = Y1^2
       6. R0 = R1 * R2 = Y1^4
       7. Select R0, R0
       8. R0 = R0 + R0 = 2 * Y1^4
       9. R0 = R0 + R0 = 4 * Y1^4
       10 R0 = R0 + R0 = 8 * Y1^4
-      
-      Read Operations:     
-      
+
+      Read Operations:
+
       B    = R0 = 8 * Y1^4
-      Y1Y1 = R1 = Y1²
-      
+      Y1Y1 = R1 = Y1^2
+
     */
-    
+
     ecp_crypto_ddata_write(&crypto->DDATA1, &P->Y);
-    
+
     CRYPTO_EXECUTE_10(crypto,
                       CRYPTO_CMD_INSTR_DDATA1TODDATA2,
                       CRYPTO_CMD_INSTR_SELDDATA1DDATA2,
@@ -771,21 +851,21 @@ int ecp_device_double_jac( const mbedtls_ecp_group *grp,
                       CRYPTO_CMD_INSTR_MADD,
                       CRYPTO_CMD_INSTR_MADD
                       );
-    
+
     CRYPTO_DDataRead(&crypto->DDATA0, B);
-    
+
     /*
       Goals:
       A   = 4P1->X * Y1Y1
       _2A  = 2A
-      
+
       Write Operations:
-      
+
       R0 = P1->X
       R1 = Y1Y1       R1 already contains Y1Y1
-      
+
       Instructions to be executed:
-      
+
       1.  Select R0, R0
       2.  R0 = R0 + R0 = 2P1->X
       3.  R0 = R0 + R0 = 4P1->X
@@ -795,16 +875,16 @@ int ecp_device_double_jac( const mbedtls_ecp_group *grp,
       7.  R3 = R0
       8.  Select R0, R3
       9.  R0 = R0 + R3 = 2A = _2A
-      
-      Read Operations:     
-      
+
+      Read Operations:
+
       A    = R3 = 4P1->X + Y1Y1
       _2A  = R0 = 2A
-      
+
     */
-    
+
     ecp_crypto_ddata_write(&crypto->DDATA0, &P->X);
-    
+
     CRYPTO_EXECUTE_9(crypto,
                      CRYPTO_CMD_INSTR_SELDDATA0DDATA0,
                      CRYPTO_CMD_INSTR_MADD,
@@ -816,49 +896,49 @@ int ecp_device_double_jac( const mbedtls_ecp_group *grp,
                      CRYPTO_CMD_INSTR_SELDDATA0DDATA3,
                      CRYPTO_CMD_INSTR_MADD
                      );
-  
+
     CRYPTO_DDataRead(&crypto->DDATA3, A);
     CRYPTO_DDataRead(&crypto->DDATA0, _2A);
-    
+
     /*
-      Goals: Z1Z1 = P1->Z²
-  
+      Goals: Z1Z1 = P1->Z^2
+
       Write Operations:
-  
+
       R1 = P1->Z
-      
+
       Instructions to be executed:
-      
+
       1. R2 = R1 = P1->Z
       2. Select R1, R2
-      3. R0 = R1 * R2 = P1->Z^² = Z1Z1 
+      3. R0 = R1 * R2 = P1->Z^2 = Z1Z1
       4. R3 = R0 = Z1Z1
-      
-      Read Operations:     
-      
-      Z1Z1 = R0 = P1->Z²
-      
+
+      Read Operations:
+
+      Z1Z1 = R0 = P1->Z^2
+
     */
-    
+
     ecp_crypto_ddata_write(&crypto->DDATA1, &P->Z);
-    
+
     CRYPTO_EXECUTE_4(crypto,
                      CRYPTO_CMD_INSTR_DDATA1TODDATA2,
                      CRYPTO_CMD_INSTR_SELDDATA1DDATA2,
                      CRYPTO_CMD_INSTR_MMUL,
                      CRYPTO_CMD_INSTR_DDATA0TODDATA3
                      );
-  
+
     /*
       Goal: C = 3(P1->X - Z1Z1)(P1->X + Z1Z1)
-  
+
       Write Operations:
-      
+
       R2 = P1->X
-      R3 = Z1Z1    Z1Z1 is already in R3   
-      
+      R3 = Z1Z1    Z1Z1 is already in R3
+
       Instructions to be executed:
-      
+
       1.  Select R2, R3
       2.  R0 = R2 + R3 = P1->X + Z1Z1
       3.  R1 = R0 = P1->X + Z1Z1
@@ -870,16 +950,16 @@ int ecp_device_double_jac( const mbedtls_ecp_group *grp,
       9.  Select R0, R1
       10. R0 = R0 + R1 = 2(P1->X + Z1Z1)(P1->X - Z1Z1)
       11. R0 = R0 + R1 = 3(P1->X + Z1Z1)(P1->X - Z1Z1) = C
-      12. R1 = R0 = C 
-      
-      Read Operations:     
-      
+      12. R1 = R0 = C
+
+      Read Operations:
+
       C = R1 = 3(P1->X - Z1Z1)(P1->X + Z1Z1)
-      
+
     */
-    
+
     ecp_crypto_ddata_write(&crypto->DDATA2, &P->X);
-    
+
     CRYPTO_EXECUTE_12(crypto,
                       CRYPTO_CMD_INSTR_SELDDATA2DDATA3,
                       CRYPTO_CMD_INSTR_MADD,
@@ -894,42 +974,42 @@ int ecp_device_double_jac( const mbedtls_ecp_group *grp,
                       CRYPTO_CMD_INSTR_MADD,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA1
                       );
-    
+
     /*
-      Goals: R->X = C² - _2A
+      Goals: R->X = C^2 - _2A
       D = C(A - R->X)
-      
+
       Write Operations:
-      
+
       R1 = C          R1 already contains C
       R2 = _2A
       R3 = A
       R4 = C
-      
+
       Instructions to be executed:
-      
+
       1.  R4 = R1 = C
       2.  Select R1, R4
-      3.  R0 = R1 * R4 = C²
+      3.  R0 = R1 * R4 = C^2
       4.  Select R0, R2
-      5.  R0 = R0 - R2 = C² - _2A = R->X
+      5.  R0 = R0 - R2 = C^2 - _2A = R->X
       6.  R4 = R0 = R->X
       7.  Select R3, R4
       8.  R0 = R3 - R4 = A - R->X
       9.  R2 = R0 = A - R->X
       10  Select R1, R2
       11. R0 = R1 * R2 = C(A - R->X) = D
-      
-      Read Operations:     
-  
+
+      Read Operations:
+
       D  = R0 = C(A - R->X)
-      R->X = R4 = C² - _2A
-      
+      R->X = R4 = C^2 - _2A
+
     */
 
     CRYPTO_DDataWrite(&crypto->DDATA2, _2A);
     CRYPTO_DDataWrite(&crypto->DDATA3, A);
-    
+
     CRYPTO_EXECUTE_11(crypto,
                       CRYPTO_CMD_INSTR_DDATA1TODDATA4,
                       CRYPTO_CMD_INSTR_SELDDATA1DDATA4,
@@ -943,22 +1023,22 @@ int ecp_device_double_jac( const mbedtls_ecp_group *grp,
                       CRYPTO_CMD_INSTR_SELDDATA1DDATA2,
                       CRYPTO_CMD_INSTR_MMUL
                       );
-    
+
     MBEDTLS_MPI_CHK( ecp_crypto_ddata_read(&crypto->DDATA4, &R->X) );
-    
+
     /*
       Goals: R->Y = D - B
       R->Z = 2 * Y1 * P1->Z
-      
+
       Write Operations:
-      
+
       R0 = D         R0 already contains D
-      R1 = Y1          
+      R1 = Y1
       R2 = P1->Z
       R3 = B
-      
+
       Instructions to be executed:
-      
+
       1.  Select R0, R3
       2.  R0 = R0 - R3 = D - B = R->Y
       3.  R3 = R0 = R->Y
@@ -966,18 +1046,18 @@ int ecp_device_double_jac( const mbedtls_ecp_group *grp,
       5.  R0 = R1 * R2 = Y1 * P1->Z
       6.  Select R0, R0
       7.  R0 = R0 + R0 = 2 * Y1 * P1->Z = R->Z
-      
-      Read Operations:     
-      
+
+      Read Operations:
+
       R->Z = R0 = 2*Y1*P1->Z
       R->Y = R3 = D - B
-      
+
     */
-    
+
     ecp_crypto_ddata_write(&crypto->DDATA1, &P->Y);
     ecp_crypto_ddata_write(&crypto->DDATA2, &P->Z);
     CRYPTO_DDataWrite(&crypto->DDATA3, B);
-    
+
     CRYPTO_EXECUTE_7(crypto,
                      CRYPTO_CMD_INSTR_SELDDATA0DDATA3,
                      CRYPTO_CMD_INSTR_MSUB,
@@ -987,17 +1067,20 @@ int ecp_device_double_jac( const mbedtls_ecp_group *grp,
                      CRYPTO_CMD_INSTR_SELDDATA0DDATA0,
                      CRYPTO_CMD_INSTR_MADD
                      );
-    
+
     MBEDTLS_MPI_CHK( ecp_crypto_ddata_read(&crypto->DDATA0, &R->Z) );
     MBEDTLS_MPI_CHK( ecp_crypto_ddata_read(&crypto->DDATA3, &R->Y) );
-    
+
 #endif  /* #if !defined( MBEDTLS_INCLUDE_IO_MODE_DMA ) */
-    
+
  cleanup:
-  
-  CRYPTODRV_ExitCriticalRegion(p_cryptodrv_ctx);
-  
-  return( ret );
+
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    crypto->IEN = 0;
+#endif
+    CRYPTODRV_ExitCriticalRegion(p_cryptodrv_ctx);
+
+    return( ret );
 }
 #endif /* #if defined(MBEDTLS_ECP_DOUBLE_JAC_ALT) */
 
@@ -1025,105 +1108,116 @@ int ecp_device_add_mixed( const mbedtls_ecp_group *grp, mbedtls_ecp_point *R,
     CRYPTODRV_EnterCriticalRegion(p_cryptodrv_ctx);
 
 #if !defined( MBEDTLS_INCLUDE_IO_MODE_DMA )
-    
+
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    mbedtls_device_context  *mbedtls_device =
+      *grp->cryptodrv_ctx.device->ppMbedtlsDevice;
+    crypto->IFC = _CRYPTO_IFC_MASK;
+    crypto->IEN = CRYPTO_IEN_SEQDONE;
+#endif
+
     /*
       STEP 1:
-      
+
       Goals:
       A = Qx*Pz^2
       B = Qy*Pz^3
-      
+
       Write Operations:
-      
+
       R0 = Pz
       R0 = Qx
       R0 = Qy
-      
+
       Instructions to be executed:
-      
+
       1. R0 = DMA = Pz
       2. R1 = R0 = Pz
       3. R2 = R0 = Pz
       4. Select R1, R2
       5. R0 = R1 * R2 = Pz^2
       6. R1 = R0 = Pz^2
-      
+
       7.  R0 = DMA = Qx
       8.  R3 = R0 = Qx
       9.  Select R1, R3
       10. R0 = R1 * R3 = Qx * Pz^2
       11. R3 = R0 = Qx * Pz^2
-      
+
       12. Select R1, R2
       13. R0 = R1 * R2 = Pz^3
       14. R1 = R0 = Pz^3
-      
+
       15. R0 = DMA = Qy
       16. R4 = R0 = Qx
       17. Select R1, R4
       18. R0 = R1 * R4 = Qy * Pz^3
       19. Select R0, R1  (for MSUB in step 2)
-      
+
       Output State:
       R0   = B
       R1   = FREE
       R2   = FREE
       R3   = A
       R4   = Pz
-      
+
       STEP 1:
     */
-    CRYPTO_EXECUTE_19(crypto,
+    CRYPTO_EXECUTE_18(crypto,
                       CRYPTO_CMD_INSTR_DMA0TODATA,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA1,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA4,
                       CRYPTO_CMD_INSTR_SELDDATA1DDATA4,
                       CRYPTO_CMD_INSTR_MMUL,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA1,
-                      
+
                       CRYPTO_CMD_INSTR_DMA0TODATA,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA3,
                       CRYPTO_CMD_INSTR_SELDDATA1DDATA3,
                       CRYPTO_CMD_INSTR_MMUL,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA3,
-                      
+
                       CRYPTO_CMD_INSTR_SELDDATA1DDATA4,
                       CRYPTO_CMD_INSTR_MMUL,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA1,
-                      
+
                       CRYPTO_CMD_INSTR_DMA0TODATA,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA2,
                       CRYPTO_CMD_INSTR_SELDDATA1DDATA2,
-                      CRYPTO_CMD_INSTR_MMUL,
-                      CRYPTO_CMD_INSTR_SELDDATA0DDATA1
+                      CRYPTO_CMD_INSTR_MMUL
                       );
     ecp_crypto_ddata_write(&crypto->DDATA0, &P->Z);
     ecp_crypto_ddata_write(&crypto->DDATA0, &Q->X);
     ecp_crypto_ddata_write(&crypto->DDATA0, &Q->Y);
-    
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    ret = SLPAL_WaitForCompletion(&mbedtls_device->operation,
+                                 SLPAL_WAIT_FOREVER);
+#endif
+
     /*
       STEP 2:
-      
+
       Goals:
       C  = A - Px
       D  = B - Py
       R->Z = Pz * C
-      
+
       Write Operations:
-      
+
       R1 = Py
       R0 = Px (via DMA)
-      
+
       Input State:
       R0   = B
       R1   = Py
       R2   = FREE
       R3   = A
       R4   = Pz
-      
+
       Instructions to be executed:
-      
-      1. R0 = R0 - R2 = B - Py = D
+
+      0. Select R0, R1
+      1. R0 = R0 - R1 = B - Py = D
       2. R2 = R0 = D
       3. R1 = R3 = A
       4. R0 = DMA = Px
@@ -1133,81 +1227,114 @@ int ecp_device_add_mixed( const mbedtls_ecp_group *grp, mbedtls_ecp_point *R,
       8. R1 = R0 = C
       9. Select R1, R4
       10. R0 = R1 * R4 = Pz * C = R->Z
-      11. R4 = R1 = C
-      
-      Read Operations:     
-      
+
+      Read Operations:
+
       R->Z = R0 = Pz * C
-      
+
       Output State:
       R0   = FREE
       R1   = C
       R2   = D
       R3   = Px
       R4   = FREE
-      
+
       STEP 2:
     */
-    
+
     ecp_crypto_ddata_write(&crypto->DDATA1, &P->Y);
+
+#if defined( MBEDTLS_ECP_CRITICAL_SHORT )
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    crypto->IEN = 0;
+#endif
+    CRYPTODRV_ExitCriticalRegion(p_cryptodrv_ctx);
+    CRYPTODRV_EnterCriticalRegion(p_cryptodrv_ctx);
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    crypto->IFC = _CRYPTO_IFC_MASK;
+    crypto->IEN = CRYPTO_IEN_SEQDONE;
+#endif
+#endif
+
     CRYPTO_EXECUTE_11(crypto,
+                      CRYPTO_CMD_INSTR_SELDDATA0DDATA1,
                       CRYPTO_CMD_INSTR_MSUB,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA2, /* R2 = D */
-                      
+
                       CRYPTO_CMD_INSTR_DDATA3TODDATA1,
                       CRYPTO_CMD_INSTR_DMA0TODATA,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA3,
                       CRYPTO_CMD_INSTR_SELDDATA1DDATA3,
                       CRYPTO_CMD_INSTR_MSUB,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA1,  /* R1 = C */
-                      
+
                       CRYPTO_CMD_INSTR_SELDDATA1DDATA4,
-                      CRYPTO_CMD_INSTR_MMUL,
-                      CRYPTO_CMD_INSTR_DDATA1TODDATA4
+                      CRYPTO_CMD_INSTR_MMUL
                       );
     ecp_crypto_ddata_write(&crypto->DDATA0, &P->X);
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    ret = SLPAL_WaitForCompletion(&mbedtls_device->operation,
+                                 SLPAL_WAIT_FOREVER);
+#endif
     MBEDTLS_MPI_CHK( ecp_crypto_ddata_read(&crypto->DDATA0, &R->Z) );
-    
+
+#if defined( MBEDTLS_ECP_CRITICAL_SHORT )
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    crypto->IEN = 0;
+#endif
+    CRYPTODRV_ExitCriticalRegion(p_cryptodrv_ctx);
+    CRYPTODRV_EnterCriticalRegion(p_cryptodrv_ctx);
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    crypto->IFC = _CRYPTO_IFC_MASK;
+    crypto->IEN = CRYPTO_IEN_SEQDONE;
+#endif
+#endif
+
     /*
       STEP 3:
-      
+
       Goals:
       X1C2  = Px * C^2
       C3    = C^3
       D2    = D^2
-      
+
       Input State:
       R0   = FREE
       R1   = C
       R2   = D
       R3   = Px
       R4   = FREE
-      
+
       Instructions to be executed:
-      
-      1. R0 = R1 * R4 = C^2
-      2. R1 = R0 = C^2
-      3. R0 = R1 * R4 = C^3
-      4. R4 = R0 = C^3
-      5. Select R1, R3
-      6. R0 = R1 * R3 = Px * C^2
-      7. R3 = R0 = Px * C^2
-      8. R1 = R2 = D
-      9. Select R1, R1
-      10. R0 = R1 * R1 = D^2
-      11. Select R0, R4   (for MSUB operation in next sequence)
-      
+
+      1. R4 = R1 = C
+      2. Select R1, R4
+      3. R0 = R1 * R4 = C^2
+      4. R1 = R0 = C^2
+      5. R0 = R1 * R4 = C^3
+      6. R4 = R0 = C^3
+      7. Select R1, R3
+      8. R0 = R1 * R3 = Px * C^2
+      9. R3 = R0 = Px * C^2
+      10. R1 = R2 = D
+      11. Select R1, R1
+      12. R0 = R1 * R1 = D^2
+      13. Select R0, R4
+      14. R0 = R0 - R4 = D2 - C3
+
       Output state:
-      
-      R0 = D2
+
+      R0 = D2 - C3
       R1 = FREE
       R2 = D
       R3 = X1C2 = Px * C^2
       R4 = C3   = C^3
-      
+
       STEP 3:
     */
-    CRYPTO_EXECUTE_11(crypto,
+    CRYPTO_EXECUTE_14(crypto,
+                      CRYPTO_CMD_INSTR_DDATA1TODDATA4,
+                      CRYPTO_CMD_INSTR_SELDDATA1DDATA4,
                       CRYPTO_CMD_INSTR_MMUL,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA1,
                       CRYPTO_CMD_INSTR_MMUL,
@@ -1218,88 +1345,112 @@ int ecp_device_add_mixed( const mbedtls_ecp_group *grp, mbedtls_ecp_point *R,
                       CRYPTO_CMD_INSTR_DDATA2TODDATA1,
                       CRYPTO_CMD_INSTR_SELDDATA1DDATA2,
                       CRYPTO_CMD_INSTR_MMUL,
-                      CRYPTO_CMD_INSTR_SELDDATA0DDATA4
+                      CRYPTO_CMD_INSTR_SELDDATA0DDATA4,
+                      CRYPTO_CMD_INSTR_MSUB
                       );
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    ret = SLPAL_WaitForCompletion(&mbedtls_device->operation,
+                                 SLPAL_WAIT_FOREVER);
+#endif
+
+#if defined( MBEDTLS_ECP_CRITICAL_SHORT )
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    crypto->IEN = 0;
+#else
+    CRYPTO_InstructionSequenceWait(crypto);
+#endif
+    CRYPTODRV_ExitCriticalRegion(p_cryptodrv_ctx);
+    CRYPTODRV_EnterCriticalRegion(p_cryptodrv_ctx);
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    crypto->IFC = _CRYPTO_IFC_MASK;
+    crypto->IEN = CRYPTO_IEN_SEQDONE;
+#endif
+#endif
+
     /*
       STEP 3:
-      
+
       Goals:
       R->X   = D2 - (C3 + 2 * X1C2) = D2 - C3 - X1C2- X1C2
       Y1C3 = Py * C3
       R->Y = D * (X1C2 - R->X) - Y1C3
-      
+
       Write Operations:
       R1 = Py
-      
-      Input State:  
-      R0 = D2
+
+      Input State:
+      R0 = D2 - C3
       R1 = FREE
       R2 = D
       R3 = X1C2
       R4 = C3
-      
+
       Instructions to be executed:
-      
-      1.  R0 = R0 - R4 = D2 - C3
-      2.  Select R0, R3
-      3.  R0 = R0 - R3 = D2 - C3 - X1C2
-      4.  R0 = R0 - R3 = D2 - C3 - X1C2 - X1C2 = R->X
-      5.  DMA = R0 = R->X
-      6.  R1 = R0 = R->X
-      
-      7.  Select R3, R1
-      8.  R0 = R3 - R1 = X1C2 - R->X
-      9.  R1 = R0 = X1C2 - R->X
-      10. Select R1, R2
-      11. R0 = R1 * R2 = D *(X1C2 - R->X)
-      12. R2 = R0
-      
-      13. R0 = DMA = Py
-      14. R1 = R0 = Py
-      15. Select R1, R4
-      16. R0 = R1 * R4 = Py * C3 = Y1C3
-      17. R4 = R0 = Y1C3
-      
-      18. Select R2, R4
-      19. R0 = R2 - R4 
-      
-      Read Operations:     
-      
+
+      1.  Select R0, R3
+      2.  R0 = R0 - R3 = D2 - C3 - X1C2
+      3.  R0 = R0 - R3 = D2 - C3 - X1C2 - X1C2 = R->X
+      4.  DMA = R0 = R->X
+      5.  R1 = R0 = R->X
+
+      6.  Select R3, R1
+      7.  R0 = R3 - R1 = X1C2 - R->X
+      8.  R1 = R0 = X1C2 - R->X
+      9.  Select R1, R2
+      10. R0 = R1 * R2 = D *(X1C2 - R->X)
+      11. R2 = R0
+
+      12. R0 = DMA = Py
+      13. R1 = R0 = Py
+      14. Select R1, R4
+      15. R0 = R1 * R4 = Py * C3 = Y1C3
+      16. R4 = R0 = Y1C3
+
+      17. Select R2, R4
+      18. R0 = R2 - R4
+
+      Read Operations:
+
       R->X = R2 = D2 - (C3 + 2 * X1C2)
       R->Y = R0 = D * (X1C2 - R->X) - Y1C3
-      
+
       STEP 4:
     */
-    
-    CRYPTO_EXECUTE_19(crypto,
-                      CRYPTO_CMD_INSTR_MSUB,
+
+    CRYPTO_EXECUTE_18(crypto,
                       CRYPTO_CMD_INSTR_SELDDATA0DDATA3,
                       CRYPTO_CMD_INSTR_MSUB,
                       CRYPTO_CMD_INSTR_MSUB,
                       CRYPTO_CMD_INSTR_DATATODMA0,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA1,
-                      
+
                       CRYPTO_CMD_INSTR_SELDDATA3DDATA1,
                       CRYPTO_CMD_INSTR_MSUB,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA1,
                       CRYPTO_CMD_INSTR_SELDDATA1DDATA2,
                       CRYPTO_CMD_INSTR_MMUL,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA2,
-                      
+
                       CRYPTO_CMD_INSTR_DMA0TODATA,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA1,
                       CRYPTO_CMD_INSTR_SELDDATA1DDATA4,
                       CRYPTO_CMD_INSTR_MMUL,
                       CRYPTO_CMD_INSTR_DDATA0TODDATA4,
-                      
+
                       CRYPTO_CMD_INSTR_SELDDATA2DDATA4,
                       CRYPTO_CMD_INSTR_MSUB
                       );
     MBEDTLS_MPI_CHK( ecp_crypto_ddata_read(&crypto->DDATA0, &R->X) );
     ecp_crypto_ddata_write(&crypto->DDATA0, &P->Y);
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    ret = SLPAL_WaitForCompletion(&mbedtls_device->operation,
+                                  SLPAL_WAIT_FOREVER);
+#endif
     MBEDTLS_MPI_CHK( ecp_crypto_ddata_read(&crypto->DDATA0, &R->Y) );
-    
+
+
 #else /* #if !defined( MBEDTLS_INCLUDE_IO_MODE_DMA ) */
+
 
     const mbedtls_mpi* Px = &P->X;
     const mbedtls_mpi* Py = &P->Y;
@@ -1307,21 +1458,21 @@ int ecp_device_add_mixed( const mbedtls_ecp_group *grp, mbedtls_ecp_point *R,
     const mbedtls_mpi* Qx = &Q->X;
     const mbedtls_mpi* Qy = &Q->Y;
     ecc_bigint_t       D;
-    
+
     /*
-      
+
       Goals:
       A = Qx*Pz^2
       B = Qy*Pz^3
-      
+
       Write Operations:
-      
+
       R1 = Pz
       R3 = Qx
       R4 = Qy
-      
+
       Instructions to be executed:
-      
+
       1. R2 = R1 = Pz
       2. Select R1, R2
       2. R0 = R1 * R2 = Pz^2
@@ -1334,19 +1485,19 @@ int ecp_device_add_mixed( const mbedtls_ecp_group *grp, mbedtls_ecp_point *R,
       1  9. R1 = R0 = Pz^3
       10.Select R1, R4
       11.R0 = R1 * R4 = Qy * Pz^3
-      
-      Read Operations:     
-      
+
+      Read Operations:
+
       B = R0 = Qy*Pz^3
       A = R3 = Qx*Pz^2
-      
+
       STEP 1:
     */
-    
+
     ecp_crypto_ddata_write(&crypto->DDATA1, Pz);
     ecp_crypto_ddata_write(&crypto->DDATA3, Qx);
     ecp_crypto_ddata_write(&crypto->DDATA4, Qy);
-    
+
     CRYPTO_EXECUTE_12(crypto,
                       CRYPTO_CMD_INSTR_DDATA1TODDATA2,
                       CRYPTO_CMD_INSTR_SELDDATA1DDATA2,
@@ -1361,23 +1512,23 @@ int ecp_device_add_mixed( const mbedtls_ecp_group *grp, mbedtls_ecp_point *R,
                       CRYPTO_CMD_INSTR_SELDDATA1DDATA4,
                       CRYPTO_CMD_INSTR_MMUL
                       );
-    
+
     /*
-      
+
       Goals: C  = A - Px
       D  = B - Py
       R->Z = Pz * C
-      
+
       Write Operations:
-      
+
       R0 = B         B is already in R0
       R1 = Px
       R2 = Py
       R3 = A         A is already in R3
       R4 = Pz
-      
+
       Instructions to be executed:
-      
+
       1. Select R0, R2
       2. R0 = R0 - R2 = B - Py = D
       3. R2 = R0 = D
@@ -1386,20 +1537,20 @@ int ecp_device_add_mixed( const mbedtls_ecp_group *grp, mbedtls_ecp_point *R,
       6. R1 = R0 = C
       7. Select R1, R4
       8. R0 = R1 * R4 = Pz * C = R->Z
-      
-      Read Operations:     
-      
+
+      Read Operations:
+
       R->Z = R0 = Pz * C
       C  = R1 = A - Px
       D  = R2 = B - Py
-      
+
       STEP 2:
     */
-    
+
     ecp_crypto_ddata_write(&crypto->DDATA1, Px);
     ecp_crypto_ddata_write(&crypto->DDATA2, Py);
     ecp_crypto_ddata_write(&crypto->DDATA4, Pz);
-    
+
     CRYPTO_EXECUTE_8(crypto,
                      CRYPTO_CMD_INSTR_SELDDATA0DDATA2,
                      CRYPTO_CMD_INSTR_MSUB,
@@ -1410,47 +1561,47 @@ int ecp_device_add_mixed( const mbedtls_ecp_group *grp, mbedtls_ecp_point *R,
                      CRYPTO_CMD_INSTR_SELDDATA1DDATA4,
                      CRYPTO_CMD_INSTR_MMUL
                      );
-    
+
     MBEDTLS_MPI_CHK( ecp_crypto_ddata_read(&crypto->DDATA0, &R->Z) );
     CRYPTO_DDataRead(&crypto->DDATA2, D);
-    
+
     /*
-      
-      Goals: X1C2  = Px * C²
-      C3    = C³
-      D2    = D²
-      
+
+      Goals: X1C2  = Px * C^2
+      C3    = C^2
+      D2    = D^2
+
       Write Operations:
-      
+
       R1 = C         C is already in R1
       R2 = D         D is already in R2
       R3 = Px
-      
+
       R4 = C
-      
+
       Instructions to be executed:
-      
+
       1. Select R1, R4
-      2. R0 = R1 * R4 = C²
-      3. R1 = R0 = C²
-      4. R0 = R1 * R4 = C³
-      5. R4 = R0 = C³
+      2. R0 = R1 * R4 = C^2
+      3. R1 = R0 = C^2
+      4. R0 = R1 * R4 = C^2
+      5. R4 = R0 = C^2
       6. Select R1, R3
-      7. R0 = R1 * R3 = Px * C^²
-      8. R3 = R0 = Px * C²
+      7. R0 = R1 * R3 = Px * C^2
+      8. R3 = R0 = Px * C^2
       9. R1 = R2 = D
       10. Select R1, R1
-      11. R0 = R1 * R1 = D²
-      
-      Read Operations:     
-      
-      D2   = R0 = D²
-      X1C2 = R3 = Px * C²
-      C3   = R4 = C³
-  
+      11. R0 = R1 * R1 = D^2
+
+      Read Operations:
+
+      D2   = R0 = D^2
+      X1C2 = R3 = Px * C^2
+      C3   = R4 = C^2
+
       STEP 3:
     */
-    
+
     ecp_crypto_ddata_write(&crypto->DDATA3, Px);
     CRYPTO_EXECUTE_12(crypto,
                       CRYPTO_CMD_INSTR_DDATA1TODDATA4,
@@ -1470,16 +1621,16 @@ int ecp_device_add_mixed( const mbedtls_ecp_group *grp, mbedtls_ecp_point *R,
     /*
       Goals: R->X   = D2 - (C3 + 2 * X1C2) = D2 - C3 - X1C2- X1C2
       Y1C3 = Py * C3
-      
+
       Write Operations:
-      
+
       R0 = D2        D2 is already in R0
       R1 = Py
       R3 = X1C2      X1C2 is already in R3
       R4 = C3        C3 is already in R4
-      
+
       Instructions to be executed:
-      
+
       1. Select R0, R4
       2. R0 = R0 - R4 = D2 - C3
       3. Select R0, R3
@@ -1488,17 +1639,17 @@ int ecp_device_add_mixed( const mbedtls_ecp_group *grp, mbedtls_ecp_point *R,
       6. R2 = R0 = R->X
       7. Select R1, R4
       8. R0 = R1 * R4 = Py * C3 = Y1C3
-      
-      Read Operations:     
-      
-      Y1C3 = R0 = Py * C³
+
+      Read Operations:
+
+      Y1C3 = R0 = Py * C^2
       R->X   = R2 = D2 - (C3 + 2 * X1C2)
-      
+
       STEP 4:
     */
-    
+
     ecp_crypto_ddata_write(&crypto->DDATA1, Py);
-    
+
     CRYPTO_EXECUTE_8(crypto,
                      CRYPTO_CMD_INSTR_SELDDATA0DDATA4,
                      CRYPTO_CMD_INSTR_MSUB,
@@ -1509,21 +1660,21 @@ int ecp_device_add_mixed( const mbedtls_ecp_group *grp, mbedtls_ecp_point *R,
                      CRYPTO_CMD_INSTR_SELDDATA1DDATA4,
                      CRYPTO_CMD_INSTR_MMUL
                      );
-    
+
     MBEDTLS_MPI_CHK( ecp_crypto_ddata_read(&crypto->DDATA2, &R->X) );
-    
+
     /*
       Goal: R->Y = D * (X1C2 - R->X) - Y1C3
-      
+
       Write Operations:
-  
-      R1 = D 
+
+      R1 = D
       R2 = R->X        R->X is already in R2
       R3 = X1C2      X1C2 is already in R3
-      R4 = Y1C3      
-      
+      R4 = Y1C3
+
       Instructions to be executed:
-      
+
       1. Select R3, R2
       2. R0 = R3 - R2 = X1C2 - R->X
       3. R2 = R0 = X1C2 - R->X
@@ -1531,14 +1682,14 @@ int ecp_device_add_mixed( const mbedtls_ecp_group *grp, mbedtls_ecp_point *R,
       5. R0 = R1 * R2 = D *(X1C2 - R->X)
       6. Select R0, R4
       7. R0 = R0 - R4
-      
-      Read Operations:     
-      
+
+      Read Operations:
+
       R->Y= R0 = D * (X1C2 - R->X) - Y1C3
-      
+
       STEP 5:
-    */  
-    
+    */
+
     CRYPTO_DDataWrite(&crypto->DDATA1, D);
     CRYPTO_EXECUTE_8(crypto,
                      CRYPTO_CMD_INSTR_DDATA0TODDATA4,
@@ -1550,16 +1701,18 @@ int ecp_device_add_mixed( const mbedtls_ecp_group *grp, mbedtls_ecp_point *R,
                      CRYPTO_CMD_INSTR_SELDDATA0DDATA4,
                      CRYPTO_CMD_INSTR_MSUB
                      );
-    
+
     MBEDTLS_MPI_CHK( ecp_crypto_ddata_read(&crypto->DDATA0, &R->Y) );
 
 #endif /* #if !defined( MBEDTLS_INCLUDE_IO_MODE_DMA ) */
-  
+
  cleanup:
-  
-  CRYPTODRV_ExitCriticalRegion(p_cryptodrv_ctx);
-  
-  return( ret );
+
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    crypto->IEN = 0;
+#endif
+    CRYPTODRV_ExitCriticalRegion(p_cryptodrv_ctx);
+    return( ret );
 }
 #endif /* #if defined(MBEDTLS_ECP_DEVICE_ADD_MIXED_ALT) */
 
@@ -1582,7 +1735,7 @@ int ecp_device_add_mixed( const mbedtls_ecp_group *grp, mbedtls_ecp_point *R,
  *
  * @return N/A
  ******************************************************************************/
-static void mbedtls_mpi_div_mod(CRYPTO_TypeDef* crypto,
+static void mbedtls_mpi_div_mod(CRYPTODRV_Context_t* p_cryptodrv_ctx,
                                 ecc_bigint_t    X,
                                 ecc_bigint_t    Y,
                                 ecc_bigint_t    N,
@@ -1596,49 +1749,56 @@ static void mbedtls_mpi_div_mod(CRYPTO_TypeDef* crypto,
     uint8_t             lsb_U;
     int                 t;
     int                 k;
+    CRYPTO_TypeDef     *crypto = p_cryptodrv_ctx->device->crypto;
 
     /************** Initialize and organize data in crypto module **************/
 
     /*
     ** Register usage:
     **
-    ** DDATA0 - holds temporary results and loads 260 bit variables in/out 
+    ** DDATA0 - holds temporary results and loads 260 bit variables in/out
     ** DDATA1 - variable referred to as 'C' in the following algorithm
     ** DDATA2 - variable referred to as 'U' in the following algorithm
     ** DDATA3 - variable referred to as 'D' in the following algorithm
     ** DDATA4 - variable referred to as 'W' in the following algorithm
     */
-    
+
     EC_BIGINT_COPY(D, N);             /* D will hold the modulus (n) initially */
     D[8]=0;                           /* Set MSWord of D to 0. */
-    
+
+    CRYPTODRV_EnterCriticalRegion(p_cryptodrv_ctx);
+
     CRYPTO_DDataWrite(&crypto->DDATA1, Y);  /* Set C to Y (divisor) initially */
     CRYPTO_DDataWrite(&crypto->DDATA2, X);  /* Set U to X (dividend)initially */
-    
     CRYPTO_DDataWrite(&crypto->DDATA3, N);  /* Set D to modulus p initially   */
-    
+
     CRYPTO_EXECUTE_3(crypto,
                      CRYPTO_CMD_INSTR_CLR,            /* DDATA0 = 0 */
                      CRYPTO_CMD_INSTR_DDATA0TODDATA4, /* Set W to zero initially*/
                      CRYPTO_CMD_INSTR_DDATA1TODDATA0);/* DDATA0 = C initially */
-    
+
     t     = 0;
     k     = 1;
-    
+
     /******************* Run main loop while 'C' is non-zero ********************/
-    
+
     /* while (C != 1024'd0)  */
     while ( !crypto_ddata0_is_zero(crypto, &status_reg) )
     {
+#if defined( MBEDTLS_ECP_CRITICAL_SHORT )
+        CRYPTODRV_ExitCriticalRegion(p_cryptodrv_ctx);
+        CRYPTODRV_EnterCriticalRegion(p_cryptodrv_ctx);
+#endif
+
         lsb_C = (status_reg & _CRYPTO_DSTATUS_DDATA0LSBS_MASK) >> _CRYPTO_DSTATUS_DDATA0LSBS_SHIFT;
         if ((lsb_C & 0x1) == 0)
         {
             CRYPTO_EXECUTE_3(crypto,
                              CRYPTO_CMD_INSTR_SELDDATA1DDATA1,
                              CRYPTO_CMD_INSTR_SHRA,
-                             CRYPTO_CMD_INSTR_DDATA0TODDATA1                                    
+                             CRYPTO_CMD_INSTR_DDATA0TODDATA1
                              );
-            t = t-1;  
+            t = t-1;
         }
         else
         {
@@ -1653,38 +1813,38 @@ static void mbedtls_mpi_div_mod(CRYPTO_TypeDef* crypto,
                                  CRYPTO_CMD_INSTR_DDATA0TODDATA3);
                 CRYPTO_DDATA0_260_BITS_READ(crypto, D);
                 t = -t;
-            } 
-            
+            }
+
             k = 1;
-            
+
             CRYPTO_EXECUTE_2(crypto,
                              CRYPTO_CMD_INSTR_SELDDATA1DDATA3,
                              CRYPTO_CMD_INSTR_ADD);
-            
+
             rdata = CRYPTO_DData0_4LSBitsRead(crypto);
-            
+
             if((rdata & 0x3) != 0x0)
               k = -1;
             else
               t = t-1;
-            
+
             /*  R1 = C >> 1  */
             crypto->CMD = CRYPTO_CMD_INSTR_DDATA1TODDATA0; /* to get the lsb of C */
-            
+
             lsb_C = CRYPTO_DData0_4LSBitsRead(crypto);
             CRYPTO_EXECUTE_4(crypto,
                              CRYPTO_CMD_INSTR_SELDDATA1DDATA1,
                              CRYPTO_CMD_INSTR_SHRA,
                              CRYPTO_CMD_INSTR_DDATA0TODDATA1,
                              CRYPTO_CMD_INSTR_DDATA3TODDATA0); /* to get the lsb of D(R3) */
-            
+
             /*  R3 = D >> 1  */
             lsb_D = CRYPTO_DData0_4LSBitsRead(crypto);
-            
+
             CRYPTO_EXECUTE_2(crypto,
                              CRYPTO_CMD_INSTR_SELDDATA3DDATA3,
                              CRYPTO_CMD_INSTR_SHRA);
-            
+
             if(k == 1)
             {
                 if (((lsb_C & 0x1)==0x1) && ((lsb_D & 0x1)==0x1))
@@ -1719,7 +1879,7 @@ static void mbedtls_mpi_div_mod(CRYPTO_TypeDef* crypto,
             {
                 if (k == -1)
                 {
-                    if (((lsb_C & 0x1)==0x0) && ((lsb_D & 0x1)==0x1))     
+                    if (((lsb_C & 0x1)==0x0) && ((lsb_D & 0x1)==0x1))
                     {
                         CRYPTO_EXECUTE_8(crypto,
                                          /*  C = R1-R3-1  */
@@ -1748,16 +1908,16 @@ static void mbedtls_mpi_div_mod(CRYPTO_TypeDef* crypto,
                                          CRYPTO_CMD_INSTR_DDATA0TODDATA2
                                          );
                     }
-                    
+
                     CRYPTO_DDATA0_260_BITS_WRITE(crypto, D);
                     crypto->CMD = CRYPTO_CMD_INSTR_DDATA0TODDATA3;
-                    
+
                 } /* if (k == -1) */
-            }        
+            }
         } /* else: !if((C[31:0] & 0x1) == 0x0) */
-           
+
         crypto->CMD = CRYPTO_CMD_INSTR_DDATA2TODDATA0;
-    
+
         lsb_U = CRYPTO_DData0_4LSBitsRead(crypto);
 
         /* if ((U[31:0] & 0x1) == 0x1) */
@@ -1791,7 +1951,7 @@ static void mbedtls_mpi_div_mod(CRYPTO_TypeDef* crypto,
                               CRYPTO_CMD_INSTR_CSET,
                               CRYPTO_CMD_INSTR_ADDC,
                               CRYPTO_CMD_INSTR_DDATA0TODDATA2);
-        
+
             CRYPTO_DDataWrite(&crypto->DDATA0, N);
 #endif /* #if defined( MBEDTLS_INCLUDE_IO_MODE_DMA ) */
         }
@@ -1801,19 +1961,19 @@ static void mbedtls_mpi_div_mod(CRYPTO_TypeDef* crypto,
                              CRYPTO_CMD_INSTR_SELDDATA2DDATA2,
                              CRYPTO_CMD_INSTR_SHRA,
                              CRYPTO_CMD_INSTR_DDATA0TODDATA2);
-        } 
-        
+        }
+
         /* DDATA0 = C */
         crypto->CMD = CRYPTO_CMD_INSTR_DDATA1TODDATA0;
-        
+
     } /* End of main loop:  while (C != 0)  */
-    
+
     /* if (D == 1): */
     /* Decrement D by 1 and test if zero. */
     CRYPTO_EXECUTE_2(crypto,
                      CRYPTO_CMD_INSTR_DDATA3TODDATA0,
                      CRYPTO_CMD_INSTR_DEC);
-    
+
     if (crypto_ddata0_is_zero(crypto, &status_reg))
     {
         CRYPTO_DDataRead(&crypto->DDATA4, R);
@@ -1827,7 +1987,9 @@ static void mbedtls_mpi_div_mod(CRYPTO_TypeDef* crypto,
                          );
         CRYPTO_DDataRead(&crypto->DDATA0, R);
     }
-    
+
+    CRYPTODRV_ExitCriticalRegion(p_cryptodrv_ctx);
+
     return;
 } /* mbedtls_mpi_div_mod  */
 #endif /* #if defined( MBEDTLS_MPI_MODULAR_DIVISION_ALT ) */
@@ -1845,7 +2007,11 @@ int ecp_device_normalize_jac( const mbedtls_ecp_group *grp, mbedtls_ecp_point *P
     CRYPTODRV_Context_t* p_cryptodrv_ctx =
       (CRYPTODRV_Context_t*)&grp->cryptodrv_ctx;
     CRYPTO_TypeDef*      crypto = p_cryptodrv_ctx->device->crypto;
-    CRYPTODRV_EnterCriticalRegion(p_cryptodrv_ctx);
+
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    mbedtls_device_context  *mbedtls_device =
+      *grp->cryptodrv_ctx.device->ppMbedtlsDevice;
+#endif
 
 #if defined( MBEDTLS_MPI_MODULAR_DIVISION_ALT )
 
@@ -1860,12 +2026,14 @@ int ecp_device_normalize_jac( const mbedtls_ecp_group *grp, mbedtls_ecp_point *P
     MPI_TO_BIGINT( Z, &P->Z );
     MPI_TO_BIGINT( modulus, &grp->P );
 
-    mbedtls_mpi_div_mod(crypto, one, Z, modulus, Z_inv);
+    mbedtls_mpi_div_mod(p_cryptodrv_ctx, one, Z, modulus, Z_inv);
+
+    CRYPTODRV_EnterCriticalRegion(p_cryptodrv_ctx);
 
     CRYPTO_DDataWrite(&crypto->DDATA1, Z_inv);
-    
+
 #else
-    
+
     mbedtls_mpi Z_inv;
     mbedtls_mpi_init( &Z_inv );
 
@@ -1874,23 +2042,25 @@ int ecp_device_normalize_jac( const mbedtls_ecp_group *grp, mbedtls_ecp_point *P
      */
     MBEDTLS_MPI_CHK( mbedtls_mpi_inv_mod( &Z_inv,      &P->Z,     &grp->P ) );
 
+    CRYPTODRV_EnterCriticalRegion(p_cryptodrv_ctx);
+
     ecp_crypto_ddata_write(&crypto->DDATA1, &Z_inv);
 #endif
-    
+
     /*
-             
+
     Goals:
     R->X = P->X * Z_inv ^2
     R->Y = P->Y * Z_inv ^3
-    
+
     Write Operations:
-    
+
     R1 = Z_inv
     R3 = P->X
     R4 = P->Y
-    
+
     Instructions to be executed:
-    
+
     1.  R2 = R1 = Z_inv
     2.  Select R1, R2
     3.  R0 = R1 * R2 = Z_inv^2
@@ -1903,17 +2073,22 @@ int ecp_device_normalize_jac( const mbedtls_ecp_group *grp, mbedtls_ecp_point *P
     10. R1 = R0 = Z_inv^3
     11. Select R1, R4
     12. R0 = R1 * R4 = P->Y * Z_inv^3 = R->Y
-    
-    Read Operations:     
-    
+
+    Read Operations:
+
     R->Y = R0 = P->Y * P->Z_inv^3
     R->X = R3 = P->X * P->Z_inv^2
-            
+
     */
-    
+
     ecp_crypto_ddata_write(&crypto->DDATA3, &P->X);
     ecp_crypto_ddata_write(&crypto->DDATA4, &P->Y);
-    
+
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    crypto->IFC = _CRYPTO_IFC_MASK;
+    crypto->IEN = CRYPTO_IEN_SEQDONE;
+#endif
+
     CRYPTO_EXECUTE_12(crypto,
                       CRYPTO_CMD_INSTR_DDATA1TODDATA2,
                       CRYPTO_CMD_INSTR_SELDDATA1DDATA2,
@@ -1929,8 +2104,16 @@ int ecp_device_normalize_jac( const mbedtls_ecp_group *grp, mbedtls_ecp_point *P
                       CRYPTO_CMD_INSTR_MMUL
                       );
 
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    ret = SLPAL_WaitForCompletion(&mbedtls_device->operation,
+                                 SLPAL_WAIT_FOREVER);
+    crypto->IEN = 0;
+#endif
+
     ecp_crypto_ddata_read(&crypto->DDATA0, &P->Y);
     ecp_crypto_ddata_read(&crypto->DDATA3, &P->X);
+
+    CRYPTODRV_ExitCriticalRegion(p_cryptodrv_ctx);
 
     /*
      * Z = 1
@@ -1938,9 +2121,6 @@ int ecp_device_normalize_jac( const mbedtls_ecp_group *grp, mbedtls_ecp_point *P
     MBEDTLS_MPI_CHK( mbedtls_mpi_lset( &P->Z, 1 ) );
 
  cleanup:
-
-    CRYPTODRV_ExitCriticalRegion(p_cryptodrv_ctx);
-  
 #if !defined(MBEDTLS_MPI_MODULAR_DIVISION_ALT)
     mbedtls_mpi_free( &Z_inv );
 #endif /* #if !defined(MBEDTLS_MPI_MODULAR_DIVISION_ALT) */
@@ -1971,6 +2151,10 @@ int ecp_device_normalize_jac_many( const mbedtls_ecp_group *grp,
     CRYPTODRV_Context_t* p_cryptodrv_ctx =
       (CRYPTODRV_Context_t*)&grp->cryptodrv_ctx;
     CRYPTO_TypeDef*      crypto = p_cryptodrv_ctx->device->crypto;
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+    mbedtls_device_context  *mbedtls_device =
+      *grp->cryptodrv_ctx.device->ppMbedtlsDevice;
+#endif
 
     if( t_len < 2 )
         return( ecp_device_normalize_jac( grp, *T ) );
@@ -1994,6 +2178,8 @@ int ecp_device_normalize_jac_many( const mbedtls_ecp_group *grp,
         CRYPTO_DDataRead( &crypto->DDATA0, cc[i] );
     }
 
+    CRYPTODRV_ExitCriticalRegion(p_cryptodrv_ctx);
+
     memset(one, 0, sizeof(one));
     one[0]=1;
     MPI_TO_BIGINT( modulus, &grp->P );
@@ -2001,7 +2187,9 @@ int ecp_device_normalize_jac_many( const mbedtls_ecp_group *grp,
     /*
      * u = 1 / (Z_0 * ... * Z_n) mod P
      */
-    mbedtls_mpi_div_mod(crypto, one, cc[t_len-1], modulus, uu);
+    mbedtls_mpi_div_mod(p_cryptodrv_ctx, one, cc[t_len-1], modulus, uu);
+
+    CRYPTODRV_EnterCriticalRegion(p_cryptodrv_ctx);
 
     for( i = t_len - 1; ; i-- )
     {
@@ -2030,11 +2218,21 @@ int ecp_device_normalize_jac_many( const mbedtls_ecp_group *grp,
             CRYPTO_DDataRead(&crypto->DDATA0, uu);
         }
 
+#if defined( MBEDTLS_ECP_CRITICAL_SHORT )
+        CRYPTODRV_ExitCriticalRegion(p_cryptodrv_ctx);
+        CRYPTODRV_EnterCriticalRegion(p_cryptodrv_ctx);
+#endif
+
         /*
          * proceed as in normalize()
          */
         ecp_crypto_ddata_write(&crypto->DDATA3, &T[i]->X);
         ecp_crypto_ddata_write(&crypto->DDATA4, &T[i]->Y);
+
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+        crypto->IFC = _CRYPTO_IFC_MASK;
+        crypto->IEN = CRYPTO_IEN_SEQDONE;
+#endif
 
         /* Z_inv  already in DDATA2 */
         CRYPTO_EXECUTE_12(crypto,
@@ -2051,9 +2249,17 @@ int ecp_device_normalize_jac_many( const mbedtls_ecp_group *grp,
                           CRYPTO_CMD_INSTR_SELDDATA1DDATA4,
                           CRYPTO_CMD_INSTR_MMUL
                           );
-
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+        ret = SLPAL_WaitForCompletion(&mbedtls_device->operation,
+                                      SLPAL_WAIT_FOREVER);
+        crypto->IEN = 0;
+#endif
         ecp_crypto_ddata_read(&crypto->DDATA0, &T[i]->Y);
         ecp_crypto_ddata_read(&crypto->DDATA3, &T[i]->X);
+
+#if defined( MBEDTLS_ECP_CRITICAL_SHORT )
+        CRYPTODRV_ExitCriticalRegion(p_cryptodrv_ctx);
+#endif
 
         /*
          * Post-precessing: reclaim some memory by shrinking coordinates
@@ -2065,14 +2271,21 @@ int ecp_device_normalize_jac_many( const mbedtls_ecp_group *grp,
         MBEDTLS_MPI_CHK( mbedtls_mpi_shrink( &T[i]->Y, grp->P.n ) );
         mbedtls_mpi_free( &T[i]->Z );
 
+#if defined( MBEDTLS_ECP_CRITICAL_SHORT )
+        CRYPTODRV_EnterCriticalRegion(p_cryptodrv_ctx);
+#endif
+
         if( i == 0 )
             break;
     }
 
- cleanup:
-
+#if defined( MBEDTLS_ECP_CRITICAL_SHORT )
     CRYPTODRV_ExitCriticalRegion(p_cryptodrv_ctx);
-  
+ cleanup:
+#else
+ cleanup:
+    CRYPTODRV_ExitCriticalRegion(p_cryptodrv_ctx);
+#endif
     mbedtls_free( cc );
 
     return( ret );

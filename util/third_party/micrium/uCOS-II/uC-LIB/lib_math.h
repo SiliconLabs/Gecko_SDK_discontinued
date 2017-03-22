@@ -3,19 +3,22 @@
 *                                                uC/LIB
 *                                        CUSTOM LIBRARY MODULES
 *
-*                          (c) Copyright 2004-2013; Micrium, Inc.; Weston, FL
+*                         (c) Copyright 2004-2015; Micrium, Inc.; Weston, FL
 *
-*               All rights reserved.  Protected by international copyright laws.
+*                  All rights reserved.  Protected by international copyright laws.
 *
-*               uC/LIB is provided in source form to registered licensees ONLY.  It is 
-*               illegal to distribute this source code to any third party unless you receive 
-*               written permission by an authorized Micrium representative.  Knowledge of 
-*               the source code may NOT be used to develop a similar product.
+*                  uC/LIB is provided in source form to registered licensees ONLY.  It is
+*                  illegal to distribute this source code to any third party unless you receive
+*                  written permission by an authorized Micrium representative.  Knowledge of
+*                  the source code may NOT be used to develop a similar product.
 *
-*               Please help us continue to provide the Embedded community with the finest 
-*               software available.  Your honesty is greatly appreciated.
+*                  Please help us continue to provide the Embedded community with the finest
+*                  software available.  Your honesty is greatly appreciated.
 *
-*               You can contact us at www.micrium.com.
+*                  You can find our product's user manual, API reference, release notes and
+*                  more information at: https://doc.micrium.com
+*
+*                  You can contact us at: http://www.micrium.com
 *********************************************************************************************************
 */
 
@@ -25,7 +28,7 @@
 *                                        MATHEMATIC OPERATIONS
 *
 * Filename      : lib_math.h
-* Version       : V1.37.01
+* Version       : V1.38.02
 * Programmer(s) : SR
 *                 ITJ
 *********************************************************************************************************
@@ -62,7 +65,7 @@
 *********************************************************************************************************
 *                                               MODULE
 *
-* Note(s) : (1) This mathematics library header file is protected from multiple pre-processor inclusion 
+* Note(s) : (1) This mathematics library header file is protected from multiple pre-processor inclusion
 *               through use of the mathematics library module present pre-processor macro definition.
 *********************************************************************************************************
 */
@@ -71,7 +74,6 @@
 #define  LIB_MATH_MODULE_PRESENT
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                            INCLUDE FILES
@@ -123,7 +125,6 @@
 #endif
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                               DEFINES
@@ -134,8 +135,8 @@
 *********************************************************************************************************
 *                                        RANDOM NUMBER DEFINES
 *
-* Note(s) : (1) (a) IEEE Std 1003.1, 2004 Edition, Section 'rand() : DESCRIPTION' states that "if rand() 
-*                   is called before any calls to srand() are made, the same sequence shall be generated 
+* Note(s) : (1) (a) IEEE Std 1003.1, 2004 Edition, Section 'rand() : DESCRIPTION' states that "if rand()
+*                   is called before any calls to srand() are made, the same sequence shall be generated
 *                   as when srand() is first called with a seed value of 1".
 *
 *               (b) (1) BSD/ANSI-C implements rand() as a Linear Congruential Generator (LCG) :
@@ -155,11 +156,11 @@
 *                                       (3) b =        12345        LCG incrementor
 *                                       (4) m = RAND_MAX + 1        LCG modulus     See also Note #1b2
 *
-*                   (2) (A) IEEE Std 1003.1, 2004 Edition, Section 'rand() : DESCRIPTION' states that 
-*                           "rand() ... shall compute a sequence of pseudo-random integers in the range 
+*                   (2) (A) IEEE Std 1003.1, 2004 Edition, Section 'rand() : DESCRIPTION' states that
+*                           "rand() ... shall compute a sequence of pseudo-random integers in the range
 *                           [0, {RAND_MAX}] with a period of at least 2^32".
 *
-*                       (B) However, BSD/ANSI-C 'stdlib.h' defines "RAND_MAX" as "0x7fffffff", or 2^31; 
+*                       (B) However, BSD/ANSI-C 'stdlib.h' defines "RAND_MAX" as "0x7fffffff", or 2^31;
 *                           which therefore limits the range AND period to no more than 2^31.
 *********************************************************************************************************
 */
@@ -171,7 +172,6 @@
 #define  RAND_LCG_PARAM_B                              12345u   /* See Note #1b1A3.                                     */
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                             DATA TYPES
@@ -196,6 +196,75 @@ typedef  CPU_INT32U  RAND_NBR;
 
 /*
 *********************************************************************************************************
+*                                               MACROS
+*********************************************************************************************************
+*/
+
+/*
+*********************************************************************************************************
+*                                            MATH_IS_PWR2()
+*
+* Description : Determine if a value is a power of 2.
+*
+* Argument(s) : nbr           Value.
+*
+* Return(s)   : DEF_YES, 'nbr' is a power of 2.
+*
+*               DEF_NO,  'nbr' is not a power of 2.
+*
+* Caller(s)   : Application.
+*
+* Note(s)     : none.
+*********************************************************************************************************
+*/
+
+#define  MATH_IS_PWR2(nbr)                                 ((((nbr) != 0u) && (((nbr) & ((nbr) - 1u)) == 0u)) ? DEF_YES : DEF_NO)
+
+
+/*
+*********************************************************************************************************
+*                                        MATH_ROUND_INC_UP_PWR2()
+*
+* Description : Round value up to the next (power of 2) increment.
+*
+* Argument(s) : nbr           Value to round.
+*
+*               inc           Increment to use. MUST be a power of 2.
+*
+* Return(s)   : Rounded up value.
+*
+* Caller(s)   : Application.
+*
+* Note(s)     : none.
+*********************************************************************************************************
+*/
+
+#define  MATH_ROUND_INC_UP_PWR2(nbr, inc)                  (((nbr) & ~((inc) - 1)) + (((nbr) & ((inc) - 1)) == 0 ? 0 : (inc)))
+
+
+/*
+*********************************************************************************************************
+*                                          MATH_ROUND_INC_UP()
+*
+* Description : Round value up to the next increment.
+*
+* Argument(s) : nbr           Value to round.
+*
+*               inc           Increment to use.
+*
+* Return(s)   : Rounded up value.
+*
+* Caller(s)   : Application.
+*
+* Note(s)     : none.
+*********************************************************************************************************
+*/
+
+#define  MATH_ROUND_INC_UP(nbr, inc)                       (((nbr) + ((inc) - 1)) / (inc) * (inc))
+
+
+/*
+*********************************************************************************************************
 *                                         FUNCTION PROTOTYPES
 *********************************************************************************************************
 */
@@ -210,7 +279,6 @@ RAND_NBR  Math_Rand       (void);
 RAND_NBR  Math_RandSeed   (RAND_NBR  seed);
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                        CONFIGURATION ERRORS

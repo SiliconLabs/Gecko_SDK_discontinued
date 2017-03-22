@@ -3,20 +3,20 @@
 *                                                      uC/OS-III
 *                                                 The Real-Time Kernel
 *
-*                                  (c) Copyright 2009-2012; Micrium, Inc.; Weston, FL
+*                                  (c) Copyright 2009-2016; Micrium, Inc.; Weston, FL
 *                           All rights reserved.  Protected by international copyright laws.
 *
 * File    : OS_TYPE.H
 * By      : JJL
-* Version : V3.03.01
+* Version : V3.06.00
 *
 * LICENSING TERMS:
 * ---------------
-*           uC/OS-III is provided in source form for FREE short-term evaluation, for educational use or 
+*           uC/OS-III is provided in source form for FREE short-term evaluation, for educational use or
 *           for peaceful research.  If you plan or intend to use uC/OS-III in a commercial application/
-*           product then, you need to contact Micrium to properly license uC/OS-III for its use in your 
-*           application/product.   We provide ALL the source code for your convenience and to help you 
-*           experience uC/OS-III.  The fact that the source is provided does NOT mean that you can use 
+*           product then, you need to contact Micrium to properly license uC/OS-III for its use in your
+*           application/product.   We provide ALL the source code for your convenience and to help you
+*           experience uC/OS-III.  The fact that the source is provided does NOT mean that you can use
 *           it commercially without paying a licensing fee.
 *
 *           Knowledge of the source code may NOT be used to develop a similar product.
@@ -24,7 +24,9 @@
 *           Please help us continue to provide the embedded community with the finest software available.
 *           Your honesty is greatly appreciated.
 *
-*           You can contact us at www.micrium.com, or by phone at +1 (954) 217-2036.
+*           You can find our product's user manual, API reference, release notes and
+*           more information at https://doc.micrium.com.
+*           You can contact us at www.micrium.com.
 ************************************************************************************************************************
 */
 
@@ -68,7 +70,9 @@ typedef   CPU_INT08U      OS_NESTING_CTR;              /* Interrupt and schedule
 typedef   CPU_INT16U      OS_OBJ_QTY;                  /* Number of kernel objects counter,                   <16>/32 */
 typedef   CPU_INT32U      OS_OBJ_TYPE;                 /* Special flag to determine object type,                   32 */
 
-typedef   CPU_INT16U      OS_OPT;                      /* Holds function options                              <16>/32 */
+typedef   CPU_INT16U      OS_OPT;                      /* Holds function options,                             <16>/32 */
+
+typedef   CPU_INT32U      OS_MON_RES;                  /* Monitor result flags,                                       */
 
 typedef   CPU_INT08U      OS_PRIO;                     /* Priority of a task,                               <8>/16/32 */
 
@@ -76,7 +80,11 @@ typedef   CPU_INT16U      OS_QTY;                      /* Quantity              
 
 typedef   CPU_INT32U      OS_RATE_HZ;                  /* Rate in Hertz                                            32 */
 
-typedef   CPU_INT32U      OS_REG;                      /* Task register                                     8/16/<32> */
+#if (CPU_CFG_ADDR_SIZE == CPU_WORD_SIZE_64)            /* Task register                                  8/16/<32/64> */
+typedef   CPU_INT64U      OS_REG;
+#else
+typedef   CPU_INT32U      OS_REG;
+#endif
 typedef   CPU_INT08U      OS_REG_ID;                   /* Index to task register                            <8>/16/32 */
 
 typedef   CPU_INT32U      OS_SEM_CTR;                  /* Semaphore value                                     16/<32> */
@@ -86,8 +94,5 @@ typedef   CPU_INT08U      OS_STATE;                    /* State variable        
 typedef   CPU_INT08U      OS_STATUS;                   /* Status                                            <8>/16/32 */
 
 typedef   CPU_INT32U      OS_TICK;                     /* Clock tick counter                                  <32>/64 */
-typedef   CPU_INT16U      OS_TICK_SPOKE_IX;            /* Tick wheel spoke position                         8/<16>/32 */
-
-typedef   CPU_INT16U      OS_TMR_SPOKE_IX;             /* Timer wheel spoke position                        8/<16>/32 */
 
 #endif

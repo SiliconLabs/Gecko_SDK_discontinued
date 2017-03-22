@@ -1,7 +1,7 @@
 /**************************************************************************//**
  * @file displayls013b7dh03.c
  * @brief Display driver for the Sharp Memory LCD LS013B7DH03
- * @version 5.0.0
+ * @version 5.1.1
  ******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -189,6 +189,9 @@ EMSTATUS DISPLAY_Ls013b7dh03Init(void)
   status =
     PAL_TimerRepeat((void(*)(void*)) DisplayPolarityInverse, 0,
                     LS013B7DH03_POLARITY_INVERSION_FREQUENCY);
+#elif defined POLARITY_INVERSION_EXTCOMIN_MANUAL
+  /* Manually do the toggling of the EXTCOMIN pin in the application. */
+  status = PAL_EMSTATUS_OK;
 #elif defined POLARITY_INVERSION_EXTCOMIN_PAL_AUTO_TOGGLE
   /* Setup system (via PAL) to toggle the EXTCOMIN pin every second. */
   status = PAL_GpioPinAutoToggle(LCD_PORT_EXTCOMIN, LCD_PIN_EXTCOMIN,

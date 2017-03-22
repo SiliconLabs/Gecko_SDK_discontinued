@@ -3,19 +3,22 @@
 *                                                uC/LIB
 *                                        CUSTOM LIBRARY MODULES
 *
-*                          (c) Copyright 2004-2013; Micrium, Inc.; Weston, FL
+*                         (c) Copyright 2004-2015; Micrium, Inc.; Weston, FL
 *
-*               All rights reserved.  Protected by international copyright laws.
+*                  All rights reserved.  Protected by international copyright laws.
 *
-*               uC/LIB is provided in source form to registered licensees ONLY.  It is 
-*               illegal to distribute this source code to any third party unless you receive 
-*               written permission by an authorized Micrium representative.  Knowledge of 
-*               the source code may NOT be used to develop a similar product.
+*                  uC/LIB is provided in source form to registered licensees ONLY.  It is
+*                  illegal to distribute this source code to any third party unless you receive
+*                  written permission by an authorized Micrium representative.  Knowledge of
+*                  the source code may NOT be used to develop a similar product.
 *
-*               Please help us continue to provide the Embedded community with the finest 
-*               software available.  Your honesty is greatly appreciated.
+*                  Please help us continue to provide the Embedded community with the finest
+*                  software available.  Your honesty is greatly appreciated.
 *
-*               You can contact us at www.micrium.com.
+*                  You can find our product's user manual, API reference, release notes and
+*                  more information at: https://doc.micrium.com
+*
+*                  You can contact us at: http://www.micrium.com
 *********************************************************************************************************
 */
 
@@ -25,7 +28,7 @@
 *                                       ASCII STRING MANAGEMENT
 *
 * Filename      : lib_str.h
-* Version       : V1.37.01
+* Version       : V1.38.02
 * Programmer(s) : ITJ
 *                 JDH
 *********************************************************************************************************
@@ -51,7 +54,7 @@
 *********************************************************************************************************
 *                                               MODULE
 *
-* Note(s) : (1) This string library header file is protected from multiple pre-processor inclusion through 
+* Note(s) : (1) This string library header file is protected from multiple pre-processor inclusion through
 *               use of the string library module present pre-processor macro definition.
 *********************************************************************************************************
 */
@@ -60,12 +63,11 @@
 #define  LIB_STR_MODULE_PRESENT
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                 ASCII STRING CONFIGURATION DEFINES
 *
-* Note(s) : (1) Some ASCII string configuration #define's MUST be available PRIOR to including any 
+* Note(s) : (1) Some ASCII string configuration #define's MUST be available PRIOR to including any
 *               application configuration (see 'INCLUDE FILES  Note #1a').
 *********************************************************************************************************
 */
@@ -95,11 +97,11 @@
 *                                   Number-Internal-Base-Digits     Number of internal number base
 *                                                                       significant digits (i.e. 24)
 *
-*                   (2) Also, since some 32-bit floating-point calculations are converted to 32-bit 
+*                   (2) Also, since some 32-bit floating-point calculations are converted to 32-bit
 *                       unsigned numbers, the maximum accuracy is limited to the maximum accuracy
 *                       for 32-bit unsigned numbers of 9 digits.
 *
-*               (b) Some CPUs' &/or compilers' floating-point implementations MAY further reduce the 
+*               (b) Some CPUs' &/or compilers' floating-point implementations MAY further reduce the
 *                   maximum accuracy.
 *********************************************************************************************************
 */
@@ -109,7 +111,6 @@
 #define  LIB_STR_FP_MAX_NBR_DIG_SIG_DFLT                   7u   /* See Note #1a1.                                       */
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                            INCLUDE FILES
@@ -177,7 +178,6 @@
 #endif
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                        DEFAULT CONFIGURATION
@@ -190,7 +190,7 @@
 *
 * Note(s) : (1) Configure LIB_STR_CFG_FP_EN to enable/disable floating point string function(s).
 *
-*           (2) Configure LIB_STR_CFG_FP_MAX_NBR_DIG_SIG to configure the maximum number of significant 
+*           (2) Configure LIB_STR_CFG_FP_MAX_NBR_DIG_SIG to configure the maximum number of significant
 *               digits to calculate &/or display for floating point string function(s).
 *
 *               See also 'STRING FLOATING POINT DEFINES  Note #1'.
@@ -242,7 +242,6 @@
 */
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                              MACRO'S
@@ -267,7 +266,6 @@
 #define  Str_FmtScan                    sscanf
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                         FUNCTION PROTOTYPES
@@ -346,7 +344,6 @@ CPU_CHAR    *Str_Str_N          (const  CPU_CHAR      *pstr,
                                         CPU_SIZE_T     len_max);
 
 
-/*$PAGE*/
                                                                        /* ------------------ STR FMT  FNCTS ------------------ */
 CPU_CHAR    *Str_FmtNbr_Int32U  (       CPU_INT32U     nbr,
                                         CPU_INT08U     nbr_dig,
@@ -384,7 +381,6 @@ CPU_INT32S   Str_ParseNbr_Int32S(const  CPU_CHAR      *pstr,
                                         CPU_INT08U     nbr_base);
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                        CONFIGURATION ERRORS

@@ -330,8 +330,6 @@ void mbedtls_sha256( const unsigned char *input, size_t ilen,
     mbedtls_sha256_free( &ctx );
 }
 
-#endif /* !MBEDTLS_SHA256_ALT */
-
 #if defined(MBEDTLS_SELF_TEST)
 /*
  * FIPS-180-2 test vectors
@@ -441,5 +439,7 @@ exit:
 }
 
 #endif /* MBEDTLS_SELF_TEST */
+
+#endif /* !MBEDTLS_SHA256_ALT */
 
 #endif /* MBEDTLS_SHA256_C */

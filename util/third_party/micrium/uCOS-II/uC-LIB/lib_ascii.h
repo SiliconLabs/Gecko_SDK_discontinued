@@ -3,19 +3,22 @@
 *                                                uC/LIB
 *                                        CUSTOM LIBRARY MODULES
 *
-*                          (c) Copyright 2004-2013; Micrium, Inc.; Weston, FL
+*                         (c) Copyright 2004-2015; Micrium, Inc.; Weston, FL
 *
-*               All rights reserved.  Protected by international copyright laws.
+*                  All rights reserved.  Protected by international copyright laws.
 *
-*               uC/LIB is provided in source form to registered licensees ONLY.  It is 
-*               illegal to distribute this source code to any third party unless you receive 
-*               written permission by an authorized Micrium representative.  Knowledge of 
-*               the source code may NOT be used to develop a similar product.
+*                  uC/LIB is provided in source form to registered licensees ONLY.  It is
+*                  illegal to distribute this source code to any third party unless you receive
+*                  written permission by an authorized Micrium representative.  Knowledge of
+*                  the source code may NOT be used to develop a similar product.
 *
-*               Please help us continue to provide the Embedded community with the finest 
-*               software available.  Your honesty is greatly appreciated.
+*                  Please help us continue to provide the Embedded community with the finest
+*                  software available.  Your honesty is greatly appreciated.
 *
-*               You can contact us at www.micrium.com.
+*                  You can find our product's user manual, API reference, release notes and
+*                  more information at: https://doc.micrium.com
+*
+*                  You can contact us at: http://www.micrium.com
 *********************************************************************************************************
 */
 
@@ -25,7 +28,7 @@
 *                                     ASCII CHARACTER OPERATIONS
 *
 * Filename      : lib_ascii.h
-* Version       : V1.37.01
+* Version       : V1.38.02
 * Programmer(s) : BAN
 *********************************************************************************************************
 * Note(s)       : (1) NO compiler-supplied standard library functions are used in library or product software.
@@ -74,7 +77,7 @@
 *********************************************************************************************************
 *                                               MODULE
 *
-* Note(s) : (1) This ASCII library header file is protected from multiple pre-processor inclusion through 
+* Note(s) : (1) This ASCII library header file is protected from multiple pre-processor inclusion through
 *               use of the ASCII library module present pre-processor macro definition.
 *********************************************************************************************************
 */
@@ -83,7 +86,6 @@
 #define  LIB_ASCII_MODULE_PRESENT
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                            INCLUDE FILES
@@ -133,7 +135,6 @@
 #endif
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                               DEFINES
@@ -227,7 +228,6 @@
 #define  ASCII_CHAR_IS4                                 ASCII_CHAR_INFO_SEPARATOR_FOUR
 
 
-/*$PAGE*/
                                                                 /* ------------ ASCII PUNCTUATION & SYMBOLS ----------- */
 #define  ASCII_CHAR_SPACE                               0x20    /* ' '                                                  */
 #define  ASCII_CHAR_EXCLAMATION_MARK                    0x21    /* '!'                                                  */
@@ -286,7 +286,6 @@
 #define  ASCII_CHAR_AT_SIGN                             ASCII_CHAR_COMMERCIAL_AT
 
 
-/*$PAGE*/
                                                                 /* ------------- UPPERCASE LATIN ALPHABET ------------- */
 #define  ASCII_CHAR_LATIN_UPPER_A                       0x41    /* 'A'                                                  */
 #define  ASCII_CHAR_LATIN_UPPER_B                       0x42    /* 'B'                                                  */
@@ -373,7 +372,6 @@
 #define  ASCII_CHAR_DEL                                 ASCII_CHAR_DELETE
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                             DATA TYPES
@@ -388,7 +386,6 @@
 */
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                              MACRO'S
@@ -415,7 +412,7 @@
 *
 * Return(s)   : DEF_YES, if character is     a decimal-digit character.
 *
-*               DEF_NO,	 if character is NOT a decimal-digit character.
+*               DEF_NO,     if character is NOT a decimal-digit character.
 *
 * Caller(s)   : Application.
 *
@@ -437,7 +434,7 @@
 *
 * Return(s)   : DEF_YES, if character is     an octal-digit character.
 *
-*               DEF_NO,	 if character is NOT an octal-digit character.
+*               DEF_NO,     if character is NOT an octal-digit character.
 *
 * Caller(s)   : Application.
 *
@@ -458,7 +455,7 @@
 *
 * Return(s)   : DEF_YES, if character is     a hexadecimal-digit character.
 *
-*               DEF_NO,	 if character is NOT a hexadecimal-digit character.
+*               DEF_NO,     if character is NOT a hexadecimal-digit character.
 *
 * Caller(s)   : Application.
 *
@@ -472,7 +469,6 @@
                                         (((c) >= ASCII_CHAR_LATIN_LOWER_A) && ((c) <= ASCII_CHAR_LATIN_LOWER_F))) ? (DEF_YES) : (DEF_NO))
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                          ASCII_IS_LOWER()
@@ -483,7 +479,7 @@
 *
 * Return(s)   : DEF_YES, if character is     a lowercase alphabetic character.
 *
-*               DEF_NO,	 if character is NOT a lowercase alphabetic character.
+*               DEF_NO,     if character is NOT a lowercase alphabetic character.
 *
 * Caller(s)   : Application.
 *
@@ -505,7 +501,7 @@
 *
 * Return(s)   : DEF_YES, if character is     an uppercase alphabetic character.
 *
-*               DEF_NO,	 if character is NOT an uppercase alphabetic character.
+*               DEF_NO,     if character is NOT an uppercase alphabetic character.
 *
 * Caller(s)   : Application.
 *
@@ -517,7 +513,6 @@
 #define  ASCII_IS_UPPER(c)             ((((c) >= ASCII_CHAR_LATIN_UPPER_A) && ((c) <= ASCII_CHAR_LATIN_UPPER_Z)) ? (DEF_YES) : (DEF_NO))
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                          ASCII_IS_ALPHA()
@@ -528,7 +523,7 @@
 *
 * Return(s)   : DEF_YES, if character is     an alphabetic character.
 *
-*               DEF_NO,	 if character is NOT an alphabetic character.
+*               DEF_NO,     if character is NOT an alphabetic character.
 *
 * Caller(s)   : Application.
 *
@@ -551,7 +546,7 @@
 *
 * Return(s)   : DEF_YES, if character is     an alphanumeric character.
 *
-*               DEF_NO,	 if character is NOT an alphanumeric character.
+*               DEF_NO,     if character is NOT an alphanumeric character.
 *
 * Caller(s)   : Application.
 *
@@ -564,7 +559,6 @@
                                          ((ASCII_IS_DIG  (c)) == DEF_YES)) ? (DEF_YES) : (DEF_NO))
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                          ASCII_IS_BLANK()
@@ -575,7 +569,7 @@
 *
 * Return(s)   : DEF_YES, if character is     a standard blank character.
 *
-*               DEF_NO,	 if character is NOT a standard blank character.
+*               DEF_NO,     if character is NOT a standard blank character.
 *
 * Caller(s)   : Application.
 *
@@ -600,7 +594,7 @@
 *
 * Return(s)   : DEF_YES, if character is     a white-space character.
 *
-*               DEF_NO,	 if character is NOT a white-space character.
+*               DEF_NO,     if character is NOT a white-space character.
 *
 * Caller(s)   : Application.
 *
@@ -618,7 +612,6 @@
                                          ((c) == ASCII_CHAR_HT   ) || ((c) == ASCII_CHAR_VT)) ? (DEF_YES) : (DEF_NO))
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                          ASCII_IS_PRINT()
@@ -629,7 +622,7 @@
 *
 * Return(s)   : DEF_YES, if character is     a printing character.
 *
-*               DEF_NO,	 if character is NOT a printing character.
+*               DEF_NO,     if character is NOT a printing character.
 *
 * Caller(s)   : Application.
 *
@@ -655,7 +648,7 @@
 *
 * Return(s)   : DEF_YES, if character is     a graphic character.
 *
-*               DEF_NO,	 if character is NOT a graphic character.
+*               DEF_NO,     if character is NOT a graphic character.
 *
 * Caller(s)   : Application.
 *
@@ -671,7 +664,6 @@
 #define  ASCII_IS_GRAPH(c)             ((((c) >= ASCII_CHAR_EXCLAMATION_MARK) && ((c) <= ASCII_CHAR_TILDE)) ? (DEF_YES) : (DEF_NO))
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                          ASCII_IS_PUNCT()
@@ -682,7 +674,7 @@
 *
 * Return(s)   : DEF_YES, if character is     a punctuation character.
 *
-*               DEF_NO,	 if character is NOT a punctuation character.
+*               DEF_NO,  if character is NOT a punctuation character.
 *
 * Caller(s)   : Application.
 *
@@ -691,9 +683,10 @@
 *********************************************************************************************************
 */
 
-#define  ASCII_IS_PUNCT(c)             ((((ASCII_IS_PRINT(c)) == DEF_YES) && \
-                                         ((ASCII_IS_SPACE(c)) == DEF_NO ) && \
-                                         ((ASCII_IS_ALPHA_NUM(c)) == DEF_NO )) ? (DEF_YES) : (DEF_NO))
+#define  ASCII_IS_PUNCT(c)              ((((c > ASCII_CHAR_SPACE)         && (c < ASCII_CHAR_DIGIT_ZERO))    || \
+                                          ((c > ASCII_CHAR_DIGIT_NINE)    && (c < ASCII_CHAR_LATIN_UPPER_A)) || \
+                                          ((c > ASCII_CHAR_LATIN_UPPER_Z) && (c < ASCII_CHAR_LATIN_LOWER_A)) || \
+                                          ((c > ASCII_CHAR_LATIN_LOWER_Z) && (c < ASCII_CHAR_DELETE))) ? (DEF_YES) : (DEF_NO))
 
 
 /*
@@ -706,7 +699,7 @@
 *
 * Return(s)   : DEF_YES, if character is     a control character.
 *
-*               DEF_NO,	 if character is NOT a control character.
+*               DEF_NO,     if character is NOT a control character.
 *
 * Caller(s)   : Application.
 *
@@ -723,7 +716,6 @@
                                                                                    ((c) == ASCII_CHAR_DEL))  ? (DEF_YES) : (DEF_NO))
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                ASCII CHARACTER CASE MAPPING MACRO's
@@ -790,7 +782,6 @@
 #define  ASCII_TO_UPPER(c)              (((ASCII_IS_LOWER(c)) == DEF_YES) ? ((c) - (ASCII_CHAR_LATIN_LOWER_A - ASCII_CHAR_LATIN_UPPER_A)) : (c))
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                         FUNCTION PROTOTYPES
@@ -833,7 +824,6 @@ CPU_BOOLEAN  ASCII_Cmp       (CPU_CHAR  c1,
                               CPU_CHAR  c2);
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                        CONFIGURATION ERRORS

@@ -29,6 +29,12 @@
 #include MBEDTLS_CONFIG_FILE
 #endif
 
+#if defined(MBEDTLS_ENTROPY_ALT)
+
+#include "entropy_alt.h"
+
+#else
+
 #include <stddef.h>
 
 #if defined(MBEDTLS_SHA512_C) && !defined(MBEDTLS_ENTROPY_FORCE_SHA256)
@@ -248,5 +254,7 @@ int mbedtls_entropy_self_test( int verbose );
 #ifdef __cplusplus
 }
 #endif
+
+#endif /* !MBEDTLS_ENTROPY_ALT */
 
 #endif /* entropy.h */

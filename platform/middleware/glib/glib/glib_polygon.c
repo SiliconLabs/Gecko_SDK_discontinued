@@ -44,7 +44,7 @@
 ******************************************************************************/
 
 EMSTATUS GLIB_drawPolygon(GLIB_Context_t *pContext,
-                          uint32_t numPoints, int32_t *polyPoints)
+                          uint32_t numPoints, const int32_t *polyPoints)
 {
   EMSTATUS status;
   uint32_t drawnElements = 0;

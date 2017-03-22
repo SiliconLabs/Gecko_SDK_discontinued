@@ -1,0 +1,544 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.2.11947/W32 for ARM                09/Mar/2017  20:16:50
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Exe\spaceinvaders.out
+#    Map file     =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\List\spaceinvaders.map
+#    Command line =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\capsense_spaceinvaders.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\display.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\displayls013b7dh03.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\displaypalemlib.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\em_acmp.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\em_assert.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\em_cmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\em_core.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\em_emu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\em_gpio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\em_prs.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\em_rtc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\em_system.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\em_usart.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\game.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\main.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\render.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\spaceinvaders.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\startup_efm32zg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\system_efm32zg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj\udelay.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Exe\spaceinvaders.out
+#        --map
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\List\spaceinvaders.map
+#        --config
+#        T:\iar_ew_7802_win32_rel_1\arm\config\linker\SiliconLaboratories\EFM32ZG222F32.icf
+#        --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x00007fff] { ro };
+"P2":  place in [from 0x20000000 to 0x20000fff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+ { section .intvec };
+
+  Section             Kind        Address    Size  Object
+  -------             ----        -------    ----  ------
+"A0":                                        0x8c
+  .intvec             ro code  0x00000000    0x8c  startup_efm32zg.o [1]
+                             - 0x0000008c    0x8c
+
+"P1":                                      0x5104
+  .text               ro code  0x0000008c   0x93c  em_cmu.o [1]
+  .text               ro code  0x000009c8     0x4  em_assert.o [1]
+  .text               ro code  0x000009cc    0xf0  system_efm32zg.o [1]
+  .rodata             const    0x00000abc   0x800  render.o [1]
+  .rodata             const    0x000012bc   0x800  spaceinvaders.o [1]
+  .rodata             const    0x00001abc   0x800  spaceinvaders.o [1]
+  .text               ro code  0x000022bc   0x754  game.o [1]
+  .text               ro code  0x00002a10    0xcc  rand.o [3]
+  .text               ro code  0x00002adc    0xe0  I32DivModFast.o [4]
+  .text               ro code  0x00002bbc    0x5c  ABImemcpy.o [4]
+  .text               ro code  0x00002c18   0x404  render.o [1]
+  .text               ro code  0x0000301c     0x2  xtls.o [3]
+  .text               ro code  0x0000301e     0x2  startup_efm32zg.o [1]
+  .text               ro code  0x00003020     0x2  IntDivZer.o [4]
+  .text               ro code  0x00003022     0x2  startup_efm32zg.o [1]
+  .text               ro code  0x00003024   0x474  spaceinvaders.o [1]
+  .text               ro code  0x00003498   0x3e4  em_gpio.o [1]
+  .text               ro code  0x0000387c   0x144  capsense_spaceinvaders.o [1]
+  .text               ro code  0x000039c0    0xd4  display.o [1]
+  .text               ro code  0x00003a94    0xf0  em_acmp.o [1]
+  .text               ro code  0x00003b84   0x358  displaypalemlib.o [1]
+  .text               ro code  0x00003edc   0x178  em_usart.o [1]
+  .text               ro code  0x00004054   0x290  udelay.o [1]
+  .text               ro code  0x000042e4    0x3c  em_prs.o [1]
+  .text               ro code  0x00004320    0xd0  em_rtc.o [1]
+  .text               ro code  0x000043f0     0x8  em_core.o [1]
+  .text               ro code  0x000043f8     0xa  em_core.o [1]
+  .text               ro code  0x00004402     0x2  startup_efm32zg.o [1]
+  .rodata             const    0x00004404   0x320  render.o [1]
+  .text               ro code  0x00004724   0x200  displayls013b7dh03.o [1]
+  .text               ro code  0x00004924    0x50  ABImemset.o [4]
+  .text               ro code  0x00004974   0x10c  main.o [1]
+  .rodata             const    0x00004a80    0x90  render.o [1]
+  .rodata             const    0x00004b10    0x8c  displaypalemlib.o [1]
+  .rodata             const    0x00004b9c    0x8c  em_cmu.o [1]
+  .rodata             const    0x00004c28    0x8c  em_gpio.o [1]
+  .rodata             const    0x00004cb4    0x6c  render.o [1]
+  .rodata             const    0x00004d20    0x4c  em_acmp.o [1]
+  .rodata             const    0x00004d6c    0x4c  em_cmu.o [1]
+  .rodata             const    0x00004db8    0x4c  em_gpio.o [1]
+  .rodata             const    0x00004e04    0x4c  em_prs.o [1]
+  .rodata             const    0x00004e50    0x4c  em_rtc.o [1]
+  .rodata             const    0x00004e9c    0x4c  em_usart.o [1]
+  .rodata             const    0x00004ee8    0x3c  game.o [1]
+  .text               ro code  0x00004f24    0x3c  zero_init3.o [4]
+  .text               ro code  0x00004f60    0x3c  packbits_init_single.o [4]
+  .text               ro code  0x00004f9c    0x28  data_init.o [4]
+  .iar.init_table     const    0x00004fc4    0x20  - Linker created -
+  .text               ro code  0x00004fe4    0x1a  cmain.o [4]
+  .text               ro code  0x00004ffe     0x4  low_level_init.o [3]
+  .text               ro code  0x00005002     0x8  exit.o [3]
+  .text               ro code  0x0000500a     0x2  startup_efm32zg.o [1]
+  .text               ro code  0x0000500c     0xa  cexit.o [4]
+  .text               ro code  0x00005016     0x2  startup_efm32zg.o [1]
+  .text               ro code  0x00005018     0xc  XXexit.o [4]
+  .rodata             const    0x00005024    0x18  displayls013b7dh03.o [1]
+  .rodata             const    0x0000503c    0x18  displaypalemlib.o [1]
+  .rodata             const    0x00005054    0x18  spaceinvaders.o [1]
+  .rodata             const    0x0000506c    0x14  capsense_spaceinvaders.o [1]
+  .rodata             const    0x00005080    0x14  game.o [1]
+  .rodata             const    0x00005094    0x14  spaceinvaders.o [1]
+  .rodata             const    0x000050a8    0x14  spaceinvaders.o [1]
+  .text               ro code  0x000050bc    0x10  startup_efm32zg.o [1]
+  .rodata             const    0x000050cc     0xc  game.o [1]
+  .rodata             const    0x000050d8     0xc  spaceinvaders.o [1]
+  .rodata             const    0x000050e4     0xc  spaceinvaders.o [1]
+  .text               ro code  0x000050f0     0xc  cstartup_M.o [4]
+  .rodata             const    0x000050fc     0x8  game.o [1]
+  .rodata             const    0x00005104     0x8  game.o [1]
+  .rodata             const    0x0000510c     0x8  spaceinvaders.o [1]
+  .rodata             const    0x00005114     0x4  displaypalemlib.o [1]
+  .rodata             const    0x00005118     0x4  udelay.o [1]
+  .text               ro code  0x0000511c     0x2  startup_efm32zg.o [1]
+  .text               ro code  0x0000511e     0x2  startup_efm32zg.o [1]
+  .text               ro code  0x00005120     0x2  startup_efm32zg.o [1]
+  .text               ro code  0x00005122     0x2  startup_efm32zg.o [1]
+  .text               ro code  0x00005124     0x2  startup_efm32zg.o [1]
+  .text               ro code  0x00005126     0x2  startup_efm32zg.o [1]
+  .text               ro code  0x00005128     0x2  startup_efm32zg.o [1]
+  .text               ro code  0x0000512a     0x2  startup_efm32zg.o [1]
+  .text               ro code  0x0000512c     0x2  startup_efm32zg.o [1]
+  .text               ro code  0x0000512e     0x2  startup_efm32zg.o [1]
+  .text               ro code  0x00005130     0x2  startup_efm32zg.o [1]
+  .text               ro code  0x00005132     0x2  startup_efm32zg.o [1]
+  .text               ro code  0x00005134     0x2  startup_efm32zg.o [1]
+  .text               ro code  0x00005136     0x2  startup_efm32zg.o [1]
+  .rodata             const    0x00005138     0x0  zero_init3.o [4]
+  .rodata             const    0x00005138     0x0  packbits_init_single.o [4]
+  Initializer bytes   const    0x00005138    0x58  <for P2-1>
+                             - 0x00005190  0x5104
+
+"P2", part 1 of 3:                           0xe0
+  P2-1                         0x20000000    0xe0  <Init block>
+    .data             inited   0x20000000    0x14  capsense_spaceinvaders.o [1]
+    .data             inited   0x20000014     0x8  display.o [1]
+    .data             inited   0x2000001c     0x4  game.o [1]
+    .data             inited   0x20000020     0x4  game.o [1]
+    .data             inited   0x20000024     0x4  game.o [1]
+    .data             inited   0x20000028     0x4  game.o [1]
+    .data             inited   0x2000002c     0x4  game.o [1]
+    .data             inited   0x20000030     0x4  render.o [1]
+    .data             inited   0x20000034     0x4  render.o [1]
+    .data             inited   0x20000038     0x4  render.o [1]
+    .data             inited   0x2000003c     0x4  render.o [1]
+    .data             inited   0x20000040     0x4  render.o [1]
+    .data             inited   0x20000044     0x4  render.o [1]
+    .data             inited   0x20000048     0x4  system_efm32zg.o [1]
+    .data             inited   0x2000004c     0x4  system_efm32zg.o [1]
+    .data             inited   0x20000050     0x4  udelay.o [1]
+    __DLIB_PERTHREAD  inited   0x20000054    0x8c  rand.o [3]
+                             - 0x200000e0    0xe0
+
+"P2", part 2 of 3:                          0x400
+  CSTACK                       0x200000e0   0x400  <Block>
+    CSTACK            uninit   0x200000e0   0x400  <Block tail>
+                             - 0x200004e0   0x400
+
+"P2", part 3 of 3:                          0x9e4
+  .bss                zero     0x200004e0   0x800  render.o [1]
+  .bss                zero     0x20000ce0    0xf0  game.o [1]
+  .bss                zero     0x20000dd0    0x2c  display.o [1]
+  .bss                zero     0x20000dfc    0x2c  spaceinvaders.o [1]
+  .bss                zero     0x20000e28    0x20  render.o [1]
+  .bss                zero     0x20000e48    0x14  capsense_spaceinvaders.o [1]
+  .bss                zero     0x20000e5c    0x10  game.o [1]
+  .bss                zero     0x20000e6c    0x10  game.o [1]
+  .bss                zero     0x20000e7c    0x10  game.o [1]
+  .bss                zero     0x20000e8c     0x4  display.o [1]
+  .bss                zero     0x20000e90     0x4  game.o [1]
+  .bss                zero     0x20000e94     0x4  game.o [1]
+  .bss                zero     0x20000e98     0x4  game.o [1]
+  .bss                zero     0x20000e9c     0x4  game.o [1]
+  .bss                zero     0x20000ea0     0x4  game.o [1]
+  .bss                zero     0x20000ea4     0x4  render.o [1]
+  .bss                zero     0x20000ea8     0x4  spaceinvaders.o [1]
+  .bss                zero     0x20000eac     0x4  spaceinvaders.o [1]
+  .bss                zero     0x20000eb0     0x4  spaceinvaders.o [1]
+  .bss                zero     0x20000eb4     0x4  system_efm32zg.o [1]
+  .bss                zero     0x20000eb8     0x1  capsense_spaceinvaders.o [1]
+  .bss                zero     0x20000eb9     0x1  display.o [1]
+  .bss                zero     0x20000eba     0x1  displayls013b7dh03.o [1]
+  .bss                zero     0x20000ebb     0x1  spaceinvaders.o [1]
+  .bss                zero     0x20000ebc     0x1  spaceinvaders.o [1]
+  .bss                zero     0x20000ebd     0x1  spaceinvaders.o [1]
+  .bss                zero     0x20000ebe     0x1  spaceinvaders.o [1]
+  .bss                zero     0x20000ebf     0x1  spaceinvaders.o [1]
+  .bss                zero     0x20000ec0     0x1  spaceinvaders.o [1]
+                             - 0x20000ec1   0x9e1
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x9e1:
+          0x200004e0  0x9e1
+
+Copy/packbits (__iar_packbits_init_single3)
+    1 source range, total size 0x58 (39% of destination):
+          0x00005138   0x58
+    1 destination range, total size 0xe0:
+          0x20000000   0xe0
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                    ro code  ro data  rw data
+    ------                    -------  -------  -------
+D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj: [1]
+    capsense_spaceinvaders.o      324       27       41
+    display.o                     212        4       57
+    displayls013b7dh03.o          512       24        1
+    displaypalemlib.o             856      168
+    em_acmp.o                     240       76
+    em_assert.o                     4
+    em_cmu.o                    2 364      216
+    em_core.o                      18
+    em_gpio.o                     996      216
+    em_prs.o                       60       76
+    em_rtc.o                      208       76
+    em_usart.o                    376       76
+    game.o                      1 876      115      328
+    main.o                        268
+    render.o                    1 028    3 110    2 108
+    spaceinvaders.o             1 140    4 192       62
+    startup_efm32zg.o             194
+    system_efm32zg.o              240        3       12
+    udelay.o                      656        6        4
+    ---------------------------------------------------
+    Total:                     11 572    8 385    2 613
+
+command line: [2]
+    ---------------------------------------------------
+    Total:
+
+dl6M_tln.a: [3]
+    exit.o                          8
+    low_level_init.o                4
+    rand.o                        204       55      140
+    xtls.o                          2
+    ---------------------------------------------------
+    Total:                        218       55      140
+
+rt6M_tl.a: [4]
+    ABImemcpy.o                    92
+    ABImemset.o                    80
+    I32DivModFast.o               224
+    IntDivZer.o                     2
+    XXexit.o                       12
+    cexit.o                        10
+    cmain.o                        26
+    cstartup_M.o                   12
+    data_init.o                    40
+    packbits_init_single.o         60
+    zero_init3.o                   60
+    ---------------------------------------------------
+    Total:                        618
+
+    Linker created                          32    1 024
+-------------------------------------------------------
+    Grand Total:               12 408    8 472    3 777
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x00004fc4          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x00004fe4          --   Gb  - Linker created -
+?main                   0x00004fe5         Code  Gb  cmain.o [4]
+ACMP_CapsenseChannelSet
+                        0x00003b2b   0x30  Code  Gb  em_acmp.o [1]
+ACMP_CapsenseInit       0x00003abb   0x70  Code  Gb  em_acmp.o [1]
+ACMP_Enable             0x00003b5b   0x1c  Code  Gb  em_acmp.o [1]
+BUS_RegBitRead          0x000000bf    0xc  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x00003a95   0x1c  Code  Lc  em_acmp.o [1]
+BUS_RegBitWrite         0x000000a3   0x1c  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x00003499   0x1c  Code  Lc  em_gpio.o [1]
+BUS_RegBitWrite         0x00004321   0x1c  Code  Lc  em_rtc.o [1]
+BUS_RegMaskedWrite      0x00003ab1    0xa  Code  Lc  em_acmp.o [1]
+BUS_RegMaskedWrite      0x000034b5    0xa  Code  Lc  em_gpio.o [1]
+BUS_RegMaskedWrite      0x00003edd    0xa  Code  Lc  em_usart.o [1]
+CAPSENSE_Init           0x0000391d   0x64  Code  Gb  capsense_spaceinvaders.o [1]
+CAPSENSE_getPressed     0x000038e9   0x34  Code  Gb  capsense_spaceinvaders.o [1]
+CAPSENSE_timerEventHandler
+                        0x0000387d   0x6c  Code  Gb  capsense_spaceinvaders.o [1]
+CHIP_Init               0x00004a2b    0x2  Code  Lc  main.o [1]
+CMU_ClockDivGet         0x00000355   0xa8  Code  Gb  em_cmu.o [1]
+CMU_ClockDivSet         0x00000401  0x106  Code  Gb  em_cmu.o [1]
+CMU_ClockEnable         0x00000509   0x80  Code  Gb  em_cmu.o [1]
+CMU_ClockFreqGet        0x000005a9   0xce  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectGet      0x0000069d   0xe2  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectSet      0x000007a9  0x13e  Code  Gb  em_cmu.o [1]
+CMU_DivToLog2           0x000000cb   0x26  Code  Lc  em_cmu.o [1]
+CMU_Log2ToDiv           0x000000f1    0x8  Code  Lc  em_cmu.o [1]
+CMU_OscillatorEnable    0x00000915   0x96  Code  Gb  em_cmu.o [1]
+CORE_EnterAtomic        0x000043f1    0x8  Code  Wk  em_core.o [1]
+CORE_ExitAtomic         0x000043f9    0xa  Code  Wk  em_core.o [1]
+CSTACK$$Base            0x200000e0          --   Gb  - Linker created -
+CSTACK$$Limit           0x200004e0          --   Gb  - Linker created -
+ConvertHexToString      0x000025e9   0x7a  Code  Lc  game.o [1]
+DISPLAY_DeviceGet       0x000039ef   0x3c  Code  Gb  display.o [1]
+DISPLAY_DeviceRegister  0x00003a2b   0x4a  Code  Gb  display.o [1]
+DISPLAY_Init            0x000039c1   0x2e  Code  Gb  display.o [1]
+DISPLAY_Ls013b7dh03Init
+                        0x00004725   0xbe  Code  Gb  displayls013b7dh03.o [1]
+DisplayClear            0x00004827   0x36  Code  Lc  displayls013b7dh03.o [1]
+DisplayEnable           0x000047f5   0x32  Code  Lc  displayls013b7dh03.o [1]
+DriverRefresh           0x000047e3   0x12  Code  Lc  displayls013b7dh03.o [1]
+EMU_EnterEM1            0x00003041   0x10  Code  Lc  spaceinvaders.o [1]
+GAME_FirePlayerMissile  0x000025a5   0x32  Code  Gb  game.o [1]
+GAME_Init               0x00002901   0xc0  Code  Gb  game.o [1]
+GAME_MoveTank           0x0000256b   0x32  Code  Gb  game.o [1]
+GAME_Redraw             0x00002663   0xc6  Code  Gb  game.o [1]
+GAME_Update             0x00002739  0x1a2  Code  Gb  game.o [1]
+GPIO_EVEN_IRQHandler    0x00003167    0x8  Code  Gb  spaceinvaders.o [1]
+GPIO_ExtIntConfig       0x00003609   0xfc  Code  Gb  em_gpio.o [1]
+GPIO_IntClear           0x00003051    0x6  Code  Lc  spaceinvaders.o [1]
+GPIO_IntConfig          0x0000305d   0x2a  Code  Lc  spaceinvaders.o [1]
+GPIO_IntGet             0x00003057    0x6  Code  Lc  spaceinvaders.o [1]
+GPIO_ODD_IRQHandler     0x0000316f    0x8  Code  Gb  spaceinvaders.o [1]
+GPIO_PinModeSet         0x0000370d  0x13a  Code  Gb  em_gpio.o [1]
+GPIO_PinOutClear        0x00003b85   0x96  Code  Lc  displaypalemlib.o [1]
+GPIO_PinOutClear        0x000034bf   0x96  Code  Lc  em_gpio.o [1]
+GPIO_PinOutSet          0x00003c1b   0x96  Code  Lc  displaypalemlib.o [1]
+GPIO_PinOutSet          0x00003555   0x96  Code  Lc  em_gpio.o [1]
+GPIO_Unified_IRQ        0x00003143   0x24  Code  Gb  spaceinvaders.o [1]
+NVIC_ClearPendingIRQ    0x00003033    0xe  Code  Lc  spaceinvaders.o [1]
+NVIC_ClearPendingIRQ    0x00004055    0xe  Code  Lc  udelay.o [1]
+NVIC_EnableIRQ          0x00003025    0xe  Code  Lc  spaceinvaders.o [1]
+NVIC_SetPriority        0x00004975   0x84  Code  Lc  main.o [1]
+PAL_GpioInit            0x00003d51   0x10  Code  Gb  displaypalemlib.o [1]
+PAL_GpioPinAutoToggle   0x00003dc9   0x56  Code  Gb  displaypalemlib.o [1]
+PAL_GpioPinModeSet      0x00003d69   0x30  Code  Gb  displaypalemlib.o [1]
+PAL_GpioPinOutClear     0x00003db3   0x16  Code  Gb  displaypalemlib.o [1]
+PAL_GpioPinOutSet       0x00003d9d   0x16  Code  Gb  displaypalemlib.o [1]
+PAL_SpiInit             0x00003cb1   0x30  Code  Gb  displaypalemlib.o [1]
+PAL_SpiTransmit         0x00003cf1   0x3e  Code  Gb  displaypalemlib.o [1]
+PAL_TimerInit           0x00003d35    0xc  Code  Gb  displaypalemlib.o [1]
+PAL_TimerMicroSecondsDelay
+                        0x00003d41   0x10  Code  Gb  displaypalemlib.o [1]
+PRS_SourceAsyncSignalSet
+                        0x000042e5   0x30  Code  Gb  em_prs.o [1]
+PixelMatrixClear        0x0000485d   0x2a  Code  Lc  displayls013b7dh03.o [1]
+PixelMatrixDraw         0x00004887   0x80  Code  Lc  displayls013b7dh03.o [1]
+RENDER_ClearFramebufferArea
+                        0x00002e2f   0x98  Code  Gb  render.o [1]
+RENDER_DrawBackdrop     0x00002edd    0xa  Code  Gb  render.o [1]
+RENDER_DrawSprite       0x00002d57   0xd8  Code  Gb  render.o [1]
+RENDER_SetFramebuffer   0x00002ec7   0x16  Code  Gb  render.o [1]
+RENDER_UpdateDisplay    0x00002efd  0x10c  Code  Gb  render.o [1]
+RENDER_Write            0x00002c19  0x13e  Code  Gb  render.o [1]
+RTC_CompareSet          0x0000433d   0x36  Code  Gb  em_rtc.o [1]
+RTC_CounterGet          0x00004063    0x6  Code  Lc  udelay.o [1]
+RTC_CounterReset        0x000043e1   0x10  Code  Gb  em_rtc.o [1]
+RTC_Enable              0x00004373   0x12  Code  Gb  em_rtc.o [1]
+RTC_FreezeEnable        0x00004385   0x18  Code  Gb  em_rtc.o [1]
+RTC_Init                0x0000439d   0x30  Code  Gb  em_rtc.o [1]
+Region$$Table$$Base     0x00004fc4          --   Gb  - Linker created -
+Region$$Table$$Limit    0x00004fe4          --   Gb  - Linker created -
+SPACEINVADERS_GameLoop  0x0000320d  0x24a  Code  Gb  spaceinvaders.o [1]
+SPACEINVADERS_Init      0x00003177   0x32  Code  Gb  spaceinvaders.o [1]
+SPACEINVADERS_TimerEventHandler
+                        0x00003087   0x60  Code  Gb  spaceinvaders.o [1]
+SPACEINVADERS_TimerEventHandler::capsenseUpdateCount
+                        0x20000eb0    0x4  Data  Lc  spaceinvaders.o [1]
+SPACEINVADERS_TimerEventHandler::frameUpdateCount
+                        0x20000eac    0x4  Data  Lc  spaceinvaders.o [1]
+SYSTEM_GetProdRev       0x000000f9    0xa  Code  Lc  em_cmu.o [1]
+SysTick_Config          0x000049f9   0x32  Code  Lc  main.o [1]
+SysTick_Handler         0x00004a2d    0x8  Code  Gb  main.o [1]
+SystemCoreClock         0x20000eb4    0x4  Data  Gb  system_efm32zg.o [1]
+SystemCoreClockGet      0x000009cd   0x1a  Code  Gb  system_efm32zg.o [1]
+SystemHFClockGet        0x000009eb   0x8e  Code  Gb  system_efm32zg.o [1]
+SystemHFXOClock         0x20000048    0x4  Data  Lc  system_efm32zg.o [1]
+SystemInit              0x00000a79    0x2  Code  Gb  system_efm32zg.o [1]
+SystemLFRCOClockGet     0x00000a7b    0x6  Code  Gb  system_efm32zg.o [1]
+SystemLFXOClock         0x2000004c    0x4  Data  Lc  system_efm32zg.o [1]
+SystemLFXOClockGet      0x00000a87    0x6  Code  Gb  system_efm32zg.o [1]
+SystemMaxCoreClockGet   0x000009e7    0x4  Code  Gb  system_efm32zg.o [1]
+SystemULFRCOClockGet    0x00000a81    0x6  Code  Gb  system_efm32zg.o [1]
+UDELAY_Calibrate        0x00004069  0x172  Code  Gb  udelay.o [1]
+UDELAY_Delay            0x00004285   0x24  Code  Gb  udelay.o [1]
+USART_BaudrateSyncSet   0x00003ee7   0x56  Code  Gb  em_usart.o [1]
+USART_InitSync          0x00003f45   0x7e  Code  Gb  em_usart.o [1]
+USART_Reset             0x00003fc9   0x4c  Code  Gb  em_usart.o [1]
+USART_Tx                0x00004039    0xe  Code  Gb  em_usart.o [1]
+USART_TxDouble          0x00004047    0xe  Code  Gb  em_usart.o [1]
+_Rand_idx               0x2000005c    0x4  Data  Lc  rand.o [3]
+_Rand_rv                0x20000060   0x80  Data  Lc  rand.o [3]
+_Randinit               0x20000054    0x1  Data  Gb  rand.o [3]
+_Randseed               0x20000058    0x4  Data  Gb  rand.o [3]
+__Vectors               0x00000000          --   Gb  startup_efm32zg.o [1]
+__Vectors_End           0x0000008c         Data  Gb  startup_efm32zg.o [1]
+__Vectors_Size {Abs}    0x0000008c          --   Gb  startup_efm32zg.o [1]
+__aeabi_idiv            0x00002b09         Code  Gb  I32DivModFast.o [4]
+__aeabi_idiv0           0x00003021         Code  Gb  IntDivZer.o [4]
+__aeabi_idivmod         0x00002b09         Code  Gb  I32DivModFast.o [4]
+__aeabi_memcpy          0x00002bbd         Code  Gb  ABImemcpy.o [4]
+__aeabi_memcpy4         0x00002be5         Code  Wk  ABImemcpy.o [4]
+__aeabi_memset          0x00004925         Code  Gb  ABImemset.o [4]
+__aeabi_uidiv           0x00002b0f         Code  Gb  I32DivModFast.o [4]
+__aeabi_uidivmod        0x00002b0f         Code  Gb  I32DivModFast.o [4]
+__cmain                 0x00004fe5         Code  Gb  cmain.o [4]
+__cmsis_iar_clz         0x0000008d   0x16  Code  Lc  em_cmu.o [1]
+__exit                  0x00005019         Code  Gb  XXexit.o [4]
+__iar_Memset4_word      0x00004945         Code  Gb  ABImemset.o [4]
+__iar_Memset_word       0x00004931         Code  Gb  ABImemset.o [4]
+__iar_data_init3        0x00004f9d   0x28  Code  Gb  data_init.o [4]
+__iar_dlib_perthread_access
+                        0x0000301d    0x2  Code  Gb  xtls.o [3]
+__iar_packbits_init_single3
+                        0x00004f61   0x3c  Code  Gb  packbits_init_single.o [4]
+__iar_program_start     0x000050f1         Code  Gb  cstartup_M.o [4]
+__iar_zero_init3        0x00004f25   0x3c  Code  Gb  zero_init3.o [4]
+__low_level_init        0x00004fff    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000         Data  Gb  startup_efm32zg.o [1]
+__vector_table_0x1c     0x0000001c         Data  Gb  startup_efm32zg.o [1]
+_call_main              0x00004ff1         Code  Gb  cmain.o [4]
+_delay                  0x0000427d    0x6  Code  Lc  udelay.o [1]
+_exit                   0x0000500d         Code  Gb  cexit.o [4]
+_main                   0x00004ffb         Code  Gb  cmain.o [4]
+alienMissile            0x20000e5c   0x10  Data  Lc  game.o [1]
+alienMissileAnimationCount
+                        0x20000ea0    0x4  Data  Lc  game.o [1]
+alienMissileThres       0x2000002c    0x4  Data  Lc  game.o [1]
+alienMissileWaitCount   0x20000e98    0x4  Data  Lc  game.o [1]
+alienMoveThres          0x20000028    0x4  Data  Lc  game.o [1]
+alienMoveWaitCount      0x20000e9c    0x4  Data  Lc  game.o [1]
+alienSpeedX             0x2000001c    0x4  Data  Lc  game.o [1]
+alienSpeedY             0x20000020    0x4  Data  Lc  game.o [1]
+aliens                  0x20000ce0   0xf0  Data  Lc  game.o [1]
+aliens_bits             0x00004a80   0x90  Data  Lc  render.o [1]
+aliens_sprites          0x00004ee8   0x3c  Data  Lc  game.o [1]
+aliens_x_pos            0x00005080   0x14  Data  Lc  game.o [1]
+aliens_y_pos            0x000050cc    0xc  Data  Lc  game.o [1]
+animateGameObject       0x0000245b   0x88  Code  Lc  game.o [1]
+animationWaitCount      0x20000e94    0x4  Data  Lc  game.o [1]
+assertEFM               0x000009c9    0x4  Code  Gb  em_assert.o [1]
+auxClkGet               0x00000103   0x7e  Code  Lc  em_cmu.o [1]
+backdrop                0x00000abc  0x800  Data  Lc  render.o [1]
+calibrate_delay         0x000041db   0x9a  Code  Lc  udelay.o [1]
+channelMaxValues        0x20000000   0x14  Data  Lc  capsense_spaceinvaders.o [1]
+channelValues           0x20000e48   0x14  Data  Lc  capsense_spaceinvaders.o [1]
+clock                   0x00004275    0x8  Code  Lc  udelay.o [1]
+currentChannel          0x20000eb8    0x1  Data  Lc  capsense_spaceinvaders.o [1]
+dbgClkGet               0x00000181   0x38  Code  Lc  em_cmu.o [1]
+deviceTable             0x20000dd0   0x2c  Data  Lc  display.o [1]
+devicesRegistered       0x20000e8c    0x4  Data  Lc  display.o [1]
+dirtyLines              0x20000e28   0x20  Data  Lc  render.o [1]
+dirtyLinesNew           0x20000034    0x4  Data  Lc  render.o [1]
+dirtyLinesOld           0x20000030    0x4  Data  Lc  render.o [1]
+displayDevice           0x20000dfc   0x2c  Data  Lc  spaceinvaders.o [1]
+exit                    0x00005003    0x8  Code  Gb  exit.o [3]
+fireAlienMissile        0x000022cd   0x84  Code  Lc  game.o [1]
+flashWaitStateControl   0x000001b9   0x52  Code  Lc  em_cmu.o [1]
+flashWaitStateMax       0x0000020b    0xc  Code  Lc  em_cmu.o [1]
+fontColor               0x20000ea4    0x4  Data  Lc  render.o [1]
+fontSize                0x20000038    0x4  Data  Lc  render.o [1]
+frameBuffer             0x200004e0  0x800  Data  Lc  render.o [1]
+gameInitiated           0x20000ebb    0x1  Data  Lc  spaceinvaders.o [1]
+gameUpdateFlag          0x20000ebc    0x1  Data  Gb  spaceinvaders.o [1]
+getLowestAlien          0x00002409   0x52  Code  Lc  game.o [1]
+gpioSetup               0x000030e7   0x5c  Code  Lc  spaceinvaders.o [1]
+initGameObject          0x000022bd   0x10  Code  Lc  game.o [1]
+lcdPolarity             0x20000eba    0x1  Data  Lc  displayls013b7dh03.o [1]
+level                   0x20000024    0x4  Data  Lc  game.o [1]
+lfClkGet                0x00000217   0xc4  Code  Lc  em_cmu.o [1]
+loops_per_jiffy         0x20000050    0x4  Data  Gb  udelay.o [1]
+main                    0x00004a35   0x32  Code  Gb  main.o [1]
+missileCollision        0x000023bb   0x4e  Code  Lc  game.o [1]
+moduleInitialized       0x20000eb9    0x1  Data  Lc  display.o [1]
+nextState               0x20000ec0    0x1  Data  Gb  spaceinvaders.o [1]
+onScreen                0x00002351   0x30  Code  Lc  game.o [1]
+pDisplayDeviceDriverInitFunctions
+                        0x20000014    0x8  Data  Lc  display.o [1]
+palClockSetup           0x00003e1f   0x16  Code  Lc  displaypalemlib.o [1]
+pb0Pressed              0x20000ebd    0x1  Data  Gb  spaceinvaders.o [1]
+pb1Pressed              0x20000ebe    0x1  Data  Gb  spaceinvaders.o [1]
+playerMissile           0x20000e6c   0x10  Data  Lc  game.o [1]
+qrcode                  0x000012bc  0x800  Data  Lc  spaceinvaders.o [1]
+rand                    0x00002a11   0xcc  Code  Gb  rand.o [3]
+rtcSetup                0x00003e3d   0x5e  Code  Lc  displaypalemlib.o [1]
+s_aliens                0x2000003c    0x4  Data  Gb  render.o [1]
+s_missiles              0x20000040    0x4  Data  Gb  render.o [1]
+s_tank                  0x20000044    0x4  Data  Gb  render.o [1]
+score                   0x20000e90    0x4  Data  Lc  game.o [1]
+setDifficulty           0x000024e3   0x88  Code  Lc  game.o [1]
+showWelcomeScreen       0x000031a9   0x28  Code  Lc  spaceinvaders.o [1]
+splash                  0x00001abc  0x800  Data  Lc  spaceinvaders.o [1]
+sprites                 0x00004cb4   0x6c  Data  Gb  render.o [1]
+state                   0x20000ebf    0x1  Data  Gb  spaceinvaders.o [1]
+syncReg                 0x000002db   0x16  Code  Lc  em_cmu.o [1]
+tank                    0x20000e7c   0x10  Data  Lc  game.o [1]
+thinfont_bits           0x00004404  0x320  Data  Gb  render.o [1]
+timeout                 0x20000ea8    0x4  Data  Gb  spaceinvaders.o [1]
+updateMissile           0x00002381   0x3a  Code  Lc  game.o [1]
+
+
+[1] = D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\spaceinvaders\iar\spaceinvaders\Debug\Obj
+[2] = command line
+[3] = dl6M_tln.a
+[4] = rt6M_tl.a
+
+  12 408 bytes of readonly  code memory
+   8 472 bytes of readonly  data memory
+   3 777 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

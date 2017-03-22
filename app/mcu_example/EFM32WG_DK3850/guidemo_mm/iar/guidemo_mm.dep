@@ -1,0 +1,967 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>1119980143</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\touch.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp\bsp_trace.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\calibrate.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\eeprom.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\dmd\ssd2119\dmd_ssd2119_registers.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\em_types.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\limits.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_emu.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\GUI_Type.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\LCD.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_system.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\GUI_ConfDefaults.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\FRAMEWIN.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\GUI.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\emwin\DK3750\GUIConf.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stddef.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xencoding_limits.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\i2cspm.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFM32GG_DK3750\config\i2cspmconfig.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\em_device.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_gpio.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg990f1024.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include\core_cm3.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include\core_cmInstr.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\cmsis_iar.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include\core_cmFunc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\system_efm32gg.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_dma_ch.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_dma.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_aes.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_usb_hc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_usb_diep.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_usb_doep.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_usb.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_common.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_msc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_emu.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_rmu.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_cmu.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_lesense_st.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_lesense_buf.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_lesense_ch.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_lesense.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_rtc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_letimer.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_ebi.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_usart.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_timer_cc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_timer.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_acmp.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_i2c.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_gpio_p.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_gpio.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_vcmp.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_prs_ch.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_prs.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_leuart.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_pcnt.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_adc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_dac.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_lcd.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_burtc_ret.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_burtc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_wdog.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_etm.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_devinfo.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_dma_descriptor.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_romtable.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_calibrate.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_prs_signals.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_dmareq.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_dmactrl.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_uart.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_af_ports.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Include\efm32gg_af_pins.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\eeprom.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_bus.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_assert.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_i2c.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFM32GG_DK3750\config\traceconfig.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_cmu.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp\bsp_trace.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_msc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_ramfunc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp\bsp.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFM32GG_DK3750\config\bspconfig.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp\bsp_dk_bcreg_3201.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\WM.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\calibrate.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ymath.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xtgmath.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\math.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_rtc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_ebi.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_usart.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_adc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_wdog.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\GUI_Version.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\Global.h</file>
+      <file>$PROJ_DIR$\..\GUIDEMO.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\WM_GUI.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\WIDGET.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\WM_Intern.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\GUI_Private.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\LCD_Protected.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\GUI_Debug.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\PROGBAR.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\SCROLLBAR.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\DIALOG_Intern.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\TEXT.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\BUTTON.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\SLIDER.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\HEADER.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\GRAPH.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\ICONVIEW.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\LISTVIEW.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\TREEVIEW.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_chip.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\emwin\DK3750\LCDConf.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\touch.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\emwin\DK3750\ssd2119.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\string.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\inc\GUIDRV_Lin.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ystdio.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_adc.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_assert.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Source\IAR\startup_efm32gg.s</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Source\system_efm32gg.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_emu.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_system.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_rtc.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_wdog.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_ebi.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_usart.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_i2c.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp\bsp_dk_3201.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\i2cspm.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\emwin\DK3750\GUI_X.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\emwin\DK3750\GUIConf.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\emwin\DK3750\LCDConf_mm.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\emwin\DK3750\ssd2119.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_Bitmap.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_Automotive.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_BarGraph.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_Conf.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_ColorBar.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_Cursor.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_Fading.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_Graph.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_Intro.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_IconView.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_ImageFlow.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_Speed.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_Listview.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_Resource.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_Skinning.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_Start.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_Speedometer.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_VScreen.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_TransparentDialog.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_Treeview.c</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\bsp_dk_3201.o</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_WashingMachine.c</file>
+      <file>$PROJ_DIR$\..\GUIDEMO_ZoomAndRotate.c</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\bsp_trace.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\system_efm32gg.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\calibrate.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\eeprom.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\i2cspm.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\touch.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\em_assert.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\em_adc.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\em_cmu.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\em_ebi.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\em_emu.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\em_gpio.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\em_i2c.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\em_rtc.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\em_system.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\em_usart.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\em_wdog.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIConf.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUI_X.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\LCDConf_mm.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\ssd2119.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_Automotive.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_BarGraph.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_Bitmap.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_ColorBar.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_Conf.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_Cursor.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_Fading.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_Graph.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_IconView.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_ImageFlow.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_Intro.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_Listview.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_Resource.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_Skinning.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_Speed.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_Speedometer.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_Start.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_VScreen.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_TransparentDialog.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_Treeview.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_WashingMachine.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\GUIDEMO_ZoomAndRotate.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Obj\startup_efm32gg.o</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Exe\guidemo_mm.out</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\Exe\guidemo_mm.bin</file>
+      <file>$TOOLKIT_DIR$\lib\dlpp7M_tl_ne.a</file>
+      <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\util\third_party\emwin\lib\emwin_IAR_CM3.a</file>
+      <file>$PROJ_DIR$\guidemo_mm\Debug\List\guidemo_mm.map</file>
+      <file>$TOOLKIT_DIR$\lib\m7M_tl.a</file>
+      <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
+      <file>$PROJ_DIR$\..\guidemo.icf</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 225 230</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\touch.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 185</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 8 17 18 19 23 21 22 20 24 133 134 27 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 76 75 77 78 79 80 81 82 83 84 106 85 28 87 88 91 131 99 102 100 101 95 96 97 25 26 89 86</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp\bsp_trace.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 180</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 85 27 29 30 31 17 18 19 23 21 22 20 32 33 34 35 36 37 38 39 40 41 42 43 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 76 75 77 78 79 80 81 82 83 84 28 87 88 91 92 93 94 90 95 96 97</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\calibrate.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 182</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 99 102 17 100 18 19 23 21 22 20 101</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\eeprom.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 183</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 16 17 18 19 23 21 22 20 24 25 26 28 27 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 76 75 77 78 79 80 81 82 83 84 85 87 88 89 86</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_adc.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 187</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 106 27 29 30 31 17 18 19 23 21 22 20 32 33 34 35 36 37 38 39 40 41 42 43 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 76 75 77 78 79 80 81 82 83 84 85 88 91 87 16 24</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_assert.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 186</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 88 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Source\IAR\startup_efm32gg.s</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 224</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32GG\Source\system_efm32gg.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 181</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 31 17 18 19 23 21 22 20 27 29 30 32 33 34 35 36 37 38 39 40 41 42 43 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 76 75 77 78 79 80 81 82 83 84</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 188</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 91 27 29 30 31 17 18 19 23 21 22 20 32 33 34 35 36 37 38 39 40 41 42 43 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 76 75 77 78 79 80 81 82 83 84 85 88 87 16 24 6 7 11 44</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_emu.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 190</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 6 17 18 19 23 21 22 20 7 27 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 76 75 77 78 79 80 81 82 83 84 85 87 91 88 11 44</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_system.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 194</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 11 85 27 29 30 31 17 18 19 23 21 22 20 32 33 34 35 36 37 38 39 40 41 42 43 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 76 75 77 78 79 80 81 82 83 84 88 16 24</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_rtc.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 193</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 103 27 29 30 31 17 18 19 23 21 22 20 32 33 34 35 36 37 38 39 40 41 42 43 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 76 75 77 78 79 80 81 82 83 84 85 88 87</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_wdog.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 196</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 107 27 29 30 31 17 18 19 23 21 22 20 32 33 34 35 36 37 38 39 40 41 42 43 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 76 75 77 78 79 80 81 82 83 84 85 87</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 191</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 28 27 29 30 31 17 18 19 23 21 22 20 32 33 34 35 36 37 38 39 40 41 42 43 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 76 75 77 78 79 80 81 82 83 84 85 87 88</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_ebi.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 189</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 104 27 29 30 31 17 18 19 23 21 22 20 32 33 34 35 36 37 38 39 40 41 42 43 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 76 75 77 78 79 80 81 82 83 84 85 88 87</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_usart.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 195</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 105 27 29 30 31 17 18 19 23 21 22 20 32 33 34 35 36 37 38 39 40 41 42 43 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 76 75 77 78 79 80 81 82 83 84 85 91 88 87</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_i2c.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 192</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 89 27 29 30 31 17 18 19 23 21 22 20 32 33 34 35 36 37 38 39 40 41 42 43 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 76 75 77 78 79 80 81 82 83 84 85 91 88 87 6</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp\bsp_dk_3201.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 177</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 27 29 30 31 17 18 19 23 21 22 20 32 33 34 35 36 37 38 39 40 41 42 43 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 76 75 77 78 79 80 81 82 83 84 91 85 88 87 104 28 105 97 95 96</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\i2cspm.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 184</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 16 17 18 19 23 21 22 20 24 91 27 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 76 75 77 78 79 80 81 82 83 84 85 88 87 28 26 25 89</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\emwin\DK3750\GUI_X.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 198</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 14 12 15 9 10 109 108 98 111 85 27 29 30 31 17 18 19 23 21 22 20 32 33 34 35 36 37 38 39 40 41 42 43 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 76 75 77 78 79 80 81 82 83 84 128 11 28 87 88 91 7 93 94 103 95 96 97 130 131 106 99 102 100 101</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\emwin\DK3750\GUIConf.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 197</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 14 12 15 9 10 109 108</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\emwin\DK3750\LCDConf_mm.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 199</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 14 12 15 9 10 109 108 135 95 85 96 97 31 17 18 19 23 21 22 20 91 27 29 30 32 33 34 35 36 37 38 39 40 41 42 43 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 76 75 77 78 79 80 81 82 83 84 88 87 104 103 92 93 94 90 131 106 99 102 100 101 130 132</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\emwin\DK3750\ssd2119.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 200</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 16 17 18 19 23 21 22 20 24 133 134 5 31 114 14 12 15 9 10 109 108 115 116 111 4 132 85 27 29 30 32 33 34 35 36 37 38 39 40 41 42 43 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 76 75 77 78 79 80 81 82 83 84</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 201</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 110 14 12 15 9 10 109 108 98 111 13 112 113 114 115 116 16 17 18 19 23 21 22 20 24 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_Bitmap.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 204</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 110 14 12 15 9 10 109 108 98 111 13 112 113 114 115 116 16 17 18 19 23 21 22 20 24 118 119 117 120 121 122 123 124 125 126 127 102 100 101</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_Automotive.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 202</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 133 17 18 19 23 21 22 20 24 134 110 14 12 15 9 10 109 108 98 111 13 112 113 114 115 116 16 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_BarGraph.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 203</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 14 12 15 9 10 109 108 110 98 111 13 112 113 114 115 116 16 17 18 19 23 21 22 20 24 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_Conf.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 206</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 14 12 15 9 10 109 108 110 98 111 13 112 113 114 115 116 16 17 18 19 23 21 22 20 24 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_ColorBar.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 205</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 110 14 12 15 9 10 109 108 98 111 13 112 113 114 115 116 16 17 18 19 23 21 22 20 24 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_Cursor.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 207</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 110 14 12 15 9 10 109 108 98 111 13 112 113 114 115 116 16 17 18 19 23 21 22 20 24 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_Fading.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 208</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 16 17 18 19 23 21 22 20 24 110 14 12 15 9 10 109 108 98 111 13 112 113 114 115 116 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_Graph.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 209</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 110 14 12 15 9 10 109 108 98 111 13 112 113 114 115 116 16 17 18 19 23 21 22 20 24 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_Intro.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 212</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 133 17 18 19 23 21 22 20 24 134 110 14 12 15 9 10 109 108 98 111 13 112 113 114 115 116 16 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_IconView.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 210</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 16 17 18 19 23 21 22 20 24 110 14 12 15 9 10 109 108 98 111 13 112 113 114 115 116 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_ImageFlow.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 211</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 16 17 18 19 23 21 22 20 24 110 14 12 15 9 10 109 108 98 111 13 112 113 114 115 116 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_Speed.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 216</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 8 17 18 19 23 21 22 20 24 110 14 12 15 9 10 109 108 98 111 13 112 113 114 115 116 16 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_Listview.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 213</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 8 17 18 19 23 21 22 20 24 133 134 129 136 110 14 12 15 9 10 109 108 98 111 13 112 113 114 115 116 16 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_Resource.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 214</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 14 12 15 9 10 109 108 110 98 111 13 112 113 114 115 116 16 17 18 19 23 21 22 20 24 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_Skinning.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 215</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 110 14 12 15 9 10 109 108 98 111 13 112 113 114 115 116 16 17 18 19 23 21 22 20 24 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_Start.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 218</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 110 14 12 15 9 10 109 108 98 111 13 112 113 114 115 116 16 17 18 19 23 21 22 20 24 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_Speedometer.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 217</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 110 14 12 15 9 10 109 108 98 111 13 112 113 114 115 116 16 17 18 19 23 21 22 20 24 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_VScreen.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 219</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 8 17 18 19 23 21 22 20 24 110 14 12 15 9 10 109 108 98 111 13 112 113 114 115 116 16 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_TransparentDialog.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 220</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 110 14 12 15 9 10 109 108 98 111 13 112 113 114 115 116 16 17 18 19 23 21 22 20 24 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_Treeview.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 221</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 8 17 18 19 23 21 22 20 24 110 14 12 15 9 10 109 108 98 111 13 112 113 114 115 116 16 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_WashingMachine.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 222</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 110 14 12 15 9 10 109 108 98 111 13 112 113 114 115 116 16 17 18 19 23 21 22 20 24 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\GUIDEMO_ZoomAndRotate.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 223</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 110 14 12 15 9 10 109 108 98 111 13 112 113 114 115 116 16 17 18 19 23 21 22 20 24 118 119 117 120 121 122 123 124 125 126 127</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\guidemo_mm\Debug\Exe\guidemo_mm.out</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 230</file>
+        </tool>
+        <tool>
+          <name>OBJCOPY</name>
+          <file> 226</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 233 177 180 182 183 187 186 188 189 190 191 192 193 194 195 196 198 197 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 220 221 219 222 223 184 199 200 224 181 185 229 228 227 231 232</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>ILINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

@@ -1,0 +1,40 @@
+================ Revision history ============================================
+5.1.2:
+ - No changes.
+
+5.1.1:
+ - No changes.
+
+5.1.0:
+ - Added uC/OS-III Glib example.
+
+5.0.0:
+ - Added FreeRTOS Demo.
+ - Added tempdrv example.
+ - Added leuart example.
+ - Added SPI example.
+
+4.4.0
+ - New Capacitive Sense example using the new cap sense library (cslib).
+
+4.3.1:
+ - No changes.
+
+4.3.0:
+ - emode example updated.
+ - Added cpt007b and cpt112s capacitive touch examples.
+
+4.2.1:
+ - Fixed armgcc makefiles for mbedtls examples.
+ - Made changes to segmentlcdconfig.h file
+
+4.2.0:
+ - Added prs example.
+ - Added examples for mbedtls on Pearl, namely mbedtls_aescrypt and
+   mbedtls_ecdsa.
+
+4.1.1:
+ - No changes.
+
+4.1.0:
+ - Initial version.

@@ -1,0 +1,697 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.2.11947/W32 for ARM                09/Mar/2017  20:17:07
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Exe\weatherstation.out
+#    Map file     =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\List\weatherstation.map
+#    Command line =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\background.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\bsp_bcc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\bsp_stk.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\display.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\displayls013b7dh03.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\displaypalemlib.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\dmd_display.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\em_adc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\em_assert.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\em_cmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\em_core.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\em_emu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\em_gpio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\em_i2c.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\em_leuart.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\em_rtc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\em_usart.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\glib.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\glib_bitmap.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\glib_circle.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\glib_font_normal_8x8.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\glib_line.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\glib_rectangle.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\glib_string.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\graphics.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\i2cspm.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\rtcdriver.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\si1147_i2c.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\si114x_algorithm.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\si114x_functions.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\si7013.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\startup_efm32zg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\system_efm32zg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\udelay.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj\weatherstation.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Exe\weatherstation.out
+#        --map
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\List\weatherstation.map
+#        --config
+#        T:\iar_ew_7802_win32_rel_1\arm\config\linker\SiliconLaboratories\EFM32ZG222F32.icf
+#        --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x00007fff] { ro };
+"P2":  place in [from 0x20000000 to 0x20000fff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+ { section .intvec };
+
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A0":                                       0x8c
+  .intvec            ro code  0x00000000    0x8c  startup_efm32zg.o [1]
+                            - 0x0000008c    0x8c
+
+"P1":                                     0x7d9c
+  .rodata            const    0x0000008c  0x1800  background.o [1]
+  .text              ro code  0x0000188c   0xa3a  si114x_functions.o [1]
+  .text              ro code  0x000022c6   0x1f0  si1147_i2c.o [1]
+  .text              ro code  0x000024b6    0xe0  I32DivModFast.o [4]
+  .text              ro code  0x00002596     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00002598   0x204  i2cspm.o [1]
+  .text              ro code  0x0000279c   0x7d8  rtcdriver.o [1]
+  .text              ro code  0x00002f74     0x2  IntDivZer.o [4]
+  .text              ro code  0x00002f76     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00002f78   0x830  em_cmu.o [1]
+  .text              ro code  0x000037a8   0x3b4  em_gpio.o [1]
+  .text              ro code  0x00003b5c   0x4e4  em_i2c.o [1]
+  .text              ro code  0x00004040     0x8  em_core.o [1]
+  .text              ro code  0x00004048     0xa  em_core.o [1]
+  .text              ro code  0x00004052     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00004054    0x32  I64Mul.o [4]
+  .text              ro code  0x00004086    0x6a  I64DivMod.o [4]
+  .text              ro code  0x000040f0    0xf8  em_rtc.o [1]
+  .text              ro code  0x000041e8    0x54  ABImemset.o [4]
+  .text              ro code  0x0000423c    0xf0  system_efm32zg.o [1]
+  .text              ro code  0x0000432c     0x2  I64DivZer.o [4]
+  .text              ro code  0x0000432e     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00004330   0x90c  weatherstation.o [1]
+  .text              ro code  0x00004c3c   0x132  si7013.o [1]
+  .text              ro code  0x00004d6e     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00004d70   0x5f4  si114x_algorithm.o [1]
+  .text              ro code  0x00005364    0x5c  ABImemcpy.o [4]
+  .text              ro code  0x000053c0   0x6a4  graphics.o [1]
+  .text              ro code  0x00005a64   0x128  em_emu.o [1]
+  .text              ro code  0x00005b8c   0x250  em_adc.o [1]
+  .text              ro code  0x00005ddc    0xd4  display.o [1]
+  .text              ro code  0x00005eb0   0x64c  dmd_display.o [1]
+  .text              ro code  0x000064fc   0x264  glib.o [1]
+  .text              ro code  0x00006760   0x28c  glib_string.o [1]
+  .text              ro code  0x000069ec    0x10  strlen.o [4]
+  .text              ro code  0x000069fc   0x47a  glib_line.o [1]
+  .text              ro code  0x00006e76    0x28  glib_rectangle.o [1]
+  .text              ro code  0x00006e9e     0x2  startup_efm32zg.o [1]
+  .rodata            const    0x00006ea0   0x320  glib_font_normal_8x8.o [1]
+  .text              ro code  0x000071c0   0x312  displaypalemlib.o [1]
+  .text              ro code  0x000074d2     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x000074d4   0x154  em_usart.o [1]
+  .text              ro code  0x00007628   0x290  udelay.o [1]
+  .text              ro code  0x000078b8   0x278  displayls013b7dh03.o [1]
+  Initializer bytes  const    0x00007b30    0x64  <for P2-1>
+  .text              ro code  0x00007b94    0x3c  zero_init3.o [4]
+  .text              ro code  0x00007bd0     0x2  startup_efm32zg.o [1]
+  .rodata            const    0x00007bd4    0x34  graphics.o [1]
+  .text              ro code  0x00007c08    0x30  copy_init3.o [4]
+  .text              ro code  0x00007c38    0x28  data_init.o [4]
+  .iar.init_table    const    0x00007c60    0x24  - Linker created -
+  .text              ro code  0x00007c84    0x1a  cmain.o [4]
+  .text              ro code  0x00007c9e     0x4  low_level_init.o [3]
+  .text              ro code  0x00007ca2     0x8  exit.o [3]
+  .text              ro code  0x00007caa     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00007cac     0xa  cexit.o [4]
+  .text              ro code  0x00007cb6     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00007cb8     0xc  XXexit.o [4]
+  .rodata            const    0x00007cc4    0x18  displayls013b7dh03.o [1]
+  .rodata            const    0x00007cdc    0x18  displaypalemlib.o [1]
+  .rodata            const    0x00007cf4    0x18  weatherstation.o [1]
+  .rodata            const    0x00007d0c    0x10  glib_font_normal_8x8.o [1]
+  .rodata            const    0x00007d1c    0x10  graphics.o [1]
+  .rodata            const    0x00007d2c    0x10  graphics.o [1]
+  .rodata            const    0x00007d3c    0x10  graphics.o [1]
+  .rodata            const    0x00007d4c    0x10  graphics.o [1]
+  .rodata            const    0x00007d5c    0x10  graphics.o [1]
+  .rodata            const    0x00007d6c    0x10  graphics.o [1]
+  .rodata            const    0x00007d7c    0x10  graphics.o [1]
+  .rodata            const    0x00007d8c    0x10  graphics.o [1]
+  .rodata            const    0x00007d9c    0x10  graphics.o [1]
+  .text              ro code  0x00007dac    0x10  startup_efm32zg.o [1]
+  .rodata            const    0x00007dbc     0xc  graphics.o [1]
+  .rodata            const    0x00007dc8     0xc  graphics.o [1]
+  .rodata            const    0x00007dd4     0xc  graphics.o [1]
+  .text              ro code  0x00007de0     0xc  cstartup_M.o [4]
+  .rodata            const    0x00007dec     0x8  graphics.o [1]
+  .rodata            const    0x00007df4     0x8  graphics.o [1]
+  .rodata            const    0x00007dfc     0x8  graphics.o [1]
+  .rodata            const    0x00007e04     0x8  weatherstation.o [1]
+  .rodata            const    0x00007e0c     0x4  em_i2c.o [1]
+  .rodata            const    0x00007e10     0x4  rtcdriver.o [1]
+  .rodata            const    0x00007e14     0x4  udelay.o [1]
+  .text              ro code  0x00007e18     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00007e1a     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00007e1c     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00007e1e     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00007e20     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00007e22     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00007e24     0x2  startup_efm32zg.o [1]
+  .text              ro code  0x00007e26     0x2  startup_efm32zg.o [1]
+  .rodata            const    0x00007e28     0x0  zero_init3.o [4]
+  .rodata            const    0x00007e28     0x0  copy_init3.o [4]
+                            - 0x00007e28  0x7d9c
+
+"P2", part 1 of 3:                          0x64
+  P2-1                        0x20000000    0x62  <Init block>
+    .data            inited   0x20000000     0x8  display.o [1]
+    .data            inited   0x20000008     0x4  displayls013b7dh03.o [1]
+    .data            inited   0x2000000c     0x4  si114x_algorithm.o [1]
+    .data            inited   0x20000010    0x40  si114x_functions.o [1]
+    .data            inited   0x20000050     0x4  system_efm32zg.o [1]
+    .data            inited   0x20000054     0x4  system_efm32zg.o [1]
+    .data            inited   0x20000058     0x4  udelay.o [1]
+    .data            inited   0x2000005c     0x4  weatherstation.o [1]
+    .data            inited   0x20000060     0x1  weatherstation.o [1]
+    .data            inited   0x20000061     0x1  weatherstation.o [1]
+                            - 0x20000062    0x62
+
+"P2", part 2 of 3:                         0x400
+  CSTACK                      0x20000068   0x400  <Block>
+    CSTACK           uninit   0x20000068   0x400  <Block tail>
+                            - 0x20000468   0x400
+
+"P2", part 3 of 3:                         0x9c0
+  .bss               zero     0x20000468   0x800  displayls013b7dh03.o [1]
+  .bss               zero     0x20000c68    0xa0  rtcdriver.o [1]
+  .bss               zero     0x20000d08    0x2c  display.o [1]
+  .bss               zero     0x20000d34    0x2c  dmd_display.o [1]
+  .bss               zero     0x20000d60    0x2c  graphics.o [1]
+  .bss               zero     0x20000d8c    0x10  dmd_display.o [1]
+  .bss               zero     0x20000d9c     0xc  dmd_display.o [1]
+  .bss               zero     0x20000da8     0xc  em_i2c.o [1]
+  .bss               zero     0x20000db4     0xc  si114x_algorithm.o [1]
+  .bss               zero     0x20000dc0     0xc  si114x_algorithm.o [1]
+  .bss               zero     0x20000dcc     0x8  si114x_algorithm.o [1]
+  .bss               zero     0x20000dd4     0x4  display.o [1]
+  .bss               zero     0x20000dd8     0x4  dmd_display.o [1]
+  .bss               zero     0x20000ddc     0x4  em_emu.o [1]
+  .bss               zero     0x20000de0     0x4  rtcdriver.o [1]
+  .bss               zero     0x20000de4     0x4  rtcdriver.o [1]
+  .bss               zero     0x20000de8     0x4  si114x_algorithm.o [1]
+  .bss               zero     0x20000dec     0x4  system_efm32zg.o [1]
+  .bss               zero     0x20000df0     0x4  weatherstation.o [1]
+  .bss               zero     0x20000df4     0x4  weatherstation.o [1]
+  .bss               zero     0x20000df8     0x4  weatherstation.o [1]
+  .bss               zero     0x20000dfc     0x4  weatherstation.o [1]
+  .bss               zero     0x20000e00     0x4  weatherstation.o [1]
+  .bss               zero     0x20000e04     0x4  weatherstation.o [1]
+  .bss               zero     0x20000e08     0x4  weatherstation.o [1]
+  .bss               zero     0x20000e0c     0x4  weatherstation.o [1]
+  .bss               zero     0x20000e10     0x4  weatherstation.o [1]
+  .bss               zero     0x20000e14     0x4  weatherstation.o [1]
+  .bss               zero     0x20000e18     0x4  weatherstation.o [1]
+  .bss               zero     0x20000e1c     0x1  display.o [1]
+  .bss               zero     0x20000e1d     0x1  displayls013b7dh03.o [1]
+  .bss               zero     0x20000e1e     0x1  dmd_display.o [1]
+  .bss               zero     0x20000e1f     0x1  em_emu.o [1]
+  .bss               zero     0x20000e20     0x1  rtcdriver.o [1]
+  .bss               zero     0x20000e21     0x1  rtcdriver.o [1]
+  .bss               zero     0x20000e22     0x1  rtcdriver.o [1]
+  .bss               zero     0x20000e23     0x1  weatherstation.o [1]
+  .bss               zero     0x20000e24     0x1  weatherstation.o [1]
+  .bss               zero     0x20000e25     0x1  weatherstation.o [1]
+  .bss               zero     0x20000e26     0x1  weatherstation.o [1]
+                            - 0x20000e27   0x9bf
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x9bf:
+          0x20000468  0x9bf
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0x64 (102% of destination):
+          0x00007b30   0x64
+    1 destination range, total size 0x62:
+          0x20000000   0x62
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                  ro code  ro data  rw data
+    ------                  -------  -------  -------
+D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj: [1]
+    background.o                       6 144
+    display.o                   212        8       57
+    displayls013b7dh03.o        632       28    2 053
+    displaypalemlib.o           786       24
+    dmd_display.o             1 612                77
+    em_adc.o                    592
+    em_cmu.o                  2 096
+    em_core.o                    18
+    em_emu.o                    296                 5
+    em_gpio.o                   948
+    em_i2c.o                  1 252        4       12
+    em_rtc.o                    248
+    em_usart.o                  340
+    glib.o                      612
+    glib_font_normal_8x8.o               816
+    glib_line.o               1 146
+    glib_rectangle.o             40
+    glib_string.o               652
+    graphics.o                1 700      256       44
+    i2cspm.o                    516
+    rtcdriver.o               2 008        4      171
+    si1147_i2c.o                496
+    si114x_algorithm.o        1 524        4       40
+    si114x_functions.o        2 618       64       64
+    si7013.o                    306
+    startup_efm32zg.o           192
+    system_efm32zg.o            240        8       12
+    udelay.o                    656        8        4
+    weatherstation.o          2 316       38       54
+    -------------------------------------------------
+    Total:                   24 054    7 406    2 593
+
+command line: [2]
+    -------------------------------------------------
+    Total:
+
+dl6M_tln.a: [3]
+    exit.o                        8
+    low_level_init.o              4
+    -------------------------------------------------
+    Total:                       12
+
+rt6M_tl.a: [4]
+    ABImemcpy.o                  92
+    ABImemset.o                  84
+    I32DivModFast.o             224
+    I64DivMod.o                 106
+    I64DivZer.o                   2
+    I64Mul.o                     50
+    IntDivZer.o                   2
+    XXexit.o                     12
+    cexit.o                      10
+    cmain.o                      26
+    copy_init3.o                 48
+    cstartup_M.o                 12
+    data_init.o                  40
+    strlen.o                     16
+    zero_init3.o                 60
+    -------------------------------------------------
+    Total:                      784
+
+    Gaps                                   2
+    Linker created                        38    1 024
+-----------------------------------------------------
+    Grand Total:             24 850    7 446    3 617
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address    Size  Type      Object
+-----                      -------    ----  ----      ------
+.iar.init_table$$Base   0x00007c60           --   Gb  - Linker created -
+.iar.init_table$$Limit  0x00007c84           --   Gb  - Linker created -
+?main                   0x00007c85          Code  Gb  cmain.o [4]
+ADC0_IRQHandler         0x000047b3    0x1a  Code  Gb  weatherstation.o [1]
+ADC_DataSingleGet       0x0000454b     0x4  Code  Lc  weatherstation.o [1]
+ADC_Init                0x00005c67    0x96  Code  Gb  em_adc.o [1]
+ADC_InitSingle          0x00005cfd    0x78  Code  Gb  em_adc.o [1]
+ADC_IntClear            0x0000454f     0x4  Code  Lc  weatherstation.o [1]
+ADC_IntEnable           0x00004553     0x8  Code  Lc  weatherstation.o [1]
+ADC_IntGet              0x0000455b     0x4  Code  Lc  weatherstation.o [1]
+ADC_LoadDevinfoCal      0x00005b8d    0xda  Code  Lc  em_adc.o [1]
+ADC_PrescaleCalc        0x00005d75    0x44  Code  Gb  em_adc.o [1]
+ADC_Start               0x0000455f     0x6  Code  Lc  weatherstation.o [1]
+BUS_RegBitRead          0x00002fab     0xc  Code  Lc  em_cmu.o [1]
+BUS_RegBitRead          0x0000434d     0xc  Code  Lc  weatherstation.o [1]
+BUS_RegBitWrite         0x00002f8f    0x1c  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x000037a9    0x1c  Code  Lc  em_gpio.o [1]
+BUS_RegBitWrite         0x00003b5d    0x1c  Code  Lc  em_i2c.o [1]
+BUS_RegBitWrite         0x000040f1    0x1c  Code  Lc  em_rtc.o [1]
+BUS_RegMaskedWrite      0x000037c5     0xa  Code  Lc  em_gpio.o [1]
+BUS_RegMaskedWrite      0x00003b79     0xa  Code  Lc  em_i2c.o [1]
+BUS_RegMaskedWrite      0x000074d5     0xa  Code  Lc  em_usart.o [1]
+CHIP_Init               0x00004539     0x2  Code  Lc  weatherstation.o [1]
+CMU_ClockDivGet         0x000031fd    0x8e  Code  Gb  em_cmu.o [1]
+CMU_ClockDivSet         0x00003291    0xec  Code  Gb  em_cmu.o [1]
+CMU_ClockEnable         0x0000337d    0x78  Code  Gb  em_cmu.o [1]
+CMU_ClockFreqGet        0x00003405    0xc6  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectGet      0x000034dd    0xd8  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectSet      0x000035c9   0x11e  Code  Gb  em_cmu.o [1]
+CMU_DivToLog2           0x00002fb7    0x26  Code  Lc  em_cmu.o [1]
+CMU_Lock                0x00005a6d     0x8  Code  Lc  em_emu.o [1]
+CMU_Log2ToDiv           0x00002fdd     0x8  Code  Lc  em_cmu.o [1]
+CMU_OscillatorEnable    0x00003705    0x8e  Code  Gb  em_cmu.o [1]
+CMU_Unlock              0x00005a75     0x8  Code  Lc  em_emu.o [1]
+CORE_EnterAtomic        0x00004041     0x8  Code  Wk  em_core.o [1]
+CORE_ExitAtomic         0x00004049     0xa  Code  Wk  em_core.o [1]
+CSTACK$$Base            0x20000068           --   Gb  - Linker created -
+CSTACK$$Limit           0x20000468           --   Gb  - Linker created -
+DISPLAY_DeviceGet       0x00005e0b    0x3c  Code  Gb  display.o [1]
+DISPLAY_DeviceRegister  0x00005e47    0x4a  Code  Gb  display.o [1]
+DISPLAY_Init            0x00005ddd    0x2e  Code  Gb  display.o [1]
+DISPLAY_Ls013b7dh03Init
+                        0x000078b9    0xbe  Code  Gb  displayls013b7dh03.o [1]
+DMD_allocateFramebuffer
+                        0x000063c9    0x3c  Code  Gb  dmd_display.o [1]
+DMD_getDisplayGeometry  0x00005f51    0x18  Code  Gb  dmd_display.o [1]
+DMD_init                0x00005eb1    0xa0  Code  Gb  dmd_display.o [1]
+DMD_setClippingArea     0x00005f69    0x54  Code  Gb  dmd_display.o [1]
+DMD_updateDisplay       0x00006419    0xd8  Code  Gb  dmd_display.o [1]
+DMD_writeColor          0x000061cd   0x1fc  Code  Gb  dmd_display.o [1]
+DMD_writeData           0x00005fc1   0x1fc  Code  Gb  dmd_display.o [1]
+DisplayClear            0x000079bb    0x36  Code  Lc  displayls013b7dh03.o [1]
+DisplayEnable           0x00007989    0x32  Code  Lc  displayls013b7dh03.o [1]
+DisplayPolarityInverse  0x000079f1     0xe  Code  Lc  displayls013b7dh03.o [1]
+DriverRefresh           0x00007977    0x12  Code  Lc  displayls013b7dh03.o [1]
+EMU_EnterEM1            0x0000453b    0x10  Code  Lc  weatherstation.o [1]
+EMU_EnterEM2            0x00005b43    0x2c  Code  Gb  em_emu.o [1]
+GLIB_FontNormal8x8      0x00007d0c    0x10  Data  Gb  glib_font_normal_8x8.o [1]
+GLIB_FontNormal8x8PixMap
+                        0x00006ea0   0x320  Data  Lc  glib_font_normal_8x8.o [1]
+GLIB_applyClippingRegion
+                        0x00006667    0x30  Code  Gb  glib.o [1]
+GLIB_clear              0x000065f3    0x56  Code  Gb  glib.o [1]
+GLIB_clipLine           0x00006bad   0x176  Code  Lc  glib_line.o [1]
+GLIB_colorTranslate24bpp
+                        0x00006697    0x18  Code  Gb  glib.o [1]
+GLIB_colorTranslate24bppInl
+                        0x000064fd    0x14  Code  Lc  glib.o [1]
+GLIB_contextInit        0x00006511    0x62  Code  Gb  glib.o [1]
+GLIB_drawChar           0x00006761   0x1b0  Code  Gb  glib_string.o [1]
+GLIB_drawLine           0x00006d23   0x154  Code  Gb  glib_line.o [1]
+GLIB_drawLineH          0x000069fd    0xba  Code  Gb  glib_line.o [1]
+GLIB_drawLineV          0x00006ab7    0xbc  Code  Gb  glib_line.o [1]
+GLIB_drawPixel          0x000066af    0x5a  Code  Gb  glib.o [1]
+GLIB_drawPixelColor     0x00006709    0x58  Code  Gb  glib.o [1]
+GLIB_drawString         0x00006911    0x9e  Code  Gb  glib_string.o [1]
+GLIB_getClipCode        0x00006b73    0x3a  Code  Lc  glib_line.o [1]
+GLIB_rectContainsPoint  0x00006e77    0x28  Code  Gb  glib_rectangle.o [1]
+GLIB_resetDisplayClippingArea
+                        0x00006649    0x1e  Code  Gb  glib.o [1]
+GLIB_setClippingRegion  0x0000657d    0x76  Code  Gb  glib.o [1]
+GLIB_setFont            0x000069af    0x3e  Code  Gb  glib_string.o [1]
+GPIO_EVEN_IRQHandler    0x00004a39     0x8  Code  Gb  weatherstation.o [1]
+GPIO_ExtIntConfig       0x000038fd    0xf6  Code  Gb  em_gpio.o [1]
+GPIO_IntClear           0x00004359     0x6  Code  Lc  weatherstation.o [1]
+GPIO_IntConfig          0x0000450f    0x2a  Code  Lc  weatherstation.o [1]
+GPIO_IntGet             0x0000435f     0x6  Code  Lc  weatherstation.o [1]
+GPIO_ODD_IRQHandler     0x00004a41     0x8  Code  Gb  weatherstation.o [1]
+GPIO_PinInGet           0x00004365    0x92  Code  Lc  weatherstation.o [1]
+GPIO_PinModeSet         0x000039f9   0x132  Code  Gb  em_gpio.o [1]
+GPIO_PinOutClear        0x000071c1    0x8c  Code  Lc  displaypalemlib.o [1]
+GPIO_PinOutClear        0x000037cf    0x8c  Code  Lc  em_gpio.o [1]
+GPIO_PinOutClear        0x00002599    0x8c  Code  Lc  i2cspm.o [1]
+GPIO_PinOutClear        0x000043f7    0x8c  Code  Lc  weatherstation.o [1]
+GPIO_PinOutSet          0x0000724d    0x8c  Code  Lc  displaypalemlib.o [1]
+GPIO_PinOutSet          0x0000385b    0x8c  Code  Lc  em_gpio.o [1]
+GPIO_PinOutSet          0x00002625    0x8c  Code  Lc  i2cspm.o [1]
+GPIO_PinOutSet          0x00004483    0x8c  Code  Lc  weatherstation.o [1]
+GPIO_PinOutToggle       0x000072d9    0x8c  Code  Lc  displaypalemlib.o [1]
+GPIO_Unified_IRQ        0x000049fd    0x2c  Code  Gb  weatherstation.o [1]
+GRAPHICS_CreateString   0x000059c9    0x6c  Code  Lc  graphics.o [1]
+GRAPHICS_Draw           0x00005575    0x58  Code  Gb  graphics.o [1]
+GRAPHICS_DrawBackground
+                        0x000053f9    0x82  Code  Lc  graphics.o [1]
+GRAPHICS_DrawHumidity   0x000057f9    0x6a  Code  Lc  graphics.o [1]
+GRAPHICS_DrawTemperatureC
+                        0x000056f9    0xee  Code  Lc  graphics.o [1]
+GRAPHICS_DrawTemperatureF
+                        0x000055d1   0x114  Code  Lc  graphics.o [1]
+GRAPHICS_DrawUV         0x00005871   0x112  Code  Lc  graphics.o [1]
+GRAPHICS_Init           0x000053c1    0x38  Code  Gb  graphics.o [1]
+GRAPHICS_ShowStatus     0x0000547b    0xfa  Code  Gb  graphics.o [1]
+I2CSPM_Init             0x000026b1    0x94  Code  Gb  i2cspm.o [1]
+I2CSPM_Transfer         0x00002745    0x30  Code  Gb  i2cspm.o [1]
+I2C_BusFreqSet          0x00003b83    0xd8  Code  Gb  em_i2c.o [1]
+I2C_Init                0x00003c5b    0x44  Code  Gb  em_i2c.o [1]
+I2C_Transfer            0x00003ccd   0x2dc  Code  Gb  em_i2c.o [1]
+I2C_TransferInit        0x00003fb1    0x82  Code  Gb  em_i2c.o [1]
+NVIC_ClearPendingIRQ    0x000027ab     0xe  Code  Lc  rtcdriver.o [1]
+NVIC_ClearPendingIRQ    0x00007629     0xe  Code  Lc  udelay.o [1]
+NVIC_ClearPendingIRQ    0x0000433f     0xe  Code  Lc  weatherstation.o [1]
+NVIC_EnableIRQ          0x0000279d     0xe  Code  Lc  rtcdriver.o [1]
+NVIC_EnableIRQ          0x00004331     0xe  Code  Lc  weatherstation.o [1]
+PAL_GpioInit            0x00007421    0x10  Code  Gb  displaypalemlib.o [1]
+PAL_GpioPinModeSet      0x00007435    0x30  Code  Gb  displaypalemlib.o [1]
+PAL_GpioPinOutClear     0x000074a7    0x16  Code  Gb  displaypalemlib.o [1]
+PAL_GpioPinOutSet       0x00007491    0x16  Code  Gb  displaypalemlib.o [1]
+PAL_GpioPinOutToggle    0x000074bd    0x16  Code  Gb  displaypalemlib.o [1]
+PAL_SpiInit             0x00007365    0x30  Code  Gb  displaypalemlib.o [1]
+PAL_SpiTransmit         0x00007395    0x3e  Code  Gb  displaypalemlib.o [1]
+PAL_TimerInit           0x000073e1     0xc  Code  Gb  displaypalemlib.o [1]
+PAL_TimerMicroSecondsDelay
+                        0x000073ed    0x10  Code  Gb  displaypalemlib.o [1]
+PAL_TimerRepeat         0x000073fd    0x1e  Code  Gb  displaypalemlib.o [1]
+PB0_handler             0x00004a49    0x48  Code  Gb  weatherstation.o [1]
+PixelMatrixAllocate     0x000079ff    0x44  Code  Lc  displayls013b7dh03.o [1]
+PixelMatrixClear        0x00007a49    0x2a  Code  Lc  displayls013b7dh03.o [1]
+PixelMatrixDraw         0x00007a73    0x80  Code  Lc  displayls013b7dh03.o [1]
+PixelMatrixFree         0x00007a43     0x6  Code  Lc  displayls013b7dh03.o [1]
+ProcessSi1147Samples    0x00004f4d   0x2ec  Code  Lc  si114x_algorithm.o [1]
+ProcessSi1147Samples::ps_entry_time
+                        0x20000db4     0xc  Data  Lc  si114x_algorithm.o [1]
+ProcessSi1147Samples::ps_exit_time
+                        0x20000dc0     0xc  Data  Lc  si114x_algorithm.o [1]
+ProcessSi1147Samples::ps_state
+                        0x20000de8     0x4  Data  Lc  si114x_algorithm.o [1]
+RTCDRV_AllocateTimer    0x000027eb    0x54  Code  Gb  rtcdriver.o [1]
+RTCDRV_Delay            0x0000283f    0x5a  Code  Gb  rtcdriver.o [1]
+RTCDRV_Init             0x00002899    0x7c  Code  Gb  rtcdriver.o [1]
+RTCDRV_StartTimer       0x00002965   0x26c  Code  Gb  rtcdriver.o [1]
+RTCDRV_StopTimer        0x00002bd5    0x40  Code  Gb  rtcdriver.o [1]
+RTC_CompareGet          0x0000410d    0x30  Code  Gb  em_rtc.o [1]
+RTC_CompareSet          0x0000413d    0x32  Code  Gb  em_rtc.o [1]
+RTC_CounterGet          0x000027b9     0x6  Code  Lc  rtcdriver.o [1]
+RTC_CounterGet          0x00007637     0x6  Code  Lc  udelay.o [1]
+RTC_CounterReset        0x000041d9    0x10  Code  Gb  em_rtc.o [1]
+RTC_Enable              0x0000416f    0x12  Code  Gb  em_rtc.o [1]
+RTC_FreezeEnable        0x00004181    0x18  Code  Gb  em_rtc.o [1]
+RTC_IRQHandler          0x00002c21    0x8c  Code  Gb  rtcdriver.o [1]
+RTC_Init                0x00004199    0x30  Code  Gb  em_rtc.o [1]
+RTC_IntClear            0x000027bf     0x6  Code  Lc  rtcdriver.o [1]
+RTC_IntDisable          0x000027c5     0xc  Code  Lc  rtcdriver.o [1]
+RTC_IntEnable           0x000027d1     0xc  Code  Lc  rtcdriver.o [1]
+RTC_IntGetEnabled       0x000027dd     0xe  Code  Lc  rtcdriver.o [1]
+Region$$Table$$Base     0x00007c60           --   Gb  - Linker created -
+Region$$Table$$Limit    0x00007c84           --   Gb  - Linker created -
+RtcIntCallbackRegister  0x00004ab1    0x3a  Code  Gb  weatherstation.o [1]
+SYSTEM_GetProdRev       0x00002fe5     0xa  Code  Lc  em_cmu.o [1]
+Si1147_ConfigureDetection
+                        0x00005245   0x114  Code  Gb  si114x_algorithm.o [1]
+Si1147_Detect_Device    0x00004d71    0x2c  Code  Gb  si114x_algorithm.o [1]
+Si1147_GetInterruptOutputEnable
+                        0x00004dd7    0x26  Code  Gb  si114x_algorithm.o [1]
+Si1147_MeasureUVAndObjectPresent
+                        0x00004dfd    0xb4  Code  Gb  si114x_algorithm.o [1]
+Si1147_NewSample        0x00004f07    0x42  Code  Gb  si114x_algorithm.o [1]
+Si1147_Read_Block_Register
+                        0x000023dd    0x4e  Code  Gb  si1147_i2c.o [1]
+Si1147_Read_Register    0x000022c7    0x50  Code  Gb  si1147_i2c.o [1]
+Si1147_SetInterruptOutputEnable
+                        0x00004d9d    0x3a  Code  Gb  si114x_algorithm.o [1]
+Si1147_Write_Block_Register
+                        0x0000236b    0x72  Code  Gb  si1147_i2c.o [1]
+Si1147_Write_Register   0x00002317    0x54  Code  Gb  si1147_i2c.o [1]
+Si114xBlockRead         0x00002483    0x20  Code  Gb  si1147_i2c.o [1]
+Si114xBlockWrite        0x00002463    0x20  Code  Gb  si1147_i2c.o [1]
+Si114xNop               0x00001a4b     0xe  Code  Gb  si114x_functions.o [1]
+Si114xParamSet          0x00001a75    0x98  Code  Gb  si114x_functions.o [1]
+Si114xPauseAll          0x00001b1b    0x9a  Code  Gb  si114x_functions.o [1]
+Si114xPsAlsAuto         0x00001a67     0xe  Code  Gb  si114x_functions.o [1]
+Si114xPsAlsForce        0x00001a59     0xe  Code  Gb  si114x_functions.o [1]
+Si114xReadFromRegister  0x00002447    0x1c  Code  Gb  si1147_i2c.o [1]
+Si114xReset             0x000018c7    0xb2  Code  Gb  si114x_functions.o [1]
+Si114xWriteToRegister   0x0000242b    0x1c  Code  Gb  si1147_i2c.o [1]
+Si7013_Detect           0x00004d15    0x5a  Code  Gb  si7013.o [1]
+Si7013_Measure          0x00004c3d    0x66  Code  Lc  si7013.o [1]
+Si7013_MeasureRHAndTemp
+                        0x00004ca3    0x5e  Code  Gb  si7013.o [1]
+SystemCoreClock         0x20000dec     0x4  Data  Gb  system_efm32zg.o [1]
+SystemCoreClockGet      0x0000423d    0x1a  Code  Gb  system_efm32zg.o [1]
+SystemCoreClockUpdate   0x00005a65     0x8  Code  Lc  em_emu.o [1]
+SystemHFClockGet        0x0000425b    0x8e  Code  Gb  system_efm32zg.o [1]
+SystemHFXOClock         0x20000050     0x4  Data  Lc  system_efm32zg.o [1]
+SystemInit              0x000042e9     0x2  Code  Gb  system_efm32zg.o [1]
+SystemLFRCOClockGet     0x000042eb     0x6  Code  Gb  system_efm32zg.o [1]
+SystemLFXOClock         0x20000054     0x4  Data  Lc  system_efm32zg.o [1]
+SystemLFXOClockGet      0x000042f7     0x6  Code  Gb  system_efm32zg.o [1]
+SystemMaxCoreClockGet   0x00004257     0x4  Code  Gb  system_efm32zg.o [1]
+SystemULFRCOClockGet    0x000042f1     0x6  Code  Gb  system_efm32zg.o [1]
+UDELAY_Calibrate        0x0000763d   0x172  Code  Gb  udelay.o [1]
+UDELAY_Delay            0x00007859    0x24  Code  Gb  udelay.o [1]
+USART_BaudrateSyncSet   0x000074df    0x46  Code  Gb  em_usart.o [1]
+USART_InitSync          0x00007529    0x7e  Code  Gb  em_usart.o [1]
+USART_Reset             0x000075ad    0x4a  Code  Gb  em_usart.o [1]
+USART_Tx                0x0000760d     0xe  Code  Gb  em_usart.o [1]
+USART_TxDouble          0x0000761b     0xe  Code  Gb  em_usart.o [1]
+_PsAlsPause             0x00001b0d     0xe  Code  Lc  si114x_functions.o [1]
+__Vectors               0x00000000           --   Gb  startup_efm32zg.o [1]
+__Vectors_End           0x0000008c          Data  Gb  startup_efm32zg.o [1]
+__Vectors_Size {Abs}    0x0000008c           --   Gb  startup_efm32zg.o [1]
+__aeabi_idiv            0x000024e3          Code  Gb  I32DivModFast.o [4]
+__aeabi_idiv0           0x00002f75          Code  Gb  IntDivZer.o [4]
+__aeabi_idivmod         0x000024e3          Code  Gb  I32DivModFast.o [4]
+__aeabi_ldiv0           0x0000432d          Code  Gb  I64DivZer.o [4]
+__aeabi_lmul            0x00004055          Code  Gb  I64Mul.o [4]
+__aeabi_memclr4         0x00004239          Code  Gb  ABImemset.o [4]
+__aeabi_memclr8         0x00004239          Code  Gb  ABImemset.o [4]
+__aeabi_memcpy          0x00005365          Code  Gb  ABImemcpy.o [4]
+__aeabi_memcpy4         0x0000538d          Code  Wk  ABImemcpy.o [4]
+__aeabi_memset          0x000041e9          Code  Gb  ABImemset.o [4]
+__aeabi_uidiv           0x000024e9          Code  Gb  I32DivModFast.o [4]
+__aeabi_uidivmod        0x000024e9          Code  Gb  I32DivModFast.o [4]
+__aeabi_uldivmod        0x00004087          Code  Gb  I64DivMod.o [4]
+__cmain                 0x00007c85          Code  Gb  cmain.o [4]
+__cmsis_iar_clz         0x00002f79    0x16  Code  Lc  em_cmu.o [1]
+__exit                  0x00007cb9          Code  Gb  XXexit.o [4]
+__iar_Memset4_word      0x00004209          Code  Gb  ABImemset.o [4]
+__iar_Memset_word       0x000041f5          Code  Gb  ABImemset.o [4]
+__iar_copy_init3        0x00007c09    0x30  Code  Gb  copy_init3.o [4]
+__iar_data_init3        0x00007c39    0x28  Code  Gb  data_init.o [4]
+__iar_program_start     0x00007de1          Code  Gb  cstartup_M.o [4]
+__iar_zero_init3        0x00007b95    0x3c  Code  Gb  zero_init3.o [4]
+__low_level_init        0x00007c9f     0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000          Data  Gb  startup_efm32zg.o [1]
+__vector_table_0x1c     0x0000001c          Data  Gb  startup_efm32zg.o [1]
+_call_main              0x00007c91          Code  Gb  cmain.o [4]
+_delay                  0x00007851     0x6  Code  Lc  udelay.o [1]
+_exit                   0x00007cad          Code  Gb  cexit.o [4]
+_main                   0x00007c9b          Code  Gb  cmain.o [4]
+_sendCmd                0x00001979    0xd2  Code  Lc  si114x_functions.o [1]
+_waitUntilSleep         0x0000188d    0x3a  Code  Lc  si114x_functions.o [1]
+adcConversionComplete   0x20000e26     0x1  Data  Lc  weatherstation.o [1]
+adcInit                 0x000047cd    0x58  Code  Lc  weatherstation.o [1]
+adcrange_ratio          0x00001ef1    0x3c  Code  Lc  si114x_functions.o [1]
+align                   0x00001c71    0x6a  Code  Lc  si114x_functions.o [1]
+animationTimerId        0x20000e18     0x4  Data  Gb  weatherstation.o [1]
+animationUpdateCallback
+                        0x00004b29    0xd4  Code  Lc  weatherstation.o [1]
+auxClkGet               0x00002fef    0x74  Code  Lc  em_cmu.o [1]
+background              0x0000008c  0x1800  Data  Gb  background.o [1]
+calibrate_delay         0x000077af    0x9a  Code  Lc  udelay.o [1]
+calref                  0x20000010    0x40  Data  Gb  si114x_functions.o [1]
+checkAllTimers          0x00002cc1   0x198  Code  Lc  rtcdriver.o [1]
+checkBattery            0x00004789    0x2a  Code  Lc  weatherstation.o [1]
+clock                   0x00007849     0x8  Code  Lc  udelay.o [1]
+collect                 0x00001be5    0x70  Code  Lc  si114x_functions.o [1]
+dbgClkGet               0x00003063    0x2e  Code  Lc  em_cmu.o [1]
+decode                  0x00001bb5    0x30  Code  Lc  si114x_functions.o [1]
+delayTicks              0x00002e5d    0x24  Code  Lc  rtcdriver.o [1]
+delay_10ms              0x000024a3     0xa  Code  Gb  si1147_i2c.o [1]
+delay_1ms               0x000024ad     0xa  Code  Gb  si1147_i2c.o [1]
+demoMode                0x20000e24     0x1  Data  Lc  weatherstation.o [1]
+deviceTable             0x20000d08    0x2c  Data  Lc  display.o [1]
+devicesRegistered       0x20000dd4     0x4  Data  Lc  display.o [1]
+dimensions              0x20000d9c     0xc  Data  Lc  dmd_display.o [1]
+dirtyRows               0x20000d8c    0x10  Data  Gb  dmd_display.o [1]
+disableGestureMode      0x00004925    0x36  Code  Lc  weatherstation.o [1]
+displayDevice           0x20000d34    0x2c  Data  Lc  dmd_display.o [1]
+emState                 0x00005a7d    0xc6  Code  Lc  em_emu.o [1]
+emState::cmuStatus      0x20000ddc     0x4  Data  Lc  em_emu.o [1]
+emState::hfClock        0x20000e1f     0x1  Data  Lc  em_emu.o [1]
+enableGestureMode       0x000048dd    0x3c  Code  Lc  weatherstation.o [1]
+executeTimerCallbacks   0x00002e81    0x36  Code  Lc  rtcdriver.o [1]
+exit                    0x00007ca3     0x8  Code  Gb  exit.o [3]
+findCoord               0x00005983    0x3a  Code  Lc  graphics.o [1]
+find_cal_index          0x00001df7    0x58  Code  Lc  si114x_functions.o [1]
+flashWaitStateControl   0x00003091    0x52  Code  Lc  em_cmu.o [1]
+flashWaitStateMax       0x000030e3     0xc  Code  Lc  em_cmu.o [1]
+fx20_divide             0x00001d21    0x7e  Code  Lc  si114x_functions.o [1]
+fx20_multiply           0x00001d9f    0x58  Code  Lc  si114x_functions.o [1]
+fx20_round              0x00001cdb    0x46  Code  Lc  si114x_functions.o [1]
+gestureTimeoutTimerId   0x20000e0c     0x4  Data  Gb  weatherstation.o [1]
+glibContext             0x20000d60    0x2c  Data  Lc  graphics.o [1]
+gpioSetup               0x00004969    0x94  Code  Lc  weatherstation.o [1]
+handleGestures          0x00004841    0x8a  Code  Lc  weatherstation.o [1]
+i2cNSum                 0x00007e0c     0x4  Data  Lc  em_i2c.o [1]
+i2cTransfer             0x20000da8     0xc  Data  Lc  em_i2c.o [1]
+inTimerIRQ              0x20000e20     0x1  Data  Lc  rtcdriver.o [1]
+initRTC                 0x00007e10     0x4  Data  Lc  rtcdriver.o [1]
+irpd_correction         0x00001e9d    0x4e  Code  Lc  si114x_functions.o [1]
+irsize_ratio            0x00001f2d    0x3c  Code  Lc  si114x_functions.o [1]
+lastStart               0x20000de0     0x4  Data  Lc  rtcdriver.o [1]
+lcdPolarity             0x20000e1d     0x1  Data  Lc  displayls013b7dh03.o [1]
+ledi_ratio              0x00001f69    0x4e  Code  Lc  si114x_functions.o [1]
+lfClkGet                0x000030ef    0xa8  Code  Lc  em_cmu.o [1]
+loops_per_jiffy         0x20000058     0x4  Data  Gb  udelay.o [1]
+main                    0x000045b9   0x1d0  Code  Gb  weatherstation.o [1]
+memLcdCallback          0x00004a99    0x12  Code  Lc  weatherstation.o [1]
+millisecondsTimerId     0x20000e10     0x4  Data  Gb  weatherstation.o [1]
+moduleInitialized       0x20000e1c     0x1  Data  Lc  display.o [1]
+moduleInitialized       0x20000e1e     0x1  Data  Lc  dmd_display.o [1]
+msTicks                 0x20000e08     0x4  Data  Gb  weatherstation.o [1]
+msTicksCallback         0x00004afd     0xc  Code  Lc  weatherstation.o [1]
+pDisplayDeviceDriverInitFunctions
+                        0x20000000     0x8  Data  Lc  display.o [1]
+pb0Action               0x2000005c     0x4  Data  Lc  weatherstation.o [1]
+performMeasurements     0x00004565    0x2c  Code  Lc  weatherstation.o [1]
+periodicUpdateCallback  0x00004aeb     0xe  Code  Lc  weatherstation.o [1]
+periodicUpdateTimerId   0x20000e14     0x4  Data  Gb  weatherstation.o [1]
+pixelMatrixBuffer       0x20000dd8     0x4  Data  Lc  dmd_display.o [1]
+pixelMatrixPool         0x20000008     0x4  Data  Lc  displayls013b7dh03.o [1]
+pixelMatrixPoolBase     0x20000468   0x800  Data  Lc  displayls013b7dh03.o [1]
+processGestures         0x20000e25     0x1  Data  Lc  weatherstation.o [1]
+readPSData              0x00004eb1    0x56  Code  Lc  si114x_algorithm.o [1]
+rescheduleRtc           0x00002eb9    0xa0  Code  Lc  rtcdriver.o [1]
+rtcCallback             0x20000df0     0x4  Data  Lc  weatherstation.o [1]
+rtcCallbackArg          0x20000df4     0x4  Data  Lc  weatherstation.o [1]
+rtcRunning              0x20000e21     0x1  Data  Lc  rtcdriver.o [1]
+rtcdrvIsInitialized     0x20000e22     0x1  Data  Lc  rtcdriver.o [1]
+shift_left              0x00001c55    0x1c  Code  Lc  si114x_functions.o [1]
+si114x_get_cal_index    0x00001fc5    0x80  Code  Lc  si114x_functions.o [1]
+si114x_get_calibration  0x00002045   0x1a0  Code  Gb  si114x_functions.o [1]
+si114x_handle           0x2000000c     0x4  Data  Lc  si114x_algorithm.o [1]
+si114x_i2c              0x20000dcc     0x8  Data  Lc  si114x_algorithm.o [1]
+si114x_set_ucoef        0x000021e9    0xde  Code  Gb  si114x_functions.o [1]
+sinLUT                  0x00007bd4    0x34  Data  Lc  graphics.o [1]
+startDemo               0x20000e23     0x1  Data  Lc  weatherstation.o [1]
+startTimerNestingLevel  0x20000de4     0x4  Data  Lc  rtcdriver.o [1]
+strlen                  0x000069ed    0x10  Code  Gb  strlen.o [4]
+syncReg                 0x00003197    0x16  Code  Lc  em_cmu.o [1]
+timer                   0x20000c68    0xa0  Data  Lc  rtcdriver.o [1]
+updateDisplay           0x20000060     0x1  Data  Lc  weatherstation.o [1]
+updateMeasurement       0x20000061     0x1  Data  Lc  weatherstation.o [1]
+vispd_correction        0x00001e4f    0x4e  Code  Lc  si114x_functions.o [1]
+xinc                    0x20000e00     0x4  Data  Lc  weatherstation.o [1]
+xoffset                 0x20000df8     0x4  Data  Lc  weatherstation.o [1]
+yinc                    0x20000e04     0x4  Data  Lc  weatherstation.o [1]
+yoffset                 0x20000dfc     0x4  Data  Lc  weatherstation.o [1]
+
+
+[1] = D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32ZG_STK3200\weatherstation\iar\weatherstation\Debug\Obj
+[2] = command line
+[3] = dl6M_tln.a
+[4] = rt6M_tl.a
+
+  24 850 bytes of readonly  code memory
+   7 446 bytes of readonly  data memory
+   3 617 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

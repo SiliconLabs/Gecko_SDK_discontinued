@@ -67,6 +67,7 @@ void mbedtls_aes_init( mbedtls_aes_context *ctx )
 
     AESDRV_Init ( &ctx->aesdrv_ctx );
     AESDRV_SetDeviceInstance ( &ctx->aesdrv_ctx, 0 );
+    mbedtls_aes_set_device_lock_wait_ticks( ctx, 0 );
     AESDRV_SetIoMode         ( &ctx->aesdrv_ctx, aesdrvIoModeCore, 0 );
 }
 
@@ -91,14 +92,14 @@ int mbedtls_aes_set_device_instance(mbedtls_aes_context *ctx,
 {
 #if defined(AES_COUNT) && (AES_COUNT > 0)
     (void) ctx;
-    if ((devno > AES_COUNT) || (devno != 0))
+    if ((devno >= AES_COUNT) || (devno != 0))
         return( MBEDTLS_ERR_AES_INVALID_PARAM );
     else
         return( 0 );
 #endif
   
 #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
-    if (devno > CRYPTO_COUNT)
+    if (devno >= CRYPTO_COUNT)
         return( MBEDTLS_ERR_AES_INVALID_PARAM );
 
     return cryptodrvSetDeviceInstance( &ctx->aesdrv_ctx.cryptodrvContext,
@@ -106,33 +107,27 @@ int mbedtls_aes_set_device_instance(mbedtls_aes_context *ctx,
 #endif /* #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) */
 }
 
-#if defined( MBEDTLS_INCLUDE_ASYNCH_API )
 /*
- * Set an AES context in asynchronous mode.
+ *   Set the number of ticks to wait for the decice lock.
  */
-int mbedtls_aes_set_asynch( mbedtls_aes_context *ctx,
-                            mbedtls_aes_asynch_context *asynch_ctx,
-                            mbedtls_asynch_callback asynch_callback,
-                            void* asynch_callback_user_arg )
+int mbedtls_aes_set_device_lock_wait_ticks(mbedtls_aes_context *ctx,
+                                           int                  ticks)
 {
-    Ecode_t status;
-  
-    AESDRV_BlockCipherAsynchContext_t *aesdrv_asynch_ctx =
-      asynch_ctx ? &asynch_ctx->aesdrv_asynch_ctx : 0;
+    int ret = 0;
     
-    status = AESDRV_SetAsynchMode(&ctx->aesdrv_ctx,
-                                  cipherModeBlockCipher,
-                                  aesdrv_asynch_ctx,
-                                  (AESDRV_AsynchCallback_t) asynch_callback,
-                                  asynch_callback_user_arg);
-    if (status != ECODE_OK)
-    {
-        return (int)status;
-    }
-        
-    return( 0 );
+#if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
+    
+    ret = cryptodrvSetDeviceLockWaitTicks( &ctx->aesdrv_ctx.cryptodrvContext,
+                                           ticks );
+#else
+    
+    (void) ctx;
+    (void) ticks;
+    
+#endif /* #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) */
+    
+    return ret;
 }
-#endif /* #if defined( MBEDTLS_INCLUDE_ASYNCH_API ) */
 
 /*
  *   Set the device I/O mode of an AES context.
@@ -168,25 +163,20 @@ int mbedtls_aes_setkey_enc( mbedtls_aes_context *ctx, const unsigned char *key,
 int mbedtls_aes_setkey_dec( mbedtls_aes_context *ctx, const unsigned char *key,
                     unsigned int keybits )
 {
-    int ret = 0;
-    Ecode_t status;
+    int ret;
     
     switch( keybits )
     {
     case 128:
-        status = AESDRV_DecryptKey128( &ctx->aesdrv_ctx,
+        ret = AESDRV_DecryptKey128( &ctx->aesdrv_ctx,
                                        (uint8_t*)ctx->key,
                                        key );
-        if (status != ECODE_OK)
-          ret = status;
         break;
     
     case 256:
-        status = AESDRV_DecryptKey256( &ctx->aesdrv_ctx,
+        ret = AESDRV_DecryptKey256( &ctx->aesdrv_ctx,
                                        (uint8_t*)ctx->key,
                                        key );
-        if (status != ECODE_OK)
-          ret = status;
         break;
         
     default:
@@ -208,33 +198,26 @@ int mbedtls_aes_crypt_ecb( mbedtls_aes_context *ctx,
                            const unsigned char input[16],
                            unsigned char output[16] )
 {
-    int     ret = 0;
-    Ecode_t status;
+    int ret;
 
     switch( ctx->keybits )
     {
     case 128:
-        status = AESDRV_ECB128( &ctx->aesdrv_ctx,
-                                output,
-                                input,
-                                16,
-                                (uint8_t*)ctx->key,
-                                mode == MBEDTLS_AES_ENCRYPT ?  true : false );
-
-        if (status != ECODE_OK)
-          ret = status;
+        ret = AESDRV_ECB128( &ctx->aesdrv_ctx,
+                             output,
+                             input,
+                             16,
+                             (uint8_t*)ctx->key,
+                             mode == MBEDTLS_AES_ENCRYPT ?  true : false );
         break;
     
     case 256:
-        status = AESDRV_ECB256( &ctx->aesdrv_ctx,
-                                output,
-                                input,
-                                16,
-                                (uint8_t*)ctx->key,
-                                mode == MBEDTLS_AES_ENCRYPT ?  true : false );
-
-        if (status != ECODE_OK)
-          ret = status;
+        ret = AESDRV_ECB256( &ctx->aesdrv_ctx,
+                             output,
+                             input,
+                             16,
+                             (uint8_t*)ctx->key,
+                             mode == MBEDTLS_AES_ENCRYPT ?  true : false );
         break;
         
     default:
@@ -257,8 +240,7 @@ int mbedtls_aes_crypt_cbc( mbedtls_aes_context *ctx,
                            const unsigned char *input,
                            unsigned char *output )
 {
-    int ret = 0;
-    Ecode_t status;
+    int ret;
 
     /* Input length must be a multiple of 16 bytes which is the AES block
        length. */
@@ -268,29 +250,23 @@ int mbedtls_aes_crypt_cbc( mbedtls_aes_context *ctx,
     switch( ctx->keybits )
     {
     case 128:
-        status = AESDRV_CBC128( &ctx->aesdrv_ctx,
+        ret = AESDRV_CBC128( &ctx->aesdrv_ctx,
                                 output,
                                 input,
                                 length,
                                 (uint8_t*)ctx->key,
                                 iv,
                                 mode == MBEDTLS_AES_ENCRYPT ?  true : false );
-
-        if (status != ECODE_OK)
-          ret = status;
         break;
     
     case 256:
-        status = AESDRV_CBC256( &ctx->aesdrv_ctx,
+        ret = AESDRV_CBC256( &ctx->aesdrv_ctx,
                                 output,
                                 input,
                                 length,
                                 (uint8_t*)ctx->key,
                                 iv,
                                 mode == MBEDTLS_AES_ENCRYPT ?  true : false );
-
-        if (status != ECODE_OK)
-          ret = status;
         break;
         
     default:
@@ -320,16 +296,6 @@ int mbedtls_aes_crypt_cfb128( mbedtls_aes_context *ctx,
     {
         int c;
 
-#if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
-#if defined( MBEDTLS_INCLUDE_ASYNCH_API )
-        if (ctx->aesdrv_ctx.pAsynchContext)
-        {
-            /* Asynchronous calls are not supported when iv_off is non-zero. */
-            return MBEDTLS_ERR_AES_NOT_SUPPORTED;
-        }
-#endif /* #if defined( MBEDTLS_INCLUDE_ASYNCH_API ) */
-#endif /* #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) */
-        
         if( mode == MBEDTLS_AES_DECRYPT )
         {
             while( length-- )
@@ -365,13 +331,12 @@ int mbedtls_aes_crypt_cfb128( mbedtls_aes_context *ctx,
     }
     else
     {
-        int ret = 0;
-        Ecode_t status;
+        int ret;
 
         switch( ctx->keybits )
         {
         case 128:
-            status = AESDRV_CFB128( &ctx->aesdrv_ctx,
+            ret = AESDRV_CFB128( &ctx->aesdrv_ctx,
                                     output,
                                     input,
                                     length,
@@ -379,13 +344,10 @@ int mbedtls_aes_crypt_cfb128( mbedtls_aes_context *ctx,
                                     iv,
                                     mode == MBEDTLS_AES_ENCRYPT ?
                                     true : false );
-
-        if (status != ECODE_OK)
-          ret = status;
         break;
     
         case 256:
-            status = AESDRV_CFB256( &ctx->aesdrv_ctx,
+            ret = AESDRV_CFB256( &ctx->aesdrv_ctx,
                                     output,
                                     input,
                                     length,
@@ -393,9 +355,6 @@ int mbedtls_aes_crypt_cfb128( mbedtls_aes_context *ctx,
                                     iv,
                                     mode == MBEDTLS_AES_ENCRYPT ?
                                     true : false );
-            
-            if (status != ECODE_OK)
-              ret = status;
             break;
         
         default:
@@ -421,16 +380,6 @@ int mbedtls_aes_crypt_cfb8( mbedtls_aes_context *ctx,
     unsigned char ov[17];
     int ret = 0;
 
-#if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
-#if defined( MBEDTLS_INCLUDE_ASYNCH_API )
-    if (ctx->aesdrv_ctx.pAsynchContext)
-    {
-      /* Asynchronous calls are not supported by this function. */
-      return MBEDTLS_ERR_AES_NOT_SUPPORTED;
-    }
-#endif /* #if defined( MBEDTLS_INCLUDE_ASYNCH_API ) */
-#endif /* #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) */
-        
     while( length-- )
     {
         memcpy( ov, iv, 16 );
@@ -471,16 +420,6 @@ int mbedtls_aes_crypt_ctr( mbedtls_aes_context *ctx,
     {
         int c, i;
     
-#if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
-#if defined( MBEDTLS_INCLUDE_ASYNCH_API )
-        if (ctx->aesdrv_ctx.pAsynchContext)
-        {
-            /* Asynchronous calls are not supported when nc_off is non-zero. */
-            return MBEDTLS_ERR_AES_NOT_SUPPORTED;
-        }
-#endif /* #if defined( MBEDTLS_INCLUDE_ASYNCH_API ) */
-#endif /* #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) */
-        
         while( length-- )
         {
             if( n == 0 )
@@ -505,33 +444,28 @@ int mbedtls_aes_crypt_ctr( mbedtls_aes_context *ctx,
     }
     else
     {
-        int ret = 0;
-        Ecode_t status;
+        int ret;
 
         switch( ctx->keybits )
         {
         case 128:
-            status = AESDRV_CTR128( &ctx->aesdrv_ctx,
+            ret = AESDRV_CTR128( &ctx->aesdrv_ctx,
                                     output,
                                     input,
                                     length,
                                     (uint8_t*)ctx->key,
                                     nonce_counter,
                                     0);
-        if (status != ECODE_OK)
-          ret = status;
         break;
     
         case 256:
-            status = AESDRV_CTR256( &ctx->aesdrv_ctx,
+            ret = AESDRV_CTR256( &ctx->aesdrv_ctx,
                                     output,
                                     input,
                                     length,
                                     (uint8_t*)ctx->key,
                                     nonce_counter,
                                     0);
-            if (status != ECODE_OK)
-              ret = status;
             break;
         
         default:

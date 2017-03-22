@@ -34,10 +34,10 @@
 *  @param myChar
 *  Char to be drawn
 *
-*  @param x0
+*  @param x
 *  Start x-coordinate for the char (Upper left corner)
 *
-*  @param y0
+*  @param y
 *  Start y-coordinate for the char (Upper left corner)
 *
 *  @param opaque
@@ -146,6 +146,9 @@ EMSTATUS GLIB_drawChar(GLIB_Context_t *pContext, char myChar, int32_t x, int32_t
 *  @param pString
 *  Pointer to the string that is drawn
 *
+*  @param sLength
+*  number of characters in the string
+*
 *  @param x0
 *  Start x-coordinate for the string (Upper left corner)
 *
@@ -160,7 +163,7 @@ EMSTATUS GLIB_drawChar(GLIB_Context_t *pContext, char myChar, int32_t x, int32_t
 *  Returns GLIB_OK on success, or else error code
 ******************************************************************************/
 
-EMSTATUS GLIB_drawString(GLIB_Context_t *pContext, char* pString, uint32_t sLength,
+EMSTATUS GLIB_drawString(GLIB_Context_t *pContext, const char* pString, uint32_t sLength,
                          int32_t x0, int32_t y0, bool opaque)
 {
   EMSTATUS status;

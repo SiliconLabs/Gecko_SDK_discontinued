@@ -70,8 +70,9 @@ void mbedtls_sha256_init( mbedtls_sha256_context *ctx )
 {
     memset( ctx, 0, sizeof( mbedtls_sha256_context ) );
     
-    /* Set device instance to 0 by default. */
+    /* Set device instance and lock wait ticks to 0 by default. */
     mbedtls_sha256_set_device_instance(ctx, 0);
+    mbedtls_sha256_set_device_lock_wait_ticks( ctx, 0 );
 }
 
 void mbedtls_sha256_free( mbedtls_sha256_context *ctx )
@@ -89,63 +90,33 @@ int mbedtls_sha256_set_device_instance(mbedtls_sha256_context *ctx,
                                        unsigned int            devno)
 {
 #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
-    if (devno > CRYPTO_COUNT)
+    if (devno >= CRYPTO_COUNT)
         return( MBEDTLS_ERR_SHA256_BAD_INPUT );
   
     return cryptodrvSetDeviceInstance( &ctx->cryptodrv_ctx, devno );
 #endif /* #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) */
 }
 
-/**
- * \brief          SHA-256 asynchronous context structure
+/*
+ *   Set the number of ticks to wait for the device lock.
  */
-typedef struct
+int mbedtls_sha256_set_device_lock_wait_ticks(mbedtls_sha256_context *ctx,
+                                              int                   ticks)
 {
-  mbedtls_asynch_callback  asynch_callback;   /*!< Completion callback
-                                                    function pointer. */
-  void*                asynch_callback_user_arg; /*!< User defined parameter to
-                                                   completion callback. */
-}
-mbedtls_sha256_asynch_context;
-
-/**
- * \brief          Set an SHA256 context in asynchronous mode.
- *
- * \details        
- *   This function enables or disables asynchronous (non-blocking) mode of an
- *   SHA256 context. In order to enable, the user must set the
- *   @p asynch_ctx parameter to point to an asynchronous sha256 context
- *   structure @ref mbedtls_sha256_asynch_context. Subsequent calls to the
- *   SHA256 API functions with the specified context will behave asynchronously,
- *   i.e. initiate the hardware to execute the operation and return as soon as
- *   possible. The user may specify a callback function by setting the
- *   @p asynch_callback parameter which will called when the operation has
- *   completed.
- *   In order to disable, the user must set the @p asynch_context parameter
- *   to NULL. All subsequent calls to SHA256 API functions with the specified
- *   context will block until the corresponding operation has completed, and
- *   then return.
- *
- * \param ctx              SHA256 context
- * \param asynch_ctx       SHA256 asynchronous context structure
- * \param asynch_callback  Asynchronous callback
- * \param user_arg         User specific argument which will be
- *                         sent to callback.
- *
- * \return         0 if successful, or error code
- */
-int mbedtls_sha256_set_asynch( mbedtls_sha256_context *ctx,
-                               mbedtls_sha256_asynch_context *asynch_ctx,
-                               mbedtls_asynch_callback asynch_callback,
-                               void* asynch_callback_user_arg )
-{
+    int ret = 0;
+    
+#if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
+    
+    ret = cryptodrvSetDeviceLockWaitTicks( &ctx->cryptodrv_ctx, ticks );
+    
+#else
+    
     (void) ctx;
-    (void) asynch_ctx;
-    (void) asynch_callback;
-    (void) asynch_callback_user_arg;
-  
-    /* Asynchronous mode is not supported yet. */
-    while(1);
+    (void) ticks;
+    
+#endif /* #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) */
+    
+    return ret;
 }
 
 void mbedtls_sha256_clone( mbedtls_sha256_context *dst,
@@ -166,23 +137,24 @@ int mbedtls_sha256_starts( mbedtls_sha256_context *ctx, int is224 )
     CRYPTODRV_Context_t* cryptodrv_ctx = &ctx->cryptodrv_ctx;
     CRYPTO_TypeDef* crypto = cryptodrv_ctx->device->crypto;
     uint32_t init_state[8];
-    Ecode_t ecode;
+    int ret;
 
     /* Request CRYPTO usage. */
-    ecode = CRYPTODRV_Arbitrate(cryptodrv_ctx);
-    if (ECODE_OK != ecode)
+    ret = CRYPTODRV_Arbitrate(cryptodrv_ctx);
+    if (0 != ret)
     {
-        return ecode;
+        return( ret );
     }
     
     /* Enter critial crypto region in order to initialize crypto for
        SHA operation. */
-    ecode = CRYPTODRV_EnterCriticalRegion(cryptodrv_ctx);
-    EFM_ASSERT(ECODE_OK == ecode); /* Assert critical region entry is ok. */
+    ret = CRYPTODRV_EnterCriticalRegion(cryptodrv_ctx);
+    EFM_ASSERT(0 == ret); /* Assert critical region entry is ok. */
     
     /* Setup CRYPTO for SHA-2 operation: */
     crypto->CTRL     = CRYPTO_CTRL_SHA_SHA2;
     crypto->WAC      = 0;
+    crypto->IEN      = 0;
 
     /* Set result width of MADD32 operation. */
     CRYPTO_ResultWidthSet(crypto, cryptoResult256Bits);
@@ -222,36 +194,36 @@ int mbedtls_sha256_starts( mbedtls_sha256_context *ctx, int is224 )
 
     /* Initialize CRYPTO sequencer to execute main SHA instruction
        sequence. */
-    CRYPTO_EXECUTE_3( crypto,
+    CRYPTO_EXECUTE_2( crypto,
                       CRYPTO_CMD_INSTR_DDATA1TODDATA0,
-                      CRYPTO_CMD_INSTR_DDATA1TODDATA2,
-                      CRYPTO_CMD_INSTR_SELDDATA0DDATA1 );
-
+                      CRYPTO_CMD_INSTR_DDATA1TODDATA2 );
+    
     /* Load main SHA instruction sequence */
-    CRYPTO_SEQ_LOAD_3( crypto,
+    CRYPTO_SEQ_LOAD_4( crypto,
+                       CRYPTO_CMD_INSTR_SELDDATA0DDATA1,
                        CRYPTO_CMD_INSTR_SHA,
                        CRYPTO_CMD_INSTR_MADD32,
                        CRYPTO_CMD_INSTR_DDATA0TODDATA1 );
     
-    ecode = CRYPTODRV_ExitCriticalRegion( cryptodrv_ctx );
-    EFM_ASSERT(ECODE_OK == ecode); /* Assert critical region exit is ok. */
+    ret = CRYPTODRV_ExitCriticalRegion( cryptodrv_ctx );
+    EFM_ASSERT(0 == ret); /* Assert critical region exit is ok. */
     
     ctx->total[0] = 0;
     ctx->total[1] = 0;
 
     ctx->is224 = is224;
 
-    return ( ECODE_OK == ecode ? 0 : (int)ecode );
+    return ( ret );
 }
 
 void mbedtls_sha256_process( mbedtls_sha256_context *ctx, const unsigned char data[64] )
 {
     CRYPTODRV_Context_t* cryptodrv_ctx = &ctx->cryptodrv_ctx;
     CRYPTO_TypeDef* crypto = cryptodrv_ctx->device->crypto;
-    Ecode_t ecode;
+    int ret;
 
-    ecode = CRYPTODRV_EnterCriticalRegion( cryptodrv_ctx );
-    EFM_ASSERT(ECODE_OK == ecode); /* Assert critical region entry is ok. */
+    ret = CRYPTODRV_EnterCriticalRegion( cryptodrv_ctx );
+    EFM_ASSERT(0 == ret); /* Assert critical region entry is ok. */
 
     /* Write block to QDATA1.  */
     /* Check data is 32bit aligned, if not move via aligned buffer before writing. */
@@ -265,12 +237,15 @@ void mbedtls_sha256_process( mbedtls_sha256_context *ctx, const unsigned char da
     {
         CRYPTO_QDataWrite(&crypto->QDATA1BIG, (uint32_t*) data);
     }
-
+    
     /* Execute SHA */
-    crypto->CMD |= CRYPTO_CMD_SEQSTART;
-
-    ecode = CRYPTODRV_ExitCriticalRegion( cryptodrv_ctx );
-    EFM_ASSERT(ECODE_OK == ecode); /* Assert critical region exit is ok. */
+    crypto->CMD = CRYPTO_CMD_SEQSTART;
+    
+    /* Wait for completion */
+    CRYPTO_InstructionSequenceWait(crypto);
+    
+    ret = CRYPTODRV_ExitCriticalRegion( cryptodrv_ctx );
+    EFM_ASSERT(0 == ret); /* Assert critical region exit is ok. */
 }
 
 /*
@@ -332,7 +307,7 @@ void mbedtls_sha256_finish( mbedtls_sha256_context *ctx, unsigned char output[32
     unsigned char msglen[8];
     CRYPTODRV_Context_t* cryptodrv_ctx = &ctx->cryptodrv_ctx;
     CRYPTO_TypeDef* crypto = cryptodrv_ctx->device->crypto;
-    Ecode_t ecode;
+    int ret;
 
     high = ( ctx->total[0] >> 29 )
          | ( ctx->total[1] <<  3 );
@@ -348,20 +323,18 @@ void mbedtls_sha256_finish( mbedtls_sha256_context *ctx, unsigned char output[32
     mbedtls_sha256_update( ctx, msglen, 8 );
 
     /* Enter critical CRYPTO region in order to read final SHA digest/state. */
-    ecode = CRYPTODRV_EnterCriticalRegion( cryptodrv_ctx );
-    EFM_ASSERT(ECODE_OK == ecode); /* Assert critical region entry is ok. */
+    ret = CRYPTODRV_EnterCriticalRegion( cryptodrv_ctx );
+    EFM_ASSERT(0 == ret); /* Assert critical region entry is ok. */
     
     /* Read the digest from crypto (big endian). */
     CRYPTODRV_DDataReadUnaligned(&crypto->DDATA0BIG, output);
     
-    ecode = CRYPTODRV_ExitCriticalRegion( cryptodrv_ctx );
-    
-    EFM_ASSERT(ECODE_OK == ecode); /* Assert critical region exit is ok. */
+    ret = CRYPTODRV_ExitCriticalRegion( cryptodrv_ctx );
+    EFM_ASSERT(0 == ret); /* Assert critical region exit is ok. */
 
     /* Finally release CRYPTO since SHA operation has completed. */
-    ecode = CRYPTODRV_Release( cryptodrv_ctx );
-   
-    EFM_ASSERT(ECODE_OK == ecode); /* Assert crypto release is ok. */
+    ret = CRYPTODRV_Release( cryptodrv_ctx );
+    EFM_ASSERT(0 == ret); /* Assert crypto release is ok. */
     
     if( ctx->is224 )
       memset(&output[28], 0, 4);
@@ -388,6 +361,126 @@ int mbedtls_sha256( const unsigned char *input, size_t ilen,
     
     return( 0 );
 }
+
+#if defined(MBEDTLS_SELF_TEST)
+
+#if defined(MBEDTLS_PLATFORM_C)
+#include "mbedtls/platform.h"
+#else
+#include <stdio.h>
+#define mbedtls_printf printf
+#endif /* MBEDTLS_PLATFORM_C */
+
+/*
+ * FIPS-180-2 test vectors
+ */
+static const unsigned char sha256_test_buf[3][57] =
+{
+    { "abc" },
+    { "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq" },
+    { "" }
+};
+
+static const int sha256_test_buflen[3] =
+{
+    3, 56, 1000
+};
+
+static const unsigned char sha256_test_sum[6][32] =
+{
+    /*
+     * SHA-224 test vectors
+     */
+    { 0x23, 0x09, 0x7D, 0x22, 0x34, 0x05, 0xD8, 0x22,
+      0x86, 0x42, 0xA4, 0x77, 0xBD, 0xA2, 0x55, 0xB3,
+      0x2A, 0xAD, 0xBC, 0xE4, 0xBD, 0xA0, 0xB3, 0xF7,
+      0xE3, 0x6C, 0x9D, 0xA7 },
+    { 0x75, 0x38, 0x8B, 0x16, 0x51, 0x27, 0x76, 0xCC,
+      0x5D, 0xBA, 0x5D, 0xA1, 0xFD, 0x89, 0x01, 0x50,
+      0xB0, 0xC6, 0x45, 0x5C, 0xB4, 0xF5, 0x8B, 0x19,
+      0x52, 0x52, 0x25, 0x25 },
+    { 0x20, 0x79, 0x46, 0x55, 0x98, 0x0C, 0x91, 0xD8,
+      0xBB, 0xB4, 0xC1, 0xEA, 0x97, 0x61, 0x8A, 0x4B,
+      0xF0, 0x3F, 0x42, 0x58, 0x19, 0x48, 0xB2, 0xEE,
+      0x4E, 0xE7, 0xAD, 0x67 },
+
+    /*
+     * SHA-256 test vectors
+     */
+    { 0xBA, 0x78, 0x16, 0xBF, 0x8F, 0x01, 0xCF, 0xEA,
+      0x41, 0x41, 0x40, 0xDE, 0x5D, 0xAE, 0x22, 0x23,
+      0xB0, 0x03, 0x61, 0xA3, 0x96, 0x17, 0x7A, 0x9C,
+      0xB4, 0x10, 0xFF, 0x61, 0xF2, 0x00, 0x15, 0xAD },
+    { 0x24, 0x8D, 0x6A, 0x61, 0xD2, 0x06, 0x38, 0xB8,
+      0xE5, 0xC0, 0x26, 0x93, 0x0C, 0x3E, 0x60, 0x39,
+      0xA3, 0x3C, 0xE4, 0x59, 0x64, 0xFF, 0x21, 0x67,
+      0xF6, 0xEC, 0xED, 0xD4, 0x19, 0xDB, 0x06, 0xC1 },
+    { 0xCD, 0xC7, 0x6E, 0x5C, 0x99, 0x14, 0xFB, 0x92,
+      0x81, 0xA1, 0xC7, 0xE2, 0x84, 0xD7, 0x3E, 0x67,
+      0xF1, 0x80, 0x9A, 0x48, 0xA4, 0x97, 0x20, 0x0E,
+      0x04, 0x6D, 0x39, 0xCC, 0xC7, 0x11, 0x2C, 0xD0 }
+};
+
+/*
+ * Checkup routine
+ */
+int mbedtls_sha256_self_test( int verbose, int device_instance )
+{
+    int i, j, k, buflen, ret = 0;
+    unsigned char buf[1024];
+    unsigned char sha256sum[32];
+    mbedtls_sha256_context ctx;
+
+    mbedtls_sha256_init( &ctx );
+
+    mbedtls_sha256_set_device_instance(&ctx, device_instance);
+    
+    for( i = 0; i < 6; i++ )
+    {
+        j = i % 3;
+        k = i < 3;
+
+        if( verbose != 0 )
+            mbedtls_printf( "  SHA-%d test #%d: ", 256 - k * 32, j + 1 );
+
+        mbedtls_sha256_starts( &ctx, k );
+
+        if( j == 2 )
+        {
+            memset( buf, 'a', buflen = 1000 );
+
+            for( j = 0; j < 1000; j++ )
+                mbedtls_sha256_update( &ctx, buf, buflen );
+        }
+        else
+            mbedtls_sha256_update( &ctx, sha256_test_buf[j],
+                                 sha256_test_buflen[j] );
+
+        mbedtls_sha256_finish( &ctx, sha256sum );
+
+        if( memcmp( sha256sum, sha256_test_sum[i], 32 - k * 4 ) != 0 )
+        {
+            if( verbose != 0 )
+                mbedtls_printf( "failed\n" );
+
+            ret = 1;
+            goto exit;
+        }
+
+        if( verbose != 0 )
+            mbedtls_printf( "passed\n" );
+    }
+
+    if( verbose != 0 )
+        mbedtls_printf( "\n" );
+
+exit:
+    mbedtls_sha256_free( &ctx );
+
+    return( ret );
+}
+
+#endif /* MBEDTLS_SELF_TEST */
 
 #endif /* #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) */
 

@@ -1,0 +1,4 @@
+
+What's new in this MCU SDK release:
+  * EFM32PG12 and EFM32JG12 support
+  * Improved structure for MCU applications

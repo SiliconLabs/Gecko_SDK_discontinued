@@ -1,0 +1,713 @@
+pluginDirectory=./
+
+plugin(core) {
+  name=Bootloader Core
+  category=Core
+  architecture=efr32~series[1],efm32~series[1]
+  description=Core library for bootloader
+
+  root=../core
+
+  providedApis=core
+
+  # Files that are released in source
+  btl_core.c
+  btl_main.c
+  (efr32+iar,efm32+iar):iar/main_btl_startup.c
+  (efr32+gcc,efm32+iar):gcc/main_btl_startup.c
+
+  # GCC versions of libbootloader.a
+  precompiled(efr32~series[1]~device_configuration[1]+gcc) {
+    file=../build/lib/libbootloader_efr32xg1_gcc.a
+  }
+  precompiled(efr32~series[1]~device_configuration[2]+gcc) {
+    file=../build/lib/libbootloader_efr32xg12_gcc.a
+  }
+  precompiled(efr32~series[1]~device_configuration[3]+gcc) {
+    file=../build/lib/libbootloader_efr32xg13_gcc.a
+  }
+  # IAR versions of libbootloader.a
+  precompiled(efr32~series[1]~device_configuration[1]+iar) {
+    file=../build/lib/libbootloader_efr32xg1_iar.a
+  }
+  precompiled(efr32~series[1]~device_configuration[2]+iar) {
+    file=../build/lib/libbootloader_efr32xg12_iar.a
+  }
+  precompiled(efr32~series[1]~device_configuration[3]+iar) {
+    file=../build/lib/libbootloader_efr32xg13_iar.a
+  }
+
+  setup(macros) {
+    BTL_APP_SPACE_SIZE=(FLASH_SIZE - BTL_APPLICATION_BASE)
+  }
+
+  setup(additionalFiles) {
+    PATH(FRAMEWORK_RELATIVE):./
+  }
+
+  options=\
+  enforceSignedUpgrade,\
+  enforceEncryptedUpgrade,\
+  enforceSecureBoot,\
+  blwdis
+
+  enforceSignedUpgrade.name=Require signed firmware upgrade files
+  enforceSignedUpgrade.description=Require that firmware upgrade files are authenticated using asymmetric signature verification.
+  enforceSignedUpgrade.type=BOOLEAN
+  enforceSignedUpgrade.default=false
+  enforceSignedUpgrade.define=BOOTLOADER_ENFORCE_SIGNED_UPGRADE
+
+  enforceEncryptedUpgrade.name=Require encrypted firmware upgrade files
+  enforceEncryptedUpgrade.description=Require that firmware upgrade files are encrypted
+  enforceEncryptedUpgrade.type=BOOLEAN
+  enforceEncryptedUpgrade.default=false
+  enforceEncryptedUpgrade.define=BOOTLOADER_ENFORCE_ENCRYPTED_UPGRADE
+
+  enforceSecureBoot.name=Enable secure boot
+  enforceSecureBoot.description=Enforce signature verification on the application image in internal flash before every boot
+  enforceSecureBoot.type=BOOLEAN
+  enforceSecureBoot.default=false
+  enforceSecureBoot.define=BOOTLOADER_ENFORCE_SECURE_BOOT
+
+  blwdis.name=Prevent bootloader write/erase
+  blwdis.description=Write lock bootloader area before entering application. This sets the MSC_BOOTLOADERCTRL_BLWDIS bit, which locks the bootloader area in flash until the next reboot. This does not affect bootloader upgrades, but prevents the application running in main flash from disturbing the bootloader. Only applicable to devices that use the bootloader area of flash (EFR32xG12 and later).
+  blwdis.type=BOOLEAN
+  blwdis.default=false
+  blwdis.override(efr32~device_configuration[1])=false
+  blwdis.define=BOOTLOADER_WRITE_DISABLE
+
+}
+
+plugin(crc) {
+  name=Cyclic Redundancy Check
+  category=Utils
+  architecture=efr32~series[1],efm32~series[1]
+  description=Software implementations of 16- and 32-bit CRC
+
+  root=security
+
+  providedApis=crc
+
+  # Common files
+  btl_crc16.c
+  btl_crc32.c
+}
+
+plugin(crypto) {
+  name=Crypto
+  category=Utils
+  architecture=efr32~series[1]
+  description=Crypto operations for bootloader: AES, ECDSA and SHA
+
+  root=security
+
+  providedApis=aes, sha, ecdsa
+
+  # Files that are released in source
+  btl_security_aes.c
+  btl_security_sha256.c
+  btl_security_ecdsa.c
+  ecc/ecc.c
+}
+
+plugin(debug) {
+  name=Debug
+  category=Utils
+  architecture=efr32~series[1],efm32~series[1]
+  description=Build debug instrumentation into the bootloader. Not recommended for production.
+
+  root=debug
+
+  # Common files
+  btl_debug_swo.c
+  btl_debug.c
+
+  options=print,assert
+
+  print.name=Debug prints
+  print.description=Print debug messages to SWO
+  print.type=BOOLEAN
+  print.default=false
+  print.define=BTL_PLUGIN_DEBUG_PRINT
+
+  assert.name=Debug asserts
+  assert.description=Enable assertions in the source code
+  assert.type=BOOLEAN
+  assert.default=false
+  assert.define=BTL_PLUGIN_DEBUG_ASSERT
+}
+
+plugin(delay-driver) {
+  name=Delay
+  category=Drivers
+  architecture=efr32~series[1],efm32~series[1]
+  description=Micro- and millisecond delays
+
+  root=../driver
+
+  providedApis=delayDriver
+
+  # Common files
+  sourceFiles=btl_driver_delay.c
+}
+
+plugin(emlib) {
+  name=EMLIB
+  category=Utils
+  architecture=efr32~series[1],efm32~series[1]
+  description=EMLIB Peripheral Library
+
+  root=$EMLIB/src
+
+  # Files that are released in source
+  em_assert.c
+  em_cmu.c
+  em_crypto.c
+  em_emu.c
+  em_gpio.c
+  em_core.c
+  em_msc.c
+  em_rmu.c
+  em_system.c
+  em_timer.c
+  em_usart.c
+  em_wdog.c
+
+  setup(additionalFiles) {
+    PATH(ABSOLUTE):$EMLIB/inc
+  }
+}
+
+plugin(mbedtls) {
+  name=mbed TLS
+  category=Utils
+  architecture=efr32~series[1],efm32~series[1]
+  description=mbed TLS with hardware acceleration for Exx32
+
+  root=$MBEDTLS/sl_crypto/src
+
+  # Files that are released in source
+  sl_aes.c
+  sl_sha256.c
+
+  setup(additionalFiles) {
+    PATH(ABSOLUTE):$MBEDTLS/include
+    PATH(ABSOLUTE):$MBEDTLS/configs
+    PATH(ABSOLUTE):$MBEDTLS/sl_crypto/include
+    PATH(ABSOLUTE):$EMDRV/common/inc
+  }
+
+  setup(macros) {
+      -DMBEDTLS_CONFIG_FILE="config-sl-crypto-all-acceleration.h"
+  }
+}
+
+plugin(spi-driver) {
+  name=SPI Master
+  category=Drivers
+  architecture=efr32~series[1],efm32~series[1]
+  description=Simple blocking SPI master
+
+  root=../driver
+
+  providedApis=spiDriver
+  requiredApis=delayDriver
+
+  # Common files
+  btl_driver_spi.c
+
+  options=\
+  usart,\
+  mosiPort,\
+  mosiPin,\
+  mosiLoc,\
+  misoPort,\
+  misoPin,\
+  misoLoc,\
+  clkPort,\
+  clkPin,\
+  clkLoc,\
+  csPort,\
+  csPin,\
+  baudrate
+
+  usart.name=USART
+  usart.description=Which USART to use for SPI
+  usart.type=NUMBER:0,6
+  # Force USART1 on SiPs
+  usart.override(efr32~series[1]~device_configuration[1]~radio[632],efr32~series[1]~device_configuration[1]~radio[732])=1
+  usart.override(efr32~series[1]~device_configuration[3]~radio[832],efr32~series[1]~device_configuration[3]~radio[932])=1
+  usart.default=1
+  usart.define=BTL_DRIVER_SPI_USART_NUMBER
+
+  mosiPort.name=MOSI port
+  mosiPort.description=MOSI port
+  mosiPort.type=LIST:gpioPortA,gpioPortB,gpioPortC,gpioPortD,gpioPortE,gpioPortF
+  # Force PF6 on EFR32MG1 632 and 732 SiPs
+  mosiPort.override(efr32~series[1]~device_configuration[1]~radio[632],efr32~series[1]~device_configuration[1]~radio[732])=gpioPortF
+  # Force PF5 on EFR32MG13 832 and 932 SiPs
+  mosiPort.override(efr32~series[1]~device_configuration[3]~radio[832],efr32~series[1]~device_configuration[3]~radio[932])=gpioPortF
+  mosiPort.default=gpioPortC
+  mosiPort.define=BTL_DRIVER_SPI_MOSI_PORT
+
+  mosiPin.name=MOSI pin
+  mosiPin.description=MOSI pin
+  mosiPin.type=NUMBER:0,15
+  # Force PF6 on EFR32MG1 632 and 732 SiPs
+  mosiPin.override(efr32~series[1]~device_configuration[1]~radio[632],efr32~series[1]~device_configuration[1]~radio[732])=6
+  # Force PF5 on EFR32MG13 832 and 932 SiPs
+  mosiPin.override(efr32~series[1]~device_configuration[3]~radio[832],efr32~series[1]~device_configuration[3]~radio[932])=5
+  mosiPin.default=6
+  mosiPin.define=BTL_DRIVER_SPI_MOSI_PIN
+
+  mosiLoc.name=MOSI pin location
+  mosiLoc.description=MOSI pin location
+  mosiLoc.type=NUMBER:0,31
+  # Force PF6 (#30) on EFR32MG1 632 and 732 SiPs
+  mosiLoc.override(efr32~series[1]~device_configuration[1]~radio[632],efr32~series[1]~device_configuration[1]~radio[732])=30
+  # Force PF5 (#29) on EFR32MG13 832 and 932 SiPs
+  mosiLoc.override(efr32~series[1]~device_configuration[3]~radio[832],efr32~series[1]~device_configuration[3]~radio[932])=29
+  mosiLoc.default=11
+  mosiLoc.define=BTL_DRIVER_SPI_USART_TXLOC_NUMBER
+
+  misoPort.name=MISO port
+  misoPort.description=MISO port
+  misoPort.type=LIST:gpioPortA,gpioPortB,gpioPortC,gpioPortD,gpioPortE,gpioPortF
+  # Force PC7 on EFR32MG1 632 and 732 SiPs
+  misoPort.override(efr32~series[1]~device_configuration[1]~radio[632],efr32~series[1]~device_configuration[1]~radio[732])=gpioPortC
+  # Force PC9 on EFR32MG13 832 and 932 SiPs
+  misoPort.override(efr32~series[1]~device_configuration[3]~radio[832],efr32~series[1]~device_configuration[3]~radio[932])=gpioPortC
+  misoPort.default=gpioPortC
+  misoPort.define=BTL_DRIVER_SPI_MISO_PORT
+
+  misoPin.name=MISO pin
+  misoPin.description=MISO pin
+  misoPin.type=NUMBER:0,15
+  # Force PC7 on EFR32MG1 632 and 732 SiPs
+  misoPin.override(efr32~series[1]~device_configuration[1]~radio[632],efr32~series[1]~device_configuration[1]~radio[732])=7
+  # Force PC9 on EFR32MG13 832 and 932 SiPs
+  misoPin.override(efr32~series[1]~device_configuration[3]~radio[832],efr32~series[1]~device_configuration[3]~radio[932])=9
+  misoPin.default=7
+  misoPin.define=BTL_DRIVER_SPI_MISO_PIN
+
+  misoLoc.name=MISO pin location
+  misoLoc.description=MISO pin location
+  misoLoc.type=NUMBER:0,31
+  # Force PC7 (#11) on EFR32MG1 632 and 732 SiPs
+  misoLoc.override(efr32~series[1]~device_configuration[1]~radio[632],efr32~series[1]~device_configuration[1]~radio[732])=11
+  # Force PC9 (#13) on EFR32MG13 832 and 932 SiPs
+  misoLoc.override(efr32~series[1]~device_configuration[3]~radio[832],efr32~series[1]~device_configuration[3]~radio[932])=13
+  misoLoc.default=11
+  misoLoc.define=BTL_DRIVER_SPI_USART_RXLOC_NUMBER
+
+  clkPort.name=CLK port
+  clkPort.description=CLK port
+  clkPort.type=LIST:gpioPortA,gpioPortB,gpioPortC,gpioPortD,gpioPortE,gpioPortF
+  # Force PC9 on EFR32MG1 632 and 732 SiPs
+  clkPort.override(efr32~series[1]~device_configuration[1]~radio[632],efr32~series[1]~device_configuration[1]~radio[732])=gpioPortC
+  # Force PF4 on EFR32MG13 832 and 932 SiPs
+  clkPort.override(efr32~series[1]~device_configuration[3]~radio[832],efr32~series[1]~device_configuration[3]~radio[932])=gpioPortF
+  clkPort.default=gpioPortC
+  clkPort.define=BTL_DRIVER_SPI_CLK_PORT
+
+  clkPin.name=CLK pin
+  clkPin.description=CLK pin
+  clkPin.type=NUMBER:0,15
+  # Force PC9 on EFR32MG1 632 and 732 SiPs
+  clkPin.override(efr32~series[1]~device_configuration[1]~radio[632],efr32~series[1]~device_configuration[1]~radio[732])=9
+  # Force PF4 on EFR32MG13 832 and 932 SiPs
+  clkPin.override(efr32~series[1]~device_configuration[3]~radio[832],efr32~series[1]~device_configuration[3]~radio[932])=4
+  clkPin.default=8
+  clkPin.define=BTL_DRIVER_SPI_CLK_PIN
+
+  clkLoc.name=CLK pin location
+  clkLoc.description=CLK pin location
+  clkLoc.type=NUMBER:0,31
+  # Force PC9 (#12) on EFR32MG1 632 and 732 SiPs
+  clkLoc.override(efr32~series[1]~device_configuration[1]~radio[632],efr32~series[1]~device_configuration[1]~radio[732])=12
+  # Force PF4 (#26) on EFR32MG13 832 and 932 SiPs
+  clkLoc.override(efr32~series[1]~device_configuration[3]~radio[832],efr32~series[1]~device_configuration[3]~radio[932])=26
+  clkLoc.default=11
+  clkLoc.define=BTL_DRIVER_SPI_USART_CLKLOC_NUMBER
+
+  csPort.name=CS port
+  csPort.description=CS port
+  csPort.type=LIST:gpioPortA,gpioPortB,gpioPortC,gpioPortD,gpioPortE,gpioPortF
+  # Force PC6 on EFR32MG1 632 and 732 SiPs
+  csPort.override(efr32~series[1]~device_configuration[1]~radio[632],efr32~series[1]~device_configuration[1]~radio[732])=gpioPortC
+  # Force PC8 on EFR32MG13 832 and 932 SiPs
+  csPort.override(efr32~series[1]~device_configuration[3]~radio[832],efr32~series[1]~device_configuration[3]~radio[932])=gpioPortC
+  csPort.default=gpioPortA
+  csPort.define=BTL_DRIVER_SPI_CS_PORT
+
+  csPin.name=CS pin
+  csPin.description=CS pin
+  csPin.type=NUMBER:0,15
+  # Force PC6 on EFR32MG1 632 and 732 SiPs
+  csPin.override(efr32~series[1]~device_configuration[1]~radio[632],efr32~series[1]~device_configuration[1]~radio[732])=6
+  # Force PC8 on EFR32MG13 832 and 932 SiPs
+  csPin.override(efr32~series[1]~device_configuration[3]~radio[832],efr32~series[1]~device_configuration[3]~radio[932])=8
+  csPin.default=4
+  csPin.define=BTL_DRIVER_SPI_CS_PIN
+
+  baudrate.name=SPI baud rate
+  baudrate.description=SPI baud rate
+  baudrate.type=NUMBER:0,2000000
+  baudrate.default=2000000
+  baudrate.define=BTL_DRIVER_SPI_BAUDRATE
+}
+
+plugin(spislave-driver) {
+  name=SPI Slave
+  category=Drivers
+  architecture=efr32~series[1],efm32~series[1]
+  description=DMA-driven SPI slave driver
+
+  root=../driver
+
+  providedApis=spiSlaveDriver
+  requiredApis=delayDriver
+
+  # Files that are released in source
+  btl_driver_spislave.c
+
+  options=usart, mosiPort, mosiPin, mosiLocation, misoPort, misoPin, misoLocation, clkPort, clkPin, clkLocation, csPort, csPin, csLocation, rxBufferSize, txBufferSize, rxChannel, txChannel
+
+  usart.name=USART
+  usart.description=Which USART to use for SPI slave
+  usart.type=NUMBER:0,6
+  usart.default=0
+  usart.define=BTL_SPISLAVE_NUMBER
+
+  mosiPort.name=MOSI port
+  mosiPort.description=MOSI port
+  mosiPort.type=LIST:gpioPortA,gpioPortB,gpioPortC,gpioPortD,gpioPortE,gpioPortF
+  mosiPort.default=gpioPortA
+  mosiPort.define=BTL_SPISLAVE_MOSI_PORT
+
+  mosiPin.name=MOSI pin
+  mosiPin.description=MOSI pin
+  mosiPin.type=NUMBER:0,15
+  mosiPin.default=0
+  mosiPin.define=BTL_SPISLAVE_MOSI_PIN
+
+  mosiLocation.name=MOSI pin location
+  mosiLocation.description=MOSI pin location
+  mosiLocation.type=NUMBER:0,31
+  mosiLocation.default=0
+  mosiLocation.define=BTL_SPISLAVE_MOSI_LOCATION
+
+  misoPort.name=MISO port
+  misoPort.description=MISO port
+  misoPort.type=LIST:gpioPortA,gpioPortB,gpioPortC,gpioPortD,gpioPortE,gpioPortF
+  misoPort.default=gpioPortA
+  misoPort.define=BTL_SPISLAVE_MISO_PORT
+
+  misoPin.name=MISO pin
+  misoPin.description=MISO pin
+  misoPin.type=NUMBER:0,15
+  misoPin.default=1
+  misoPin.define=BTL_SPISLAVE_MISO_PIN
+
+  misoLocation.name=MISO pin location
+  misoLocation.description=MISO pin location
+  misoLocation.type=NUMBER:0,31
+  misoLocation.default=0
+  misoLocation.define=BTL_SPISLAVE_MISO_LOCATION
+
+  clkPort.name=CLK port
+  clkPort.description=CLK port
+  clkPort.type=LIST:gpioPortA,gpioPortB,gpioPortC,gpioPortD,gpioPortE,gpioPortF
+  clkPort.default=gpioPortA
+  clkPort.define=BTL_SPISLAVE_CLK_PORT
+
+  clkPin.name=CLK pin
+  clkPin.description=CLK pin
+  clkPin.type=NUMBER:0,15
+  clkPin.default=2
+  clkPin.define=BTL_SPISLAVE_CLK_PIN
+
+  clkLocation.name=CLK pin location
+  clkLocation.description=CLK pin location
+  clkLocation.type=NUMBER:0,31
+  clkLocation.default=0
+  clkLocation.define=BTL_SPISLAVE_CLK_LOCATION
+
+  csPort.name=CS port
+  csPort.description=CS port
+  csPort.type=LIST:gpioPortA,gpioPortB,gpioPortC,gpioPortD,gpioPortE,gpioPortF
+  csPort.default=gpioPortA
+  csPort.define=BTL_SPISLAVE_CS_PORT
+
+  csPin.name=CS pin
+  csPin.description=CS pin
+  csPin.type=NUMBER:0,15
+  csPin.default=3
+  csPin.define=BTL_SPISLAVE_CS_PIN
+
+  csLocation.name=CS pin location
+  csLocation.description=CS pin location
+  csLocation.type=NUMBER:0,15
+  csLocation.default=0
+  csLocation.define=BTL_SPISLAVE_CS_LOCATION
+
+  rxBufferSize.name=RX buffer size
+  rxBufferSize.description=BTL_SPISLAVE_RX_BUFFER_SIZE
+  rxBufferSize.type=NUMBER:0,2048
+  rxBufferSize.default=300
+  rxBufferSize.define=BTL_SPISLAVE_RX_BUFFER_SIZE
+
+  txBufferSize.name=TX buffer size
+  txBufferSize.description=BTL_SPISLAVE_TX_BUFFER_SIZE
+  txBufferSize.type=NUMBER:0,2048
+  txBufferSize.default=50
+  txBufferSize.define=BTL_SPISLAVE_TX_BUFFER_SIZE
+
+  rxChannel.name=LDMA channel for SPI RX
+  rxChannel.description=LDMA channel for SPI RX
+  rxChannel.type=NUMBER:0,1
+  rxChannel.default=0
+  rxChannel.define=BTL_SPISLAVE_LDMA_RX_CHANNEL
+
+  txChannel.name=LDMA channel for SPI TX
+  txChannel.description=LDMA channel for SPI TX
+  txChannel.type=NUMBER:0,1
+  txChannel.default=1
+  txChannel.define=BTL_SPISLAVE_LDMA_TX_CHANNEL
+}
+
+plugin(storage-common) {
+  name=Common Storage
+  category=Storage
+  architecture=efr32~series[1], efm32~series[1]
+  description=Common functionality for storage plugins
+
+  root=storage
+
+  providedApis=storageCommon
+
+  # Common files
+  btl_storage.c
+
+  # GCC versions of libstorage.a
+  precompiled(efr32~series[1]~device_configuration[1]+gcc) {
+    file=../../build/lib/libstorage_efr32xg1_gcc.a
+  }
+  precompiled(efr32~series[1]~device_configuration[2]+gcc) {
+    file=../../build/lib/libstorage_efr32xg12_gcc.a
+  }
+  precompiled(efr32~series[1]~device_configuration[3]+gcc) {
+    file=../../build/lib/libstorage_efr32xg13_gcc.a
+  }
+  # IAR versions of libstorage.a
+  precompiled(efr32~series[1]~device_configuration[1]+iar) {
+    file=../../build/lib/libstorage_efr32xg1_iar.a
+  }
+  precompiled(efr32~series[1]~device_configuration[2]+iar) {
+    file=../../build/lib/libstorage_efr32xg12_iar.a
+  }
+  precompiled(efr32~series[1]~device_configuration[3]+iar) {
+    file=../../build/lib/libstorage_efr32xg13_iar.a
+  }
+
+  options=storageBaseAddress
+
+  storageBaseAddress.name=Start address for bootload info
+  storageBaseAddress.description=Absolute start address for the "bootload info" meta-information about which storage slot to attempt firmware update from, in which order. Take care to ensure that any storage slots don't overlap with the location of bootload info.
+  storageBaseAddress.type=NUMBER
+  storageBaseAddress.default=0
+  storageBaseAddress.define=BTL_STORAGE_BASE_ADDRESS
+}
+
+plugin(token-management) {
+  name=Token Management
+  category=Utils
+  architecture=efr32~series[1],efm32~series[1]
+  description=Token management for cryptographic keys
+
+  root=security
+
+  providedApis=tokenManagement
+  # Common files
+  btl_security_tokens.c
+}
+
+plugin(uart-driver) {
+  name=UART
+  category=Drivers
+  architecture=efr32~series[1],efm32~series[1]
+  description=DMA-driven UART driver
+
+  root=../driver
+
+  providedApis=uartDriver
+  requiredApis=delayDriver
+
+  # Files that are released in source
+  btl_driver_uart.c
+
+  options=\
+  uart,\
+  baudrate,\
+  txPort,\
+  txPin,\
+  txLocation,\
+  rxPort,\
+  rxPin,\
+  rxLocation,\
+  useFc,\
+  ctsPort,\
+  ctsPin,\
+  ctsLocation,\
+  rtsPort,\
+  rtsPin,\
+  rtsLocation,\
+  useEn,\
+  enPort,\
+  enPin,\
+  rxBufferSize,\
+  txBufferSize,\
+  rxChannel,\
+  txChannel
+
+  uart.name=UART
+  uart.description=Which UART to use. 0 = USART0, etc
+  uart.type=NUMBER:0,1
+  uart.default=0
+  uart.define=BTL_DRIVER_UART_NUMBER
+
+  baudrate.name=Baud rate
+  baudrate.description=UART baud rate
+  baudrate.type=NUMBER
+  baudrate.default=115200
+  baudrate.define=BTL_DRIVER_UART_BAUDRATE
+
+  txPort.name=UART TX port
+  txPort.description=UART TX port
+  txPort.type=LIST:gpioPortA,gpioPortB,gpioPortC,gpioPortD,gpioPortE,gpioPortF
+  txPort.default=gpioPortA
+  txPort.define=BTL_DRIVER_UART_TX_PORT
+
+  txPin.name=UART TX pin number
+  txPin.description=UART TX pin number
+  txPin.type=NUMBER:0,15
+  txPin.default=0
+  txPin.define=BTL_DRIVER_UART_TX_PIN
+
+  txLocation.name=UART TX pin location
+  txLocation.description=UART TX pin location
+  txLocation.type=NUMBER:0,31
+  txLocation.default=0
+  txLocation.define=BTL_DRIVER_UART_TX_LOCATION
+
+  rxPort.name=UART RX port
+  rxPort.description=UART RX port
+  rxPort.type=LIST:gpioPortA,gpioPortB,gpioPortC,gpioPortD,gpioPortE,gpioPortF
+  rxPort.default=gpioPortA
+  rxPort.define=BTL_DRIVER_UART_RX_PORT
+
+  rxPin.name=UART RX pin number
+  rxPin.description=UART RX pin number
+  rxPin.type=NUMBER:0,15
+  rxPin.default=1
+  rxPin.define=BTL_DRIVER_UART_RX_PIN
+
+  rxLocation.name=UART RX pin location
+  rxLocation.description=UART RX pin location
+  rxLocation.type=NUMBER:0,31
+  rxLocation.default=0
+  rxLocation.define=BTL_DRIVER_UART_RX_LOCATION
+
+  useFc.name=Use hardware flow control
+  useFc.description=Enable hardware flow control (CTS/RTS)
+  useFc.type=BOOLEAN
+  useFc.default=false
+  useFc.define=BTL_DRIVER_UART_FC
+
+  ctsPort.name=UART CTS port
+  ctsPort.description=UART CTS port
+  ctsPort.type=LIST:gpioPortA,gpioPortB,gpioPortC,gpioPortD,gpioPortE,gpioPortF
+  ctsPort.default=gpioPortA
+  ctsPort.dependsOn=useFc
+  ctsPort.define=BTL_DRIVER_UART_CTS_PORT
+
+  ctsPin.name=UART CTS pin number
+  ctsPin.description=UART CTS pin number
+  ctsPin.type=NUMBER:0,15
+  ctsPin.default=2
+  ctsPin.dependsOn=useFc
+  ctsPin.define=BTL_DRIVER_UART_CTS_PIN
+
+  ctsLocation.name=UART CTS pin location
+  ctsLocation.description=UART CTS pin location
+  ctsLocation.type=NUMBER:0,31
+  ctsLocation.default=30
+  ctsLocation.dependsOn=useFc
+  ctsLocation.define=BTL_DRIVER_UART_CTS_LOCATION
+
+  rtsPort.name=UART RTS port
+  rtsPort.description=UART RTS port
+  rtsPort.type=LIST:gpioPortA,gpioPortB,gpioPortC,gpioPortD,gpioPortE,gpioPortF
+  rtsPort.default=gpioPortA
+  rtsPort.dependsOn=useFc
+  rtsPort.define=BTL_DRIVER_UART_RTS_PORT
+
+  rtsPin.name=UART RTS pin number
+  rtsPin.description=UART RTS pin number
+  rtsPin.type=NUMBER:0,15
+  rtsPin.default=3
+  rtsPin.dependsOn=useFc
+  rtsPin.define=BTL_DRIVER_UART_RTS_PIN
+
+  rtsLocation.name=UART RTS pin location
+  rtsLocation.description=UART RTS pin location
+  rtsLocation.type=NUMBER:0,31
+  rtsLocation.default=30
+  rtsLocation.dependsOn=useFc
+  rtsLocation.define=BTL_DRIVER_UART_RTS_LOCATION
+
+  useEn.name=Use enable pin
+  useEn.description=Use a GPIO pin to enable access to UART
+  useEn.type=BOOLEAN
+  # TODO: Set to false, override for all BRDs with VCOM_ENABLE pin
+  useEn.default=true
+  useEn.define=BTL_DRIVER_UART_USE_ENABLE
+
+  enPort.name=UART enable port
+  enPort.description=UART enable port
+  enPort.type=LIST:gpioPortA,gpioPortB,gpioPortC,gpioPortD,gpioPortE,gpioPortF
+  enPort.default=gpioPortA
+  enPort.dependsOn=useEn
+  enPort.define=BTL_DRIVER_UART_EN_PORT
+
+  enPin.name=UART enable pin
+  enPin.description=UART enable pin
+  enPin.type=NUMBER:0,15
+  enPin.default=5
+  enPin.dependsOn=useEn
+  enPin.define=BTL_DRIVER_UART_EN_PIN
+
+  rxBufferSize.name=RX buffer size
+  rxBufferSize.description=Size of RX buffer
+  rxBufferSize.type=NUMBER:0,2048
+  rxBufferSize.default=512
+  rxBufferSize.define=BTL_DRIVER_UART_RX_BUFFER_SIZE
+
+  txBufferSize.name=TX buffer size
+  txBufferSize.description=Size of TX buffer
+  txBufferSize.type=NUMBER:0,2048
+  txBufferSize.default=128
+  txBufferSize.define=BTL_DRIVER_UART_TX_BUFFER_SIZE
+
+  rxChannel.name=LDMA channel for UART RX
+  rxChannel.description=LDMA channel for UART RX
+  rxChannel.type=NUMBER:0,1
+  rxChannel.default=0
+  rxChannel.define=BTL_DRIVER_UART_LDMA_RX_CHANNEL
+
+  txChannel.name=LDMA channel for UART TX
+  txChannel.description=LDMA channel for UART TX
+  txChannel.type=NUMBER:0,1
+  txChannel.default=1
+  txChannel.define=BTL_DRIVER_UART_LDMA_TX_CHANNEL
+}

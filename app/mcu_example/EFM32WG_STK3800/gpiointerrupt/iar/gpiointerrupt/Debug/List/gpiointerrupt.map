@@ -1,0 +1,316 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.2.11947/W32 for ARM                09/Mar/2017  19:54:09
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\Exe\gpiointerrupt.out
+#    Map file     =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\List\gpiointerrupt.map
+#    Command line =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\Obj\bsp_bcc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\Obj\bsp_stk.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\Obj\bsp_stk_leds.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\Obj\bsp_trace.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\Obj\em_assert.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\Obj\em_cmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\Obj\em_core.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\Obj\em_ebi.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\Obj\em_emu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\Obj\em_gpio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\Obj\em_system.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\Obj\em_usart.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\Obj\gpiointerrupt.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\Obj\main.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\Obj\startup_efm32gg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\Obj\system_efm32gg.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\Exe\gpiointerrupt.out
+#        --map
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\List\gpiointerrupt.map
+#        --config
+#        T:\iar_ew_7802_win32_rel_1\arm\config\linker\SiliconLaboratories\EFM32GG990F1024.icf
+#        --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x000fffff] { ro };
+"P2":  place in [from 0x20000000 to 0x2001ffff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+ { section .intvec };
+
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A0":                                       0xdc
+  .intvec            ro code  0x00000000    0xdc  startup_efm32gg.o [1]
+                            - 0x000000dc    0xdc
+
+"P1":                                     0x1521
+  .text              ro code  0x000000dc   0x730  em_cmu.o [1]
+  .text              ro code  0x0000080c     0x2  em_assert.o [1]
+  .text              ro code  0x00000810   0x12c  system_efm32gg.o [1]
+  .text              ro code  0x0000093c   0x3fc  em_gpio.o [1]
+  .text              ro code  0x00000d38   0x11c  bsp_stk_leds.o [1]
+  .text              ro code  0x00000e54   0x114  bsp_trace.o [1]
+  .text              ro code  0x00000f68   0x104  main.o [1]
+  .text              ro code  0x0000106c    0x60  em_system.o [1]
+  .text              ro code  0x000010cc   0x100  gpiointerrupt.o [1]
+  .text              ro code  0x000011cc     0x8  em_core.o [1]
+  .text              ro code  0x000011d4     0x8  em_core.o [1]
+  .rodata            const    0x000011dc    0x8c  bsp_stk_leds.o [1]
+  .rodata            const    0x00001268    0x8c  em_cmu.o [1]
+  .rodata            const    0x000012f4    0x8c  em_gpio.o [1]
+  .rodata            const    0x00001380    0x4c  em_cmu.o [1]
+  .rodata            const    0x000013cc    0x4c  em_gpio.o [1]
+  .rodata            const    0x00001418    0x4c  em_system.o [1]
+  .text              ro code  0x00001464    0x38  packbits_init_single.o [4]
+  .text              ro code  0x0000149c    0x28  data_init.o [4]
+  .iar.init_table    const    0x000014c4    0x10  - Linker created -
+  .text              ro code  0x000014d4    0x1a  cmain.o [4]
+  .text              ro code  0x000014ee     0x4  low_level_init.o [3]
+  .text              ro code  0x000014f2     0x4  exit.o [3]
+  .text              ro code  0x000014f8     0xa  cexit.o [4]
+  .text              ro code  0x00001504     0xc  XXexit.o [4]
+  .rodata            const    0x00001510    0x10  bsp_stk_leds.o [1]
+  .text              ro code  0x00001520    0x10  startup_efm32gg.o [1]
+  .text              ro code  0x00001530     0xc  cstartup_M.o [4]
+  .text              ro code  0x0000153c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001540     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001544     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001548     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000154c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001550     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001554     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001558     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000155c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001560     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001564     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001568     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000156c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001570     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001574     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001578     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000157c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001580     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001584     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001588     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000158c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001590     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001594     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00001598     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000159c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015a0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015a4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015a8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015ac     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015b0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015b4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015b8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015bc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015c0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015c4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015c8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015cc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015d0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015d4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015d8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015dc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015e0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015e4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015e8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015ec     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000015f0     0x4  startup_efm32gg.o [1]
+  .rodata            const    0x000015f4     0x0  packbits_init_single.o [4]
+  Initializer bytes  const    0x000015f4     0x9  <for P2-1>
+                            - 0x000015fd  0x1521
+
+"P2", part 1 of 2:                          0x4c
+  P2-1                        0x20000000    0x4c  <Init block>
+    .data            inited   0x20000000     0x4  system_efm32gg.o [1]
+    .data            inited   0x20000004     0x4  system_efm32gg.o [1]
+    .bss             inited   0x20000008    0x40  gpiointerrupt.o [1]
+    .bss             inited   0x20000048     0x4  system_efm32gg.o [1]
+                            - 0x2000004c    0x4c
+
+"P2", part 2 of 2:                         0x400
+  CSTACK                      0x20000050   0x400  <Block>
+    CSTACK           uninit   0x20000050   0x400  <Block tail>
+                            - 0x20000450   0x400
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Copy/packbits (__iar_packbits_init_single3)
+    1 source range, total size 0x9 (11% of destination):
+          0x000015f4   0x9
+    1 destination range, total size 0x4c:
+          0x20000000  0x4c
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                  ro code  ro data  rw data
+    ------                  -------  -------  -------
+D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\Obj: [1]
+    bsp_stk_leds.o              284      156
+    bsp_trace.o                 276
+    em_assert.o                   2
+    em_cmu.o                  1 840      216
+    em_core.o                    16
+    em_gpio.o                 1 020      216
+    em_system.o                  96       76
+    gpiointerrupt.o             256        8       64
+    main.o                      260
+    startup_efm32gg.o           420
+    system_efm32gg.o            300        1       12
+    -------------------------------------------------
+    Total:                    4 770      673       76
+
+command line: [2]
+    -------------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    exit.o                        4
+    low_level_init.o              4
+    -------------------------------------------------
+    Total:                        8
+
+rt7M_tl.a: [4]
+    XXexit.o                     12
+    cexit.o                      10
+    cmain.o                      26
+    cstartup_M.o                 12
+    data_init.o                  40
+    packbits_init_single.o       56
+    -------------------------------------------------
+    Total:                      156
+
+    Gaps                          6
+    Linker created                        16    1 024
+-----------------------------------------------------
+    Grand Total:              4 940      689    1 100
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x000014c4          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x000014d4          --   Gb  - Linker created -
+?main                   0x000014d5         Code  Gb  cmain.o [4]
+BSP_LedToggle           0x00000e17   0x28  Code  Gb  bsp_stk_leds.o [1]
+BSP_LedsInit            0x00000ddf   0x38  Code  Gb  bsp_stk_leds.o [1]
+BSP_TraceProfilerSetup  0x00000f51   0x18  Code  Gb  bsp_trace.o [1]
+BSP_TraceSwoSetup       0x00000e55   0xac  Code  Gb  bsp_trace.o [1]
+BUS_RegBitRead          0x000000eb   0x10  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x000000dd    0xe  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x0000093d    0xe  Code  Lc  em_gpio.o [1]
+BUS_RegMaskedWrite      0x0000094b    0xa  Code  Lc  em_gpio.o [1]
+CHIP_Init               0x00000fa1   0x30  Code  Lc  main.o [1]
+CMU_ClockEnable         0x00000409   0xa6  Code  Gb  em_cmu.o [1]
+CMU_ClockFreqGet        0x000004c5  0x188  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectGet      0x00000689  0x134  Code  Gb  em_cmu.o [1]
+CMU_DivToLog2           0x000000fb   0x28  Code  Lc  em_cmu.o [1]
+CORE_EnterAtomic        0x000011cd    0x8  Code  Wk  em_core.o [1]
+CORE_ExitAtomic         0x000011d5    0x8  Code  Wk  em_core.o [1]
+CSTACK$$Base            0x20000050          --   Gb  - Linker created -
+CSTACK$$Limit           0x20000450          --   Gb  - Linker created -
+GPIOINT_CallbackRegister
+                        0x00001131   0x1c  Code  Gb  gpiointerrupt.o [1]
+GPIOINT_IRQDispatcher   0x0000114d   0x2e  Code  Lc  gpiointerrupt.o [1]
+GPIOINT_Init            0x00001115   0x1c  Code  Gb  gpiointerrupt.o [1]
+GPIO_EVEN_IRQHandler    0x00001195   0x1c  Code  Gb  gpiointerrupt.o [1]
+GPIO_ExtIntConfig       0x00000aa9  0x11c  Code  Gb  em_gpio.o [1]
+GPIO_IntClear           0x000010f5    0x6  Code  Lc  gpiointerrupt.o [1]
+GPIO_IntConfig          0x00000f73   0x2e  Code  Lc  main.o [1]
+GPIO_IntGetEnabled      0x000010fb    0xe  Code  Lc  gpiointerrupt.o [1]
+GPIO_ODD_IRQHandler     0x000011b1   0x1c  Code  Gb  gpiointerrupt.o [1]
+GPIO_PinModeSet         0x00000bc5  0x14e  Code  Gb  em_gpio.o [1]
+GPIO_PinOutClear        0x00000955   0xaa  Code  Lc  em_gpio.o [1]
+GPIO_PinOutSet          0x000009ff   0xaa  Code  Lc  em_gpio.o [1]
+GPIO_PinOutToggle       0x00000d39   0xa6  Code  Lc  bsp_stk_leds.o [1]
+GetProdRev              0x00000811    0xa  Code  Lc  system_efm32gg.o [1]
+NVIC_ClearPendingIRQ    0x000010e1   0x14  Code  Lc  gpiointerrupt.o [1]
+NVIC_EnableIRQ          0x000010cd   0x14  Code  Lc  gpiointerrupt.o [1]
+Region$$Table$$Base     0x000014c4          --   Gb  - Linker created -
+Region$$Table$$Limit    0x000014d4          --   Gb  - Linker created -
+SL_CTZ                  0x00001109    0xc  Code  Lc  gpiointerrupt.o [1]
+SYSTEM_ChipRevisionGet  0x0000106d   0x4a  Code  Gb  em_system.o [1]
+SYSTEM_GetFamily        0x0000012f    0xc  Code  Lc  em_cmu.o [1]
+SYSTEM_GetProdRev       0x00000123    0xc  Code  Lc  em_cmu.o [1]
+SYSTEM_GetProdRev       0x00000f69    0xa  Code  Lc  main.o [1]
+SystemCoreClock         0x20000048    0x4  Data  Gb  system_efm32gg.o [1]
+SystemCoreClockGet      0x0000081b   0x1a  Code  Gb  system_efm32gg.o [1]
+SystemHFClockGet        0x00000835   0xb2  Code  Gb  system_efm32gg.o [1]
+SystemHFXOClock         0x20000000    0x4  Data  Lc  system_efm32gg.o [1]
+SystemInit              0x000008e7    0x2  Code  Gb  system_efm32gg.o [1]
+SystemLFRCOClockGet     0x000008e9    0x6  Code  Gb  system_efm32gg.o [1]
+SystemLFXOClock         0x20000004    0x4  Data  Lc  system_efm32gg.o [1]
+SystemLFXOClockGet      0x000008f5    0x6  Code  Gb  system_efm32gg.o [1]
+SystemULFRCOClockGet    0x000008ef    0x6  Code  Gb  system_efm32gg.o [1]
+__Vectors               0x00000000          --   Gb  startup_efm32gg.o [1]
+__Vectors_End           0x000000dc         Data  Gb  startup_efm32gg.o [1]
+__Vectors_Size {Abs}    0x000000dc          --   Gb  startup_efm32gg.o [1]
+__cmain                 0x000014d5         Code  Gb  cmain.o [4]
+__exit                  0x00001505         Code  Gb  XXexit.o [4]
+__iar_data_init3        0x0000149d   0x28  Code  Gb  data_init.o [4]
+__iar_packbits_init_single3
+                        0x00001465   0x38  Code  Gb  packbits_init_single.o [4]
+__iar_program_start     0x00001531         Code  Gb  cstartup_M.o [4]
+__low_level_init        0x000014ef    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000         Data  Gb  startup_efm32gg.o [1]
+__vector_table_0x1c     0x0000001c         Data  Gb  startup_efm32gg.o [1]
+_call_main              0x000014e1         Code  Gb  cmain.o [4]
+_exit                   0x000014f9         Code  Gb  cexit.o [4]
+_main                   0x000014eb         Code  Gb  cmain.o [4]
+assertEFM               0x0000080d    0x2  Code  Gb  em_assert.o [1]
+auxClkGet               0x000001f1   0x94  Code  Lc  em_cmu.o [1]
+dbgClkGet               0x00000285   0x3c  Code  Lc  em_cmu.o [1]
+exit                    0x000014f3    0x4  Code  Gb  exit.o [3]
+getHfLeConfig           0x000001c5   0x2c  Code  Lc  em_cmu.o [1]
+gpioCallback            0x00000fd1   0x20  Code  Gb  main.o [1]
+gpioCallbacks           0x20000008   0x40  Data  Lc  gpiointerrupt.o [1]
+gpioSetup               0x00000ff1   0x58  Code  Gb  main.o [1]
+ledArray                0x00001510   0x10  Data  Lc  bsp_stk_leds.o [1]
+lfClkGet                0x000002c1   0xf4  Code  Lc  em_cmu.o [1]
+main                    0x00001059   0x14  Code  Gb  main.o [1]
+maxFreqHfle             0x0000013b   0x60  Code  Lc  em_cmu.o [1]
+setHfLeConfig           0x0000019b   0x2a  Code  Lc  em_cmu.o [1]
+syncReg                 0x000003b5   0x16  Code  Lc  em_cmu.o [1]
+usbCClkGet              0x000003cb   0x3e  Code  Lc  em_cmu.o [1]
+
+
+[1] = D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\gpiointerrupt\iar\gpiointerrupt\Debug\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = rt7M_tl.a
+
+  4 940 bytes of readonly  code memory
+    689 bytes of readonly  data memory
+  1 100 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

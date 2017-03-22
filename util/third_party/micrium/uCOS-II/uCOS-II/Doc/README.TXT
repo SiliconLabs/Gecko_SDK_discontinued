@@ -1,7 +1,7 @@
                          uC/OS-II, The Real-Time Kernel
                                 DISTRIBUTION
 
-                              Version  2.92.07
+                              Version  2.92.12
 
                                 READ ME FILE
 
@@ -10,15 +10,15 @@
 ******************************* LICENSING TERMS ******************************
 ******************************************************************************
 
-Even if µC/OS-II is provided in source form, µC/OS-II is NOT freeware NOR open 
-source software. You are NOT allowed to distribute the source code for µC/OS-II 
-without written consent from Micriµm.
+Even if uC/OS-II is provided in source form, uC/OS-II is NOT freeware NOR open
+source software. You are NOT allowed to distribute the source code for uC/OS-II
+without written consent from Micrium.
 
-You need to obtain an 'Object Code Distribution License' to embed µC/OS-II in 
-a product that is sold with the intent to make a profit or, if the product is 
-not used for education or 'peaceful' research. 
+You need to obtain an 'Object Code Distribution License' to embed uC/OS-II in
+a product that is sold with the intent to make a profit or, if the product is
+not used for education or 'peaceful' research.
 
-You need to contact Micriµm for licensing details.
+You need to contact Micrium for licensing details.
 
 ******************************************************************************
 ****************************** TABLE OF CONTENTS *****************************
@@ -28,19 +28,18 @@ You need to contact Micriµm for licensing details.
 2) Software Upgrades
 3) Release Notes
 
-/*$PAGE*/
 ******************************************************************************
 ***************************** REPORTING PROBLEMS *****************************
 ******************************************************************************
 
-    If  you find a problem (i.e. bug) in uC/OS-II, do not hesitate  to  report 
+    If  you find a problem (i.e. bug) in uC/OS-II, do not hesitate  to  report
 the problem to either:
 
  1) By email:
 
     support@micrium.com
 
- 
+
  2) By writing to us at:
 
         Micrium
@@ -55,23 +54,22 @@ the problem to either:
         (954) 217-2037, FAX
 
     Make sure that the problem you are  reporting is in  uC/OS-II and not your
-application.    If you in fact discover a bug in uC/OS-II, check the  uC/OS-II 
+application.    If you in fact discover a bug in uC/OS-II, check the  uC/OS-II
 web site for a list of known bugs and their fixes:
 
     www.Micrium.com
 
-    If you are  using  an  older  version,  you should  first  get the lastest
-version.  
+    If you are  using  an  older  version,  you should  first  get the latest
+version.
 
-/*$PAGE*/
 ******************************************************************************
 ****************************** SOFTWARE UPGRADES *****************************
 ******************************************************************************
 
     As you can see, I have been trying to support uC/OS (i.e. V1.xx) and  now,
-uC/OS-II.  When bugs are found, I do my best to promptly correct them.   It is 
-virtually  impossible  to notify  everybody that  purchased the code (i.e. the 
-diskette)  to  tell  them  that  a  new  version  is  available.    You should 
+uC/OS-II.  When bugs are found, I do my best to promptly correct them.   It is
+virtually  impossible  to notify  everybody that  purchased the code (i.e. the
+diskette)  to  tell  them  that  a  new  version  is  available.    You should
 occasionally check the uC/OS-II WEB site (www.ucos-ii.com) or the  Micrium web
 site (www.Micrium.com) to see what version is currently shipping.
 
@@ -81,7 +79,6 @@ uC/OS-II.
     I  would  highly  suggest that you resist changing the  STYLE  of the code
 unless you don't mind spending many hours doing so everytime you upgrade.
 
-/*$PAGE*/
 ******************************************************************************
 ********************************  RELEASE NOTES  *****************************
 ******************************************************************************
@@ -102,7 +99,7 @@ unless you don't mind spending many hours doing so everytime you upgrade.
 
 3) QUICK REFERENCE CHART:
 ------------------------
-   A Quick Reference Chart for all the functions in V2.9x is provided in the 
+   A Quick Reference Chart for all the functions in V2.9x is provided in the
    following .PDF files:
 
     \Micrium\Software\uCOS-II\Doc\QuickRefChart-Color.PDF
@@ -112,10 +109,10 @@ unless you don't mind spending many hours doing so everytime you upgrade.
 
 4) REFERENCE AND CONFIGURATION MANUALS:
 --------------------------------------
-   The updated Reference and Configuration Manual (Chapter 16 and 17 in the 
-   MicroC/OS-II 2nd Edition book) have been included in .PDF format in this 
+   The updated Reference and Configuration Manual (Chapter 16 and 17 in the
+   MicroC/OS-II 2nd Edition book) have been included in .PDF format in this
    distribution.  These documents are found in:
 
     \Micrium\Software\uCOS-II\Doc\uCOS-II-RefMan.PDF   (Chapter 16)
     \Micrium\Software\uCOS-II\Doc\uCOS-II-CfgMan.PDF   (Chapter 17)
-   
+

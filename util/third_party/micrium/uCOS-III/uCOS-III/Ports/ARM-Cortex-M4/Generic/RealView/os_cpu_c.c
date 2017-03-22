@@ -4,23 +4,24 @@
 *                                          The Real-Time Kernel
 *
 *
-*                           (c) Copyright 2009-2010; Micrium, Inc.; Weston, FL
+*                         (c) Copyright 2009-2016; Micrium, Inc.; Weston, FL
 *                    All rights reserved.  Protected by international copyright laws.
 *
 *                                           ARM Cortex-M4 Port
 *
 * File      : OS_CPU_C.C
-* Version   : V3.01.2
+* Version   : V3.06.00
 * By        : JJL
 *             BAN
+*             JBL
 *
 * LICENSING TERMS:
 * ---------------
-*           uC/OS-III is provided in source form for FREE short-term evaluation, for educational use or 
+*           uC/OS-III is provided in source form for FREE short-term evaluation, for educational use or
 *           for peaceful research.  If you plan or intend to use uC/OS-III in a commercial application/
-*           product then, you need to contact Micrium to properly license uC/OS-III for its use in your 
-*           application/product.   We provide ALL the source code for your convenience and to help you 
-*           experience uC/OS-III.  The fact that the source is provided does NOT mean that you can use 
+*           product then, you need to contact Micrium to properly license uC/OS-III for its use in your
+*           application/product.   We provide ALL the source code for your convenience and to help you
+*           experience uC/OS-III.  The fact that the source is provided does NOT mean that you can use
 *           it commercially without paying a licensing fee.
 *
 *           Knowledge of the source code may NOT be used to develop a similar product.
@@ -28,11 +29,24 @@
 *           Please help us continue to provide the embedded community with the finest software available.
 *           Your honesty is greatly appreciated.
 *
-*           You can contact us at www.micrium.com, or by phone at +1 (954) 217-2036.
+*           You can find our product's user manual, API reference, release notes and
+*           more information at https://doc.micrium.com.
+*           You can contact us at www.micrium.com.
 *
 * For       : ARMv7 Cortex-M4
 * Mode      : Thumb-2 ISA
 * Toolchain : RealView
+*********************************************************************************************************
+*/
+
+/*
+*********************************************************************************************************
+*********************************************************************************************************
+*                               WARNING - DEPRECATION NOTICE - WARNING
+* June 2016
+* This file is part of a deprecated port and will be removed in a future release.
+* The functionalities of this port were replaced by the generic ARM-Cortex-M port.
+*********************************************************************************************************
 *********************************************************************************************************
 */
 
@@ -42,14 +56,20 @@
 const  CPU_CHAR  *os_cpu_c__c = "$Id: $";
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                             INCLUDE FILES
 *********************************************************************************************************
 */
 
-#include  <os.h>
+#include  "../../../../Source/os.h"
+
+
+#ifdef __cplusplus
+extern  "C" {
+#endif
+
 
 /*
 *********************************************************************************************************
@@ -74,7 +94,6 @@ void  OSIdleTaskHook (void)
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                       OS INITIALIZATION HOOK
@@ -89,13 +108,40 @@ void  OSIdleTaskHook (void)
 
 void  OSInitHook (void)
 {
-                                                                    /* 8-byte align the ISR stack.                            */    
+                                                                    /* 8-byte align the ISR stack.                            */
     OS_CPU_ExceptStkBase = (CPU_STK *)(OSCfg_ISRStkBasePtr + OSCfg_ISRStkSize);
     OS_CPU_ExceptStkBase = (CPU_STK *)((CPU_STK)(OS_CPU_ExceptStkBase) & 0xFFFFFFF8);
 }
 
 
-/*$PAGE*/
+/*
+*********************************************************************************************************
+*                                           REDZONE HIT HOOK
+*
+* Description: This function is called when a task's stack overflowed.
+*
+* Arguments  : p_tcb        Pointer to the task control block of the offending task. NULL if ISR.
+*
+* Note(s)    : None.
+*********************************************************************************************************
+*/
+#if (OS_CFG_TASK_STK_REDZONE_EN == DEF_ENABLED)
+void  OSRedzoneHitHook (OS_TCB  *p_tcb)
+{
+#if OS_CFG_APP_HOOKS_EN > 0u
+    if (OS_AppRedzoneHitHookPtr != (OS_APP_HOOK_TCB)0) {
+        (*OS_AppRedzoneHitHookPtr)(p_tcb);
+    } else {
+        CPU_SW_EXCEPTION(;);
+    }
+#else
+    (void)p_tcb;                                                /* Prevent compiler warning                             */
+    CPU_SW_EXCEPTION(;);
+#endif
+}
+#endif
+
+
 /*
 *********************************************************************************************************
 *                                         STATISTIC TASK HOOK
@@ -119,7 +165,6 @@ void  OSStatTaskHook (void)
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                          TASK CREATION HOOK
@@ -144,7 +189,6 @@ void  OSTaskCreateHook (OS_TCB  *p_tcb)
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                           TASK DELETION HOOK
@@ -169,7 +213,6 @@ void  OSTaskDelHook (OS_TCB  *p_tcb)
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                            TASK RETURN HOOK
@@ -195,7 +238,6 @@ void  OSTaskReturnHook (OS_TCB  *p_tcb)
 }
 
 
-/*$PAGE*/
 /*
 **********************************************************************************************************
 *                                       INITIALIZE A TASK'S STACK
@@ -231,38 +273,76 @@ CPU_STK  *OSTaskStkInit (OS_TASK_PTR    p_task,
                          CPU_STK_SIZE   stk_size,
                          OS_OPT         opt)
 {
-    CPU_STK  *p_stk;
+    CPU_STK    *p_stk;
 
 
-    (void)opt;                                              /* Prevent compiler warning                               */
+    (void)opt;                                                  /* Prevent compiler warning                               */
 
-    p_stk = &p_stk_base[stk_size];                          /* Load stack pointer                                     */
+    p_stk = &p_stk_base[stk_size];                              /* Load stack pointer                                     */
                                                                 /* Align the stack to 8-bytes.                            */
     p_stk = (CPU_STK *)((CPU_STK)(p_stk) & 0xFFFFFFF8);
-                                                            /* Registers stacked as if auto-saved on exception        */
-    *--p_stk = (CPU_STK)0x01000000u;                        /* xPSR                                                   */
-    *--p_stk = (CPU_STK)p_task;                             /* Entry Point                                            */
-    *--p_stk = (CPU_STK)OS_TaskReturn;                      /* R14 (LR)                                               */
-    *--p_stk = (CPU_STK)0x12121212u;                        /* R12                                                    */
-    *--p_stk = (CPU_STK)0x03030303u;                        /* R3                                                     */
-    *--p_stk = (CPU_STK)0x02020202u;                        /* R2                                                     */
-    *--p_stk = (CPU_STK)p_stk_limit;                        /* R1                                                     */
-    *--p_stk = (CPU_STK)p_arg;                              /* R0 : argument                                          */
-                                                            /* Remaining registers saved on process stack             */
-    *--p_stk = (CPU_STK)0x11111111u;                        /* R11                                                    */
-    *--p_stk = (CPU_STK)0x10101010u;                        /* R10                                                    */
-    *--p_stk = (CPU_STK)0x09090909u;                        /* R9                                                     */
-    *--p_stk = (CPU_STK)0x08080808u;                        /* R8                                                     */
-    *--p_stk = (CPU_STK)0x07070707u;                        /* R7                                                     */
-    *--p_stk = (CPU_STK)0x06060606u;                        /* R6                                                     */
-    *--p_stk = (CPU_STK)0x05050505u;                        /* R5                                                     */
-    *--p_stk = (CPU_STK)0x04040404u;                        /* R4                                                     */
+                                                                /* Registers stacked as if auto-saved on exception        */
+    *--p_stk = (CPU_STK)0x01000000u;                            /* xPSR                                                   */
+    *--p_stk = (CPU_STK)p_task;                                 /* Entry Point                                            */
+    *--p_stk = (CPU_STK)OS_TaskReturn;                          /* R14 (LR)                                               */
+    *--p_stk = (CPU_STK)0x12121212u;                            /* R12                                                    */
+    *--p_stk = (CPU_STK)0x03030303u;                            /* R3                                                     */
+    *--p_stk = (CPU_STK)0x02020202u;                            /* R2                                                     */
+    *--p_stk = (CPU_STK)p_stk_limit;                            /* R1                                                     */
+    *--p_stk = (CPU_STK)p_arg;                                  /* R0 : argument                                          */
+                                                                /* Remaining registers saved on process stack             */
+    *--p_stk = (CPU_STK)0x11111111u;                            /* R11                                                    */
+    *--p_stk = (CPU_STK)0x10101010u;                            /* R10                                                    */
+    *--p_stk = (CPU_STK)0x09090909u;                            /* R9                                                     */
+    *--p_stk = (CPU_STK)0x08080808u;                            /* R8                                                     */
+    *--p_stk = (CPU_STK)0x07070707u;                            /* R7                                                     */
+    *--p_stk = (CPU_STK)0x06060606u;                            /* R6                                                     */
+    *--p_stk = (CPU_STK)0x05050505u;                            /* R5                                                     */
+    *--p_stk = (CPU_STK)0x04040404u;                            /* R4                                                     */
+
+#if (OS_CPU_ARM_FP_EN == DEF_ENABLED)
+    if ((opt & OS_OPT_TASK_SAVE_FP) != (OS_OPT)0) {
+        *--p_stk = (CPU_STK)0x02000000u;                        /* FPSCR                                                  */
+                                                                /* Initialize S0-S31 floating point registers             */
+        *--p_stk = (CPU_STK)0x41F80000u;                        /* S31                                                    */
+        *--p_stk = (CPU_STK)0x41F00000u;                        /* S30                                                    */
+        *--p_stk = (CPU_STK)0x41E80000u;                        /* S29                                                    */
+        *--p_stk = (CPU_STK)0x41E00000u;                        /* S28                                                    */
+        *--p_stk = (CPU_STK)0x41D80000u;                        /* S27                                                    */
+        *--p_stk = (CPU_STK)0x41D00000u;                        /* S26                                                    */
+        *--p_stk = (CPU_STK)0x41C80000u;                        /* S25                                                    */
+        *--p_stk = (CPU_STK)0x41C00000u;                        /* S24                                                    */
+        *--p_stk = (CPU_STK)0x41B80000u;                        /* S23                                                    */
+        *--p_stk = (CPU_STK)0x41B00000u;                        /* S22                                                    */
+        *--p_stk = (CPU_STK)0x41A80000u;                        /* S21                                                    */
+        *--p_stk = (CPU_STK)0x41A00000u;                        /* S20                                                    */
+        *--p_stk = (CPU_STK)0x41980000u;                        /* S19                                                    */
+        *--p_stk = (CPU_STK)0x41900000u;                        /* S18                                                    */
+        *--p_stk = (CPU_STK)0x41880000u;                        /* S17                                                    */
+        *--p_stk = (CPU_STK)0x41800000u;                        /* S16                                                    */
+        *--p_stk = (CPU_STK)0x41700000u;                        /* S15                                                    */
+        *--p_stk = (CPU_STK)0x41600000u;                        /* S14                                                    */
+        *--p_stk = (CPU_STK)0x41500000u;                        /* S13                                                    */
+        *--p_stk = (CPU_STK)0x41400000u;                        /* S12                                                    */
+        *--p_stk = (CPU_STK)0x41300000u;                        /* S11                                                    */
+        *--p_stk = (CPU_STK)0x41200000u;                        /* S10                                                    */
+        *--p_stk = (CPU_STK)0x41100000u;                        /* S9                                                     */
+        *--p_stk = (CPU_STK)0x41000000u;                        /* S8                                                     */
+        *--p_stk = (CPU_STK)0x40E00000u;                        /* S7                                                     */
+        *--p_stk = (CPU_STK)0x40C00000u;                        /* S6                                                     */
+        *--p_stk = (CPU_STK)0x40A00000u;                        /* S5                                                     */
+        *--p_stk = (CPU_STK)0x40800000u;                        /* S4                                                     */
+        *--p_stk = (CPU_STK)0x40400000u;                        /* S3                                                     */
+        *--p_stk = (CPU_STK)0x40000000u;                        /* S2                                                     */
+        *--p_stk = (CPU_STK)0x3F800000u;                        /* S1                                                     */
+        *--p_stk = (CPU_STK)0x00000000u;                        /* S0                                                     */
+    }
+#endif
 
     return (p_stk);
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                           TASK SWITCH HOOK
@@ -287,14 +367,27 @@ void  OSTaskSwHook (void)
 #ifdef  CPU_CFG_INT_DIS_MEAS_EN
     CPU_TS  int_dis_time;
 #endif
+#if (OS_CFG_TASK_STK_REDZONE_EN == DEF_ENABLED)
+    CPU_BOOLEAN  stk_status;
+#endif
 
+#if (OS_CPU_ARM_FP_EN == DEF_ENABLED)
+    if ((OSTCBCurPtr->Opt & OS_OPT_TASK_SAVE_FP) != (OS_OPT)0) {
+        OS_CPU_FP_Reg_Push(OSTCBCurPtr->StkPtr);
+    }
 
+    if ((OSTCBHighRdyPtr->Opt & OS_OPT_TASK_SAVE_FP) != (OS_OPT)0) {
+        OS_CPU_FP_Reg_Pop(OSTCBHighRdyPtr->StkPtr);
+    }
+#endif
 
 #if OS_CFG_APP_HOOKS_EN > 0u
     if (OS_AppTaskSwHookPtr != (OS_APP_HOOK_VOID)0) {
         (*OS_AppTaskSwHookPtr)();
     }
 #endif
+
+    OS_TRACE_TASK_SWITCHED_IN(OSTCBHighRdyPtr);
 
 #if OS_CFG_TASK_PROFILE_EN > 0u
     ts = OS_TS_GET();
@@ -307,23 +400,30 @@ void  OSTaskSwHook (void)
 #endif
 
 #ifdef  CPU_CFG_INT_DIS_MEAS_EN
-    int_dis_time = CPU_IntDisMeasMaxCurReset();             /* Keep track of per-task interrupt disable time          */
+    int_dis_time = CPU_IntDisMeasMaxCurReset();                 /* Keep track of per-task interrupt disable time        */
     if (OSTCBCurPtr->IntDisTimeMax < int_dis_time) {
         OSTCBCurPtr->IntDisTimeMax = int_dis_time;
     }
 #endif
 
 #if OS_CFG_SCHED_LOCK_TIME_MEAS_EN > 0u
-                                                            /* Keep track of per-task scheduler lock time             */
+                                                                /* Keep track of per-task scheduler lock time           */
     if (OSTCBCurPtr->SchedLockTimeMax < OSSchedLockTimeMaxCur) {
         OSTCBCurPtr->SchedLockTimeMax = OSSchedLockTimeMaxCur;
     }
-    OSSchedLockTimeMaxCur = (CPU_TS)0;                      /* Reset the per-task value                               */
+    OSSchedLockTimeMaxCur = (CPU_TS)0;                          /* Reset the per-task value                             */
+#endif
+
+#if (OS_CFG_TASK_STK_REDZONE_EN == DEF_ENABLED)
+                                                                /* Check if stack overflowed.                           */
+    stk_status = OSTaskStkRedzoneChk(DEF_NULL);
+    if (stk_status != DEF_OK) {
+        OSRedzoneHitHook(OSTCBCurPtr);
+    }
 #endif
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                              TICK HOOK
@@ -346,7 +446,6 @@ void  OSTimeTickHook (void)
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                          SYS TICK HANDLER
@@ -375,7 +474,6 @@ void  OS_CPU_SysTickHandler (void)
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                         INITIALIZE SYS TICK
@@ -409,3 +507,6 @@ void  OS_CPU_SysTickInit (CPU_INT32U  cnts)
     CPU_REG_NVIC_ST_CTRL  |= CPU_REG_NVIC_ST_CTRL_TICKINT;
 }
 
+#ifdef __cplusplus
+}
+#endif

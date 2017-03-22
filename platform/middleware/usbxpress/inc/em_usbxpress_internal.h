@@ -2,7 +2,7 @@
  * @file    em_usbxpress_internal.h
  * @brief   Primary header file. Contains internal global declarations and
  *          definitions.
- * @version 5.0
+ * @version 5.1.2
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>

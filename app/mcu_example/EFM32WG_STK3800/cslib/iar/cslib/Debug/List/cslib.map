@@ -1,0 +1,768 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.2.11947/W32 for ARM                09/Mar/2017  19:53:26
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Exe\cslib.out
+#    Map file     =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\List\cslib.map
+#    Command line =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\bsp_bcc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\bsp_stk.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\bsp_stk_leds.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\bsp_trace.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\comm_routines.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\cslib_config.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\device_init.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\em_acmp.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\em_assert.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\em_cmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\em_core.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\em_ebi.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\em_emu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\em_gpio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\em_lesense.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\em_leuart.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\em_rtc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\em_system.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\em_usart.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\em_vcmp.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\hardware_config.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\hardware_routines.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\low_power_config.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\main.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\profiler_interface.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\retargetio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\retargetvirtual.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\rtcdriver.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\sensor_descriptors.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\startup_efm32gg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj\system_efm32gg.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Exe\cslib.out
+#        --map
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\List\cslib.map
+#        --config
+#        T:\iar_ew_7802_win32_rel_1\arm\config\linker\SiliconLaboratories\EFM32GG990F1024.icf
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\..\..\..\..\..\platform\middleware\cslib\lib\libCSLIB_M3_4_iar.a
+#        --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x000fffff] { ro };
+"P2":  place in [from 0x20000000 to 0x2001ffff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+ { section .intvec };
+
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A0":                                       0xdc
+  .intvec            ro code  0x00000000    0xdc  startup_efm32gg.o [1]
+                            - 0x000000dc    0xdc
+
+"P1":                                     0x57b8
+  .text              ro code  0x000000dc   0xde4  em_cmu.o [1]
+  .text              ro code  0x00000ec0     0x2  em_assert.o [1]
+  .text              ro code  0x00000ec4   0x138  system_efm32gg.o [1]
+  .text              ro code  0x00000ffc   0xdd2  xprintffull.o [3]
+  .text              ro code  0x00001dd0    0x16  strchr.o [6]
+  .text              ro code  0x00001de8    0x36  strlen.o [6]
+  .text              ro code  0x00001e20    0x58  memchr.o [6]
+  .text              ro code  0x00001e78    0xee  I64DivMod.o [6]
+  .text              ro code  0x00001f68    0x76  ABImemcpy_unaligned.o [6]
+  .text              ro code  0x00001fde    0x44  xdnorm.o [5]
+  .text              ro code  0x00002024    0x2e  DblCmpLe.o [5]
+  .text              ro code  0x00002054    0x2e  DblCmpGe.o [5]
+  .text              ro code  0x00002084   0x10c  xdscale.o [5]
+  .text              ro code  0x00002190    0x58  DblToI32.o [5]
+  .text              ro code  0x000021e8    0x30  I32ToDbl.o [5]
+  .text              ro code  0x00002218   0x180  DblSub.o [5]
+  .text              ro code  0x00002398   0x1a2  DblMul.o [5]
+  .text              ro code  0x0000253c   0x256  DblDiv.o [5]
+  .text              ro code  0x00002792     0xe  div.o [3]
+  .text              ro code  0x000027a0     0x2  I64DivZer.o [6]
+  .text              ro code  0x000027a4    0xd4  DblAdd.o [5]
+  .text              ro code  0x00002878   0x63c  em_lesense.o [1]
+  .text              ro code  0x00002eb4   0x510  rtcdriver.o [1]
+  .text              ro code  0x000033c4     0x8  em_core.o [1]
+  .text              ro code  0x000033cc     0x8  em_core.o [1]
+  .text              ro code  0x000033d4    0xd0  em_rtc.o [1]
+  .text              ro code  0x000034a4    0x66  ABImemset.o [6]
+  .text              ro code  0x0000350c   0x406  hardware_routines.o [1]
+  .text              ro code  0x00003914   0x36c  em_gpio.o [1]
+  .text              ro code  0x00003c80    0xe4  em_acmp.o [1]
+  .text              ro code  0x00003d64   0x1d0  em_emu.o [1]
+  .text              ro code  0x00003f34   0x25c  em_usart.o [1]
+  .rodata            const    0x00004190   0x200  hardware_routines.o [1]
+  .rodata            const    0x00004390   0x200  hardware_routines.o [1]
+  .text              ro code  0x00004590   0x1bc  retargetvirtual.o [1]
+  .text              ro code  0x0000474c   0x188  profiler_interface.o [1]
+  .text              ro code  0x000048d4    0x24  printf.o [3]
+  .text              ro code  0x000048f8   0x170  sensor_node_routines.o [4]
+  .text              ro code  0x00004a68    0x7c  comm_routines.o [1]
+  .text              ro code  0x00004ae4    0x3c  sensor_descriptors.o [1]
+  .text              ro code  0x00004b20   0x104  threshold_routines.o [4]
+  .text              ro code  0x00004c24    0xec  low_power_routines.o [4]
+  .text              ro code  0x00004d10    0x3a  low_power_config.o [1]
+  .text              ro code  0x00004d4c    0x7c  master_algorithm_config.o [4]
+  .text              ro code  0x00004dc8    0x80  baseline_routines.o [4]
+  .text              ro code  0x00004e48    0x24  data_shaping_routines.o [4]
+  .text              ro code  0x00004e6c    0x98  noise_routines.o [4]
+  .text              ro code  0x00004f04    0x34  scanning_routines.o [4]
+  .text              ro code  0x00004f38    0x58  data_processing.o [4]
+  .text              ro code  0x00004f90    0xc4  exponential_averaging.o [4]
+  .rodata            const    0x00005054    0x84  em_cmu.o [1]
+  .rodata            const    0x000050d8    0x84  em_gpio.o [1]
+  .text              ro code  0x0000515c    0x68  main.o [1]
+  .text              ro code  0x000051c4    0x60  em_system.o [1]
+  .text              ro code  0x00005224    0x58  device_init.o [1]
+  .text              ro code  0x0000527c    0x56  retargetio.o [1]
+  .rodata            const    0x000052d4    0x50  em_lesense.o [1]
+  .rodata            const    0x00005324    0x4c  em_acmp.o [1]
+  .rodata            const    0x00005370    0x4c  em_cmu.o [1]
+  .rodata            const    0x000053bc    0x4c  em_gpio.o [1]
+  .rodata            const    0x00005408    0x4c  em_rtc.o [1]
+  .rodata            const    0x00005454    0x4c  em_system.o [1]
+  .rodata            const    0x000054a0    0x4c  em_usart.o [1]
+  .rodata            const    0x000054ec    0x48  profiler_interface.o [1]
+  .rodata            const    0x00005534    0x40  hardware_routines.o [1]
+  .text              ro code  0x00005574    0x40  zero_init3.o [6]
+  .text              ro code  0x000055b4    0x2c  copy_init3.o [6]
+  .text              ro code  0x000055e0    0x28  putchar.o [3]
+  .text              ro code  0x00005608    0x28  data_init.o [6]
+  Initializer bytes  const    0x00005630    0x24  <for P2-1>
+  .iar.init_table    const    0x00005654    0x24  - Linker created -
+  .text              ro code  0x00005678    0x1a  cmain.o [6]
+  .text              ro code  0x00005692     0x4  low_level_init.o [3]
+  .text              ro code  0x00005696     0x4  exit.o [3]
+  .text              ro code  0x0000569c     0xa  cexit.o [6]
+  .text              ro code  0x000056a8     0xc  XXexit.o [6]
+  .rodata            const    0x000056b4    0x18  retargetvirtual.o [1]
+  .rodata            const    0x000056cc    0x18  sensor_descriptors.o [1]
+  .text              ro code  0x000056e4    0x16  xprout.o [3]
+  .rodata            const    0x000056fc    0x14  hardware_routines.o [1]
+  .rodata            const    0x00005710    0x10  hardware_config.o [1]
+  .rodata            const    0x00005720    0x10  hardware_routines.o [1]
+  .text              ro code  0x00005730    0x10  startup_efm32gg.o [1]
+  .rodata            const    0x00005740     0xc  comm_routines.o [1]
+  .rodata            const    0x0000574c     0xc  profiler_interface.o [1]
+  .rodata            const    0x00005758     0xc  profiler_interface.o [1]
+  .rodata            const    0x00005764     0xc  profiler_interface.o [1]
+  .rodata            const    0x00005770     0xc  profiler_interface.o [1]
+  .text              ro code  0x0000577c     0xc  cstartup_M.o [6]
+  .rodata            const    0x00005788     0x8  comm_routines.o [1]
+  .rodata            const    0x00005790     0x8  profiler_interface.o [1]
+  .rodata            const    0x00005798     0x8  profiler_interface.o [1]
+  .rodata            const    0x000057a0     0x8  profiler_interface.o [1]
+  .rodata            const    0x000057a8     0x8  profiler_interface.o [1]
+  .rodata            const    0x000057b0     0x8  sensor_descriptors.o [1]
+  .rodata            const    0x000057b8     0x4  hardware_config.o [1]
+  .rodata            const    0x000057bc     0x4  hardware_config.o [1]
+  .rodata            const    0x000057c0     0x4  hardware_config.o [1]
+  .rodata            const    0x000057c4     0x4  hardware_config.o [1]
+  .rodata            const    0x000057c8     0x4  profiler_interface.o [1]
+  .rodata            const    0x000057cc     0x4  rtcdriver.o [1]
+  .rodata            const    0x000057d0     0x4  sensor_descriptors.o [1]
+  .rodata            const    0x000057d4     0x4  sensor_descriptors.o [1]
+  .rodata            const    0x000057d8     0x4  sensor_descriptors.o [1]
+  .rodata            const    0x000057dc     0x4  sensor_descriptors.o [1]
+  .text              ro code  0x000057e0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000057e4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000057e8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000057ec     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000057f0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000057f4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000057f8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000057fc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005800     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005804     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005808     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000580c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005810     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005814     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005818     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000581c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005820     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005824     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005828     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000582c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005830     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005834     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005838     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000583c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005840     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005844     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005848     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000584c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005850     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005854     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005858     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000585c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005860     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005864     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005868     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000586c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005870     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005874     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005878     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000587c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005880     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005884     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005888     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000588c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00005890     0x4  startup_efm32gg.o [1]
+  .rodata            const    0x00005894     0x0  zero_init3.o [6]
+  .rodata            const    0x00005894     0x0  copy_init3.o [6]
+                            - 0x00005894  0x57b8
+
+"P2", part 1 of 3:                          0x24
+  P2-1                        0x20000000    0x21  <Init block>
+    .data            inited   0x20000000    0x10  sensor_descriptors.o [1]
+    .data            inited   0x20000010     0x4  system_efm32gg.o [1]
+    .data            inited   0x20000014     0x4  system_efm32gg.o [1]
+    .data            inited   0x20000018     0x2  cslib_config.o [1]
+    .data            inited   0x2000001a     0x1  cslib_config.o [1]
+    .data            inited   0x2000001b     0x1  cslib_config.o [1]
+    .data            inited   0x2000001c     0x1  cslib_config.o [1]
+    .data            inited   0x2000001d     0x1  cslib_config.o [1]
+    .data            inited   0x2000001e     0x1  cslib_config.o [1]
+    .data            inited   0x2000001f     0x1  hardware_routines.o [1]
+    .data            inited   0x20000020     0x1  profiler_interface.o [1]
+                            - 0x20000021    0x21
+
+"P2", part 2 of 3:                         0x400
+  CSTACK                      0x20000028   0x400  <Block>
+    CSTACK           uninit   0x20000028   0x400  <Block tail>
+                            - 0x20000428   0x400
+
+"P2", part 3 of 3:                          0xe0
+  .bss               zero     0x20000428    0x40  cslib_config.o [1]
+  .bss               zero     0x20000468    0x28  rtcdriver.o [1]
+  .bss               zero     0x20000490    0x10  hardware_routines.o [1]
+  .bss               zero     0x200004a0     0xc  noise_routines.o [4]
+  .bss               zero     0x200004ac     0x8  hardware_config.o [1]
+  .bss               zero     0x200004b4     0x8  hardware_config.o [1]
+  .bss               zero     0x200004bc     0x8  hardware_routines.o [1]
+  .bss               zero     0x200004c4     0x8  retargetvirtual.o [1]
+  .bss               zero     0x200004cc     0x4  em_emu.o [1]
+  .bss               zero     0x200004d0     0x4  hardware_routines.o [1]
+  .bss               zero     0x200004d4     0x4  hardware_routines.o [1]
+  .bss               zero     0x200004d8     0x4  hardware_routines.o [1]
+  .bss               zero     0x200004dc     0x4  retargetvirtual.o [1]
+  .bss               zero     0x200004e0     0x4  retargetvirtual.o [1]
+  .bss               zero     0x200004e4     0x4  retargetvirtual.o [1]
+  .bss               zero     0x200004e8     0x4  rtcdriver.o [1]
+  .bss               zero     0x200004ec     0x4  rtcdriver.o [1]
+  .bss               zero     0x200004f0     0x4  system_efm32gg.o [1]
+  .bss               zero     0x200004f4     0x4  scanning_routines.o [4]
+  .bss               zero     0x200004f8     0x4  low_power_routines.o [4]
+  .bss               zero     0x200004fc     0x1  em_emu.o [1]
+  .bss               zero     0x200004fd     0x1  hardware_routines.o [1]
+  .bss               zero     0x200004fe     0x1  low_power_config.o [1]
+  .bss               zero     0x200004ff     0x1  retargetvirtual.o [1]
+  .bss               zero     0x20000500     0x1  retargetvirtual.o [1]
+  .bss               zero     0x20000501     0x1  rtcdriver.o [1]
+  .bss               zero     0x20000502     0x1  rtcdriver.o [1]
+  .bss               zero     0x20000503     0x1  rtcdriver.o [1]
+  .bss               zero     0x20000504     0x1  exponential_averaging.o [4]
+  .bss               zero     0x20000505     0x1  filter_config.o [4]
+                            - 0x20000506    0xde
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0xde:
+          0x20000428  0xde
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0x24 (109% of destination):
+          0x00005630  0x24
+    1 destination range, total size 0x21:
+          0x20000000  0x21
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                     ro code  ro data  rw data
+    ------                     -------  -------  -------
+D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj: [1]
+    comm_routines.o                124       20
+    cslib_config.o                            7       71
+    device_init.o                   88
+    em_acmp.o                      228       76
+    em_assert.o                      2
+    em_cmu.o                     3 556      208
+    em_core.o                       16
+    em_emu.o                       464                 5
+    em_gpio.o                      876      208
+    em_lesense.o                 1 596       80
+    em_rtc.o                       208       76
+    em_system.o                     96       76
+    em_usart.o                     604       76
+    hardware_config.o                        32       16
+    hardware_routines.o          1 030    1 125       38
+    low_power_config.o              58                 1
+    main.o                         104
+    profiler_interface.o           392      157        1
+    retargetio.o                    86
+    retargetvirtual.o              444       24       22
+    rtcdriver.o                  1 296        4       51
+    sensor_descriptors.o            60       64       16
+    startup_efm32gg.o              416
+    system_efm32gg.o               312        8       12
+    ----------------------------------------------------
+    Total:                      12 056    2 241      233
+
+command line: [2]
+    ----------------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    div.o                           14
+    exit.o                           4
+    low_level_init.o                 4
+    printf.o                        36
+    putchar.o                       40
+    xprintffull.o                3 538
+    xprout.o                        22
+    ----------------------------------------------------
+    Total:                       3 658
+
+libCSLIB_M3_4_iar.a: [4]
+    baseline_routines.o            128
+    data_processing.o               88
+    data_shaping_routines.o         36
+    exponential_averaging.o        196                 1
+    filter_config.o                                    1
+    low_power_routines.o           236                 4
+    master_algorithm_config.o      124
+    noise_routines.o               152                12
+    scanning_routines.o             52                 4
+    sensor_node_routines.o         368
+    threshold_routines.o           260
+    ----------------------------------------------------
+    Total:                       1 640                22
+
+m7M_tl.a: [5]
+    DblAdd.o                       212
+    DblCmpGe.o                      46
+    DblCmpLe.o                      46
+    DblDiv.o                       598
+    DblMul.o                       418
+    DblSub.o                       384
+    DblToI32.o                      88
+    I32ToDbl.o                      48
+    xdnorm.o                        68
+    xdscale.o                      268
+    ----------------------------------------------------
+    Total:                       2 176
+
+rt7M_tl.a: [6]
+    ABImemcpy_unaligned.o          118
+    ABImemset.o                    102
+    I64DivMod.o                    238
+    I64DivZer.o                      2
+    XXexit.o                        12
+    cexit.o                         10
+    cmain.o                         26
+    copy_init3.o                    44
+    cstartup_M.o                    12
+    data_init.o                     40
+    memchr.o                        88
+    strchr.o                        22
+    strlen.o                        54
+    zero_init3.o                    64
+    ----------------------------------------------------
+    Total:                         832
+
+    Gaps                            30        4
+    Linker created                           39    1 024
+--------------------------------------------------------
+    Grand Total:                20 392    2 284    1 279
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x00005654          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x00005678          --   Gb  - Linker created -
+?main                   0x00005679         Code  Gb  cmain.o [6]
+ACMP_CapsenseInit       0x00003c99   0x7a  Code  Gb  em_acmp.o [1]
+ACMP_GPIOSetup          0x00003d13   0x44  Code  Gb  em_acmp.o [1]
+BUS_RegBitRead          0x000000eb   0x10  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x00003c81    0xe  Code  Lc  em_acmp.o [1]
+BUS_RegBitWrite         0x000000dd    0xe  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x00002879    0xe  Code  Lc  em_lesense.o [1]
+BUS_RegBitWrite         0x000033d5    0xe  Code  Lc  em_rtc.o [1]
+BUS_RegMaskedWrite      0x00003c8f    0xa  Code  Lc  em_acmp.o [1]
+BlockWhileTX            0x00004a77    0x8  Code  Gb  comm_routines.o [1]
+CAPLESENSE_Sleep        0x00003831    0xa  Code  Gb  hardware_routines.o [1]
+CAPLESENSE_initLESENSE  0x00003769   0xc8  Code  Gb  hardware_routines.o [1]
+CAPLESENSE_initLESENSE::capsenseCalibrateVals
+                        0x200004bc    0x8  Data  Lc  hardware_routines.o [1]
+CAPLESENSE_initLESENSE::init
+                        0x2000001f    0x1  Data  Lc  hardware_routines.o [1]
+CAPLESENSE_setupACMP    0x0000369d   0x2c  Code  Gb  hardware_routines.o [1]
+CAPLESENSE_setupACMP::initACMP
+                        0x000056fc   0x14  Data  Lc  hardware_routines.o [1]
+CAPLESENSE_setupCMU     0x0000357b   0x58  Code  Gb  hardware_routines.o [1]
+CAPLESENSE_setupCallbacks
+                        0x00003609    0xa  Code  Gb  hardware_routines.o [1]
+CAPLESENSE_setupGPIO    0x000035d3   0x34  Code  Gb  hardware_routines.o [1]
+CAPLESENSE_switchToActive
+                        0x000036c9   0x44  Code  Gb  hardware_routines.o [1]
+CAPLESENSE_switchToSleep
+                        0x0000370d   0x5c  Code  Gb  hardware_routines.o [1]
+CHIP_Init               0x00005237   0x30  Code  Lc  device_init.o [1]
+CHIP_Init               0x00005167   0x30  Code  Lc  main.o [1]
+CMU_ClockDivSet         0x000004b7  0x294  Code  Gb  em_cmu.o [1]
+CMU_ClockEnable         0x0000074b   0xa6  Code  Gb  em_cmu.o [1]
+CMU_ClockFreqGet        0x00000805  0x188  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectGet      0x000009c9  0x134  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectSet      0x00000b21  0x292  Code  Gb  em_cmu.o [1]
+CMU_DivToLog2           0x000000fb   0x28  Code  Lc  em_cmu.o [1]
+CMU_Lock                0x00003d6d    0xa  Code  Lc  em_emu.o [1]
+CMU_OscillatorEnable    0x00000de9   0x9c  Code  Gb  em_cmu.o [1]
+CMU_Unlock              0x00003d77    0xc  Code  Lc  em_emu.o [1]
+CORE_EnterAtomic        0x000033c5    0x8  Code  Wk  em_core.o [1]
+CORE_ExitAtomic         0x000033cd    0x8  Code  Wk  em_core.o [1]
+CSLIB_activeThreshold   0x000057bc    0x4  Data  Gb  hardware_config.o [1]
+CSLIB_anySensorDebounceActive
+                        0x00004a09   0x22  Code  Gb  sensor_node_routines.o [4]
+CSLIB_anySensorSingleActive
+                        0x00004935   0x22  Code  Gb  sensor_node_routines.o [4]
+CSLIB_averageTouchDelta
+                        0x000057c4    0x4  Data  Gb  hardware_config.o [1]
+CSLIB_buttonDebounce    0x2000001c    0x1  Data  Gb  cslib_config.o [1]
+CSLIB_commInit          0x00004a69    0xe  Code  Gb  comm_routines.o [1]
+CSLIB_commUpdate        0x0000474d  0x12a  Code  Gb  profiler_interface.o [1]
+CSLIB_countsBeforeSleep
+                        0x20000018    0x2  Data  Gb  cslib_config.o [1]
+CSLIB_freeRunSetting    0x2000001d    0x1  Data  Gb  cslib_config.o [1]
+CSLIB_getNoiseAdjustedSensorData
+                        0x00004b5f   0x16  Code  Gb  threshold_routines.o [4]
+CSLIB_getNormalizedDelta
+                        0x00004b77   0x2c  Code  Gb  threshold_routines.o [4]
+CSLIB_getUnpackedTouchDelta
+                        0x00004a2b    0xc  Code  Gb  sensor_node_routines.o [4]
+CSLIB_inactiveThreshold
+                        0x000057c0    0x4  Data  Gb  hardware_config.o [1]
+CSLIB_initHardware      0x00004d4d    0xe  Code  Gb  master_algorithm_config.o [4]
+CSLIB_initLibrary       0x00004d5b   0x36  Code  Gb  master_algorithm_config.o [4]
+CSLIB_isSensorDebounceActive
+                        0x00004a37   0x14  Code  Gb  sensor_node_routines.o [4]
+CSLIB_isSensorSingleActive
+                        0x000049f5   0x14  Code  Gb  sensor_node_routines.o [4]
+CSLIB_lowPowerUpdate    0x00004c37   0xc2  Code  Gb  low_power_routines.o [4]
+CSLIB_node              0x20000428   0x40  Data  Gb  cslib_config.o [1]
+CSLIB_nodeGetRaw        0x00004929    0xc  Code  Gb  sensor_node_routines.o [4]
+CSLIB_nodePushRaw       0x0000491b    0xe  Code  Gb  sensor_node_routines.o [4]
+CSLIB_numSensors        0x2000001a    0x1  Data  Gb  cslib_config.o [1]
+CSLIB_pins              0x00005710   0x10  Data  Gb  hardware_config.o [1]
+CSLIB_ports             0x000057b8    0x4  Data  Gb  hardware_config.o [1]
+CSLIB_resetSensorStruct
+                        0x000048f9   0x22  Code  Gb  sensor_node_routines.o [4]
+CSLIB_sensorBufferSize  0x2000001b    0x1  Data  Gb  cslib_config.o [1]
+CSLIB_sleepModeEnable   0x2000001e    0x1  Data  Gb  cslib_config.o [1]
+CSLIB_systemNoiseAverage
+                        0x200004a2    0x2  Data  Gb  noise_routines.o [4]
+CSLIB_systemNoiseAverage_internal
+                        0x200004a8    0x4  Data  Gb  noise_routines.o [4]
+CSLIB_update            0x00004d91   0x32  Code  Gb  master_algorithm_config.o [4]
+CSTACK$$Base            0x20000028          --   Gb  - Linker created -
+CSTACK$$Limit           0x20000428          --   Gb  - Linker created -
+CS_dataBuffer           0x20000490   0x10  Data  Gb  hardware_routines.o [1]
+CS_newData              0x200004f4    0x2  Data  Gb  scanning_routines.o [4]
+EMU_EnterEM2            0x00003e8f   0x6c  Code  Gb  em_emu.o [1]
+GPIO_DriveModeSet       0x00003a69   0xbc  Code  Gb  em_gpio.o [1]
+GPIO_PinModeSet         0x00003b25  0x14e  Code  Gb  em_gpio.o [1]
+GPIO_PinOutClear        0x00003915   0xaa  Code  Lc  em_gpio.o [1]
+GPIO_PinOutSet          0x000039bf   0xaa  Code  Lc  em_gpio.o [1]
+GetProdRev              0x00000ec5    0xa  Code  Lc  system_efm32gg.o [1]
+IncrementActiveDebounceCount
+                        0x00004957   0x3c  Code  Gb  sensor_node_routines.o [4]
+IncrementInactiveDebounceCount
+                        0x00004993   0x3c  Code  Gb  sensor_node_routines.o [4]
+Init_BaselineRoutines   0x00004e47    0x2  Code  Gb  baseline_routines.o [4]
+Init_DataShapingRoutines
+                        0x00004e49    0xe  Code  Gb  data_shaping_routines.o [4]
+Init_ExponentialAveraging
+                        0x00004f91   0x28  Code  Gb  exponential_averaging.o [4]
+Init_LowPowerRoutines   0x00004c25   0x12  Code  Gb  low_power_routines.o [4]
+Init_NoiseRoutines      0x00004e6d    0x8  Code  Gb  noise_routines.o [4]
+Init_ProcessData        0x00004f39   0x14  Code  Gb  data_processing.o [4]
+Init_ThresholdRoutines  0x00004b21   0x3e  Code  Gb  threshold_routines.o [4]
+LESENSE_ChannelAllConfig
+                        0x00002b13   0x1c  Code  Gb  em_lesense.o [1]
+LESENSE_ChannelConfig   0x00002b2f  0x170  Code  Gb  em_lesense.o [1]
+LESENSE_ChannelThresSet
+                        0x00002cf1   0x68  Code  Gb  em_lesense.o [1]
+LESENSE_ChannelTimingSet
+                        0x00002c9f   0x52  Code  Gb  em_lesense.o [1]
+LESENSE_ClkDivSet       0x00002ab1   0x62  Code  Gb  em_lesense.o [1]
+LESENSE_DecoderStateSet
+                        0x00002d59   0x1c  Code  Gb  em_lesense.o [1]
+LESENSE_IRQHandler      0x00003615   0x88  Code  Gb  hardware_routines.o [1]
+LESENSE_Init            0x00002887  0x12e  Code  Gb  em_lesense.o [1]
+LESENSE_IntClear        0x00003549    0x8  Code  Lc  hardware_routines.o [1]
+LESENSE_IntDisable      0x00003561    0xc  Code  Lc  hardware_routines.o [1]
+LESENSE_IntEnable       0x00003551   0x10  Code  Lc  hardware_routines.o [1]
+LESENSE_IntGetEnabled   0x0000356d    0xe  Code  Lc  hardware_routines.o [1]
+LESENSE_Reset           0x00002dbd   0xa6  Code  Gb  em_lesense.o [1]
+LESENSE_ResultBufferClear
+                        0x00002da5   0x18  Code  Gb  em_lesense.o [1]
+LESENSE_ScanFreqSet     0x000029b5   0xa4  Code  Gb  em_lesense.o [1]
+LESENSE_ScanModeSet     0x00002a59   0x28  Code  Gb  em_lesense.o [1]
+LESENSE_ScanResultDataBufferGet
+                        0x0000353b    0xe  Code  Lc  hardware_routines.o [1]
+LESENSE_ScanResultDataGet
+                        0x00003533    0x8  Code  Lc  hardware_routines.o [1]
+LESENSE_ScanStart       0x00002d75   0x18  Code  Gb  em_lesense.o [1]
+LESENSE_ScanStop        0x00002d8d   0x18  Code  Gb  em_lesense.o [1]
+LESENSE_StartDelaySet   0x00002a81   0x30  Code  Gb  em_lesense.o [1]
+LESENSE_StatusGet       0x0000352b    0x8  Code  Lc  hardware_routines.o [1]
+LESENSE_sleepScan       0x200004f6    0x2  Data  Gb  scanning_routines.o [4]
+LFtoCRLF                0x200004ff    0x1  Data  Lc  retargetvirtual.o [1]
+LoadInt                 0x000015a3   0x6e  Code  Lc  xprintffull.o [3]
+NVIC_ClearPendingIRQ    0x000045a5   0x14  Code  Lc  retargetvirtual.o [1]
+NVIC_ClearPendingIRQ    0x00002ecb   0x16  Code  Lc  rtcdriver.o [1]
+NVIC_EnableIRQ          0x0000350d   0x16  Code  Lc  hardware_routines.o [1]
+NVIC_EnableIRQ          0x00004591   0x14  Code  Lc  retargetvirtual.o [1]
+NVIC_EnableIRQ          0x00002eb5   0x16  Code  Lc  rtcdriver.o [1]
+RETARGET_BlockOnTX      0x0000462f    0xa  Code  Gb  retargetvirtual.o [1]
+RETARGET_SerialCrLf     0x0000461b   0x14  Code  Gb  retargetvirtual.o [1]
+RETARGET_SerialInit     0x00004639   0x8e  Code  Gb  retargetvirtual.o [1]
+RETARGET_WriteChar      0x000046c7   0x4c  Code  Gb  retargetvirtual.o [1]
+RTCDRV_AllocateTimer    0x00002f23   0x60  Code  Gb  rtcdriver.o [1]
+RTCDRV_Init             0x00002f83   0x92  Code  Gb  rtcdriver.o [1]
+RTC_CompareGet          0x000033e3   0x32  Code  Gb  em_rtc.o [1]
+RTC_CompareSet          0x00003415   0x34  Code  Gb  em_rtc.o [1]
+RTC_CounterGet          0x00002ee1    0x8  Code  Lc  rtcdriver.o [1]
+RTC_CounterReset        0x00003495   0x10  Code  Gb  em_rtc.o [1]
+RTC_Enable              0x00003449   0x12  Code  Gb  em_rtc.o [1]
+RTC_IRQHandler          0x00003015   0x9a  Code  Gb  rtcdriver.o [1]
+RTC_Init                0x0000345b   0x2a  Code  Gb  em_rtc.o [1]
+RTC_IntClear            0x00002ee9    0x8  Code  Lc  rtcdriver.o [1]
+RTC_IntDisable          0x00002ef1   0x10  Code  Lc  rtcdriver.o [1]
+RTC_IntEnable           0x00002f01   0x10  Code  Lc  rtcdriver.o [1]
+RTC_IntGetEnabled       0x00002f11   0x12  Code  Lc  rtcdriver.o [1]
+Region$$Table$$Base     0x00005654          --   Gb  - Linker created -
+Region$$Table$$Limit    0x00005678          --   Gb  - Linker created -
+ResetActiveDebounceCount
+                        0x000049e5   0x10  Code  Gb  sensor_node_routines.o [4]
+ResetInactiveDebounceCount
+                        0x000049d5   0x10  Code  Gb  sensor_node_routines.o [4]
+SHAPING_indexValue      0x20000505    0x1  Data  Gb  filter_config.o [4]
+SYSTEM_ChipRevisionGet  0x000051c5   0x4a  Code  Gb  em_system.o [1]
+SYSTEM_GetFamily        0x0000012f    0xc  Code  Lc  em_cmu.o [1]
+SYSTEM_GetProdRev       0x0000522d    0xa  Code  Lc  device_init.o [1]
+SYSTEM_GetProdRev       0x00000123    0xc  Code  Lc  em_cmu.o [1]
+SYSTEM_GetProdRev       0x0000515d    0xa  Code  Lc  main.o [1]
+ScanAllSensors          0x00004f05   0x2c  Code  Gb  scanning_routines.o [4]
+ShapeScannedData        0x00004e57   0x12  Code  Gb  data_shaping_routines.o [4]
+SystemCoreClock         0x200004f0    0x4  Data  Gb  system_efm32gg.o [1]
+SystemCoreClockGet      0x00000ecf   0x1a  Code  Gb  system_efm32gg.o [1]
+SystemCoreClockUpdate   0x00005225    0x8  Code  Lc  device_init.o [1]
+SystemCoreClockUpdate   0x00003d65    0x8  Code  Lc  em_emu.o [1]
+SystemCoreClockUpdate   0x00003523    0x8  Code  Lc  hardware_routines.o [1]
+SystemHFClockGet        0x00000eed   0xb2  Code  Gb  system_efm32gg.o [1]
+SystemHFXOClock         0x20000010    0x4  Data  Lc  system_efm32gg.o [1]
+SystemHFXOClockGet      0x00000f9f    0x6  Code  Gb  system_efm32gg.o [1]
+SystemInit              0x00000fa5    0x2  Code  Gb  system_efm32gg.o [1]
+SystemLFRCOClockGet     0x00000fa7    0x6  Code  Gb  system_efm32gg.o [1]
+SystemLFXOClock         0x20000014    0x4  Data  Lc  system_efm32gg.o [1]
+SystemLFXOClockGet      0x00000fb3    0x6  Code  Gb  system_efm32gg.o [1]
+SystemMaxCoreClockGet   0x00000ee9    0x4  Code  Gb  system_efm32gg.o [1]
+SystemULFRCOClockGet    0x00000fad    0x6  Code  Gb  system_efm32gg.o [1]
+ThresholdUpdate_WithHystAndDebounce
+                        0x00004ba3   0x6a  Code  Gb  threshold_routines.o [4]
+TxBuf                   0x0000527d   0x1e  Code  Lc  retargetio.o [1]
+UART0_RX_IRQHandler     0x000045c5   0x56  Code  Gb  retargetvirtual.o [1]
+USART_BaudrateAsyncSet  0x00003f35   0xf8  Code  Gb  em_usart.o [1]
+USART_Enable            0x0000402d   0x42  Code  Gb  em_usart.o [1]
+USART_InitAsync         0x0000406f   0x72  Code  Gb  em_usart.o [1]
+USART_IntClear          0x000045b9    0x4  Code  Lc  retargetvirtual.o [1]
+USART_IntEnable         0x000045bd    0x8  Code  Lc  retargetvirtual.o [1]
+USART_Reset             0x000040e1   0x72  Code  Gb  em_usart.o [1]
+USART_Rx                0x00004179    0xc  Code  Gb  em_usart.o [1]
+USART_Tx                0x00004185    0xc  Code  Gb  em_usart.o [1]
+UpdateAllBaselines      0x00004e45    0x2  Code  Gb  baseline_routines.o [4]
+UpdateAllNoiseLevels    0x00004e75   0x88  Code  Gb  noise_routines.o [4]
+UpdateBaseline          0x00004dc9   0x6e  Code  Gb  baseline_routines.o [4]
+UpdateExponentialAveraging
+                        0x00004fb9   0x88  Code  Gb  exponential_averaging.o [4]
+UpdateProcessData       0x00004f4d   0x34  Code  Gb  data_processing.o [4]
+UpdateThresholds        0x00004b75    0x2  Code  Gb  threshold_routines.o [4]
+VCMP_Disable            0x00004d11   0x12  Code  Lc  low_power_config.o [1]
+_GenldFull              0x00001b1d  0x26a  Code  Lc  xprintffull.o [3]
+_LdtobFull              0x0000171d  0x3fa  Code  Lc  xprintffull.o [3]
+_LitobFull              0x00001611  0x10a  Code  Lc  xprintffull.o [3]
+_PrintfFull             0x00000ffd  0x5a0  Code  Gb  xprintffull.o [3]
+_Prout                  0x000056e5   0x16  Code  Gb  xprout.o [3]
+_PutcharsFull           0x00001d87   0x2e  Code  Lc  xprintffull.o [3]
+__Vectors               0x00000000          --   Gb  startup_efm32gg.o [1]
+__Vectors_End           0x000000dc         Data  Gb  startup_efm32gg.o [1]
+__Vectors_Size {Abs}    0x000000dc          --   Gb  startup_efm32gg.o [1]
+__aeabi_cdcmple         0x00002025         Code  Gb  DblCmpLe.o [5]
+__aeabi_cdrcmple        0x00002055         Code  Gb  DblCmpGe.o [5]
+__aeabi_d2iz            0x00002191         Code  Gb  DblToI32.o [5]
+__aeabi_d2uiz           0x000021bd         Code  Gb  DblToI32.o [5]
+__aeabi_ddiv            0x0000253d         Code  Gb  DblDiv.o [5]
+__aeabi_dmul            0x00002399         Code  Gb  DblMul.o [5]
+__aeabi_dsub            0x00002219         Code  Gb  DblSub.o [5]
+__aeabi_i2d             0x000021e9         Code  Gb  I32ToDbl.o [5]
+__aeabi_ldiv0           0x000027a1         Code  Gb  I64DivZer.o [6]
+__aeabi_memset          0x000034a5         Code  Gb  ABImemset.o [6]
+__aeabi_ui2d            0x000021fd         Code  Gb  I32ToDbl.o [5]
+__aeabi_uldivmod        0x00001e79         Code  Gb  I64DivMod.o [6]
+__cmain                 0x00005679         Code  Gb  cmain.o [6]
+__exit                  0x000056a9         Code  Gb  XXexit.o [6]
+__iar_Dnorm             0x00001fdf   0x44  Code  Gb  xdnorm.o [5]
+__iar_Dscale            0x00002085  0x10c  Code  Gb  xdscale.o [5]
+__iar_Memchr            0x00001e21         Code  Gb  memchr.o [6]
+__iar_Memset            0x000034a5         Code  Gb  ABImemset.o [6]
+__iar_Memset_word       0x000034ad         Code  Gb  ABImemset.o [6]
+__iar_Strchr            0x00001dd1         Code  Gb  strchr.o [6]
+__iar_copy_init3        0x000055b5   0x2c  Code  Gb  copy_init3.o [6]
+__iar_d2uiz             0x000021c9         Code  Gb  DblToI32.o [5]
+__iar_dadd              0x000027a5         Code  Gb  DblAdd.o [5]
+__iar_data_init3        0x00005609   0x28  Code  Gb  data_init.o [6]
+__iar_dsub              0x0000222d         Code  Gb  DblSub.o [5]
+__iar_dsubStart         0x0000223f         Code  Gb  DblSub.o [5]
+__iar_program_start     0x0000577d         Code  Gb  cstartup_M.o [6]
+__iar_ui2d              0x00002201         Code  Gb  I32ToDbl.o [5]
+__iar_unaligned___aeabi_memcpy
+                        0x00001f69         Code  Gb  ABImemcpy_unaligned.o [6]
+__iar_unaligned___aeabi_memcpy4
+                        0x00001f89         Code  Gb  ABImemcpy_unaligned.o [6]
+__iar_unaligned___aeabi_memcpy8
+                        0x00001f89         Code  Gb  ABImemcpy_unaligned.o [6]
+__iar_zero_init3        0x00005575   0x40  Code  Gb  zero_init3.o [6]
+__low_level_init        0x00005693    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000         Data  Gb  startup_efm32gg.o [1]
+__vector_table_0x1c     0x0000001c         Data  Gb  startup_efm32gg.o [1]
+__write                 0x0000529b   0x38  Code  Gb  retargetio.o [1]
+_call_main              0x00005685         Code  Gb  cmain.o [6]
+_exit                   0x0000569d         Code  Gb  cexit.o [6]
+_main                   0x0000568f         Code  Gb  cmain.o [6]
+active_thresh           0x200004ac    0x8  Data  Gb  hardware_config.o [1]
+active_timer_go_to_sleep
+                        0x200004f9    0x1  Data  Gb  low_power_routines.o [4]
+assertEFM               0x00000ec1    0x2  Code  Gb  em_assert.o [1]
+auxClkGet               0x000001f1   0x94  Code  Lc  em_cmu.o [1]
+capSenseChTrigger       0x00003613    0x2  Code  Gb  hardware_routines.o [1]
+capSenseScanComplete    0x00003607    0x2  Code  Gb  hardware_routines.o [1]
+channelsInUse           0x00005720   0x10  Data  Lc  hardware_routines.o [1]
+checkAllTimers          0x000030af  0x1da  Code  Lc  rtcdriver.o [1]
+checkTimer              0x00004d49    0x2  Code  Gb  low_power_config.o [1]
+configureRelaxOscActiveMode
+                        0x00003843   0x38  Code  Gb  hardware_routines.o [1]
+configureSensorForActiveMode
+                        0x0000383b    0x8  Code  Gb  hardware_routines.o [1]
+configureSensorForSleepMode
+                        0x00004d23   0x16  Code  Gb  low_power_config.o [1]
+configureTimerForActiveMode
+                        0x00004d45    0x2  Code  Gb  low_power_config.o [1]
+configureTimerForSleepMode
+                        0x00004d47    0x2  Code  Gb  low_power_config.o [1]
+currentChannel          0x200004fd    0x1  Data  Lc  hardware_routines.o [1]
+dbgClkGet               0x00000285   0x3c  Code  Lc  em_cmu.o [1]
+div                     0x00002793    0xe  Code  Gb  div.o [3]
+emState                 0x00003d83   0xcc  Code  Lc  em_emu.o [1]
+emState::cmuStatus      0x200004cc    0x4  Data  Lc  em_emu.o [1]
+emState::hfClock        0x200004fc    0x1  Data  Lc  em_emu.o [1]
+enterLowPowerState      0x00004d3d    0x8  Code  Gb  low_power_config.o [1]
+executeTimerCallbacks   0x00003289   0x3c  Code  Lc  rtcdriver.o [1]
+exit                    0x00005697    0x4  Code  Gb  exit.o [3]
+exp_av_divider          0x20000504    0x1  Data  Gb  exponential_averaging.o [4]
+flashWaitStateControl   0x000002c1   0xa2  Code  Lc  em_cmu.o [1]
+flashWaitStateMax       0x00000363    0xc  Code  Lc  em_cmu.o [1]
+getErrataFixEmuE107En   0x00003e4f   0x40  Code  Lc  em_emu.o [1]
+getHfLeConfig           0x000001c5   0x2c  Code  Lc  em_cmu.o [1]
+headerEntries           0x000054ec   0x48  Data  Gb  profiler_interface.o [1]
+inTimerIRQ              0x20000501    0x1  Data  Lc  rtcdriver.o [1]
+inactive_thresh         0x200004b4    0x8  Data  Gb  hardware_config.o [1]
+initChsSense            0x00004190  0x200  Data  Lc  hardware_routines.o [1]
+initChsSleep            0x00004390  0x200  Data  Lc  hardware_routines.o [1]
+initLESENSE             0x00005534   0x40  Data  Lc  hardware_routines.o [1]
+initRTC                 0x000057cc    0x4  Data  Lc  rtcdriver.o [1]
+initialized             0x20000500    0x1  Data  Lc  retargetvirtual.o [1]
+lastStart               0x200004e8    0x4  Data  Lc  rtcdriver.o [1]
+lesenseChCb             0x200004d4    0x4  Data  Lc  hardware_routines.o [1]
+lesenseScanCb           0x200004d0    0x4  Data  Lc  hardware_routines.o [1]
+lfClkGet                0x0000036f   0xf4  Code  Lc  em_cmu.o [1]
+main                    0x000051a1   0x24  Code  Gb  main.o [1]
+maxFreqHfle             0x0000013b   0x60  Code  Lc  em_cmu.o [1]
+memchr                  0x00001e21         Code  Gb  memchr.o [6]
+mode                    0x200004f8    0x1  Data  Gb  low_power_routines.o [4]
+noise_level             0x200004a0    0x1  Data  Gb  noise_routines.o [4]
+outputBeginHeader       0x00004abd    0xa  Code  Gb  comm_routines.o [1]
+outputBreak             0x00004ab3    0xa  Code  Gb  comm_routines.o [1]
+outputHeaderCount       0x00004a7f   0x34  Code  Gb  comm_routines.o [1]
+outputNewLine           0x00004ac7    0xa  Code  Gb  comm_routines.o [1]
+outputsensorDescriptors
+                        0x00004ae5   0x3c  Code  Gb  sensor_descriptors.o [1]
+printHeader             0x00004877   0x36  Code  Gb  profiler_interface.o [1]
+printf                  0x000048d5   0x24  Code  Gb  printf.o [3]
+putchar                 0x000055e1   0x28  Code  Gb  putchar.o [3]
+rescheduleRtc           0x000032c5   0xb2  Code  Lc  rtcdriver.o [1]
+rtcRunning              0x20000502    0x1  Data  Lc  rtcdriver.o [1]
+rtcdrvIsInitialized     0x20000503    0x1  Data  Lc  rtcdriver.o [1]
+rxBuffer                0x200004c4    0x8  Data  Lc  retargetvirtual.o [1]
+rxCount                 0x200004e4    0x4  Data  Lc  retargetvirtual.o [1]
+rxReadIndex             0x200004dc    0x4  Data  Lc  retargetvirtual.o [1]
+rxWriteIndex            0x200004e0    0x4  Data  Lc  retargetvirtual.o [1]
+scanSensor              0x0000390d    0x6  Code  Gb  hardware_routines.o [1]
+sendHeader              0x20000020    0x1  Data  Gb  profiler_interface.o [1]
+sensorDescriptors       0x20000000   0x10  Data  Gb  sensor_descriptors.o [1]
+setHfLeConfig           0x0000019b   0x2a  Code  Lc  em_cmu.o [1]
+startTimerNestingLevel  0x200004ec    0x4  Data  Lc  rtcdriver.o [1]
+strchr                  0x00001dd1         Code  Gb  strchr.o [6]
+strlen                  0x00001de9         Code  Gb  strlen.o [6]
+syncReg                 0x00000463   0x16  Code  Lc  em_cmu.o [1]
+systemInit              0x00005271    0xc  Code  Gb  device_init.o [1]
+system_noise            0x200004a4    0x2  Data  Gb  noise_routines.o [4]
+timer                   0x20000468   0x28  Data  Lc  rtcdriver.o [1]
+timerTick               0x200004fe    0x1  Data  Gb  low_power_config.o [1]
+usbCClkGet              0x00000479   0x3e  Code  Lc  em_cmu.o [1]
+xTimerForSleep          0x200004d8    0x4  Data  Gb  hardware_routines.o [1]
+
+
+[1] = D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\cslib\iar\cslib\Debug\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = libCSLIB_M3_4_iar.a
+[5] = m7M_tl.a
+[6] = rt7M_tl.a
+
+  20 392 bytes of readonly  code memory
+   2 284 bytes of readonly  data memory
+   1 279 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

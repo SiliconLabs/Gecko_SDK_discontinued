@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file efr32bg12p_etm.h
  * @brief EFR32BG12P_ETM register and bit field definitions
- * @version 5.0.0
+ * @version 5.1.2
  ******************************************************************************
  * @section License
- * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -275,11 +275,6 @@ typedef struct
 #define _ETM_ETMSCR_MAXPORTSIZE_MASK                  0x7UL                                   /**< Bit mask for ETM_MAXPORTSIZE */
 #define _ETM_ETMSCR_MAXPORTSIZE_DEFAULT               0x00000001UL                            /**< Mode DEFAULT for ETM_ETMSCR */
 #define ETM_ETMSCR_MAXPORTSIZE_DEFAULT                (_ETM_ETMSCR_MAXPORTSIZE_DEFAULT << 0)  /**< Shifted mode DEFAULT for ETM_ETMSCR */
-#define ETM_ETMSCR_Reserved                           (0x1UL << 3)                            /**< Reserved */
-#define _ETM_ETMSCR_Reserved_SHIFT                    3                                       /**< Shift value for ETM_Reserved */
-#define _ETM_ETMSCR_Reserved_MASK                     0x8UL                                   /**< Bit mask for ETM_Reserved */
-#define _ETM_ETMSCR_Reserved_DEFAULT                  0x00000001UL                            /**< Mode DEFAULT for ETM_ETMSCR */
-#define ETM_ETMSCR_Reserved_DEFAULT                   (_ETM_ETMSCR_Reserved_DEFAULT << 3)     /**< Shifted mode DEFAULT for ETM_ETMSCR */
 #define ETM_ETMSCR_FIFOFULL                           (0x1UL << 8)                            /**< FIFO FULL Supported */
 #define _ETM_ETMSCR_FIFOFULL_SHIFT                    8                                       /**< Shift value for ETM_FIFOFULL */
 #define _ETM_ETMSCR_FIFOFULL_MASK                     0x100UL                                 /**< Bit mask for ETM_FIFOFULL */

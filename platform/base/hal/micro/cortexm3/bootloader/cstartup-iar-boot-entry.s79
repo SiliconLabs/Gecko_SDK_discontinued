@@ -1,0 +1,143 @@
+//------------------------------------------------------------------------------
+// @file hal/micro/cortexm3/bootloader/cstartup-iar-boot.s79
+// @brief Defines halEntryPoint in raw assembly since we must process
+//        deep sleep reset events manually to ensure the stack is handled
+//        properly.
+//
+//
+// Copyright 2009 by Ember Corporation. All rights reserved.                *80*
+//------------------------------------------------------------------------------
+
+#include "../compiler/asm.h"
+//Define our own copy of the reset event register (just what we need).
+__EQU__(RESET_EVENT_ADDR,  0x4000002C)  //RESET_EVENT register address
+__EQU__(RESET_DSLEEP_MASK, 0x00000020)  //Deep Sleep reset event mask
+
+// Define our own copy of halResetInfo field values.
+__EQU__(RESET_VALID_SIGNATURE,      0x0000F00F)
+__EQU__(RESET_BOOTLOADER_DEEPSLEEP, 0x00000207)
+        
+        //Export the halEntryPoint to the rest of the system, including linker
+        __EXPORT__ halEntryPoint
+        
+        //These symbols are found in cstartup-iar-boot.c
+        __IMPORT__ checkAppJumpToApp
+        __IMPORT__ bootloaderEntryPoint
+        __IMPORT__ halAppAddressTable
+#ifdef BOOTLOADER_OPEN
+        __IMPORT__ bootloaderInternalRestoreContextAfterSleep
+        __IMPORT__ halResetInfo
+#endif // BOOTLOADER_OPEN
+        
+        
+        __CODE__
+        __THUMB__
+checkDSleepJumpToApp:
+        //Load the RESET_EVENT register and compare it against RESET_DSLEEP
+        LDR  R0, =RESET_EVENT_ADDR
+        LDR  R0, [R0]
+        LDR  R1, =RESET_DSLEEP_MASK
+        AND  R0, R0, R1
+        //If RESET_DSLEEP is not set, bypass the jump to the app
+        CBZ  R0, doNotJumpToApp
+
+#ifdef BOOTLOADER_OPEN
+
+//dSleepInfiniteLoop:
+        //MOV R0, #1
+        //CMP R0, #0
+        //BNE dSleepInfiniteLoop // used for debugging
+
+        // Now we know that we're waking up from deep sleep.
+        //
+        // If we're waking from within a bootloader then
+        // bootloaderInternalRestoreContextAfterSleep will complete the wakeup
+        // process.
+        //
+        // If we're waking from within an app then we'll jump to the app.
+        //
+        // All bootloaders that can sleep will propery set resetSignature
+        // and resetReason. Apps that sleep will NOT set resetSignature or
+        // resetReason since this could corrupt heap data (bug:14827).
+        // So, we assume that if resetSignature and resetReason weren't set to
+        // "deep sleep from bootloader" then we're waking up from an app's deep
+        // sleep.
+        LDR R0, =halResetInfo
+
+        // Validate the resetSignature and resetReason.
+        LDRH R1, [R0, #+2] // R1 = halResetInfo.crash.resetSignature
+        LDRH R2, [R0]      // R2 = halResetInfo.crash.resetReason
+
+        LDR R3, =RESET_VALID_SIGNATURE
+        CMP R1, R3
+        BNE dSleepIsFromApp
+
+        LDR R3, =RESET_BOOTLOADER_DEEPSLEEP
+        CMP R2, R3
+        BNE dSleepIsFromApp
+
+        // We're waking up from a bootloader deep sleep: restore context and
+        // return to where the deep sleep was initiated.
+        B bootloaderInternalRestoreContextAfterSleep
+
+dSleepIsFromApp:
+
+#endif // BOOTLOADER_OPEN
+
+        //Grab the address of the halAppAddressTable
+        LDR  R0, =halAppAddressTable
+        //Load halAppAddressTable.baseTable.topOfStack (SP is first word)
+        LDR  R1, [R0, #+0]
+        //Load halAppAddressTable.baseTable.resetVector (PC is second word)
+        LDR  R2, [R0, #+4]
+        //Set the SP to the application's stack
+        MOV  SP, R1
+        //Branch to the app's reset vector
+        BX   R2
+
+doNotJumpToApp:
+        BX   LR //it was not a deep sleep, so return back to halEntryPoint
+
+
+//=============================================================================
+// This is the entry point from a reset where code execution begins.  This
+// function is defined in the vector table as the Reset Handler.
+//
+// The bootloader entry point must be instantiated in assembly to guarantee
+// the stack pointer is handled properly when we are context restoring out of
+// deep sleep.
+//
+// When we are reset due to deep sleep we need to switch the stack pointer
+// to the application's stack before any stack operation occurs.
+// Additionally, since we know we're context restoring then we can bypass the
+// rest of the bootloader's startup and directly invoke the app's startup which
+// will perform the context restore.
+//
+// NOTE: When we are invoking the app, we have to ensure that our stack usage
+//       during bootloader's cstartup stays below the normal application
+//       stack usage needed to performa  context restore so that we do
+//       not interfere with live app memory.
+//=============================================================================
+        __CODE__
+        __THUMB__
+halEntryPoint:
+        // *** DO NOT PUT ANYTHING THAT TOUCHES THE STACK BEFORE
+        // checkDSleepJumpToApp*** otherwise the app's stack will get
+        // overwritten (because the bootloader and app have different
+        // starting stack addresses).
+
+        //If we woke up from DeepSleep, jump to app to trigger context restore
+        BL checkDSleepJumpToApp
+        //It was not a DeepSleep, so check if we're not going to run the
+        //bootloader and jump to the app's hal entry if we're not going to.
+        BL checkAppJumpToApp
+        //We're executing the bootloader, jump to the bootloader's hal entry.
+        // NOTE: This function takes a boolean parameter for whether this is
+        // a forced start. This value is returned from checkAppJumpToApp so
+        // it's already in R0. Do not do anything here that will change R0
+        // before calling bootloaderEntryPoint().
+        BL bootloaderEntryPoint
+        //One of the above three will trigger, so we'll never return here
+        
+        
+        __END__

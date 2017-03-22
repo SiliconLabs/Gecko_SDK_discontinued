@@ -3,12 +3,12 @@
 *                                              uC/OS-II
 *                                        The Real-Time Kernel
 *
-*                            (c) Copyright 1992-2012, Micrium, Weston, FL
+*                            (c) Copyright 1992-2016, Micrium, Weston, FL
 *                                           All Rights Reserved
 *
 * File    : uCOS_II.C
 * By      : Jean J. Labrosse
-* Version : V2.92.07
+* Version : V2.92.12
 *
 * LICENSING TERMS:
 * ---------------

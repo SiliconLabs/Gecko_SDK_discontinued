@@ -4,23 +4,24 @@
 *                                          The Real-Time Kernel
 *
 *
-*                           (c) Copyright 2009-2010; Micrium, Inc.; Weston, FL
+*                         (c) Copyright 2009-2016; Micrium, Inc.; Weston, FL
 *                    All rights reserved.  Protected by international copyright laws.
 *
 *                                           ARM Cortex-M4 Port
 *
 * File      : OS_CPU_C.C
-* Version   : V3.01.2
+* Version   : V3.06.00
 * By        : JJL
 *             BAN
+*             JBL
 *
 * LICENSING TERMS:
 * ---------------
-*           uC/OS-III is provided in source form for FREE short-term evaluation, for educational use or 
+*           uC/OS-III is provided in source form for FREE short-term evaluation, for educational use or
 *           for peaceful research.  If you plan or intend to use uC/OS-III in a commercial application/
-*           product then, you need to contact Micrium to properly license uC/OS-III for its use in your 
-*           application/product.   We provide ALL the source code for your convenience and to help you 
-*           experience uC/OS-III.  The fact that the source is provided does NOT mean that you can use 
+*           product then, you need to contact Micrium to properly license uC/OS-III for its use in your
+*           application/product.   We provide ALL the source code for your convenience and to help you
+*           experience uC/OS-III.  The fact that the source is provided does NOT mean that you can use
 *           it commercially without paying a licensing fee.
 *
 *           Knowledge of the source code may NOT be used to develop a similar product.
@@ -28,11 +29,24 @@
 *           Please help us continue to provide the embedded community with the finest software available.
 *           Your honesty is greatly appreciated.
 *
-*           You can contact us at www.micrium.com, or by phone at +1 (954) 217-2036.
+*           You can find our product's user manual, API reference, release notes and
+*           more information at https://doc.micrium.com.
+*           You can contact us at www.micrium.com.
 *
 * For       : ARMv7M Cortex-M4
 * Mode      : Thumb-2 ISA
 * Toolchain : IAR EWARM
+*********************************************************************************************************
+*/
+
+/*
+*********************************************************************************************************
+*********************************************************************************************************
+*                               WARNING - DEPRECATION NOTICE - WARNING
+* June 2016
+* This file is part of a deprecated port and will be removed in a future release.
+* The functionalities of this port were replaced by the generic ARM-Cortex-M port.
+*********************************************************************************************************
 *********************************************************************************************************
 */
 
@@ -42,14 +56,19 @@
 const  CPU_CHAR  *os_cpu_c__c = "$Id: $";
 #endif
 
-/*$PAGE*/
+
 /*
 *********************************************************************************************************
 *                                             INCLUDE FILES
 *********************************************************************************************************
 */
 
-#include  <os.h>
+#include  "../../../../Source/os.h"
+
+
+#ifdef __cplusplus
+extern  "C" {
+#endif
 
 /*
 *********************************************************************************************************
@@ -74,7 +93,6 @@ void  OSIdleTaskHook (void)
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                       OS INITIALIZATION HOOK
@@ -89,13 +107,40 @@ void  OSIdleTaskHook (void)
 
 void  OSInitHook (void)
 {
-                                                                /* 8-byte align the ISR stack.                            */    
+                                                                /* 8-byte align the ISR stack.                          */
     OS_CPU_ExceptStkBase = (CPU_STK *)(OSCfg_ISRStkBasePtr + OSCfg_ISRStkSize);
     OS_CPU_ExceptStkBase = (CPU_STK *)((CPU_STK)(OS_CPU_ExceptStkBase) & 0xFFFFFFF8);
 }
 
 
-/*$PAGE*/
+/*
+*********************************************************************************************************
+*                                           REDZONE HIT HOOK
+*
+* Description: This function is called when a task's stack overflowed.
+*
+* Arguments  : p_tcb        Pointer to the task control block of the offending task. NULL if ISR.
+*
+* Note(s)    : None.
+*********************************************************************************************************
+*/
+#if (OS_CFG_TASK_STK_REDZONE_EN == DEF_ENABLED)
+void  OSRedzoneHitHook (OS_TCB  *p_tcb)
+{
+#if OS_CFG_APP_HOOKS_EN > 0u
+    if (OS_AppRedzoneHitHookPtr != (OS_APP_HOOK_TCB)0) {
+        (*OS_AppRedzoneHitHookPtr)(p_tcb);
+    } else {
+        CPU_SW_EXCEPTION(;);
+    }
+#else
+    (void)p_tcb;                                                /* Prevent compiler warning                             */
+    CPU_SW_EXCEPTION(;);
+#endif
+}
+#endif
+
+
 /*
 *********************************************************************************************************
 *                                         STATISTIC TASK HOOK
@@ -119,7 +164,6 @@ void  OSStatTaskHook (void)
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                          TASK CREATION HOOK
@@ -139,12 +183,11 @@ void  OSTaskCreateHook (OS_TCB  *p_tcb)
         (*OS_AppTaskCreateHookPtr)(p_tcb);
     }
 #else
-    (void)p_tcb;                                                /* Prevent compiler warning                               */
+    (void)p_tcb;                                                /* Prevent compiler warning                             */
 #endif
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                           TASK DELETION HOOK
@@ -164,12 +207,11 @@ void  OSTaskDelHook (OS_TCB  *p_tcb)
         (*OS_AppTaskDelHookPtr)(p_tcb);
     }
 #else
-    (void)p_tcb;                                                /* Prevent compiler warning                               */
+    (void)p_tcb;                                                /* Prevent compiler warning                             */
 #endif
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                            TASK RETURN HOOK
@@ -190,12 +232,11 @@ void  OSTaskReturnHook (OS_TCB  *p_tcb)
         (*OS_AppTaskReturnHookPtr)(p_tcb);
     }
 #else
-    (void)p_tcb;                                                /* Prevent compiler warning                               */
+    (void)p_tcb;                                                /* Prevent compiler warning                             */
 #endif
 }
 
 
-/*$PAGE*/
 /*
 **********************************************************************************************************
 *                                       INITIALIZE A TASK'S STACK
@@ -226,7 +267,7 @@ void  OSTaskReturnHook (OS_TCB  *p_tcb)
 *                  co-processor is enabled or not.
 *
 *                  (a) The stack frame shown in the diagram is used when the FP co-processor is not present and
-*                      OS_OPT_TASK_SAVE_FP is disabled. In this case, the FP registers and FP Status Control 
+*                      OS_OPT_TASK_SAVE_FP is disabled. In this case, the FP registers and FP Status Control
 *                      register are not saved in the stack frame.
 *
 *                  (b) If the FP co-processor is present but the OS_OPT_TASK_SAVE_FP is not set, then the stack
@@ -239,13 +280,13 @@ void  OSTaskReturnHook (OS_TCB  *p_tcb)
 *                    +------------+       +------------+
 *                    |            |       |            |
 *                    +------------+       +------------+
-*                    |    xPSR    |       |    xPSR    | 
-*                    +------------+       +------------+       
+*                    |    xPSR    |       |    xPSR    |
+*                    +------------+       +------------+
 *                    |Return Addr |       |Return Addr |
 *                    +------------+       +------------+
 *                    |  LR(R14)   |       |   LR(R14)  |
-*                    +------------+       +------------+ 
-*                    |    R12     |       |     R12    | 
+*                    +------------+       +------------+
+*                    |    R12     |       |     R12    |
 *                    +------------+       +------------+
 *                    |    R3      |       |     R3     |
 *                    +------------+       +------------+
@@ -285,61 +326,61 @@ void  OSTaskReturnHook (OS_TCB  *p_tcb)
 *                                         +------------+
 *                                              (b)
 *
-*             (4) The SP must be 8-byte aligned in conforming to the Procedure Call Standard for the ARM architecture 
+*             (4) The SP must be 8-byte aligned in conforming to the Procedure Call Standard for the ARM architecture
 *
-*                    (a) Section 2.1 of the  ABI for the ARM Architecture Advisory Note. SP must be 8-byte aligned 
-*                        on entry to AAPCS-Conforming functions states : 
-*                    
-*                        The Procedure Call Standard for the ARM Architecture [AAPCS] requires primitive 
-*                        data types to be naturally aligned according to their sizes (for size = 1, 2, 4, 8 bytes). 
-*                        Doing otherwise creates more problems than it solves. 
+*                    (a) Section 2.1 of the  ABI for the ARM Architecture Advisory Note. SP must be 8-byte aligned
+*                        on entry to AAPCS-Conforming functions states :
 *
-*                        In return for preserving the natural alignment of data, conforming code is permitted 
-*                        to rely on that alignment. To support aligning data allocated on the stack, the stack 
-*                        pointer (SP) is required to be 8-byte aligned on entry to a conforming function. In 
+*                        The Procedure Call Standard for the ARM Architecture [AAPCS] requires primitive
+*                        data types to be naturally aligned according to their sizes (for size = 1, 2, 4, 8 bytes).
+*                        Doing otherwise creates more problems than it solves.
+*
+*                        In return for preserving the natural alignment of data, conforming code is permitted
+*                        to rely on that alignment. To support aligning data allocated on the stack, the stack
+*                        pointer (SP) is required to be 8-byte aligned on entry to a conforming function. In
 *                        practice this requirement is met if:
 *
-*                           (1) At each call site, the current size of the calling function’s stack frame is a multiple of 8 bytes.
+*                           (1) At each call site, the current size of the calling function's stack frame is a multiple of 8 bytes.
 *                               This places an obligation on compilers and assembly language programmers.
 *
 *                           (2) SP is a multiple of 8 when control first enters a program.
-*                               This places an obligation on authors of low level OS, RTOS, and runtime library 
-*                               code to align SP at all points at which control first enters 
-*                               a body of (AAPCS-conforming) code. 
-*              
+*                               This places an obligation on authors of low level OS, RTOS, and runtime library
+*                               code to align SP at all points at which control first enters
+*                               a body of (AAPCS-conforming) code.
+*
 *                       In turn, this requires the value of SP to be aligned to 0 modulo 8:
 *
 *                           (3) By exception handlers, before calling AAPCS-conforming code.
 *
 *                           (4) By OS/RTOS/run-time system code, before giving control to an application.
 *
-*                 (b) Section 2.3.1 corrective steps from the the SP must be 8-byte aligned on entry 
+*                 (b) Section 2.3.1 corrective steps from the the SP must be 8-byte aligned on entry
 *                     to AAPCS-conforming functions advisory note also states.
-* 
-*                     " This requirement extends to operating systems and run-time code for all architecture versions 
-*                       prior to ARMV7 and to the A, R and M architecture profiles thereafter. Special considerations 
-*                       associated with ARMV7M are discussed in §2.3.3"
-* 
+*
+*                     " This requirement extends to operating systems and run-time code for all architecture versions
+*                       prior to ARMV7 and to the A, R and M architecture profiles thereafter. Special considerations
+*                       associated with ARMV7M are discussed in section 2.3.3"
+*
 *                     (1) Even if the SP 8-byte aligment is not a requirement for the ARMv7M profile, the stack is aligned
 *                         to 8-byte boundaries to support legacy execution enviroments.
 *
-*                 (c) Section 5.2.1.2 from the Procedure Call Standard for the ARM 
-*                     architecture states :  "The stack must also conform to the following 
+*                 (c) Section 5.2.1.2 from the Procedure Call Standard for the ARM
+*                     architecture states :  "The stack must also conform to the following
 *                     constraint at a public interface:
 *
 *                     (1) SP mod 8 = 0. The stack must be double-word aligned"
 *
 *                 (d) From the ARM Technical Support Knowledge Base. 8 Byte stack aligment.
 *
-*                     "8 byte stack alignment is a requirement of the ARM Architecture Procedure 
-*                      Call Standard [AAPCS]. This specifies that functions must maintain an 8 byte 
-*                      aligned stack address (e.g. 0x00, 0x08, 0x10, 0x18, 0x20) on all external 
+*                     "8 byte stack alignment is a requirement of the ARM Architecture Procedure
+*                      Call Standard [AAPCS]. This specifies that functions must maintain an 8 byte
+*                      aligned stack address (e.g. 0x00, 0x08, 0x10, 0x18, 0x20) on all external
 *                      interfaces. In practice this requirement is met if:
 *
-*                      (1) At each external interface, the current stack pointer 
+*                      (1) At each external interface, the current stack pointer
 *                          is a multiple of 8 bytes.
-* 
-*                      (2) Your OS maintains 8 byte stack alignment on its external interfaces 
+*
+*                      (2) Your OS maintains 8 byte stack alignment on its external interfaces
 *                          e.g. on task switches"
 *
 **********************************************************************************************************
@@ -354,75 +395,74 @@ CPU_STK  *OSTaskStkInit (OS_TASK_PTR    p_task,
 {
     CPU_STK    *p_stk;
 
-    
-    (void)opt;                                                  /* Prevent compiler warning                               */
 
-    p_stk = &p_stk_base[stk_size];                              /* Load stack pointer                                     */
-                                                                /* Align the stack to 8-bytes.                            */
+    (void)opt;                                                  /* Prevent compiler warning                             */
+
+    p_stk = &p_stk_base[stk_size];                              /* Load stack pointer                                   */
+                                                                /* Align the stack to 8-bytes.                          */
     p_stk = (CPU_STK *)((CPU_STK)(p_stk) & 0xFFFFFFF8);
-                                                                /* Registers stacked as if auto-saved on exception        */
-    *--p_stk = (CPU_STK)0x01000000u;                            /* xPSR                                                   */
-    *--p_stk = (CPU_STK)p_task;                                 /* Entry Point                                            */
-    *--p_stk = (CPU_STK)OS_TaskReturn;                          /* R14 (LR)                                               */
-    *--p_stk = (CPU_STK)0x12121212u;                            /* R12                                                    */
-    *--p_stk = (CPU_STK)0x03030303u;                            /* R3                                                     */
-    *--p_stk = (CPU_STK)0x02020202u;                            /* R2                                                     */
-    *--p_stk = (CPU_STK)p_stk_limit;                            /* R1                                                     */
-    *--p_stk = (CPU_STK)p_arg;                                  /* R0 : argument                                          */
-                                                                /* Remaining registers saved on process stack             */
-    *--p_stk = (CPU_STK)0x11111111u;                            /* R11                                                    */
-    *--p_stk = (CPU_STK)0x10101010u;                            /* R10                                                    */
-    *--p_stk = (CPU_STK)0x09090909u;                            /* R9                                                     */
-    *--p_stk = (CPU_STK)0x08080808u;                            /* R8                                                     */
-    *--p_stk = (CPU_STK)0x07070707u;                            /* R7                                                     */
-    *--p_stk = (CPU_STK)0x06060606u;                            /* R6                                                     */
-    *--p_stk = (CPU_STK)0x05050505u;                            /* R5                                                     */
-    *--p_stk = (CPU_STK)0x04040404u;                            /* R4                                                     */
-    
+                                                                /* Registers stacked as if auto-saved on exception      */
+    *--p_stk = (CPU_STK)0x01000000u;                            /* xPSR                                                 */
+    *--p_stk = (CPU_STK)p_task;                                 /* Entry Point                                          */
+    *--p_stk = (CPU_STK)OS_TaskReturn;                          /* R14 (LR)                                             */
+    *--p_stk = (CPU_STK)0x12121212u;                            /* R12                                                  */
+    *--p_stk = (CPU_STK)0x03030303u;                            /* R3                                                   */
+    *--p_stk = (CPU_STK)0x02020202u;                            /* R2                                                   */
+    *--p_stk = (CPU_STK)p_stk_limit;                            /* R1                                                   */
+    *--p_stk = (CPU_STK)p_arg;                                  /* R0 : argument                                        */
+                                                                /* Remaining registers saved on process stack           */
+    *--p_stk = (CPU_STK)0x11111111u;                            /* R11                                                  */
+    *--p_stk = (CPU_STK)0x10101010u;                            /* R10                                                  */
+    *--p_stk = (CPU_STK)0x09090909u;                            /* R9                                                   */
+    *--p_stk = (CPU_STK)0x08080808u;                            /* R8                                                   */
+    *--p_stk = (CPU_STK)0x07070707u;                            /* R7                                                   */
+    *--p_stk = (CPU_STK)0x06060606u;                            /* R6                                                   */
+    *--p_stk = (CPU_STK)0x05050505u;                            /* R5                                                   */
+    *--p_stk = (CPU_STK)0x04040404u;                            /* R4                                                   */
+
 #if (OS_CPU_ARM_FP_EN == DEF_ENABLED)
     if ((opt & OS_OPT_TASK_SAVE_FP) != (OS_OPT)0) {
-        *--p_stk = (CPU_STK)0x02000000u;                        /* FPSCR                                                  */
-                                                                /* Initialize S0-S31 floating point registers             */
-        *--p_stk = (CPU_STK)0x41F80000u;                        /* S31                                                    */
-        *--p_stk = (CPU_STK)0x41F00000u;                        /* S30                                                    */
-        *--p_stk = (CPU_STK)0x41E80000u;                        /* S29                                                    */
-        *--p_stk = (CPU_STK)0x41E00000u;                        /* S28                                                    */
-        *--p_stk = (CPU_STK)0x41D80000u;                        /* S27                                                    */
-        *--p_stk = (CPU_STK)0x41D00000u;                        /* S26                                                    */
-        *--p_stk = (CPU_STK)0x41C80000u;                        /* S25                                                    */
-        *--p_stk = (CPU_STK)0x41C00000u;                        /* S24                                                    */
-        *--p_stk = (CPU_STK)0x41B80000u;                        /* S23                                                    */
-        *--p_stk = (CPU_STK)0x41B00000u;                        /* S22                                                    */
-        *--p_stk = (CPU_STK)0x41A80000u;                        /* S21                                                    */
-        *--p_stk = (CPU_STK)0x41A00000u;                        /* S20                                                    */
-        *--p_stk = (CPU_STK)0x41980000u;                        /* S19                                                    */
-        *--p_stk = (CPU_STK)0x41900000u;                        /* S18                                                    */
-        *--p_stk = (CPU_STK)0x41880000u;                        /* S17                                                    */
-        *--p_stk = (CPU_STK)0x41800000u;                        /* S16                                                    */
-        *--p_stk = (CPU_STK)0x41700000u;                        /* S15                                                    */
-        *--p_stk = (CPU_STK)0x41600000u;                        /* S14                                                    */
-        *--p_stk = (CPU_STK)0x41500000u;                        /* S13                                                    */
-        *--p_stk = (CPU_STK)0x41400000u;                        /* S12                                                    */
-        *--p_stk = (CPU_STK)0x41300000u;                        /* S11                                                    */
-        *--p_stk = (CPU_STK)0x41200000u;                        /* S10                                                    */
-        *--p_stk = (CPU_STK)0x41100000u;                        /* S9                                                     */
-        *--p_stk = (CPU_STK)0x41000000u;                        /* S8                                                     */
-        *--p_stk = (CPU_STK)0x40E00000u;                        /* S7                                                     */
-        *--p_stk = (CPU_STK)0x40C00000u;                        /* S6                                                     */
-        *--p_stk = (CPU_STK)0x40A00000u;                        /* S5                                                     */
-        *--p_stk = (CPU_STK)0x40800000u;                        /* S4                                                     */
-        *--p_stk = (CPU_STK)0x40400000u;                        /* S3                                                     */
-        *--p_stk = (CPU_STK)0x40000000u;                        /* S2                                                     */
-        *--p_stk = (CPU_STK)0x3F800000u;                        /* S1                                                     */
-        *--p_stk = (CPU_STK)0x00000000u;                        /* S0                                                     */
+        *--p_stk = (CPU_STK)0x02000000u;                        /* FPSCR                                                */
+                                                                /* Initialize S0-S31 floating point registers           */
+        *--p_stk = (CPU_STK)0x41F80000u;                        /* S31                                                  */
+        *--p_stk = (CPU_STK)0x41F00000u;                        /* S30                                                  */
+        *--p_stk = (CPU_STK)0x41E80000u;                        /* S29                                                  */
+        *--p_stk = (CPU_STK)0x41E00000u;                        /* S28                                                  */
+        *--p_stk = (CPU_STK)0x41D80000u;                        /* S27                                                  */
+        *--p_stk = (CPU_STK)0x41D00000u;                        /* S26                                                  */
+        *--p_stk = (CPU_STK)0x41C80000u;                        /* S25                                                  */
+        *--p_stk = (CPU_STK)0x41C00000u;                        /* S24                                                  */
+        *--p_stk = (CPU_STK)0x41B80000u;                        /* S23                                                  */
+        *--p_stk = (CPU_STK)0x41B00000u;                        /* S22                                                  */
+        *--p_stk = (CPU_STK)0x41A80000u;                        /* S21                                                  */
+        *--p_stk = (CPU_STK)0x41A00000u;                        /* S20                                                  */
+        *--p_stk = (CPU_STK)0x41980000u;                        /* S19                                                  */
+        *--p_stk = (CPU_STK)0x41900000u;                        /* S18                                                  */
+        *--p_stk = (CPU_STK)0x41880000u;                        /* S17                                                  */
+        *--p_stk = (CPU_STK)0x41800000u;                        /* S16                                                  */
+        *--p_stk = (CPU_STK)0x41700000u;                        /* S15                                                  */
+        *--p_stk = (CPU_STK)0x41600000u;                        /* S14                                                  */
+        *--p_stk = (CPU_STK)0x41500000u;                        /* S13                                                  */
+        *--p_stk = (CPU_STK)0x41400000u;                        /* S12                                                  */
+        *--p_stk = (CPU_STK)0x41300000u;                        /* S11                                                  */
+        *--p_stk = (CPU_STK)0x41200000u;                        /* S10                                                  */
+        *--p_stk = (CPU_STK)0x41100000u;                        /* S9                                                   */
+        *--p_stk = (CPU_STK)0x41000000u;                        /* S8                                                   */
+        *--p_stk = (CPU_STK)0x40E00000u;                        /* S7                                                   */
+        *--p_stk = (CPU_STK)0x40C00000u;                        /* S6                                                   */
+        *--p_stk = (CPU_STK)0x40A00000u;                        /* S5                                                   */
+        *--p_stk = (CPU_STK)0x40800000u;                        /* S4                                                   */
+        *--p_stk = (CPU_STK)0x40400000u;                        /* S3                                                   */
+        *--p_stk = (CPU_STK)0x40000000u;                        /* S2                                                   */
+        *--p_stk = (CPU_STK)0x3F800000u;                        /* S1                                                   */
+        *--p_stk = (CPU_STK)0x00000000u;                        /* S0                                                   */
     }
-#endif    
+#endif
 
     return (p_stk);
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                           TASK SWITCH HOOK
@@ -447,7 +487,9 @@ void  OSTaskSwHook (void)
 #ifdef  CPU_CFG_INT_DIS_MEAS_EN
     CPU_TS  int_dis_time;
 #endif
-
+#if (OS_CFG_TASK_STK_REDZONE_EN == DEF_ENABLED)
+    CPU_BOOLEAN  stk_status;
+#endif
 
 #if (OS_CPU_ARM_FP_EN == DEF_ENABLED)
     if ((OSTCBCurPtr->Opt & OS_OPT_TASK_SAVE_FP) != (OS_OPT)0) {
@@ -457,13 +499,15 @@ void  OSTaskSwHook (void)
     if ((OSTCBHighRdyPtr->Opt & OS_OPT_TASK_SAVE_FP) != (OS_OPT)0) {
         OS_CPU_FP_Reg_Pop(OSTCBHighRdyPtr->StkPtr);
     }
-#endif    
+#endif
 
 #if OS_CFG_APP_HOOKS_EN > 0u
     if (OS_AppTaskSwHookPtr != (OS_APP_HOOK_VOID)0) {
         (*OS_AppTaskSwHookPtr)();
     }
 #endif
+
+    OS_TRACE_TASK_SWITCHED_IN(OSTCBHighRdyPtr);
 
 #if OS_CFG_TASK_PROFILE_EN > 0u
     ts = OS_TS_GET();
@@ -476,23 +520,30 @@ void  OSTaskSwHook (void)
 #endif
 
 #ifdef  CPU_CFG_INT_DIS_MEAS_EN
-    int_dis_time = CPU_IntDisMeasMaxCurReset();                 /* Keep track of per-task interrupt disable time          */
+    int_dis_time = CPU_IntDisMeasMaxCurReset();                 /* Keep track of per-task interrupt disable time        */
     if (OSTCBCurPtr->IntDisTimeMax < int_dis_time) {
         OSTCBCurPtr->IntDisTimeMax = int_dis_time;
     }
 #endif
 
 #if OS_CFG_SCHED_LOCK_TIME_MEAS_EN > 0u
-                                                                /* Keep track of per-task scheduler lock time             */
+                                                                /* Keep track of per-task scheduler lock time           */
     if (OSTCBCurPtr->SchedLockTimeMax < OSSchedLockTimeMaxCur) {
         OSTCBCurPtr->SchedLockTimeMax = OSSchedLockTimeMaxCur;
     }
-    OSSchedLockTimeMaxCur = (CPU_TS)0;                          /* Reset the per-task value                               */
+    OSSchedLockTimeMaxCur = (CPU_TS)0;                          /* Reset the per-task value                             */
+#endif
+
+#if (OS_CFG_TASK_STK_REDZONE_EN == DEF_ENABLED)
+                                                                /* Check if stack overflowed.                           */
+    stk_status = OSTaskStkRedzoneChk(DEF_NULL);
+    if (stk_status != DEF_OK) {
+        OSRedzoneHitHook(OSTCBCurPtr);
+    }
 #endif
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                              TICK HOOK
@@ -515,7 +566,6 @@ void  OSTimeTickHook (void)
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                          SYS TICK HANDLER
@@ -535,16 +585,15 @@ void  OS_CPU_SysTickHandler (void)
 
 
     CPU_CRITICAL_ENTER();
-    OSIntNestingCtr++;                                      /* Tell uC/OS-III that we are starting an ISR             */
+    OSIntNestingCtr++;                                          /* Tell uC/OS-III that we are starting an ISR           */
     CPU_CRITICAL_EXIT();
 
-    OSTimeTick();                                           /* Call uC/OS-III's OSTimeTick()                          */
+    OSTimeTick();                                               /* Call uC/OS-III's OSTimeTick()                        */
 
-    OSIntExit();                                            /* Tell uC/OS-III that we are leaving the ISR             */
+    OSIntExit();                                                /* Tell uC/OS-III that we are leaving the ISR           */
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                         INITIALIZE SYS TICK
@@ -564,17 +613,20 @@ void  OS_CPU_SysTickInit (CPU_INT32U  cnts)
 
     CPU_REG_NVIC_ST_RELOAD = cnts - 1u;
 
-                                                            /* Set SysTick handler prio.                              */
+                                                                /* Set SysTick handler prio.                            */
     prio  = CPU_REG_NVIC_SHPRI3;
     prio &= DEF_BIT_FIELD(24, 0);
     prio |= DEF_BIT_MASK(OS_CPU_CFG_SYSTICK_PRIO, 24);
 
     CPU_REG_NVIC_SHPRI3 = prio;
 
-                                                            /* Enable timer.                                          */
+                                                                /* Enable timer.                                        */
     CPU_REG_NVIC_ST_CTRL |= CPU_REG_NVIC_ST_CTRL_CLKSOURCE |
                             CPU_REG_NVIC_ST_CTRL_ENABLE;
-                                                            /* Enable timer interrupt.                                */
+                                                                /* Enable timer interrupt.                              */
     CPU_REG_NVIC_ST_CTRL |= CPU_REG_NVIC_ST_CTRL_TICKINT;
 }
 
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>986363535</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_assert.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\glib\glib_font_number_16x20.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\glib\glib_font_narrow_6x8.c</file>
+      <file>$TOOLKIT_DIR$\lib\m6M_tl.a</file>
+      <file>$TOOLKIT_DIR$\lib\rt6M_tl.a</file>
+      <file>$TOOLKIT_DIR$\inc\c\limits.h</file>
+      <file>$PROJ_DIR$\..\clock.icf</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_emu.h</file>
+      <file>$TOOLKIT_DIR$\lib\dl6M_tln.a</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xencoding_limits.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ystdio.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\string.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include\arm_math.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\em_device.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg222f32.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include\core_cm0plus.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include\core_cmInstr.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\cmsis_iar.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\intrinsics.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\CMSIS\Include\core_cmFunc.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\math.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ymath.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xtgmath.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\system_efm32zg.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_aes.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_dma_ch.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_dma.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_msc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_emu.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_rmu.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_cmu.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_timer_cc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_timer.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_acmp.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_usart.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_prs_ch.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_prs.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_idac.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_gpio_p.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_gpio.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_vcmp.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_adc.h</file>
+      <file>$PROJ_DIR$\clock\Debug\List\clock.map</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\displayls013b7dh03.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\display.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Source\IAR\startup_efm32zg.s</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Source\system_efm32zg.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\displaypalemlib.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\retargetio.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\retargettextdisplay.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\textdisplay.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\udelay.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\dmd\display\dmd_display.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\glib\glib.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\glib\glib_bitmap.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\glib\glib_circle.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\glib\glib_line.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\glib\glib_rectangle.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\glib\glib_string.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_core.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_emu.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_pcnt.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_prs.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_rtc.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_system.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_usart.c</file>
+      <file>$PROJ_DIR$\..\main.c</file>
+      <file>$PROJ_DIR$\..\analog_clock.c</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\system_efm32zg.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\display.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\displayls013b7dh03.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\textdisplay.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\em_cmu.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\udelay.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\retargettextdisplay.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\retargetio.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\displaypalemlib.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\em_assert.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\em_core.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\em_emu.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\em_gpio.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\em_pcnt.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\em_prs.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\em_rtc.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\em_system.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\em_usart.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\glib.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\dmd_display.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\glib_bitmap.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\glib_circle.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\glib_font_narrow_6x8.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\glib_font_number_16x20.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\glib_line.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\glib_rectangle.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\glib_string.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\analog_clock.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\main.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Obj\startup_efm32zg.o</file>
+      <file>$PROJ_DIR$\clock\Debug\Exe\clock.out</file>
+      <file>$PROJ_DIR$\clock\Debug\Exe\clock.bin</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_chip.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_core.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_pcnt.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_leuart.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_i2c.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_rtc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_wdog.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_devinfo.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_dma_descriptor.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_romtable.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_calibrate.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_prs_signals.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_dmareq.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_dmactrl.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_af_ports.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Include\efm32zg_af_pins.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp\bsp.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_cmu.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_assert.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_bus.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_gpio.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_usart.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFM32ZG_STK3200\config\bspconfig.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\bsp\bsp_bcp.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\udelay.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\displayconfigall.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFM32ZG_STK3200\config\displaypalconfig.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFM32ZG_STK3200\config\displayconfig.h</file>
+      <file>$PROJ_DIR$\..\displayconfigapp.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFM32ZG_STK3200\config\displayls013b7dh03config.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\displayls013b7dh03.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\emstatus.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\em_types.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFM32ZG_STK3200\config\textdisplayconfig.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\EFM32ZG_STK3200\config\retargettextdisplayconfig.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\displaypal.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\display.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_rtc.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_prs.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\time.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\glib\glib.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\displaybackend.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\dmd\dmd.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\glib\glib_color.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_system.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_common.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xtls.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xlocale.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\platform\emlib\inc\em_pcnt.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stddef.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\yfuns.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\textdisplay.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\retargettextdisplay.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ctype.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xmtx.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xlocaleuse.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xlocale_c.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\wchar.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\displayfont16x20.h</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 112 55</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_assert.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 91</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 132 18</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\glib\glib_font_number_16x20.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 105</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10 11 12 13 17 15 16 14 154 18 22 20 157 156 146</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_cmu.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 86</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 131 25 26 24 28 10 11 12 13 17 15 16 14 29 30 31 32 23 20 27 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 117 116 118 119 120 122 121 123 124 125 126 127 128 129 18 132 133 163 6 8 158 159</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\glib\glib_font_narrow_6x8.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 104</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10 11 12 13 17 15 16 14 154 18 22 20 157 156 146</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\displayls013b7dh03.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 84</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10 11 12 13 17 15 16 14 18 19 20 21 22 23 27 134 25 26 24 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 117 116 118 119 120 122 121 123 124 125 126 127 128 129 133 132 139 140 141 142 143 144 145 146 147 148 149 155 150</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\display.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 83</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10 11 12 13 17 15 16 14 18 23 20 27 139 140 141 142 143 144 145 146 147 148 150 155</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Source\IAR\startup_efm32zg.s</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 111</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\Device\SiliconLabs\EFM32ZG\Source\system_efm32zg.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 82</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10 11 12 13 17 15 16 14 25 26 24 28 29 30 31 32 23 20 27 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 117 116 118 119 120 122 121 123 124 125 126 127 128 129</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\displaypalemlib.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 90</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10 11 12 13 17 15 16 14 18 19 20 21 22 23 27 25 26 24 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 117 116 118 119 120 122 121 123 124 125 126 127 128 129 131 132 133 134 135 130 136 137 138 139 140 141 142 143 144 145 146 147 148 149 151 152</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\retargetio.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 89</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 164 20 11 12 13 17 15 16 14 10</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\retargettextdisplay.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 88</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 19 11 12 13 17 15 16 14 20 21 10 139 140 141 142 143 144 145 146 147 148 150 18 165 166</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\textdisplay.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 85</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10 11 12 13 17 15 16 14 18 22 20 19 21 23 27 167 161 160 168 169 170 171 139 140 141 142 143 144 145 146 147 148 150 165 172</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\hardware\kit\common\drivers\udelay.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 87</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 25 26 24 28 10 11 12 13 17 15 16 14 29 30 31 32 23 20 27 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 117 116 118 119 120 122 121 123 124 125 126 127 128 129 131 18 132 133 115 159 151 138</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\dmd\display\dmd_display.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 101</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10 11 12 13 17 15 16 14 22 20 18 23 27 150 145 146 139 140 141 142 143 144 147 148 156</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\glib\glib.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 100</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10 11 12 13 17 15 16 14 146 25 26 24 28 29 30 31 32 23 20 27 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 117 116 118 119 120 122 121 123 124 125 126 127 128 129 154 18 22 157 156</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\glib\glib_bitmap.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 102</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10 11 12 13 17 15 16 14 146 154 18 22 20 157 156</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\glib\glib_circle.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 103</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10 11 12 13 17 15 16 14 146 154 18 22 20 157 156</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\glib\glib_line.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 106</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10 11 12 13 17 15 16 14 18 146 154 22 20 157 156</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\glib\glib_rectangle.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 107</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10 11 12 13 17 15 16 14 146 154 18 22 20 157 156</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\middleware\glib\glib\glib_string.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 108</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10 11 12 13 17 15 16 14 23 20 27 18 146 154 22 157 156</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_core.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 92</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 115 25 26 24 28 10 11 12 13 17 15 16 14 29 30 31 32 23 20 27 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 117 116 118 119 120 122 121 123 124 125 126 127 128 129 159 18 132</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_emu.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 93</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 6 11 12 13 17 15 16 14 8 25 26 24 28 10 29 30 31 32 23 20 27 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 117 116 118 119 120 122 121 123 124 125 126 127 128 129 18 133 131 132 158 159</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_gpio.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 94</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 134 25 26 24 28 10 11 12 13 17 15 16 14 29 30 31 32 23 20 27 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 117 116 118 119 120 122 121 123 124 125 126 127 128 129 18 133 132</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_pcnt.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 95</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 162 25 26 24 28 10 11 12 13 17 15 16 14 29 30 31 32 23 20 27 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 117 116 118 119 120 122 121 123 124 125 126 127 128 129 18 131 132 133</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_prs.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 96</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 152 25 26 24 28 10 11 12 13 17 15 16 14 29 30 31 32 23 20 27 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 117 116 118 119 120 122 121 123 124 125 126 127 128 129 132</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_rtc.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 97</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 151 25 26 24 28 10 11 12 13 17 15 16 14 29 30 31 32 23 20 27 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 117 116 118 119 120 122 121 123 124 125 126 127 128 129 18 132 133</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_system.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 98</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 158 18 25 26 24 28 10 11 12 13 17 15 16 14 29 30 31 32 23 20 27 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 117 116 118 119 120 122 121 123 124 125 126 127 128 129 132 163</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\platform\emlib\src\em_usart.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 99</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 135 25 26 24 28 10 11 12 13 17 15 16 14 29 30 31 32 23 20 27 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 117 116 118 119 120 122 121 123 124 125 126 127 128 129 18 131 132 133</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 110</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10 11 12 13 17 15 16 14 18 33 34 35 19 20 21 153 25 26 24 28 29 30 31 32 23 27 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 117 116 118 119 120 122 121 123 124 125 126 127 128 129 114 158 134 133 132 131 8 162 152 150 145 146 139 140 141 142 143 144 147 148 154 22 157 156 136 137</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\analog_clock.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 109</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10 11 12 13 17 15 16 14 18 33 34 35 19 20 21 153 25 26 24 28 29 30 31 32 23 27 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 117 116 118 119 120 122 121 123 124 125 126 127 128 129 131 132 133 146 156 154 22 157</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\clock\Debug\Exe\clock.out</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 55</file>
+        </tool>
+        <tool>
+          <name>OBJCOPY</name>
+          <file> 113</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 7 109 83 84 90 101 91 86 92 93 94 95 96 97 98 99 100 102 103 104 105 106 107 108 110 89 88 111 82 85 87 5 4 9</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>ILINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

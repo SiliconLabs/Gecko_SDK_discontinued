@@ -70,6 +70,7 @@ void mbedtls_ccm_init( mbedtls_ccm_context *ctx )
 
   AESDRV_Init ( &ctx->aesdrv_ctx );
   AESDRV_SetDeviceInstance ( &ctx->aesdrv_ctx, 0 );
+  mbedtls_ccm_set_device_lock_wait_ticks( ctx, 0 );
   AESDRV_SetIoMode         ( &ctx->aesdrv_ctx, aesdrvIoModeCore, 0 );
 }
 
@@ -106,14 +107,14 @@ int mbedtls_ccm_set_device_instance(mbedtls_ccm_context *ctx,
 {
 #if defined(AES_COUNT) && (AES_COUNT > 0)
     (void) ctx;
-    if ((devno > AES_COUNT) || (devno != 0))
+    if ((devno >= AES_COUNT) || (devno != 0))
         return( MBEDTLS_ERR_CCM_BAD_INPUT );
     else
         return( 0 );
 #endif
   
 #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
-    if (devno > CRYPTO_COUNT)
+    if (devno >= CRYPTO_COUNT)
         return( MBEDTLS_ERR_CCM_BAD_INPUT );
   
     return cryptodrvSetDeviceInstance( &ctx->aesdrv_ctx.cryptodrvContext,
@@ -121,34 +122,27 @@ int mbedtls_ccm_set_device_instance(mbedtls_ccm_context *ctx,
 #endif /* #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) */
 }
 
-#if defined( MBEDTLS_INCLUDE_ASYNCH_API )
-
 /*
- * Set an CCM context in asynchronous mode.
+ *   Set the number of ticks to wait for the device lock.
  */
-int mbedtls_ccm_set_asynch( mbedtls_ccm_context *ctx,
-                            mbedtls_ccm_asynch_context *asynch_ctx,
-                            mbedtls_asynch_callback asynch_callback,
-                            void* asynch_callback_user_arg )
+int mbedtls_ccm_set_device_lock_wait_ticks(mbedtls_ccm_context *ctx,
+                                           int                  ticks)
 {
-    Ecode_t status;
-    AESDRV_CCM_AsynchContext_t *aesdrv_asynch_ctx =
-      asynch_ctx ? &asynch_ctx->aesdrv_asynch_ctx : 0;
+    int ret = 0;
     
-    status = AESDRV_SetAsynchMode(&ctx->aesdrv_ctx,
-                                  cipherModeCcm,
-                                  aesdrv_asynch_ctx,
-                                  (AESDRV_AsynchCallback_t) asynch_callback,
-                                  asynch_callback_user_arg);
-    if (status != ECODE_OK)
-    {
-      return (int)status;
-    }
+#if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
+    
+    ret = cryptodrvSetDeviceLockWaitTicks( &ctx->aesdrv_ctx.cryptodrvContext,
+                                           ticks );
+#else
+    
+    (void) ctx;
+    (void) ticks;
+    
+#endif /* #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) */
 
-    return( 0 );
+    return ret;
 }
-
-#endif /* #if defined( MBEDTLS_INCLUDE_ASYNCH_API ) */
 
 /*
  *   Set the device I/O mode of an CCM context.
@@ -181,7 +175,7 @@ int mbedtls_ccm_encrypt_and_tag( mbedtls_ccm_context *ctx, size_t length,
                          const unsigned char *input, unsigned char *output,
                          unsigned char *tag, size_t tag_len )
 {
-    Ecode_t ecode;
+    int ret;
 
     /*
      * Check length requirements: SP800-38C A.1
@@ -198,7 +192,7 @@ int mbedtls_ccm_encrypt_and_tag( mbedtls_ccm_context *ctx, size_t length,
     if( add_len > 0xFF00 )
         return( MBEDTLS_ERR_CCM_BAD_INPUT );
 
-    ecode = AESDRV_CCM(&ctx->aesdrv_ctx,
+    ret = AESDRV_CCM(&ctx->aesdrv_ctx,
                        input, output, length,
                        add, add_len,
                        (uint8_t*)ctx->key, 128/8,
@@ -206,9 +200,9 @@ int mbedtls_ccm_encrypt_and_tag( mbedtls_ccm_context *ctx, size_t length,
                        tag, tag_len,
                        true);
     
-    return ( ECODE_OK == ecode ? 0 :
-             ( MBEDTLS_ECODE_AESDRV_INVALID_PARAM == ecode ?
-               MBEDTLS_ERR_CCM_BAD_INPUT : (int)ecode
+    return ( 0 == ret ? 0 :
+             ( MBEDTLS_ECODE_AESDRV_INVALID_PARAM == ret ?
+               MBEDTLS_ERR_CCM_BAD_INPUT : (int)ret
                ) );
 }
 
@@ -221,7 +215,7 @@ int mbedtls_ccm_auth_decrypt( mbedtls_ccm_context *ctx, size_t length,
                       const unsigned char *input, unsigned char *output,
                       const unsigned char *tag, size_t tag_len )
 {
-    Ecode_t ecode;
+    int ret;
     
     /*
      * Check length requirements: SP800-38C A.1
@@ -238,7 +232,7 @@ int mbedtls_ccm_auth_decrypt( mbedtls_ccm_context *ctx, size_t length,
     if( add_len > 0xFF00 )
         return( MBEDTLS_ERR_CCM_BAD_INPUT );
 
-    ecode = AESDRV_CCM(&ctx->aesdrv_ctx,
+    ret = AESDRV_CCM(&ctx->aesdrv_ctx,
                        input, output, length,
                        add, add_len,
                        (uint8_t*)ctx->key, 128/8,
@@ -246,11 +240,11 @@ int mbedtls_ccm_auth_decrypt( mbedtls_ccm_context *ctx, size_t length,
                        (uint8_t*)tag, tag_len,
                        false);
 
-    return ( ECODE_OK == ecode ? 0 :
-             ( MBEDTLS_ECODE_AESDRV_AUTHENTICATION_FAILED == ecode ?
+    return ( 0 == ret ? 0 :
+             ( MBEDTLS_ECODE_AESDRV_AUTHENTICATION_FAILED == ret ?
                MBEDTLS_ERR_CCM_AUTH_FAILED :
-               ( MBEDTLS_ECODE_AESDRV_INVALID_PARAM == ecode ?
-                 MBEDTLS_ERR_CCM_BAD_INPUT : (int)ecode
+               ( MBEDTLS_ECODE_AESDRV_INVALID_PARAM == ret ?
+                 MBEDTLS_ERR_CCM_BAD_INPUT : (int)ret
                  ) ) );
 }
 
@@ -264,9 +258,9 @@ int mbedtls_ccm_encrypt_and_tag_ble( mbedtls_ccm_context *ctx,
                                unsigned char        header,
                                unsigned char       *tag )
 {
-    Ecode_t ecode;
+    int ret;
 
-    ecode = AESDRV_CCMBLE(&ctx->aesdrv_ctx,
+    ret = AESDRV_CCMBLE(&ctx->aesdrv_ctx,
                           data,
                           length,
                           header,
@@ -275,9 +269,9 @@ int mbedtls_ccm_encrypt_and_tag_ble( mbedtls_ccm_context *ctx,
                           tag,
                           true);
     
-    return ( ECODE_OK == ecode ? 0 :
-             ( MBEDTLS_ECODE_AESDRV_INVALID_PARAM == ecode ?
-               MBEDTLS_ERR_CCM_BAD_INPUT : (int)ecode
+    return ( 0 == ret ? 0 :
+             ( MBEDTLS_ECODE_AESDRV_INVALID_PARAM == ret ?
+               MBEDTLS_ERR_CCM_BAD_INPUT : (int)ret
                ) );
 }
 
@@ -291,9 +285,9 @@ int mbedtls_ccm_auth_decrypt_ble( mbedtls_ccm_context *ctx,
                              unsigned char        header,
                              unsigned char       *tag )
 {
-    Ecode_t ecode;
+    int ret;
 
-    ecode = AESDRV_CCMBLE(&ctx->aesdrv_ctx,
+    ret = AESDRV_CCMBLE(&ctx->aesdrv_ctx,
                           data,
                           length,
                           header,
@@ -302,11 +296,11 @@ int mbedtls_ccm_auth_decrypt_ble( mbedtls_ccm_context *ctx,
                           tag,
                           false );
 
-    return ( ECODE_OK == ecode ? 0 :
-             ( MBEDTLS_ECODE_AESDRV_AUTHENTICATION_FAILED == ecode ?
+    return ( 0 == ret ? 0 :
+             ( MBEDTLS_ECODE_AESDRV_AUTHENTICATION_FAILED == ret ?
                MBEDTLS_ERR_CCM_AUTH_FAILED :
-               ( MBEDTLS_ECODE_AESDRV_INVALID_PARAM == ecode ?
-                 MBEDTLS_ERR_CCM_BAD_INPUT : (int)ecode
+               ( MBEDTLS_ECODE_AESDRV_INVALID_PARAM == ret ?
+                 MBEDTLS_ERR_CCM_BAD_INPUT : (int)ret
                  ) ) );
 }
 

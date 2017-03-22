@@ -1,10 +1,10 @@
 /***************************************************************************//**
  * @file
  * @brief Board support package API implementation STK's.
- * @version 5.0.0
+ * @version 5.1.1
  *******************************************************************************
  * @section License
- * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2016 Silicon Labs, Inc. http://www.silabs.com</b>
  *******************************************************************************
  *
  * This file is licensed under the Silabs License Agreement. See the file
@@ -12,8 +12,6 @@
  * any purpose, you must agree to the terms of that agreement.
  *
  ******************************************************************************/
-
-
 
 #include <string.h>
 #include "em_device.h"
@@ -23,9 +21,11 @@
 #if defined( BSP_STK_USE_EBI )
 #include "em_ebi.h"
 #endif
+#if defined(BSP_IO_EXPANDER)
+#include "bsp_stk_ioexp.h"
+#endif
 
 #if defined( BSP_STK )
-
 
 /***************************************************************************//**
  * @addtogroup BSP
@@ -48,6 +48,10 @@ int BSP_Disable(void)
 {
   BSP_BccDeInit();
   BSP_EbiDeInit();
+
+#if defined(BSP_IO_EXPANDER)
+  ioexpDisable();
+#endif
 
   return BSP_STATUS_OK;
 }
@@ -163,6 +167,22 @@ int BSP_EbiDeInit( void )
 #endif
 }
 
+/**************************************************************************//**
+ * @brief Get IO Expander Device id.
+ *
+ * @return
+ *   The device id of a connected IO Expander Device id or 0 if no IO expander
+ *   is connected.
+ *****************************************************************************/
+uint32_t BSP_IOExpGetDeviceId( void )
+{
+#if defined(BSP_IO_EXPANDER)
+  return ioexpGetDeviceId();
+#else
+  return 0;
+#endif
+}
+
 /** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 /**************************************************************************//**
  * @brief Initialize board support package functionality.
@@ -170,16 +190,117 @@ int BSP_EbiDeInit( void )
  * @param[in] flags Initialization mask, use 0 or @ref BSP_INIT_BCC.
  *
  * @return
- *   @ref BSP_STATUS_OK
+ *   @ref BSP_STATUS_OK or BSP_STATUS_IOEXP_FAILURE
  *****************************************************************************/
 int BSP_Init( uint32_t flags )
 {
+#if defined(BSP_IO_EXPANDER)
+  int status;
+#endif
+
   if ( flags & BSP_INIT_BCC )
   {
     BSP_BccInit();
   }
 
+#if defined(BSP_IO_EXPANDER)
+  if (flags & BSP_INIT_IOEXP)
+  {
+    status = ioexpEnable();
+    if (status != BSP_STATUS_OK)
+    {
+      return status;
+    }
+  }
+#endif
+
   return BSP_STATUS_OK;
+}
+/** @endcond */
+
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
+/**************************************************************************//**
+ * @brief STK Peripheral Access Control
+ *    Enable or disable access to on-board peripherals using the IO-expander.
+ *
+ * @param[in] perf
+ *    Which peripheral to configure. Use enum @ref BSP_Peripheral_TypeDef.
+ *
+ * @param[in] enable
+ *    If true, set up access to peripheral, if false disable access.
+ *
+ * @return
+ *   @ref BSP_STATUS_OK, @ref BSP_STATUS_NOT_IMPLEMENTED
+ *   or @ref BSP_STATUS_IOEXP_FAILURE
+ *****************************************************************************/
+int BSP_PeripheralAccess(BSP_Peripheral_TypeDef perf, bool enable)
+{
+#if defined(BSP_IO_EXPANDER)
+  int status = BSP_STATUS_OK;
+
+  if (enable)
+  {
+    switch (perf)
+    {
+      case BSP_IOEXP_LEDS:
+        status = ioexpWriteReg(BSP_IOEXP_REG_LED_CTRL,
+                               BSP_IOEXP_REG_LED_CTRL_DIRECT);
+        break;
+
+      case BSP_IOEXP_SENSORS:
+        status = ioexpWriteReg(BSP_IOEXP_REG_SENSOR_CTRL, 1);
+        break;
+
+      case BSP_IOEXP_DISPLAY:
+        /* Cant use VCOM together with the display. */
+        status = ioexpWriteReg(BSP_IOEXP_REG_VCOM_CTRL, 0);
+        if (status == BSP_STATUS_OK)
+        {
+          status = ioexpWriteReg(BSP_IOEXP_REG_DISP_CTRL,
+                                 BSP_IOEXP_REG_DISP_CTRL_ENABLE
+                                 | BSP_IOEXP_REG_DISP_CTRL_AUTO_EXTCOMIN);
+        }
+        break;
+
+      case BSP_IOEXP_VCOM:
+        /* Cant use the display together with VCOM. */
+        status = ioexpWriteReg(BSP_IOEXP_REG_DISP_CTRL, 0);
+        if (status == BSP_STATUS_OK)
+        {
+          status = ioexpWriteReg(BSP_IOEXP_REG_VCOM_CTRL, 1);
+        }
+        break;
+    }
+  }
+  else
+  {
+    switch (perf)
+    {
+      case BSP_IOEXP_LEDS:
+        status = ioexpWriteReg(BSP_IOEXP_REG_LED_CTRL, 0);
+        break;
+
+      case BSP_IOEXP_SENSORS:
+        status = ioexpWriteReg(BSP_IOEXP_REG_SENSOR_CTRL, 0);
+        break;
+
+      case BSP_IOEXP_DISPLAY:
+        status = ioexpWriteReg(BSP_IOEXP_REG_DISP_CTRL, 0);
+        break;
+
+      case BSP_IOEXP_VCOM:
+        status = ioexpWriteReg(BSP_IOEXP_REG_VCOM_CTRL, 0);
+        break;
+    }
+  }
+
+  return status;
+#else
+  (void)perf;
+  (void)enable;
+
+  return BSP_STATUS_NOT_IMPLEMENTED;
+#endif
 }
 /** @endcond */
 

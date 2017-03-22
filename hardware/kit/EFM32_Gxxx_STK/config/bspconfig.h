@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file
  * @brief Provide BSP (board support package) configuration parameters.
- * @version 5.0.0
+ * @version 5.1.1
  *******************************************************************************
  * @section License
  * <b>Copyright 2015 Silicon Labs, Inc. http://www.silabs.com</b>
@@ -33,6 +33,15 @@
 #define BSP_NO_OF_LEDS  4
 #define BSP_GPIO_LEDARRAY_INIT {{gpioPortC,0},{gpioPortC,1}, \
                                 {gpioPortC,2},{gpioPortC,3}}
+
+#define BSP_GPIO_BUTTONS
+#define BSP_NO_OF_BUTTONS       2
+#define BSP_GPIO_PB0_PORT       gpioPortB
+#define BSP_GPIO_PB0_PIN        9
+#define BSP_GPIO_PB1_PORT       gpioPortB
+#define BSP_GPIO_PB1_PIN        10
+
+#define BSP_GPIO_BUTTONARRAY_INIT {{BSP_GPIO_PB0_PORT, BSP_GPIO_PB0_PIN}, {BSP_GPIO_PB1_PORT, BSP_GPIO_PB1_PIN}}
 
 #define BSP_INIT_DEFAULT  0
 

@@ -74,6 +74,7 @@ void mbedtls_cmac_init( mbedtls_cmac_context *ctx )
     
     AESDRV_Init ( &ctx->aesdrv_ctx );
     AESDRV_SetDeviceInstance ( &ctx->aesdrv_ctx, 0 );
+    mbedtls_cmac_set_device_lock_wait_ticks( ctx, 0 );
     AESDRV_SetIoMode         ( &ctx->aesdrv_ctx, aesdrvIoModeCore, 0 );
 }
 
@@ -109,18 +110,18 @@ int mbedtls_cmac_setkey( mbedtls_cmac_context *ctx,
  * Set the device instance of an CMAC context.
  */
 int mbedtls_cmac_set_device_instance(mbedtls_cmac_context *ctx,
-                                    unsigned int           devno)
+                                     unsigned int          devno)
 {
 #if defined(AES_COUNT) && (AES_COUNT > 0)
     (void) ctx;
-    if ((devno > AES_COUNT) || (devno != 0))
+    if ((devno >= AES_COUNT) || (devno != 0))
         return( MBEDTLS_ERR_CMAC_BAD_INPUT );
     else
         return( 0 );
 #endif
   
 #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
-    if (devno > CRYPTO_COUNT)
+    if (devno >= CRYPTO_COUNT)
         return( MBEDTLS_ERR_CMAC_BAD_INPUT );
   
     return cryptodrvSetDeviceInstance( &ctx->aesdrv_ctx.cryptodrvContext,
@@ -128,33 +129,27 @@ int mbedtls_cmac_set_device_instance(mbedtls_cmac_context *ctx,
 #endif /* #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) */
 }
 
-#if defined( MBEDTLS_INCLUDE_ASYNCH_API )
 /*
- * Set an CMAC context in asynchronous mode.
+ *   Set the number of ticks to wait for the device lock.
  */
-int mbedtls_cmac_set_asynch( mbedtls_cmac_context *ctx,
-                             mbedtls_cmac_asynch_context *asynch_ctx,
-                             mbedtls_asynch_callback asynch_callback,
-                             void* asynch_callback_user_arg )
+int mbedtls_cmac_set_device_lock_wait_ticks(mbedtls_cmac_context *ctx,
+                                            int                   ticks)
 {
-    Ecode_t status;
-  
-    AESDRV_CMAC_AsynchContext_t *aesdrv_asynch_ctx =
-      asynch_ctx ? &asynch_ctx->aesdrv_asynch_ctx : 0;
+    int ret = 0;
     
-    status = AESDRV_SetAsynchMode(&ctx->aesdrv_ctx,
-                                  cipherModeCmac,
-                                  aesdrv_asynch_ctx,
-                                  (AESDRV_AsynchCallback_t) asynch_callback,
-                                  asynch_callback_user_arg);
-    if (status != ECODE_OK)
-    {
-        return (int)status;
-    }
+#if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0)
     
-    return( 0 );
+    ret = cryptodrvSetDeviceLockWaitTicks( &ctx->aesdrv_ctx.cryptodrvContext,
+                                           ticks );
+#else
+    
+    (void) ctx;
+    (void) ticks;
+
+#endif /* #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) */
+    
+    return ret;
 }
-#endif /* #if defined( MBEDTLS_INCLUDE_ASYNCH_API ) */
 
 /*
  * Free context
@@ -175,14 +170,14 @@ int mbedtls_cmac_generate_tag( mbedtls_cmac_context *ctx,
                                unsigned char        *tag,
                                size_t                tag_len )
 {
-    Ecode_t ecode = AESDRV_CMAC(&ctx->aesdrv_ctx,
+    int ret = AESDRV_CMAC(&ctx->aesdrv_ctx,
                                 data, data_len,
                                 (uint8_t*)ctx->key, 128/8,
                                 tag, tag_len,
                                 true);
-    return ( ECODE_OK == ecode ? 0 :
-             ( MBEDTLS_ECODE_AESDRV_INVALID_PARAM == ecode ?
-               MBEDTLS_ERR_CMAC_BAD_INPUT : (int)ecode
+    return ( 0 == ret ? 0 :
+             ( MBEDTLS_ECODE_AESDRV_INVALID_PARAM == ret ?
+               MBEDTLS_ERR_CMAC_BAD_INPUT : (int)ret
                ) );
 }
 
@@ -196,16 +191,16 @@ int mbedtls_cmac_verify_tag( mbedtls_cmac_context *ctx,
                              unsigned char        *tag,
                              size_t                tag_len )
 {
-    Ecode_t ecode = AESDRV_CMAC(&ctx->aesdrv_ctx,
+    int ret = AESDRV_CMAC(&ctx->aesdrv_ctx,
                                 data, data_len,
                                 (uint8_t*)ctx->key, 128/8,
                                 tag, tag_len,
                                 false);
-    return ( ECODE_OK == ecode ? 0 :
-             ( MBEDTLS_ECODE_AESDRV_AUTHENTICATION_FAILED == ecode ?
+    return ( 0 == ret ? 0 :
+             ( MBEDTLS_ECODE_AESDRV_AUTHENTICATION_FAILED == ret ?
                MBEDTLS_ERR_CMAC_AUTH_FAILED :
-               ( MBEDTLS_ECODE_AESDRV_INVALID_PARAM == ecode ?
-                 MBEDTLS_ERR_CMAC_BAD_INPUT : (int)ecode
+               ( MBEDTLS_ECODE_AESDRV_INVALID_PARAM == ret ?
+                 MBEDTLS_ERR_CMAC_BAD_INPUT : (int)ret
                  ) ) );
 }
 
@@ -217,11 +212,6 @@ int mbedtls_cmac_verify_tag( mbedtls_cmac_context *ctx,
 
 #include "timing.h"
 #include <ctype.h>
-
-#define ASYNCH_TEST_LEVEL (1)
-#define ASYNCH_TEST_INIT(asynch_type)  while (false)
-#define ASYNCH_TEST_SET_READY          while (false)
-#define ASYNCH_TEST_HANDLE_COMPLETION  while (false)
 
 typedef struct {
   char* key;
@@ -237,21 +227,18 @@ static int hex2uint8array(uint8_t* u8a, int u8alen, const char* hex);
 
 /* Test the CMAC algorithm. */
 static int test_single_cmac (const cmac_test_vector_t* tv,
-                             int verbose )
+                             int verbose, int device_instance )
 {
-    uint8_t* key                = (uint8_t*) malloc (tv->keylen);
-    uint8_t* message            = (uint8_t*) malloc (tv->plaintextlen+16);
-    uint8_t* authTagExpected    = (uint8_t*) malloc (16);
-    uint8_t* authTag            = (uint8_t*) malloc (16);
+    uint8_t* key          = (uint8_t*) mbedtls_calloc (1, tv->keylen);
+    uint8_t* message      = (uint8_t*) mbedtls_calloc (1, tv->plaintextlen+16);
+    uint8_t* authTag      = (uint8_t*) mbedtls_calloc (1, 16);
+    uint8_t* authTagExpected = (uint8_t*) mbedtls_calloc (1, 16);
     int      ret;
     int      cycles;
     mbedtls_cmac_context ctx;
-    int      asynchTest;
-#if defined( MBEDTLS_INCLUDE_ASYNCH_API )
-    ASYNCH_TEST_INIT(mbedtls_cmac_asynch_context);
-#endif /* #if defined( MBEDTLS_INCLUDE_ASYNCH_API ) */
   
     mbedtls_cmac_init( &ctx );
+    mbedtls_cmac_set_device_instance(&ctx, device_instance);
 
     if ( (NULL==key) ||
          (NULL==message) ||
@@ -266,72 +253,67 @@ static int test_single_cmac (const cmac_test_vector_t* tv,
 
     mbedtls_timing_init();
 
-    for (asynchTest=0; asynchTest<ASYNCH_TEST_LEVEL; asynchTest++)
+    hex2uint8array(key,                tv->keylen,         tv->key);
+    hex2uint8array(message,            tv->plaintextlen,   tv->plaintext);
+    hex2uint8array(authTagExpected,    tv->authtaglen,     tv->authtag);
+
+    /* Set key */
+    ret = mbedtls_cmac_setkey(&ctx, MBEDTLS_CIPHER_ID_AES, key, 128);
+    if (0 != ret)
     {
-        hex2uint8array(key,                tv->keylen,         tv->key);
-        hex2uint8array(message,            tv->plaintextlen,   tv->plaintext);
-        hex2uint8array(authTagExpected,    tv->authtaglen,     tv->authtag);
+        mbedtls_printf("mbedtls_cmac_setkey returned error code 0x%x.\n", ret);
+        ret = -1;
+        goto exit;
+    }
+        
+    cycles = mbedtls_timing_hardclock();
+        
+    /* Perform the CMAC */
+    ret = mbedtls_cmac_generate_tag(&ctx,
+                                    message,
+                                    tv->plaintextlen*8,
+                                    authTag,
+                                    tv->authtaglen*8);
 
-        /* Set key */
-        ret = mbedtls_cmac_setkey(&ctx, MBEDTLS_CIPHER_ID_AES, key, 128);
-        if (0 != ret)
-        {
-            mbedtls_printf("mbedtls_cmac_setkey returned error code 0x%x.\n", ret);
-            ret = -1;
-            goto exit;
-        }
+    if (0 != ret)
+    {
+        mbedtls_printf("mbedtls_cmac_encrypt_tag returned error code 0x%x.\n", ret);
+        ret = -1;
+        goto exit;
+    }
         
-        ASYNCH_TEST_SET_READY;
-        cycles = mbedtls_timing_hardclock();
+    if (0 != memcmp(authTagExpected, authTag, tv->authtaglen))
+    {
+        mbedtls_printf("mbedtls_cmac_encrypt_tag failed to produce expected tag.\n");
+        ret = -1;
+        goto exit;
+    }
         
-        /* Perform the CMAC */
-        ret = mbedtls_cmac_generate_tag(&ctx,
-                                        message,
-                                        tv->plaintextlen*8,
-                                        authTag,
-                                        tv->authtaglen*8);
-
-        ASYNCH_TEST_HANDLE_COMPLETION;
-
-        if (0 != ret)
-        {
-            mbedtls_printf("mbedtls_cmac_encrypt_tag returned error code 0x%x.\n", ret);
-            ret = -1;
-            goto exit;
-        }
-        
-        if (0 != memcmp(authTagExpected, authTag, tv->authtaglen))
-        {
-            mbedtls_printf("mbedtls_cmac_encrypt_tag failed to produce expected tag.\n");
-            ret = -1;
-            goto exit;
-        }
-        
-        if (verbose)
-            mbedtls_printf("%10d %12d %6d   %s\n",
-                           tv->authtaglen, tv->plaintextlen, cycles,
-                           asynchTest? "Yes" : "No");
+    if (verbose)
+    {
+        mbedtls_printf("%10d %12d %6d\n",
+                       tv->authtaglen, tv->plaintextlen, cycles);
     }
  exit:
     mbedtls_cmac_free( &ctx );
   
-    if (key)                 free(key);
-    if (message)             free(message);
-    if (authTag)             free(authTag);
-    if (authTagExpected)     free(authTagExpected);
+    if (key)                 mbedtls_free(key);
+    if (message)             mbedtls_free(message);
+    if (authTag)             mbedtls_free(authTag);
+    if (authTagExpected)     mbedtls_free(authTagExpected);
 
     return( ret );
 }
 
-int mbedtls_cmac_self_test( int verbose )
+int mbedtls_cmac_self_test( int verbose, int device_instance )
 {
   const cmac_test_vector_t* tv = cmac_test_vectors;
 
   mbedtls_printf("\nCMAC Hashing Test AES-128\n"
-                 "AuthTagLen PlaintextLen Cycles Asynch?\n");
+                 "AuthTagLen PlaintextLen Cycles\n");
   while (tv->key)
   {
-    if (test_single_cmac( tv, verbose ) != 0)
+    if (test_single_cmac( tv, verbose, device_instance ) != 0)
       return -1;
     tv++;
   }

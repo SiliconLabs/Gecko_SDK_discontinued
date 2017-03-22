@@ -1,0 +1,2893 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.2.11947/W32 for ARM                09/Mar/2017  19:49:23
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Exe\radialmenu.out
+#    Map file     =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\List\radialmenu.map
+#    Command line =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\bsp_dk_3201.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\bsp_trace.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\calibrate.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\dmd_ssd2119_direct.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\eeprom.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\em_adc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\em_assert.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\em_cmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\em_dma.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\em_ebi.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\em_emu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\em_gpio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\em_i2c.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\em_rtc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\em_system.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\em_usart.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\em_wdog.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\GUI_X.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\GUIConf.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\i2cspm.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\LCDConf.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\startup_efm32gg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\system_efm32gg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\tftdirect.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\tftspi.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\touch.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj\WM_RadialMenu.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Exe\radialmenu.out
+#        --map
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\List\radialmenu.map
+#        --config
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\..\radialmenu.icf
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\..\..\..\..\..\util\third_party\emwin\lib\emwin_IAR_CM3.a
+#        --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__CPP_Language  = EC++
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x000fffff] { ro };
+"P2":  place in [from 0x20000000 to 0x2001ffff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+ { section .intvec };
+
+  Section            Kind        Address     Size  Object
+  -------            ----        -------     ----  ------
+"A0":                                        0xdc
+  .intvec            ro code  0x00000000     0xdc  startup_efm32gg.o [1]
+                            - 0x000000dc     0xdc
+
+"P1":                                     0x23d26
+  .text              ro code  0x000000dc   0x1cb8  GUI_SPRITE.o [4]
+  .text              ro code  0x00001d94     0xac  GUI_GetBitmapPixelIndex.o [4]
+  .text              ro code  0x00001e40    0x778  GUI_Alloc.o [4]
+  .text              ro code  0x000025b8     0x38  GUI_RectsIntersect.o [4]
+  .text              ro code  0x000025f0     0x76  ABImemcpy_unaligned.o [5]
+  .text              ro code  0x00002666     0x40  GUI__IntersectRect.o [4]
+  .text              ro code  0x000026a6      0x2  GUICC_8888_Index2Color.o [4]
+  .text              ro code  0x000026a8    0x320  GUI__Alpha.o [4]
+  .text              ro code  0x000029c8    0x294  GUI__CompactPixelIndices.o [4]
+  .text              ro code  0x00002c5c    0x138  GUI_Device.o [4]
+  .text              ro code  0x00002d94    0x1a0  LCD_GetEx.o [4]
+  .text              ro code  0x00002f34    0x300  GUIDEV.o [4]
+  .text              ro code  0x00003234     0x24  GUI_ALLOC_AllocZero.o [4]
+  .text              ro code  0x00003258     0x78  ABImemmove_unaligned.o [5]
+  .text              ro code  0x000032d0      0x6  ABImemclr.o [5]
+  .text              ro code  0x000032d6      0x2  GUICC_888_Index2Color.o [4]
+  .text              ro code  0x000032d8    0x1e8  LCD_ReadRect.o [4]
+  .text              ro code  0x000034c0    0x142  GUI__ExpandPixelIndices.o [4]
+  .rodata            const    0x00003602      0x1  WM_RadialMenu.o [1]
+  .text              ro code  0x00003604    0x18c  GUI_Core.o [4]
+  .text              ro code  0x00003790    0x1b4  GUIDEV_UsageBM.o [4]
+  .text              ro code  0x00003944     0x12  GUI_SelectLCD.o [4]
+  .text              ro code  0x00003958     0x4e  GUIDEV_Usage.o [4]
+  .text              ro code  0x000039a8   0x1344  WM.o [4]
+  .text              ro code  0x00004cec     0x24  LCD_UpdateColorIndices.o [4]
+  .text              ro code  0x00004d10    0x6e0  LCD.o [4]
+  .text              ro code  0x000053f0      0x4  GUI_SetDrawMode.o [4]
+  .text              ro code  0x000053f4    0x768  GUIDEV_WriteToActiveOpaque.o [4]
+  .text              ro code  0x00005b5c     0x4e  GUI__memset.o [4]
+  .text              ro code  0x00005bac     0x66  ABImemset.o [5]
+  .text              ro code  0x00005c14     0x10  GUI_Goto.o [4]
+  .text              ro code  0x00005c24     0x24  GUIConf.o [1]
+  .text              ro code  0x00005c48    0x2e8  LCDConf.o [1]
+  .text              ro code  0x00005f30    0x34a  GUI_X.o [1]
+  .text              ro code  0x0000627c      0xc  WM_GetDesktopWindow.o [4]
+  .text              ro code  0x00006288     0x30  GUI_SetOrg.o [4]
+  .text              ro code  0x000062b8     0x44  LCD_SelectLCD.o [4]
+  .text              ro code  0x000062fc     0x34  LCD_SetClipRectEx.o [4]
+  .text              ro code  0x00006330     0x1c  GUI_MoveRect.o [4]
+  .text              ro code  0x0000634c     0x62  GUI__IntersectRects.o [4]
+  .text              ro code  0x000063ae     0x58  GUI_MergeRect.o [4]
+  .text              ro code  0x00006408     0x4c  GUI_WaitEvent.o [4]
+  .text              ro code  0x00006454      0xe  WM_GetFirstChild.o [4]
+  .text              ro code  0x00006464     0x40  WM__SendMessage.o [4]
+  .text              ro code  0x000064a4     0x84  WM_BringToBottom.o [4]
+  .text              ro code  0x00006528     0x64  WM_Timer.o [4]
+  .text              ro code  0x0000658c     0x14  WM_NotifyParent.o [4]
+  .text              ro code  0x000065a0      0x4  WM_SendMessageNoPara.o [4]
+  .text              ro code  0x000065a4     0x44  GUI_SetDefault.o [4]
+  .text              ro code  0x000065e8    0x14e  GUIDEV_Banding.o [4]
+  .text              ro code  0x00006738     0x54  GUI_OnKey.o [4]
+  .text              ro code  0x0000678c     0xdc  GUI__ManageCache.o [4]
+  .text              ro code  0x00006868     0x20  GUI_SaveContext.o [4]
+  .text              ro code  0x00006888      0x8  GUI_SetColor.o [4]
+  .text              ro code  0x00006890     0x48  WM_GetClientRect.o [4]
+  .text              ro code  0x000068d8     0x1c  WM_SendToParent.o [4]
+  .text              ro code  0x000068f4     0x30  WM_CriticalHandle.o [4]
+  .text              ro code  0x00006924    0x108  LCD_Color.o [4]
+  .text              ro code  0x00006a2c     0x54  GUI_SelectLayer.o [4]
+  .text              ro code  0x00006a80     0x1c  GUIDEV_GetDataPtr.o [4]
+  .text              ro code  0x00006a9c     0x48  GUI_TOUCH.o [4]
+  .text              ro code  0x00006ae4    0xb50  bsp_dk_3201.o [1]
+  .text              ro code  0x00007634    0x118  bsp_trace.o [1]
+  .text              ro code  0x0000774c    0xb38  em_cmu.o [1]
+  .text              ro code  0x00008284    0xb24  em_ebi.o [1]
+  .text              ro code  0x00008da8     0xec  tftdirect.o [1]
+  .text              ro code  0x00008e94    0x6b8  touch.o [1]
+  .text              ro code  0x0000954c    0x168  GUI_MULTIBUF.o [4]
+  .text              ro code  0x000096b4    0x174  LCD_Set.o [4]
+  .text              ro code  0x00009828    0x10c  GUI_PID.o [4]
+  .text              ro code  0x00009934      0x4  WM_ForEachDesc.o [4]
+  .text              ro code  0x00009938     0x40  GUI_Exec.o [4]
+  .text              ro code  0x00009978     0xc0  em_rtc.o [1]
+  .text              ro code  0x00009a38    0x1d0  em_emu.o [1]
+  .text              ro code  0x00009c08    0x324  GUI_Timer.o [4]
+  .text              ro code  0x00009f2c     0x22  WM__GetPrevSibling.o [4]
+  .text              ro code  0x00009f4e      0xe  WM_GetParent.o [4]
+  .text              ro code  0x00009f5c     0x2c  WM__SendMessageNoPara.o [4]
+  .text              ro code  0x00009f88     0x10  GUI_Pen.o [4]
+  .text              ro code  0x00009f98     0x14  GUI_SetTextAlign.o [4]
+  .text              ro code  0x00009fac     0x14  GUI_SetTextMode.o [4]
+  .text              ro code  0x00009fc0     0x14  GUI_SetFont.o [4]
+  .text              ro code  0x00009fd4     0x10  GUI_SetLineStyle.o [4]
+  .text              ro code  0x00009fe4     0x20  GUI_GetOrg.o [4]
+  .text              ro code  0x0000a004     0x28  GUIDEV_GetYSize.o [4]
+  .text              ro code  0x0000a02c     0x30  GUIDEV_ReduceYSize.o [4]
+  .text              ro code  0x0000a05c     0x6c  GUIDEV_SetOrg.o [4]
+  .text              ro code  0x0000a0c8     0x3c  GUIDEV_Clear.o [4]
+  .text              ro code  0x0000a104     0x30  WM_OnKey.o [4]
+  .text              ro code  0x0000a134     0x12  LCD_GetNumDisplays.o [4]
+  .text              ro code  0x0000a148     0x62  memcmp_unaligned.o [5]
+  .text              ro code  0x0000a1aa      0x2  em_assert.o [1]
+  .text              ro code  0x0000a1ac    0x2b0  em_gpio.o [1]
+  .text              ro code  0x0000a45c    0x194  em_usart.o [1]
+  .text              ro code  0x0000a5f0    0x138  system_efm32gg.o [1]
+  .text              ro code  0x0000a728     0xf8  dmd_ssd2119_direct.o [1]
+  .text              ro code  0x0000a820    0x24c  i2cspm.o [1]
+  .text              ro code  0x0000aa6c    0x164  eeprom.o [1]
+  .text              ro code  0x0000abd0    0x194  calibrate.o [1]
+  .text              ro code  0x0000ad64      0x8  abs.o [3]
+  .text              ro code  0x0000ad6c    0x224  em_adc.o [1]
+  .text              ro code  0x0000af90     0x2c  WM__ForEachDesc.o [4]
+  .text              ro code  0x0000afbc     0x2e  GUI_Time.o [4]
+  .text              ro code  0x0000afea     0x10  WM__GetFirstSibling.o [4]
+  .text              ro code  0x0000affc    0x234  tftspi.o [1]
+  .text              ro code  0x0000b230    0x51c  em_i2c.o [1]
+  .rodata            const    0x0000b74c   0x1200  WM_RadialMenu.o [1]
+  .rodata            const    0x0000c94c   0x1200  WM_RadialMenu.o [1]
+  .rodata            const    0x0000db4c   0x1200  WM_RadialMenu.o [1]
+  .rodata            const    0x0000ed4c   0x1200  WM_RadialMenu.o [1]
+  .rodata            const    0x0000ff4c   0x1200  WM_RadialMenu.o [1]
+  .rodata            const    0x0001114c   0x1200  WM_RadialMenu.o [1]
+  .rodata            const    0x0001234c   0x1200  WM_RadialMenu.o [1]
+  .rodata            const    0x0001354c   0x1200  WM_RadialMenu.o [1]
+  .rodata            const    0x0001474c   0x1200  WM_RadialMenu.o [1]
+  .text              ro code  0x0001594c    0xf2c  WM_Motion.o [4]
+  .text              ro code  0x00016878     0x22  WM_GetWindowRect.o [4]
+  .text              ro code  0x0001689c    0x2a8  GUI__SinHQ.o [4]
+  .text              ro code  0x00016b44    0x112  WM_Move.o [4]
+  .text              ro code  0x00016c56     0x1a  GUI__sqrt32.o [4]
+  .text              ro code  0x00016c70     0x94  WM_Screen2Win.o [4]
+  .text              ro code  0x00016d04      0x6  ABImemclr4.o [5]
+  .text              ro code  0x00016d0c    0x37c  WM_Touch.o [4]
+  .text              ro code  0x00017088     0x32  ABImemset48.o [5]
+  .text              ro code  0x000170ba     0x1a  WM__SendMessageIfEnabled.o [4]
+  .text              ro code  0x000170d4      0x4  WM_IsWindow.o [4]
+  .text              ro code  0x000170d8    0x1e0  GUI_Curs1.o [4]
+  .text              ro code  0x000172b8     0x50  WM__IsAncestor.o [4]
+  .text              ro code  0x00017308     0x16  WM__IsEnabled.o [4]
+  .text              ro code  0x00017320     0x4c  WM_SetCapture.o [4]
+  .text              ro code  0x0001736c     0x18  WM_PID__GetPrevState.o [4]
+  .text              ro code  0x00017384     0xec  GUI_DrawBitmap.o [4]
+  .text              ro code  0x00017470    0xda8  GUIDRV_Lin_16.o [4]
+  .text              ro code  0x00018218    0xc08  WM_RadialMenu.o [1]
+  .text              ro code  0x00018e20    0x538  em_dma.o [1]
+  .text              ro code  0x00019358    0x1ac  WINDOW.o [4]
+  .text              ro code  0x00019504     0x50  WM_GetDialogItem.o [4]
+  .text              ro code  0x00019554     0x4c  TEXT_SetText.o [4]
+  .text              ro code  0x000195a0     0x26  TEXT_SetTextColor.o [4]
+  .text              ro code  0x000195c6     0x20  TEXT_SetTextAlign.o [4]
+  .text              ro code  0x000195e6     0x26  TEXT_SetFont.o [4]
+  .text              ro code  0x0001960c    0x130  DIALOG.o [4]
+  .text              ro code  0x0001973c     0x20  WM_GetId.o [4]
+  .text              ro code  0x0001975c    0x1e0  CHECKBOX.o [4]
+  .text              ro code  0x0001993c     0x1c  CHECKBOX_GetState.o [4]
+  .text              ro code  0x00019958    0x1f2  GUI_DrawGradient.o [4]
+  .text              ro code  0x00019b4c     0x34  GUI_DispStringHCenter.o [4]
+  .text              ro code  0x00019b80     0xa2  WM_UserData.o [4]
+  .text              ro code  0x00019c22     0x44  WM_GetWindowSize.o [4]
+  .text              ro code  0x00019c66     0x36  CHECKBOX_SetState.o [4]
+  .text              ro code  0x00019c9c    0x45c  CHECKBOX_SkinFlex.o [4]
+  .text              ro code  0x0001a0f8     0xd0  CHECKBOX_Skin.o [4]
+  .text              ro code  0x0001a1c8     0x26  CHECKBOX_SetTextColor.o [4]
+  .text              ro code  0x0001a1ee     0x26  CHECKBOX_SetFont.o [4]
+  .text              ro code  0x0001a214     0x48  CHECKBOX_SetText.o [4]
+  .text              ro code  0x0001a25c     0x2a  CHECKBOX_SetTextAlign.o [4]
+  .text              ro code  0x0001a288     0x18  WM_MemDev.o [4]
+  .text              ro code  0x0001a2a0     0x1c  WM_MULTIBUF.o [4]
+  .text              ro code  0x0001a2bc     0x26  WM_SetCallback.o [4]
+  .text              ro code  0x0001a2e4     0x94  WM_SetFocus.o [4]
+  .text              ro code  0x0001a378     0x14  WM_HasFocus.o [4]
+  .text              ro code  0x0001a38c    0x1c4  WIDGET.o [4]
+  .text              ro code  0x0001a550     0x5e  WM_SetFocusOnPrevChild.o [4]
+  .text              ro code  0x0001a5ae     0x72  WM_SetFocusOnNextChild.o [4]
+  .text              ro code  0x0001a620     0x6e  GUI__SetText.o [4]
+  .text              ro code  0x0001a68e     0x18  WM_GetClientWindow.o [4]
+  .text              ro code  0x0001a6a6     0x52  WM_Show.o [4]
+  .text              ro code  0x0001a6f8      0xc  WM_GetFocussedWindow.o [4]
+  .text              ro code  0x0001a704     0x14  WM_HasCaptured.o [4]
+  .text              ro code  0x0001a718     0x16  GUI_GetColor.o [4]
+  .text              ro code  0x0001a730     0x10  GUI_DispStringAt.o [4]
+  .text              ro code  0x0001a740     0x88  GUI_2DLib.o [4]
+  .text              ro code  0x0001a7c8     0x14  GUI_GetStringDistX.o [4]
+  .text              ro code  0x0001a7dc      0x8  GUI_GetYSizeOfFont.o [4]
+  .text              ro code  0x0001a7e4     0x9c  GUI_DrawFocusRect.o [4]
+  .text              ro code  0x0001a880    0x194  GUI_DispStringInRect.o [4]
+  .text              ro code  0x0001aa14     0x5e  WM_SetTrans.o [4]
+  .text              ro code  0x0001aa72     0xcc  WM__UpdateChildPositions.o [4]
+  .text              ro code  0x0001ab40     0x78  WM_BringToTop.o [4]
+  .text              ro code  0x0001abb8     0x1a  GUI__ReduceRect.o [4]
+  .text              ro code  0x0001abd2     0x1a  WM__GetLastSibling.o [4]
+  .text              ro code  0x0001abec     0x1c  WM__GetFocussedChild.o [4]
+  .text              ro code  0x0001ac08     0x30  WM_IsFocussable.o [4]
+  .text              ro code  0x0001ac38     0x48  GUI__strcmp.o [4]
+  .text              ro code  0x0001ac80     0x14  GUI__strlen.o [4]
+  .text              ro code  0x0001ac94     0x44  strcpy_unaligned.o [5]
+  .text              ro code  0x0001acd8     0x18  LCD_GetColorIndex.o [4]
+  .text              ro code  0x0001acf0    0x100  GUI_DispString.o [4]
+  .text              ro code  0x0001adf0     0x1a  GUI__GetNumChars.o [4]
+  .text              ro code  0x0001ae0c    0x1cc  GUI_CharLine.o [4]
+  .text              ro code  0x0001afd8     0x50  GUI_Char.o [4]
+  .text              ro code  0x0001b028      0xa  GUI_GetClientRect.o [4]
+  .text              ro code  0x0001b034     0x48  GUI_UC.o [4]
+  .text              ro code  0x0001b07c     0x16  GUI__HandleEOLine.o [4]
+  .text              ro code  0x0001b094     0x18  WM_SetUserClipRect.o [4]
+  .text              ro code  0x0001b0ac     0x30  WM_ValidateWindow.o [4]
+  .text              ro code  0x0001b0dc     0xf4  WM_ResizeWindow.o [4]
+  .text              ro code  0x0001b1d0     0x22  WM__IsChild.o [4]
+  .rodata            const    0x0001b1f4    0xb40  F16_1.o [4]
+  .rodata            const    0x0001bd34    0xa7c  F16_ASCII.o [4]
+  .text              ro code  0x0001c7b0    0x9a8  GUIDEV_32.o [4]
+  .text              ro code  0x0001d158    0x998  GUIDEV_16.o [4]
+  .text              ro code  0x0001daf0     0x3c  GUI__memset16.o [4]
+  .rodata            const    0x0001db2c    0x984  F13_1.o [4]
+  .rodata            const    0x0001e4b0    0x93c  F13_ASCII.o [4]
+  .rodata            const    0x0001edec    0x718  F6x8.o [4]
+  .rodata            const    0x0001f504    0x474  WM_RadialMenu.o [1]
+  .rodata            const    0x0001f978    0x3cc  WM_RadialMenu.o [1]
+  .text              ro code  0x0001fd44    0x298  LCD_RLEAlpha.o [4]
+  .text              ro code  0x0001ffdc    0x184  GUI_CharM.o [4]
+  .text              ro code  0x00020160    0x17c  GUIDEV_WriteToActiveAlpha.o [4]
+  .text              ro code  0x000202dc    0x164  GUIDEV_StaticDevices.o [4]
+  .text              ro code  0x00020440     0x46  WM_SetSize.o [4]
+  .text              ro code  0x00020488     0x24  GUI_SetAlpha.o [4]
+  .text              ro code  0x000204ac     0x1a  WM_GetOrg.o [4]
+  .text              ro code  0x000204c8     0x62  GUIDEV_Write.o [4]
+  .text              ro code  0x0002052c     0xfc  LCD_AA.o [4]
+  .text              ro code  0x00020628      0xe  LCD_GetPixelColor.o [4]
+  .text              ro code  0x00020638     0x60  LCD_GetP.o [4]
+  .text              ro code  0x00020698    0x14c  TEXT.o [4]
+  .text              ro code  0x000207e4    0x14c  GUI_DispStringInRectWrap.o [4]
+  .text              ro code  0x00020930     0x36  strlen.o [5]
+  .text              ro code  0x00020968    0x134  GUI__Wrap.o [4]
+  .text              ro code  0x00020a9c    0x132  GUI_CharP.o [4]
+  .text              ro code  0x00020bd0    0x124  GUI_EncExt.o [4]
+  .text              ro code  0x00020cf4     0xb4  GUI_CharPExt.o [4]
+  .text              ro code  0x00020da8    0x124  GUIAA_Char4.o [4]
+  .rodata            const    0x00020ecc    0x100  LCD_Mirror.o [4]
+  .rodata            const    0x00020fcc    0x100  GUI__DivTbl_255_31.o [4]
+  .rodata            const    0x000210cc    0x100  GUI__DivTbl_255_63.o [4]
+  .text              ro code  0x000211cc     0xe8  GUICC_M565.o [4]
+  .text              ro code  0x000212b4     0xb8  GUICC_0.o [4]
+  .text              ro code  0x0002136c     0x3e  GUI_CalcColorDist.o [4]
+  .text              ro code  0x000213ac     0xa8  GUIAA_Char4Ext.o [4]
+  .rodata            const    0x00021454     0x88  bsp_dk_3201.o [1]
+  .rodata            const    0x000214dc     0x88  em_cmu.o [1]
+  .rodata            const    0x00021564     0x88  em_gpio.o [1]
+  .rodata            const    0x000215ec     0x88  i2cspm.o [1]
+  .rodata            const    0x00021674     0x88  tftspi.o [1]
+  .rodata            const    0x000216fc     0x88  touch.o [1]
+  .rodata            const    0x00021784     0x88  WM_RadialMenu.o [1]
+  .rodata            const    0x0002180c     0x80  GUI_CursorCrossMPx.o [4]
+  .rodata            const    0x0002188c     0x78  WM_RadialMenu.o [1]
+  .text              ro code  0x00021904     0x78  lz77_init_single.o [5]
+  .rodata            const    0x0002197c     0x6c  WM_RadialMenu.o [1]
+  .rodata            const    0x000219e8     0x6c  WM_RadialMenu.o [1]
+  .rodata            const    0x00021a54     0x6c  WM_RadialMenu.o [1]
+  .rodata            const    0x00021ac0     0x6c  WM_RadialMenu.o [1]
+  .rodata            const    0x00021b2c     0x6c  WM_RadialMenu.o [1]
+  .rodata            const    0x00021b98     0x6c  WM_RadialMenu.o [1]
+  .rodata            const    0x00021c04     0x6c  WM_RadialMenu.o [1]
+  .rodata            const    0x00021c70     0x68  CHECKBOX_Image.o [4]
+  .text              ro code  0x00021cd8     0x64  WIDGET_Effect_Simple.o [4]
+  .rodata            const    0x00021d3c     0x60  WM_RadialMenu.o [1]
+  .rodata            const    0x00021d9c     0x5c  WM_RadialMenu.o [1]
+  .rodata            const    0x00021df8     0x5c  WM_RadialMenu.o [1]
+  .rodata            const    0x00021e54     0x5c  WM_RadialMenu.o [1]
+  .rodata            const    0x00021eb0     0x5c  WM_RadialMenu.o [1]
+  .rodata            const    0x00021f0c     0x5c  WM_RadialMenu.o [1]
+  .rodata            const    0x00021f68     0x5c  WM_RadialMenu.o [1]
+  .rodata            const    0x00021fc4     0x5c  WM_RadialMenu.o [1]
+  .rodata            const    0x00022020     0x5c  WM_RadialMenu.o [1]
+  .rodata            const    0x0002207c     0x5c  WM_RadialMenu.o [1]
+  .rodata            const    0x000220d8     0x5c  WM_RadialMenu.o [1]
+  .rodata            const    0x00022134     0x58  WM_RadialMenu.o [1]
+  .rodata            const    0x0002218c     0x54  i2cspm.o [1]
+  .rodata            const    0x000221e0     0x54  WM_RadialMenu.o [1]
+  .rodata            const    0x00022234     0x54  WM_RadialMenu.o [1]
+  .rodata            const    0x00022288     0x54  WM_RadialMenu.o [1]
+  .rodata            const    0x000222dc     0x54  WM_RadialMenu.o [1]
+  .rodata            const    0x00022330     0x54  WM_RadialMenu.o [1]
+  .rodata            const    0x00022384     0x54  WM_RadialMenu.o [1]
+  .rodata            const    0x000223d8     0x54  WM_RadialMenu.o [1]
+  .rodata            const    0x0002242c     0x54  WM_RadialMenu.o [1]
+  .rodata            const    0x00022480     0x54  WM_RadialMenu.o [1]
+  .rodata            const    0x000224d4     0x54  WM_RadialMenu.o [1]
+  .rodata            const    0x00022528     0x50  bsp_dk_3201.o [1]
+  .rodata            const    0x00022578     0x50  WM_RadialMenu.o [1]
+  .rodata            const    0x000225c8     0x50  WM_RadialMenu.o [1]
+  .rodata            const    0x00022618     0x50  WM_RadialMenu.o [1]
+  .rodata            const    0x00022668     0x50  WM_RadialMenu.o [1]
+  .rodata            const    0x000226b8     0x50  WM_RadialMenu.o [1]
+  .rodata            const    0x00022708     0x50  WM_RadialMenu.o [1]
+  .rodata            const    0x00022758     0x4c  em_adc.o [1]
+  .rodata            const    0x000227a4     0x4c  em_cmu.o [1]
+  .rodata            const    0x000227f0     0x4c  em_dma.o [1]
+  .rodata            const    0x0002283c     0x4c  em_ebi.o [1]
+  .rodata            const    0x00022888     0x4c  em_gpio.o [1]
+  .rodata            const    0x000228d4     0x4c  em_i2c.o [1]
+  .rodata            const    0x00022920     0x4c  em_rtc.o [1]
+  .rodata            const    0x0002296c     0x4c  em_usart.o [1]
+  .rodata            const    0x000229b8     0x4c  LCDConf.o [1]
+  .rodata            const    0x00022a04     0x4c  WM_RadialMenu.o [1]
+  .rodata            const    0x00022a50     0x4c  WM_RadialMenu.o [1]
+  .rodata            const    0x00022a9c     0x4c  WM_RadialMenu.o [1]
+  .rodata            const    0x00022ae8     0x4c  WM_RadialMenu.o [1]
+  .rodata            const    0x00022b34     0x4c  WM_RadialMenu.o [1]
+  .rodata            const    0x00022b80     0x4c  WM_RadialMenu.o [1]
+  .rodata            const    0x00022bcc     0x48  WM_RadialMenu.o [1]
+  .rodata            const    0x00022c14     0x48  WM_RadialMenu.o [1]
+  .rodata            const    0x00022c5c     0x48  WM_RadialMenu.o [1]
+  .rodata            const    0x00022ca4     0x48  WM_RadialMenu.o [1]
+  .rodata            const    0x00022cec     0x48  WM_RadialMenu.o [1]
+  .rodata            const    0x00022d34     0x48  WM_RadialMenu.o [1]
+  .rodata            const    0x00022d7c     0x48  WM_RadialMenu.o [1]
+  .rodata            const    0x00022dc4     0x48  WM_RadialMenu.o [1]
+  .rodata            const    0x00022e0c     0x44  WM_RadialMenu.o [1]
+  .rodata            const    0x00022e50     0x44  WM_RadialMenu.o [1]
+  .rodata            const    0x00022e94     0x44  WM_RadialMenu.o [1]
+  .rodata            const    0x00022ed8     0x44  WM_RadialMenu.o [1]
+  .rodata            const    0x00022f1c     0x44  WM_RadialMenu.o [1]
+  .rodata            const    0x00022f60     0x40  GUI__DivTbl_63_255.o [4]
+  .text              ro code  0x00022fa0     0x40  zero_init3.o [5]
+  .rodata            const    0x00022fe0     0x3c  WM_RadialMenu.o [1]
+  .rodata            const    0x0002301c     0x3c  WM_RadialMenu.o [1]
+  .rodata            const    0x00023058     0x3c  WM_RadialMenu.o [1]
+  .rodata            const    0x00023094     0x3c  WM_RadialMenu.o [1]
+  .rodata            const    0x000230d0     0x3c  WM_RadialMenu.o [1]
+  .rodata            const    0x0002310c     0x3c  GUI_CursorArrowMPx.o [4]
+  .text              ro code  0x00023148     0x3c  TEXT_CreateIndirect.o [4]
+  .rodata            const    0x00023184     0x38  WM_RadialMenu.o [1]
+  .rodata            const    0x000231bc     0x38  WM_RadialMenu.o [1]
+  .rodata            const    0x000231f4     0x38  WM_RadialMenu.o [1]
+  .rodata            const    0x0002322c     0x38  WM_RadialMenu.o [1]
+  .rodata            const    0x00023264     0x38  WM_RadialMenu.o [1]
+  .rodata            const    0x0002329c     0x38  WM_RadialMenu.o [1]
+  .rodata            const    0x000232d4     0x38  WM_RadialMenu.o [1]
+  .rodata            const    0x0002330c     0x38  WM_RadialMenu.o [1]
+  .rodata            const    0x00023344     0x38  WM_RadialMenu.o [1]
+  .rodata            const    0x0002337c     0x38  WM_RadialMenu.o [1]
+  .rodata            const    0x000233b4     0x38  WM_RadialMenu.o [1]
+  .rodata            const    0x000233ec     0x38  WM_RadialMenu.o [1]
+  .rodata            const    0x00023424     0x38  WM_RadialMenu.o [1]
+  .rodata            const    0x0002345c     0x34  WM_RadialMenu.o [1]
+  .rodata            const    0x00023490     0x34  WM_RadialMenu.o [1]
+  .rodata            const    0x000234c4     0x34  WM_RadialMenu.o [1]
+  .rodata            const    0x000234f8     0x34  GUIDRV_Lin_16.o [4]
+  .rodata            const    0x0002352c     0x30  WM_RadialMenu.o [1]
+  .rodata            const    0x0002355c     0x2c  WM_RadialMenu.o [1]
+  .text              ro code  0x00023588     0x2c  GUICC_565.o [4]
+  .rodata            const    0x000235b4     0x28  WM_RadialMenu.o [1]
+  .text              ro code  0x000235dc     0x28  GUICC_8888.o [4]
+  .text              ro code  0x00023604     0x28  data_init.o [5]
+  .rodata            const    0x0002362c     0x24  WM_RadialMenu.o [1]
+  .rodata            const    0x00023650     0x24  WM_RadialMenu.o [1]
+  .text              ro code  0x00023674     0x24  GUI_UC_EncodeNone.o [4]
+  .iar.init_table    const    0x00023698     0x20  - Linker created -
+  .rodata            const    0x000236b8     0x20  WM_RadialMenu.o [1]
+  .rodata            const    0x000236d8     0x20  WM_RadialMenu.o [1]
+  .rodata            const    0x000236f8     0x20  WM_RadialMenu.o [1]
+  .rodata            const    0x00023718     0x20  WM_RadialMenu.o [1]
+  .rodata            const    0x00023738     0x20  WM_RadialMenu.o [1]
+  .rodata            const    0x00023758     0x20  WM_RadialMenu.o [1]
+  .rodata            const    0x00023778     0x20  WM_RadialMenu.o [1]
+  .rodata            const    0x00023798     0x20  WM_RadialMenu.o [1]
+  .rodata            const    0x000237b8     0x20  WM_RadialMenu.o [1]
+  .rodata            const    0x000237d8     0x20  GUI_CursorCrossM.o [4]
+  .rodata            const    0x000237f8     0x20  GUI__DivTbl_31_255.o [4]
+  .rodata            const    0x00023818     0x20  GUI_CursorArrowM.o [4]
+  .rodata            const    0x00023838     0x1c  WM_RadialMenu.o [1]
+  .rodata            const    0x00023854     0x1c  WM_RadialMenu.o [1]
+  .rodata            const    0x00023870     0x1c  WIDGET_Effect_Simple.o [4]
+  .text              ro code  0x0002388c     0x1a  cmain.o [5]
+  .text              ro code  0x000238a6      0x4  low_level_init.o [3]
+  .text              ro code  0x000238aa      0x4  exit.o [3]
+  .text              ro code  0x000238b0      0xa  cexit.o [5]
+  .text              ro code  0x000238bc      0xc  XXexit.o [5]
+  .rodata            const    0x000238c8     0x18  bsp_dk_3201.o [1]
+  .rodata            const    0x000238e0     0x18  tftspi.o [1]
+  .rodata            const    0x000238f8     0x18  touch.o [1]
+  .rodata            const    0x00023910     0x18  WM_RadialMenu.o [1]
+  .rodata            const    0x00023928     0x18  WM_RadialMenu.o [1]
+  .rodata            const    0x00023940     0x18  WM_RadialMenu.o [1]
+  .rodata            const    0x00023958     0x18  WM_RadialMenu.o [1]
+  .rodata            const    0x00023970     0x18  WM_RadialMenu.o [1]
+  .rodata            const    0x00023988     0x18  GUICC_M565.o [4]
+  .rodata            const    0x000239a0     0x18  GUICC_8888.o [4]
+  .rodata            const    0x000239b8     0x18  GUI_CursorPal.o [4]
+  .rodata            const    0x000239d0     0x18  GUICC_0.o [4]
+  .rodata            const    0x000239e8     0x14  WM_RadialMenu.o [1]
+  .rodata            const    0x000239fc     0x14  WM_RadialMenu.o [1]
+  .rodata            const    0x00023a10     0x14  WM_RadialMenu.o [1]
+  .rodata            const    0x00023a24     0x14  WM_RadialMenu.o [1]
+  .rodata            const    0x00023a38     0x14  WM_RadialMenu.o [1]
+  .rodata            const    0x00023a4c     0x14  WM_RadialMenu.o [1]
+  .rodata            const    0x00023a60     0x14  WM_RadialMenu.o [1]
+  .rodata            const    0x00023a74     0x14  WM_RadialMenu.o [1]
+  .rodata            const    0x00023a88     0x14  WM_RadialMenu.o [1]
+  .rodata            const    0x00023a9c     0x14  WM_RadialMenu.o [1]
+  .rodata            const    0x00023ab0     0x14  WM_RadialMenu.o [1]
+  .rodata            const    0x00023ac4     0x10  WM_RadialMenu.o [1]
+  .rodata            const    0x00023ad4     0x10  WM_RadialMenu.o [1]
+  .rodata            const    0x00023ae4     0x10  WM_RadialMenu.o [1]
+  .rodata            const    0x00023af4     0x10  WM_RadialMenu.o [1]
+  .rodata            const    0x00023b04     0x10  WM_RadialMenu.o [1]
+  .rodata            const    0x00023b14     0x10  WM_RadialMenu.o [1]
+  .rodata            const    0x00023b24     0x10  WM_RadialMenu.o [1]
+  .rodata            const    0x00023b34     0x10  WM_RadialMenu.o [1]
+  .rodata            const    0x00023b44     0x10  LCD_RLEAlpha.o [4]
+  .text              ro code  0x00023b54     0x10  startup_efm32gg.o [1]
+  .rodata            const    0x00023b64      0xc  WM_RadialMenu.o [1]
+  .rodata            const    0x00023b70      0xc  WM_RadialMenu.o [1]
+  .rodata            const    0x00023b7c      0xc  WM_RadialMenu.o [1]
+  .rodata            const    0x00023b88      0xc  WM_RadialMenu.o [1]
+  .rodata            const    0x00023b94      0xc  WM_RadialMenu.o [1]
+  .rodata            const    0x00023ba0      0xc  WM_RadialMenu.o [1]
+  .rodata            const    0x00023bac      0xc  GUI_EncExt.o [4]
+  .rodata            const    0x00023bb8      0xc  LCD.o [4]
+  .text              ro code  0x00023bc4      0xc  cstartup_M.o [5]
+  .rodata            const    0x00023bd0      0x8  LCDConf.o [1]
+  .rodata            const    0x00023bd8      0x8  touch.o [1]
+  .rodata            const    0x00023be0      0x8  WM_RadialMenu.o [1]
+  .rodata            const    0x00023be8      0x8  WM_RadialMenu.o [1]
+  .rodata            const    0x00023bf0      0x8  WM_RadialMenu.o [1]
+  .rodata            const    0x00023bf8      0x8  WM_RadialMenu.o [1]
+  .rodata            const    0x00023c00      0x8  WM_RadialMenu.o [1]
+  .rodata            const    0x00023c08      0x8  WM_RadialMenu.o [1]
+  .rodata            const    0x00023c10      0x8  WM_RadialMenu.o [1]
+  .rodata            const    0x00023c18      0x8  WM_RadialMenu.o [1]
+  .rodata            const    0x00023c20      0x8  WM_RadialMenu.o [1]
+  .rodata            const    0x00023c28      0x8  WM_RadialMenu.o [1]
+  .rodata            const    0x00023c30      0x8  WM_RadialMenu.o [1]
+  .rodata            const    0x00023c38      0x8  GUI_MULTIBUF.o [4]
+  .rodata            const    0x00023c40      0x4  em_i2c.o [1]
+  .rodata            const    0x00023c44      0x4  WM_RadialMenu.o [1]
+  .text              ro code  0x00023c48      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c4c      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c50      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c54      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c58      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c5c      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c60      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c64      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c68      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c6c      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c70      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c74      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c78      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c7c      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c80      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c84      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c88      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c8c      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c90      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c94      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c98      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023c9c      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023ca0      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023ca4      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023ca8      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023cac      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023cb0      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023cb4      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023cb8      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023cbc      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023cc0      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023cc4      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023cc8      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023ccc      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023cd0      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023cd4      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023cd8      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023cdc      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023ce0      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023ce4      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023ce8      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023cec      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023cf0      0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00023cf4      0x4  startup_efm32gg.o [1]
+  .rodata            const    0x00023cf8      0x0  zero_init3.o [5]
+  .rodata            const    0x00023cf8      0x0  lz77_init_single.o [5]
+  Initializer bytes  const    0x00023cf8    0x10a  <for P2-1>
+                            - 0x00023e02  0x23d26
+
+"P2", part 1 of 3:                          0x2be
+  P2-1                        0x20000000    0x2be  <Init block>
+    .data            inited   0x20000000      0x4  LCDConf.o [1]
+    .data            inited   0x20000004      0x4  system_efm32gg.o [1]
+    .data            inited   0x20000008      0x4  system_efm32gg.o [1]
+    .data            inited   0x2000000c     0x1c  touch.o [1]
+    .data            inited   0x20000028      0x8  WM_RadialMenu.o [1]
+    .data            inited   0x20000030      0xc  WM_RadialMenu.o [1]
+    .data            inited   0x2000003c     0x5c  GUI_PID.o [4]
+    .data            inited   0x20000098     0x2c  GUI_Core.o [4]
+    .data            inited   0x200000c4      0x4  GUI_Core.o [4]
+    .data            inited   0x200000c8     0x40  CHECKBOX.o [4]
+    .data            inited   0x20000108     0x1c  CHECKBOX_SkinFlex.o [4]
+    .data            inited   0x20000124     0x1c  CHECKBOX_SkinFlex.o [4]
+    .data            inited   0x20000140      0xc  CHECKBOX_Skin.o [4]
+    .data            inited   0x2000014c      0x8  GUI_EncExt.o [4]
+    .data            inited   0x20000154      0x4  WINDOW.o [4]
+    .data            inited   0x20000158     0x10  WM_Motion.o [4]
+    .data            inited   0x20000168      0x8  GUI_WaitEvent.o [4]
+    .data            inited   0x20000170     0x38  WM_Touch.o [4]
+    .data            inited   0x200001a8     0x68  GUI_OnKey.o [4]
+    .data            inited   0x20000210      0x4  LCD.o [4]
+    .data            inited   0x20000214     0x10  LCD_Color.o [4]
+    .data            inited   0x20000224      0x4  WIDGET.o [4]
+    .data            inited   0x20000228     0x68  GUIAA_Char4.o [4]
+    .data            inited   0x20000290      0x8  GUIAA_Char4.o [4]
+    .data            inited   0x20000298      0x4  GUI__Alpha.o [4]
+    .data            inited   0x2000029c      0x4  LCD_AA.o [4]
+    .data            inited   0x200002a0      0x4  GUI_CharLine.o [4]
+    .data            inited   0x200002a4     0x10  TEXT.o [4]
+    .data            inited   0x200002b4      0x8  GUI__Wrap.o [4]
+    .data            inited   0x200002bc      0x1  tftdirect.o [1]
+    .data            inited   0x200002bd      0x1  GUIDEV_StaticDevices.o [4]
+                            - 0x200002be    0x2be
+
+"P2", part 2 of 3:                         0x1000
+  CSTACK                      0x200002c0   0x1000  <Block>
+    CSTACK           uninit   0x200002c0   0x1000  <Block tail>
+                            - 0x200012c0   0x1000
+
+"P2", part 3 of 3:                         0x2528
+  .bss               zero     0x200012c0   0x2000  GUIConf.o [1]
+  .bss               zero     0x200032c0     0xc0  GUI_Alloc.o [4]
+  .bss               zero     0x20003380     0x8c  WM_Motion.o [4]
+  .bss               zero     0x2000340c     0x6c  WM_RadialMenu.o [1]
+  .bss               zero     0x20003478     0x6c  GUI_Core.o [4]
+  .bss               zero     0x200034e4     0x64  WM.o [4]
+  .bss               zero     0x20003548     0x3c  WM_RadialMenu.o [1]
+  .bss               zero     0x20003600     0x20  WM_RadialMenu.o [1]
+  .bss               zero     0x20003620     0x20  GUI_MULTIBUF.o [4]
+  .bss               zero     0x20003640     0x20  GUI_Curs1.o [4]
+  .bss               zero     0x20003660     0x1c  GUI__Alpha.o [4]
+  .bss               zero     0x2000367c     0x18  em_i2c.o [1]
+  .bss               zero     0x20003694     0x18  WM_RadialMenu.o [1]
+  .bss               zero     0x200036ac     0x14  GUI__ManageCache.o [4]
+  .bss               zero     0x200036c0     0x14  GUI_Timer.o [4]
+  .bss               zero     0x200036d4     0x10  GUI_TOUCH.o [4]
+  .bss               zero     0x200036e4      0xc  LCDConf.o [1]
+  .bss               zero     0x200036f0      0xc  touch.o [1]
+  .bss               zero     0x200036fc      0xc  touch.o [1]
+  .bss               zero     0x20003708      0xc  touch.o [1]
+  .bss               zero     0x20003714      0xc  touch.o [1]
+  .bss               zero     0x20003720      0xc  GUI_Alloc.o [4]
+  .bss               zero     0x2000372c      0xc  WM_PID__GetPrevState.o [4]
+  .bss               zero     0x20003738      0x8  LCD_GetEx.o [4]
+  .bss               zero     0x20003740      0x8  GUICC_M565.o [4]
+  .bss               zero     0x20003748      0x8  CHECKBOX_SkinFlex.o [4]
+  .bss               zero     0x20003750      0x8  WM_Motion.o [4]
+  .bss               zero     0x20003758      0x4  bsp_dk_3201.o [1]
+  .bss               zero     0x2000375c      0x4  bsp_dk_3201.o [1]
+  .bss               zero     0x20003760      0x4  dmd_ssd2119_direct.o [1]
+  .bss               zero     0x20003764      0x4  dmd_ssd2119_direct.o [1]
+  .bss               zero     0x20003768      0x4  em_emu.o [1]
+  .bss               zero     0x2000376c      0x4  GUI_X.o [1]
+  .bss               zero     0x20003770      0x4  GUI_X.o [1]
+  .bss               zero     0x20003774      0x4  GUI_X.o [1]
+  .bss               zero     0x20003778      0x4  GUI_X.o [1]
+  .bss               zero     0x2000377c      0x4  LCDConf.o [1]
+  .bss               zero     0x20003780      0x4  LCDConf.o [1]
+  .bss               zero     0x20003784      0x4  LCDConf.o [1]
+  .bss               zero     0x20003788      0x4  system_efm32gg.o [1]
+  .bss               zero     0x2000378c      0x4  touch.o [1]
+  .bss               zero     0x20003790      0x4  touch.o [1]
+  .bss               zero     0x20003794      0x4  WM_RadialMenu.o [1]
+  .bss               zero     0x20003798      0x4  WM_RadialMenu.o [1]
+  .bss               zero     0x2000379c      0x4  WM_RadialMenu.o [1]
+  .bss               zero     0x200037a0      0x4  WM_RadialMenu.o [1]
+  .bss               zero     0x200037a4      0x4  WM.o [4]
+  .bss               zero     0x200037a8      0x4  GUI_Core.o [4]
+  .bss               zero     0x200037ac      0x4  GUI_Core.o [4]
+  .bss               zero     0x200037b0      0x4  GUI_Core.o [4]
+  .bss               zero     0x200037b4      0x4  GUI_Core.o [4]
+  .bss               zero     0x200037b8      0x4  GUI_Core.o [4]
+  .bss               zero     0x200037bc      0x4  GUI_Core.o [4]
+  .bss               zero     0x200037c0      0x4  GUI_WaitEvent.o [4]
+  .bss               zero     0x200037c4      0x4  GUIDEV_Banding.o [4]
+  .bss               zero     0x200037c8      0x4  WM__SendMessage.o [4]
+  .bss               zero     0x200037cc      0x4  GUI__Alpha.o [4]
+  .bss               zero     0x200037d0      0x4  GUI_SelectLayer.o [4]
+  .bss               zero     0x200037d4      0x4  WIDGET_Effect_Simple.o [4]
+  .bss               zero     0x200037d8      0x2  bsp_dk_3201.o [1]
+  .bss               zero     0x200037da      0x2  GUI_Core.o [4]
+  .bss               zero     0x200037dc      0x2  GUI_Core.o [4]
+  .bss               zero     0x200037de      0x1  bsp_dk_3201.o [1]
+  .bss               zero     0x200037df      0x1  em_emu.o [1]
+  .bss               zero     0x200037e0      0x1  GUI_X.o [1]
+  .bss               zero     0x200037e1      0x1  touch.o [1]
+  .bss               zero     0x200037e2      0x1  WM_RadialMenu.o [1]
+  .bss               zero     0x200037e3      0x1  WM.o [4]
+  .bss               zero     0x200037e4      0x1  GUI_Core.o [4]
+  .bss               zero     0x200037e5      0x1  GUI_Core.o [4]
+                            - 0x200037e6   0x2526
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x2526:
+          0x200012c0  0x2526
+
+Copy/lz77 (__iar_lz77_init_single3)
+    1 source range, total size 0x10a (37% of destination):
+          0x00023cf8   0x10a
+    1 destination range, total size 0x2be:
+          0x20000000   0x2be
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                        ro code  ro data  rw data
+    ------                        -------  -------  -------
+D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj: [1]
+    GUIConf.o                          36             8 192
+    GUI_X.o                           842                17
+    LCDConf.o                         744       85       28
+    WM_RadialMenu.o                 3 080   50 764      261
+    bsp_dk_3201.o                   2 896      240       11
+    bsp_trace.o                       280
+    calibrate.o                       404
+    dmd_ssd2119_direct.o              248                 8
+    eeprom.o                          356
+    em_adc.o                          548       76
+    em_assert.o                         2
+    em_cmu.o                        2 872      212
+    em_dma.o                        1 336       76
+    em_ebi.o                        2 852       76
+    em_emu.o                          464                 5
+    em_gpio.o                         688      212
+    em_i2c.o                        1 308       80       24
+    em_rtc.o                          192       76
+    em_usart.o                        404       76
+    i2cspm.o                          588      220
+    startup_efm32gg.o                 412
+    system_efm32gg.o                  312        3       12
+    tftdirect.o                       236                 1
+    tftspi.o                          564      160
+    touch.o                         1 720      179       85
+    -------------------------------------------------------
+    Total:                         23 384   52 535    8 644
+
+command line: [2]
+    -------------------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    abs.o                               8
+    exit.o                              4
+    low_level_init.o                    4
+    -------------------------------------------------------
+    Total:                             16
+
+emwin_IAR_CM3.a: [4]
+    CHECKBOX.o                        480       25       64
+    CHECKBOX_GetState.o                28
+    CHECKBOX_Image.o                           104
+    CHECKBOX_SetFont.o                 38
+    CHECKBOX_SetState.o                54
+    CHECKBOX_SetText.o                 72
+    CHECKBOX_SetTextAlign.o            42
+    CHECKBOX_SetTextColor.o            38
+    CHECKBOX_Skin.o                   208        4       12
+    CHECKBOX_SkinFlex.o             1 116       21       64
+    DIALOG.o                          304
+    F13_1.o                                  2 436
+    F13_ASCII.o                              2 364
+    F16_1.o                                  2 880
+    F16_ASCII.o                              2 684
+    F6x8.o                                   1 816
+    GUIAA_Char4.o                     292       42      112
+    GUIAA_Char4Ext.o                  168
+    GUICC_0.o                         184       24
+    GUICC_565.o                        44
+    GUICC_8888.o                       40       24
+    GUICC_8888_Index2Color.o            2
+    GUICC_888_Index2Color.o             2
+    GUICC_M565.o                      232       24        8
+    GUIDEV.o                          768
+    GUIDEV_16.o                     2 456
+    GUIDEV_32.o                     2 472
+    GUIDEV_Banding.o                  334                 4
+    GUIDEV_Clear.o                     60
+    GUIDEV_GetDataPtr.o                28
+    GUIDEV_GetYSize.o                  40
+    GUIDEV_ReduceYSize.o               48
+    GUIDEV_SetOrg.o                   108
+    GUIDEV_StaticDevices.o            356        1        1
+    GUIDEV_Usage.o                     78
+    GUIDEV_UsageBM.o                  436
+    GUIDEV_Write.o                     98
+    GUIDEV_WriteToActiveAlpha.o       380
+    GUIDEV_WriteToActiveOpaque.o    1 896
+    GUIDRV_Lin_16.o                 3 496       52
+    GUI_2DLib.o                       136
+    GUI_ALLOC_AllocZero.o              36
+    GUI_Alloc.o                     1 912               204
+    GUI_CalcColorDist.o                62
+    GUI_Char.o                         80
+    GUI_CharLine.o                    460        2        4
+    GUI_CharM.o                       388
+    GUI_CharP.o                       306
+    GUI_CharPExt.o                    180
+    GUI_Core.o                        396       18      186
+    GUI_Curs1.o                       480                32
+    GUI_CursorArrowM.o                          32
+    GUI_CursorArrowMPx.o                        60
+    GUI_CursorCrossM.o                          32
+    GUI_CursorCrossMPx.o                       128
+    GUI_CursorPal.o                             24
+    GUI_Device.o                      312
+    GUI_DispString.o                  256
+    GUI_DispStringAt.o                 16
+    GUI_DispStringHCenter.o            52
+    GUI_DispStringInRect.o            404
+    GUI_DispStringInRectWrap.o        332
+    GUI_DrawBitmap.o                  236
+    GUI_DrawFocusRect.o               156
+    GUI_DrawGradient.o                498
+    GUI_EncExt.o                      292       15        8
+    GUI_Exec.o                         64
+    GUI_GetBitmapPixelIndex.o         172
+    GUI_GetClientRect.o                10
+    GUI_GetColor.o                     22
+    GUI_GetOrg.o                       32
+    GUI_GetStringDistX.o               20
+    GUI_GetYSizeOfFont.o                8
+    GUI_Goto.o                         16
+    GUI_MULTIBUF.o                    360        8       32
+    GUI_MergeRect.o                    88
+    GUI_MoveRect.o                     28
+    GUI_OnKey.o                        84       40      104
+    GUI_PID.o                         268       35       92
+    GUI_Pen.o                          16
+    GUI_RectsIntersect.o               56
+    GUI_SPRITE.o                    7 352
+    GUI_SaveContext.o                  32
+    GUI_SelectLCD.o                    18
+    GUI_SelectLayer.o                  84                 4
+    GUI_SetAlpha.o                     36
+    GUI_SetColor.o                      8
+    GUI_SetDefault.o                   68
+    GUI_SetDrawMode.o                   4
+    GUI_SetFont.o                      20
+    GUI_SetLineStyle.o                 16
+    GUI_SetOrg.o                       48
+    GUI_SetTextAlign.o                 20
+    GUI_SetTextMode.o                  20
+    GUI_TOUCH.o                        72                16
+    GUI_Time.o                         46
+    GUI_Timer.o                       804                20
+    GUI_UC.o                           72
+    GUI_UC_EncodeNone.o                36
+    GUI_WaitEvent.o                    76        3       12
+    GUI__Alpha.o                      800        2       36
+    GUI__CompactPixelIndices.o        660
+    GUI__DivTbl_255_31.o                       256
+    GUI__DivTbl_255_63.o                       256
+    GUI__DivTbl_31_255.o                        32
+    GUI__DivTbl_63_255.o                        64
+    GUI__ExpandPixelIndices.o         322
+    GUI__GetNumChars.o                 26
+    GUI__HandleEOLine.o                22
+    GUI__IntersectRect.o               64
+    GUI__IntersectRects.o              98
+    GUI__ManageCache.o                220                20
+    GUI__ReduceRect.o                  26
+    GUI__SetText.o                    110
+    GUI__SinHQ.o                      680
+    GUI__Wrap.o                       308        3        8
+    GUI__memset.o                      78
+    GUI__memset16.o                    60
+    GUI__sqrt32.o                      26
+    GUI__strcmp.o                      72
+    GUI__strlen.o                      20
+    LCD.o                           1 760       13        4
+    LCD_AA.o                          252        1        4
+    LCD_Color.o                       264        6       16
+    LCD_GetColorIndex.o                24
+    LCD_GetEx.o                       416                 8
+    LCD_GetNumDisplays.o               18
+    LCD_GetP.o                         96
+    LCD_GetPixelColor.o                14
+    LCD_Mirror.o                               256
+    LCD_RLEAlpha.o                    664       16
+    LCD_ReadRect.o                    488
+    LCD_SelectLCD.o                    68
+    LCD_Set.o                         372
+    LCD_SetClipRectEx.o                52
+    LCD_UpdateColorIndices.o           36
+    TEXT.o                            332        6       16
+    TEXT_CreateIndirect.o              60
+    TEXT_SetFont.o                     38
+    TEXT_SetText.o                     76
+    TEXT_SetTextAlign.o                32
+    TEXT_SetTextColor.o                38
+    WIDGET.o                          452        2        4
+    WIDGET_Effect_Simple.o            100       28        4
+    WINDOW.o                          428        2        4
+    WM.o                            4 932               105
+    WM_BringToBottom.o                132
+    WM_BringToTop.o                   120
+    WM_CriticalHandle.o                48
+    WM_ForEachDesc.o                    4
+    WM_GetClientRect.o                 72
+    WM_GetClientWindow.o               24
+    WM_GetDesktopWindow.o              12
+    WM_GetDialogItem.o                 80
+    WM_GetFirstChild.o                 14
+    WM_GetFocussedWindow.o             12
+    WM_GetId.o                         32
+    WM_GetOrg.o                        26
+    WM_GetParent.o                     14
+    WM_GetWindowRect.o                 34
+    WM_GetWindowSize.o                 68
+    WM_HasCaptured.o                   20
+    WM_HasFocus.o                      20
+    WM_IsFocussable.o                  48
+    WM_IsWindow.o                       4
+    WM_MULTIBUF.o                      28
+    WM_MemDev.o                        24
+    WM_Motion.o                     3 884        6      164
+    WM_Move.o                         274
+    WM_NotifyParent.o                  20
+    WM_OnKey.o                         48
+    WM_PID__GetPrevState.o             24                12
+    WM_ResizeWindow.o                 244
+    WM_Screen2Win.o                   148
+    WM_SendMessageNoPara.o              4
+    WM_SendToParent.o                  28
+    WM_SetCallback.o                   38
+    WM_SetCapture.o                    76
+    WM_SetFocus.o                     148
+    WM_SetFocusOnNextChild.o          114
+    WM_SetFocusOnPrevChild.o           94
+    WM_SetSize.o                       70
+    WM_SetTrans.o                      94
+    WM_SetUserClipRect.o               24
+    WM_Show.o                          82
+    WM_Timer.o                        100
+    WM_Touch.o                        892       21       56
+    WM_UserData.o                     162
+    WM_ValidateWindow.o                48
+    WM__ForEachDesc.o                  44
+    WM__GetFirstSibling.o              16
+    WM__GetFocussedChild.o             28
+    WM__GetLastSibling.o               26
+    WM__GetPrevSibling.o               34
+    WM__IsAncestor.o                   80
+    WM__IsChild.o                      34
+    WM__IsEnabled.o                    22
+    WM__SendMessage.o                  64                 4
+    WM__SendMessageIfEnabled.o         26
+    WM__SendMessageNoPara.o            44
+    WM__UpdateChildPositions.o        204
+    -------------------------------------------------------
+    Total:                         56 142   13 868    1 444
+
+rt7M_tl.a: [5]
+    ABImemclr.o                         6
+    ABImemclr4.o                        6
+    ABImemcpy_unaligned.o             118
+    ABImemmove_unaligned.o            120
+    ABImemset.o                       102
+    ABImemset48.o                      50
+    XXexit.o                           12
+    cexit.o                            10
+    cmain.o                            26
+    cstartup_M.o                       12
+    data_init.o                        40
+    lz77_init_single.o                120
+    memcmp_unaligned.o                 98
+    strcpy_unaligned.o                 68
+    strlen.o                           54
+    zero_init3.o                       64
+    -------------------------------------------------------
+    Total:                            906
+
+    Gaps                               61        2      124
+    Linker created                              32    4 096
+-----------------------------------------------------------
+    Grand Total:                   80 509   66 437   14 308
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address    Size  Type      Object
+-----                      -------    ----  ----      ------
+.iar.init_table$$Base   0x00023698           --   Gb  - Linker created -
+.iar.init_table$$Limit  0x000236b8           --   Gb  - Linker created -
+?main                   0x0002388d          Code  Gb  cmain.o [5]
+ADC0_IRQHandler         0x000091a3   0x246  Code  Gb  touch.o [1]
+ADC_DataSingleGet       0x00008ec1     0x4  Code  Lc  touch.o [1]
+ADC_Init                0x0000ae23    0x96  Code  Gb  em_adc.o [1]
+ADC_InitSingle          0x0000aeb9    0x6e  Code  Gb  em_adc.o [1]
+ADC_IntClear            0x00008ec5     0x4  Code  Lc  touch.o [1]
+ADC_IntDisable          0x00008ec9     0x8  Code  Lc  touch.o [1]
+ADC_IntEnable           0x00008ed1     0x8  Code  Lc  touch.o [1]
+ADC_LoadDevinfoCal      0x0000ad6d    0xb6  Code  Lc  em_adc.o [1]
+ADC_PrescaleCalc        0x0000af27    0x40  Code  Gb  em_adc.o [1]
+ADC_Start               0x00008ed9     0x6  Code  Lc  touch.o [1]
+API                     0x0000392c    0x18  Data  Lc  GUIDEV_UsageBM.o [4]
+BSP_BusControlModeSet   0x00006c93    0x9c  Code  Gb  bsp_dk_3201.o [1]
+BSP_DisplayControl      0x00006d2f    0xfc  Code  Gb  bsp_dk_3201.o [1]
+BSP_EbiExtendedAddressRange
+                        0x00006e2b    0x24  Code  Gb  bsp_dk_3201.o [1]
+BSP_Init                0x00006c39    0x5a  Code  Gb  bsp_dk_3201.o [1]
+BSP_JoystickGet         0x00006e4f    0x12  Code  Gb  bsp_dk_3201.o [1]
+BSP_PeripheralAccess    0x00006e61   0x236  Code  Gb  bsp_dk_3201.o [1]
+BSP_PushButtonsGet      0x00007097    0x12  Code  Gb  bsp_dk_3201.o [1]
+BSP_RegisterRead        0x000070a9    0x1a  Code  Gb  bsp_dk_3201.o [1]
+BSP_RegisterWrite       0x000070c3    0x22  Code  Gb  bsp_dk_3201.o [1]
+BSP_TraceProfilerSetup  0x00007735    0x18  Code  Gb  bsp_trace.o [1]
+BSP_TraceSwoSetup       0x00007635    0xac  Code  Gb  bsp_trace.o [1]
+BUS_RegBitRead          0x0000775b    0x10  Code  Lc  em_cmu.o [1]
+BUS_RegBitRead          0x00008edf    0x10  Code  Lc  touch.o [1]
+BUS_RegBitWrite         0x0000774d     0xe  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x00018e63     0xe  Code  Lc  em_dma.o [1]
+BUS_RegBitWrite         0x0000828d     0xe  Code  Lc  em_ebi.o [1]
+BUS_RegBitWrite         0x0000b231     0xe  Code  Lc  em_i2c.o [1]
+BUS_RegBitWrite         0x00009979     0xe  Code  Lc  em_rtc.o [1]
+BUS_RegMaskedWrite      0x0000b23f     0xa  Code  Lc  em_i2c.o [1]
+BUS_RegMaskedWrite      0x0000a45d     0xa  Code  Lc  em_usart.o [1]
+CHECKBOX_Callback       0x0001977d   0x10e  Code  Gb  CHECKBOX.o [4]
+CHECKBOX_CreateUser     0x0001988b    0x9e  Code  Gb  CHECKBOX.o [4]
+CHECKBOX_DrawSkinFlex   0x00019fd1    0xe6  Code  Gb  CHECKBOX_SkinFlex.o [4]
+CHECKBOX_GetSkinFlexProps
+                        0x0001a0d3    0x1c  Code  Gb  CHECKBOX_SkinFlex.o [4]
+CHECKBOX_GetState       0x0001993d    0x1c  Code  Gb  CHECKBOX_GetState.o [4]
+CHECKBOX_GetUserData    0x00019937     0x6  Code  Gb  CHECKBOX.o [4]
+CHECKBOX_SetDefaultSkin
+                        0x0001a1ab    0x10  Code  Gb  CHECKBOX_Skin.o [4]
+CHECKBOX_SetFont        0x0001a1ef    0x26  Code  Gb  CHECKBOX_SetFont.o [4]
+CHECKBOX_SetSkinFlexProps
+                        0x0001a0b7    0x1c  Code  Gb  CHECKBOX_SkinFlex.o [4]
+CHECKBOX_SetState       0x00019c67    0x36  Code  Gb  CHECKBOX_SetState.o [4]
+CHECKBOX_SetText        0x0001a215    0x48  Code  Gb  CHECKBOX_SetText.o [4]
+CHECKBOX_SetTextAlign   0x0001a25d    0x2a  Code  Gb  CHECKBOX_SetTextAlign.o [4]
+CHECKBOX_SetTextColor   0x0001a1c9    0x26  Code  Gb  CHECKBOX_SetTextColor.o [4]
+CHECKBOX_SetUserData    0x00019931     0x6  Code  Gb  CHECKBOX.o [4]
+CHECKBOX__DefaultProps  0x200000c8    0x3c  Data  Gb  CHECKBOX.o [4]
+CHECKBOX__GetButtonSize()
+                        0x0001975d    0x20  Code  Gb  CHECKBOX.o [4]
+CHECKBOX__Skin          0x20000140     0xc  Data  Gb  CHECKBOX_Skin.o [4]
+CHECKBOX__abmCheck      0x00021cb0    0x28  Data  Gb  CHECKBOX_Image.o [4]
+CHECKBOX__pSkinDefault  0x20000104     0x4  Data  Gb  CHECKBOX.o [4]
+CMU_ClockEnable         0x00007b27    0xa6  Code  Gb  em_cmu.o [1]
+CMU_ClockFreqGet        0x00007be1   0x188  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectGet      0x00007da5   0x134  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectSet      0x00007efd   0x292  Code  Gb  em_cmu.o [1]
+CMU_DivToLog2           0x0000776b    0x28  Code  Lc  em_cmu.o [1]
+CMU_Lock                0x00009a41     0xa  Code  Lc  em_emu.o [1]
+CMU_OscillatorEnable    0x000081ad    0x9c  Code  Gb  em_cmu.o [1]
+CMU_Unlock              0x00009a4b     0xc  Code  Lc  em_emu.o [1]
+CSTACK$$Base            0x200002c0           --   Gb  - Linker created -
+CSTACK$$Limit           0x200012c0           --   Gb  - Linker created -
+Copy2D16bit             0x0001824b    0x9e  Code  Lc  WM_RadialMenu.o [1]
+DMA_ActivateAuto        0x0001900f    0x62  Code  Gb  em_dma.o [1]
+DMA_CfgChannel          0x00019071    0x88  Code  Gb  em_dma.o [1]
+DMA_CfgDescr            0x000190f9    0x6a  Code  Gb  em_dma.o [1]
+DMA_CfgLoop             0x00019163    0x54  Code  Gb  em_dma.o [1]
+DMA_CfgRect             0x000191b7    0x5e  Code  Gb  em_dma.o [1]
+DMA_ChannelEnabled      0x00019215    0x1e  Code  Gb  em_dma.o [1]
+DMA_IRQHandler          0x00018f61    0xae  Code  Gb  em_dma.o [1]
+DMA_Init                0x00019233    0x56  Code  Gb  em_dma.o [1]
+DMA_Prepare             0x00018e71    0xf0  Code  Lc  em_dma.o [1]
+DMA_Reset               0x00019289    0x5e  Code  Gb  em_dma.o [1]
+DMDIF_writeReg          0x0000a729    0x16  Code  Gb  dmd_ssd2119_direct.o [1]
+DMD_init                0x0000a73f    0xbe  Code  Gb  dmd_ssd2119_direct.o [1]
+DMD_selectFramebuffer   0x0000a7fd    0x16  Code  Gb  dmd_ssd2119_direct.o [1]
+EBI_BankAddress         0x0000849b    0x82  Code  Gb  em_ebi.o [1]
+EBI_BankAddressTimingConfig
+                        0x00008b1d    0x5a  Code  Gb  em_ebi.o [1]
+EBI_BankAddressTimingSet
+                        0x00008b77    0x86  Code  Gb  em_ebi.o [1]
+EBI_BankPolaritySet     0x00008c05   0x12a  Code  Gb  em_ebi.o [1]
+EBI_BankReadTimingConfig
+                        0x00008839    0xd8  Code  Gb  em_ebi.o [1]
+EBI_BankReadTimingSet   0x00008911    0xc6  Code  Gb  em_ebi.o [1]
+EBI_BankWriteTimingConfig
+                        0x000089d7    0x9e  Code  Gb  em_ebi.o [1]
+EBI_BankWriteTimingSet  0x00008a75    0xa8  Code  Gb  em_ebi.o [1]
+EBI_ChipSelectEnable    0x0000851d    0x50  Code  Gb  em_ebi.o [1]
+EBI_IRQHandler          0x00005da3    0x2c  Code  Gb  LCDConf.o [1]
+EBI_Init                0x0000829b   0x200  Code  Gb  em_ebi.o [1]
+EBI_IntClear            0x00005c77     0x6  Code  Lc  LCDConf.o [1]
+EBI_IntDisable          0x00005c7d     0xc  Code  Lc  LCDConf.o [1]
+EBI_IntEnable           0x00005c89     0xc  Code  Lc  LCDConf.o [1]
+EBI_IntGet              0x00005c95     0x6  Code  Lc  LCDConf.o [1]
+EBI_PolaritySet         0x0000856d    0xea  Code  Gb  em_ebi.o [1]
+EBI_TFTFrameBaseSet     0x00008285     0x8  Code  Lc  em_ebi.o [1]
+EBI_TFTFrameBaseSet     0x00005c71     0x6  Code  Lc  LCDConf.o [1]
+EBI_TFTHPorchSet        0x0000873f    0x4c  Code  Gb  em_ebi.o [1]
+EBI_TFTInit             0x00008657    0xaa  Code  Gb  em_ebi.o [1]
+EBI_TFTMaskBlendMode    0x00018219    0x16  Code  Lc  WM_RadialMenu.o [1]
+EBI_TFTMaskSet          0x0001822f     0x8  Code  Lc  WM_RadialMenu.o [1]
+EBI_TFTSizeSet          0x00008701    0x3e  Code  Gb  em_ebi.o [1]
+EBI_TFTTimingSet        0x000087d7    0x62  Code  Gb  em_ebi.o [1]
+EBI_TFTVPorchSet        0x0000878b    0x4c  Code  Gb  em_ebi.o [1]
+EEPROM_AckPoll          0x0000aa6d    0x42  Code  Lc  eeprom.o [1]
+EEPROM_Read             0x0000aaaf    0x72  Code  Gb  eeprom.o [1]
+EEPROM_Write            0x0000ab21    0xb0  Code  Gb  eeprom.o [1]
+EMU_EnterEM1            0x00005f59    0x10  Code  Lc  GUI_X.o [1]
+EMU_EnterEM1            0x00018237    0x14  Code  Lc  WM_RadialMenu.o [1]
+EMU_EnterEM2            0x00009b63    0x6c  Code  Gb  em_emu.o [1]
+EbiInit                 0x000070e5   0x30a  Code  Lc  bsp_dk_3201.o [1]
+EnableVsyncInterrupt    0x00005dcf    0x22  Code  Gb  LCDConf.o [1]
+GL_DrawBitmap           0x00017385    0x8e  Code  Gb  GUI_DrawBitmap.o [4]
+GL_SetDefault           0x000065a5     0x4  Code  Gb  GUI_SetDefault.o [4]
+GPIO_PinInGet           0x00008eef    0xac  Code  Lc  touch.o [1]
+GPIO_PinModeSet         0x0000a301   0x14e  Code  Gb  em_gpio.o [1]
+GPIO_PinOutClear        0x00006ae5    0xaa  Code  Lc  bsp_dk_3201.o [1]
+GPIO_PinOutClear        0x0000a1ad    0xaa  Code  Lc  em_gpio.o [1]
+GPIO_PinOutClear        0x0000a821    0xa6  Code  Lc  i2cspm.o [1]
+GPIO_PinOutClear        0x0000affd    0xa6  Code  Lc  tftspi.o [1]
+GPIO_PinOutSet          0x00006b8f    0xaa  Code  Lc  bsp_dk_3201.o [1]
+GPIO_PinOutSet          0x0000a257    0xaa  Code  Lc  em_gpio.o [1]
+GPIO_PinOutSet          0x0000a8c7    0xa6  Code  Lc  i2cspm.o [1]
+GPIO_PinOutSet          0x0000b0a3    0xa6  Code  Lc  tftspi.o [1]
+GUIDRV_Lin_16_API       0x000234f8    0x34  Data  Gb  GUIDRV_Lin_16.o [4]
+GUIMONO_DispChar        0x0001ffdd   0x132  Code  Gb  GUI_CharM.o [4]
+GUIMONO_GetCharDistX    0x0002010f    0x12  Code  Gb  GUI_CharM.o [4]
+GUIMONO_GetFontInfo     0x00020125     0x6  Code  Gb  GUI_CharM.o [4]
+GUIMONO_IsInFont        0x0002012b    0x36  Code  Gb  GUI_CharM.o [4]
+GUIPROP_AA4_EXT_DispChar
+                        0x000213ad    0xa8  Code  Gb  GUIAA_Char4Ext.o [4]
+GUIPROP_DispChar        0x00020a9d    0xce  Code  Gb  GUI_CharP.o [4]
+GUIPROP_EXT_GetCharDistX
+                        0x00020d09    0x40  Code  Gb  GUI_CharPExt.o [4]
+GUIPROP_EXT_GetCharInfo
+                        0x00020d6b    0x38  Code  Gb  GUI_CharPExt.o [4]
+GUIPROP_EXT_GetFontInfo
+                        0x00020d49     0x6  Code  Gb  GUI_CharPExt.o [4]
+GUIPROP_EXT_IsInFont    0x00020d4f    0x1c  Code  Gb  GUI_CharPExt.o [4]
+GUIPROP_EXT__ClearLine  0x00020bd1    0xdc  Code  Gb  GUI_EncExt.o [4]
+GUIPROP_EXT__DispLine   0x00020cad    0x3c  Code  Gb  GUI_EncExt.o [4]
+GUIPROP_EXT__FindChar   0x00020cf5    0x14  Code  Gb  GUI_CharPExt.o [4]
+GUIPROP_GetCharDistX    0x00020b6b    0x3e  Code  Gb  GUI_CharP.o [4]
+GUIPROP_GetFontInfo     0x00020bad     0x6  Code  Gb  GUI_CharP.o [4]
+GUIPROP_IsInFont        0x00020bb3    0x1c  Code  Gb  GUI_CharP.o [4]
+GUI_AA__ClipX0          0x200037b8     0x4  Data  Gb  GUI_Core.o [4]
+GUI_AA__DrawCharAA4     0x00020e9b    0x22  Code  Gb  GUIAA_Char4.o [4]
+GUI_ALLOC_AllocNoInit   0x00002473     0xa  Code  Gb  GUI_Alloc.o [4]
+GUI_ALLOC_AllocZero     0x00003235    0x24  Code  Gb  GUI_ALLOC_AllocZero.o [4]
+GUI_ALLOC_AssignMemory  0x00002539     0xc  Code  Gb  GUI_Alloc.o [4]
+GUI_ALLOC_Free          0x00002575    0x2c  Code  Gb  GUI_Alloc.o [4]
+GUI_ALLOC_FreeFixedBlock
+                        0x000023bb    0x10  Code  Gb  GUI_Alloc.o [4]
+GUI_ALLOC_FreePtr       0x000025a1    0x10  Code  Gb  GUI_Alloc.o [4]
+GUI_ALLOC_GetFixedBlock
+                        0x000023cb    0xa8  Code  Gb  GUI_Alloc.o [4]
+GUI_ALLOC_GetMaxSize    0x000024d9    0x3c  Code  Gb  GUI_Alloc.o [4]
+GUI_ALLOC_GetSize       0x0000255d    0x18  Code  Gb  GUI_Alloc.o [4]
+GUI_ALLOC_LockH         0x0000248d    0x22  Code  Gb  GUI_Alloc.o [4]
+GUI_ALLOC_RequestSize   0x00002515    0x24  Code  Gb  GUI_Alloc.o [4]
+GUI_ALLOC_SetAvBlockSize
+                        0x00002545    0x18  Code  Gb  GUI_Alloc.o [4]
+GUI_ALLOC_UnlockH       0x000024af    0x2a  Code  Gb  GUI_Alloc.o [4]
+GUI_ALLOC__Context      0x200032c0    0xc0  Data  Gb  GUI_Alloc.o [4]
+GUI_ALLOC_h2p           0x0000247d    0x10  Code  Gb  GUI_Alloc.o [4]
+GUI_BitmapArrowM        0x00023818    0x14  Data  Gb  GUI_CursorArrowM.o [4]
+GUI_BitmapCrossM        0x000237d8    0x14  Data  Gb  GUI_CursorCrossM.o [4]
+GUI_BitmapMethodsRLEAlpha
+                        0x00023b44    0x10  Data  Gb  LCD_RLEAlpha.o [4]
+GUI_CURSOR_Hide         0x0001728f     0x8  Code  Gb  GUI_Curs1.o [4]
+GUI_CURSOR_HideEx       0x000171b9    0x4c  Code  Gb  GUI_Curs1.o [4]
+GUI_CURSOR_Select       0x00017287     0x8  Code  Gb  GUI_Curs1.o [4]
+GUI_CURSOR_SelectEx     0x00017117    0xa2  Code  Gb  GUI_Curs1.o [4]
+GUI_CURSOR_SelectEx::RegisterExit
+                        0x20003658     0x8  Data  Lc  GUI_Curs1.o [4]
+GUI_CURSOR_SetPosition  0x0001729f     0x8  Code  Gb  GUI_Curs1.o [4]
+GUI_CURSOR_SetPositionEx
+                        0x00017229    0x5e  Code  Gb  GUI_Curs1.o [4]
+GUI_CURSOR_Show         0x00017297     0x8  Code  Gb  GUI_Curs1.o [4]
+GUI_CURSOR_ShowEx       0x00017205    0x24  Code  Gb  GUI_Curs1.o [4]
+GUI_CalcColorDist       0x0002136d    0x3e  Code  Gb  GUI_CalcColorDist.o [4]
+GUI_CharInfo_Font16ASCII
+                        0x0001c4a4   0x300  Data  Lc  F16_ASCII.o [4]
+GUI_CharInfo_Font16_1   0x0001ba04   0x300  Data  Lc  F16_1.o [4]
+GUI_CharLine_pfLog2Vis  0x200002a0     0x4  Data  Gb  GUI_CharLine.o [4]
+GUI_Clear               0x00003689    0x1a  Code  Gb  GUI_Core.o [4]
+GUI_ClearRect           0x0000362f    0x5a  Code  Gb  GUI_Core.o [4]
+GUI_CreateDialogBox     0x0001960d    0xa6  Code  Gb  DIALOG.o [4]
+GUI_CursorArrowM        0x0002382c     0xc  Data  Gb  GUI_CursorArrowM.o [4]
+GUI_CursorCrossM        0x000237ec     0xc  Data  Gb  GUI_CursorCrossM.o [4]
+GUI_CursorPal           0x000239c4     0xc  Data  Gb  GUI_CursorPal.o [4]
+GUI_DEVICE_Create       0x00002c81    0x46  Code  Gb  GUI_Device.o [4]
+GUI_DEVICE_CreateAndLink
+                        0x00002d65    0x24  Code  Gb  GUI_Device.o [4]
+GUI_DEVICE_Delete       0x00002c7d     0x4  Code  Gb  GUI_Device.o [4]
+GUI_DEVICE_Link         0x00002cf1    0x74  Code  Gb  GUI_Device.o [4]
+GUI_DEVICE_Unlink       0x00002cc7    0x2a  Code  Gb  GUI_Device.o [4]
+GUI_DEVICE__GetpDriver  0x00002c5d    0x20  Code  Gb  GUI_Device.o [4]
+GUI_DecChar             0x20000098     0x1  Data  Gb  GUI_Core.o [4]
+GUI_Delay               0x0000afc1    0x2a  Code  Gb  GUI_Time.o [4]
+GUI_DispString          0x0001acf1   0x100  Code  Gb  GUI_DispString.o [4]
+GUI_DispStringAt        0x0001a731    0x10  Code  Gb  GUI_DispStringAt.o [4]
+GUI_DispStringHCenterAt
+                        0x00019b4d    0x34  Code  Gb  GUI_DispStringHCenter.o [4]
+GUI_DispStringInRect    0x0001aa0f     0x6  Code  Gb  GUI_DispStringInRect.o [4]
+GUI_DispStringInRectMax
+                        0x0001a9cd    0x42  Code  Gb  GUI_DispStringInRect.o [4]
+GUI_DispStringInRectWrap
+                        0x00020807   0x12a  Code  Gb  GUI_DispStringInRectWrap.o [4]
+GUI_DrawBitmap          0x00017413    0x54  Code  Gb  GUI_DrawBitmap.o [4]
+GUI_DrawFocusRect       0x0001a7e5    0x9c  Code  Gb  GUI_DrawFocusRect.o [4]
+GUI_DrawGradientV       0x00019ae1    0x5a  Code  Gb  GUI_DrawGradient.o [4]
+GUI_DrawRect            0x0001a741    0x82  Code  Gb  GUI_2DLib.o [4]
+GUI_ENC_APIList_EXT     0x00023bac     0xc  Data  Gb  GUI_EncExt.o [4]
+GUI_EndDialog           0x000196b3    0x34  Code  Gb  DIALOG.o [4]
+GUI_Exec                0x00009939    0x36  Code  Gb  GUI_Exec.o [4]
+GUI_ExecDialogBox       0x000196e7    0x26  Code  Gb  DIALOG.o [4]
+GUI_F6x8_Mono           0x0001f4cc    0x14  Data  Lc  F6x8.o [4]
+GUI_F6x8_TI8859_1       0x0001f4c4     0x8  Data  Lc  F6x8.o [4]
+GUI_F6x8_TL8859_1       0x0001f304   0x1c0  Data  Lc  F6x8.o [4]
+GUI_Font13ASCII_CharInfo
+                        0x0001eac4   0x2f8  Data  Lc  F13_ASCII.o [4]
+GUI_Font13ASCII_Prop1   0x0001edbc     0xc  Data  Gb  F13_ASCII.o [4]
+GUI_Font13_1            0x0001e48c    0x24  Data  Gb  F13_1.o [4]
+GUI_Font13_1_CharInfo   0x0001e180   0x300  Data  Lc  F13_1.o [4]
+GUI_Font13_1_Prop1      0x0001e480     0xc  Data  Lc  F13_1.o [4]
+GUI_Font13_ASCII        0x0001edc8    0x24  Data  Gb  F13_ASCII.o [4]
+GUI_Font16ASCIIProp1    0x0001c7a4     0xc  Data  Gb  F16_ASCII.o [4]
+GUI_Font16_1            0x0001bd10    0x24  Data  Gb  F16_1.o [4]
+GUI_Font16_1_FontProp1  0x0001bd04     0xc  Data  Gb  F16_1.o [4]
+GUI_Font6x8             0x0001f4e0    0x24  Data  Gb  F6x8.o [4]
+GUI_FontRounded22       0x00023650    0x24  Data  Gb  WM_RadialMenu.o [1]
+GUI_FontRounded22_CharInfo
+                        0x0001f504   0x474  Data  Gb  WM_RadialMenu.o [1]
+GUI_FontRounded22_Prop1
+                        0x00023ba0     0xc  Data  Gb  WM_RadialMenu.o [1]
+GUI_GetBitmapPixelIndex
+                        0x00001e2b    0x16  Code  Gb  GUI_GetBitmapPixelIndex.o [4]
+GUI_GetBitmapPixelIndexEx
+                        0x00001d95    0x96  Code  Gb  GUI_GetBitmapPixelIndex.o [4]
+GUI_GetBitsPerPixelEx   0x00002e21     0xe  Code  Gb  LCD_GetEx.o [4]
+GUI_GetBkColor          0x0001a719     0x8  Code  Gb  GUI_GetColor.o [4]
+GUI_GetCharDistX        0x0001b00f     0xc  Code  Gb  GUI_Char.o [4]
+GUI_GetCharDistXEx      0x0001b01b     0xa  Code  Gb  GUI_Char.o [4]
+GUI_GetClientRect       0x0001b029     0xa  Code  Gb  GUI_GetClientRect.o [4]
+GUI_GetColor            0x0001a721     0x6  Code  Gb  GUI_GetColor.o [4]
+GUI_GetCursorLayer      0x00006a2d     0xc  Code  Gb  GUI_SelectLayer.o [4]
+GUI_GetFontDistY        0x0001b005     0xa  Code  Gb  GUI_Char.o [4]
+GUI_GetLayerPosEx       0x00006a39    0x14  Code  Gb  GUI_SelectLayer.o [4]
+GUI_GetOrg              0x00009fe5     0x2  Code  Gb  GUI_GetOrg.o [4]
+GUI_GetStringDistX      0x0001a7c9    0x14  Code  Gb  GUI_GetStringDistX.o [4]
+GUI_GetTime             0x0000afbd     0x4  Code  Gb  GUI_Time.o [4]
+GUI_GetYAdjust          0x0001afd9    0x2c  Code  Gb  GUI_Char.o [4]
+GUI_GetYSizeOfFont      0x0001a7dd     0x8  Code  Gb  GUI_GetYSizeOfFont.o [4]
+GUI_GetpfColor2IndexEx  0x00002e59     0xc  Code  Gb  LCD_GetEx.o [4]
+GUI_GetpfIndex2ColorEx  0x00002e4d     0xc  Code  Gb  LCD_GetEx.o [4]
+GUI_GotoXY              0x00005c15     0xc  Code  Gb  GUI_Goto.o [4]
+GUI_Init                0x000036a3    0xc8  Code  Gb  GUI_Core.o [4]
+GUI_MEMDEV_Clear        0x0000a0c9    0x3c  Code  Gb  GUIDEV_Clear.o [4]
+GUI_MEMDEV_CopyToLCD    0x0000321d     0x6  Code  Gb  GUIDEV.o [4]
+GUI_MEMDEV_CopyToLCDAt  0x00003187    0x96  Code  Gb  GUIDEV.o [4]
+GUI_MEMDEV_CreateEx     0x000030cf    0x74  Code  Gb  GUIDEV.o [4]
+GUI_MEMDEV_DEVICE_16    0x0001dabc    0x34  Data  Gb  GUIDEV_16.o [4]
+GUI_MEMDEV_DEVICE_32    0x0001d124    0x34  Data  Gb  GUIDEV_32.o [4]
+GUI_MEMDEV_Delete       0x00003093    0x3c  Code  Gb  GUIDEV.o [4]
+GUI_MEMDEV_Draw         0x000065e9   0x148  Code  Gb  GUIDEV_Banding.o [4]
+GUI_MEMDEV_GetBitsPerPixel
+                        0x0000306d    0x26  Code  Gb  GUIDEV.o [4]
+GUI_MEMDEV_GetDataPtr   0x00006a81    0x1c  Code  Gb  GUIDEV_GetDataPtr.o [4]
+GUI_MEMDEV_GetYSize     0x0000a005    0x28  Code  Gb  GUIDEV_GetYSize.o [4]
+GUI_MEMDEV_Paint1Static
+                        0x0002040f    0x1e  Code  Gb  GUIDEV_StaticDevices.o [4]
+GUI_MEMDEV_ReduceYSize  0x0000a02d    0x30  Code  Gb  GUIDEV_ReduceYSize.o [4]
+GUI_MEMDEV_Select       0x00003143    0x44  Code  Gb  GUIDEV.o [4]
+GUI_MEMDEV_SetOrg       0x0000a05d    0x6c  Code  Gb  GUIDEV_SetOrg.o [4]
+GUI_MEMDEV_Write        0x000204c9    0x62  Code  Gb  GUIDEV_Write.o [4]
+GUI_MEMDEV__CreateFixed
+                        0x00002f67   0x106  Code  Gb  GUIDEV.o [4]
+GUI_MEMDEV__WriteToActiveAlpha
+                        0x000202bb    0x16  Code  Gb  GUIDEV_WriteToActiveAlpha.o [4]
+GUI_MEMDEV__WriteToActiveAt
+                        0x00002f35    0x32  Code  Gb  GUIDEV.o [4]
+GUI_MEMDEV__WriteToActiveOpaque
+                        0x00005b17    0x3e  Code  Gb  GUIDEV_WriteToActiveOpaque.o [4]
+GUI_MULTIBUF_APIList    0x00023c38     0x8  Data  Gb  GUI_MULTIBUF.o [4]
+GUI_MULTIBUF_Begin      0x0000967f     0x8  Code  Gb  GUI_MULTIBUF.o [4]
+GUI_MULTIBUF_BeginEx    0x00009583    0x6a  Code  Gb  GUI_MULTIBUF.o [4]
+GUI_MULTIBUF_Config     0x00009699     0xa  Code  Gb  GUI_MULTIBUF.o [4]
+GUI_MULTIBUF_ConfigEx   0x00009655    0x2a  Code  Gb  GUI_MULTIBUF.o [4]
+GUI_MULTIBUF_Confirm    0x0000968f     0xa  Code  Gb  GUI_MULTIBUF.o [4]
+GUI_MULTIBUF_ConfirmEx  0x00009635    0x20  Code  Gb  GUI_MULTIBUF.o [4]
+GUI_MULTIBUF_End        0x00009687     0x8  Code  Gb  GUI_MULTIBUF.o [4]
+GUI_MULTIBUF_EndEx      0x000095ed    0x48  Code  Gb  GUI_MULTIBUF.o [4]
+GUI_MergeRect           0x000063af    0x58  Code  Gb  GUI_MergeRect.o [4]
+GUI_MoveRect            0x00006331    0x1c  Code  Gb  GUI_MoveRect.o [4]
+GUI_OrgX                0x200037da     0x2  Data  Gb  GUI_Core.o [4]
+GUI_OrgY                0x200037dc     0x2  Data  Gb  GUI_Core.o [4]
+GUI_PID_GetState        0x00009835    0x48  Code  Gb  GUI_PID.o [4]
+GUI_PID_IsEmpty         0x00009913    0x10  Code  Gb  GUI_PID.o [4]
+GUI_PID_StoreState      0x0000987d    0x96  Code  Gb  GUI_PID.o [4]
+GUI_Pixels_ArrowM       0x0002310c    0x3c  Data  Gb  GUI_CursorArrowMPx.o [4]
+GUI_Pixels_CrossM       0x0002180c    0x80  Data  Gb  GUI_CursorCrossMPx.o [4]
+GUI_PollKeyMsg          0x0000675f    0x28  Code  Gb  GUI_OnKey.o [4]
+GUI_ReadRectEx          0x0000345d    0x60  Code  Gb  LCD_ReadRect.o [4]
+GUI_RectsIntersect      0x000025b9    0x38  Code  Gb  GUI_RectsIntersect.o [4]
+GUI_RestoreContext      0x00006875     0xe  Code  Gb  GUI_SaveContext.o [4]
+GUI_SPRITE_Delete       0x00001c7d    0x4c  Code  Gb  GUI_SPRITE.o [4]
+GUI_SPRITE_Hide         0x00001cd3    0x42  Code  Gb  GUI_SPRITE.o [4]
+GUI_SPRITE_SetPosition  0x00001cc9     0xa  Code  Gb  GUI_SPRITE.o [4]
+GUI_SPRITE_Show         0x00001d15    0x4c  Code  Gb  GUI_SPRITE.o [4]
+GUI_SPRITE__CreateEx    0x00001b9f    0xd0  Code  Gb  GUI_SPRITE.o [4]
+GUI_SaveContext_W       0x00006869     0x6  Code  Gb  GUI_SaveContext.o [4]
+GUI_SelectLCD           0x00003945    0x12  Code  Gb  GUI_SelectLCD.o [4]
+GUI_SelectLayer         0x00006a4d    0x1e  Code  Gb  GUI_SelectLayer.o [4]
+GUI_SetBkColor          0x00006889     0x4  Code  Gb  GUI_SetColor.o [4]
+GUI_SetColor            0x0000688d     0x4  Code  Gb  GUI_SetColor.o [4]
+GUI_SetDefaultFont      0x00003629     0x6  Code  Gb  GUI_Core.o [4]
+GUI_SetDrawMode         0x000053f1     0x4  Code  Gb  GUI_SetDrawMode.o [4]
+GUI_SetFont             0x00009fc1    0x14  Code  Gb  GUI_SetFont.o [4]
+GUI_SetLayerPosEx       0x00006a75     0x4  Code  Gb  GUI_SelectLayer.o [4]
+GUI_SetLayerSizeEx      0x00006a79     0x4  Code  Gb  GUI_SelectLayer.o [4]
+GUI_SetLayerVisEx       0x00006a7d     0x4  Code  Gb  GUI_SelectLayer.o [4]
+GUI_SetLineStyle        0x00009fd5    0x10  Code  Gb  GUI_SetLineStyle.o [4]
+GUI_SetOrg              0x00006289    0x30  Code  Gb  GUI_SetOrg.o [4]
+GUI_SetPenSize          0x00009f89     0xc  Code  Gb  GUI_Pen.o [4]
+GUI_SetTextAlign        0x00009f99    0x14  Code  Gb  GUI_SetTextAlign.o [4]
+GUI_SetTextMode         0x00009fad    0x14  Code  Gb  GUI_SetTextMode.o [4]
+GUI_SignalEvent         0x00006409     0xc  Code  Gb  GUI_WaitEvent.o [4]
+GUI_StoreKey            0x00006753     0xc  Code  Gb  GUI_OnKey.o [4]
+GUI_TIMER_Create        0x00009de9    0x7e  Code  Gb  GUI_Timer.o [4]
+GUI_TIMER_Create::RegisterExit
+                        0x200036cc     0x8  Data  Lc  GUI_Timer.o [4]
+GUI_TIMER_Delete        0x00009e67    0x5c  Code  Gb  GUI_Timer.o [4]
+GUI_TIMER_Exec          0x00009d85    0x64  Code  Gb  GUI_Timer.o [4]
+GUI_TIMER_GetFlag       0x00009f05    0x28  Code  Gb  GUI_Timer.o [4]
+GUI_TIMER_Restart       0x00009ed5    0x30  Code  Gb  GUI_Timer.o [4]
+GUI_TIMER__GetFirstTimer
+                        0x00009d21    0x24  Code  Gb  GUI_Timer.o [4]
+GUI_TIMER__GetNextTimerLin
+                        0x00009d45    0x34  Code  Gb  GUI_Timer.o [4]
+GUI_TIMER__GetPeriod    0x00009cf7    0x2a  Code  Gb  GUI_Timer.o [4]
+GUI_TIMER__IsActive     0x00009ceb     0xc  Code  Gb  GUI_Timer.o [4]
+GUI_TOUCH_StoreStateEx  0x00006a9d    0x44  Code  Gb  GUI_TOUCH.o [4]
+GUI_UC_None             0x00023688    0x10  Data  Gb  GUI_UC_EncodeNone.o [4]
+GUI_UC__GetCharCodeInc  0x0001b035    0x22  Code  Gb  GUI_UC.o [4]
+GUI_UC__NumChars2NumBytes
+                        0x0001b057    0x20  Code  Gb  GUI_UC.o [4]
+GUI_USAGE_AddRect       0x0000397d    0x2a  Code  Gb  GUIDEV_Usage.o [4]
+GUI_USAGE_BM_AddHLine(GUI_Usage *, int, int, int)
+                        0x000037bb    0x6e  Code  Lc  GUIDEV_UsageBM.o [4]
+GUI_USAGE_BM_AddPixel(GUI_Usage *, int, int)
+                        0x00003791    0x2a  Code  Lc  GUIDEV_UsageBM.o [4]
+GUI_USAGE_BM_Clear(GUI_Usage *)
+                        0x00003829     0xe  Code  Lc  GUIDEV_UsageBM.o [4]
+GUI_USAGE_BM_Create     0x000038d3    0x58  Code  Gb  GUIDEV_UsageBM.o [4]
+GUI_USAGE_BM_GetNextDirty(GUI_Usage *, int *, int)
+                        0x00003837    0x98  Code  Lc  GUIDEV_UsageBM.o [4]
+GUI_USAGE_DecUseCnt     0x00003959    0x24  Code  Gb  GUIDEV_Usage.o [4]
+GUI_WaitEvent           0x00006415    0x34  Code  Gb  GUI_WaitEvent.o [4]
+GUI_WrapGetNumLines     0x000207e5    0x22  Code  Gb  GUI_DispStringInRectWrap.o [4]
+GUI_X_Config            0x00005c25    0x24  Code  Gb  GUIConf.o [1]
+GUI_X_Config::aMemory   0x200012c0  0x2000  Data  Lc  GUIConf.o [1]
+GUI_X_Delay             0x00006149    0x90  Code  Gb  GUI_X.o [1]
+GUI_X_ExecIdle          0x00006271     0xa  Code  Gb  GUI_X.o [1]
+GUI_X_GetTime           0x00005fa3    0x50  Code  Gb  GUI_X.o [1]
+GUI_X_Init              0x00006269     0x8  Code  Gb  GUI_X.o [1]
+GUI__ASinHQ             0x000168eb    0x62  Code  Gb  GUI__SinHQ.o [4]
+GUI__ATan2              0x0001689d    0x4e  Code  Gb  GUI__SinHQ.o [4]
+GUI__AllocAlphaBuffer   0x0000298d    0x1a  Code  Gb  GUI__Alpha.o [4]
+GUI__AlphaPreserveTrans
+                        0x00020489    0x20  Code  Gb  GUI_SetAlpha.o [4]
+GUI__BufferSize         0x200037b4     0x4  Data  Gb  GUI_Core.o [4]
+GUI__CharHasTrans       0x2000014c     0x1  Data  Gb  GUI_EncExt.o [4]
+GUI__CompactPixelIndices
+                        0x000029c9   0x122  Code  Gb  GUI__CompactPixelIndices.o [4]
+GUI__CompactPixelIndicesEx
+                        0x00002c4f     0xe  Code  Gb  GUI__CompactPixelIndices.o [4]
+GUI__Config::RegisterExit
+                        0x2000009c     0x8  Data  Lc  GUI_Core.o [4]
+GUI__Context            0x20003478    0x6c  Data  Lc  GUI_Core.o [4]
+GUI__ConvertColor2Index
+                        0x00002aeb   0x164  Code  Gb  GUI__CompactPixelIndices.o [4]
+GUI__CosHQ              0x000169b9     0x6  Code  Gb  GUI__SinHQ.o [4]
+GUI__DispLine           0x0001af27    0xa0  Code  Gb  GUI_CharLine.o [4]
+GUI__DispStringInRect   0x0001a881   0x146  Code  Gb  GUI_DispStringInRect.o [4]
+GUI__DoAlphaBlending    0x00002739   0x1b4  Code  Gb  GUI__Alpha.o [4]
+GUI__ExpandPixelIndicesEx
+                        0x000034c1   0x142  Code  Gb  GUI__ExpandPixelIndices.o [4]
+GUI__GetAlphaBuffer     0x000028f3    0x9a  Code  Gb  GUI__Alpha.o [4]
+GUI__GetAlphaBuffer::RegisterExit
+                        0x20003674     0x8  Data  Lc  GUI__Alpha.o [4]
+GUI__GetLineDistX       0x0001aec7    0x60  Code  Gb  GUI_CharLine.o [4]
+GUI__GetLineNumChars    0x0001ae75    0x36  Code  Gb  GUI_CharLine.o [4]
+GUI__GetNumChars        0x0001adf1    0x1a  Code  Gb  GUI__GetNumChars.o [4]
+GUI__GetOverlap         0x0001aeab    0x1c  Code  Gb  GUI_CharLine.o [4]
+GUI__HandleEOLine       0x0001b07d    0x16  Code  Gb  GUI__HandleEOLine.o [4]
+GUI__IntersectRect      0x00002667    0x40  Code  Gb  GUI__IntersectRect.o [4]
+GUI__IntersectRects     0x0000634d    0x62  Code  Gb  GUI__IntersectRects.o [4]
+GUI__IsInitialized      0x20000099     0x1  Data  Gb  GUI_Core.o [4]
+GUI__ManageCache        0x00006855     0xa  Code  Gb  GUI__ManageCache.o [4]
+GUI__ManageCacheEx      0x0000678d    0xc8  Code  Gb  GUI__ManageCache.o [4]
+GUI__ManageCacheEx::aLockCnt
+                        0x200036bc     0x4  Data  Lc  GUI__ManageCache.o [4]
+GUI__MixColors          0x000026cf    0x6a  Code  Gb  GUI__Alpha.o [4]
+GUI__PreserveTrans      0x200037e5     0x1  Data  Gb  GUI_Core.o [4]
+GUI__ReduceRect         0x0001abb9    0x1a  Code  Gb  GUI__ReduceRect.o [4]
+GUI__RegisterExit       0x0000376b     0xa  Code  Gb  GUI_Core.o [4]
+GUI__SetText            0x0001a621    0x6e  Code  Gb  GUI__SetText.o [4]
+GUI__SinHQ              0x0001694d    0x6c  Code  Gb  GUI__SinHQ.o [4]
+GUI__WrapGetNumBytesToNextLine
+                        0x00020a89    0x14  Code  Gb  GUI__Wrap.o [4]
+GUI__WrapGetNumCharsDisp
+                        0x00020a29     0x4  Code  Gb  GUI__Wrap.o [4]
+GUI__WrapGetNumCharsToNextLine
+                        0x00020a2d    0x5c  Code  Gb  GUI__Wrap.o [4]
+GUI__Wrap_pfGetCharWrap
+                        0x200002b8     0x4  Data  Gb  GUI__Wrap.o [4]
+GUI__Wrap_pfGetWordWrap
+                        0x200002b4     0x4  Data  Gb  GUI__Wrap.o [4]
+GUI__aConvert_255_31    0x00020fcc   0x100  Data  Gb  GUI__DivTbl_255_31.o [4]
+GUI__aConvert_255_63    0x000210cc   0x100  Data  Gb  GUI__DivTbl_255_63.o [4]
+GUI__aConvert_31_255    0x000237f8    0x20  Data  Gb  GUI__DivTbl_31_255.o [4]
+GUI__aConvert_63_255    0x00022f60    0x40  Data  Gb  GUI__DivTbl_63_255.o [4]
+GUI__aNumBuffers        0x200037e4     0x1  Data  Gb  GUI_Core.o [4]
+GUI__apDevice           0x200000b8     0x4  Data  Gb  GUI_Core.o [4]
+GUI__memset             0x00005b5d    0x4e  Code  Gb  GUI__memset.o [4]
+GUI__memset16           0x0001daf1    0x3c  Code  Gb  GUI__memset16.o [4]
+GUI__pFontDefault       0x200000b0     0x4  Data  Gb  GUI_Core.o [4]
+GUI__pfMixColors        0x20000298     0x4  Data  Gb  GUI__Alpha.o [4]
+GUI__sqrt32             0x00016c57    0x1a  Code  Gb  GUI__sqrt32.o [4]
+GUI__strcmp             0x0001ac39    0x22  Code  Gb  GUI__strcmp.o [4]
+GUI__strcmp_hp          0x0001ac61    0x20  Code  Gb  GUI__strcmp.o [4]
+GUI__strlen             0x0001ac81    0x14  Code  Gb  GUI__strlen.o [4]
+GUI_acFont6x8           0x0001edec   0x518  Data  Lc  F6x8.o [4]
+GUI_pContext            0x200000b4     0x4  Data  Gb  GUI_Core.o [4]
+GUI_pLCD_APIList        0x200037bc     0x4  Data  Gb  GUI_Core.o [4]
+GUI_pUC_API             0x200000a8     0x4  Data  Gb  GUI_Core.o [4]
+GUI_pfDispCharStyle     0x200037b0     0x4  Data  Gb  GUI_Core.o [4]
+GUI_pfGetpPalConvTable  0x200000c4     0x4  Data  Gb  GUI_Core.o [4]
+GUI_pfPIDInitFunc       0x200000a4     0x4  Data  Gb  GUI_Core.o [4]
+GUI_pfTimerExec         0x200000ac     0x4  Data  Gb  GUI_Core.o [4]
+GUI_pfUpdateSoftLayer   0x200037a8     0x4  Data  Gb  GUI_Core.o [4]
+GetProdRev              0x0000a5f1     0xa  Code  Lc  system_efm32gg.o [1]
+I2CSPM_Init             0x0000a96d    0xaa  Code  Gb  i2cspm.o [1]
+I2CSPM_Transfer         0x0000aa17    0x30  Code  Gb  i2cspm.o [1]
+I2C_BusFreqSet          0x0000b249    0xfe  Code  Gb  em_i2c.o [1]
+I2C_Init                0x0000b347    0x54  Code  Gb  em_i2c.o [1]
+I2C_Transfer            0x0000b39b   0x2d8  Code  Gb  em_i2c.o [1]
+I2C_TransferInit        0x0000b673    0xa2  Code  Gb  em_i2c.o [1]
+LCD_AA_MixColors16      0x00020537    0x5e  Code  Gb  LCD_AA.o [4]
+LCD_AA_SetAndMask       0x0002052d     0xa  Code  Gb  LCD_AA.o [4]
+LCD_API_ColorConv_0     0x000239d0    0x18  Data  Gb  GUICC_0.o [4]
+LCD_API_ColorConv_8888  0x000239a0    0x18  Data  Gb  GUICC_8888.o [4]
+LCD_API_ColorConv_M565  0x00023988    0x18  Data  Gb  GUICC_M565.o [4]
+LCD_Color2Index         0x00005387    0x12  Code  Gb  LCD.o [4]
+LCD_DrawBitmap          0x000050d9   0x20e  Code  Gb  LCD.o [4]
+LCD_DrawHLine           0x00004dfb    0x4a  Code  Gb  LCD.o [4]
+LCD_DrawPixel           0x00004da1    0x5a  Code  Gb  LCD.o [4]
+LCD_DrawVLine           0x00004e45    0x4a  Code  Gb  LCD.o [4]
+LCD_FillRect            0x00004e8f    0x54  Code  Gb  LCD.o [4]
+LCD_GetBitsPerPixelEx   0x00002ddb     0x2  Code  Gb  LCD_GetEx.o [4]
+LCD_GetBkColorIndex     0x0001acd9     0xa  Code  Gb  LCD_GetColorIndex.o [4]
+LCD_GetColorIndex       0x0001ace3     0xa  Code  Gb  LCD_GetColorIndex.o [4]
+LCD_GetMirrorXEx        0x00002ddf     0x2  Code  Gb  LCD_GetEx.o [4]
+LCD_GetMirrorYEx        0x00002de1     0x2  Code  Gb  LCD_GetEx.o [4]
+LCD_GetNumColors        0x00002e05     0x6  Code  Gb  LCD_GetEx.o [4]
+LCD_GetNumColorsEx      0x00002ddd     0x2  Code  Gb  LCD_GetEx.o [4]
+LCD_GetNumLayers        0x0000a135    0x12  Code  Gb  LCD_GetNumDisplays.o [4]
+LCD_GetPalette          0x00002e2f    0x12  Code  Gb  LCD_GetEx.o [4]
+LCD_GetPixelColor       0x00020629     0xe  Code  Gb  LCD_GetPixelColor.o [4]
+LCD_GetPixelIndex       0x00020639    0x58  Code  Gb  LCD_GetP.o [4]
+LCD_GetPosEx            0x000097c9    0x30  Code  Gb  LCD_Set.o [4]
+LCD_GetSwapXY           0x00002e17     0x6  Code  Gb  LCD_GetEx.o [4]
+LCD_GetSwapXYEx         0x00002de3     0x2  Code  Gb  LCD_GetEx.o [4]
+LCD_GetVXSizeEx         0x00002dd7     0x2  Code  Gb  LCD_GetEx.o [4]
+LCD_GetVXSizeMax        0x00002e6d     0x4  Code  Gb  LCD_GetEx.o [4]
+LCD_GetVYSizeEx         0x00002dd9     0x2  Code  Gb  LCD_GetEx.o [4]
+LCD_GetXSize            0x00002de5     0x6  Code  Gb  LCD_GetEx.o [4]
+LCD_GetXSizeDisplay     0x00002e79     0x6  Code  Gb  LCD_GetEx.o [4]
+LCD_GetXSizeEx          0x00002dd3     0x2  Code  Gb  LCD_GetEx.o [4]
+LCD_GetXSizeMax         0x00002e65     0x4  Code  Gb  LCD_GetEx.o [4]
+LCD_GetYSize            0x00002def     0x6  Code  Gb  LCD_GetEx.o [4]
+LCD_GetYSizeDisplay     0x00002e7f     0x6  Code  Gb  LCD_GetEx.o [4]
+LCD_GetYSizeEx          0x00002dd5     0x2  Code  Gb  LCD_GetEx.o [4]
+LCD_GetYSizeMax         0x00002e69     0x4  Code  Gb  LCD_GetEx.o [4]
+LCD_GetpPalConvTableBM  0x000069a1     0x2  Code  Gb  LCD_Color.o [4]
+LCD_GetpPalConvTableUncached
+                        0x0000695d    0x26  Code  Gb  LCD_Color.o [4]
+LCD_Index2Color         0x00005399    0x12  Code  Gb  LCD.o [4]
+LCD_Index2Color_565     0x00023589    0x22  Code  Gb  GUICC_565.o [4]
+LCD_Index2Color_888     0x000032d7     0x2  Code  Gb  GUICC_888_Index2Color.o [4]
+LCD_Index2Color_8888    0x000026a7     0x2  Code  Gb  GUICC_8888_Index2Color.o [4]
+LCD_Index2Color_M565    0x000211cd    0x22  Code  Gb  GUICC_M565.o [4]
+LCD_Init                0x000052fb    0x8c  Code  Gb  LCD.o [4]
+LCD_InitColors          0x00006935    0x28  Code  Gb  LCD_Color.o [4]
+LCD_InitColors::RegisterExit
+                        0x2000021c     0x8  Data  Lc  LCD_Color.o [4]
+LCD_InitLUT             0x000069a3    0x74  Code  Gb  LCD_Color.o [4]
+LCD_InitializeDriver    0x00005d9b     0x8  Code  Gb  LCDConf.o [1]
+LCD_InitializeLCD       0x00005d5d    0x3e  Code  Gb  LCDConf.o [1]
+LCD_ReadRectEx(int, int, int, int, unsigned long *, GUI_DEVICE *)
+                        0x000032d9   0x184  Code  Lc  LCD_ReadRect.o [4]
+LCD_SelectLCD           0x000062b9    0x44  Code  Gb  LCD_SelectLCD.o [4]
+LCD_SetBkColor          0x000053cf     0x8  Code  Gb  LCD.o [4]
+LCD_SetBkColorIndex     0x000053bd    0x12  Code  Gb  LCD.o [4]
+LCD_SetClipRectEx       0x000062fd    0x34  Code  Gb  LCD_SetClipRectEx.o [4]
+LCD_SetClipRectMax      0x000052e7    0x14  Code  Gb  LCD.o [4]
+LCD_SetColor            0x000053d7     0x8  Code  Gb  LCD.o [4]
+LCD_SetColorIndex       0x000053ab    0x12  Code  Gb  LCD.o [4]
+LCD_SetDevFunc          0x000097f9    0x30  Code  Gb  LCD_Set.o [4]
+LCD_SetDisplaySize      0x00002e71     0x8  Code  Gb  LCD_GetEx.o [4]
+LCD_SetDrawMode         0x00004d97     0xa  Code  Gb  LCD.o [4]
+LCD_SetLUTEntryEx       0x00009799    0x30  Code  Gb  LCD_Set.o [4]
+LCD_SetPixelAA4_Trans   0x00020595    0x82  Code  Gb  LCD_AA.o [4]
+LCD_SetPosEx            0x00009769    0x30  Code  Gb  LCD_Set.o [4]
+LCD_SetSizeEx           0x0000970f    0x30  Code  Gb  LCD_Set.o [4]
+LCD_SetVRAMAddrEx       0x000096b5    0x2a  Code  Gb  LCD_Set.o [4]
+LCD_SetVSizeEx          0x000096df    0x30  Code  Gb  LCD_Set.o [4]
+LCD_SetVisEx            0x0000973f    0x2a  Code  Gb  LCD_Set.o [4]
+LCD_TOUCH_Upcall        0x00005c9b    0x4a  Code  Gb  LCDConf.o [1]
+LCD_TOUCH_Upcall::gui_pos
+                        0x200036e4     0xc  Data  Lc  LCDConf.o [1]
+LCD_UpdateColorIndices  0x00004ced    0x24  Code  Gb  LCD_UpdateColorIndices.o [4]
+LCD_X_Config            0x00005df1    0x5e  Code  Gb  LCDConf.o [1]
+LCD_X_DisplayDriver     0x00005e4f    0x98  Code  Gb  LCDConf.o [1]
+LCD__DrawBitmap_1bpp    0x00004ee3   0x1c8  Code  Gb  LCD.o [4]
+LCD__GetBPP             0x00002e91    0x72  Code  Gb  LCD_GetEx.o [4]
+LCD__GetBPPDevice       0x00002f03    0x32  Code  Gb  LCD_GetEx.o [4]
+LCD__aConvTable         0x20000218     0x4  Data  Gb  LCD_Color.o [4]
+LCD__pSetColorAPI       0x20000210     0x4  Data  Gb  LCD.o [4]
+LCD_aMirror             0x00020ecc   0x100  Data  Gb  LCD_Mirror.o [4]
+NVIC_ClearPendingIRQ    0x00018e4d    0x16  Code  Lc  em_dma.o [1]
+NVIC_ClearPendingIRQ    0x00005f45    0x14  Code  Lc  GUI_X.o [1]
+NVIC_ClearPendingIRQ    0x00005c5d    0x14  Code  Lc  LCDConf.o [1]
+NVIC_ClearPendingIRQ    0x00008eab    0x16  Code  Lc  touch.o [1]
+NVIC_DisableIRQ         0x00018e37    0x16  Code  Lc  em_dma.o [1]
+NVIC_EnableIRQ          0x00018e21    0x16  Code  Lc  em_dma.o [1]
+NVIC_EnableIRQ          0x00005f31    0x14  Code  Lc  GUI_X.o [1]
+NVIC_EnableIRQ          0x00005c49    0x14  Code  Lc  LCDConf.o [1]
+NVIC_EnableIRQ          0x00008e95    0x16  Code  Lc  touch.o [1]
+RTC_CompareGet          0x00009987    0x32  Code  Gb  em_rtc.o [1]
+RTC_CompareSet          0x000099b9    0x34  Code  Gb  em_rtc.o [1]
+RTC_CounterGet          0x00005f69     0x6  Code  Lc  GUI_X.o [1]
+RTC_Enable              0x000099ed    0x12  Code  Gb  em_rtc.o [1]
+RTC_IRQHandler          0x00005f8d    0x16  Code  Gb  GUI_X.o [1]
+RTC_Init                0x000099ff    0x2a  Code  Gb  em_rtc.o [1]
+RTC_IntClear            0x00005f6f     0x6  Code  Lc  GUI_X.o [1]
+RTC_IntDisable          0x00005f75     0xc  Code  Lc  GUI_X.o [1]
+RTC_IntEnable           0x00005f81     0xc  Code  Lc  GUI_X.o [1]
+Region$$Table$$Base     0x00023698           --   Gb  - Linker created -
+Region$$Table$$Limit    0x000236b8           --   Gb  - Linker created -
+SPI_TFT_Init            0x0000b149    0x62  Code  Gb  tftspi.o [1]
+SPI_TFT_WriteRegister   0x0000b1ab    0x64  Code  Gb  tftspi.o [1]
+SYSTEM_GetFamily        0x0000779f     0xc  Code  Lc  em_cmu.o [1]
+SYSTEM_GetProdRev       0x00007793     0xc  Code  Lc  em_cmu.o [1]
+SpiBcAccess             0x000073ef    0x60  Code  Lc  bsp_dk_3201.o [1]
+SpiBcInit               0x0000744f    0x60  Code  Lc  bsp_dk_3201.o [1]
+SpiControl              0x000074af    0x44  Code  Lc  bsp_dk_3201.o [1]
+SpiInit                 0x000074f3    0x30  Code  Lc  bsp_dk_3201.o [1]
+SpiRegisterRead         0x00007523    0x56  Code  Lc  bsp_dk_3201.o [1]
+SpiRegisterWrite        0x00007581    0x48  Code  Lc  bsp_dk_3201.o [1]
+SystemCoreClock         0x20003788     0x4  Data  Gb  system_efm32gg.o [1]
+SystemCoreClockGet      0x0000a5fb    0x1a  Code  Gb  system_efm32gg.o [1]
+SystemCoreClockUpdate   0x00009a39     0x8  Code  Lc  em_emu.o [1]
+SystemHFClockGet        0x0000a619    0xb2  Code  Gb  system_efm32gg.o [1]
+SystemHFXOClock         0x20000004     0x4  Data  Lc  system_efm32gg.o [1]
+SystemHFXOClockGet      0x0000a6cb     0x6  Code  Gb  system_efm32gg.o [1]
+SystemInit              0x0000a6d1     0x2  Code  Gb  system_efm32gg.o [1]
+SystemLFRCOClockGet     0x0000a6d3     0x6  Code  Gb  system_efm32gg.o [1]
+SystemLFXOClock         0x20000008     0x4  Data  Lc  system_efm32gg.o [1]
+SystemLFXOClockGet      0x0000a6df     0x6  Code  Gb  system_efm32gg.o [1]
+SystemMaxCoreClockGet   0x0000a615     0x4  Code  Gb  system_efm32gg.o [1]
+SystemULFRCOClockGet    0x0000a6d9     0x6  Code  Gb  system_efm32gg.o [1]
+TEXT_Callback           0x00020699    0xc4  Code  Gb  TEXT.o [4]
+TEXT_CreateIndirect     0x00023149    0x3c  Code  Gb  TEXT_CreateIndirect.o [4]
+TEXT_CreateUser         0x0002075d     0xa  Code  Gb  TEXT.o [4]
+TEXT_SetFont            0x000195e7    0x26  Code  Gb  TEXT_SetFont.o [4]
+TEXT_SetText            0x00019555    0x4c  Code  Gb  TEXT_SetText.o [4]
+TEXT_SetTextAlign       0x000195c7    0x20  Code  Gb  TEXT_SetTextAlign.o [4]
+TEXT_SetTextColor       0x000195a1    0x26  Code  Gb  TEXT_SetTextColor.o [4]
+TEXT__DefaultProps      0x200002a4    0x10  Data  Gb  TEXT.o [4]
+TFT_DirectGPIOConfig    0x00008da9    0x34  Code  Gb  tftdirect.o [1]
+TFT_DirectInit          0x00008ddd    0xac  Code  Gb  tftdirect.o [1]
+TOUCH_CalibrationTable  0x000094e5    0x1e  Code  Gb  touch.o [1]
+TOUCH_CallUpcall        0x00009119    0x1a  Code  Gb  touch.o [1]
+TOUCH_GetPos            0x000094a1    0x3e  Code  Gb  touch.o [1]
+TOUCH_Init              0x0000940d    0x94  Code  Gb  touch.o [1]
+TOUCH_IsBusy            0x000093e9    0x24  Code  Gb  touch.o [1]
+TOUCH_RecalculatePosition
+                        0x000090cb    0x4e  Code  Gb  touch.o [1]
+TOUCH_RegisterUpcall    0x000094df     0x6  Code  Gb  touch.o [1]
+TOUCH_StateChanged      0x00009133    0x70  Code  Gb  touch.o [1]
+USART_BaudrateSyncSet   0x0000a467    0x54  Code  Gb  em_usart.o [1]
+USART_InitSync          0x0000a4bb    0x8a  Code  Gb  em_usart.o [1]
+USART_Reset             0x0000a545    0x72  Code  Gb  em_usart.o [1]
+USART_Rx                0x0000a5d9     0xc  Code  Gb  em_usart.o [1]
+USART_Tx                0x0000a5e5     0xc  Code  Gb  em_usart.o [1]
+VRAM_pointer            0x2000377c     0x4  Data  Gb  LCDConf.o [1]
+WIDGET_Effect_Simple    0x00023870    0x1c  Data  Gb  WIDGET_Effect_Simple.o [4]
+WIDGET_HandleActive     0x0001a3c5   0x188  Code  Gb  WIDGET.o [4]
+WIDGET_OrState          0x0001a38d    0x2c  Code  Gb  WIDGET.o [4]
+WIDGET__Init            0x0001a3b9     0xc  Code  Gb  WIDGET.o [4]
+WINDOW_Callback         0x00019359   0x122  Code  Gb  WINDOW.o [4]
+WINDOW_CreateIndirect   0x00019497    0x66  Code  Gb  WINDOW.o [4]
+WINDOW_SetBkColor       0x0001947b    0x1c  Code  Gb  WINDOW.o [4]
+WINDOW__DefaultBkColor  0x20000154     0x4  Data  Gb  WINDOW.o [4]
+WM_Activate             0x00004b97     0xc  Code  Gb  WM.o [4]
+WM_BringToBottom        0x000064a5    0x84  Code  Gb  WM_BringToBottom.o [4]
+WM_BringToTop           0x0001ab45    0x70  Code  Gb  WM_BringToTop.o [4]
+WM_CreateWindowAsChild  0x00004053   0x144  Code  Gb  WM.o [4]
+WM_Deactivate           0x00004ba3     0xe  Code  Gb  WM.o [4]
+WM_DefaultProc          0x00004bb1    0x3e  Code  Gb  WM.o [4]
+WM_DeleteWindow         0x00004197    0xd8  Code  Gb  WM.o [4]
+WM_DisableMemdev        0x0001a289    0x14  Code  Gb  WM_MemDev.o [4]
+WM_Exec                 0x00004a41   0x116  Code  Gb  WM.o [4]
+WM_ForEachDesc          0x00009935     0x4  Code  Gb  WM_ForEachDesc.o [4]
+WM_GetActiveWindow      0x0000429f     0xa  Code  Gb  WM.o [4]
+WM_GetClientRect        0x000068b5    0x1a  Code  Gb  WM_GetClientRect.o [4]
+WM_GetClientWindow      0x0001a68f    0x18  Code  Gb  WM_GetClientWindow.o [4]
+WM_GetDesktopWindow     0x0000627d     0xc  Code  Gb  WM_GetDesktopWindow.o [4]
+WM_GetDialogItem        0x00019545    0x10  Code  Gb  WM_GetDialogItem.o [4]
+WM_GetFirstChild        0x00006455     0xe  Code  Gb  WM_GetFirstChild.o [4]
+WM_GetFocussedWindow    0x0001a6f9     0xc  Code  Gb  WM_GetFocussedWindow.o [4]
+WM_GetHasTrans          0x0001aa59    0x1a  Code  Gb  WM_SetTrans.o [4]
+WM_GetId                0x0001973d    0x20  Code  Gb  WM_GetId.o [4]
+WM_GetParent            0x00009f4f     0xe  Code  Gb  WM_GetParent.o [4]
+WM_GetUserData          0x00019be9    0x36  Code  Gb  WM_UserData.o [4]
+WM_GetWindowInfo::iWin  0x20003544     0x4  Data  Lc  WM.o [4]
+WM_GetWindowOrgX        0x000204ad     0xc  Code  Gb  WM_GetOrg.o [4]
+WM_GetWindowRectEx      0x00016879    0x10  Code  Gb  WM_GetWindowRect.o [4]
+WM_GetWindowSizeX       0x00019c23    0x1c  Code  Gb  WM_GetWindowSize.o [4]
+WM_GetWindowSizeY       0x00019c3f    0x1a  Code  Gb  WM_GetWindowSize.o [4]
+WM_HandlePID            0x00016dad   0x2bc  Code  Gb  WM_Touch.o [4]
+WM_HasCaptured          0x0001a705    0x14  Code  Gb  WM_HasCaptured.o [4]
+WM_HasFocus             0x0001a379    0x14  Code  Gb  WM_HasFocus.o [4]
+WM_Init                 0x00004c41    0x78  Code  Gb  WM.o [4]
+WM_Init::RegisterExit   0x2000353c     0x8  Data  Lc  WM.o [4]
+WM_InvalidateRect       0x00003f8f    0xc0  Code  Gb  WM.o [4]
+WM_InvalidateWindow     0x0000404f     0x4  Code  Gb  WM.o [4]
+WM_InvalidateWindowAndDescs
+                        0x0001a6a7    0x28  Code  Gb  WM_Show.o [4]
+WM_InvalidateWindowAndDescsEx
+                        0x00003ccb    0x64  Code  Gb  WM.o [4]
+WM_IsFocussable         0x0001ac09    0x30  Code  Gb  WM_IsFocussable.o [4]
+WM_IsWindow             0x000170d5     0x4  Code  Gb  WM_IsWindow.o [4]
+WM_MOTION_Enable        0x00016829    0x30  Code  Gb  WM_Motion.o [4]
+WM_MOTION_SetDefaultPeriod
+                        0x00016813     0xa  Code  Gb  WM_Motion.o [4]
+WM_MOTION_SetMotion     0x00016775    0x54  Code  Gb  WM_Motion.o [4]
+WM_MOTION_SetMovement   0x000167c9    0x4a  Code  Gb  WM_Motion.o [4]
+WM_MULTIBUF_Enable      0x0001a2a1    0x12  Code  Gb  WM_MULTIBUF.o [4]
+WM_MULTIBUF__pAPI       0x20003524     0x4  Data  Gb  WM.o [4]
+WM_MoveWindow           0x00016c55     0x2  Code  Gb  WM_Move.o [4]
+WM_NotifyParent         0x0000658d    0x14  Code  Gb  WM_NotifyParent.o [4]
+WM_OnKey                0x0000a105    0x30  Code  Gb  WM_OnKey.o [4]
+WM_PID__SetPrevState    0x0001736d    0x14  Code  Gb  WM_PID__GetPrevState.o [4]
+WM_ReleaseCapture       0x00017349    0x1c  Code  Gb  WM_SetCapture.o [4]
+WM_ResizeWindow         0x0001b0dd    0xf4  Code  Gb  WM_ResizeWindow.o [4]
+WM_Screen2hWin          0x00016cf5     0xc  Code  Gb  WM_Screen2Win.o [4]
+WM_SelectWindow         0x0000426f    0x30  Code  Gb  WM.o [4]
+WM_SendMessage          0x00003f5b     0xa  Code  Gb  WM.o [4]
+WM_SendMessageNoPara    0x000065a1     0x4  Code  Gb  WM_SendMessageNoPara.o [4]
+WM_SendToParent         0x000068d9    0x1c  Code  Gb  WM_SendToParent.o [4]
+WM_SetCallback          0x0001a2bd    0x26  Code  Gb  WM_SetCallback.o [4]
+WM_SetCapture           0x00017321    0x28  Code  Gb  WM_SetCapture.o [4]
+WM_SetFocus             0x0001a2e5    0x90  Code  Gb  WM_SetFocus.o [4]
+WM_SetFocusOnNextChild  0x0001a5d1    0x50  Code  Gb  WM_SetFocusOnNextChild.o [4]
+WM_SetFocusOnPrevChild  0x0001a56b    0x44  Code  Gb  WM_SetFocusOnPrevChild.o [4]
+WM_SetHasTrans          0x0001aa15    0x3e  Code  Gb  WM_SetTrans.o [4]
+WM_SetSize              0x00020441    0x46  Code  Gb  WM_SetSize.o [4]
+WM_SetUserClipRect      0x0001b095    0x18  Code  Gb  WM_SetUserClipRect.o [4]
+WM_SetUserData          0x00019c1f     0x4  Code  Gb  WM_UserData.o [4]
+WM_ShowWindow           0x0001a6cf    0x2a  Code  Gb  WM_Show.o [4]
+WM_ValidateWindow       0x0001b0ad    0x30  Code  Gb  WM_ValidateWindow.o [4]
+WM__ActivateClipRect    0x00003ad3    0x76  Code  Gb  WM.o [4]
+WM__AddCriticalHandle   0x000068f5     0xa  Code  Gb  WM_CriticalHandle.o [4]
+WM__CaptureReleaseAuto  0x200037e3     0x1  Data  Gb  WM.o [4]
+WM__CreateFlags         0x20003514     0x4  Data  Gb  WM.o [4]
+WM__DeleteAssocTimer    0x00006529    0x64  Code  Gb  WM_Timer.o [4]
+WM__DeleteSecure        0x00004a2b    0x16  Code  Gb  WM.o [4]
+WM__DetachWindow        0x00003c2d    0x2c  Code  Gb  WM.o [4]
+WM__FirstWin            0x20003504     0x4  Data  Gb  WM.o [4]
+WM__ForEachDesc         0x0000af91    0x2c  Code  Gb  WM__ForEachDesc.o [4]
+WM__GetClientRectEx     0x00006891     0xc  Code  Gb  WM_GetClientRect.o [4]
+WM__GetClientRectWin    0x00003f77    0x18  Code  Gb  WM.o [4]
+WM__GetFirstSibling     0x0000afeb    0x10  Code  Gb  WM__GetFirstSibling.o [4]
+WM__GetFocussedChild    0x0001abed    0x1c  Code  Gb  WM__GetFocussedChild.o [4]
+WM__GetLastSibling      0x0001abd3    0x1a  Code  Gb  WM__GetLastSibling.o [4]
+WM__GetNextIVR          0x000044b1    0x36  Code  Gb  WM.o [4]
+WM__GetPrevSibling      0x00009f2d    0x22  Code  Gb  WM__GetPrevSibling.o [4]
+WM__GetUserDataEx       0x00019b81    0x34  Code  Gb  WM_UserData.o [4]
+WM__InitIVRSearch       0x000044f1   0x166  Code  Gb  WM.o [4]
+WM__InsertWindowIntoList
+                        0x00003b49    0xaa  Code  Gb  WM.o [4]
+WM__InvalidateDrawAndDescs
+                        0x00003c75    0x56  Code  Gb  WM.o [4]
+WM__InvalidateParent    0x00003a01    0x26  Code  Gb  WM.o [4]
+WM__InvalidateRect      0x00003d2f    0x7a  Code  Gb  WM.o [4]
+WM__InvalidateRectEx    0x00003da9     0x4  Code  Gb  WM.o [4]
+WM__IsAncestor          0x000172b9    0x24  Code  Gb  WM__IsAncestor.o [4]
+WM__IsAncestorOrSelf    0x000172dd    0x2c  Code  Gb  WM__IsAncestor.o [4]
+WM__IsChild             0x0001b1d1    0x22  Code  Gb  WM__IsChild.o [4]
+WM__IsEnabled           0x00017309    0x16  Code  Gb  WM__IsEnabled.o [4]
+WM__IsWindow            0x00003c59    0x1c  Code  Gb  WM.o [4]
+WM__ModalLayer          0x2000019c     0x4  Data  Gb  WM_Touch.o [4]
+WM__MoveWindow          0x00016bb3    0xa2  Code  Gb  WM_Move.o [4]
+WM__NumInvalidWindows   0x20003500     0x2  Data  Gb  WM.o [4]
+WM__NumWindows          0x200034fe     0x2  Data  Gb  WM.o [4]
+WM__Paint               0x00004955    0xd6  Code  Gb  WM.o [4]
+WM__Paint1              0x0000465d    0xc6  Code  Gb  WM.o [4]
+WM__PaintCallbackCnt    0x200034fc     0x1  Data  Gb  WM.o [4]
+WM__PaintWinAndOverlays(long)
+                        0x0000486f    0x88  Code  Lc  WM.o [4]
+WM__RemoveCriticalHandle
+                        0x000068ff    0x22  Code  Gb  WM_CriticalHandle.o [4]
+WM__RemoveWindowFromList
+                        0x00003bf3    0x3a  Code  Gb  WM.o [4]
+WM__SendMessage         0x00006465    0x40  Code  Gb  WM__SendMessage.o [4]
+WM__SendMessage::_EntranceCnt
+                        0x200037c8     0x4  Data  Lc  WM__SendMessage.o [4]
+WM__SendMessageIfEnabled
+                        0x000170bb    0x1a  Code  Gb  WM__SendMessageIfEnabled.o [4]
+WM__SendMessageNoPara   0x00009f5d    0x2c  Code  Gb  WM__SendMessageNoPara.o [4]
+WM__SendMsgNoData       0x00003f65    0x12  Code  Gb  WM.o [4]
+WM__SendPIDMessage      0x00016d0d    0x42  Code  Gb  WM_Touch.o [4]
+WM__SendTouchMessage    0x00016d4f    0x3a  Code  Gb  WM_Touch.o [4]
+WM__SetMotionCallback   0x00016d93    0x1a  Code  Gb  WM_Touch.o [4]
+WM__SetUserDataEx       0x00019bb5    0x34  Code  Gb  WM_UserData.o [4]
+WM__TransWindowCnt      0x20003528     0x4  Data  Gb  WM.o [4]
+WM__UpdateChildPositions
+                        0x0001aa73    0xcc  Code  Gb  WM__UpdateChildPositions.o [4]
+WM__aBkColor            0x20003510     0x4  Data  Gb  WM.o [4]
+WM__aCHWinLast          0x20000184     0x8  Data  Gb  WM_Touch.o [4]
+WM__aCHWinModal         0x2000017c     0x8  Data  Gb  WM_Touch.o [4]
+WM__aCHWinMouseOver     0x2000018c     0x8  Data  Gb  WM_Touch.o [4]
+WM__ahCapture           0x20003518     0x4  Data  Gb  WM.o [4]
+WM__ahDesktopWin        0x2000350c     0x4  Data  Gb  WM.o [4]
+WM__ahWinFocus          0x2000351c     0x4  Data  Gb  WM.o [4]
+WM__hATransWindow       0x2000352c     0x4  Data  Gb  WM.o [4]
+WM__hCreateStatic       0x200037a4     0x4  Data  Gb  WM.o [4]
+WM__pExecGestures       0x20003530     0x4  Data  Gb  WM.o [4]
+WM__pFirstCriticalHandle
+                        0x20003508     0x4  Data  Gb  WM.o [4]
+WM_pfHandlePID          0x200037ac     0x4  Data  Gb  GUI_Core.o [4]
+WM_pfPollPID            0x20003520     0x4  Data  Gb  WM.o [4]
+_AddFreeMemory(unsigned long, void *)
+                        0x00001e7f    0xa4  Code  Lc  GUI_Alloc.o [4]
+_AimDestination(WM_MOTION_CONTEXT *)
+                        0x00015cb3    0x48  Code  Lc  WM_Motion.o [4]
+_AimDestinationXY(int, int, long, int, long *, long *)
+                        0x00015c47    0x6c  Code  Lc  WM_Motion.o [4]
+_Alloc(long)            0x00002225   0x190  Code  Lc  GUI_Alloc.o [4]
+_AndMask                0x2000029c     0x4  Data  Lc  LCD_AA.o [4]
+_CalcSizeOfChar(unsigned short)
+                        0x0002367d     0x4  Code  Lc  GUI_UC_EncodeNone.o [4]
+_ClipContext            0x200034e4    0x18  Data  Lc  WM.o [4]
+_Color2IndexBulk(unsigned long *, void *, unsigned long, unsigned char)
+                        0x00021217    0x3c  Code  Lc  GUICC_M565.o [4]
+_Color2IndexBulk(unsigned long *, void *, unsigned long, unsigned char)
+                        0x000235e5    0x10  Code  Lc  GUICC_8888.o [4]
+_Color2Index_0(unsigned long)
+                        0x000212b5    0x50  Code  Lc  GUICC_0.o [4]
+_Color2Index_8888(unsigned long)
+                        0x000235dd     0x2  Code  Lc  GUICC_8888.o [4]
+_Color2Index_M565(unsigned long)
+                        0x000211ef    0x22  Code  Lc  GUICC_M565.o [4]
+_Config                 0x20003720     0xc  Data  Lc  GUI_Alloc.o [4]
+_Context                0x20003380    0x8c  Data  Lc  WM_Motion.o [4]
+_Convert16(unsigned short *, unsigned long *, int, unsigned int, unsigned long (*)(unsigned long), unsigned long (*)(unsigned long))
+                        0x000053f5    0x2e  Code  Lc  GUIDEV_WriteToActiveOpaque.o [4]
+_Convert8(unsigned char *, unsigned long *, int, unsigned int, unsigned long (*)(unsigned long), unsigned long (*)(unsigned long))
+                        0x00005423    0x2e  Code  Lc  GUIDEV_WriteToActiveOpaque.o [4]
+_CopyBuffer             0x00018cdb    0x5a  Code  Lc  WM_RadialMenu.o [1]
+_CopyBuffer(GUI_DEVICE *, int, int)
+                        0x000176b3    0x52  Code  Lc  GUIDRV_Lin_16.o [4]
+_Create(long)           0x0001a185    0x26  Code  Lc  CHECKBOX_Skin.o [4]
+_CreateBuffer(GUI_SPRITE_OBJ *, int)
+                        0x00000f6f    0xae  Code  Lc  GUI_SPRITE.o [4]
+_CreateCheckbox         0x0001899f    0xd2  Code  Lc  WM_RadialMenu.o [1]
+_CreateStaticDevice(long)
+                        0x000202dd   0x12c  Code  Lc  GUIDEV_StaticDevices.o [4]
+_Delay                  0x000188f5    0xaa  Code  Lc  WM_RadialMenu.o [1]
+_DeleteWindows          0x20003538     0x4  Data  Lc  WM.o [4]
+_DispLine(char const *, int, LCD_RECT const *)
+                        0x0001ae0f    0x66  Code  Lc  GUI_CharLine.o [4]
+_DoColorConversion(long, GUI_BITMAP const *)
+                        0x00001b1f    0x80  Code  Lc  GUI_SPRITE.o [4]
+_DoFinalMoveXY(int, int, int)
+                        0x00015e11    0x42  Code  Lc  WM_Motion.o [4]
+_Draw(CONTEXT_RLE_ALPHA *)
+                        0x0001fd45    0x82  Code  Lc  LCD_RLEAlpha.o [4]
+_DrawBackground(WIDGET_ITEM_DRAW_INFO const *, CHECKBOX_SKINFLEX_PROPS const *)
+                        0x00019c9d    0x76  Code  Lc  CHECKBOX_SkinFlex.o [4]
+_DrawBitLine1BPP(GUI_DEVICE *, GUI_Usage *, int, int, unsigned char const *, int, unsigned int, unsigned long const *, GUI_MEMDEV *, unsigned long *)
+                        0x0001c879   0x10c  Code  Lc  GUIDEV_32.o [4]
+_DrawBitLine1BPP(GUI_DEVICE *, GUI_Usage *, int, int, unsigned char const *, int, unsigned int, unsigned long const *, GUI_MEMDEV *, unsigned short *)
+                        0x0001d199   0x148  Code  Lc  GUIDEV_16.o [4]
+_DrawBitLine1BPP(GUI_DEVICE *, int, int, unsigned char const *, int, int, unsigned long const *)
+                        0x00017a59    0xe8  Code  Lc  GUIDRV_Lin_16.o [4]
+_DrawBitLine2BPP(GUI_DEVICE *, GUI_Usage *, int, int, unsigned char const *, int, int, unsigned long const *, unsigned long *)
+                        0x0001c98b    0xe8  Code  Lc  GUIDEV_32.o [4]
+_DrawBitLine2BPP(GUI_DEVICE *, GUI_Usage *, int, int, unsigned char const *, int, int, unsigned long const *, unsigned short *)
+                        0x0001d2e1    0xe8  Code  Lc  GUIDEV_16.o [4]
+_DrawBitLine2BPP(GUI_DEVICE *, int, int, unsigned char const *, int, int, unsigned long const *)
+                        0x00017b41   0x142  Code  Lc  GUIDRV_Lin_16.o [4]
+_DrawBitLine32BPP_DDB(GUI_DEVICE *, GUI_Usage *, int, int, unsigned long const *, int, unsigned long *)
+                        0x0001c7b1    0x8a  Code  Lc  GUIDEV_32.o [4]
+_DrawBitLine4BPP(GUI_DEVICE *, GUI_Usage *, int, int, unsigned char const *, int, int, unsigned long const *, unsigned long *)
+                        0x0001ca73   0x160  Code  Lc  GUIDEV_32.o [4]
+_DrawBitLine4BPP(GUI_DEVICE *, GUI_Usage *, int, int, unsigned char const *, int, int, unsigned long const *, unsigned short *)
+                        0x0001d3c9   0x160  Code  Lc  GUIDEV_16.o [4]
+_DrawBitLine4BPP(GUI_DEVICE *, int, int, unsigned char const *, int, int, unsigned long const *)
+                        0x00017c83   0x142  Code  Lc  GUIDRV_Lin_16.o [4]
+_DrawBitLine8BPP(GUI_DEVICE *, int, int, unsigned char const *, int, unsigned long const *)
+                        0x00017dc5   0x100  Code  Lc  GUIDRV_Lin_16.o [4]
+_DrawBitmap(GUI_DEVICE *, int, int, int, int, int, int, unsigned char const *, int, unsigned long const *)
+                        0x00017ec5   0x15c  Code  Lc  GUIDRV_Lin_16.o [4]
+_DrawBitmap(GUI_DEVICE *, int, int, int, int, int, int, unsigned char const *, int, unsigned long const *)
+                        0x0001d529   0x2b2  Code  Lc  GUIDEV_16.o [4]
+_DrawBitmap(GUI_DEVICE *, int, int, int, int, int, int, unsigned char const *, int, unsigned long const *)
+                        0x000003dd   0x3b0  Code  Lc  GUI_SPRITE.o [4]
+_DrawBitmap(GUI_DEVICE *, int, int, int, int, int, int, unsigned char const *, int, unsigned long const *)
+                        0x0001cbd3   0x294  Code  Lc  GUIDEV_32.o [4]
+_DrawBitmap(WIDGET_ITEM_DRAW_INFO const *, CHECKBOX_SKINFLEX_PROPS const *, int)
+                        0x00019e41    0xae  Code  Lc  CHECKBOX_SkinFlex.o [4]
+_DrawBitmap_RLEAlpha(int, int, int, int, unsigned char const *, LCD_LOGPALETTE const *, int, int)
+                        0x0001fe3b   0x18a  Code  Lc  LCD_RLEAlpha.o [4]
+_DrawCharAA4_NoTrans(int, int, int, int, int, unsigned char const *)
+                        0x00020e13    0x88  Code  Lc  GUIAA_Char4.o [4]
+_DrawCharAA4_NoTrans(int, int, int, int, int, unsigned char const *)::_Bitmap
+                        0x20000234    0x14  Data  Lc  GUIAA_Char4.o [4]
+_DrawCharAA4_NoTrans(int, int, int, int, int, unsigned char const *)::_OldBkColorIndex
+                        0x2000028c     0x4  Data  Lc  GUIAA_Char4.o [4]
+_DrawCharAA4_NoTrans(int, int, int, int, int, unsigned char const *)::_OldColorIndex
+                        0x20000288     0x4  Data  Lc  GUIAA_Char4.o [4]
+_DrawCharAA4_NoTrans(int, int, int, int, int, unsigned char const *)::_Palette
+                        0x20000228     0xc  Data  Lc  GUIAA_Char4.o [4]
+_DrawCharAA4_NoTrans(int, int, int, int, int, unsigned char const *)::_aColor
+                        0x20000248    0x40  Data  Lc  GUIAA_Char4.o [4]
+_DrawCharAA4_Trans(int, int, int, int, int, unsigned char const *)
+                        0x00020da9    0x6a  Code  Lc  GUIAA_Char4.o [4]
+_DrawClip(CONTEXT_RLE_ALPHA *)
+                        0x0001fdc7    0x74  Code  Lc  LCD_RLEAlpha.o [4]
+_DrawDown()             0x00021d23    0x14  Code  Lc  WIDGET_Effect_Simple.o [4]
+_DrawDownRect(LCD_RECT const *)
+                        0x00021cf1     0x2  Code  Lc  WIDGET_Effect_Simple.o [4]
+_DrawFocus(WIDGET_ITEM_DRAW_INFO const *)
+                        0x00019ef5    0xd6  Code  Lc  CHECKBOX_SkinFlex.o [4]
+_DrawGradient(int, int, int, int, unsigned long, unsigned long, void (*)(int, int, int), int)
+                        0x00019959   0x188  Code  Lc  GUI_DrawGradient.o [4]
+_DrawHLine(GUI_DEVICE *, int, int, int)
+                        0x00017a45     0x6  Code  Lc  GUIDRV_Lin_16.o [4]
+_DrawHLine(GUI_DEVICE *, int, int, int)
+                        0x0001d883     0xa  Code  Lc  GUIDEV_16.o [4]
+_DrawHLine(GUI_DEVICE *, int, int, int)
+                        0x0000078d   0x1b4  Code  Lc  GUI_SPRITE.o [4]
+_DrawHLine(GUI_DEVICE *, int, int, int)
+                        0x0001cf13     0xa  Code  Lc  GUIDEV_32.o [4]
+_DrawUp()               0x00021cdd    0x14  Code  Lc  WIDGET_Effect_Simple.o [4]
+_DrawUpRect(LCD_RECT const *)
+                        0x00021cd9     0x4  Code  Lc  WIDGET_Effect_Simple.o [4]
+_DrawVLine(GUI_DEVICE *, int, int, int)
+                        0x00017a4b     0x6  Code  Lc  GUIDRV_Lin_16.o [4]
+_DrawVLine(GUI_DEVICE *, int, int, int)
+                        0x0001d88d    0xa6  Code  Lc  GUIDEV_16.o [4]
+_DrawVLine(GUI_DEVICE *, int, int, int)
+                        0x00000941   0x1a2  Code  Lc  GUI_SPRITE.o [4]
+_DrawVLine(GUI_DEVICE *, int, int, int)
+                        0x0001cf1d    0xaa  Code  Lc  GUIDEV_32.o [4]
+_Encode(char *, unsigned short)
+                        0x00023681     0x6  Code  Lc  GUI_UC_EncodeNone.o [4]
+_EnlargeBlocks()        0x000020c1    0x94  Code  Lc  GUI_Alloc.o [4]
+_ExecMotion(int, GUI_PID_STATE *, CMD_INFO *, void *)
+                        0x00015eb9   0x87a  Code  Lc  WM_Motion.o [4]
+_FillByte               0x200002bd     0x1  Data  Lc  GUIDEV_StaticDevices.o [4]
+_FillRect(GUI_DEVICE *, int, int, int, int)
+                        0x00017a1d    0x28  Code  Lc  GUIDRV_Lin_16.o [4]
+_FillRect(GUI_DEVICE *, int, int, int, int)
+                        0x0001d7db    0xa8  Code  Lc  GUIDEV_16.o [4]
+_FillRect(GUI_DEVICE *, int, int, int, int)
+                        0x00000ae3   0x1dc  Code  Lc  GUI_SPRITE.o [4]
+_FillRect(GUI_DEVICE *, int, int, int, int)
+                        0x0001ce67    0xac  Code  Lc  GUIDEV_32.o [4]
+_FillRectOpt16(GUI_DEVICE *, int, int, int, int)
+                        0x00017873   0x15a  Code  Lc  GUIDRV_Lin_16.o [4]
+_FindNext_IVR()         0x000042a9   0x208  Code  Lc  WM.o [4]
+_Findx0(long, LCD_RECT *, LCD_RECT *)
+                        0x00003e61    0x82  Code  Lc  WM.o [4]
+_Findx1(long, LCD_RECT *, LCD_RECT *)
+                        0x00003ee3    0x78  Code  Lc  WM.o [4]
+_Findy1(long, LCD_RECT *, LCD_RECT *)
+                        0x00003dad    0xb4  Code  Lc  WM.o [4]
+_FlushBuffer(GUI_DEVICE *, DRAW_BUFFER *)
+                        0x00000f01    0x6e  Code  Lc  GUI_SPRITE.o [4]
+_GUI_USAGE_BM_Delete(long)
+                        0x000038cf     0x4  Code  Lc  GUIDEV_UsageBM.o [4]
+_GenCheck(int, int, int, int, int, int, unsigned long *, GUI_BITMAP *, LCD_LOGPALETTE *)
+                        0x00019d13   0x12e  Code  Lc  CHECKBOX_SkinFlex.o [4]
+_GetBkIndex(int, int, GUI_DEVICE *, GUI_SPRITE_OBJ *)
+                        0x00000313    0x48  Code  Lc  GUI_SPRITE.o [4]
+_GetBkIndexAlpha(int, int, GUI_DEVICE *, GUI_SPRITE_OBJ *)
+                        0x0000035b    0x4e  Code  Lc  GUI_SPRITE.o [4]
+_GetCharCode(char const *)
+                        0x00023675     0x4  Code  Lc  GUI_UC_EncodeNone.o [4]
+_GetCharSize(char const *)
+                        0x00023679     0x4  Code  Lc  GUI_UC_EncodeNone.o [4]
+_GetCharWrap(char const *, int)
+                        0x000209db    0x2a  Code  Lc  GUI__Wrap.o [4]
+_GetClipParam(int, int, int, int, int, int, unsigned char const *, int, LCD_RECT const *, CLIP_PARAM *)
+                        0x000001bb   0x112  Code  Lc  GUI_SPRITE.o [4]
+_GetClipRect(CLIP_CONTEXT *)
+                        0x000000dd    0xd6  Code  Lc  GUI_SPRITE.o [4]
+_GetConfirmation(WM_MOTION_CONTEXT *, long)
+                        0x00015b6d    0x92  Code  Lc  WM_Motion.o [4]
+_GetDevData(GUI_DEVICE *, int)
+                        0x00018065     0xa  Code  Lc  GUIDRV_Lin_16.o [4]
+_GetDevData(GUI_DEVICE *, int)
+                        0x0001da3f     0xc  Code  Lc  GUIDEV_16.o [4]
+_GetDevData(GUI_DEVICE *, int)
+                        0x00000eb7     0x4  Code  Lc  GUI_SPRITE.o [4]
+_GetDevData(GUI_DEVICE *, int)
+                        0x0001d0af     0xc  Code  Lc  GUIDEV_32.o [4]
+_GetDevFunc(GUI_DEVICE **, int)
+                        0x00018105    0x98  Code  Lc  GUIDRV_Lin_16.o [4]
+_GetDevFunc(GUI_DEVICE **, int)
+                        0x0001da4b     0xa  Code  Lc  GUIDEV_16.o [4]
+_GetDevFunc(GUI_DEVICE **, int)
+                        0x00000ec7    0x22  Code  Lc  GUI_SPRITE.o [4]
+_GetDevFunc(GUI_DEVICE **, int)
+                        0x0001d0bb     0xa  Code  Lc  GUIDEV_32.o [4]
+_GetDevProp(GUI_DEVICE *, int)
+                        0x00018029    0x3c  Code  Lc  GUIDRV_Lin_16.o [4]
+_GetDevProp(GUI_DEVICE *, int)
+                        0x0001da6d    0x10  Code  Lc  GUIDEV_16.o [4]
+_GetDevProp(GUI_DEVICE *, int)
+                        0x00000ee9     0xc  Code  Lc  GUI_SPRITE.o [4]
+_GetDevProp(GUI_DEVICE *, int)
+                        0x0001d0d1     0xa  Code  Lc  GUIDEV_32.o [4]
+_GetDevProp(int, int)   0x00002d95    0x1e  Code  Lc  LCD_GetEx.o [4]
+_GetDeviceRect(GUI_DEVICE *, LCD_RECT *)
+                        0x00001037    0x3a  Code  Lc  GUI_SPRITE.o [4]
+_GetDialogItem(long, int)
+                        0x00019505    0x40  Code  Lc  WM_GetDialogItem.o [4]
+_GetIndexMask_0()       0x00021323    0x4a  Code  Lc  GUICC_0.o [4]
+_GetIndexMask_8888()    0x000235df     0x6  Code  Lc  GUICC_8888.o [4]
+_GetIndexMask_M565()    0x00021211     0x6  Code  Lc  GUICC_M565.o [4]
+_GetMaxValue(int)       0x00002db3    0x20  Code  Lc  LCD_GetEx.o [4]
+_GetMotionTagR(GUI_PID_STATE *, GUI_MOTION_TAG *, long)
+                        0x00015963    0x7c  Code  Lc  WM_Motion.o [4]
+_GetMotionTagXY(GUI_PID_STATE *, GUI_MOTION_TAG *, long)
+                        0x0001594d    0x16  Code  Lc  WM_Motion.o [4]
+_GetNextChild(long, long)
+                        0x0001a5af    0x22  Code  Lc  WM_SetFocusOnNextChild.o [4]
+_GetPixelIndex(GUI_DEVICE *, int, int)
+                        0x000179df    0x10  Code  Lc  GUIDRV_Lin_16.o [4]
+_GetPixelIndex(GUI_DEVICE *, int, int)
+                        0x0001d9c7    0x3c  Code  Lc  GUIDEV_16.o [4]
+_GetPixelIndex(GUI_DEVICE *, int, int)
+                        0x00000cbf    0x5e  Code  Lc  GUI_SPRITE.o [4]
+_GetPixelIndex(GUI_DEVICE *, int, int)
+                        0x0001d037    0x3c  Code  Lc  GUIDEV_32.o [4]
+_GetPos(GUI_DEVICE *, int *, int *)
+                        0x000175f7    0x2a  Code  Lc  GUIDRV_Lin_16.o [4]
+_GetPrevChild(long)     0x0001a551    0x1a  Code  Lc  WM_SetFocusOnPrevChild.o [4]
+_GetRect(GUI_DEVICE *, LCD_RECT *)
+                        0x00017495    0x16  Code  Lc  GUIDRV_Lin_16.o [4]
+_GetRect(GUI_DEVICE *, LCD_RECT *)
+                        0x0001da03    0x3c  Code  Lc  GUIDEV_16.o [4]
+_GetRect(GUI_DEVICE *, LCD_RECT *)
+                        0x00000ef5     0xc  Code  Lc  GUI_SPRITE.o [4]
+_GetRect(GUI_DEVICE *, LCD_RECT *)
+                        0x0001d073    0x3c  Code  Lc  GUIDEV_32.o [4]
+_GetSigns(WM_MOTION_PRIVATE *)
+                        0x00015e53    0x36  Code  Lc  WM_Motion.o [4]
+_GetWordWrap(char const *, int, int *)
+                        0x00020969    0x72  Code  Lc  GUI__Wrap.o [4]
+_GetphCrit()            0x00015b07    0x66  Code  Lc  WM_Motion.o [4]
+_HL_APIList             0x00003788     0x8  Data  Lc  GUI_Core.o [4]
+_IncPointer(GUI_KEY_STATE *, GUI_KEY_STATE *)
+                        0x00006739    0x1a  Code  Lc  GUI_OnKey.o [4]
+_Index2ColorBulk(void *, unsigned long *, unsigned long, unsigned char)
+                        0x00021253    0x4c  Code  Lc  GUICC_M565.o [4]
+_Index2ColorBulk(void *, unsigned long *, unsigned long, unsigned char)
+                        0x000235f5    0x10  Code  Lc  GUICC_8888.o [4]
+_Index2Color_0(unsigned long)
+                        0x00021305    0x1e  Code  Lc  GUICC_0.o [4]
+_Init(GUI_DEVICE *)     0x00017649    0x18  Code  Lc  GUIDRV_Lin_16.o [4]
+_InitController         0x00005ce5    0x38  Code  Lc  LCDConf.o [1]
+_InitOnce()             0x00002155    0xb0  Code  Lc  GUI_Alloc.o [4]
+_InitOnce(GUI_DEVICE *)
+                        0x00017471    0x24  Code  Lc  GUIDRV_Lin_16.o [4]
+_InitRTC                0x000061d9    0x46  Code  Lc  GUI_X.o [1]
+_Invalidate1Abs(long, LCD_RECT const *, unsigned short)
+                        0x00003a27    0xac  Code  Lc  WM.o [4]
+_IsInited               0x200034fd     0x1  Data  Lc  WM.o [4]
+_IsInitialized          0x200000c0     0x4  Data  Lc  GUI_Core.o [4]
+_IsInitialized          0x20003654     0x4  Data  Lc  GUI_Curs1.o [4]
+_IsInitialized          0x20003670     0x4  Data  Lc  GUI__Alpha.o [4]
+_IsInitialized          0x200036c8     0x4  Data  Lc  GUI_Timer.o [4]
+_Key                    0x200001b0     0x4  Data  Lc  GUI_OnKey.o [4]
+_LayerMask              0x20003634     0x4  Data  Lc  GUI_MULTIBUF.o [4]
+_Link(long)             0x00009c55    0x96  Code  Lc  GUI_Timer.o [4]
+_Log2VisBuffered(char const *, int *)
+                        0x0001ae0d     0x2  Code  Lc  GUI_CharLine.o [4]
+_Motion_AutoWithinParent(WM_MOTION_CONTEXT *)
+                        0x00015a0f    0xf8  Code  Lc  WM_Motion.o [4]
+_Motion_ByWindow(WM_MOTION_CONTEXT *)
+                        0x000159df    0x30  Code  Lc  WM_Motion.o [4]
+_MoveDescendents(long, int, int)
+                        0x00016b45    0x6e  Code  Lc  WM_Move.o [4]
+_MoveToNearestSnapPosition(WM_MOTION_CONTEXT *, long)
+                        0x00015d73    0x9e  Code  Lc  WM_Motion.o [4]
+_MoveToNearestSnapPositionXY(unsigned long, int, int, long, int *, long *, long *)
+                        0x00015cfb    0x78  Code  Lc  WM_Motion.o [4]
+_NextDrawWin            0x20003534     0x4  Data  Lc  WM.o [4]
+_NumColors              0x20000214     0x4  Data  Lc  LCD_Color.o [4]
+_Off(GUI_DEVICE *)      0x0001766b     0xa  Code  Lc  GUIDRV_Lin_16.o [4]
+_On(GUI_DEVICE *)       0x00017661     0xa  Code  Lc  GUIDRV_Lin_16.o [4]
+_OnExit()               0x00009829     0xc  Code  Lc  GUI_PID.o [4]
+_OnExit()               0x00004bf5    0x4c  Code  Lc  WM.o [4]
+_OnExit()               0x00003605    0x24  Code  Lc  GUI_Core.o [4]
+_OnExit()               0x0000954d    0x36  Code  Lc  GUI_MULTIBUF.o [4]
+_OnExit()               0x000170d9     0xc  Code  Lc  GUI_Curs1.o [4]
+_OnExit()               0x00016745    0x2c  Code  Lc  WM_Motion.o [4]
+_OnExit()               0x00016d89     0xa  Code  Lc  WM_Touch.o [4]
+_OnExit()               0x00006925    0x10  Code  Lc  LCD_Color.o [4]
+_OnExit()               0x000026a9    0x26  Code  Lc  GUI__Alpha.o [4]
+_OnExit()               0x00009d79     0xc  Code  Lc  GUI_Timer.o [4]
+_Paint(long)            0x0001a0f9    0x8c  Code  Lc  CHECKBOX_Skin.o [4]
+_Paint1Trans(long)      0x00004723    0x9e  Code  Lc  WM.o [4]
+_PaintTransChildren(long)
+                        0x000047c1    0xae  Code  Lc  WM.o [4]
+_PalCheckDisabled       0x00021c80     0xc  Data  Lc  CHECKBOX_Image.o [4]
+_PalCheckEnabled        0x00021c8c     0xc  Data  Lc  CHECKBOX_Image.o [4]
+_PeriodDefault          0x20000160     0x4  Data  Lc  WM_Motion.o [4]
+_PixelExists(int, int, GUI_SPRITE_OBJ *)
+                        0x000002cd    0x46  Code  Lc  GUI_SPRITE.o [4]
+_PropsDisabled          0x20000124    0x1c  Data  Lc  CHECKBOX_SkinFlex.o [4]
+_PropsEnabled           0x20000108    0x1c  Data  Lc  CHECKBOX_SkinFlex.o [4]
+_PushFreeBlock(long)    0x00002205    0x20  Code  Lc  GUI_Alloc.o [4]
+_RadialMenu             0x00018a71   0x26a  Code  Lc  WM_RadialMenu.o [1]
+_RadialMenu::Para       0x20003548    0x3c  Data  Lc  WM_RadialMenu.o [1]
+_RadialMenu::aItemInfo  0x2000340c    0x6c  Data  Lc  WM_RadialMenu.o [1]
+_ReadRect(GUI_DEVICE *, int, int, int, int, unsigned long *)
+                        0x0001806f    0x3a  Code  Lc  GUIDRV_Lin_16.o [4]
+_RegisterExit()::RegisterExit
+                        0x20000048     0x8  Data  Lc  GUI_PID.o [4]
+_RegisterExit()::RegisterExit
+                        0x20003638     0x8  Data  Lc  GUI_MULTIBUF.o [4]
+_RegisterExit()::RegisterExit
+                        0x20003750     0x8  Data  Lc  WM_Motion.o [4]
+_RegisterExit()::RegisterExit
+                        0x200001a0     0x8  Data  Lc  WM_Touch.o [4]
+_RegisterExit()::RegisterExit
+                        0x200036b4     0x8  Data  Lc  GUI__ManageCache.o [4]
+_ReleaseBuffer(GUI_SPRITE_OBJ *, DRAW_BUFFER *)
+                        0x0000101d    0x1a  Code  Lc  GUI_SPRITE.o [4]
+_RemoveFreeBlock(TAG const *)
+                        0x00001e41    0x3e  Code  Lc  GUI_Alloc.o [4]
+_RemoveHoles(unsigned long)
+                        0x00001f23    0x8e  Code  Lc  GUI_Alloc.o [4]
+_Screen2hWin(int, int)  0x00015e89    0x30  Code  Lc  WM_Motion.o [4]
+_Screen2hWin(long, long, int, int)
+                        0x00016c71    0x84  Code  Lc  WM_Screen2Win.o [4]
+_SetAlpha(GUI_DEVICE *, int)
+                        0x00017621    0x28  Code  Lc  GUIDRV_Lin_16.o [4]
+_SetAlphaMode(GUI_DEVICE *, int)
+                        0x00017675     0xc  Code  Lc  GUIDRV_Lin_16.o [4]
+_SetBkColor(unsigned long)
+                        0x00004d11    0x30  Code  Lc  LCD.o [4]
+_SetChroma(GUI_DEVICE *, unsigned long, unsigned long)
+                        0x00017691    0x22  Code  Lc  GUIDRV_Lin_16.o [4]
+_SetChromaMode(GUI_DEVICE *, int)
+                        0x00017681     0xa  Code  Lc  GUIDRV_Lin_16.o [4]
+_SetClipRectUserIntersect(LCD_RECT const *)
+                        0x000039a9    0x58  Code  Lc  WM.o [4]
+_SetColor(unsigned long)
+                        0x00004d41    0x30  Code  Lc  LCD.o [4]
+_SetColorAPI            0x00023bb8     0xc  Data  Lc  LCD.o [4]
+_SetDevFunc(GUI_DEVICE *, int, void (*)())
+                        0x000180a9    0x5a  Code  Lc  GUIDRV_Lin_16.o [4]
+_SetDrawMode(int)       0x00004d71    0x26  Code  Lc  LCD.o [4]
+_SetLUTEntry            0x00005d5b     0x2  Code  Lc  LCDConf.o [1]
+_SetOrg                 0x00005d37    0x24  Code  Lc  LCDConf.o [1]
+_SetOrg(GUI_DEVICE *, int, int)
+                        0x0001772d    0xae  Code  Lc  GUIDRV_Lin_16.o [4]
+_SetOrg(GUI_DEVICE *, int, int)
+                        0x0001da61     0xc  Code  Lc  GUIDEV_16.o [4]
+_SetOrg(GUI_DEVICE *, int, int)
+                        0x00000ebb     0xc  Code  Lc  GUI_SPRITE.o [4]
+_SetOrg(GUI_DEVICE *, int, int)
+                        0x0001d0db     0x8  Code  Lc  GUIDEV_32.o [4]
+_SetPixelIndex(GUI_DEVICE *, int, int, unsigned long)
+                        0x000179cd    0x12  Code  Lc  GUIDRV_Lin_16.o [4]
+_SetPixelIndex(GUI_DEVICE *, int, int, unsigned long)
+                        0x0001d933    0x42  Code  Lc  GUIDEV_16.o [4]
+_SetPixelIndex(GUI_DEVICE *, int, int, unsigned long)
+                        0x00000d1d    0xc0  Code  Lc  GUI_SPRITE.o [4]
+_SetPixelIndex(GUI_DEVICE *, int, int, unsigned long)
+                        0x0001cfc7    0x20  Code  Lc  GUIDEV_32.o [4]
+_SetPos(GUI_DEVICE *, int, int)
+                        0x000174d3   0x11e  Code  Lc  GUIDRV_Lin_16.o [4]
+_SetPosition(long, int, int)
+                        0x00001231   0x5f4  Code  Lc  GUI_SPRITE.o [4]
+_SetSize(GUI_DEVICE *, int, int)
+                        0x0001782b    0x48  Code  Lc  GUIDRV_Lin_16.o [4]
+_SetVRAMAddr            0x00005d1d    0x1a  Code  Lc  LCDConf.o [1]
+_SetVRAMAddr(GUI_DEVICE *, void *)
+                        0x000177db    0x2a  Code  Lc  GUIDRV_Lin_16.o [4]
+_SetVSize(GUI_DEVICE *, int, int)
+                        0x00017805    0x26  Code  Lc  GUIDRV_Lin_16.o [4]
+_SetVis(GUI_DEVICE *, int)
+                        0x000174ab    0x28  Code  Lc  GUIDRV_Lin_16.o [4]
+_Show(int)              0x000170e5    0x32  Code  Lc  GUI_Curs1.o [4]
+_ShowBuffer(GUI_DEVICE *, int)
+                        0x00017705    0x26  Code  Lc  GUIDRV_Lin_16.o [4]
+_SpriteDraw(long)       0x0000183b   0x2e4  Code  Lc  GUI_SPRITE.o [4]
+_Sprite_API             0x00001d60    0x34  Data  Lc  GUI_SPRITE.o [4]
+_StartMotionTimer(WM_MOTION_CONTEXT *)
+                        0x00015c21    0x26  Code  Lc  WM_Motion.o [4]
+_State                  0x200036d4     0xc  Data  Lc  GUI_TOUCH.o [4]
+_TestRAM(unsigned long, unsigned long)
+                        0x00001fb7   0x10a  Code  Lc  GUI_Alloc.o [4]
+_Undraw(long)           0x00001071   0x1aa  Code  Lc  GUI_SPRITE.o [4]
+_Unlink(long)           0x00009c09    0x4c  Code  Lc  GUI_Timer.o [4]
+_UseSingleFrame         0x20003630     0x4  Data  Lc  GUI_MULTIBUF.o [4]
+_VXSizeMax              0x2000366c     0x4  Data  Lc  GUI__Alpha.o [4]
+_WrapGetNumCharsDisp(char const *, int, GUI_WRAPMODE, int *)
+                        0x00020a05    0x20  Code  Lc  GUI__Wrap.o [4]
+_WriteToActiveAlpha(long, int, int, LCD_API_COLOR_CONV const *)
+                        0x00020161   0x15a  Code  Gb  GUIDEV_WriteToActiveAlpha.o [4]
+_WriteToActiveOpaque_8(long, int, int)
+                        0x0000545f   0x3b6  Code  Lc  GUIDEV_WriteToActiveOpaque.o [4]
+_WriteToActiveOpaque_HT(long, int, int, int)
+                        0x0000581d   0x2f4  Code  Lc  GUIDEV_WriteToActiveOpaque.o [4]
+_XY2PTR(int, int)       0x0001d159    0x3e  Code  Lc  GUIDEV_16.o [4]
+_XY2PTR(int, int)       0x0001c83b    0x3e  Code  Lc  GUIDEV_32.o [4]
+_XorPixel(GUI_DEVICE *, int, int)
+                        0x000179ef    0x2e  Code  Lc  GUIDRV_Lin_16.o [4]
+_XorPixel(GUI_DEVICE *, int, int)
+                        0x0001d975    0x52  Code  Lc  GUIDEV_16.o [4]
+_XorPixel(GUI_DEVICE *, int, int)
+                        0x00000ddd    0xda  Code  Lc  GUI_SPRITE.o [4]
+_XorPixel(GUI_DEVICE *, int, int)
+                        0x0001cfe7    0x2c  Code  Lc  GUIDEV_32.o [4]
+__Vectors               0x00000000           --   Gb  startup_efm32gg.o [1]
+__Vectors_End           0x000000dc          Data  Gb  startup_efm32gg.o [1]
+__Vectors_Size {Abs}    0x000000dc           --   Gb  startup_efm32gg.o [1]
+__aeabi_memclr          0x000032d1          Code  Gb  ABImemclr.o [5]
+__aeabi_memclr4         0x00016d05          Code  Gb  ABImemclr4.o [5]
+__aeabi_memset          0x00005bad          Code  Gb  ABImemset.o [5]
+__cmain                 0x0002388d          Code  Gb  cmain.o [5]
+__exit                  0x000238bd          Code  Gb  XXexit.o [5]
+__iar_Memset            0x00005bad          Code  Gb  ABImemset.o [5]
+__iar_Memset4_word      0x00017089          Code  Gb  ABImemset48.o [5]
+__iar_Memset8_word      0x00017089          Code  Gb  ABImemset48.o [5]
+__iar_Memset_word       0x00005bb5          Code  Gb  ABImemset.o [5]
+__iar_data_init3        0x00023605    0x28  Code  Gb  data_init.o [5]
+__iar_lz77_init_single3
+                        0x00021905    0x78  Code  Gb  lz77_init_single.o [5]
+__iar_program_start     0x00023bc5          Code  Gb  cstartup_M.o [5]
+__iar_unaligned___aeabi_memcpy
+                        0x000025f1          Code  Gb  ABImemcpy_unaligned.o [5]
+__iar_unaligned___aeabi_memcpy4
+                        0x00002611          Code  Gb  ABImemcpy_unaligned.o [5]
+__iar_unaligned___aeabi_memcpy8
+                        0x00002611          Code  Gb  ABImemcpy_unaligned.o [5]
+__iar_unaligned___aeabi_memmove
+                        0x00003259          Code  Gb  ABImemmove_unaligned.o [5]
+__iar_unaligned___aeabi_memmove4
+                        0x00003259          Code  Gb  ABImemmove_unaligned.o [5]
+__iar_unaligned___aeabi_memmove8
+                        0x00003259          Code  Gb  ABImemmove_unaligned.o [5]
+__iar_unaligned_memcmp  0x0000a149          Code  Gb  memcmp_unaligned.o [5]
+__iar_unaligned_strcpy  0x0001ac95          Code  Gb  strcpy_unaligned.o [5]
+__iar_zero_init3        0x00022fa1    0x40  Code  Gb  zero_init3.o [5]
+__low_level_init        0x000238a7     0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000          Data  Gb  startup_efm32gg.o [1]
+__vector_table_0x1c     0x0000001c          Data  Gb  startup_efm32gg.o [1]
+_aBitmapItem            0x00021c04    0x6c  Data  Lc  WM_RadialMenu.o [1]
+_aColor                 0x000239b8     0xc  Data  Lc  GUI_CursorPal.o [4]
+_aColor                 0x200037d4     0x4  Data  Lc  WIDGET_Effect_Simple.o [4]
+_aColorDisabled         0x00021c70     0x8  Data  Lc  CHECKBOX_Image.o [4]
+_aColorEnabled          0x00021c78     0x8  Data  Lc  CHECKBOX_Image.o [4]
+_aCursorContext         0x20003640    0x14  Data  Lc  GUI_Curs1.o [4]
+_aCursorLayer           0x200037d0     0x4  Data  Lc  GUI_SelectLayer.o [4]
+_aDialogCreate          0x00023184    0x38  Data  Lc  WM_RadialMenu.o [1]
+_aID                    0x0001da7c    0x40  Data  Lc  GUIDEV_16.o [4]
+_aLock                  0x20003628     0x4  Data  Lc  GUI_MULTIBUF.o [4]
+_aPend                  0x2000362c     0x4  Data  Lc  GUI_MULTIBUF.o [4]
+_aPrevState             0x2000372c     0xc  Data  Lc  WM_PID__GetPrevState.o [4]
+_aSin                   0x000169d8   0x16c  Data  Lc  GUI__SinHQ.o [4]
+_aState                 0x20000050    0x48  Data  Lc  GUI_PID.o [4]
+_aState                 0x200001b8    0x58  Data  Lc  GUI_OnKey.o [4]
+_aStateLast             0x20000170     0xc  Data  Lc  WM_Touch.o [4]
+_aView                  0x20003620     0x4  Data  Lc  GUI_MULTIBUF.o [4]
+_aWork                  0x20003624     0x4  Data  Lc  GUI_MULTIBUF.o [4]
+_acBrowser              0x0000b74c  0x1200  Data  Lc  WM_RadialMenu.o [1]
+_acCheck                0x00021c98    0x18  Data  Lc  CHECKBOX_Image.o [4]
+_acClock                0x0000c94c  0x1200  Data  Lc  WM_RadialMenu.o [1]
+_acDate                 0x0000db4c  0x1200  Data  Lc  WM_RadialMenu.o [1]
+_acEmail                0x0000ed4c  0x1200  Data  Lc  WM_RadialMenu.o [1]
+_acPassword             0x0000ff4c  0x1200  Data  Lc  WM_RadialMenu.o [1]
+_acRead                 0x0001114c  0x1200  Data  Lc  WM_RadialMenu.o [1]
+_acRectRed_60x60        0x0001f978   0x3cc  Data  Lc  WM_RadialMenu.o [1]
+_acRemote               0x0001234c  0x1200  Data  Lc  WM_RadialMenu.o [1]
+_acSystem               0x0001354c  0x1200  Data  Lc  WM_RadialMenu.o [1]
+_acWrite                0x0001474c  0x1200  Data  Lc  WM_RadialMenu.o [1]
+_apProps                0x0001a0f0     0x8  Data  Lc  CHECKBOX_SkinFlex.o [4]
+_apSkinPropBitmap       0x20003748     0x8  Data  Lc  CHECKBOX_SkinFlex.o [4]
+_bmBrowser              0x000239fc    0x14  Data  Gb  WM_RadialMenu.o [1]
+_bmClock                0x00023a10    0x14  Data  Gb  WM_RadialMenu.o [1]
+_bmDate                 0x00023a24    0x14  Data  Gb  WM_RadialMenu.o [1]
+_bmEmail                0x00023a38    0x14  Data  Gb  WM_RadialMenu.o [1]
+_bmPassword             0x00023a4c    0x14  Data  Gb  WM_RadialMenu.o [1]
+_bmRead                 0x00023a60    0x14  Data  Gb  WM_RadialMenu.o [1]
+_bmRectRed_60x60        0x00023ab0    0x14  Data  Lc  WM_RadialMenu.o [1]
+_bmRemote               0x00023a74    0x14  Data  Gb  WM_RadialMenu.o [1]
+_bmSystem               0x00023a88    0x14  Data  Gb  WM_RadialMenu.o [1]
+_bmWrite                0x00023a9c    0x14  Data  Gb  WM_RadialMenu.o [1]
+_call_main              0x00023899          Code  Gb  cmain.o [5]
+_cbBackWin(WM_MESSAGE *)
+                        0x00004b57    0x40  Code  Lc  WM.o [4]
+_cbBk                   0x00018533    0x80  Code  Lc  WM_RadialMenu.o [1]
+_cbDialog               0x000183fd   0x136  Code  Lc  WM_RadialMenu.o [1]
+_cbDialog::PointsScr    0x20003694    0x18  Data  Lc  WM_RadialMenu.o [1]
+_cbDialog::PressedPrev  0x200037e2     0x1  Data  Lc  WM_RadialMenu.o [1]
+_cbDialog::point        0x200037a0     0x4  Data  Lc  WM_RadialMenu.o [1]
+_cbDraw                 0x000185b3   0x2a8  Code  Lc  WM_RadialMenu.o [1]
+_cbInvalidateOne(long, void *)
+                        0x0001ab41     0x4  Code  Lc  WM_BringToTop.o [4]
+_cbInvalidateWindow     0x000060cb     0xe  Code  Lc  GUI_X.o [1]
+_cbMotion               0x0001885b    0x9a  Code  Lc  WM_RadialMenu.o [1]
+_cbMotion(GUI_PID_STATE *, void *)
+                        0x00016739     0x6  Code  Lc  WM_Motion.o [4]
+_cbPaintMemDev(void *)  0x000048f7    0x58  Code  Lc  WM.o [4]
+_cbTimer(GUI_TIMER_MESSAGE *)
+                        0x00015bff    0x22  Code  Lc  WM_Motion.o [4]
+_chWin                  0x20000158     0x8  Data  Lc  WM_Motion.o [4]
+_checkForAEM            0x000060d9    0x40  Code  Lc  GUI_X.o [1]
+_checkIfBusy            0x00006119    0x30  Code  Lc  GUI_X.o [1]
+_exit                   0x000238b1          Code  Gb  cexit.o [5]
+_fpClearLine            0x20000150     0x4  Data  Lc  GUI_EncExt.o [4]
+_hActiveTimer           0x200036c4     0x4  Data  Lc  GUI_Timer.o [4]
+_hFirstTimer            0x200036c0     0x4  Data  Lc  GUI_Timer.o [4]
+_main                   0x000238a3          Code  Gb  cmain.o [5]
+_pConvert               0x20003664     0x4  Data  Lc  GUI__Alpha.o [4]
+_pCurrent               0x20003660     0x4  Data  Lc  GUI__Alpha.o [4]
+_pData                  0x20003668     0x4  Data  Lc  GUI__Alpha.o [4]
+_pEffectDefault         0x20000224     0x4  Data  Gb  WIDGET.o [4]
+_pFirst                 0x20000164     0x4  Data  Lc  WM_Motion.o [4]
+_pFirstExit             0x200000bc     0x4  Data  Lc  GUI_Core.o [4]
+_pFuncControlHook       0x200036b0     0x4  Data  Lc  GUI__ManageCache.o [4]
+_pFuncRefreshHook       0x200036ac     0x4  Data  Lc  GUI__ManageCache.o [4]
+_pRead                  0x2000003c     0x4  Data  Lc  GUI_PID.o [4]
+_pReadKey               0x200001a8     0x4  Data  Lc  GUI_OnKey.o [4]
+_pWrite                 0x20000040     0x4  Data  Lc  GUI_PID.o [4]
+_pWriteKey              0x200001ac     0x4  Data  Lc  GUI_OnKey.o [4]
+_pcbMotion              0x20000194     0x4  Data  Lc  WM_Touch.o [4]
+_pcbSetAlpha            0x200037c4     0x4  Data  Lc  GUIDEV_Banding.o [4]
+_pcbToolTip             0x20000198     0x4  Data  Lc  WM_Touch.o [4]
+_pfAlphaBlending        0x200037cc     0x4  Data  Lc  GUI__Alpha.o [4]
+_pfCalibrate            0x200036e0     0x4  Data  Lc  GUI_TOUCH.o [4]
+_pfColor2IndexBulk      0x20003740     0x4  Data  Lc  GUICC_M565.o [4]
+_pfDrawCharAA4_Trans    0x20000290     0x4  Data  Lc  GUIAA_Char4.o [4]
+_pfDrawCharAA4_TransCust
+                        0x20000294     0x4  Data  Lc  GUIAA_Char4.o [4]
+_pfHook                 0x20000044     0x4  Data  Lc  GUI_PID.o [4]
+_pfHook                 0x200001b4     0x4  Data  Lc  GUI_OnKey.o [4]
+_pfIndex2ColorBulk      0x20003744     0x4  Data  Lc  GUICC_M565.o [4]
+_pfSignalEvent          0x200037c0     0x4  Data  Lc  GUI_WaitEvent.o [4]
+_pfWaitEvent            0x20000168     0x4  Data  Lc  GUI_WaitEvent.o [4]
+_pfWaitEventTimed       0x2000016c     0x4  Data  Lc  GUI_WaitEvent.o [4]
+_serveJoystick          0x00005ff3    0xd8  Code  Lc  GUI_X.o [1]
+_xSizeDisplay           0x20003738     0x4  Data  Lc  LCD_GetEx.o [4]
+_ySizeDisplay           0x2000373c     0x4  Data  Lc  LCD_GetEx.o [4]
+aID                     0x0001d0e4    0x40  Data  Lc  GUIDEV_32.o [4]
+abs                     0x0000ad65     0x8  Code  Gb  abs.o [3]
+acFont13ASCII_0020      0x0001e4b0    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0021      0x0001e4c0    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0022      0x0001e4d0    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0023      0x0001e4e0    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0024      0x0001e4f0    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0025      0x0001e500    0x1c  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0026      0x0001e51c    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0027      0x0001e52c    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0028      0x0001e53c    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0029      0x0001e54c    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_002A      0x0001e55c    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_002B      0x0001e56c    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_002C      0x0001e57c    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_002D      0x0001e58c    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_002E      0x0001e59c    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_002F      0x0001e5ac    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0030      0x0001e5bc    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0031      0x0001e5cc    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0032      0x0001e5dc    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0033      0x0001e5ec    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0034      0x0001e5fc    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0035      0x0001e60c    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0036      0x0001e61c    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0037      0x0001e62c    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0038      0x0001e63c    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0039      0x0001e64c    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_003A      0x0001e65c    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_003B      0x0001e66c    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_003C      0x0001e67c    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_003D      0x0001e68c    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_003E      0x0001e69c    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_003F      0x0001e6ac    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0040      0x0001e6bc    0x1c  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0041      0x0001e6d8    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0042      0x0001e6e8    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0043      0x0001e6f8    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0044      0x0001e708    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0045      0x0001e718    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0046      0x0001e728    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0047      0x0001e738    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0048      0x0001e748    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0049      0x0001e758    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_004A      0x0001e768    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_004B      0x0001e778    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_004C      0x0001e788    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_004D      0x0001e798    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_004E      0x0001e7a8    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_004F      0x0001e7b8    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0050      0x0001e7c8    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0051      0x0001e7d8    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0052      0x0001e7e8    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0053      0x0001e7f8    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0054      0x0001e808    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0055      0x0001e818    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0056      0x0001e828    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0057      0x0001e838    0x1c  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0058      0x0001e854    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0059      0x0001e864    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_005A      0x0001e874    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_005B      0x0001e884    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_005C      0x0001e894    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_005D      0x0001e8a4    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_005E      0x0001e8b4    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_005F      0x0001e8c4    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0060      0x0001e8d4    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0061      0x0001e8e4    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0062      0x0001e8f4    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0063      0x0001e904    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0064      0x0001e914    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0065      0x0001e924    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0066      0x0001e934    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0067      0x0001e944    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0068      0x0001e954    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0069      0x0001e964    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_006A      0x0001e974    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_006B      0x0001e984    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_006C      0x0001e994    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_006D      0x0001e9a4    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_006E      0x0001e9b4    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_006F      0x0001e9c4    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0070      0x0001e9d4    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0071      0x0001e9e4    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0072      0x0001e9f4    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0073      0x0001ea04    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0074      0x0001ea14    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0075      0x0001ea24    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0076      0x0001ea34    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0077      0x0001ea44    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0078      0x0001ea54    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_0079      0x0001ea64    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_007A      0x0001ea74    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_007B      0x0001ea84    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_007C      0x0001ea94    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_007D      0x0001eaa4    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13ASCII_007E      0x0001eab4    0x10  Data  Lc  F13_ASCII.o [4]
+acFont13_1_00A0         0x0001db2c    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00A1         0x0001db3c    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00A2         0x0001db4c    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00A3         0x0001db5c    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00A4         0x0001db6c    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00A5         0x0001db7c    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00A6         0x0001db8c    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00A7         0x0001db9c    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00A8         0x0001dbac    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00A9         0x0001dbbc    0x1c  Data  Lc  F13_1.o [4]
+acFont13_1_00AA         0x0001dbd8    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00AB         0x0001dbe8    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00AC         0x0001dbf8    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00AD         0x0001dc08    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00AE         0x0001dc18    0x1c  Data  Lc  F13_1.o [4]
+acFont13_1_00AF         0x0001dc34    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00B0         0x0001dc44    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00B1         0x0001dc54    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00B2         0x0001dc64    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00B3         0x0001dc74    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00B4         0x0001dc84    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00B5         0x0001dc94    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00B6         0x0001dca4    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00B7         0x0001dcb4    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00B8         0x0001dcc4    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00B9         0x0001dcd4    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00BA         0x0001dce4    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00BB         0x0001dcf4    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00BC         0x0001dd04    0x1c  Data  Lc  F13_1.o [4]
+acFont13_1_00BD         0x0001dd20    0x1c  Data  Lc  F13_1.o [4]
+acFont13_1_00BE         0x0001dd3c    0x1c  Data  Lc  F13_1.o [4]
+acFont13_1_00BF         0x0001dd58    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00C0         0x0001dd68    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00C1         0x0001dd78    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00C2         0x0001dd88    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00C3         0x0001dd98    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00C4         0x0001dda8    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00C5         0x0001ddb8    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00C6         0x0001ddc8    0x1c  Data  Lc  F13_1.o [4]
+acFont13_1_00C7         0x0001dde4    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00C8         0x0001ddf4    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00C9         0x0001de04    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00CA         0x0001de14    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00CB         0x0001de24    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00CC         0x0001de34    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00CD         0x0001de44    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00CE         0x0001de54    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00CF         0x0001de64    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00D0         0x0001de74    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00D1         0x0001de84    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00D2         0x0001de94    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00D3         0x0001dea4    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00D4         0x0001deb4    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00D5         0x0001dec4    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00D6         0x0001ded4    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00D7         0x0001dee4    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00D8         0x0001def4    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00D9         0x0001df04    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00DA         0x0001df14    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00DB         0x0001df24    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00DC         0x0001df34    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00DD         0x0001df44    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00DE         0x0001df54    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00DF         0x0001df64    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00E0         0x0001df74    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00E1         0x0001df84    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00E2         0x0001df94    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00E3         0x0001dfa4    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00E4         0x0001dfb4    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00E5         0x0001dfc4    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00E6         0x0001dfd4    0x1c  Data  Lc  F13_1.o [4]
+acFont13_1_00E7         0x0001dff0    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00E8         0x0001e000    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00E9         0x0001e010    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00EA         0x0001e020    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00EB         0x0001e030    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00EC         0x0001e040    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00ED         0x0001e050    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00EE         0x0001e060    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00EF         0x0001e070    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00F0         0x0001e080    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00F1         0x0001e090    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00F2         0x0001e0a0    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00F3         0x0001e0b0    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00F4         0x0001e0c0    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00F5         0x0001e0d0    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00F6         0x0001e0e0    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00F7         0x0001e0f0    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00F8         0x0001e100    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00F9         0x0001e110    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00FA         0x0001e120    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00FB         0x0001e130    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00FC         0x0001e140    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00FD         0x0001e150    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00FE         0x0001e160    0x10  Data  Lc  F13_1.o [4]
+acFont13_1_00FF         0x0001e170    0x10  Data  Lc  F13_1.o [4]
+acFont16ASCII_100       0x0001c2d4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_101       0x0001c2e4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_102       0x0001c2f4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_103       0x0001c304    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_104       0x0001c314    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_105       0x0001c324    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_106       0x0001c334    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_107       0x0001c344    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_108       0x0001c354    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_109       0x0001c364    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_110       0x0001c384    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_111       0x0001c394    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_112       0x0001c3a4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_113       0x0001c3b4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_114       0x0001c3c4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_115       0x0001c3d4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_116       0x0001c3e4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_117       0x0001c3f4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_118       0x0001c404    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_119       0x0001c414    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_120       0x0001c434    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_121       0x0001c444    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_122       0x0001c454    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_123       0x0001c464    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_124       0x0001c474    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_125       0x0001c484    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_126       0x0001c494    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_32        0x0001bd34    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_33        0x0001bd44    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_34        0x0001bd54    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_35        0x0001bd64    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_36        0x0001bd74    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_37        0x0001bd84    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_38        0x0001bda4    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_39        0x0001bdc4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_40        0x0001bdd4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_41        0x0001bde4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_42        0x0001bdf4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_43        0x0001be04    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_44        0x0001be14    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_45        0x0001be24    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_46        0x0001be34    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_47        0x0001be44    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_48        0x0001be54    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_49        0x0001be64    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_50        0x0001be74    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_51        0x0001be84    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_52        0x0001be94    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_53        0x0001bea4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_54        0x0001beb4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_55        0x0001bec4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_56        0x0001bed4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_57        0x0001bee4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_58        0x0001bef4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_59        0x0001bf04    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_60        0x0001bf14    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_61        0x0001bf24    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_62        0x0001bf34    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_63        0x0001bf44    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_64        0x0001bf54    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_65        0x0001bf74    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_66        0x0001bf94    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_67        0x0001bfb4    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_68        0x0001bfd4    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_69        0x0001bff4    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_70        0x0001c014    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_71        0x0001c024    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_72        0x0001c044    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_73        0x0001c064    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_74        0x0001c074    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_75        0x0001c084    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_76        0x0001c0a4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_77        0x0001c0b4    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_78        0x0001c0d4    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_79        0x0001c0f4    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_80        0x0001c114    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_81        0x0001c134    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_82        0x0001c154    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_83        0x0001c174    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_84        0x0001c194    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_85        0x0001c1a4    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_86        0x0001c1c4    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_87        0x0001c1e4    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_88        0x0001c204    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_89        0x0001c214    0x20  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_90        0x0001c234    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_91        0x0001c244    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_92        0x0001c254    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_93        0x0001c264    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_94        0x0001c274    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_95        0x0001c284    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_96        0x0001c294    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_97        0x0001c2a4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_98        0x0001c2b4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16ASCII_99        0x0001c2c4    0x10  Data  Lc  F16_ASCII.o [4]
+acFont16_1_160          0x0001b1f4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_161          0x0001b204    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_162          0x0001b214    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_163          0x0001b224    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_164          0x0001b234    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_165          0x0001b244    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_166          0x0001b254    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_167          0x0001b264    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_168          0x0001b274    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_169          0x0001b284    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_170          0x0001b2a4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_171          0x0001b2b4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_172          0x0001b2c4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_173          0x0001b2d4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_174          0x0001b2e4    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_175          0x0001b304    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_176          0x0001b314    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_177          0x0001b324    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_178          0x0001b334    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_179          0x0001b344    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_180          0x0001b354    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_181          0x0001b364    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_182          0x0001b374    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_183          0x0001b384    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_184          0x0001b394    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_185          0x0001b3a4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_186          0x0001b3b4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_187          0x0001b3c4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_188          0x0001b3d4    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_189          0x0001b3f4    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_190          0x0001b414    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_191          0x0001b434    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_192          0x0001b444    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_193          0x0001b464    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_194          0x0001b484    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_195          0x0001b4a4    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_196          0x0001b4c4    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_197          0x0001b4e4    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_198          0x0001b504    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_199          0x0001b524    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_200          0x0001b544    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_201          0x0001b564    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_202          0x0001b584    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_203          0x0001b5a4    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_204          0x0001b5c4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_205          0x0001b5d4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_206          0x0001b5e4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_207          0x0001b5f4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_208          0x0001b604    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_209          0x0001b624    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_210          0x0001b644    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_211          0x0001b664    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_212          0x0001b684    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_213          0x0001b6a4    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_214          0x0001b6c4    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_215          0x0001b6e4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_216          0x0001b6f4    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_217          0x0001b714    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_218          0x0001b734    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_219          0x0001b754    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_220          0x0001b774    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_221          0x0001b794    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_222          0x0001b7b4    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_223          0x0001b7d4    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_224          0x0001b7f4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_225          0x0001b804    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_226          0x0001b814    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_227          0x0001b824    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_228          0x0001b834    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_229          0x0001b844    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_230          0x0001b854    0x20  Data  Lc  F16_1.o [4]
+acFont16_1_231          0x0001b874    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_232          0x0001b884    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_233          0x0001b894    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_234          0x0001b8a4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_235          0x0001b8b4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_236          0x0001b8c4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_237          0x0001b8d4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_238          0x0001b8e4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_239          0x0001b8f4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_240          0x0001b904    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_241          0x0001b914    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_242          0x0001b924    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_243          0x0001b934    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_244          0x0001b944    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_245          0x0001b954    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_246          0x0001b964    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_247          0x0001b974    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_248          0x0001b984    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_249          0x0001b994    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_250          0x0001b9a4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_251          0x0001b9b4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_252          0x0001b9c4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_253          0x0001b9d4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_254          0x0001b9e4    0x10  Data  Lc  F16_1.o [4]
+acFont16_1_255          0x0001b9f4    0x10  Data  Lc  F16_1.o [4]
+acGUI_FontRounded22_0020
+                        0x00003602     0x1  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0021
+                        0x00023718    0x20  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0022
+                        0x00023838    0x1c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0023
+                        0x000221e0    0x54  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0024
+                        0x00021d3c    0x60  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0025
+                        0x0002188c    0x78  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0026
+                        0x0002197c    0x6c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0027
+                        0x00023b24    0x10  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0028
+                        0x000231bc    0x38  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0029
+                        0x000231f4    0x38  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_002A
+                        0x00023738    0x20  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_002B
+                        0x00022e0c    0x44  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_002C
+                        0x00023b88     0xc  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_002D
+                        0x00023b34    0x10  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_002E
+                        0x00023c28     0x8  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_002F
+                        0x00022fe0    0x3c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0030
+                        0x00022234    0x54  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0031
+                        0x0002322c    0x38  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0032
+                        0x00022578    0x50  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0033
+                        0x00022bcc    0x48  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0034
+                        0x00022288    0x54  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0035
+                        0x00022c14    0x48  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0036
+                        0x000222dc    0x54  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0037
+                        0x00022c5c    0x48  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0038
+                        0x00022330    0x54  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0039
+                        0x00022384    0x54  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_003A
+                        0x00023958    0x18  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_003B
+                        0x00023854    0x1c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_003C
+                        0x0002301c    0x3c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_003D
+                        0x0002352c    0x30  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_003E
+                        0x00023058    0x3c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_003F
+                        0x00022a04    0x4c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0040
+                        0x000219e8    0x6c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0041
+                        0x00021d9c    0x5c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0042
+                        0x000225c8    0x50  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0043
+                        0x00021df8    0x5c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0044
+                        0x00022618    0x50  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0045
+                        0x00022668    0x50  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0046
+                        0x000223d8    0x54  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0047
+                        0x00021a54    0x6c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0048
+                        0x00021e54    0x5c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0049
+                        0x00023758    0x20  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_004A
+                        0x00022a50    0x4c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_004B
+                        0x00021eb0    0x5c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_004C
+                        0x00022ca4    0x48  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_004D
+                        0x00021ac0    0x6c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_004E
+                        0x00021f0c    0x5c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_004F
+                        0x00021b2c    0x6c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0050
+                        0x0002242c    0x54  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0051
+                        0x00021b98    0x6c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0052
+                        0x00022480    0x54  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0053
+                        0x00021f68    0x5c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0054
+                        0x000224d4    0x54  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0055
+                        0x00021fc4    0x5c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0056
+                        0x00022020    0x5c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0057
+                        0x00021784    0x88  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0058
+                        0x0002207c    0x5c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0059
+                        0x000220d8    0x5c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_005A
+                        0x000226b8    0x50  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_005B
+                        0x0002345c    0x34  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_005C
+                        0x00023094    0x3c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_005D
+                        0x00023490    0x34  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_005E
+                        0x000235b4    0x28  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_005F
+                        0x00023b94     0xc  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0060
+                        0x00023c30     0x8  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0061
+                        0x00023264    0x38  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0062
+                        0x00022a9c    0x4c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0063
+                        0x0002329c    0x38  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0064
+                        0x00022ae8    0x4c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0065
+                        0x00022e50    0x44  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0066
+                        0x000230d0    0x3c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0067
+                        0x00022cec    0x48  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0068
+                        0x00022b34    0x4c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0069
+                        0x00023778    0x20  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_006A
+                        0x000232d4    0x38  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_006B
+                        0x00022b80    0x4c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_006C
+                        0x00023798    0x20  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_006D
+                        0x00022134    0x58  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_006E
+                        0x0002330c    0x38  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_006F
+                        0x00022e94    0x44  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0070
+                        0x00022d34    0x48  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0071
+                        0x00022d7c    0x48  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0072
+                        0x0002355c    0x2c  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0073
+                        0x00023344    0x38  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0074
+                        0x0002337c    0x38  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0075
+                        0x000233b4    0x38  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0076
+                        0x000233ec    0x38  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0077
+                        0x00022708    0x50  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0078
+                        0x00023424    0x38  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_0079
+                        0x00022dc4    0x48  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_007A
+                        0x000234c4    0x34  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_007B
+                        0x00022ed8    0x44  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_007C
+                        0x000237b8    0x20  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_007D
+                        0x00022f1c    0x44  Data  Gb  WM_RadialMenu.o [1]
+acGUI_FontRounded22_007E
+                        0x00023970    0x18  Data  Gb  WM_RadialMenu.o [1]
+aem_mode                0x2000376c     0x4  Data  Gb  GUI_X.o [1]
+assertEFM               0x0000a1ab     0x2  Code  Gb  em_assert.o [1]
+auxClkGet               0x00007861    0x94  Code  Lc  em_cmu.o [1]
+bcFwVersion             0x200037d8     0x2  Data  Lc  bsp_dk_3201.o [1]
+bspOperationMode        0x20003758     0x4  Data  Lc  bsp_dk_3201.o [1]
+busMode                 0x200037de     0x1  Data  Lc  bsp_dk_3201.o [1]
+calibrationMatrix       0x2000000c    0x1c  Data  Gb  touch.o [1]
+chanCfg                 0x20000030     0xc  Data  Gb  WM_RadialMenu.o [1]
+controlBlock            0x20003600    0x20  Data  Lc  WM_RadialMenu.o [1]
+current_pos             0x20003708     0xc  Data  Gb  touch.o [1]
+dbgClkGet               0x000078f5    0x3c  Code  Lc  em_cmu.o [1]
+dmaInit                 0x20000028     0x8  Data  Lc  WM_RadialMenu.o [1]
+emState                 0x00009a57    0xcc  Code  Lc  em_emu.o [1]
+emState::cmuStatus      0x20003768     0x4  Data  Lc  em_emu.o [1]
+emState::hfClock        0x200037df     0x1  Data  Lc  em_emu.o [1]
+em_BitmapMethods565     0x00023b14    0x10  Data  Lc  WM_RadialMenu.o [1]
+em_DrawBitmap           0x000182e9    0xee  Code  Lc  WM_RadialMenu.o [1]
+em_DrawBitmap_565       0x000183d7    0x26  Code  Lc  WM_RadialMenu.o [1]
+exit                    0x000238ab     0x4  Code  Gb  exit.o [3]
+flashWaitStateControl   0x00007931    0xa2  Code  Lc  em_cmu.o [1]
+flashWaitStateMax       0x000079d3     0xc  Code  Lc  em_cmu.o [1]
+frameBuffer             0x20003760     0x4  Data  Lc  dmd_ssd2119_direct.o [1]
+getDisplayPoint         0x0000ad19    0x4c  Code  Gb  calibrate.o [1]
+getErrataFixEmuE107En   0x00009b23    0x40  Code  Lc  em_emu.o [1]
+getHfLeConfig           0x00007835    0x2c  Code  Lc  em_cmu.o [1]
+i2cNSum                 0x00023c40     0x4  Data  Lc  em_i2c.o [1]
+i2cTransfer             0x2000367c    0x18  Data  Lc  em_i2c.o [1]
+initialized             0x20003764     0x4  Data  Lc  dmd_ssd2119_direct.o [1]
+inittft                 0x000238e0    0x18  Data  Lc  tftspi.o [1]
+joy1                    0x20003794     0x4  Data  Lc  WM_RadialMenu.o [1]
+joy2                    0x20003798     0x4  Data  Lc  WM_RadialMenu.o [1]
+lastAddr                0x2000375c     0x4  Data  Lc  bsp_dk_3201.o [1]
+lastJoyTime             0x20003774     0x4  Data  Gb  GUI_X.o [1]
+lfClkGet                0x000079df    0xf4  Code  Lc  em_cmu.o [1]
+main                    0x00018d35    0x46  Code  Gb  WM_RadialMenu.o [1]
+maxFreqHfle             0x000077ab    0x60  Code  Lc  em_cmu.o [1]
+newpos                  0x200036fc     0xc  Data  Gb  touch.o [1]
+orgx                    0x20003780     0x4  Data  Lc  LCDConf.o [1]
+orgy                    0x20003784     0x4  Data  Lc  LCDConf.o [1]
+pFrameBuffer            0x2000379c     0x4  Data  Lc  WM_RadialMenu.o [1]
+pendingFrameIndex       0x20000000     0x4  Data  Gb  LCDConf.o [1]
+pos                     0x20003714     0xc  Data  Lc  touch.o [1]
+prevJoy                 0x20003770     0x4  Data  Gb  GUI_X.o [1]
+rtcFlag                 0x200037e0     0x1  Data  Gb  GUI_X.o [1]
+runOnce                 0x200002bc     0x1  Data  Lc  tftdirect.o [1]
+sInit                   0x200036f0     0xc  Data  Lc  touch.o [1]
+setCalibrationMatrix    0x0000abd1   0x148  Code  Gb  calibrate.o [1]
+setHfLeConfig           0x0000780b    0x2a  Code  Lc  em_cmu.o [1]
+strlen                  0x00020931          Code  Gb  strlen.o [5]
+syncReg                 0x00007ad3    0x16  Code  Lc  em_cmu.o [1]
+tftInit                 0x000229b8    0x4c  Data  Lc  LCDConf.o [1]
+time                    0x20003778     0x4  Data  Lc  GUI_X.o [1]
+touch_CountChecksum     0x00008f9b    0x28  Code  Lc  touch.o [1]
+touch_LoadCalibration   0x00008fc3    0xaa  Code  Lc  touch.o [1]
+touch_StoreCalibration  0x0000906d    0x5e  Code  Lc  touch.o [1]
+touch_ignore_move       0x20003790     0x4  Data  Gb  touch.o [1]
+touch_state             0x200037e1     0x1  Data  Lc  touch.o [1]
+upcall                  0x2000378c     0x4  Data  Lc  touch.o [1]
+usbCClkGet              0x00007ae9    0x3e  Code  Lc  em_cmu.o [1]
+
+
+[1] = D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\radialmenu\iar\radialmenu\Debug\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = emwin_IAR_CM3.a
+[5] = rt7M_tl.a
+
+  80 509 bytes of readonly  code memory
+  66 437 bytes of readonly  data memory
+  14 308 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

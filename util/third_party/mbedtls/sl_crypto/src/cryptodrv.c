@@ -1,8 +1,8 @@
 /*
- *  CRYPTO driver implementation including CRYPTO preemption and asynchronous
- *  (non-blocking) support.
+ *  CRYPTO driver implementation including CRYPTO preemption and yield when
+ *  crypto busy management.
  *
- *  Copyright (C) 2016, Silicon Labs, http://www.silabs.com
+ *  Copyright (C) 2016, Silicon Labs, httgp://www.silabs.com
  *  SPDX-License-Identifier: Apache-2.0
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -28,6 +28,8 @@
 #endif
 
 #include "cryptodrv_internal.h"
+#include "slcl_device_internal.h"
+#include "slpal.h"
 #include "em_crypto.h"
 #include "em_assert.h"
 #include "em_core.h"
@@ -35,56 +37,29 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <string.h>
-#if defined( CRYPTODRV_PAL_FREERTOS )
-#include "FreeRTOS.h"
-#include "task.h"
-#include "semphr.h"
-#define CRYPTO_IRQn_PRIORITY            (configMAX_SYSCALL_INTERRUPT_PRIORITY-1)
-#endif
 
 /*******************************************************************************
  ********************************   MACROS   ***********************************
  ******************************************************************************/
-#if defined(MBEDTLS_CRYPTO_DEVICE_PREEMPTION)
+#if defined(MBEDTLS_CRYPTO_DEVICE_PREEMPTION) || \
+    defined(MBEDTLS_DEVICE_YIELD_WHEN_BUSY)
 
 #define CRYPTODRV_CLOCK_ENABLE(clk)  CMU->HFBUSCLKEN0 |= clk
 #define CRYPTODRV_CLOCK_DISABLE(clk) CMU->HFBUSCLKEN0 &= ~(clk)
 
-#define RUNNING_AT_INTERRUPT_LEVEL  (SCB->ICSR & SCB_ICSR_VECTACTIVE_Msk)
-
-#if defined( _EFR32_MIGHTY_FAMILY ) || defined( _EFM32_PEARL_FAMILY )
-#define MAX_NVIC_ISER  (2)   /* FPUEH_IRQn = 33 is the highest IRQn
-                                and all IRQns fits inside 2 ISERs
-                                ISER[0] and ISER[1]. */
-#elif defined( _EFM32_JADE_FAMILY )
-#define MAX_NVIC_ISER  (1)   /* CRYOTIMER_IRQn = 31 is the highest IRQn
-                                and all IRQns fits inside one ISER[0]. */
-#else
-#error Device not supported.
 #endif
-
-#endif /* #if defined(MBEDTLS_CRYPTO_DEVICE_PREEMPTION) */
 
 /*******************************************************************************
  ********************************   STATICS   **********************************
  ******************************************************************************/
 
-#if defined(MBEDTLS_CRYPTO_DEVICE_PREEMPTION)
-/* Pointer to current owner context of the CRYPTO unit. The @ref cryptoOwner
-   pointer serves as the anchor to a double linked list of all current "active"
-   CRYPTODRV contexts. The @ref CRYPTODRV_Arbitrate function adds a new owner
-   if ownership is won, and CRYPTODRV_Release removes a context that is done.*/
-static struct CRYPTODRV_Context_t* cryptoOwner[CRYPTO_COUNT] =
-  {
-    NULL
-#if CRYPTO_COUNT==2
-    , NULL
-#endif
-  };
-
-/* Flag which indicates whether a CRYPTO critical region is active. */
-static uint32_t nvicIser[CRYPTO_COUNT][MAX_NVIC_ISER];
-
+#if !defined( MBEDTLS_DEVICE_INIT_INTERNAL_DISABLE )
+/* Device structures for internal initialization in order for backwards
+   compatibility. Use MBEDTLS_DEVICE_INIT_INTERNAL_DISABLE to disable
+   the internal device initialization. Internal initialization consumes
+   more RAM because the device structures are instantiated statically here,
+   inside the mbedTLS library. */
+static mbedtls_device_context _mbedtls_device_ctx[MBEDTLS_DEVICE_COUNT];
 #endif
 
 /* CRYPTO device instance structures. */
@@ -94,12 +69,8 @@ static const CRYPTO_Device_t cryptoDevice[CRYPTO_COUNT] =
   {
     CRYPTO0,
     CRYPTO0_IRQn,
-    CMU_HFBUSCLKEN0_CRYPTO0
-#if defined( MBEDTLS_CRYPTO_DEVICE_PREEMPTION )
-    ,
-    (void*)&cryptoOwner[0],
-    nvicIser[0]
-#endif
+    CMU_HFBUSCLKEN0_CRYPTO0,
+    &p_mbedtls_device_context[0]
 #if defined( MBEDTLS_INCLUDE_IO_MODE_DMA )
     ,
     dmadrvPeripheralSignal_CRYPTO0_DATA0WR,
@@ -110,12 +81,8 @@ static const CRYPTO_Device_t cryptoDevice[CRYPTO_COUNT] =
   {
     CRYPTO,
     CRYPTO_IRQn,
-    CMU_HFBUSCLKEN0_CRYPTO
-#if defined( MBEDTLS_CRYPTO_DEVICE_PREEMPTION )
-    ,
-    (void*)&cryptoOwner[0],
-    nvicIser[0]
-#endif
+    CMU_HFBUSCLKEN0_CRYPTO,
+    &p_mbedtls_device_context[0]
 #if defined( MBEDTLS_INCLUDE_IO_MODE_DMA )
     ,
     dmadrvPeripheralSignal_CRYPTO_DATA0WR,
@@ -128,12 +95,8 @@ static const CRYPTO_Device_t cryptoDevice[CRYPTO_COUNT] =
   {
     CRYPTO1,
     CRYPTO1_IRQn,
-    CMU_HFBUSCLKEN0_CRYPTO1
-#if defined( MBEDTLS_CRYPTO_DEVICE_PREEMPTION )
-    ,
-    (void*)&cryptoOwner[1],
-    nvicIser[1]
-#endif
+    CMU_HFBUSCLKEN0_CRYPTO1,
+    &p_mbedtls_device_context[1]
 #if defined( MBEDTLS_INCLUDE_IO_MODE_DMA )
     ,
     dmadrvPeripheralSignal_CRYPTO1_DATA0WR,
@@ -145,54 +108,71 @@ static const CRYPTO_Device_t cryptoDevice[CRYPTO_COUNT] =
 
 #if defined(MBEDTLS_CRYPTO_DEVICE_PREEMPTION)
 
-#if defined( CRYPTODRV_PAL_FREERTOS )
+#if defined( MBEDTLS_FREERTOS ) || defined( MBEDTLS_UCOS3 )
 
-#define CRYPTODRV_PAL_THREADS_LOCK \
-  if (false == RUNNING_AT_INTERRUPT_LEVEL) \
-    vTaskSuspendAll();
-#define CRYPTODRV_PAL_THREADS_UNLOCK \
-  if (false == RUNNING_AT_INTERRUPT_LEVEL) \
-    xTaskResumeAll();
-
-#define CRYPTODRV_PAL_THREAD_ID_GET  (void*)xTaskGetCurrentTaskHandle()
-
-#define CRYPTODRV_PAL_THREAD_PRIORITY_GET \
-  ((unsigned long)uxTaskPriorityGet(NULL))
-
-#define CRYPTODRV_PAL_THREAD_RESUME(threadId) \
-  xTaskResumeFromISR((TaskHandle_t)threadId)
-
-#define CRYPTODRV_PAL_WAIT_FOR_OWNERSHIP(pCryptodrvContext) \
-  cryptodrvPalWaitForOwnership(pCryptodrvContext)
-
-__STATIC_INLINE void cryptodrvPalWaitForOwnership(CRYPTODRV_Context_t* pCryptodrvContext)
+__STATIC_INLINE int waitForOwnership(CRYPTODRV_Context_t *pCryptodrvContext )
 {
-  CRYPTODRV_Context_t** pCryptoOwner =
-    (CRYPTODRV_Context_t**) pCryptodrvContext->device->pCryptoOwner;
-  while (pCryptodrvContext != *pCryptoOwner)
+  mbedtls_device_context *pMbedtlsDevice =
+    *pCryptodrvContext->device->ppMbedtlsDevice;
+  int ret;
+
+  ret = SLPAL_TakeMutex( &pMbedtlsDevice->lock, SLPAL_WAIT_FOREVER );
+  EFM_ASSERT(ret == 0);
+  
+  while (pCryptodrvContext != pMbedtlsDevice->owner)
   {
-    vTaskSuspend(xTaskGetCurrentTaskHandle());
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_NOT_OWNER )
+    pCryptodrvContext->waitOwnership = true;
+    EFM_ASSERT(SLPAL_InitCompletion(&pCryptodrvContext->ownership) == 0);
+#endif
+    ret = SLPAL_GiveMutex( &pMbedtlsDevice->lock );
+    EFM_ASSERT(ret == 0);
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_NOT_OWNER )
+    ret = SLPAL_WaitForCompletion(&pCryptodrvContext->ownership,
+                                  SLPAL_WAIT_FOREVER);
+    SLPAL_FreeCompletion(&pCryptodrvContext->ownership);
+#endif
+    ret = SLPAL_TakeMutex( &pMbedtlsDevice->lock, SLPAL_WAIT_FOREVER );
+    EFM_ASSERT(ret == 0);
   }
+  return 0;
 }
 
-#else  /* #if defined( CRYPTODRV_PAL_FREERTOS ) */
+#else  /* #if defined( MBEDTLS_FREERTOS )  || defined( MBEDTLS_UCOS3 ) */
 
-#define CRYPTODRV_PAL_THREADS_LOCK
-#define CRYPTODRV_PAL_THREADS_UNLOCK
-#define CRYPTODRV_PAL_THREAD_ID_GET       (0)
-#define CRYPTODRV_PAL_THREAD_PRIORITY_GET (RUNNING_AT_INTERRUPT_LEVEL ? 1 : 0)
-#define CRYPTODRV_PAL_THREAD_RESUME(threadId)
-#define CRYPTODRV_PAL_WAIT_FOR_OWNERSHIP(pCryptodrvContext)
+#if defined (CRYPTODRV_CRITICAL_ENTER_FAIL_IF_NOT_OWNER)
+__STATIC_INLINE int waitForOwnership(CRYPTODRV_Context_t *pCryptodrvContext)
+{
+  mbedtls_device_context  *pMbedtlsDevice =
+    *pCryptodrvContext->device->ppMbedtlsDevice;
+  int ret = SLPAL_TakeMutex( &pMbedtlsDevice->lock,
+                             pCryptodrvContext->lockWaitTicks );
+  if (pCryptodrvContext != pMbedtlsDevice->owner)
+  {
+    ret = SLPAL_GiveMutex( &pMbedtlsDevice->lock );
+    EFM_ASSERT(ret == 0);
+    return MBEDTLS_ECODE_CRYPTODRV_BUSY;
+  }
+  return ret;
+}
+#else
+__STATIC_INLINE int waitForOwnership(CRYPTODRV_Context_t *pCryptodrvContext)
+{
+  mbedtls_device_context  *pMbedtlsDevice =
+    *pCryptodrvContext->device->ppMbedtlsDevice;
+  return SLPAL_TakeMutex( &pMbedtlsDevice->lock, SLPAL_WAIT_FOREVER );
+}
+#endif
 
-#endif /* #if defined( CRYPTODRV_PAL_FREERTOS ) */
+#endif /* #if defined( MBEDTLS_FREERTOS )  || defined( MBEDTLS_UCOS3 ) */
+
+#if defined( MBEDTLS_CRYPTO_PREEMPTION_PRIORITY_SET )
+#define CRYPTO_CONTEXT_PRIORITY_GET (pCryptodrvContext->priority)
+#else
+#define CRYPTO_CONTEXT_PRIORITY_GET SLPAL_ThreadPriorityGet()
+#endif
 
 #endif /* #if defined(MBEDTLS_CRYPTO_DEVICE_PREEMPTION) */
-
-#if defined(MBEDTLS_INCLUDE_ASYNCH_API)
-/* Current callback function called from CRYPTO_IRQHandler. */
-static CRYPTODRV_AsynchCallback_t cryptoDrvAsynchCallback = 0;
-static void* cryptoDrvAsynchCallbackArgument;
-#endif
 
 /*******************************************************************************
  ******************************   FUNCTIONS   **********************************
@@ -200,24 +180,159 @@ static void* cryptoDrvAsynchCallbackArgument;
 
 /***************************************************************************//**
  * @brief
- *   Select which CRYPTO device instance to use in CRYPTO context.
- *
- * @param pCryptoContext
- *  Pointer to CRYPTO context.
+ *   Initialize CRYPTO device specifics for given device instance
  *
  * @param devno
  *  CRYPTO device instance number.
  *
  * @return
- *   0 if OK, or -1 if device number is invalid.
+ *   0 if OK, or MBEDTLS_ERR_DEVICE_NOT_SUPPORTED if device number is invalid.
+ ******************************************************************************/
+int mbedtls_device_specific_init (unsigned int devno)
+{
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+
+  const CRYPTO_Device_t* pCryptoDevice;
+  CRYPTO_TypeDef*        crypto;
+  IRQn_Type              irqn;
+  
+  if (devno >= CRYPTO_COUNT)
+    return( MBEDTLS_ERR_DEVICE_NOT_SUPPORTED );
+  
+  pCryptoDevice = &cryptoDevice[devno];
+  crypto        = pCryptoDevice->crypto;
+  irqn          = pCryptoDevice->irqn;
+  
+  /* Enable CRYPTO clock in order to clear interrupts. */
+  CRYPTODRV_CLOCK_ENABLE(pCryptoDevice->clk);
+  
+  crypto->IFC = _CRYPTO_IFC_MASK;
+  
+  NVIC_ClearPendingIRQ(irqn);
+  NVIC_EnableIRQ(irqn);
+  NVIC_SetPriority(irqn, SLPAL_CRYPTO_IRQ_PRIORITY);
+
+  CRYPTODRV_CLOCK_DISABLE(pCryptoDevice->clk);
+
+#else
+  
+  (void) devno;
+  
+#endif
+  
+  return( 0 );
+}
+
+/***************************************************************************//**
+ * @brief
+ *   Deinitialize CRYPTO device specifics for given device instance
+ *
+ * @param devno
+ *  CRYPTO device instance number.
+ *
+ * @return
+ *   0 if OK, or MBEDTLS_ERR_DEVICE_NOT_SUPPORTED if device number is invalid.
+ ******************************************************************************/
+int mbedtls_device_specific_free (unsigned int devno)
+{
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_BUSY )
+
+  const CRYPTO_Device_t* pCryptoDevice;
+  CRYPTO_TypeDef*        crypto;
+  IRQn_Type              irqn;
+  
+  if (devno >= CRYPTO_COUNT)
+    return( MBEDTLS_ERR_DEVICE_NOT_SUPPORTED );
+  
+  pCryptoDevice = &cryptoDevice[devno];
+  crypto        = pCryptoDevice->crypto;
+  irqn          = pCryptoDevice->irqn;
+  
+  /* Enable CRYPTO clock in order to clear interrupts. */
+  CRYPTODRV_CLOCK_ENABLE(pCryptoDevice->clk);
+  
+  crypto->IEN = 0;
+  crypto->IFC = _CRYPTO_IFC_MASK;
+  
+  NVIC_DisableIRQ(irqn);
+    
+  CRYPTODRV_CLOCK_DISABLE(pCryptoDevice->clk);
+  
+#else
+  
+  (void) devno;
+  
+#endif
+  
+  return( 0 );
+}
+
+/***************************************************************************//**
+ * @brief
+ *   Select which CRYPTO device instance to use in CRYPTO context.
+ *
+ * @param pCryptoContext
+ *  Pointer to CRYPTODRV context.
+ *
+ * @param devno
+ *  CRYPTO device instance number.
+ *
+ * @return
+ *   0 if OK, or MBEDTLS_ERR_DEVICE_NOT_SUPPORTED if device number is invalid.
  ******************************************************************************/
 int cryptodrvSetDeviceInstance(CRYPTODRV_Context_t* pCryptodrvContext,
                                unsigned int         devno)
 {
-  if (devno > CRYPTO_COUNT)
-    return( -1 );
-  
+  if (devno >= CRYPTO_COUNT)
+    return( MBEDTLS_ERR_DEVICE_NOT_SUPPORTED );
+
   pCryptodrvContext->device = &cryptoDevice[devno];
+
+#if !defined( MBEDTLS_DEVICE_INIT_INTERNAL_DISABLE )
+  /* Initialize the mbedtls device structures internally for backwards
+     compatibility. Use MBEDTLS_DEVICE_INIT_INTERNAL_DISABLE to disable
+     the internal device initialization. Internal initialization consumes
+     more RAM because the device structures are instantiated statically
+     inside the mbedTLS library. */
+  if (p_mbedtls_device_context[devno] == 0)
+  {
+    mbedtls_device_init(&_mbedtls_device_ctx[devno]);
+    mbedtls_device_set_instance(&_mbedtls_device_ctx[devno], devno);
+  }
+#endif
+  
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_NOT_OWNER )
+  pCryptodrvContext->waitOwnership = false;
+#endif
+  
+  return( 0 );
+}
+
+/***************************************************************************//**
+ * @brief
+ *   Set the number of ticks to wait for the device lock.
+ *
+ * @param pCryptoContext
+ *  Pointer to CRYPTODRV context.
+ *
+ * @param ticks
+ *  Number of ticks to wait for the device to become unlocked. If the value is 0
+ *  this function will return immediately even if the lock was not acquired.
+ *  If the value is -1 this funciton will wait forever (not time out) for the
+ *  lock to become available.
+ *
+ * @return
+ *   Always 0 for OK.
+ ******************************************************************************/
+int cryptodrvSetDeviceLockWaitTicks(CRYPTODRV_Context_t* pCryptodrvContext,
+                                    int                  ticks)
+{
+#if defined( MBEDTLS_CRYPTO_DEVICE_PREEMPTION )
+  pCryptodrvContext->lockWaitTicks = ticks;
+#else
+  (void) pCryptodrvContext;
+  (void) ticks;
+#endif  
   return( 0 );
 }
 
@@ -233,13 +348,14 @@ int cryptodrvSetDeviceInstance(CRYPTODRV_Context_t* pCryptodrvContext,
  *
  * @return
  *   MBEDTLS_ECODE_CRYPTODRV_BUSY if CRYPTO is busy running an ongoing operation.
- *   ECODE_OK if idle and ready for new operation.
+ *   0 if idle and ready for new operation.
  ******************************************************************************/
-Ecode_t CRYPTODRV_CheckState( unsigned int devno )
+int CRYPTODRV_CheckState( unsigned int devno )
 {
-  /* The 'cryptoOwner' pointer indicates whether someone is already running a
+  /* The 'owner' pointer indicates whether someone is already running a
      CRYPTO operation. */
-  return cryptoOwner[devno] ? MBEDTLS_ECODE_CRYPTODRV_BUSY : ECODE_OK;
+  return p_mbedtls_device_context[devno]->owner ?
+    MBEDTLS_ECODE_CRYPTODRV_BUSY : 0;
 }
 
 /***************************************************************************//**
@@ -265,28 +381,44 @@ Ecode_t CRYPTODRV_CheckState( unsigned int devno )
  *  like @ref CRYPTODRV_Release.
  *
  * @return
- *  MBEDTLS_ECODE_CRYPTODRV_OK if success. Error code if failure.
+ *  0 if success. Error code if failure.
  *  MBEDTLS_ECODE_CRYPTODRV_BUSY if priority is lower than or equal to the
- *   pririty of the running thread.
+ *   priority of the running thread.
  */
-Ecode_t CRYPTODRV_Arbitrate (CRYPTODRV_Context_t* pCryptodrvContext)
+int CRYPTODRV_Arbitrate (CRYPTODRV_Context_t* pCryptodrvContext)
 {
-  CRYPTO_TypeDef*       crypto = pCryptodrvContext->device->crypto;
-  CRYPTODRV_Context_t** pCryptoOwner =
-    (CRYPTODRV_Context_t**) pCryptodrvContext->device->pCryptoOwner;
-  CRYPTODRV_Context_t*  cryptoOwner;
-  Ecode_t          retval = ECODE_OK;
-  CORE_DECLARE_IRQ_STATE;
-    
-  CORE_ENTER_CRITICAL();
-  CRYPTODRV_PAL_THREADS_LOCK;
-
-  cryptoOwner = *pCryptoOwner;
+  const CRYPTO_Device_t  *pCryptoDevice  = pCryptodrvContext->device;
+  CRYPTO_TypeDef         *crypto         = pCryptoDevice->crypto;
+  mbedtls_device_context *pMbedtlsDevice = *pCryptoDevice->ppMbedtlsDevice;
+  int                     retval         = 0;
+  CRYPTODRV_Context_t    *pCryptoOwner;
+  int                     ret;
+  unsigned int            challengerPriority = CRYPTO_CONTEXT_PRIORITY_GET;
+  
+  if (false == RUNNING_AT_INTERRUPT_LEVEL)
+  {
+    ret = SLPAL_TakeMutex( &pMbedtlsDevice->lock,
+                           pCryptodrvContext->lockWaitTicks );
+  
+    if ( ret == SLPAL_ERROR_TIMEOUT )
+    {
+      return MBEDTLS_ECODE_CRYPTODRV_BUSY;
+    }
+  }
+  
+#if defined( MBEDTLS_ALLOW_ISR_CALLS_IRQ_MASK )
+  /* Disable the interrupts that are allowed to call mbedTLS APIs
+     from the corresponding ISR. */
+  CORE_EnterNvicMask( &pCryptodrvContext->nvicState,
+                      &MBEDTLS_ALLOW_ISR_CALLS_IRQ_MASK );
+#endif
+  
+  pCryptoOwner = pMbedtlsDevice->owner;
   
   /* Check if someone is already running a CRYPTO operation. */
-  if (cryptoOwner)
+  if (pCryptoOwner)
   {
-    if (CRYPTODRV_PAL_THREAD_PRIORITY_GET <= cryptoOwner->threadPriority)
+    if ( challengerPriority <= pCryptoOwner->priority )
     {
       retval = MBEDTLS_ECODE_CRYPTODRV_BUSY;
     }
@@ -302,34 +434,20 @@ Ecode_t CRYPTODRV_Arbitrate (CRYPTODRV_Context_t* pCryptodrvContext)
           & (CRYPTO_STATUS_INSTRRUNNING | CRYPTO_STATUS_SEQRUNNING))
       {
         crypto->CMD = CRYPTO_CMD_SEQSTOP;
-        cryptoOwner->aborted = true;
+        pCryptoOwner->aborted = true;
       }
       else
       {
-        cryptoOwner->aborted = false;
+        pCryptoOwner->aborted = false;
       }
       
-      cryptoOwner->pContextPreemptor = pCryptodrvContext;
-      
-#if defined(MBEDTLS_INCLUDE_ASYNCH_API)
-      /* Store the asynch callback state */
-      cryptoOwner->asynchCallback         = cryptoDrvAsynchCallback;
-      cryptoOwner->asynchCallbackArgument = cryptoDrvAsynchCallbackArgument;
-#endif
-      
+      pCryptoOwner->pContextPreemptor = pCryptodrvContext;
+
       /* Store the hardware state */
-      pCryptoContext = &cryptoOwner->cryptoContext;
-      
-      pCryptoContext->CTRL     = crypto->CTRL;
-      pCryptoContext->WAC      = crypto->WAC;
-      pCryptoContext->SEQCTRL  = crypto->SEQCTRL;
-      pCryptoContext->SEQCTRLB = crypto->SEQCTRLB;
-      pCryptoContext->IEN      = crypto->IEN;
-      pCryptoContext->SEQ[0]   = crypto->SEQ0;
-      pCryptoContext->SEQ[1]   = crypto->SEQ1;
-      pCryptoContext->SEQ[2]   = crypto->SEQ2;
-      pCryptoContext->SEQ[3]   = crypto->SEQ3;
-      pCryptoContext->SEQ[4]   = crypto->SEQ4;
+      pCryptoContext = &pCryptoOwner->cryptoContext;
+
+      /* Store CRYPTO register values in context structure. */
+      cryptodrvReadCryptoContext(crypto, pCryptoContext);
       
       /* Search for possible EXEC commands and replace with END. */
       pExecCmd = (uint8_t*) memchr(&pCryptoContext->SEQ,
@@ -342,13 +460,8 @@ Ecode_t CRYPTODRV_Arbitrate (CRYPTODRV_Context_t* pCryptodrvContext)
                sizeof(pCryptoContext->SEQ) -
                ((uint32_t)pExecCmd-(uint32_t)&pCryptoContext->SEQ));
       }
-      CRYPTO_DDataRead(&crypto->DDATA0, pCryptoContext->DDATA[0]);
-      CRYPTO_DDataRead(&crypto->DDATA1, pCryptoContext->DDATA[1]);
-      CRYPTO_DDataRead(&crypto->DDATA2, pCryptoContext->DDATA[2]);
-      CRYPTO_DDataRead(&crypto->DDATA3, pCryptoContext->DDATA[3]);
-      CRYPTO_DDataRead(&crypto->DDATA4, pCryptoContext->DDATA[4]);
       
-      retval = ECODE_OK;
+      retval = 0;
     }
   }
   else
@@ -356,22 +469,25 @@ Ecode_t CRYPTODRV_Arbitrate (CRYPTODRV_Context_t* pCryptodrvContext)
     CRYPTODRV_CLOCK_ENABLE(pCryptodrvContext->device->clk);
   }
   
-  if (ECODE_OK ==  retval)
+  if (0 ==  retval)
   {
-    pCryptodrvContext->pContextPreempted = cryptoOwner;
-    *pCryptoOwner = pCryptodrvContext;
+    pCryptodrvContext->pContextPreempted = pCryptoOwner;
+    pMbedtlsDevice->owner = pCryptodrvContext;
     pCryptodrvContext->pContextPreemptor = 0;
     pCryptodrvContext->aborted = false;
-    pCryptodrvContext->threadPriority = CRYPTODRV_PAL_THREAD_PRIORITY_GET;
-    pCryptodrvContext->threadId = CRYPTODRV_PAL_THREAD_ID_GET;
-    
-#if defined(MBEDTLS_INCLUDE_ASYNCH_API)
-    CRYPTODRV_SetAsynchCallback(pCryptodrvContext, 0, 0);
-#endif
+    pCryptodrvContext->priority = challengerPriority;
   }
 
-  CRYPTODRV_PAL_THREADS_UNLOCK;
-  CORE_EXIT_CRITICAL();
+#if defined( MBEDTLS_ALLOW_ISR_CALLS_IRQ_MASK )
+  /* Enable the interrupts that are allowed to call mbedTLS APIs
+     from the corresponding ISR. */
+  CORE_NvicEnableMask( &pCryptodrvContext->nvicState );
+#endif
+  
+  if (false == RUNNING_AT_INTERRUPT_LEVEL)
+  {
+    SLPAL_GiveMutex( &pMbedtlsDevice->lock );
+  }
   
   return retval;
 }
@@ -394,30 +510,40 @@ Ecode_t CRYPTODRV_Arbitrate (CRYPTODRV_Context_t* pCryptodrvContext)
  * @return
  *  MBEDTLS_ECODE_CRYPTODRV_OK if success. Error code if failure.
  */
-Ecode_t CRYPTODRV_Release (CRYPTODRV_Context_t* pCryptodrvContext)
+int CRYPTODRV_Release (CRYPTODRV_Context_t* pCryptodrvContext)
 {
-  CRYPTODRV_Context_t* preempted =
-    (CRYPTODRV_Context_t*) pCryptodrvContext->pContextPreempted;
-  CRYPTODRV_Context_t* preemptor =
-    (CRYPTODRV_Context_t*) pCryptodrvContext->pContextPreemptor;
-  CRYPTO_TypeDef* crypto = pCryptodrvContext->device->crypto;  
-  CRYPTODRV_Context_t** pCryptoOwner =
-    (CRYPTODRV_Context_t**) pCryptodrvContext->device->pCryptoOwner;
-  CRYPTODRV_Context_t*  cryptoOwner;
-  CORE_DECLARE_IRQ_STATE;
+  const CRYPTO_Device_t  *pCryptoDevice  = pCryptodrvContext->device;
+  mbedtls_device_context *pMbedtlsDevice = *pCryptoDevice->ppMbedtlsDevice;
+  CRYPTODRV_Context_t    *preempted;
+  CRYPTODRV_Context_t    *preemptor;
+  int                     ret;
   
-  CORE_ENTER_CRITICAL();
-  CRYPTODRV_PAL_THREADS_LOCK;
+  if (false == RUNNING_AT_INTERRUPT_LEVEL)
+  {
+    ret = SLPAL_TakeMutex( &pMbedtlsDevice->lock, SLPAL_WAIT_FOREVER );
+    EFM_ASSERT(ret == 0);
+  }
+
+#if defined( MBEDTLS_ALLOW_ISR_CALLS_IRQ_MASK )
+  /* Disable the interrupts that are allowed to call mbedTLS APIs
+     from the corresponding ISR. */
+  CORE_EnterNvicMask( &pCryptodrvContext->nvicState,
+                      &MBEDTLS_ALLOW_ISR_CALLS_IRQ_MASK );
+#endif
+  
+  preempted =
+    (CRYPTODRV_Context_t*) pCryptodrvContext->pContextPreempted;
+  preemptor =
+    (CRYPTODRV_Context_t*) pCryptodrvContext->pContextPreemptor;
 
   if ( (0==preempted) && (0==preemptor))
   {
-    *pCryptoOwner = NULL;
-    CRYPTODRV_CLOCK_DISABLE(pCryptodrvContext->device->clk);
+    EFM_ASSERT(pCryptodrvContext==pMbedtlsDevice->owner);
+    pMbedtlsDevice->owner = NULL;
+    CRYPTODRV_CLOCK_DISABLE(pCryptoDevice->clk);
   }
   else
   {
-    cryptoOwner = *pCryptoOwner;
-    
     /* If _this_ context was preempted, and the preemptor is still running,
        then inform the preemptor that _this_ context is not valid any more
        by linking to _this_ preempted context (which may be NULL). */
@@ -435,87 +561,75 @@ Ecode_t CRYPTODRV_Release (CRYPTODRV_Context_t* pCryptodrvContext)
 
       /* If _this_ conxtext is the owner of crypto, restore preempted
          context and set it to owner. */
-      if (cryptoOwner == pCryptodrvContext)
+      if (pMbedtlsDevice->owner == pCryptodrvContext)
       {
-        CRYPTO_Context_t*  pCryptoContext = &preempted->cryptoContext;
-      
-        crypto->CTRL     = pCryptoContext->CTRL;
-        crypto->WAC      = pCryptoContext->WAC;
-        crypto->SEQCTRL  = pCryptoContext->SEQCTRL;
-        crypto->SEQCTRLB = pCryptoContext->SEQCTRLB;
-        crypto->IEN      = pCryptoContext->IEN;
-        crypto->SEQ0     = pCryptoContext->SEQ[0];
-        crypto->SEQ1     = pCryptoContext->SEQ[1];
-        crypto->SEQ2     = pCryptoContext->SEQ[2];
-        crypto->SEQ3     = pCryptoContext->SEQ[3];
-        crypto->SEQ4     = pCryptoContext->SEQ[4];
-        CRYPTO_DDataWrite(&crypto->DDATA0, pCryptoContext->DDATA[0]);
-        CRYPTO_DDataWrite(&crypto->DDATA1, pCryptoContext->DDATA[1]);
-        CRYPTO_DDataWrite(&crypto->DDATA2, pCryptoContext->DDATA[2]);
-        CRYPTO_DDataWrite(&crypto->DDATA3, pCryptoContext->DDATA[3]);
-        CRYPTO_DDataWrite(&crypto->DDATA4, pCryptoContext->DDATA[4]);
-
-#if defined(MBEDTLS_INCLUDE_ASYNCH_API)
-        CRYPTODRV_SetAsynchCallback(pCryptodrvContext,
-                                    preempted->asynchCallback,
-                                    preempted->asynchCallbackArgument);
+        /* Load context values into CRYPTO registers. */
+        cryptodrvWriteCryptoContext(pCryptoDevice->crypto,
+                                    &preempted->cryptoContext);
+        /* Set owner pointer to preempted context. */
+        pMbedtlsDevice->owner = preempted;
+#if defined( MBEDTLS_DEVICE_YIELD_WHEN_NOT_OWNER )
+        if (preempted->waitOwnership)
+        {
+          preempted->waitOwnership = false;
+          int status = SLPAL_Complete(&preempted->ownership);
+          EFM_ASSERT(status == 0);
+        }
 #endif
-        
-        cryptoOwner = *pCryptoOwner = preempted;
-        /* Resume new owner task (which may be suspended by now). */
-        CRYPTODRV_PAL_THREAD_RESUME(cryptoOwner->threadId);
       }
     }
   }
-
-  CRYPTODRV_PAL_THREADS_UNLOCK;
-  CORE_EXIT_CRITICAL();
   
-  return ECODE_OK;
+#if defined( MBEDTLS_ALLOW_ISR_CALLS_IRQ_MASK )
+  /* Enable the interrupts that are allowed to call mbedTLS APIs
+     from the corresponding ISR. */
+  CORE_NvicEnableMask( &pCryptodrvContext->nvicState );
+#endif
+  
+  if (false == RUNNING_AT_INTERRUPT_LEVEL)
+  {
+    SLPAL_GiveMutex( &pMbedtlsDevice->lock );
+  }
+  
+  return( 0 );
 }
-
-#if !defined( MBEDTLS_CRYPTO_CRITICAL_REGION_ALT )
 
 /***************************************************************************//**
  * @brief
  *  Enter a critical CRYPTO region.
  *
  * @details
- *  This function enters a critical region of a CRYPTO operation by disabling
- *  all interrupts, except the CRYPTO interrupt. If a thread which is not the
- *  owner of CRYPTO tries to enter the critical region, it will be suspended.
- *  The thread will be resumed when the preemptor calls CRYPTODRV_Release.
+ *  This function enters a critical section of a CRYPTO operation by locking
+ *  the CRYPTO device and disabling interrupts that are allowed to call the
+ *  mbedTLS API from the corresponding ISRs.
+ *  In multi-threaded OSes, if a thread which is not the owner (preempted
+ *  context) of CRYPTO tries to enter the critical section, it will loop until
+ *  the ownership is given back from the preemptor.
  *
  * @return
- *  ECODE_OK
+ *  0. If CRYPTODRV_CRITICAL_ENTER_FAIL_IF_NOT_OWNER is defined
+ *  MBEDTLS_ECODE_CRYPTODRV_BUSY will be returned if the caller is not the owner.
 */
-Ecode_t CRYPTODRV_EnterCriticalRegion (CRYPTODRV_Context_t* pCryptodrvContext)
+int CRYPTODRV_EnterCriticalRegion (CRYPTODRV_Context_t* pCryptodrvContext)
 {
-  int i;
-  IRQn_Type irqn = pCryptodrvContext->device->irqn;
-  uint32_t* pNvicIser = pCryptodrvContext->device->pNvicIser;
-  CORE_DECLARE_IRQ_STATE;
+  int ret = 0;
   
-  CRYPTODRV_PAL_WAIT_FOR_OWNERSHIP(pCryptodrvContext);
-  
-  CORE_ENTER_CRITICAL();
-  CRYPTODRV_PAL_THREADS_LOCK;
-
-  /* Disable all interrupts except the CRYPTO IRQ. Remember which interrupts
-     that was enabled in order to enable them when exiting the critical
-     region. */
-  for (i=0; i<MAX_NVIC_ISER; i++)
+  if (false == RUNNING_AT_INTERRUPT_LEVEL)
   {
-    pNvicIser[i]  = NVIC->ISER[i];
-    NVIC->ICER[i] = pNvicIser[i];
+    ret = waitForOwnership( pCryptodrvContext );
   }
-  NVIC->ISER[(uint32_t)((int32_t)irqn) >> 5] =
-    (uint32_t)(1 << ((uint32_t)((int32_t)irqn) & (uint32_t)0x1F));
-
-  CRYPTODRV_PAL_THREADS_UNLOCK;
-  CORE_EXIT_CRITICAL();
   
-  return ECODE_OK;
+#if defined( MBEDTLS_ALLOW_ISR_CALLS_IRQ_MASK )
+  if (ret == 0)
+  {
+    /* Disable the interrupts that are allowed to call mbedTLS APIs
+       from the corresponding ISR. */
+    CORE_EnterNvicMask( &pCryptodrvContext->nvicState,
+                        &MBEDTLS_ALLOW_ISR_CALLS_IRQ_MASK );
+  }
+#endif
+
+  return( ret );
 }
 
 /***************************************************************************//**
@@ -528,81 +642,31 @@ Ecode_t CRYPTODRV_EnterCriticalRegion (CRYPTODRV_Context_t* pCryptodrvContext)
  *  nested critical region was entered.
  *
  * @return
- *  ECODE_OK
+ *  0
  */
-Ecode_t CRYPTODRV_ExitCriticalRegion (CRYPTODRV_Context_t* pCryptodrvContext)
+int CRYPTODRV_ExitCriticalRegion (CRYPTODRV_Context_t* pCryptodrvContext)
 {
-  int i;
-  (void) pCryptodrvContext; /* remove compiler warning when pCryptodrvContext
-                             is not used.*/
-  uint32_t* pNvicIser = pCryptodrvContext->device->pNvicIser;
-  CORE_DECLARE_IRQ_STATE;
+  mbedtls_device_context *pMbedtlsDevice =
+    *pCryptodrvContext->device->ppMbedtlsDevice;
   
-  CORE_ENTER_CRITICAL();
-  CRYPTODRV_PAL_THREADS_LOCK;
-
-  /* Enable all interrupts that was enabled when entering the critical
-     region. */
-  for (i=0; i<MAX_NVIC_ISER; i++)
+#if defined( MBEDTLS_ALLOW_ISR_CALLS_IRQ_MASK )
+  /* Enable the interrupts that are allowed to call mbedTLS APIs
+     from the corresponding ISR. */
+  CORE_NvicEnableMask( &pCryptodrvContext->nvicState );
+#endif
+  
+  if (false == RUNNING_AT_INTERRUPT_LEVEL)
   {
-    NVIC->ISER[i] |= pNvicIser[i];
+    SLPAL_GiveMutex( &pMbedtlsDevice->lock );
   }
-
-  CRYPTODRV_PAL_THREADS_UNLOCK;
-  CORE_EXIT_CRITICAL();
   
-  return ECODE_OK;
+  return( 0 );
 }
-
-#endif /* #if !defined( MBEDTLS_CRYPTO_CRITICAL_REGION_ALT ) */
 
 #endif /* #if defined( MBEDTLS_CRYPTO_DEVICE_PREEMPTION ) */
 
-#if defined(MBEDTLS_INCLUDE_ASYNCH_API)
-
-/***************************************************************************//**
- * @brief
- *  Set asynchronous callback to be called when crypto operations complete.
- *
- * @details
- *  This function sets the asynchronous callback function to be called when
- *  crypto operations complete. This function should be called inside _the_
- *  critical region of an asynchronous operation.
- *
- * @return
- *  N/A
- */
-void CRYPTODRV_SetAsynchCallback
-(
- CRYPTODRV_Context_t*       pCryptodrvContext,
- CRYPTODRV_AsynchCallback_t asynchCallback,
- void*                      callbackArgument
- )
-{
-  CRYPTO_TypeDef*      crypto = pCryptodrvContext->device->crypto;
-  IRQn_Type            irqn   = pCryptodrvContext->device->irqn;
-  if (asynchCallback)
-  {
-    cryptoDrvAsynchCallback = asynchCallback;
-    cryptoDrvAsynchCallbackArgument = callbackArgument;
-    crypto->IFC = _CRYPTO_IFC_MASK;
-    crypto->IEN = CRYPTO_IEN_SEQDONE;
-    NVIC_ClearPendingIRQ(irqn);
-    NVIC_EnableIRQ(irqn);
-#if defined( CRYPTODRV_PAL_FREERTOS )
-    /* Set priority below the configured maximum system call priority */
-    NVIC_SetPriority(irqn, CRYPTO_IRQn_PRIORITY);
-#endif
-  }
-  else
-  {
-    cryptoDrvAsynchCallback = 0;
-    crypto->IEN = 0;
-    crypto->IFC = _CRYPTO_IFC_MASK;
-    NVIC_DisableIRQ(irqn);
-  }
-}
-
+#if defined(MBEDTLS_DEVICE_YIELD_WHEN_BUSY)
+                              
 /***************************************************************************//**
  * @brief
  *  Interrupt service routine for CRYPTO module instances.
@@ -612,9 +676,7 @@ void CRYPTODRV_SetAsynchCallback
  *  called when an interrupt from the respective CRYPTO instance is being
  *  serviced by the MCU. The function cryptoIrqHandlerGeneric is called with
  *  a pointer to the respective CRYPTO unit, and it will clear the interrupt
- *  and call the interrupt service routine associated with the operation that
- *  caused the interrupt. The operation specific ISR must be registered by
- *  calling @ref CRYPTODRV_SetAsynchCallback before the operation is started.
+ *  and signal the event.
  *
  * @return
  *  N/A
@@ -631,10 +693,9 @@ void cryptoIrqHandlerGeneric( const CRYPTO_Device_t* cryptoDevice )
     
     if (flags & CRYPTO_IF_SEQDONE)
     {
-      if (cryptoDrvAsynchCallback)
-      {
-        cryptoDrvAsynchCallback (cryptoDrvAsynchCallbackArgument);
-      }
+      mbedtls_device_context  *pMbedtlsDevice = *cryptoDevice->ppMbedtlsDevice;
+      int status = SLPAL_Complete(&pMbedtlsDevice->operation);
+      EFM_ASSERT(status == 0);
     }
     if (CMU->HFBUSCLKEN0 & cryptoDevice->clk)
       flags = crypto->IF;
@@ -642,28 +703,34 @@ void cryptoIrqHandlerGeneric( const CRYPTO_Device_t* cryptoDevice )
       flags = 0;
   }
 }
-                              
+
 #if defined(CRYPTO)
 void CRYPTO_IRQHandler(void)
 {
+  SLPAL_IsrEnter();
   cryptoIrqHandlerGeneric( &cryptoDevice[0] );
+  SLPAL_IsrExit();
 }
 #endif
 
 #if defined(CRYPTO0)
 void CRYPTO0_IRQHandler(void)
 {
+  SLPAL_IsrEnter();
   cryptoIrqHandlerGeneric( &cryptoDevice[0] );
+  SLPAL_IsrExit();
 }
 #endif
 
 #if defined(CRYPTO1)
 void CRYPTO1_IRQHandler(void)
 {
+  SLPAL_IsrEnter();
   cryptoIrqHandlerGeneric( &cryptoDevice[1] );
+  SLPAL_IsrExit();
 }
 #endif
 
-#endif /* #if defined(MBEDTLS_INCLUDE_ASYNCH_API) */
+#endif /* #if defined(MBEDTLS_DEVICE_YIELD_WHEN_BUSY) */
 
 #endif /* #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) */

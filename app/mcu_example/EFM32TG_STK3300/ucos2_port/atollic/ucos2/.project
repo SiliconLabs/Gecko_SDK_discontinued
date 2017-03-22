@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>ucos2</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.cdt.managedbuilder.core.genmakebuilder</name>
+			<triggers>clean,full,incremental,</triggers>
+			<arguments>
+				<dictionary>
+					<key>?name?</key>
+					<value></value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.append_environment</key>
+					<value>true</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.buildArguments</key>
+					<value></value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.buildCommand</key>
+					<value>make</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.buildLocation</key>
+					<value>${workspace_loc:/ucos2/Debug}</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.contents</key>
+					<value>org.eclipse.cdt.make.core.activeConfigSettings</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.enableAutoBuild</key>
+					<value>false</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.enableCleanBuild</key>
+					<value>true</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.enableFullBuild</key>
+					<value>true</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.stopOnError</key>
+					<value>true</value>
+				</dictionary>
+				<dictionary>
+					<key>org.eclipse.cdt.make.core.useDefaultBuildCmd</key>
+					<value>true</value>
+				</dictionary>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.cdt.managedbuilder.core.ScannerConfigBuilder</name>
+			<triggers>full,incremental,</triggers>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.cdt.core.cnature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
+	</natures>
+	<linkedResources>
+<link>
+  <name>Include_Dependencies/cmsis_Include</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/platform/CMSIS/Include</locationURI>
+</link>
+<link>
+  <name>Include_Dependencies/device_EFM32TG_Include</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/platform/Device/SiliconLabs/EFM32TG/Include</locationURI>
+</link>
+<link>
+  <name>Include_Dependencies/emlib_inc</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/platform/emlib/inc</locationURI>
+</link>
+<link>
+  <name>Include_Dependencies/drivers</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/hardware/kit/common/drivers</locationURI>
+</link>
+<link>
+  <name>Include_Dependencies/bsp</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/hardware/kit/common/bsp</locationURI>
+</link>
+<link>
+  <name>Include_Dependencies/kitconfig</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/hardware/kit/EFM32TG_STK3300/config</locationURI>
+</link>
+<link>
+  <name>Include_Dependencies/bspos</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-2-PROJECT_LOC%7D/src/bsp</locationURI>
+</link>
+<link>
+  <name>Include_Dependencies/app</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-2-PROJECT_LOC%7D/src/app</locationURI>
+</link>
+<link>
+  <name>Include_Dependencies/ucos_uC-CPU</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/util/third_party/micrium/uCOS-II/uC-CPU</locationURI>
+</link>
+<link>
+  <name>Include_Dependencies/ucos_uC-LIB</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/util/third_party/micrium/uCOS-II/uC-LIB</locationURI>
+</link>
+<link>
+  <name>Include_Dependencies/ucos_uCOS-II_Source</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/util/third_party/micrium/uCOS-II/uCOS-II/Source</locationURI>
+</link>
+<link>
+  <name>Include_Dependencies/ucos_uC-CPU_ARM-Cortex-M3_GNU</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/util/third_party/micrium/uCOS-II/uC-CPU/ARM-Cortex-M3/GNU</locationURI>
+</link>
+<link>
+  <name>Include_Dependencies/ucos_uCOS-II_Ports_ARM-Cortex-M3_Generic_GNU</name>
+  <type>2</type>
+  <locationURI>$%7BPARENT-6-PROJECT_LOC%7D/util/third_party/micrium/uCOS-II/uCOS-II/Ports/ARM-Cortex-M3/Generic/GNU</locationURI>
+</link>
+
+		<link>
+			<name>csdata</name>
+			<type>2</type>
+			<locationURI>PROJECT_LOC/.csdata</locationURI>
+		</link>
+		<link>
+			<name>APP/app.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/src/app/app.c</locationURI>
+		</link>
+		<link>
+			<name>APP/app_hooks.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/src/app/app_hooks.c</locationURI>
+		</link>
+		<link>
+			<name>APP/app_task_one.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/src/app/app_task_one.c</locationURI>
+		</link>
+		<link>
+			<name>APP/app_task_two.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/src/app/app_task_two.c</locationURI>
+		</link>
+		<link>
+			<name>APP/app_task_three.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/src/app/app_task_three.c</locationURI>
+		</link>
+		<link>
+			<name>BSP/bspos.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-2-PROJECT_LOC%7D/src/bsp/bspos.c</locationURI>
+		</link>
+		<link>
+			<name>BSP/bsp_bcc.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/hardware/kit/common/bsp/bsp_bcc.c</locationURI>
+		</link>
+		<link>
+			<name>BSP/bsp_stk.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/hardware/kit/common/bsp/bsp_stk.c</locationURI>
+		</link>
+		<link>
+			<name>BSP/bsp_stk_leds.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/hardware/kit/common/bsp/bsp_stk_leds.c</locationURI>
+		</link>
+		<link>
+			<name>BSP/bsp_trace.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/hardware/kit/common/bsp/bsp_trace.c</locationURI>
+		</link>
+		<link>
+			<name>CMSIS/startup_efm32tg.s</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/platform/Device/SiliconLabs/EFM32TG/Source/Atollic/startup_efm32tg.s</locationURI>
+		</link>
+		<link>
+			<name>CMSIS/system_efm32tg.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/platform/Device/SiliconLabs/EFM32TG/Source/system_efm32tg.c</locationURI>
+		</link>
+		<link>
+			<name>CMSIS/cmsis_wrapper.s</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/util/third_party/micrium/Ports/CMSIS/GCC/cmsis_wrapper.s</locationURI>
+		</link>
+		<link>
+			<name>Drivers/retargetio.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/hardware/kit/common/drivers/retargetio.c</locationURI>
+		</link>
+		<link>
+			<name>Drivers/retargetserial.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/hardware/kit/common/drivers/retargetserial.c</locationURI>
+		</link>
+		<link>
+			<name>Drivers/segmentlcd.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/hardware/kit/common/drivers/segmentlcd.c</locationURI>
+		</link>
+		<link>
+			<name>emlib/em_cmu.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/platform/emlib/src/em_cmu.c</locationURI>
+		</link>
+		<link>
+			<name>emlib/em_core.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/platform/emlib/src/em_core.c</locationURI>
+		</link>
+		<link>
+			<name>emlib/em_emu.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/platform/emlib/src/em_emu.c</locationURI>
+		</link>
+		<link>
+			<name>emlib/em_gpio.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/platform/emlib/src/em_gpio.c</locationURI>
+		</link>
+		<link>
+			<name>emlib/em_lcd.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/platform/emlib/src/em_lcd.c</locationURI>
+		</link>
+		<link>
+			<name>emlib/em_system.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/platform/emlib/src/em_system.c</locationURI>
+		</link>
+		<link>
+			<name>emlib/em_usart.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/platform/emlib/src/em_usart.c</locationURI>
+		</link>
+		<link>
+			<name>emlib/em_leuart.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/platform/emlib/src/em_leuart.c</locationURI>
+		</link>
+		<link>
+			<name>uC/CPU/cpu_core.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/util/third_party/micrium/uCOS-II/uC-CPU/cpu_core.c</locationURI>
+		</link>
+		<link>
+			<name>uC/CPU/cpu_c.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/util/third_party/micrium/uCOS-II/uC-CPU/ARM-Cortex-M3/GNU/cpu_c.c</locationURI>
+		</link>
+		<link>
+			<name>uC/CPU/cpu_a.s</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/util/third_party/micrium/uCOS-II/uC-CPU/ARM-Cortex-M3/GNU/cpu_a.s</locationURI>
+		</link>
+		<link>
+			<name>uC/LIB/lib_mem_a.s</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/util/third_party/micrium/uCOS-II/uC-LIB/Ports/ARM-Cortex-M3/GNU/lib_mem_a.s</locationURI>
+		</link>
+		<link>
+			<name>uC/OS-II/ucos_ii.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/util/third_party/micrium/uCOS-II/uCOS-II/Source/ucos_ii.c</locationURI>
+		</link>
+		<link>
+			<name>uC/OS-II/os_dbg.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/util/third_party/micrium/uCOS-II/uCOS-II/Ports/ARM-Cortex-M3/Generic/GNU/os_dbg.c</locationURI>
+		</link>
+		<link>
+			<name>uC/OS-II/os_cpu_c.c</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/util/third_party/micrium/uCOS-II/uCOS-II/Ports/ARM-Cortex-M3/Generic/GNU/os_cpu_c.c</locationURI>
+		</link>
+		<link>
+			<name>uC/OS-II/os_cpu_a.s</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-6-PROJECT_LOC%7D/util/third_party/micrium/uCOS-II/uCOS-II/Ports/ARM-Cortex-M3/Generic/GNU/os_cpu_a.s</locationURI>
+		</link>
+	</linkedResources>
+	<filteredResources>
+<filter>
+  <name>Include_Dependencies/cmsis_Include</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/cmsis_Include</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/device_EFM32TG_Include</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/device_EFM32TG_Include</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/emlib_inc</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/emlib_inc</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/drivers</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/drivers</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/bsp</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/bsp</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/kitconfig</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/kitconfig</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/bspos</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/bspos</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/app</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/app</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/ucos_uC-CPU</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/ucos_uC-CPU</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/ucos_uC-LIB</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/ucos_uC-LIB</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/ucos_uCOS-II_Source</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/ucos_uCOS-II_Source</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/ucos_uC-CPU_ARM-Cortex-M3_GNU</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/ucos_uC-CPU_ARM-Cortex-M3_GNU</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/ucos_uCOS-II_Ports_ARM-Cortex-M3_Generic_GNU</name>
+  <type>5</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*.h</arguments>
+  </matcher>
+</filter>
+<filter>
+  <name>Include_Dependencies/ucos_uCOS-II_Ports_ARM-Cortex-M3_Generic_GNU</name>
+  <type>10</type>
+  <matcher>
+    <id>org.eclipse.ui.ide.multiFilter</id>
+    <arguments>1.0-name-matches-false-false-*</arguments>
+  </matcher>
+</filter>
+	</filteredResources>
+</projectDescription>

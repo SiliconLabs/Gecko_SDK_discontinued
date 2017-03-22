@@ -3,7 +3,7 @@
 *                                                      uC/OS-III
 *                                                 The Real-Time Kernel
 *
-*                                  (c) Copyright 2009-2012; Micrium, Inc.; Weston, FL
+*                                  (c) Copyright 2009-2016; Micrium, Inc.; Weston, FL
 *                           All rights reserved.  Protected by international copyright laws.
 *
 *                                        THREAD LOCAL STORAGE (TLS) MANAGEMENT
@@ -11,7 +11,7 @@
 *
 * File    : OS_TLS.C
 * By      : JJL
-* Version : V3.03.00
+* Version : V3.06.00
 *
 * LICENSING TERMS:
 * ---------------
@@ -27,12 +27,14 @@
 *           Please help us continue to provide the embedded community with the finest software available.
 *           Your honesty is greatly appreciated.
 *
-*           You can contact us at www.micrium.com, or by phone at +1 (954) 217-2036.
+*           You can find our product's user manual, API reference, release notes and
+*           more information at https://doc.micrium.com.
+*           You can contact us at www.micrium.com.
 ************************************************************************************************************************
 */
 
 #define  MICRIUM_SOURCE
-#include <os.h>
+#include "../../Source/os.h"
 
 #ifdef VSC_INCLUDE_SOURCE_FILE_NAMES
 const  CPU_CHAR  *os_tls__c = "$Id: $";
@@ -48,7 +50,7 @@ const  CPU_CHAR  *os_tls__c = "$Id: $";
 static  CPU_DATA             OS_TLS_NextAvailID;                          /* Next available TLS ID                    */
 static  OS_TLS_DESTRUCT_PTR  OS_TLS_DestructPtrTbl[OS_CFG_TLS_TBL_SIZE];
 
-/*$PAGE*/
+
 /*
 ************************************************************************************************************************
 *                                          ALLOCATE THE NEXT AVAILABLE TLS ID
@@ -93,7 +95,7 @@ OS_TLS_ID  OS_TLS_GetID (OS_ERR  *p_err)
     return (id);
 }
 
-/*$PAGE*/
+
 /*
 ************************************************************************************************************************
 *                                         GET THE CURRENT VALUE OF A TLS REGISTER
@@ -168,7 +170,7 @@ OS_TLS  OS_TLS_GetValue (OS_TCB     *p_tcb,
     }
 }
 
-/*$PAGE*/
+
 /*
 ************************************************************************************************************************
 *                                           DEFINE TLS DESTRUCTOR FUNCTION
@@ -233,7 +235,7 @@ void  OS_TLS_SetDestruct (OS_TLS_ID            id,
    *p_err                     = OS_ERR_NONE;
 }
 
-/*$PAGE*/
+
 /*
 ************************************************************************************************************************
 *                                       SET THE CURRENT VALUE OF A TASK TLS REGISTER
@@ -307,7 +309,7 @@ void  OS_TLS_SetValue (OS_TCB     *p_tcb,
     }
 }
 
-/*$PAGE*/
+
 /*
 ************************************************************************************************************************
 ************************************************************************************************************************
@@ -351,7 +353,7 @@ void  OS_TLS_Init (OS_ERR *p_err)
     *p_err = OS_ERR_NONE;
 }
 
-/*$PAGE*/
+
 /*
 ************************************************************************************************************************
 *                                                  TASK CREATE HOOK
@@ -374,7 +376,7 @@ void  OS_TLS_TaskCreate (OS_TCB  *p_tcb)
     (void)&p_tcb;
 }
 
-/*$PAGE*/
+
 /*
 ************************************************************************************************************************
 *                                                  TASK DELETE HOOK
@@ -403,7 +405,7 @@ void  OS_TLS_TaskDel (OS_TCB  *p_tcb)
     }
 }
 
-/*$PAGE*/
+
 /*
 ************************************************************************************************************************
 *                                                  TASK SWITCH HOOK
@@ -424,6 +426,5 @@ void  OS_TLS_TaskDel (OS_TCB  *p_tcb)
 void  OS_TLS_TaskSw (void)
 {
 }
+
 #endif
-
-

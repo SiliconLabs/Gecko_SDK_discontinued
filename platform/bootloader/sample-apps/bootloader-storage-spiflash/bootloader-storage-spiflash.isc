@@ -1,0 +1,54 @@
+#ISD afv6
+# ISD version: 4.7.0.qualifier
+
+# Application configuration
+appId: bootloader
+architecture: efr32~series[1]+iar
+deviceName: bootloader
+generationDirectory: PATH(ISC_RELATIVE):.
+
+# Devices
+
+# Plugin configuration
+appPlugin: bgapi-uart-dfu=false
+appPlugin: core=true
+appPlugin: crc=true
+appPlugin: crypto=true
+appPlugin: debug=false
+appPlugin: delay-driver=true
+appPlugin: emlib=true
+appPlugin: ezsp-spi=false
+appPlugin: gpio-activation=false
+appPlugin: internal_flash=false
+appPlugin: mbedtls=true
+appPlugin: parser=true
+appPlugin: spi-driver=true
+appPlugin: spislave-driver=false
+appPlugin: spiflash=true
+appPlugin: storage-common=true
+appPlugin: token-management=true
+appPlugin: xmodem-uart=false
+appPlugin: xmodem-parser=false
+appPlugin: uart-driver=false
+
+# Setup configurations
+{setupId:bootloaderStorage
+8192,258048;Slot 0
+266240,258048;Slot 1
+}
+
+{setupId:additionalFiles
+}
+
+{setupId:information
+\{key:description
+This sample configuration of the Gecko bootloader configures the bootloader to use an external SPI flash to store firmware update images. The storage configuration is set up to store up to two firmware update images at a time, in two storage slots. The storage slots are configured to start at address 0x2000 and 0x41000 of the SPI flash respectively, and have a size of 252 kB. This can be configured on the "Storage" tab.
+
+The "bootload info" meta-information, which tells the bootloader which storage slot to install the next firmware update from, is configured under "Plugins->Common Storage" to be placed at address 0x0. The first storage slot is configured to start at address 0x2000 (8 kB) because the bootload info takes up 2 flash pages of 4 kB.
+
+See UG266: Gecko Bootloader User's Guide to learn more about how to configure the bootloader, configure storage layout, enable security features, etc.
+\}
+}
+
+# Plugin options
+pluginOption(efr32): BTL_STORAGE_BASE_ADDRESS,0

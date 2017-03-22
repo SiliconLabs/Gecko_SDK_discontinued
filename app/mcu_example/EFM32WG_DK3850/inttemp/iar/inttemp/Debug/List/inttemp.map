@@ -1,0 +1,630 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.2.11947/W32 for ARM                09/Mar/2017  19:48:25
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Exe\inttemp.out
+#    Map file     =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\List\inttemp.map
+#    Command line =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\bsp_dk_3201.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\bsp_dk_leds.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\bsp_trace.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\dmd_ssd2119_16bit.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\dmdif_ssd2119_ebi16.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\em_adc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\em_assert.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\em_cmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\em_core.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\em_ebi.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\em_emu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\em_gpio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\em_rtc.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\em_system.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\em_usart.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\inttemp.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\retargetio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\retargettft.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\rtcdriver.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\startup_efm32gg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj\system_efm32gg.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Exe\inttemp.out
+#        --map
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\List\inttemp.map
+#        --config
+#        T:\iar_ew_7802_win32_rel_1\arm\config\linker\SiliconLaboratories\EFM32GG990F1024.icf
+#        --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x000fffff] { ro };
+"P2":  place in [from 0x20000000 to 0x2001ffff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+ { section .intvec };
+
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A0":                                       0xdc
+  .intvec            ro code  0x00000000    0xdc  startup_efm32gg.o [1]
+                            - 0x000000dc    0xdc
+
+"P1":                                     0x6b44
+  .text              ro code  0x000000dc   0xde4  em_cmu.o [1]
+  .text              ro code  0x00000ec0     0x2  em_assert.o [1]
+  .text              ro code  0x00000ec4   0x138  system_efm32gg.o [1]
+  .text              ro code  0x00000ffc   0xdd2  xprintffull.o [3]
+  .text              ro code  0x00001dd0    0x16  strchr.o [5]
+  .text              ro code  0x00001de8    0x36  strlen.o [5]
+  .text              ro code  0x00001e20    0x58  memchr.o [5]
+  .text              ro code  0x00001e78    0xee  I64DivMod.o [5]
+  .text              ro code  0x00001f68    0x76  ABImemcpy_unaligned.o [5]
+  .text              ro code  0x00001fde    0x44  xdnorm.o [4]
+  .text              ro code  0x00002024    0x2e  DblCmpLe.o [4]
+  .text              ro code  0x00002054    0x2e  DblCmpGe.o [4]
+  .text              ro code  0x00002084   0x10c  xdscale.o [4]
+  .text              ro code  0x00002190    0x58  DblToI32.o [4]
+  .text              ro code  0x000021e8    0x30  I32ToDbl.o [4]
+  .text              ro code  0x00002218   0x180  DblSub.o [4]
+  .text              ro code  0x00002398   0x1a2  DblMul.o [4]
+  .text              ro code  0x0000253c   0x256  DblDiv.o [4]
+  .text              ro code  0x00002792     0xe  div.o [3]
+  .text              ro code  0x000027a0     0x2  I64DivZer.o [5]
+  .text              ro code  0x000027a4    0xe8  DblAdd.o [4]
+  .text              ro code  0x0000288c   0x938  bsp_dk_3201.o [1]
+  .text              ro code  0x000031c4   0x3fc  em_gpio.o [1]
+  .text              ro code  0x000035c0   0x7b8  em_ebi.o [1]
+  .text              ro code  0x00003d78   0x194  em_usart.o [1]
+  .text              ro code  0x00003f0c   0x884  retargettft.o [1]
+  .text              ro code  0x00004790    0x78  dmdif_ssd2119_ebi16.o [1]
+  .text              ro code  0x00004808   0x3f8  dmd_ssd2119_16bit.o [1]
+  .text              ro code  0x00004c00   0x7fc  rtcdriver.o [1]
+  .text              ro code  0x000053fc     0x8  em_core.o [1]
+  .text              ro code  0x00005404     0x8  em_core.o [1]
+  .text              ro code  0x0000540c    0xd0  em_rtc.o [1]
+  .text              ro code  0x000054dc    0x66  ABImemset.o [5]
+  .text              ro code  0x00005544   0x328  inttemp.o [1]
+  .text              ro code  0x0000586c    0x18  bsp_dk_leds.o [1]
+  .text              ro code  0x00005884   0x264  em_adc.o [1]
+  .text              ro code  0x00005ae8    0x32  I32ToFlt.o [4]
+  .text              ro code  0x00005b1c    0xe6  FltSub.o [4]
+  .text              ro code  0x00005c04    0xfc  FltDiv.o [4]
+  .text              ro code  0x00005d00    0x4e  FltToDbl.o [4]
+  .text              ro code  0x00005d50    0x90  DblToFlt.o [4]
+  .text              ro code  0x00005de0   0x118  bsp_trace.o [1]
+  .text              ro code  0x00005ef8    0x24  printf.o [3]
+  .text              ro code  0x00005f1c    0x44  FltToS32.o [4]
+  .text              ro code  0x00005f60    0xd8  FltMul.o [4]
+  .text              ro code  0x00006038   0x1d0  em_emu.o [1]
+  .text              ro code  0x00006208    0x74  FltAdd.o [4]
+  .rodata            const    0x0000627c   0x320  retargettft.o [1]
+  .rodata            const    0x0000659c    0x84  bsp_dk_3201.o [1]
+  .rodata            const    0x00006620    0x84  em_cmu.o [1]
+  .rodata            const    0x000066a4    0x84  em_gpio.o [1]
+  .text              ro code  0x00006728    0x56  retargetio.o [1]
+  .rodata            const    0x00006780    0x50  bsp_dk_3201.o [1]
+  .rodata            const    0x000067d0    0x4c  em_adc.o [1]
+  .rodata            const    0x0000681c    0x4c  em_cmu.o [1]
+  .rodata            const    0x00006868    0x4c  em_ebi.o [1]
+  .rodata            const    0x000068b4    0x4c  em_gpio.o [1]
+  .rodata            const    0x00006900    0x4c  em_rtc.o [1]
+  .rodata            const    0x0000694c    0x4c  em_usart.o [1]
+  .text              ro code  0x00006998    0x40  zero_init3.o [5]
+  .rodata            const    0x000069d8    0x2c  inttemp.o [1]
+  .text              ro code  0x00006a04    0x2c  copy_init3.o [5]
+  .text              ro code  0x00006a30    0x28  putchar.o [3]
+  .text              ro code  0x00006a58    0x28  data_init.o [5]
+  .iar.init_table    const    0x00006a80    0x24  - Linker created -
+  .rodata            const    0x00006aa4    0x1c  retargettft.o [1]
+  .text              ro code  0x00006ac0    0x1a  cmain.o [5]
+  .text              ro code  0x00006ada     0x4  low_level_init.o [3]
+  .text              ro code  0x00006ade     0x4  exit.o [3]
+  .text              ro code  0x00006ae4     0xa  cexit.o [5]
+  .text              ro code  0x00006af0     0xc  XXexit.o [5]
+  .rodata            const    0x00006afc    0x18  bsp_dk_3201.o [1]
+  .text              ro code  0x00006b14    0x16  xprout.o [3]
+  .text              ro code  0x00006b2c    0x10  startup_efm32gg.o [1]
+  .rodata            const    0x00006b3c     0xc  inttemp.o [1]
+  .text              ro code  0x00006b48     0xc  cstartup_M.o [5]
+  Initializer bytes  const    0x00006b54     0xc  <for P2-1>
+  .rodata            const    0x00006b60     0x8  inttemp.o [1]
+  .rodata            const    0x00006b68     0x4  rtcdriver.o [1]
+  .text              ro code  0x00006b6c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006b70     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006b74     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006b78     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006b7c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006b80     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006b84     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006b88     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006b8c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006b90     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006b94     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006b98     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006b9c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006ba0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006ba4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006ba8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006bac     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006bb0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006bb4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006bb8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006bbc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006bc0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006bc4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006bc8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006bcc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006bd0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006bd4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006bd8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006bdc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006be0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006be4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006be8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006bec     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006bf0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006bf4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006bf8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006bfc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006c00     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006c04     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006c08     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006c0c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006c10     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006c14     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006c18     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00006c1c     0x4  startup_efm32gg.o [1]
+  .rodata            const    0x00006c20     0x0  zero_init3.o [5]
+  .rodata            const    0x00006c20     0x0  copy_init3.o [5]
+                            - 0x00006c20  0x6b44
+
+"P2", part 1 of 3:                           0xc
+  P2-1                        0x20000000     0xb  <Init block>
+    .data            inited   0x20000000     0x4  system_efm32gg.o [1]
+    .data            inited   0x20000004     0x4  system_efm32gg.o [1]
+    .data            inited   0x20000008     0x1  retargettft.o [1]
+    .data            inited   0x20000009     0x1  retargettft.o [1]
+    .data            inited   0x2000000a     0x1  retargettft.o [1]
+                            - 0x2000000b     0xb
+
+"P2", part 2 of 3:                         0x400
+  CSTACK                      0x20000010   0x400  <Block>
+    CSTACK           uninit   0x20000010   0x400  <Block tail>
+                            - 0x20000410   0x400
+
+"P2", part 3 of 3:                         0x528
+  .bss               zero     0x20000410   0x4b0  retargettft.o [1]
+  .bss               zero     0x200008c0    0x28  rtcdriver.o [1]
+  .bss               zero     0x200008e8     0xc  dmd_ssd2119_16bit.o [1]
+  .bss               zero     0x200008f4     0x4  bsp_dk_3201.o [1]
+  .bss               zero     0x200008f8     0x4  bsp_dk_3201.o [1]
+  .bss               zero     0x200008fc     0x4  dmd_ssd2119_16bit.o [1]
+  .bss               zero     0x20000900     0x4  dmdif_ssd2119_ebi16.o [1]
+  .bss               zero     0x20000904     0x4  dmdif_ssd2119_ebi16.o [1]
+  .bss               zero     0x20000908     0x4  em_emu.o [1]
+  .bss               zero     0x2000090c     0x4  inttemp.o [1]
+  .bss               zero     0x20000910     0x4  inttemp.o [1]
+  .bss               zero     0x20000914     0x4  retargettft.o [1]
+  .bss               zero     0x20000918     0x4  retargettft.o [1]
+  .bss               zero     0x2000091c     0x4  retargettft.o [1]
+  .bss               zero     0x20000920     0x4  rtcdriver.o [1]
+  .bss               zero     0x20000924     0x4  rtcdriver.o [1]
+  .bss               zero     0x20000928     0x4  system_efm32gg.o [1]
+  .bss               zero     0x2000092c     0x2  bsp_dk_3201.o [1]
+  .bss               zero     0x2000092e     0x2  dmd_ssd2119_16bit.o [1]
+  .bss               zero     0x20000930     0x1  bsp_dk_3201.o [1]
+  .bss               zero     0x20000931     0x1  em_emu.o [1]
+  .bss               zero     0x20000932     0x1  retargettft.o [1]
+  .bss               zero     0x20000933     0x1  retargettft.o [1]
+  .bss               zero     0x20000934     0x1  rtcdriver.o [1]
+  .bss               zero     0x20000935     0x1  rtcdriver.o [1]
+  .bss               zero     0x20000936     0x1  rtcdriver.o [1]
+                            - 0x20000937   0x527
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x527:
+          0x20000410  0x527
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0xc (109% of destination):
+          0x00006b54    0xc
+    1 destination range, total size 0xb:
+          0x20000000    0xb
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                 ro code  ro data  rw data
+    ------                 -------  -------  -------
+D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj: [1]
+    bsp_dk_3201.o            2 360      236       11
+    bsp_dk_leds.o               24
+    bsp_trace.o                280
+    dmd_ssd2119_16bit.o      1 016                18
+    dmdif_ssd2119_ebi16.o      120                 8
+    em_adc.o                   612       76
+    em_assert.o                  2
+    em_cmu.o                 3 556      208
+    em_core.o                   16
+    em_ebi.o                 1 976       76
+    em_emu.o                   464                 5
+    em_gpio.o                1 020      208
+    em_rtc.o                   208       76
+    em_usart.o                 404       76
+    inttemp.o                  808       64        8
+    retargetio.o                86
+    retargettft.o            2 180      831    1 217
+    rtcdriver.o              2 044        4       51
+    startup_efm32gg.o          416
+    system_efm32gg.o           312        8       12
+    ------------------------------------------------
+    Total:                  17 904    1 863    1 330
+
+command line: [2]
+    ------------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    div.o                       14
+    exit.o                       4
+    low_level_init.o             4
+    printf.o                    36
+    putchar.o                   40
+    xprintffull.o            3 538
+    xprout.o                    22
+    ------------------------------------------------
+    Total:                   3 658
+
+m7M_tl.a: [4]
+    DblAdd.o                   232
+    DblCmpGe.o                  46
+    DblCmpLe.o                  46
+    DblDiv.o                   598
+    DblMul.o                   418
+    DblSub.o                   384
+    DblToFlt.o                 144
+    DblToI32.o                  88
+    FltAdd.o                   116
+    FltDiv.o                   252
+    FltMul.o                   216
+    FltSub.o                   230
+    FltToDbl.o                  78
+    FltToS32.o                  68
+    I32ToDbl.o                  48
+    I32ToFlt.o                  50
+    xdnorm.o                    68
+    xdscale.o                  268
+    ------------------------------------------------
+    Total:                   3 350
+
+rt7M_tl.a: [5]
+    ABImemcpy_unaligned.o      118
+    ABImemset.o                102
+    I64DivMod.o                238
+    I64DivZer.o                  2
+    XXexit.o                    12
+    cexit.o                     10
+    cmain.o                     26
+    copy_init3.o                44
+    cstartup_M.o                12
+    data_init.o                 40
+    memchr.o                    88
+    strchr.o                    22
+    strlen.o                    54
+    zero_init3.o                64
+    ------------------------------------------------
+    Total:                     832
+
+    Gaps                        34        2
+    Linker created                       37    1 024
+----------------------------------------------------
+    Grand Total:            25 778    1 902    2 354
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x00006a80          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x00006aa4          --   Gb  - Linker created -
+?main                   0x00006ac1         Code  Gb  cmain.o [5]
+ADC0_IRQHandler         0x0000562f    0xc  Code  Gb  inttemp.o [1]
+ADC_DataSingleGet       0x000055b1    0x4  Code  Lc  inttemp.o [1]
+ADC_Init                0x0000593b   0x96  Code  Gb  em_adc.o [1]
+ADC_InitSingle          0x000059d1   0x6e  Code  Gb  em_adc.o [1]
+ADC_IntClear            0x000055b5    0x4  Code  Lc  inttemp.o [1]
+ADC_IntEnable           0x000055b9    0x8  Code  Lc  inttemp.o [1]
+ADC_LoadDevinfoCal      0x00005885   0xb6  Code  Lc  em_adc.o [1]
+ADC_PrescaleCalc        0x00005a3f   0x40  Code  Gb  em_adc.o [1]
+ADC_Start               0x000055c1    0x6  Code  Lc  inttemp.o [1]
+ADC_TimebaseCalc        0x00005a7f   0x32  Code  Gb  em_adc.o [1]
+BSP_BusControlModeSet   0x00002a3b   0x9c  Code  Gb  bsp_dk_3201.o [1]
+BSP_DisplayControl      0x00002ad7   0xfc  Code  Gb  bsp_dk_3201.o [1]
+BSP_EbiExtendedAddressRange
+                        0x00002bd3   0x24  Code  Gb  bsp_dk_3201.o [1]
+BSP_Init                0x000029e1   0x5a  Code  Gb  bsp_dk_3201.o [1]
+BSP_InterruptDisable    0x00002bf7   0x24  Code  Gb  bsp_dk_3201.o [1]
+BSP_InterruptEnable     0x00002c1b   0x20  Code  Gb  bsp_dk_3201.o [1]
+BSP_InterruptFlagsClear
+                        0x00002c3b   0x3a  Code  Gb  bsp_dk_3201.o [1]
+BSP_JoystickGet         0x00002c75   0x12  Code  Gb  bsp_dk_3201.o [1]
+BSP_LedsSet             0x0000586d   0x12  Code  Gb  bsp_dk_leds.o [1]
+BSP_RegisterRead        0x00002c87   0x1a  Code  Gb  bsp_dk_3201.o [1]
+BSP_RegisterWrite       0x00002ca1   0x22  Code  Gb  bsp_dk_3201.o [1]
+BSP_TraceProfilerSetup  0x00005ee1   0x18  Code  Gb  bsp_trace.o [1]
+BSP_TraceSwoSetup       0x00005de1   0xac  Code  Gb  bsp_trace.o [1]
+BUS_RegBitRead          0x000000eb   0x10  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x000000dd    0xe  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x000035c1    0xe  Code  Lc  em_ebi.o [1]
+BUS_RegBitWrite         0x000031c5    0xe  Code  Lc  em_gpio.o [1]
+BUS_RegBitWrite         0x0000540d    0xe  Code  Lc  em_rtc.o [1]
+BUS_RegMaskedWrite      0x000031d3    0xa  Code  Lc  em_gpio.o [1]
+BUS_RegMaskedWrite      0x00003d79    0xa  Code  Lc  em_usart.o [1]
+CMU_ClockDivSet         0x000004b7  0x294  Code  Gb  em_cmu.o [1]
+CMU_ClockEnable         0x0000074b   0xa6  Code  Gb  em_cmu.o [1]
+CMU_ClockFreqGet        0x00000805  0x188  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectGet      0x000009c9  0x134  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectSet      0x00000b21  0x292  Code  Gb  em_cmu.o [1]
+CMU_DivToLog2           0x000000fb   0x28  Code  Lc  em_cmu.o [1]
+CMU_Lock                0x00006041    0xa  Code  Lc  em_emu.o [1]
+CMU_OscillatorEnable    0x00000de9   0x9c  Code  Gb  em_cmu.o [1]
+CMU_Unlock              0x0000604b    0xc  Code  Lc  em_emu.o [1]
+CORE_EnterAtomic        0x000053fd    0x8  Code  Wk  em_core.o [1]
+CORE_ExitAtomic         0x00005405    0x8  Code  Wk  em_core.o [1]
+CSTACK$$Base            0x20000010          --   Gb  - Linker created -
+CSTACK$$Limit           0x20000410          --   Gb  - Linker created -
+DMDIF_init              0x00004791    0xe  Code  Gb  dmdif_ssd2119_ebi16.o [1]
+DMDIF_prepareDataAccess
+                        0x000047b7    0xc  Code  Gb  dmdif_ssd2119_ebi16.o [1]
+DMDIF_writeData         0x000047c3    0xc  Code  Gb  dmdif_ssd2119_ebi16.o [1]
+DMDIF_writeDataRepeated
+                        0x000047cf   0x20  Code  Gb  dmdif_ssd2119_ebi16.o [1]
+DMDIF_writeReg          0x0000479f   0x18  Code  Gb  dmdif_ssd2119_ebi16.o [1]
+DMD_flipDisplay         0x00004baf   0x42  Code  Gb  dmd_ssd2119_16bit.o [1]
+DMD_init                0x00004809  0x236  Code  Gb  dmd_ssd2119_16bit.o [1]
+DMD_writeColor          0x00004b1b   0x78  Code  Gb  dmd_ssd2119_16bit.o [1]
+DMD_writeData           0x00004a89   0x92  Code  Gb  dmd_ssd2119_16bit.o [1]
+EBI_BankAddressTimingConfig
+                        0x00003b03   0x5a  Code  Gb  em_ebi.o [1]
+EBI_BankAddressTimingSet
+                        0x00003b5d   0x86  Code  Gb  em_ebi.o [1]
+EBI_BankPolaritySet     0x00003bed  0x12a  Code  Gb  em_ebi.o [1]
+EBI_BankReadTimingConfig
+                        0x0000381f   0xd8  Code  Gb  em_ebi.o [1]
+EBI_BankReadTimingSet   0x000038f7   0xc6  Code  Gb  em_ebi.o [1]
+EBI_BankWriteTimingConfig
+                        0x000039bd   0x9e  Code  Gb  em_ebi.o [1]
+EBI_BankWriteTimingSet  0x00003a5b   0xa8  Code  Gb  em_ebi.o [1]
+EBI_ChipSelectEnable    0x000037cf   0x50  Code  Gb  em_ebi.o [1]
+EBI_Init                0x000035cf  0x200  Code  Gb  em_ebi.o [1]
+EMU_EnterEM1            0x0000556d   0x10  Code  Lc  inttemp.o [1]
+EMU_EnterEM2            0x00006163   0x6c  Code  Gb  em_emu.o [1]
+EbiInit                 0x00002cc3  0x30a  Code  Lc  bsp_dk_3201.o [1]
+GPIO_EVEN_IRQHandler    0x000055c7   0x3c  Code  Gb  inttemp.o [1]
+GPIO_ExtIntConfig       0x00003331  0x11c  Code  Gb  em_gpio.o [1]
+GPIO_IntClear           0x0000557d    0x6  Code  Lc  inttemp.o [1]
+GPIO_IntConfig          0x00005583   0x2e  Code  Lc  inttemp.o [1]
+GPIO_PinModeSet         0x0000344d  0x14e  Code  Gb  em_gpio.o [1]
+GPIO_PinOutClear        0x0000288d   0xaa  Code  Lc  bsp_dk_3201.o [1]
+GPIO_PinOutClear        0x000031dd   0xaa  Code  Lc  em_gpio.o [1]
+GPIO_PinOutSet          0x00002937   0xaa  Code  Lc  bsp_dk_3201.o [1]
+GPIO_PinOutSet          0x00003287   0xaa  Code  Lc  em_gpio.o [1]
+GetProdRev              0x00000ec5    0xa  Code  Lc  system_efm32gg.o [1]
+LFtoCRLF                0x20000932    0x1  Data  Lc  retargettft.o [1]
+LoadInt                 0x000015a3   0x6e  Code  Lc  xprintffull.o [3]
+NVIC_ClearPendingIRQ    0x00005559   0x14  Code  Lc  inttemp.o [1]
+NVIC_ClearPendingIRQ    0x00004c17   0x16  Code  Lc  rtcdriver.o [1]
+NVIC_EnableIRQ          0x00005545   0x14  Code  Lc  inttemp.o [1]
+NVIC_EnableIRQ          0x00004c01   0x16  Code  Lc  rtcdriver.o [1]
+RETARGET_TFTTX          0x00004077   0xe4  Code  Gb  retargettft.o [1]
+RETARGET_TFTUpdate      0x0000415b  0x540  Code  Gb  retargettft.o [1]
+RETARGET_TftInit        0x00003f0d    0x8  Code  Gb  retargettft.o [1]
+RETARGET_WriteChar      0x0000469b   0xb6  Code  Gb  retargettft.o [1]
+RTCDRV_AllocateTimer    0x00004c6f   0x60  Code  Gb  rtcdriver.o [1]
+RTCDRV_Init             0x00004ccf   0x92  Code  Gb  rtcdriver.o [1]
+RTCDRV_StartTimer       0x00004d61  0x2e2  Code  Gb  rtcdriver.o [1]
+RTC_CompareGet          0x0000541b   0x32  Code  Gb  em_rtc.o [1]
+RTC_CompareSet          0x0000544d   0x34  Code  Gb  em_rtc.o [1]
+RTC_CounterGet          0x00004c2d    0x8  Code  Lc  rtcdriver.o [1]
+RTC_CounterReset        0x000054cd   0x10  Code  Gb  em_rtc.o [1]
+RTC_Enable              0x00005481   0x12  Code  Gb  em_rtc.o [1]
+RTC_IRQHandler          0x00005043   0x9a  Code  Gb  rtcdriver.o [1]
+RTC_Init                0x00005493   0x2a  Code  Gb  em_rtc.o [1]
+RTC_IntClear            0x00004c35    0x8  Code  Lc  rtcdriver.o [1]
+RTC_IntDisable          0x00004c3d   0x10  Code  Lc  rtcdriver.o [1]
+RTC_IntEnable           0x00004c4d   0x10  Code  Lc  rtcdriver.o [1]
+RTC_IntGetEnabled       0x00004c5d   0x12  Code  Lc  rtcdriver.o [1]
+Region$$Table$$Base     0x00006a80          --   Gb  - Linker created -
+Region$$Table$$Limit    0x00006aa4          --   Gb  - Linker created -
+SYSTEM_GetFamily        0x0000012f    0xc  Code  Lc  em_cmu.o [1]
+SYSTEM_GetProdRev       0x00000123    0xc  Code  Lc  em_cmu.o [1]
+SpiBcAccess             0x00002fcd   0x60  Code  Lc  bsp_dk_3201.o [1]
+SpiBcInit               0x0000302d   0x60  Code  Lc  bsp_dk_3201.o [1]
+SpiInit                 0x0000308d   0x30  Code  Lc  bsp_dk_3201.o [1]
+SpiRegisterRead         0x000030bd   0x56  Code  Lc  bsp_dk_3201.o [1]
+SpiRegisterWrite        0x00003119   0x48  Code  Lc  bsp_dk_3201.o [1]
+SystemCoreClock         0x20000928    0x4  Data  Gb  system_efm32gg.o [1]
+SystemCoreClockGet      0x00000ecf   0x1a  Code  Gb  system_efm32gg.o [1]
+SystemCoreClockUpdate   0x00006039    0x8  Code  Lc  em_emu.o [1]
+SystemHFClockGet        0x00000eed   0xb2  Code  Gb  system_efm32gg.o [1]
+SystemHFXOClock         0x20000000    0x4  Data  Lc  system_efm32gg.o [1]
+SystemHFXOClockGet      0x00000f9f    0x6  Code  Gb  system_efm32gg.o [1]
+SystemInit              0x00000fa5    0x2  Code  Gb  system_efm32gg.o [1]
+SystemLFRCOClockGet     0x00000fa7    0x6  Code  Gb  system_efm32gg.o [1]
+SystemLFXOClock         0x20000004    0x4  Data  Lc  system_efm32gg.o [1]
+SystemLFXOClockGet      0x00000fb3    0x6  Code  Gb  system_efm32gg.o [1]
+SystemMaxCoreClockGet   0x00000ee9    0x4  Code  Gb  system_efm32gg.o [1]
+SystemULFRCOClockGet    0x00000fad    0x6  Code  Gb  system_efm32gg.o [1]
+TxBuf                   0x00006729   0x1e  Code  Lc  retargetio.o [1]
+USART_BaudrateSyncSet   0x00003d83   0x54  Code  Gb  em_usart.o [1]
+USART_InitSync          0x00003dd7   0x8a  Code  Gb  em_usart.o [1]
+USART_Reset             0x00003e61   0x72  Code  Gb  em_usart.o [1]
+USART_Rx                0x00003ef5    0xc  Code  Gb  em_usart.o [1]
+USART_Tx                0x00003f01    0xc  Code  Gb  em_usart.o [1]
+_GenldFull              0x00001b1d  0x26a  Code  Lc  xprintffull.o [3]
+_LdtobFull              0x0000171d  0x3fa  Code  Lc  xprintffull.o [3]
+_LitobFull              0x00001611  0x10a  Code  Lc  xprintffull.o [3]
+_PrintfFull             0x00000ffd  0x5a0  Code  Gb  xprintffull.o [3]
+_Prout                  0x00006b15   0x16  Code  Gb  xprout.o [3]
+_PutcharsFull           0x00001d87   0x2e  Code  Lc  xprintffull.o [3]
+__Vectors               0x00000000          --   Gb  startup_efm32gg.o [1]
+__Vectors_End           0x000000dc         Data  Gb  startup_efm32gg.o [1]
+__Vectors_Size {Abs}    0x000000dc          --   Gb  startup_efm32gg.o [1]
+__aeabi_cdcmple         0x00002025         Code  Gb  DblCmpLe.o [4]
+__aeabi_cdrcmple        0x00002055         Code  Gb  DblCmpGe.o [4]
+__aeabi_d2f             0x00005d51         Code  Gb  DblToFlt.o [4]
+__aeabi_d2iz            0x00002191         Code  Gb  DblToI32.o [4]
+__aeabi_d2uiz           0x000021bd         Code  Gb  DblToI32.o [4]
+__aeabi_dadd            0x000027a5         Code  Gb  DblAdd.o [4]
+__aeabi_ddiv            0x0000253d         Code  Gb  DblDiv.o [4]
+__aeabi_dmul            0x00002399         Code  Gb  DblMul.o [4]
+__aeabi_dsub            0x00002219         Code  Gb  DblSub.o [4]
+__aeabi_f2d             0x00005d01         Code  Gb  FltToDbl.o [4]
+__aeabi_f2iz            0x00005f1d         Code  Gb  FltToS32.o [4]
+__aeabi_fdiv            0x00005c05         Code  Gb  FltDiv.o [4]
+__aeabi_fmul            0x00005f61         Code  Gb  FltMul.o [4]
+__aeabi_fsub            0x00005b1d         Code  Gb  FltSub.o [4]
+__aeabi_i2d             0x000021e9         Code  Gb  I32ToDbl.o [4]
+__aeabi_i2f             0x00005ae9         Code  Gb  I32ToFlt.o [4]
+__aeabi_ldiv0           0x000027a1         Code  Gb  I64DivZer.o [5]
+__aeabi_memset          0x000054dd         Code  Gb  ABImemset.o [5]
+__aeabi_ui2d            0x000021fd         Code  Gb  I32ToDbl.o [4]
+__aeabi_ui2f            0x00005afd         Code  Gb  I32ToFlt.o [4]
+__aeabi_uldivmod        0x00001e79         Code  Gb  I64DivMod.o [5]
+__cmain                 0x00006ac1         Code  Gb  cmain.o [5]
+__exit                  0x00006af1         Code  Gb  XXexit.o [5]
+__iar_Dnorm             0x00001fdf   0x44  Code  Gb  xdnorm.o [4]
+__iar_Dscale            0x00002085  0x10c  Code  Gb  xdscale.o [4]
+__iar_Memchr            0x00001e21         Code  Gb  memchr.o [5]
+__iar_Memset            0x000054dd         Code  Gb  ABImemset.o [5]
+__iar_Memset_word       0x000054e5         Code  Gb  ABImemset.o [5]
+__iar_Strchr            0x00001dd1         Code  Gb  strchr.o [5]
+__iar_copy_init3        0x00006a05   0x2c  Code  Gb  copy_init3.o [5]
+__iar_d2uiz             0x000021c9         Code  Gb  DblToI32.o [4]
+__iar_dadd              0x000027b9         Code  Gb  DblAdd.o [4]
+__iar_data_init3        0x00006a59   0x28  Code  Gb  data_init.o [5]
+__iar_dsub              0x0000222d         Code  Gb  DblSub.o [4]
+__iar_dsubStart         0x0000223f         Code  Gb  DblSub.o [4]
+__iar_fadd              0x00006209         Code  Gb  FltAdd.o [4]
+__iar_fsub              0x00005b2d         Code  Gb  FltSub.o [4]
+__iar_fsubStart         0x00005b3d         Code  Gb  FltSub.o [4]
+__iar_program_start     0x00006b49         Code  Gb  cstartup_M.o [5]
+__iar_ui2d              0x00002201         Code  Gb  I32ToDbl.o [4]
+__iar_ui2f              0x00005b01         Code  Gb  I32ToFlt.o [4]
+__iar_unaligned___aeabi_memcpy
+                        0x00001f69         Code  Gb  ABImemcpy_unaligned.o [5]
+__iar_unaligned___aeabi_memcpy4
+                        0x00001f89         Code  Gb  ABImemcpy_unaligned.o [5]
+__iar_unaligned___aeabi_memcpy8
+                        0x00001f89         Code  Gb  ABImemcpy_unaligned.o [5]
+__iar_zero_init3        0x00006999   0x40  Code  Gb  zero_init3.o [5]
+__low_level_init        0x00006adb    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000         Data  Gb  startup_efm32gg.o [1]
+__vector_table_0x1c     0x0000001c         Data  Gb  startup_efm32gg.o [1]
+__write                 0x00006747   0x38  Code  Gb  retargetio.o [1]
+_call_main              0x00006acd         Code  Gb  cmain.o [5]
+_exit                   0x00006ae5         Code  Gb  cexit.o [5]
+_main                   0x00006ad7         Code  Gb  cmain.o [5]
+assertEFM               0x00000ec1    0x2  Code  Gb  em_assert.o [1]
+auxClkGet               0x000001f1   0x94  Code  Lc  em_cmu.o [1]
+bcFwVersion             0x2000092c    0x2  Data  Lc  bsp_dk_3201.o [1]
+bspOperationMode        0x200008f4    0x4  Data  Lc  bsp_dk_3201.o [1]
+bufferReset             0x20000009    0x1  Data  Lc  retargettft.o [1]
+busMode                 0x20000930    0x1  Data  Lc  bsp_dk_3201.o [1]
+charBuffer              0x20000410  0x4b0  Data  Lc  retargettft.o [1]
+chars_8x8_bits          0x0000627c  0x320  Data  Lc  retargettft.o [1]
+checkAllTimers          0x000050dd  0x1da  Code  Lc  rtcdriver.o [1]
+colorTransform24To16bpp
+                        0x00004b93   0x1c  Code  Lc  dmd_ssd2119_16bit.o [1]
+command_register        0x20000900    0x4  Data  Lc  dmdif_ssd2119_ebi16.o [1]
+convertToCelsius        0x00005699   0x48  Code  Gb  inttemp.o [1]
+convertToFahrenheit     0x000056e1   0x2c  Code  Gb  inttemp.o [1]
+data_register           0x20000904    0x4  Data  Lc  dmdif_ssd2119_ebi16.o [1]
+dbgClkGet               0x00000285   0x3c  Code  Lc  em_cmu.o [1]
+dimensions              0x200008e8    0xc  Data  Gb  dmd_ssd2119_16bit.o [1]
+div                     0x00002793    0xe  Code  Gb  div.o [3]
+emState                 0x00006057   0xcc  Code  Lc  em_emu.o [1]
+emState::cmuStatus      0x20000908    0x4  Data  Lc  em_emu.o [1]
+emState::hfClock        0x20000931    0x1  Data  Lc  em_emu.o [1]
+executeTimerCallbacks   0x000052b7   0x3c  Code  Lc  rtcdriver.o [1]
+exit                    0x00006adf    0x4  Code  Gb  exit.o [3]
+flashWaitStateControl   0x000002c1   0xa2  Code  Lc  em_cmu.o [1]
+flashWaitStateMax       0x00000363    0xc  Code  Lc  em_cmu.o [1]
+fullUpdate              0x20000008    0x1  Data  Lc  retargettft.o [1]
+getErrataFixEmuE107En   0x00006123   0x40  Code  Lc  em_emu.o [1]
+getHfLeConfig           0x000001c5   0x2c  Code  Lc  em_cmu.o [1]
+inTimerIRQ              0x20000934    0x1  Data  Lc  rtcdriver.o [1]
+initRTC                 0x00006b68    0x4  Data  Lc  rtcdriver.o [1]
+initialized             0x200008fc    0x4  Data  Lc  dmd_ssd2119_16bit.o [1]
+initialized             0x20000933    0x1  Data  Lc  retargettft.o [1]
+lastAddr                0x200008f8    0x4  Data  Lc  bsp_dk_3201.o [1]
+lastStart               0x20000920    0x4  Data  Lc  rtcdriver.o [1]
+lfClkGet                0x0000036f   0xf4  Code  Lc  em_cmu.o [1]
+main                    0x0000570d  0x108  Code  Gb  inttemp.o [1]
+maxFreqHfle             0x0000013b   0x60  Code  Lc  em_cmu.o [1]
+memchr                  0x00001e21         Code  Gb  memchr.o [5]
+printf                  0x00005ef9   0x24  Code  Gb  printf.o [3]
+putchar                 0x00006a31   0x28  Code  Gb  putchar.o [3]
+rcDriverOutputControl   0x2000092e    0x2  Data  Lc  dmd_ssd2119_16bit.o [1]
+rescheduleRtc           0x000052f3   0xb2  Code  Lc  rtcdriver.o [1]
+rgbColor                0x20000914    0x4  Data  Lc  retargettft.o [1]
+rtcRunning              0x20000935    0x1  Data  Lc  rtcdriver.o [1]
+rtcdrvIsInitialized     0x20000936    0x1  Data  Lc  rtcdriver.o [1]
+setHfLeConfig           0x0000019b   0x2a  Code  Lc  em_cmu.o [1]
+setNextReg              0x000047ef   0x10  Code  Lc  dmdif_ssd2119_ebi16.o [1]
+setPixelAddress         0x00004a3f   0x4a  Code  Gb  dmd_ssd2119_16bit.o [1]
+setupSensor             0x0000563b   0x5e  Code  Gb  inttemp.o [1]
+showFahrenheit          0x2000090c    0x4  Data  Lc  inttemp.o [1]
+startTimerNestingLevel  0x20000924    0x4  Data  Lc  rtcdriver.o [1]
+strchr                  0x00001dd1         Code  Gb  strchr.o [5]
+strlen                  0x00001de9         Code  Gb  strlen.o [5]
+syncReg                 0x00000463   0x16  Code  Lc  em_cmu.o [1]
+temperatureIRQInit      0x00005603   0x2c  Code  Gb  inttemp.o [1]
+tftReset                0x2000000a    0x1  Data  Lc  retargettft.o [1]
+tftTextReset            0x00003f15   0xf4  Code  Lc  retargettft.o [1]
+tftTextScrollUp         0x00004009   0x6e  Code  Lc  retargettft.o [1]
+timer                   0x200008c0   0x28  Data  Lc  rtcdriver.o [1]
+usbCClkGet              0x00000479   0x3e  Code  Lc  em_cmu.o [1]
+xTimerForWakeUp         0x20000910    0x4  Data  Gb  inttemp.o [1]
+xpos                    0x20000918    0x4  Data  Lc  retargettft.o [1]
+ypos                    0x2000091c    0x4  Data  Lc  retargettft.o [1]
+
+
+[1] = D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_DK3750\inttemp\iar\inttemp\Debug\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = m7M_tl.a
+[5] = rt7M_tl.a
+
+  25 778 bytes of readonly  code memory
+   1 902 bytes of readonly  data memory
+   2 354 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

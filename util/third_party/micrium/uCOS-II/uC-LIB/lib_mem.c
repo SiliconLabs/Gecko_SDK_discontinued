@@ -3,19 +3,22 @@
 *                                                uC/LIB
 *                                        CUSTOM LIBRARY MODULES
 *
-*                          (c) Copyright 2004-2013; Micrium, Inc.; Weston, FL
+*                         (c) Copyright 2004-2015; Micrium, Inc.; Weston, FL
 *
-*               All rights reserved.  Protected by international copyright laws.
+*                  All rights reserved.  Protected by international copyright laws.
 *
-*               uC/LIB is provided in source form to registered licensees ONLY.  It is
-*               illegal to distribute this source code to any third party unless you receive
-*               written permission by an authorized Micrium representative.  Knowledge of
-*               the source code may NOT be used to develop a similar product.
+*                  uC/LIB is provided in source form to registered licensees ONLY.  It is
+*                  illegal to distribute this source code to any third party unless you receive
+*                  written permission by an authorized Micrium representative.  Knowledge of
+*                  the source code may NOT be used to develop a similar product.
 *
-*               Please help us continue to provide the Embedded community with the finest
-*               software available.  Your honesty is greatly appreciated.
+*                  Please help us continue to provide the Embedded community with the finest
+*                  software available.  Your honesty is greatly appreciated.
 *
-*               You can contact us at www.micrium.com.
+*                  You can find our product's user manual, API reference, release notes and
+*                  more information at: https://doc.micrium.com
+*
+*                  You can contact us at: http://www.micrium.com
 *********************************************************************************************************
 */
 
@@ -25,11 +28,12 @@
 *                                     STANDARD MEMORY OPERATIONS
 *
 * Filename      : lib_mem.c
-* Version       : V1.37.01
+* Version       : V1.38.02
 * Programmer(s) : ITJ
 *                 FGK
 *                 JFD
 *                 FBJ
+*                 EJ
 *********************************************************************************************************
 * Note(s)       : (1) NO compiler-supplied standard library functions are used in library or product software.
 *
@@ -57,10 +61,11 @@
 
 #define    MICRIUM_SOURCE
 #define    LIB_MEM_MODULE
-#include  <lib_mem.h>
+#include  "lib_mem.h"
+#include  "lib_math.h"
+#include  "lib_str.h"
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                            LOCAL DEFINES
@@ -95,14 +100,16 @@
 *********************************************************************************************************
 */
 
-#if     (LIB_MEM_CFG_ALLOC_EN == DEF_ENABLED)
-MEM_POOL    *Mem_PoolTbl;                                               /* Mem      pool/seg tbl.                       */
-MEM_POOL     Mem_PoolHeap;                                              /* Mem heap pool/seg.                           */
 
+#if (LIB_MEM_CFG_HEAP_SIZE > 0u)
 #ifndef  LIB_MEM_CFG_HEAP_BASE_ADDR
-CPU_INT08U   Mem_Heap[LIB_MEM_CFG_HEAP_SIZE];                           /* Mem heap.                                    */
+CPU_INT08U   Mem_Heap[LIB_MEM_CFG_HEAP_SIZE];                   /* Mem heap.                                            */
 #endif
+
+MEM_SEG      Mem_SegHeap;                                       /* Heap mem seg.                                        */
 #endif
+
+MEM_SEG     *Mem_SegHeadPtr;                                    /* Ptr to head of seg list.                             */
 
 
 /*
@@ -111,23 +118,54 @@ CPU_INT08U   Mem_Heap[LIB_MEM_CFG_HEAP_SIZE];                           /* Mem h
 *********************************************************************************************************
 */
 
-#if (LIB_MEM_CFG_ALLOC_EN == DEF_ENABLED)                               /* -------------- MEM POOL FNCTS -------------- */
+static  void          Mem_SegCreateCritical    (const  CPU_CHAR      *p_name,
+                                                       MEM_SEG       *p_seg,
+                                                       CPU_ADDR       seg_base_addr,
+                                                       CPU_SIZE_T     padding_align,
+                                                       CPU_SIZE_T     size);
 
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-static  CPU_BOOLEAN   Mem_PoolBlkIsValidAddr(MEM_POOL          *pmem_pool,
-                                             void              *pmem_blk);
+#if  (LIB_MEM_CFG_HEAP_SIZE > 0u)
+static  MEM_SEG      *Mem_SegOverlapChkCritical(       CPU_ADDR       seg_base_addr,
+                                                       CPU_SIZE_T     size,
+                                                       LIB_ERR       *p_err);
 #endif
 
+static  void         *Mem_SegAllocInternal     (const  CPU_CHAR      *p_name,
+                                                       MEM_SEG       *p_seg,
+                                                       CPU_SIZE_T     size,
+                                                       CPU_SIZE_T     align,
+                                                       CPU_SIZE_T     padding_align,
+                                                       CPU_SIZE_T    *p_bytes_reqd,
+                                                       LIB_ERR       *p_err);
 
-static  CPU_SIZE_T    Mem_SegCalcTotSize    (void              *pmem_addr,
-                                             MEM_POOL_BLK_QTY   blk_nbr,
-                                             CPU_SIZE_T         blk_size,
-                                             CPU_SIZE_T         blk_align);
+static  void         *Mem_SegAllocExtCritical  (       MEM_SEG       *p_seg,
+                                                       CPU_SIZE_T     size,
+                                                       CPU_SIZE_T     align,
+                                                       CPU_SIZE_T     padding_align,
+                                                       CPU_SIZE_T    *p_bytes_reqd,
+                                                       LIB_ERR       *p_err);
 
-static  void         *Mem_SegAlloc          (MEM_POOL          *pmem_pool,
-                                             CPU_SIZE_T         size,
-                                             CPU_SIZE_T         align);
+static  void          Mem_DynPoolCreateInternal(const  CPU_CHAR      *p_name,
+                                                       MEM_DYN_POOL  *p_pool,
+                                                       MEM_SEG       *p_seg,
+                                                       CPU_SIZE_T     blk_size,
+                                                       CPU_SIZE_T     blk_align,
+                                                       CPU_SIZE_T     blk_padding_align,
+                                                       CPU_SIZE_T     blk_qty_init,
+                                                       CPU_SIZE_T     blk_qty_max,
+                                                       LIB_ERR       *p_err);
 
+#if (LIB_MEM_CFG_DBG_INFO_EN == DEF_ENABLED)
+static  void          Mem_SegAllocTrackCritical(const  CPU_CHAR      *p_name,
+                                                       MEM_SEG       *p_seg,
+                                                       CPU_SIZE_T     size,
+                                                       LIB_ERR       *p_err);
+#endif
+
+#if ((LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED) && \
+     (LIB_MEM_CFG_HEAP_SIZE      >  0u))
+static  CPU_BOOLEAN   Mem_PoolBlkIsValidAddr   (       MEM_POOL      *p_pool,
+                                                       void          *p_mem);
 #endif
 
 
@@ -137,13 +175,19 @@ static  void         *Mem_SegAlloc          (MEM_POOL          *pmem_pool,
 *********************************************************************************************************
 */
 
+/*
+*********************************************************************************************************
+*********************************************************************************************************
+*                                            GLOBAL FUNCTIONS
+*********************************************************************************************************
+*********************************************************************************************************
+*/
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                             Mem_Init()
 *
-* Description : (1) Initialize Memory Management Module :
+* Description : (1) Initializes Memory Management Module :
 *
 *                   (a) Initialize heap memory pool
 *                   (b) Initialize      memory pool table
@@ -164,47 +208,42 @@ static  void         *Mem_SegAlloc          (MEM_POOL          *pmem_pool,
 
 void  Mem_Init (void)
 {
-#if (LIB_MEM_CFG_ALLOC_EN == DEF_ENABLED)
-    MEM_POOL  *pmem_pool;
 
-                                                                        /* --------- INIT MEM HEAP SEG / POOL --------- */
-    pmem_pool                   = (MEM_POOL   *)&Mem_PoolHeap;
-    pmem_pool->Type             = (LIB_MEM_TYPE) LIB_MEM_TYPE_HEAP;
-    pmem_pool->SegHeadPtr       = (MEM_POOL   *)&Mem_PoolHeap;          /* Heap seg head = heap seg.                    */
-    pmem_pool->SegPrevPtr       = (MEM_POOL   *) 0;
-    pmem_pool->SegNextPtr       = (MEM_POOL   *) 0;
-    pmem_pool->PoolPrevPtr      = (MEM_POOL   *) 0;
-    pmem_pool->PoolNextPtr      = (MEM_POOL   *) 0;
-    pmem_pool->PoolAddrStart    = (void       *) 0;
-    pmem_pool->PoolAddrEnd      = (void       *) 0;
-    pmem_pool->PoolPtrs         = (void      **) 0;
-    pmem_pool->BlkSize          = (CPU_SIZE_T  ) 0u;
-    pmem_pool->BlkNbr           = (CPU_SIZE_T  ) 0u;
-    pmem_pool->BlkIx            = (MEM_POOL_IX ) 0u;
+                                                                /* ------------------ INIT SEG LIST ------------------- */
+    Mem_SegHeadPtr = DEF_NULL;
 
+#if (LIB_MEM_CFG_HEAP_SIZE > 0u)
+    {
+        LIB_ERR   err;
+        CPU_ADDR  heap_base_addr;
+
+
+                                                                /* ------------------ INIT HEAP SEG ------------------- */
 #ifdef  LIB_MEM_CFG_HEAP_BASE_ADDR
-    pmem_pool->SegAddr          = (void       *) LIB_MEM_CFG_HEAP_BASE_ADDR;
-    pmem_pool->SegAddrNextAvail = (void       *) LIB_MEM_CFG_HEAP_BASE_ADDR;
+        heap_base_addr = LIB_MEM_CFG_HEAP_BASE_ADDR;
 #else
-    pmem_pool->SegAddr          = (void       *)&Mem_Heap[0];
-    pmem_pool->SegAddrNextAvail = (void       *)&Mem_Heap[0];
+        heap_base_addr = (CPU_ADDR)&Mem_Heap[0u];
 #endif
 
-    pmem_pool->SegSizeTot       = (CPU_SIZE_T  ) LIB_MEM_CFG_HEAP_SIZE;
-    pmem_pool->SegSizeRem       = (CPU_SIZE_T  ) LIB_MEM_CFG_HEAP_SIZE;
-
-                                                                        /* ------------ INIT MEM POOL TBL ------------- */
-    Mem_PoolTbl = &Mem_PoolHeap;
+        Mem_SegCreate("Heap",
+                      &Mem_SegHeap,                             /* Create heap seg.                                     */
+                       heap_base_addr,
+                       LIB_MEM_CFG_HEAP_SIZE,
+                       LIB_MEM_PADDING_ALIGN_NONE,
+                      &err);
+        if (err != LIB_MEM_ERR_NONE) {
+            CPU_SW_EXCEPTION(;);
+        }
+    }
 #endif
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                              Mem_Clr()
 *
-* Description : Clear data buffer (see Note #2).
+* Description : Clears data buffer (see Note #2).
 *
 * Argument(s) : pmem        Pointer to memory buffer to clear.
 *
@@ -231,12 +270,11 @@ void  Mem_Clr (void        *pmem,
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                              Mem_Set()
 *
-* Description : Fill data buffer with specified data octet.
+* Description : Fills data buffer with specified data octet.
 *
 * Argument(s) : pmem        Pointer to memory buffer to fill with specified data octet.
 *
@@ -251,11 +289,9 @@ void  Mem_Clr (void        *pmem,
 * Note(s)     : (1) Null sets allowed (i.e. zero-length sets).
 *
 *               (2) For best CPU performance, optimized to fill data buffer using 'CPU_ALIGN'-sized data
-*                   words.
-*
-*                   (a) Since many word-aligned processors REQUIRE that multi-octet words be accessed on
-*                       word-aligned addresses, 'CPU_ALIGN'-sized words MUST be accessed on 'CPU_ALIGN'd
-*                       addresses.
+*                   words. Since many word-aligned processors REQUIRE that multi-octet words be accessed on
+*                   word-aligned addresses, 'CPU_ALIGN'-sized words MUST be accessed on 'CPU_ALIGN'd
+*                   addresses.
 *
 *               (3) Modulo arithmetic is used to determine whether a memory buffer starts on a 'CPU_ALIGN'
 *                   address boundary.
@@ -308,7 +344,7 @@ void  Mem_Set (void        *pmem,
         }
     }
 
-    pmem_align = (CPU_ALIGN *)pmem_08;                          /* See Note #2a.                                        */
+    pmem_align = (CPU_ALIGN *)pmem_08;                          /* See Note #2.                                         */
     while (size_rem >= sizeof(CPU_ALIGN)) {                     /* While mem buf aligned on CPU_ALIGN word boundaries,  */
        *pmem_align++ = data_align;                              /* ... fill mem buf with    CPU_ALIGN-sized data.       */
         size_rem    -= sizeof(CPU_ALIGN);
@@ -322,12 +358,11 @@ void  Mem_Set (void        *pmem,
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                             Mem_Copy()
 *
-* Description : Copy data octets from one memory buffer to another memory buffer.
+* Description : Copies data octets from one memory buffer to another memory buffer.
 *
 * Argument(s) : pdest       Pointer to destination memory buffer.
 *
@@ -361,11 +396,9 @@ void  Mem_Set (void        *pmem,
 *                       destination memory buffer.
 *
 *               (3) For best CPU performance, optimized to copy data buffer using 'CPU_ALIGN'-sized data
-*                   words.
-*
-*                   (a) Since many word-aligned processors REQUIRE that multi-octet words be accessed on
-*                       word-aligned addresses, 'CPU_ALIGN'-sized words MUST be accessed on 'CPU_ALIGN'd
-*                       addresses.
+*                   words. Since many word-aligned processors REQUIRE that multi-octet words be accessed on
+*                   word-aligned addresses, 'CPU_ALIGN'-sized words MUST be accessed on 'CPU_ALIGN'd
+*                   addresses.
 *
 *               (4) Modulo arithmetic is used to determine whether a memory buffer starts on a 'CPU_ALIGN'
 *                   address boundary.
@@ -375,7 +408,7 @@ void  Mem_Set (void        *pmem,
 *                  'mem_align_mod' arithmetic operation.
 *********************************************************************************************************
 */
-/*$PAGE*/
+
 #if (LIB_MEM_CFG_OPTIMIZE_ASM_EN != DEF_ENABLED)
 void  Mem_Copy (       void        *pdest,
                 const  void        *psrc,
@@ -411,7 +444,7 @@ void  Mem_Copy (       void        *pdest,
     pmem_08_dest       = (      CPU_INT08U *)pdest;
     pmem_08_src        = (const CPU_INT08U *)psrc;
 
-    mem_gap_octets     = pmem_08_src - pmem_08_dest;
+    mem_gap_octets     = (CPU_SIZE_T)(pmem_08_src - pmem_08_dest);
 
 
     if (mem_gap_octets >= sizeof(CPU_ALIGN)) {                  /* Avoid bufs overlap.                                  */
@@ -433,7 +466,7 @@ void  Mem_Copy (       void        *pdest,
                 }
             }
 
-            pmem_align_dest = (      CPU_ALIGN *)pmem_08_dest;  /* See Note #3a.                                        */
+            pmem_align_dest = (      CPU_ALIGN *)pmem_08_dest;  /* See Note #3.                                         */
             pmem_align_src  = (const CPU_ALIGN *)pmem_08_src;
             while (size_rem      >=  sizeof(CPU_ALIGN)) {       /* While mem bufs aligned on CPU_ALIGN word boundaries, */
                *pmem_align_dest++ = *pmem_align_src++;          /* ... copy psrc to pdest with CPU_ALIGN-sized words.   */
@@ -457,7 +490,7 @@ void  Mem_Copy (       void        *pdest,
 *********************************************************************************************************
 *                                             Mem_Move()
 *
-* Description : Move data octets from one memory buffer to another memory buffer, or within the same
+* Description : Moves data octets from one memory buffer to another memory buffer, or within the same
 *               memory buffer. Overlapping is correctly handled for all move operations.
 *
 * Argument(s) : pdest       Pointer to destination memory buffer.
@@ -475,11 +508,9 @@ void  Mem_Copy (       void        *pdest,
 *               (2) Memory buffers checked for overlapping.
 *
 *               (3) For best CPU performance, optimized to copy data buffer using 'CPU_ALIGN'-sized data
-*                   words.
-*
-*                   (a) Since many word-aligned processors REQUIRE that multi-octet words be accessed on
-*                       word-aligned addresses, 'CPU_ALIGN'-sized words MUST be accessed on 'CPU_ALIGN'd
-*                       addresses.
+*                   words. Since many word-aligned processors REQUIRE that multi-octet words be accessed on
+*                   word-aligned addresses, 'CPU_ALIGN'-sized words MUST be accessed on 'CPU_ALIGN'd
+*                   addresses.
 *
 *               (4) Modulo arithmetic is used to determine whether a memory buffer starts on a 'CPU_ALIGN'
 *                   address boundary.
@@ -489,7 +520,6 @@ void  Mem_Copy (       void        *pdest,
 *                  'mem_align_mod' arithmetic operation.
 *********************************************************************************************************
 */
-/*$PAGE*/
 
 void  Mem_Move (       void        *pdest,
                 const  void        *psrc,
@@ -530,12 +560,12 @@ void  Mem_Move (       void        *pdest,
 
     pmem_08_dest       = (      CPU_INT08U *)pdest + size - 1;
     pmem_08_src        = (const CPU_INT08U *)psrc  + size - 1;
-    
-    mem_gap_octets     = pmem_08_dest - pmem_08_src;
-    
+
+    mem_gap_octets     = (CPU_SIZE_T)(pmem_08_dest - pmem_08_src);
+
 
     if (mem_gap_octets >= sizeof(CPU_ALIGN)) {                  /* Avoid bufs overlap.                                  */
-    
+
                                                                 /* See Note #4.                                         */
         mem_align_mod_dest = (CPU_INT08U)((CPU_ADDR)pmem_08_dest % sizeof(CPU_ALIGN));
         mem_align_mod_src  = (CPU_INT08U)((CPU_ADDR)pmem_08_src  % sizeof(CPU_ALIGN));
@@ -545,7 +575,7 @@ void  Mem_Move (       void        *pdest,
         if (mem_aligned == DEF_YES) {                           /* If mem bufs' alignment offset equal, ...             */
                                                                 /* ... optimize copy for mem buf alignment.             */
             if (mem_align_mod_dest != (sizeof(CPU_ALIGN) - 1)) {/* If leading octets avail,                   ...       */
-                i = mem_align_mod_dest;
+                i = (CPU_INT08S)mem_align_mod_dest;
                 while ((size_rem   >  0) &&                     /* ... start mem buf copy with leading octets ...       */
                        (i          >= 0)) {                     /* ... until next CPU_ALIGN word boundary.              */
                    *pmem_08_dest-- = *pmem_08_src--;
@@ -554,9 +584,9 @@ void  Mem_Move (       void        *pdest,
                 }
             }
 
-                                                                /* See Note #3a.                                        */
-            pmem_align_dest = (      CPU_ALIGN *)((CPU_INT08U *)pmem_08_dest - sizeof(CPU_ALIGN) + 1);
-            pmem_align_src  = (const CPU_ALIGN *)((CPU_INT08U *)pmem_08_src  - sizeof(CPU_ALIGN) + 1);
+                                                                /* See Note #3.                                         */
+            pmem_align_dest = (      CPU_ALIGN *)(((CPU_INT08U *)pmem_08_dest - sizeof(CPU_ALIGN)) + 1);
+            pmem_align_src  = (const CPU_ALIGN *)(((CPU_INT08U *)pmem_08_src  - sizeof(CPU_ALIGN)) + 1);
             while (size_rem      >=  sizeof(CPU_ALIGN)) {       /* While mem bufs aligned on CPU_ALIGN word boundaries, */
                *pmem_align_dest-- = *pmem_align_src--;          /* ... copy psrc to pdest with CPU_ALIGN-sized words.   */
                 size_rem         -=  sizeof(CPU_ALIGN);
@@ -575,12 +605,11 @@ void  Mem_Move (       void        *pdest,
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                              Mem_Cmp()
 *
-* Description : Verify that ALL data octets in two memory buffers are identical in sequence.
+* Description : Verifies that ALL data octets in two memory buffers are identical in sequence.
 *
 * Argument(s) : p1_mem      Pointer to first  memory buffer.
 *
@@ -603,11 +632,9 @@ void  Mem_Move (       void        *pdest,
 *                   on dissimilar memory buffers that vary only in the least significant octets.
 *
 *               (3) For best CPU performance, optimized to compare data buffers using 'CPU_ALIGN'-sized
-*                   data words.
-*
-*                   (a) Since many word-aligned processors REQUIRE that multi-octet words be accessed on
-*                       word-aligned addresses, 'CPU_ALIGN'-sized words MUST be accessed on 'CPU_ALIGN'd
-*                       addresses.
+*                   data words. Since many word-aligned processors REQUIRE that multi-octet words be accessed on
+*                   word-aligned addresses, 'CPU_ALIGN'-sized words MUST be accessed on 'CPU_ALIGN'd
+*                   addresses.
 *
 *               (4) Modulo arithmetic is used to determine whether a memory buffer starts on a 'CPU_ALIGN'
 *                   address boundary.
@@ -617,7 +644,7 @@ void  Mem_Move (       void        *pdest,
 *                  'mem_align_mod' arithmetic operation.
 *********************************************************************************************************
 */
-/*$PAGE*/
+
 CPU_BOOLEAN  Mem_Cmp (const  void        *p1_mem,
                       const  void        *p2_mem,
                              CPU_SIZE_T   size)
@@ -674,7 +701,7 @@ CPU_BOOLEAN  Mem_Cmp (const  void        *p1_mem,
         }
 
         if (mem_cmp == DEF_YES) {                               /* If cmp still identical, cmp aligned mem bufs.        */
-            p1_mem_align = (CPU_ALIGN *)p1_mem_08;              /* See Note #3a.                                        */
+            p1_mem_align = (CPU_ALIGN *)p1_mem_08;              /* See Note #3.                                         */
             p2_mem_align = (CPU_ALIGN *)p2_mem_08;
 
             while ((mem_cmp  == DEF_YES) &&                     /* Cmp mem bufs while identical & ...                   */
@@ -706,31 +733,31 @@ CPU_BOOLEAN  Mem_Cmp (const  void        *p1_mem,
 }
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                           Mem_HeapAlloc()
 *
-* Description : Allocate a memory block from the heap memory pool.
+* Description : Allocates a memory block from the heap memory segment.
 *
-* Argument(s) : size            Size      of memory block to allocate (in octets).
+* Argument(s) : size            Size      of memory block to allocate (in bytes).
 *
-*               align           Alignment of memory block to specific word boundary (in octets).
+*               align           Alignment of memory block to specific word boundary (in bytes).
 *
-*               poctets_reqd    Optional pointer to a variable to ... :
+*               p_bytes_reqd    Optional pointer to a variable to ... :
 *
-*                                   (a) Return the number of octets required to successfully
+*                                   (a) Return the number of bytes required to successfully
 *                                           allocate the memory block, if any error(s);
 *                                   (b) Return 0, otherwise.
 *
-*               perr        Pointer to variable that will receive the return error code from this function :
+*               p_err           Pointer to variable that will receive the return error code from this function :
 *
-*                               LIB_MEM_ERR_NONE                Memory block successfully returned.
-*                               LIB_MEM_ERR_INVALID_MEM_SIZE    Invalid memory size.
-*                               LIB_MEM_ERR_INVALID_MEM_ALIGN   Invalid memory alignment.
-*                               LIB_MEM_ERR_HEAP_EMPTY          Heap segment empty; NOT enough available
-*                                                                   memory from heap.
-*                               LIB_MEM_ERR_HEAP_OVF            Requested memory overflows heap memory.
+*                                   LIB_MEM_ERR_NONE                Operation was successful.
+*                                   LIB_MEM_ERR_HEAP_EMPTY          No more memory available on heap.
+*
+*                                   ---------------------RETURNED BY Mem_SegAllocInternal()---------------------
+*                                   LIB_MEM_ERR_INVALID_MEM_ALIGN   Invalid memory block alignment requested.
+*                                   LIB_MEM_ERR_INVALID_MEM_SIZE    Invalid memory block size specified.
+*                                   LIB_MEM_ERR_NULL_PTR            Error or segment data pointer NULL.
 *
 * Return(s)   : Pointer to memory block, if NO error(s).
 *
@@ -741,116 +768,417 @@ CPU_BOOLEAN  Mem_Cmp (const  void        *p1_mem,
 * Note(s)     : (1) Pointers to variables that return values MUST be initialized PRIOR to all other
 *                   validation or function handling in case of any error(s).
 *
-*               (2) 'pmem_pool' variables MUST ALWAYS be accessed exclusively in critical sections.
+*               (2) This function is DEPRECATED and will be removed in a future version of this product.
+*                   Mem_SegAlloc(), Mem_SegAllocExt() or Mem_SegAllocHW() should be used instead.
 *********************************************************************************************************
 */
-/*$PAGE*/
-#if (LIB_MEM_CFG_ALLOC_EN == DEF_ENABLED)
+
+#if (LIB_MEM_CFG_HEAP_SIZE > 0u)
 void  *Mem_HeapAlloc (CPU_SIZE_T   size,
                       CPU_SIZE_T   align,
-                      CPU_SIZE_T  *poctets_reqd,
-                      LIB_ERR     *perr)
+                      CPU_SIZE_T  *p_bytes_reqd,
+                      LIB_ERR     *p_err)
 {
-    MEM_POOL    *pmem_pool_heap;
-    void        *pmem_addr;
-    void        *pmem_blk;
-    CPU_SIZE_T   octets_reqd_unused;
-    CPU_SIZE_T   size_rem;
-    CPU_SIZE_T   size_req;
-    CPU_SR_ALLOC();
+    void  *p_mem;
 
 
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)                     /* ------------- VALIDATE RTN ERR PTR ------------- */
-    if (perr == (LIB_ERR *)0) {
-        CPU_SW_EXCEPTION((void *)0);
-    }
-#endif
-
-                                                                    /* ------------ VALIDATE RTN OCTETS PTR ----------- */
-    if (poctets_reqd == (CPU_SIZE_T *) 0) {                         /* If NOT avail, ...                                */
-        poctets_reqd  = (CPU_SIZE_T *)&octets_reqd_unused;          /* ... re-cfg NULL rtn ptr to unused local var.     */
-       (void)&octets_reqd_unused;                                   /* Prevent possible 'variable unused' warning.      */
-    }
-   *poctets_reqd = 0u;                                              /* Init octets req'd for err (see Note #1).         */
-
-
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)                     /* ------------ VALIDATE HEAP MEM ALLOC ----------- */
-    if (size < 1) {
-       *perr = LIB_MEM_ERR_INVALID_MEM_SIZE;
-        return ((void *)0);
+    p_mem = Mem_SegAllocInternal(DEF_NULL,
+                                &Mem_SegHeap,
+                                 size,
+                                 align,
+                                 LIB_MEM_CFG_HEAP_PADDING_ALIGN,
+                                 p_bytes_reqd,
+                                 p_err);
+    if (*p_err == LIB_MEM_ERR_SEG_OVF) {
+       *p_err = LIB_MEM_ERR_HEAP_OVF;
     }
 
-    if (align < 1) {
-       *perr = LIB_MEM_ERR_INVALID_MEM_ALIGN;
-        return ((void *)0);
-    }
-#endif
-
-                                                                    /* -------------- ALLOC HEAP MEM BLK -------------- */
-    pmem_pool_heap = &Mem_PoolHeap;
-
-    CPU_CRITICAL_ENTER();
-
-    pmem_addr = pmem_pool_heap->SegAddrNextAvail;
-    size_rem  = pmem_pool_heap->SegSizeRem;
-    size_req  = Mem_SegCalcTotSize(pmem_addr,
-                                   1u,                              /* Calc alloc for single mem blk from heap.         */
-                                   size,
-                                   align);
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-    if (size_req < 1) {                                             /* If req'd size ovf, ...                           */
-        CPU_CRITICAL_EXIT();
-       *poctets_reqd = size;                                        /* ... rtn add'l heap size needed.                  */
-       *perr         = LIB_MEM_ERR_HEAP_OVF;
-        return ((void *)0);
-    }
-#endif
-
-    if (size_req > size_rem) {                                      /* If req'd size > rem heap size, ...               */
-        CPU_CRITICAL_EXIT();
-       *poctets_reqd = size_req - size_rem;                         /* ... rtn add'l heap size needed.                  */
-       *perr         = LIB_MEM_ERR_HEAP_EMPTY;
-        return ((void *)0);
-    }
-
-    pmem_blk = Mem_SegAlloc(pmem_pool_heap, size, align);
-    if (pmem_blk == (void *)0) {                                    /* If mem blk NOT avail from heap, ...              */
-        CPU_CRITICAL_EXIT();
-       *poctets_reqd = size_req;                                    /* ... rtn add'l heap size needed.                  */
-       *perr         = LIB_MEM_ERR_HEAP_EMPTY;
-        return ((void *)0);
-    }
-
-    CPU_CRITICAL_EXIT();
-
-   *perr =  LIB_MEM_ERR_NONE;
-
-    return (pmem_blk);
+    return (p_mem);
 }
 #endif
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                        Mem_HeapGetSizeRem()
 *
-* Description : Get remaining heap memory size available to allocate.
+* Description : Gets remaining heap memory size available to allocate.
 *
-* Argument(s) : align       Desired word boundary alignment (in octets) to return remaining memory size from.
+* Argument(s) : align       Desired word boundary alignment (in bytes) to return remaining memory size from.
 *
-*               perr        Pointer to variable that will receive the return error code from this function :
+*               p_err       Pointer to variable that will receive the return error code from this function
 *
-*                                                               ---- RETURNED BY Mem_PoolGetSizeRem() : ----
-*                               LIB_MEM_ERR_NONE                Heap memory pool remaining size successfully
-*                                                                   returned.
-*                               LIB_MEM_ERR_NULL_PTR            Argument 'pmem_pool' passed a NULL pointer.
-*                               LIB_MEM_ERR_INVALID_POOL        Invalid memory pool type.
+*                               LIB_MEM_ERR_NONE                Operation was successful.
+*
+*                               --------------------RETURNED BY Mem_SegRemSizeGet()--------------------
+*                               LIB_MEM_ERR_NULL_PTR            Segment data pointer NULL.
 *                               LIB_MEM_ERR_INVALID_MEM_ALIGN   Invalid memory alignment.
 *
-* Return(s)   : Remaining heap memory size (in octets), if NO error(s).
+* Return(s)   : Remaining heap memory size (in bytes), if NO error(s).
 *
-*               0,                                      otherwise.
+*               0,                                     otherwise.
+*
+* Caller(s)   : Application.
+*
+* Note(s)     : (1) This function is DEPRECATED and will be removed in a future version of this product.
+*                   Mem_SegRemSizeGet() should be used instead.
+*********************************************************************************************************
+*/
+
+#if (LIB_MEM_CFG_HEAP_SIZE > 0u)
+CPU_SIZE_T  Mem_HeapGetSizeRem (CPU_SIZE_T   align,
+                                LIB_ERR     *p_err)
+{
+    CPU_SIZE_T  rem_size;
+
+
+    rem_size = Mem_SegRemSizeGet(&Mem_SegHeap,
+                                  align,
+                                  DEF_NULL,
+                                  p_err);
+    if (*p_err != LIB_MEM_ERR_NONE) {
+        return (0u);
+    }
+
+    return (rem_size);
+}
+#endif
+
+
+/*
+*********************************************************************************************************
+*                                            Mem_SegCreate()
+*
+* Description : Creates a new memory segment to be used for runtime memory allocation.
+*
+* Argument(s) : p_name          Pointer to segment name.
+*
+*               p_seg           Pointer to segment data. Must be allocated by caller.
+*
+*               seg_base_addr   Address of segment's first byte.
+*
+*               size            Total size of segment, in bytes.
+*
+*               padding_align   Padding alignment, in bytes, that will be added to any allocated buffer from
+*                               this memory segment. MUST be a power of 2. LIB_MEM_PADDING_ALIGN_NONE
+*                               means no padding.
+*
+*               p_err           Pointer to variable that will receive the return error code from this function :
+*
+*                                   LIB_MEM_ERR_NONE                    Operation was successful.
+*                                   LIB_MEM_ERR_INVALID_SEG_SIZE        Invalid segment size specified.
+*                                   LIB_MEM_ERR_INVALID_MEM_ALIGN       Invalid padding alignment.
+*                                   LIB_MEM_ERR_NULL_PTR                Error or segment data pointer NULL.
+*
+*                                   -------------------RETURNED BY Mem_SegOverlapChkCritical()-------------------
+*                                   LIB_MEM_ERR_INVALID_SEG_OVERLAP     Segment overlaps another existing segment.
+*                                   LIB_MEM_ERR_INVALID_SEG_EXISTS      Segment already exists.
+*
+* Return(s)   : None.
+*
+* Caller(s)   : Application.
+*
+* Note(s)     : (1) New segments are checked for overlap with existing segments. A critical section needs
+*                   to be maintained during the whole list search and add procedure to prevent a reentrant
+*                   call from creating another segment overlapping with the one being added.
+*********************************************************************************************************
+*/
+
+void  Mem_SegCreate (const  CPU_CHAR    *p_name,
+                            MEM_SEG     *p_seg,
+                            CPU_ADDR     seg_base_addr,
+                            CPU_SIZE_T   size,
+                            CPU_SIZE_T   padding_align,
+                            LIB_ERR     *p_err)
+{
+    CPU_SR_ALLOC();
+
+
+#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
+    if (p_err == DEF_NULL) {                                    /* Chk for null err ptr.                                */
+        CPU_SW_EXCEPTION(;);
+    }
+
+    if (p_seg == DEF_NULL) {                                    /* Chk for null seg ptr.                                */
+       *p_err = LIB_MEM_ERR_NULL_PTR;
+        return;
+    }
+
+    if (size < 1u) {                                            /* Chk for invalid sized seg.                           */
+       *p_err = LIB_MEM_ERR_INVALID_SEG_SIZE;
+        return;
+    }
+                                                                /* Chk for addr space ovf.                              */
+    if (seg_base_addr + (size - 1u) < seg_base_addr) {
+       *p_err = LIB_MEM_ERR_INVALID_SEG_SIZE;
+        return;
+    }
+
+    if ((padding_align               != LIB_MEM_PADDING_ALIGN_NONE) &&
+        (MATH_IS_PWR2(padding_align) != DEF_YES)) {
+       *p_err = LIB_MEM_ERR_INVALID_MEM_ALIGN;
+        return;
+    }
+#endif
+
+    CPU_CRITICAL_ENTER();
+#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
+    (void)Mem_SegOverlapChkCritical(seg_base_addr,              /* Chk for overlap.                                     */
+                                    size,
+                                    p_err);
+    if (*p_err != LIB_MEM_ERR_NONE) {
+        CPU_CRITICAL_EXIT();
+        return;
+    }
+#endif
+
+    Mem_SegCreateCritical(p_name,                               /* Create seg.                                          */
+                          p_seg,
+                          seg_base_addr,
+                          padding_align,
+                          size);
+    CPU_CRITICAL_EXIT();
+
+   *p_err = LIB_MEM_ERR_NONE;
+}
+
+
+/*
+*********************************************************************************************************
+*                                            Mem_SegClr()
+*
+* Description : Clears a memory segment.
+*
+* Argument(s) : p_seg           Pointer to segment data. Must be allocated by caller.
+*
+*               p_err           Pointer to variable that will receive the return error code from this function :
+*
+*                               LIB_MEM_ERR_NONE                Operation was successful.
+*                               LIB_MEM_ERR_NULL_PTR            Segment data pointer NULL.
+*
+* Return(s)   : None.
+*
+* Caller(s)   : Application.
+*
+* Note(s)     : (1) This function must be used with extreme caution. It must only be called on memory
+*                   segments that are no longer used.
+*
+*               (2) This function is disabled when debug mode is enabled to avoid heap memory leaks.
+*********************************************************************************************************
+*/
+
+#if (LIB_MEM_CFG_DBG_INFO_EN == DEF_DISABLED)
+void  Mem_SegClr (MEM_SEG  *p_seg,
+                  LIB_ERR  *p_err)
+{
+    CPU_SR_ALLOC();
+
+
+#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
+    if (p_err == DEF_NULL) {                                    /* Chk for null err ptr.                                */
+        CPU_SW_EXCEPTION(;);
+    }
+
+    if (p_seg == DEF_NULL) {                                    /* Chk for null seg ptr.                                */
+       *p_err = LIB_MEM_ERR_NULL_PTR;
+        return;
+    }
+#endif
+
+    CPU_CRITICAL_ENTER();
+    p_seg->AddrNext = p_seg->AddrBase;
+    CPU_CRITICAL_EXIT();
+
+   *p_err = LIB_MEM_ERR_NONE;
+}
+#endif
+
+
+/*
+*********************************************************************************************************
+*                                         Mem_SegRemSizeGet()
+*
+* Description : Gets free space of memory segment.
+*
+* Argument(s) : p_seg       Pointer to segment data.
+*
+*               align       Alignment in bytes to assume for calculation of free space.
+*
+*               p_seg_info  Pointer to structure that will receive further segment info data (used size,
+*                           total size, base address and next allocation address).
+*
+*               p_err       Pointer to variable that will receive the return error code from this function :
+*
+*                           LIB_MEM_ERR_NONE                Operation was successful.
+*                           LIB_MEM_ERR_NULL_PTR            Segment data pointer NULL.
+*                           LIB_MEM_ERR_INVALID_MEM_ALIGN   Invalid memory alignment.
+*
+* Return(s)   : Memory segment remaining size in bytes,     if successful.
+*               0,                                          otherwise or if memory segment empty.
+*
+* Caller(s)   : Application,
+*               Mem_HeapGetSizeRem(),
+*               Mem_OutputUsage().
+*
+* Note(s)     : None.
+*********************************************************************************************************
+*/
+
+CPU_SIZE_T  Mem_SegRemSizeGet (MEM_SEG       *p_seg,
+                               CPU_SIZE_T     align,
+                               MEM_SEG_INFO  *p_seg_info,
+                               LIB_ERR       *p_err)
+{
+    CPU_SIZE_T  rem_size;
+    CPU_SIZE_T  total_size;
+    CPU_SIZE_T  used_size;
+    CPU_ADDR    next_addr_align;
+    CPU_SR_ALLOC();
+
+
+#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
+    if (p_err == DEF_NULL) {                                    /* Chk for null err ptr.                                */
+        CPU_SW_EXCEPTION(0);
+    }
+
+    if (MATH_IS_PWR2(align) != DEF_YES) {                       /* Chk for invalid align val.                           */
+       *p_err = LIB_MEM_ERR_INVALID_MEM_ALIGN;
+        return (0u);
+    }
+#endif
+
+    if (p_seg == DEF_NULL) {                                    /* Dflt to heap in case p_seg is null.                  */
+#if (LIB_MEM_CFG_HEAP_SIZE > 0u)
+        p_seg = &Mem_SegHeap;
+#else
+       *p_err = LIB_MEM_ERR_NULL_PTR;
+        return (0u);
+#endif
+    }
+
+    CPU_CRITICAL_ENTER();                                       /* Calc seg stats.                                      */
+    next_addr_align = MATH_ROUND_INC_UP_PWR2(p_seg->AddrNext, align);
+    CPU_CRITICAL_EXIT();
+
+    total_size = (p_seg->AddrEnd  - p_seg->AddrBase) + 1u;
+    used_size  =  p_seg->AddrNext - p_seg->AddrBase;
+
+    if (next_addr_align > p_seg->AddrEnd){
+        next_addr_align = 0u;
+        rem_size        = 0u;
+    } else {
+        rem_size        = total_size - (next_addr_align - p_seg->AddrBase);
+    }
+
+    if (p_seg_info != DEF_NULL) {
+        p_seg_info->TotalSize     = total_size;
+        p_seg_info->UsedSize      = used_size;
+        p_seg_info->AddrBase      = p_seg->AddrBase;
+        p_seg_info->AddrNextAlloc = next_addr_align;
+    }
+
+   *p_err = LIB_MEM_ERR_NONE;
+
+    return (rem_size);
+}
+
+
+/*
+*********************************************************************************************************
+*                                            Mem_SegAlloc()
+*
+* Description : Allocates memory from specified segment. Returned memory block will be aligned on a CPU
+*               word boundary.
+*
+* Argument(s) : p_name  Pointer to allocated object name. Used for allocations tracking. May be DEF_NULL.
+*
+*               p_seg   Pointer to segment from which to allocate memory. Will be allocated from
+*                       general-purpose heap if null.
+*
+*               size    Size of memory block to allocate, in bytes.
+*
+*               p_err   Pointer to variable that will receive the return error code from this function :
+*
+*                           LIB_MEM_ERR_NONE                Operation was successful.
+*
+*                           ------------------RETURNED BY Mem_SegAllocInternal()-------------------
+*                           LIB_MEM_ERR_INVALID_MEM_ALIGN   Invalid memory block alignment requested.
+*                           LIB_MEM_ERR_INVALID_MEM_SIZE    Invalid memory block size specified.
+*                           LIB_MEM_ERR_NULL_PTR            Error or segment data pointer NULL.
+*                           LIB_MEM_ERR_SEG_OVF             Allocation would overflow memory segment.
+*
+* Return(s)   : Pointer to allocated memory block, if successful.
+*
+*               DEF_NULL, otherwise.
+*
+* Caller(s)   : Application.
+*
+* Note(s)     : (1) The memory block returned  by this function will be aligned on a word boundary. In
+*                   order to specify a specific alignment value, use either Mem_SegAllocExt() or
+*                   Mem_SegAllocHW().
+*********************************************************************************************************
+*/
+
+void  *Mem_SegAlloc (const  CPU_CHAR    *p_name,
+                            MEM_SEG     *p_seg,
+                            CPU_SIZE_T   size,
+                            LIB_ERR     *p_err)
+{
+    void  *p_blk;
+
+
+    if (p_seg == DEF_NULL) {                                    /* Alloc from heap if p_seg is null.                    */
+#if (LIB_MEM_CFG_HEAP_SIZE > 0u)
+        p_seg = &Mem_SegHeap;
+#else
+       *p_err = LIB_MEM_ERR_NULL_PTR;
+        return (DEF_NULL);
+#endif
+    }
+
+    p_blk = Mem_SegAllocInternal(p_name,
+                                 p_seg,
+                                 size,
+                                 sizeof(CPU_ALIGN),
+                                 LIB_MEM_PADDING_ALIGN_NONE,
+                                 DEF_NULL,
+                                 p_err);
+
+    return (p_blk);
+}
+
+
+/*
+*********************************************************************************************************
+*                                           Mem_SegAllocExt()
+*
+* Description : Allocates memory from specified memory segment.
+*
+* Argument(s) : p_name          Pointer to allocated object name. Used for allocations tracking. May be DEF_NULL.
+*
+*               p_seg           Pointer to segment from which to allocate memory. Will be allocated from
+*                               general-purpose heap if null.
+*
+*               size            Size of memory block to allocate, in bytes.
+*
+*               align           Required alignment of memory block, in bytes. MUST be a power of 2.
+*
+*               p_bytes_reqd    Pointer to variable that will receive the number of free bytes missing for
+*                               the allocation to succeed. Set to DEF_NULL to skip calculation.
+*
+*               p_err           Pointer to variable that will receive the return error code from this function :
+*
+*                                   LIB_MEM_ERR_NONE                Operation was successful.
+*
+*                                   ------------------RETURNED BY Mem_SegAllocInternal()-------------------
+*                                   LIB_MEM_ERR_INVALID_MEM_ALIGN   Invalid memory block alignment requested.
+*                                   LIB_MEM_ERR_INVALID_MEM_SIZE    Invalid memory block size specified.
+*                                   LIB_MEM_ERR_NULL_PTR            Error or segment data pointer NULL.
+*                                   LIB_MEM_ERR_SEG_OVF             Allocation would overflow memory segment.
+*
+* Return(s)   : Pointer to allocated memory block, if successful.
+*
+*               DEF_NULL, otherwise.
 *
 * Caller(s)   : Application.
 *
@@ -858,142 +1186,347 @@ void  *Mem_HeapAlloc (CPU_SIZE_T   size,
 *********************************************************************************************************
 */
 
-#if (LIB_MEM_CFG_ALLOC_EN == DEF_ENABLED)
-CPU_SIZE_T  Mem_HeapGetSizeRem (CPU_SIZE_T   align,
-                                LIB_ERR     *perr)
+void  *Mem_SegAllocExt (const  CPU_CHAR    *p_name,
+                               MEM_SEG     *p_seg,
+                               CPU_SIZE_T   size,
+                               CPU_SIZE_T   align,
+                               CPU_SIZE_T  *p_bytes_reqd,
+                               LIB_ERR     *p_err)
 {
-    CPU_SIZE_T  size_rem;
+    void  *p_blk;
 
 
-    size_rem = Mem_SegGetSizeRem(&Mem_PoolHeap, align, perr);
-
-    return (size_rem);
-}
+    if (p_seg == DEF_NULL) {                                    /* Alloc from heap if p_seg is null.                    */
+#if (LIB_MEM_CFG_HEAP_SIZE > 0u)
+        p_seg = &Mem_SegHeap;
+#else
+       *p_err = LIB_MEM_ERR_NULL_PTR;
+        return (DEF_NULL);
 #endif
+    }
+
+    p_blk = Mem_SegAllocInternal(p_name,
+                                 p_seg,
+                                 size,
+                                 align,
+                                 LIB_MEM_PADDING_ALIGN_NONE,
+                                 p_bytes_reqd,
+                                 p_err);
+
+    return (p_blk);
+}
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
-*                                         Mem_SegGetSizeRem()
+*                                          Mem_SegAllocHW()
 *
-* Description : Get memory pool's remaining segment size available to allocate.
+* Description : Allocates memory from specified segment. The returned buffer will be padded in function
+*               of memory segment's properties.
 *
-* Argument(s) : pmem_pool   Pointer to a memory pool structure.
+* Argument(s) : p_name          Pointer to allocated object name. Used for allocations tracking. May be DEF_NULL.
 *
-*               align       Desired word boundary alignment (in octets) to return remaining memory size from.
+*               p_seg           Pointer to segment from which to allocate memory. Will be allocated from
+*                               general-purpose heap if null.
 *
-*               perr        Pointer to variable that will receive the return error code from this function :
+*               size            Size of memory block to allocate, in bytes.
 *
-*                               LIB_MEM_ERR_NONE                Memory segment remaining size successfully
-*                                                                   returned.
-*                               LIB_MEM_ERR_NULL_PTR            Argument 'pmem_pool' passed a NULL pointer.
-*                               LIB_MEM_ERR_INVALID_POOL        Invalid memory pool type.
-*                               LIB_MEM_ERR_INVALID_MEM_ALIGN   Invalid memory alignment.
+*               align           Required alignment of memory block, in bytes. MUST be a power of 2.
 *
-* Return(s)   : Remaining memory segment size (in octets) [see Note #1], if NO error(s).
+*               p_bytes_reqd    Pointer to variable that will receive the number of free bytes missing for
+*                               the allocation to succeed. Set to DEF_NULL to skip calculation.
 *
-*               0,                                                       otherwise.
+*               p_err           Pointer to variable that will receive the return error code from this function :
+*
+*                                   LIB_MEM_ERR_NONE                Operation was successful.
+*
+*                                   ------------------RETURNED BY Mem_SegAllocInternal()-------------------
+*                                   LIB_MEM_ERR_INVALID_MEM_ALIGN   Invalid memory block alignment requested.
+*                                   LIB_MEM_ERR_INVALID_MEM_SIZE    Invalid memory block size specified.
+*                                   LIB_MEM_ERR_NULL_PTR            Error or segment data pointer NULL.
+*                                   LIB_MEM_ERR_SEG_OVF             Allocation would overflow memory segment.
+*
+* Return(s)   : Pointer to allocated memory block, if successful.
+*
+*               DEF_NULL, otherwise.
 *
 * Caller(s)   : Application.
 *
-* Note(s)     : (1) Remaining size of memory segment returned from either :
-*
-*                   (a) Segment's configured dedicated memory, if any
-*                   (b) Heap memory pool,                      otherwise
-*
-*               (2) 'pmem_pool' variables MUST ALWAYS be accessed exclusively in critical sections.
+* Note(s)     : none.
 *********************************************************************************************************
 */
-/*$PAGE*/
-#if (LIB_MEM_CFG_ALLOC_EN == DEF_ENABLED)
-CPU_SIZE_T  Mem_SegGetSizeRem (MEM_POOL    *pmem_pool,
-                               CPU_SIZE_T   align,
-                               LIB_ERR     *perr)
+
+void  *Mem_SegAllocHW (const  CPU_CHAR    *p_name,
+                              MEM_SEG     *p_seg,
+                              CPU_SIZE_T   size,
+                              CPU_SIZE_T   align,
+                              CPU_SIZE_T  *p_bytes_reqd,
+                              LIB_ERR     *p_err)
 {
-    MEM_POOL    *pmem_seg;
-    MEM_POOL    *pmem_seg_size;
-    CPU_SIZE_T   size_rem;
-    CPU_SIZE_T   size_rem_mod;
-    CPU_SIZE_T   seg_addr_mod;
-    CPU_ADDR     seg_addr;
+    void  *p_blk;
+
+
+    if (p_seg == DEF_NULL) {                                    /* Alloc from heap if p_seg is null.                    */
+#if (LIB_MEM_CFG_HEAP_SIZE > 0u)
+        p_seg = &Mem_SegHeap;
+#else
+       *p_err = LIB_MEM_ERR_NULL_PTR;
+        return (DEF_NULL);
+#endif
+    }
+
+    p_blk = Mem_SegAllocInternal(p_name,
+                                 p_seg,
+                                 size,
+                                 align,
+                                 p_seg->PaddingAlign,
+                                 p_bytes_reqd,
+                                 p_err);
+
+    return (p_blk);
+}
+
+
+/*
+*********************************************************************************************************
+*                                          Mem_PoolCreate()
+*
+* Description : (1) Creates a memory pool :
+*
+*                   (a) Create    memory pool from heap or dedicated memory
+*                   (b) Allocate  memory pool memory blocks
+*                   (c) Configure memory pool
+*
+*
+* Argument(s) : p_pool          Pointer to a memory pool structure to create (see Note #1).
+*
+*               p_mem_base      Memory pool segment base address :
+*
+*                                       (a)     Null address    Memory pool allocated from general-purpose heap.
+*                                       (b) Non-null address    Memory pool allocated from dedicated memory
+*                                                                   specified by its base address.
+*
+*               mem_size        Size      of memory pool segment          (in bytes).
+*
+*               blk_nbr         Number    of memory pool blocks to create.
+*
+*               blk_size        Size      of memory pool blocks to create (in bytes).
+*
+*               blk_align       Alignment of memory pool blocks to specific word boundary (in bytes).
+*
+*               p_bytes_reqd    Optional pointer to a variable to ... :
+*
+*                                   (a) Return the number of bytes required to successfully
+*                                               allocate the memory pool, if any error(s);
+*                                   (b) Return 0, otherwise.
+*
+*               p_err           Pointer to variable that will receive the return error code from this function :
+*
+*                                   LIB_MEM_ERR_NONE                    Operation was successful.
+*                                   LIB_MEM_ERR_NULL_PTR                Pointer to memory pool is null.
+*                                   LIB_MEM_ERR_INVALID_BLK_ALIGN       Invalid block alignment requested.
+*                                   LIB_MEM_ERR_INVALID_BLK_NBR         Invalid number of blocks specified.
+*                                   LIB_MEM_ERR_INVALID_BLK_SIZE        Invalid block size specified.
+*                                   LIB_MEM_ERR_INVALID_SEG_SIZE        Invalid segment size.
+*                                   LIB_MEM_ERR_HEAP_EMPTY              No more memory available on heap.
+*
+*                                   ---------------RETURNED BY Mem_SegOverlapChkCritical()----------------
+*                                   LIB_MEM_ERR_INVALID_SEG_EXISTS      Segment already exists.
+*                                   LIB_MEM_ERR_INVALID_SEG_OVERLAP     Segment overlaps another existing segment.
+*
+*                                   -----------------RETURNED BY Mem_SegAllocExtCritical()-----------------
+*                                   LIB_MEM_ERR_SEG_OVF                 Allocation would overflow memory segment.
+*
+*                                   ------------------RETURNED BY Mem_SegAllocInternal()-------------------
+*                                   LIB_MEM_ERR_INVALID_MEM_ALIGN       Invalid memory block alignment requested.
+*                                   LIB_MEM_ERR_INVALID_MEM_SIZE        Invalid memory block size specified.
+*                                   LIB_MEM_ERR_NULL_PTR                Error or segment data pointer NULL.
+*                                   LIB_MEM_ERR_SEG_OVF                 Allocation would overflow memory segment.
+*
+*                                   -----------------------RETURNED BY Mem_PoolClr()-----------------------
+*                                   LIB_MEM_ERR_NULL_PTR                Argument 'p_pool' passed a NULL pointer.
+*
+* Return(s)   : none.
+*
+* Caller(s)   : Application.
+*
+* Note(s)     : (1) This function is DEPRECATED and will be removed in a future version of this product.
+*                   Mem_DynPoolCreate() or Mem_DynPoolCreateHW() should be used instead.
+*********************************************************************************************************
+*/
+
+#if (LIB_MEM_CFG_HEAP_SIZE > 0u)
+void  Mem_PoolCreate (MEM_POOL          *p_pool,
+                      void              *p_mem_base,
+                      CPU_SIZE_T         mem_size,
+                      MEM_POOL_BLK_QTY   blk_nbr,
+                      CPU_SIZE_T         blk_size,
+                      CPU_SIZE_T         blk_align,
+                      CPU_SIZE_T        *p_bytes_reqd,
+                      LIB_ERR           *p_err)
+{
+    MEM_SEG           *p_seg;
+    void              *p_pool_mem;
+    CPU_SIZE_T         pool_size;
+    CPU_SIZE_T         blk_size_align;
+    CPU_ADDR           pool_addr_end;
+    MEM_POOL_BLK_QTY   blk_ix;
+    CPU_INT08U        *p_blk;
     CPU_SR_ALLOC();
 
 
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-                                                                /* --------------- VALIDATE RTN ERR PTR --------------- */
-    if (perr == (LIB_ERR *)0) {
-        CPU_SW_EXCEPTION(0u);
+#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)                 /* --------------- VALIDATE RTN ERR PTR --------------- */
+    if (p_err == DEF_NULL) {
+        CPU_SW_EXCEPTION(;);
     }
-                                                                /* ---------------- VALIDATE MEM ALIGN ---------------- */
-    if (align < 1) {
-       *perr =  LIB_MEM_ERR_INVALID_MEM_ALIGN;
-        return (0u);
+
+                                                                /* ------------- VALIDATE MEM POOL CREATE ------------- */
+    if (p_pool == DEF_NULL) {
+       *p_err = LIB_MEM_ERR_NULL_PTR;
+        return;
     }
-	if (align > DEF_ALIGN_MAX_NBR_OCTETS) {
-	   *perr =  LIB_MEM_ERR_INVALID_MEM_ALIGN;
-        return (0u);
+
+    if (p_mem_base != DEF_NULL) {
+        if (mem_size < 1u) {
+           *p_err = LIB_MEM_ERR_INVALID_SEG_SIZE;
+            return;
+        }
     }
-                                                                /* ---------------- VALIDATE MEM POOL ----------------- */
-    if (pmem_pool == (MEM_POOL *)0) {                           /* Validate mem ptr.                                    */
-       *perr =  LIB_MEM_ERR_NULL_PTR;
-        return (0u);
+
+    if (blk_nbr < 1u) {
+       *p_err = LIB_MEM_ERR_INVALID_BLK_NBR;
+        return;
     }
-#endif
 
-    CPU_CRITICAL_ENTER();
+    if (blk_size < 1u) {
+       *p_err = LIB_MEM_ERR_INVALID_BLK_SIZE;
+        return;
+    }
 
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-    switch (pmem_pool->Type) {                                  /* Validate mem pool type.                              */
-        case LIB_MEM_TYPE_HEAP:
-        case LIB_MEM_TYPE_POOL:
-             break;
-
-
-        case LIB_MEM_TYPE_NONE:
-        default:
-             CPU_CRITICAL_EXIT();
-            *perr =  LIB_MEM_ERR_INVALID_POOL;
-             return (0u);                                       /* Prevent 'break NOT reachable' compiler warning.      */
+    if (MATH_IS_PWR2(blk_align) != DEF_YES) {                   /* Chk that req alignment is a pwr of 2.                */
+       *p_err = LIB_MEM_ERR_INVALID_BLK_ALIGN;
+        return;
     }
 #endif
 
-                                                                /* ------------- GET REM'ING MEM SEG SIZE ------------- */
-    pmem_seg      =  pmem_pool->SegHeadPtr;                     /* Get mem pool's head seg.                             */
-    pmem_seg_size = (pmem_seg->SegAddr != (void *)0)
-                  ?  pmem_seg : &Mem_PoolHeap;                  /* See Note #1.                                         */
-    size_rem      =  pmem_seg_size->SegSizeRem;                 /* Get mem seg's rem'ing mem size.                      */
-    seg_addr      = (CPU_ADDR)pmem_seg_size->SegAddrNextAvail;
+    Mem_PoolClr(p_pool, p_err);                                 /* Init mem pool.                                       */
+    if (*p_err != LIB_MEM_ERR_NONE) {
+         return;
+    }
 
-    CPU_CRITICAL_EXIT();
+                                                                /* -------- DETERMINE AND/OR ALLOC SEG TO USE --------- */
+    if (p_mem_base == DEF_NULL) {                               /* Use heap seg.                                        */
+        p_seg = &Mem_SegHeap;
+    } else {                                                    /* Use other seg.                                       */
+        CPU_CRITICAL_ENTER();
+        p_seg = Mem_SegOverlapChkCritical((CPU_ADDR)p_mem_base,
+                                                    mem_size,
+                                                    p_err);
+        switch (*p_err) {
+            case LIB_MEM_ERR_INVALID_SEG_EXISTS:                /* Seg already exists.                                  */
+                 break;
 
-    if (align > 1) {                                            /* If align > 1 octet, ...                              */
-        seg_addr_mod  =  seg_addr % align;
-        size_rem_mod  = (seg_addr_mod > 0u) ? (align - seg_addr_mod) : 0u;
-        size_rem     -=  size_rem_mod;                          /* ... adj rem'ing size by offset to align'd seg addr.  */
+            case LIB_MEM_ERR_NONE:                              /* Seg must be created.                                 */
+                 p_seg = (MEM_SEG *)Mem_SegAllocExtCritical(&Mem_SegHeap,
+                                                             sizeof(MEM_SEG),
+                                                             sizeof(CPU_ALIGN),
+                                                             LIB_MEM_PADDING_ALIGN_NONE,
+                                                             p_bytes_reqd,
+                                                             p_err);
+                 if (*p_err != LIB_MEM_ERR_NONE) {
+                     CPU_CRITICAL_EXIT();
+                     return;
+                 }
+
+#if (LIB_MEM_CFG_DBG_INFO_EN == DEF_ENABLED)                    /* Track alloc if req'd.                                */
+                 Mem_SegAllocTrackCritical("Unknown segment data",
+                                           &Mem_SegHeap,
+                                            sizeof(MEM_SEG),
+                                            p_err);
+                 if (*p_err != LIB_MEM_ERR_NONE) {
+                     CPU_CRITICAL_EXIT();
+                     return;
+                 }
+#endif
+
+                 Mem_SegCreateCritical(          DEF_NULL,
+                                                 p_seg,
+                                       (CPU_ADDR)p_mem_base,
+                                                 LIB_MEM_PADDING_ALIGN_NONE,
+                                                 mem_size);
+                 break;
+
+
+            case LIB_MEM_ERR_INVALID_SEG_OVERLAP:
+            default:
+                 CPU_CRITICAL_EXIT();
+                 return;                                        /* Prevent 'break NOT reachable' compiler warning.      */
+        }
+
+        CPU_CRITICAL_EXIT();
     }
 
 
-   *perr =  LIB_MEM_ERR_NONE;
+                                                                /* ---------------- ALLOC MEM FOR POOL ---------------- */
+                                                                /* Calc blk size with align.                            */
+    blk_size_align =  MATH_ROUND_INC_UP_PWR2(blk_size, blk_align);
+    pool_size      =  blk_size_align * blk_nbr;                 /* Calc required size for pool.                         */
 
-    return (size_rem);
+                                                                /* Alloc mem for pool.                                  */
+    p_pool_mem = (void *)Mem_SegAllocInternal("Unnamed static pool",
+                                               p_seg,
+                                               pool_size,
+                                               blk_align,
+                                               LIB_MEM_PADDING_ALIGN_NONE,
+                                               p_bytes_reqd,
+                                               p_err);
+    if (*p_err != LIB_MEM_ERR_NONE) {
+        return;
+    }
+
+                                                                /* ------------ ALLOC MEM FOR FREE BLK TBL ------------ */
+    p_pool->BlkFreeTbl = (void **)Mem_SegAllocInternal("Unnamed static pool free blk tbl",
+                                                       &Mem_SegHeap,
+                                                        blk_nbr * sizeof(void *),
+                                                        sizeof(CPU_ALIGN),
+                                                        LIB_MEM_PADDING_ALIGN_NONE,
+                                                        p_bytes_reqd,
+                                                        p_err);
+    if (*p_err != LIB_MEM_ERR_NONE) {
+        return;
+    }
+
+                                                                /* ------------------ INIT BLK LIST ------------------- */
+    p_blk = (CPU_INT08U *)p_pool_mem;
+    for (blk_ix = 0; blk_ix < blk_nbr; blk_ix++) {
+        p_pool->BlkFreeTbl[blk_ix]  = p_blk;
+        p_blk                      += blk_size_align;
+    }
+
+
+                                                                /* ------------------ INIT POOL DATA ------------------ */
+    pool_addr_end         = (CPU_ADDR)p_pool_mem + (pool_size - 1u);
+    p_pool->PoolAddrStart =  p_pool_mem;
+    p_pool->PoolAddrEnd   = (void *)pool_addr_end;
+    p_pool->BlkNbr        =  blk_nbr;
+    p_pool->BlkSize       =  blk_size_align;
+    p_pool->BlkFreeTblIx  =  blk_nbr;
 }
 #endif
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                            Mem_PoolClr()
 *
-* Description : Clear a memory pool (see Note #1).
+* Description : Clears a memory pool (see Note #1).
 *
-* Argument(s) : pmem_pool   Pointer to a memory pool structure to clear (see Note #2).
+* Argument(s) : p_pool   Pointer to a memory pool structure to clear (see Note #2).
 *
-*               perr        Pointer to variable that will receive the return error code from this function :
+*               p_err    Pointer to variable that will receive the return error code from this function :
 *
-*                               LIB_MEM_ERR_NONE                Memory pool successfully cleared.
-*                               LIB_MEM_ERR_NULL_PTR            Argument 'pmem_pool' passed a NULL pointer.
+*                               LIB_MEM_ERR_NONE                Operation was successful.
+*                               LIB_MEM_ERR_NULL_PTR            Argument 'p_pool' passed a NULL pointer.
 *
 * Return(s)   : none.
 *
@@ -1007,663 +1540,56 @@ CPU_SIZE_T  Mem_SegGetSizeRem (MEM_POOL    *pmem_pool,
 *                       memory pool itself & MUST NOT be called after calling Mem_PoolCreate() since
 *                       this will likely corrupt the memory pool management.
 *
-*               (2) Assumes 'pmem_pool' points to a valid memory pool (if non-NULL).
+*               (2) Assumes 'p_pool' points to a valid memory pool (if non-NULL).
+*
+*               (3) This function is DEPRECATED and will be removed in a future version of this product.
 *********************************************************************************************************
 */
 
-#if (LIB_MEM_CFG_ALLOC_EN == DEF_ENABLED)
-void  Mem_PoolClr (MEM_POOL  *pmem_pool,
-                   LIB_ERR   *perr)
+#if (LIB_MEM_CFG_HEAP_SIZE > 0u)
+void  Mem_PoolClr (MEM_POOL  *p_pool,
+                   LIB_ERR   *p_err)
 {
-
 #if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)                 /* -------------- VALIDATE RTN ERR  PTR --------------- */
-    if (perr == (LIB_ERR *)0) {
+    if (p_err == DEF_NULL) {
         CPU_SW_EXCEPTION(;);
     }
-#endif
 
                                                                 /* -------------- VALIDATE MEM POOL PTR --------------- */
-    if (pmem_pool == (MEM_POOL *)0) {
-       *perr = LIB_MEM_ERR_NULL_PTR;
+    if (p_pool == DEF_NULL) {
+       *p_err = LIB_MEM_ERR_NULL_PTR;
         return;
     }
+#endif
 
+    p_pool->PoolAddrStart = DEF_NULL;
+    p_pool->PoolAddrEnd   = DEF_NULL;
+    p_pool->BlkSize       = 0u;
+    p_pool->BlkNbr        = 0u;
+    p_pool->BlkFreeTbl    = DEF_NULL;
+    p_pool->BlkFreeTblIx  = 0u;
 
-    pmem_pool->Type             = (LIB_MEM_TYPE)LIB_MEM_TYPE_NONE;
-    pmem_pool->SegHeadPtr       = (MEM_POOL   *)0;
-    pmem_pool->SegPrevPtr       = (MEM_POOL   *)0;
-    pmem_pool->SegNextPtr       = (MEM_POOL   *)0;
-    pmem_pool->PoolPrevPtr      = (MEM_POOL   *)0;
-    pmem_pool->PoolNextPtr      = (MEM_POOL   *)0;
-    pmem_pool->PoolAddrStart    = (void       *)0;
-    pmem_pool->PoolAddrEnd      = (void       *)0;
-    pmem_pool->PoolPtrs         = (void      **)0;
-    pmem_pool->PoolSize         = (CPU_SIZE_T  )0u;
-    pmem_pool->BlkAlign         = (CPU_SIZE_T  )0u;
-    pmem_pool->BlkSize          = (CPU_SIZE_T  )0u;
-    pmem_pool->BlkNbr           = (CPU_SIZE_T  )0u;
-    pmem_pool->BlkIx            = (MEM_POOL_IX )0u;
-    pmem_pool->SegAddr          = (void       *)0;
-    pmem_pool->SegAddrNextAvail = (void       *)0;
-    pmem_pool->SegSizeTot       = (CPU_SIZE_T  )0u;
-    pmem_pool->SegSizeRem       = (CPU_SIZE_T  )0u;
-
-
-   *perr = LIB_MEM_ERR_NONE;
+   *p_err = LIB_MEM_ERR_NONE;
 }
 #endif
 
 
-/*$PAGE*/
-/*
-*********************************************************************************************************
-*                                          Mem_PoolCreate()
-*
-* Description : (1) Create a memory pool :
-*
-*                   (a) Create    memory pool from heap or dedicated memory
-*                   (b) Allocate  memory pool memory blocks
-*                   (c) Update    memory pool table
-*                   (d) Configure memory pool
-*
-*
-*               (2) Memory pools are indexed by the Memory Segments they use.
-*
-*                   (a) The memory pool table is composed by a two-dimensional list :
-*
-*                       (1) Memory segments manage the following memory segment/pool information :
-*
-*                           (A) Memory segment base           address
-*                           (B) Memory segment next available address
-*                           (C) Memory segment total     size
-*                           (D) Memory segment remaining size
-*
-*                       (2) Memory pools share memory from memory segments but do NOT manage any memory
-*                           segment information.  To access the memory segment information, the head
-*                           memory segment must be accessed via each memory pool's 'SegHeadPtr'.
-*
-*                   (b) In the diagram below, memory pools in vertical columns represent they share the same
-*                       memory segment for the memory blocks they have.  The heads of the memory pool are
-*                       linked horizontally to form a memory pool table.
-*
-*                       (1) 'Mem_PoolTbl' points to the head of the Memory Pool table.
-*
-*                       (2) Memory Pools' 'SegPrevPtr'  & 'SegNextPtr'  doubly-link each memory segment to
-*                           form the list of memory segments.
-*
-*                       (3) Memory Pools' 'PoolPrevPtr' & 'PoolNextPtr' doubly-link the  memory pools of
-*                           each memory segment.
-*
-*                   (c) New memory pools, which do not share a memory segment, are inserted in the Memory
-*                       Segments Primary List.  The point of insertion is such to keep ascended order by
-*                       memory segment base address.
-*
-*                   (d) Memory pool pointers to memory blocks 'PoolPtrs' must be allocated for each created
-*                       memory pool.  These pointers are stored in the memory pool heap segment 'Mem_PoolHeap'.
-*
-*                       (1) A memory pool can also have its memory blocks allocated from the memory pool heap.
-*                           'pmem_base_addr' must be set to NULL & 'mem_size' must be set to (0) to create the
-*                           memory pool.
-*
-*
-*                                        |                                                                 |
-*                                        |<----------------------- Memory Segments ----------------------->|
-*                                        |                         (see Note #2a1)                         |
-*
-*                                 Lowest Memory Segment                                      Highest Memory Segment
-*                                     Base Address                                                Base Address
-*                                    (see Note #2c)                                              (see Note #2c)
-*
-*                                           |             SegNextPtr             Heap Memory Pool       |
-*                                           |          (see Note #2b2)            (see Note #2d)        |
-*                                           |                     |                                     |
-*                                           v                     |                      |              v
-*                                                                 |                      v
-*        ---          Head of Memory     -------        -------   v    -------        -------        -------
-*         ^             Pool Table   --->|     |------->|     |------->|     |------->|     |------->|     |
-*         |          (see Note #2b1)     |     |        |     |        |     |        |  H  |        |     |
-*         |                              |     |<-------|     |<-------|     |<-------|  E  |<-------|     |
-*         |                              |     |        |     |   ^    |     |        |  A  |        |     |
-*         |                              |     |        |     |   |    |     |        |  P  |        |     |
-*         |                              |     |        |     |   |    |     |        |     |        |     |
-*         |                              -------        -------   |    -------        -------        -------
-*         |                                | ^                    |      | ^
-*         |                                | |            SegPrevPtr     | |
-*         |                                v |         (see Note #2b2)   v |
-*         |                              -------                       -------
-*                                        |     |                       |     |
-*    Memory Pools                        |     |                       |     |
-*  (see Note #2a2)                       |     |                       |     |
-*                                        |     |                       |     |
-*         |                              |     |                       |     |
-*         |                              -------                       -------
-*         |                                | ^
-*         |               PoolNextPtr ---> | | <--- PoolPrevPtr
-*         |             (see Note #2b3)    v |    (see Note #2b3)
-*         |                              -------
-*         |                              |     |
-*         |                              |     |
-*         |                              |     |
-*         |                              |     |
-*         v                              |     |
-*        ---                             -------
-*
-*$PAGE*
-* Argument(s) : pmem_pool           Pointer to a memory pool structure to create (see Note #3).
-*
-*               pmem_base_addr      Memory pool base address :
-*
-*                                       (a)     Null address    Memory pool allocated from general-purpose heap.
-*                                       (b) Non-null address    Memory pool allocated from dedicated memory
-*                                                                   specified by its base address.
-*
-*               mem_size            Size      of memory pool segment          (in octets).
-*
-*               blk_nbr             Number    of memory pool blocks to create.
-*
-*               blk_size            Size      of memory pool blocks to create (in octets).
-*
-*               blk_align           Alignment of memory pool blocks to specific word boundary (in octets).
-*
-*               poctets_reqd        Optional pointer to a variable to ... :
-*
-*                                       (a) Return the number of octets required to successfully
-*                                               allocate the memory pool, if any error(s);
-*                                       (b) Return 0, otherwise.
-*
-*               perr        Pointer to variable that will receive the return error code from this function :
-*
-*                               LIB_MEM_ERR_NONE                    Memory pool successfully created.
-*
-*                               LIB_MEM_ERR_HEAP_NOT_FOUND          Heap   segment NOT found.
-*                               LIB_MEM_ERR_HEAP_EMPTY              Heap   segment empty; NOT enough available
-*                                                                       memory from heap.
-*                               LIB_MEM_ERR_HEAP_OVF                Requested memory overflows heap    memory.
-*                               LIB_MEM_ERR_SEG_EMPTY               Memory segment empty; NOT enough available
-*                                                                       memory from segment for memory pools.
-*                               LIB_MEM_ERR_SEG_OVF                 Requested memory overflows segment memory.
-*
-*                               LIB_MEM_ERR_INVALID_SEG_SIZE        Invalid memory segment size.
-*                               LIB_MEM_ERR_INVALID_SEG_OVERLAP     Memory segment overlaps other memory
-*                                                                       segment(s) in memory pool table.
-*                               LIB_MEM_ERR_INVALID_BLK_NBR         Invalid memory pool number of blocks.
-*                               LIB_MEM_ERR_INVALID_BLK_SIZE        Invalid memory pool block size.
-*                               LIB_MEM_ERR_INVALID_BLK_ALIGN       Invalid memory pool block alignment.
-*
-*                                                                   ------- RETURNED BY Mem_PoolClr() : -------
-*                               LIB_MEM_ERR_NULL_PTR                Argument 'pmem_pool' passed a NULL pointer.
-*
-* Return(s)   : none.
-*
-* Caller(s)   : Application.
-*
-* Note(s)     : (3) Assumes 'pmem_pool' points to a valid memory pool (if non-NULL).
-*
-*               (4) Pointers to variables that return values MUST be initialized PRIOR to all other
-*                   validation or function handling in case of any error(s).
-*
-*               (5) 'pmem_pool' variables MUST ALWAYS be accessed exclusively in critical sections.
-*********************************************************************************************************
-*/
-/*$PAGE*/
-#if (LIB_MEM_CFG_ALLOC_EN == DEF_ENABLED)
-void  Mem_PoolCreate (MEM_POOL          *pmem_pool,
-                      void              *pmem_base_addr,
-                      CPU_SIZE_T         mem_size,
-                      MEM_POOL_BLK_QTY   blk_nbr,
-                      CPU_SIZE_T         blk_size,
-                      CPU_SIZE_T         blk_align,
-                      CPU_SIZE_T        *poctets_reqd,
-                      LIB_ERR           *perr)
-{
-    MEM_POOL           *pmem_pool_heap;
-    MEM_POOL           *pmem_pool_next;
-    MEM_POOL           *pmem_seg;
-    MEM_POOL           *pmem_seg_prev;
-    MEM_POOL           *pmem_seg_next;
-    void              **ppool_ptr;
-    void               *pmem_blk;
-    CPU_INT08U         *pmem_addr_ptrs;
-    CPU_INT08U         *pmem_addr_pool;
-    CPU_INT08U         *pmem_base_addr_start;
-    CPU_INT08U         *pmem_base_addr_end;
-    CPU_INT08U         *pmem_seg_addr_start;
-    CPU_INT08U         *pmem_seg_addr_end;
-    MEM_POOL_BLK_QTY    blk_rem;
-    CPU_SIZE_T          octets_reqd_unused;
-    CPU_SIZE_T          size_tot;
-    CPU_SIZE_T          size_tot_ptrs;
-    CPU_SIZE_T          size_tot_pool;
-    CPU_SIZE_T          size_rem;
-    CPU_SIZE_T          size_pool_ptrs;
-    CPU_SIZE_T          i;
-    CPU_SR_ALLOC();
-
-
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)                     /* ------------- VALIDATE RTN ERR PTR ------------- */
-    if (perr == (LIB_ERR *)0) {
-        CPU_SW_EXCEPTION(;);
-    }
-#endif
-
-                                                                    /* ------------ VALIDATE RTN OCTETS PTR ----------- */
-    if (poctets_reqd == (CPU_SIZE_T *) 0) {                         /* If NOT avail, ...                                */
-        poctets_reqd  = (CPU_SIZE_T *)&octets_reqd_unused;          /* ... re-cfg NULL rtn ptr to unused local var.     */
-       (void)&octets_reqd_unused;                                   /* Prevent possible 'variable unused' warning.      */
-    }
-   *poctets_reqd = 0u;                                              /* Init octets req'd for err (see Note #4).         */
-
-
-
-    Mem_PoolClr(pmem_pool, perr);                                   /* Init mem pool     for err (see Note #4).         */
-    if (*perr != LIB_MEM_ERR_NONE) {
-         return;
-    }
-
-
-                                                                    /* ----------- VALIDATE MEM POOL CREATE ----------- */
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-    if (pmem_base_addr != (void *)0) {
-        if (mem_size < 1) {
-           *perr = LIB_MEM_ERR_INVALID_SEG_SIZE;
-            return;
-        }
-    }
-
-    if (blk_nbr < 1) {
-       *perr = LIB_MEM_ERR_INVALID_BLK_NBR;
-        return;
-    }
-
-    if (blk_size < 1) {
-       *perr = LIB_MEM_ERR_INVALID_BLK_SIZE;
-        return;
-    }
-
-    if (blk_align < 1) {
-       *perr = LIB_MEM_ERR_INVALID_BLK_ALIGN;
-        return;
-    }
-#endif
-
-
-                                                                    /* ------------ VALIDATE MEM POOL TBL ------------- */
-    if (Mem_PoolTbl == (MEM_POOL *)0) {
-       *perr = LIB_MEM_ERR_HEAP_NOT_FOUND;
-        return;
-    }
-
-
-
-/*$PAGE*/
-                                                                    /* ---------------- CREATE MEM POOL --------------- */
-    pmem_pool_heap = (MEM_POOL *)&Mem_PoolHeap;
-    size_tot       = (CPU_SIZE_T) 0u;
-
-    CPU_CRITICAL_ENTER();
-
-    if (pmem_base_addr == (void *)0) {                              /* If no base addr, cfg mem pool from heap.         */
-        pmem_seg        =  pmem_pool_heap;
-        pmem_seg_prev   =  pmem_pool_heap;
-        pmem_seg_next   =  pmem_pool_heap;
-
-                                                                    /* --------------- VALIDATE MEM SEG --------------- */
-                                                                    /* Calc tot mem   size for mem pool ptrs.           */
-        pmem_addr_ptrs  = (CPU_INT08U *)pmem_pool_heap->SegAddrNextAvail;
-        size_tot_ptrs   =  Mem_SegCalcTotSize((void     *)pmem_addr_ptrs,
-                                              (CPU_SIZE_T)blk_nbr,
-                                              (CPU_SIZE_T)sizeof(void *),
-                                              (CPU_SIZE_T)sizeof(void *));
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-        if (size_tot_ptrs < 1) {                                    /* If heap ovf, ...                                 */
-            CPU_CRITICAL_EXIT();
-           *perr = LIB_MEM_ERR_HEAP_OVF;                            /* ... rtn err but add'l heap size NOT avail.       */
-            return;
-        }
-#endif
-                                                                    /* Calc tot mem   size for mem blks.                */
-        pmem_addr_pool  =  pmem_addr_ptrs + size_tot_ptrs;          /* Adj next avail addr for mem pool blks.           */
-        size_tot_pool   =  Mem_SegCalcTotSize((void     *)pmem_addr_pool,
-                                              (CPU_SIZE_T)blk_nbr,
-                                              (CPU_SIZE_T)blk_size,
-                                              (CPU_SIZE_T)blk_align);
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-        if (size_tot_pool < 1) {                                    /* If heap ovf, ...                                 */
-            CPU_CRITICAL_EXIT();
-           *perr = LIB_MEM_ERR_HEAP_OVF;                            /* ... rtn err but add'l heap size NOT avail.       */
-            return;
-        }
-#endif
-
-        size_tot = size_tot_ptrs + size_tot_pool;
-
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-        if ((size_tot < size_tot_ptrs) ||                           /* If heap ovf, ...                                 */
-            (size_tot < size_tot_pool)) {
-            CPU_CRITICAL_EXIT();
-           *perr = LIB_MEM_ERR_HEAP_OVF;                            /* ... rtn err but add'l heap size NOT avail.       */
-            return;
-        }
-#endif
-
-        size_rem = pmem_pool_heap->SegSizeRem;
-        if (size_tot > size_rem) {                                  /* If tot size > rem  size, ...                     */
-            CPU_CRITICAL_EXIT();
-           *poctets_reqd = size_tot - size_rem;                     /* ... rtn add'l heap size needed.                  */
-           *perr         = LIB_MEM_ERR_HEAP_EMPTY;
-            return;
-        }
-
-/*$PAGE*/
-    } else {                                                        /* Else cfg mem pool from dedicated mem.            */
-                                                                    /* -------- SRCH ALL MEM SEGS FOR MEM POOL -------- */
-        pmem_base_addr_start = (CPU_INT08U *)pmem_base_addr;
-        pmem_base_addr_end   = (CPU_INT08U *)pmem_base_addr + mem_size - 1;
-
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-        if (pmem_base_addr_end < pmem_base_addr_start) {            /* Chk ovf of end addr.                             */
-            CPU_CRITICAL_EXIT();
-           *perr = LIB_MEM_ERR_INVALID_BLK_ADDR;
-            return;
-        }
-#endif
-
-        pmem_seg      = (MEM_POOL *)0;
-        pmem_seg_prev = (MEM_POOL *)0;
-        pmem_seg_next =  Mem_PoolTbl;
-
-        while (pmem_seg_next != (MEM_POOL *)0) {                    /* Srch tbl for mem seg with same base addr/size.   */
-
-            if ((pmem_base_addr == pmem_seg_next->SegAddr) &&       /* If same base addr/size found, ...                */
-                (mem_size       == pmem_seg_next->SegSizeTot)) {
-
-                 pmem_seg        = pmem_seg_next;                   /* ... mem seg already avail in tbl.                */
-                 break;
-
-            } else {
-                pmem_seg_addr_start = (CPU_INT08U *)pmem_seg_next->SegAddr;
-                pmem_seg_addr_end   = (CPU_INT08U *)pmem_seg_next->SegAddr + pmem_seg_next->SegSizeTot - 1;
-
-
-                if (pmem_base_addr_end < pmem_seg_addr_start) {     /* If mem seg addr/size prior to next mem seg, ...  */
-                    break;                                          /* ... new mem seg NOT avail in tbl.                */
-
-                                                                    /* If mem seg overlaps prev mem seg(s) in tbl, ...  */
-                } else if (((pmem_base_addr_start <= pmem_seg_addr_start)  &&
-                            (pmem_base_addr_end   >= pmem_seg_addr_start)) ||
-                           ((pmem_base_addr_start >= pmem_seg_addr_start)  &&
-                            (pmem_base_addr_end   <= pmem_seg_addr_end  )) ||
-                           ((pmem_base_addr_start <= pmem_seg_addr_end  )  &&
-                            (pmem_base_addr_end   >= pmem_seg_addr_end  ))) {
-                    CPU_CRITICAL_EXIT();
-                   *perr = LIB_MEM_ERR_INVALID_SEG_OVERLAP;         /* ... rtn err.                                     */
-                    return;
-                }
-            }
-                                                                    /* If mem seg NOT found, adv to next mem seg.       */
-            pmem_seg_prev = pmem_seg_next;
-            pmem_seg_next = pmem_seg_next->SegNextPtr;
-        }
-
-        if (pmem_seg == (MEM_POOL *)0) {                            /* If mem seg NOT found, add    new  mem seg.       */
-            pmem_seg                    = pmem_pool;
-            pmem_pool->SegAddr          = pmem_base_addr;
-            pmem_pool->SegAddrNextAvail = pmem_base_addr;
-            pmem_pool->SegSizeTot       = mem_size;
-            pmem_pool->SegSizeRem       = mem_size;
-        }
-
-/*$PAGE*/
-                                                                    /* --------------- VALIDATE MEM SEG --------------- */
-                                                                    /* Calc tot mem size for mem pool ptrs.             */
-        pmem_addr_ptrs = (CPU_INT08U *)pmem_pool_heap->SegAddrNextAvail;
-        size_tot_ptrs  =  Mem_SegCalcTotSize((void     *)pmem_addr_ptrs,
-                                             (CPU_SIZE_T)blk_nbr,
-                                             (CPU_SIZE_T)sizeof(void *),
-                                             (CPU_SIZE_T)sizeof(void *));
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-        if (size_tot_ptrs < 1) {                                    /* If heap ovf, ...                                 */
-            CPU_CRITICAL_EXIT();
-           *perr = LIB_MEM_ERR_HEAP_OVF;                            /* ... rtn err but add'l heap size NOT avail.       */
-            return;
-        }
-#endif
-
-        size_rem = pmem_pool_heap->SegSizeRem;
-        if (size_tot_ptrs > size_rem) {                             /* If ptr size > rem  size, ...                     */
-            CPU_CRITICAL_EXIT();
-           *poctets_reqd = size_tot_ptrs - size_rem;                /* ... rtn add'l heap size needed.                  */
-           *perr         = LIB_MEM_ERR_HEAP_EMPTY;
-            return;
-        }
-
-                                                                    /* Calc tot mem size for mem blks.                  */
-        pmem_addr_pool = (CPU_INT08U *)pmem_seg->SegAddrNextAvail;
-        size_tot_pool  =  Mem_SegCalcTotSize((void     *)pmem_addr_pool,
-                                             (CPU_SIZE_T)blk_nbr,
-                                             (CPU_SIZE_T)blk_size,
-                                             (CPU_SIZE_T)blk_align);
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-        if (size_tot_pool < 1) {                                    /* If seg  ovf, ...                                 */
-            CPU_CRITICAL_EXIT();
-           *perr = LIB_MEM_ERR_SEG_OVF;                             /* ... rtn err but add'l seg  size NOT avail.       */
-            return;
-        }
-#endif
-
-        size_rem = pmem_seg->SegSizeRem;
-        if (size_tot_pool > size_rem) {                             /* If tot size > rem  size, ...                     */
-            CPU_CRITICAL_EXIT();
-           *poctets_reqd = size_tot_pool - size_rem;                /* ... rtn add'l seg  size needed.                  */
-           *perr         = LIB_MEM_ERR_SEG_EMPTY;
-            return;
-        }
-    }
-
-
-/*$PAGE*/
-                                                                    /* ---------------- ALLOC MEM BLKs ---------------- */
-    size_pool_ptrs = (CPU_SIZE_T)(blk_nbr * sizeof(void *));
-                                                                    /* Alloc stk of ptrs for mem blks from heap.        */
-    ppool_ptr      = (void **)Mem_SegAlloc((MEM_POOL *)pmem_pool_heap,
-                                           (CPU_SIZE_T)size_pool_ptrs,
-                                           (CPU_SIZE_T)sizeof(void *));
-    if (ppool_ptr == (void **)0) {                                  /* If mem pool ptrs alloc failed, ...               */
-        size_rem = pmem_pool_heap->SegSizeRem;
-        CPU_CRITICAL_EXIT();
-                                                                    /* ... rtn add'l heap size needed.                  */
-        if (pmem_base_addr == (void *)0) {
-            if (size_tot > size_rem) {
-               *poctets_reqd = size_tot - size_rem;
-            } else {
-               *poctets_reqd = size_tot;
-            }
-        } else {
-            if (size_pool_ptrs > size_rem) {
-               *poctets_reqd = size_pool_ptrs - size_rem;
-            } else {
-               *poctets_reqd = size_pool_ptrs;
-            }
-        }
-       *perr = LIB_MEM_ERR_HEAP_EMPTY;
-        return;
-    }
-
-    for (i = 0u; i < (CPU_SIZE_T)blk_nbr; i++) {                    /* Alloc mem blks from mem seg.                     */
-        pmem_blk = (void *)Mem_SegAlloc(pmem_seg, blk_size, blk_align);
-        if (pmem_blk == (void *)0) {                                /* If    mem blks alloc failed, ...                 */
-            pmem_addr_pool = (CPU_INT08U *)pmem_seg->SegAddrNextAvail;
-            size_rem       = (CPU_SIZE_T  )pmem_seg->SegSizeRem;
-            CPU_CRITICAL_EXIT();
-            blk_rem        =  blk_nbr - (MEM_POOL_BLK_QTY)i;
-            size_tot       =  Mem_SegCalcTotSize((void           *)pmem_addr_pool,
-                                                 (MEM_POOL_BLK_QTY)blk_rem,
-                                                 (CPU_SIZE_T      )blk_size,
-                                                 (CPU_SIZE_T      )blk_align);
-                                                                    /* ... rtn add'l seg  size needed.                  */
-            if (size_tot > size_rem) {
-               *poctets_reqd = size_tot - size_rem;
-            } else {
-               *poctets_reqd = size_tot;
-            }
-           *perr = LIB_MEM_ERR_SEG_EMPTY;
-            return;
-        }
-        ppool_ptr[i] = pmem_blk;
-    }
-
-
-/*$PAGE*/
-                                                                    /* ------------- UPDATE MEM POOL TBL -------------- */
-    if (pmem_seg == pmem_pool) {                                    /* Add mem pool as new  mem pool tbl seg.           */
-                                                                    /* Update cur  mem seg  links.                      */
-        pmem_pool->SegPrevPtr = pmem_seg_prev;
-        pmem_pool->SegNextPtr = pmem_seg_next;
-
-        if (pmem_seg_prev != (MEM_POOL *)0) {                       /* Update prev mem seg  link.                       */
-            pmem_seg_prev->SegNextPtr = pmem_pool;
-        } else {
-            Mem_PoolTbl               = pmem_pool;                  /* Update      mem tbl.                             */
-        }
-
-        if (pmem_seg_next != (MEM_POOL *)0) {                       /* Update next mem seg  link.                       */
-            pmem_seg_next->SegPrevPtr = pmem_pool;
-        }
-
-    } else {                                                        /* Add mem pool into mem seg.                       */
-                                                                    /* Update cur  mem pool links.                      */
-        pmem_pool_next         = pmem_seg->PoolNextPtr;
-        pmem_pool->PoolPrevPtr = pmem_seg;
-        pmem_pool->PoolNextPtr = pmem_pool_next;
-
-        pmem_seg->PoolNextPtr  = pmem_pool;                         /* Update prev mem pool link.                       */
-
-        if (pmem_pool_next != (MEM_POOL *)0) {                      /* Update next mem pool link.                       */
-            pmem_pool_next->PoolPrevPtr = pmem_pool;
-        }
-    }
-
-
-
-                                                                    /* ----------------- CFG MEM POOL ----------------- */
-    pmem_pool->Type          = (LIB_MEM_TYPE    ) LIB_MEM_TYPE_POOL;
-    pmem_pool->SegHeadPtr    = (MEM_POOL       *) pmem_seg;
-    pmem_pool->PoolAddrStart = (void           *) pmem_addr_pool;
-    pmem_pool->PoolAddrEnd   = (void           *)(pmem_addr_pool + size_tot_pool - 1);
-    pmem_pool->PoolPtrs      = (void          **) ppool_ptr;
-    pmem_pool->PoolSize      = (CPU_SIZE_T      ) size_tot_pool;
-    pmem_pool->BlkAlign      = (CPU_SIZE_T      ) blk_align;
-    pmem_pool->BlkSize       = (CPU_SIZE_T      ) blk_size;
-    pmem_pool->BlkNbr        = (MEM_POOL_BLK_QTY) blk_nbr;
-    pmem_pool->BlkIx         = (MEM_POOL_IX     ) blk_nbr;
-
-
-    CPU_CRITICAL_EXIT();
-
-   *perr = LIB_MEM_ERR_NONE;
-}
-#endif
-
-
-/*$PAGE*/
-/*
-*********************************************************************************************************
-*                                      Mem_PoolBlkGetNbrAvail()
-*
-* Description : Get memory pool’s remaining number of blocks available to allocate.
-*
-* Argument(s) : pmem_pool   Pointer to a memory pool structure.
-*
-*               perr        Pointer to variable that will receive the return error code from this function :
-*
-*                               LIB_MEM_ERR_NONE                Memory pool available number of blocks
-*                                                                   successfully returned.
-*                               LIB_MEM_ERR_NULL_PTR            Argument 'pmem_pool' passed a NULL pointer.
-*                               LIB_MEM_ERR_INVALID_POOL        Invalid memory pool type.
-*
-* Return(s)   : Remaining memory pool blocks (see Note #1), if NO error(s).
-*
-*               0,                                          otherwise.
-*
-* Caller(s)   : Application.
-*
-* Note(s)     : (1) (a) Mem_PoolBlkGetNbrAvail() ONLY supports non-heap memory pools.
-*                   (b) Mem_HeapGetSizeRem()/Mem_SegGetSizeRem() should be used for heap memory pool/segment.
-*
-*               (2) 'pmem_pool' variables MUST ALWAYS be accessed exclusively in critical sections.
-*********************************************************************************************************
-*/
-/*$PAGE*/
-#if (LIB_MEM_CFG_ALLOC_EN == DEF_ENABLED)
-MEM_POOL_BLK_QTY  Mem_PoolBlkGetNbrAvail (MEM_POOL  *pmem_pool,
-                                          LIB_ERR   *perr)
-{
-    MEM_POOL_BLK_QTY  nbr_blk_rem;
-    CPU_SR_ALLOC();
-
-
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-                                                                /* --------------- VALIDATE RTN ERR PTR --------------- */
-    if (perr == (LIB_ERR *)0) {
-        CPU_SW_EXCEPTION(0u);
-    }
-                                                                /* ---------------- VALIDATE MEM POOL ----------------- */
-    if (pmem_pool == (MEM_POOL *)0) {                           /* Validate mem ptr.                                    */
-       *perr =  LIB_MEM_ERR_NULL_PTR;
-        return (0u);
-    }
-#endif
-
-    CPU_CRITICAL_ENTER();
-
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-    switch (pmem_pool->Type) {                                  /* Validate mem pool type.                              */
-        case LIB_MEM_TYPE_POOL:
-             break;
-
-
-        case LIB_MEM_TYPE_NONE:
-        case LIB_MEM_TYPE_HEAP:
-        default:
-             CPU_CRITICAL_EXIT();
-            *perr =  LIB_MEM_ERR_INVALID_POOL;
-             return (0u);                                       /* Prevent 'break NOT reachable' compiler warning.      */
-    }
-#endif
-
-                                                                /* --------- GET REM'ING MEM POOL NBR BLK(S) ---------- */
-    nbr_blk_rem = pmem_pool->BlkIx;
-
-    CPU_CRITICAL_EXIT();
-
-
-   *perr =  LIB_MEM_ERR_NONE;
-
-    return (nbr_blk_rem);
-}
-#endif
-
-
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                          Mem_PoolBlkGet()
 *
-* Description : Get a memory block from memory pool.
+* Description : Gets a memory block from memory pool.
 *
-* Argument(s) : pmem_pool   Pointer to  memory pool to get memory block from.
+* Argument(s) : p_pool  Pointer to  memory pool to get memory block from.
 *
-*               size        Size of requested memory (in octets).
+*               size    Size of requested memory (in bytes).
 *
-*               perr        Pointer to variable that will receive the return error code from this function :
+*               p_err   Pointer to variable that will receive the return error code from this function :
 *
-*                               LIB_MEM_ERR_NONE                   Memory block successfully returned.
-*                               LIB_MEM_ERR_POOL_EMPTY          NO memory blocks available in memory pool.
-*
-*                               LIB_MEM_ERR_NULL_PTR            Argument 'pmem_pool' passed a NULL pointer.
-*                               LIB_MEM_ERR_INVALID_POOL        Invalid memory pool type.
-*                               LIB_MEM_ERR_INVALID_BLK_SIZE    Invalid memory pool block size requested.
-*                               LIB_MEM_ERR_INVALID_BLK_IX      Invalid memory pool block index.
+*                           LIB_MEM_ERR_NONE                Operation was successful.
+*                           LIB_MEM_ERR_INVALID_BLK_SIZE    Invalid memory pool block size requested.
+*                           LIB_MEM_ERR_NULL_PTR            Argument 'p_pool' passed a NULL pointer.
+*                           LIB_MEM_ERR_POOL_EMPTY          NO memory blocks available in memory pool.
 *
 * Return(s)   : Pointer to memory block, if NO error(s).
 *
@@ -1671,429 +1597,701 @@ MEM_POOL_BLK_QTY  Mem_PoolBlkGetNbrAvail (MEM_POOL  *pmem_pool,
 *
 * Caller(s)   : Application.
 *
-* Note(s)     : (1) 'pmem_pool' variables MUST ALWAYS be accessed exclusively in critical sections.
+* Note(s)     : (1) This function is DEPRECATED and will be removed in a future version of this product.
+*                   Mem_DynPoolBlkGet() should be used instead.
 *********************************************************************************************************
 */
-/*$PAGE*/
-#if (LIB_MEM_CFG_ALLOC_EN == DEF_ENABLED)
-void  *Mem_PoolBlkGet (MEM_POOL    *pmem_pool,
+
+#if (LIB_MEM_CFG_HEAP_SIZE > 0u)
+void  *Mem_PoolBlkGet (MEM_POOL    *p_pool,
                        CPU_SIZE_T   size,
-                       LIB_ERR     *perr)
+                       LIB_ERR     *p_err)
 {
-    void  *pmem_blk;
+    CPU_INT08U  *p_blk;
     CPU_SR_ALLOC();
 
 
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)                     /* ------------- VALIDATE RTN ERR PTR ------------- */
-    if (perr == (LIB_ERR *)0) {
-        CPU_SW_EXCEPTION((void *)0);
+#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)                 /* -------------- VALIDATE MEM POOL GET --------------- */
+    if (p_err == DEF_NULL) {                                    /* Validate err ptr.                                    */
+        CPU_SW_EXCEPTION(DEF_NULL);
     }
+
+    if (p_pool == DEF_NULL) {                                   /* Validate pool ptr.                                   */
+       *p_err = LIB_MEM_ERR_NULL_PTR;
+        return (DEF_NULL);
+    }
+
+    if (size < 1u) {                                            /* Validate req'd size as non-NULL.                     */
+       *p_err = LIB_MEM_ERR_INVALID_BLK_SIZE;
+        return (DEF_NULL);
+    }
+
+    if (size > p_pool->BlkSize) {                               /* Validate req'd size <= mem pool blk size.            */
+       *p_err = LIB_MEM_ERR_INVALID_BLK_SIZE;
+        return (DEF_NULL);
+    }
+#else
+    (void)size;                                                 /* Prevent possible 'variable unused' warning.          */
 #endif
 
-                                                                    /* ------------ VALIDATE MEM POOL GET ------------- */
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-    if (pmem_pool == (MEM_POOL *)0) {                               /* Validate mem ptr.                                */
-       *perr = LIB_MEM_ERR_NULL_PTR;
-        return ((void *)0);
-    }
 
-    if (size < 1) {                                                 /* Validate req'd size as non-NULL.                 */
-       *perr = LIB_MEM_ERR_INVALID_BLK_SIZE;
-        return ((void *)0);
-    }
-#endif
-
+                                                                /* -------------- GET MEM BLK FROM POOL --------------- */
+    p_blk = DEF_NULL;
     CPU_CRITICAL_ENTER();
-
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-    if (pmem_pool->Type != LIB_MEM_TYPE_POOL) {                     /* Validate mem pool type.                          */
-        CPU_CRITICAL_EXIT();
-       *perr = LIB_MEM_ERR_INVALID_POOL;
-        return ((void *)0);
+    if (p_pool->BlkFreeTblIx > 0u) {
+        p_pool->BlkFreeTblIx                     -=  1u;
+        p_blk                                     = (CPU_INT08U *)p_pool->BlkFreeTbl[p_pool->BlkFreeTblIx];
+        p_pool->BlkFreeTbl[p_pool->BlkFreeTblIx]  =  DEF_NULL;
     }
-
-    if (size > pmem_pool->BlkSize) {                                /* Validate req'd size <= mem pool blk size.        */
-        CPU_CRITICAL_EXIT();
-       *perr = LIB_MEM_ERR_INVALID_BLK_SIZE;
-        return ((void *)0);
-    }
-#endif
-
-   (void)&size;                                                     /* Prevent possible 'variable unused' warning.      */
-
-    if (pmem_pool->BlkIx < 1) {                                     /* Validate mem pool as NOT empty.                  */
-        CPU_CRITICAL_EXIT();
-       *perr = LIB_MEM_ERR_POOL_EMPTY;
-        return ((void *)0);
-    }
-
-    if (pmem_pool->BlkIx > pmem_pool->BlkNbr) {                     /* Validate mem pool ix NOT corrupt.                */
-        CPU_CRITICAL_EXIT();
-       *perr = LIB_MEM_ERR_INVALID_BLK_IX;
-        return ((void *)0);
-    }
-
-                                                                    /* ------------ GET MEM BLK FROM POOL ------------- */
-    pmem_pool->BlkIx--;
-    pmem_blk = pmem_pool->PoolPtrs[pmem_pool->BlkIx];
-
     CPU_CRITICAL_EXIT();
 
-   *perr =  LIB_MEM_ERR_NONE;
+    if (p_blk == DEF_NULL) {
+       *p_err = LIB_MEM_ERR_POOL_EMPTY;
+    } else {
+       *p_err = LIB_MEM_ERR_NONE;
+    }
 
-    return (pmem_blk);
+    return (p_blk);
 }
 #endif
 
 
-/*$PAGE*/
-/*
-*********************************************************************************************************
-*                                      Mem_PoolBlkGetUsedAtIx()
-*
-* Description : Get a used memory block from memory pool, by index.
-*
-* Argument(s) : pmem_pool   Pointer to memory pool to get memory block from.
-*
-*               used_ix     Index of the used memory block to get.
-*
-*               perr        Pointer to variable that will receive the return error code from this function :
-*
-*                               LIB_MEM_ERR_NONE                    Memory block successfully returned.
-*                               LIB_MEM_ERR_POOL_FULL           All memory blocks available in memory pool.
-*
-*                               LIB_MEM_ERR_NULL_PTR            Argument 'pmem_pool' passed a NULL pointer.
-*                               LIB_MEM_ERR_INVALID_POOL        Invalid memory pool type.
-*                               LIB_MEM_ERR_INVALID_BLK_IX      Invalid memory pool block index.
-*
-* Return(s)   : Pointer to memory block, if NO error(s).
-*
-*               Pointer to NULL,         otherwise.
-*
-* Caller(s)   : Application.
-*
-* Note(s)     : (1) 'pmem_pool' variables MUST ALWAYS be accessed exclusively in critical sections.
-*
-*               (2) The returned index can be altered when Mem_PoolBlkFree() is called. This index must
-*                   only be used in conjunction with Mem_PoolBlkGetUsedAtIx() if holding a proper
-*                   lock to avoid the index to be modified.
-*********************************************************************************************************
-*/
-/*$PAGE*/
-#if (LIB_MEM_CFG_ALLOC_EN == DEF_ENABLED)
-void  *Mem_PoolBlkGetUsedAtIx (MEM_POOL          *pmem_pool,
-                               MEM_POOL_IX        used_ix,
-                               LIB_ERR           *perr)
-{
-    MEM_POOL_IX   blk_ix;
-    void         *pmem_blk;
-    CPU_SR_ALLOC();
-
-
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)                     /* ------------- VALIDATE RTN ERR PTR ------------- */
-    if (perr == (LIB_ERR *)0) {
-        CPU_SW_EXCEPTION((void *)0);
-    }
-#endif
-
-                                                                    /* ------------ VALIDATE MEM POOL GET ------------- */
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-    if (pmem_pool == (MEM_POOL *)0) {                               /* Validate mem ptr.                                */
-       *perr = LIB_MEM_ERR_NULL_PTR;
-        return ((void *)0);
-    }
-#endif
-
-    CPU_CRITICAL_ENTER();
-
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-    if (pmem_pool->Type != LIB_MEM_TYPE_POOL) {                     /* Validate mem pool type.                          */
-        CPU_CRITICAL_EXIT();
-       *perr = LIB_MEM_ERR_INVALID_POOL;
-        return ((void *)0);
-    }
-
-    if (pmem_pool->BlkIx >= pmem_pool->BlkNbr) {                    /* Validate mem pool as NOT full.                   */
-        CPU_CRITICAL_EXIT();
-       *perr = LIB_MEM_ERR_INVALID_BLK_IX;
-        return ((void *)0);
-    }
-#endif
-
-    blk_ix = pmem_pool->BlkNbr - used_ix - 1u;
-
-    if (blk_ix >= pmem_pool->BlkNbr) {                              /* Validate ix range.                               */
-        CPU_CRITICAL_EXIT();
-       *perr = LIB_MEM_ERR_INVALID_BLK_IX;
-        return ((void *)0);
-    }
-
-    if (blk_ix < pmem_pool->BlkIx) {
-        CPU_CRITICAL_EXIT();
-       *perr = LIB_MEM_ERR_INVALID_BLK_IX;
-        return ((void *)0);
-    }
-                                                                    /* ------------ GET MEM BLK FROM POOL ------------- */
-    pmem_blk = pmem_pool->PoolPtrs[blk_ix];
-
-    CPU_CRITICAL_EXIT();
-
-   *perr =  LIB_MEM_ERR_NONE;
-
-    return (pmem_blk);
-}
-#endif
-
-
-/*$PAGE*/
 /*
 *********************************************************************************************************
 *                                          Mem_PoolBlkFree()
 *
 * Description : Free a memory block to memory pool.
 *
-* Argument(s) : pmem_pool   Pointer to memory pool to free memory block.
+* Argument(s) : p_pool  Pointer to memory pool to free memory block.
 *
-*               pmem_blk    Pointer to memory block address to free.
+*               p_blk   Pointer to memory block address to free.
 *
-*               perr        Pointer to variable that will receive the return error code from this function :
+*               p_err   Pointer to variable that will receive the return error code from this function :
 *
-*                               LIB_MEM_ERR_NONE                            Memory block successfully freed.
-*                               LIB_MEM_ERR_POOL_FULL                   ALL memory blocks already available in
-*                                                                           memory pool.
-*
-*                               LIB_MEM_ERR_NULL_PTR                    Argument 'pmem_pool'/'pmem_blk' passed
-*                                                                           a NULL pointer.
-*                               LIB_MEM_ERR_INVALID_POOL                Invalid memory pool  type.
-*                               LIB_MEM_ERR_INVALID_BLK_ADDR            Invalid memory block address.
-*                               LIB_MEM_ERR_INVALID_BLK_ADDR_IN_POOL            Memory block address already
-*                                                                            in memory pool.
+*                           LIB_MEM_ERR_NONE                        Operation was successful.
+*                           LIB_MEM_ERR_NULL_PTR                    Argument 'p_pool'/'p_blk' passed
+*                                                                       a NULL pointer.
+*                           LIB_MEM_ERR_INVALID_BLK_ADDR            Invalid memory block address.
+*                           LIB_MEM_ERR_INVALID_BLK_ADDR_IN_POOL            Memory block address already
+*                                                                        in memory pool.
+*                           LIB_MEM_ERR_POOL_FULL                   Pool is full.
 *
 * Return(s)   : none.
 *
 * Caller(s)   : Application.
 *
-* Note(s)     : (1) 'pmem_pool' variables MUST ALWAYS be accessed exclusively in critical sections.
+* Note(s)     : (1) This function is DEPRECATED and will be removed in a future version of this product.
+*                   Mem_DynPoolBlkFree() should be used instead.
 *********************************************************************************************************
 */
-/*$PAGE*/
-#if (LIB_MEM_CFG_ALLOC_EN == DEF_ENABLED)
-void  Mem_PoolBlkFree (MEM_POOL  *pmem_pool,
-                       void      *pmem_blk,
-                       LIB_ERR   *perr)
+
+#if (LIB_MEM_CFG_HEAP_SIZE > 0u)
+void  Mem_PoolBlkFree (MEM_POOL  *p_pool,
+                       void      *p_blk,
+                       LIB_ERR   *p_err)
 {
-    void         *p_addr;
-    CPU_BOOLEAN   addr_valid;
-    MEM_POOL_IX   i;
+#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
+    CPU_SIZE_T   tbl_ix;
+    CPU_BOOLEAN  addr_valid;
+#endif
     CPU_SR_ALLOC();
 
 
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)                     /* ------------- VALIDATE RTN ERR PTR ------------- */
-    if (perr == (LIB_ERR *)0) {
+#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)                 /* -------------- VALIDATE MEM POOL FREE -------------- */
+    if (p_err == DEF_NULL) {
         CPU_SW_EXCEPTION(;);
     }
-#endif
 
-                                                                    /* ------------ VALIDATE MEM POOL FREE ------------ */
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)                     /* Validate mem ptrs.                               */
-    if (pmem_pool == (MEM_POOL *)0) {
-       *perr = LIB_MEM_ERR_NULL_PTR;
+    if (p_pool == DEF_NULL) {                                   /* Validate mem ptrs.                                   */
+       *p_err = LIB_MEM_ERR_NULL_PTR;
         return;
     }
 
-    if (pmem_blk == (void *)0) {
-       *perr = LIB_MEM_ERR_NULL_PTR;
-        return;
-    }
-#endif
-
-    CPU_CRITICAL_ENTER();
-
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-    if (pmem_pool->Type != LIB_MEM_TYPE_POOL) {                     /* Validate mem pool type.                          */
-        CPU_CRITICAL_EXIT();
-       *perr = LIB_MEM_ERR_INVALID_POOL;
+    if (p_blk == DEF_NULL) {
+       *p_err = LIB_MEM_ERR_NULL_PTR;
         return;
     }
 
-    addr_valid = Mem_PoolBlkIsValidAddr(pmem_pool, pmem_blk);       /* Validate mem blk as valid pool blk addr.         */
+    addr_valid = Mem_PoolBlkIsValidAddr(p_pool, p_blk);         /* Validate mem blk as valid pool blk addr.             */
     if (addr_valid != DEF_OK) {
-        CPU_CRITICAL_EXIT();
-       *perr = LIB_MEM_ERR_INVALID_BLK_ADDR;
+       *p_err = LIB_MEM_ERR_INVALID_BLK_ADDR;
         return;
     }
 
-    for (i = 0u; i < pmem_pool->BlkIx; i++) {                       /* Validate mem blk  NOT already in pool.           */
-        if (pmem_blk == pmem_pool->PoolPtrs[i]) {
+    CPU_CRITICAL_ENTER();                                       /* Make sure blk isn't already in free list.            */
+    for (tbl_ix = 0u; tbl_ix < p_pool->BlkNbr; tbl_ix++) {
+        if (p_pool->BlkFreeTbl[tbl_ix] == p_blk) {
             CPU_CRITICAL_EXIT();
-           *perr = LIB_MEM_ERR_INVALID_BLK_ADDR_IN_POOL;
+           *p_err = LIB_MEM_ERR_INVALID_BLK_ADDR_IN_POOL;
             return;
         }
     }
+#else                                                           /* Double-free possibility if not in critical section.  */
+    CPU_CRITICAL_ENTER();
 #endif
-
-    if (pmem_pool->BlkIx >= pmem_pool->BlkNbr) {                    /* Validate mem pool NOT already full.              */
+                                                                /* --------------- FREE MEM BLK TO POOL --------------- */
+    if (p_pool->BlkFreeTblIx >= p_pool->BlkNbr) {
         CPU_CRITICAL_EXIT();
-       *perr = LIB_MEM_ERR_POOL_FULL;
+       *p_err = LIB_MEM_ERR_POOL_FULL;
         return;
     }
 
-                                                                    /* ------------- FREE MEM BLK TO POOL ------------- */
-    addr_valid = DEF_NO;
-    for (i = pmem_pool->BlkIx; i < pmem_pool->BlkNbr; i++) {        /* Find ix of mem blk to free.                      */
-        p_addr = pmem_pool->PoolPtrs[i];
-        if (p_addr == pmem_blk) {
-            addr_valid = DEF_YES;
-            break;
-        }
-    }
-                                                                    /* Swap addr of mem blk to free in tbl.             */
-    if (addr_valid == DEF_YES) {
-        pmem_pool->PoolPtrs[i] = pmem_pool->PoolPtrs[pmem_pool->BlkIx];
-    } else {
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-        CPU_CRITICAL_EXIT();
-       *perr = LIB_MEM_ERR_INVALID_POOL;
-        return;
-#endif
-    }
-
-                                                                    /* Free mem blk.                                    */
-    pmem_pool->PoolPtrs[pmem_pool->BlkIx] = pmem_blk;
-    pmem_pool->BlkIx++;
-
+    p_pool->BlkFreeTbl[p_pool->BlkFreeTblIx]  = p_blk;
+    p_pool->BlkFreeTblIx                     += 1u;
     CPU_CRITICAL_EXIT();
 
-   *perr = LIB_MEM_ERR_NONE;
+   *p_err = LIB_MEM_ERR_NONE;
 }
 #endif
 
 
-/*$PAGE*/
 /*
 *********************************************************************************************************
-*                                          Mem_PoolBlkIxGet()
+*                                      Mem_PoolBlkGetNbrAvail()
 *
-* Description : Get temporary index of a memory block in a memory pool.
+* Description : Get memory pool's remaining number of blocks available to allocate.
 *
-* Argument(s) : pmem_pool   Pointer to memory pool.
+* Argument(s) : p_pool   Pointer to a memory pool structure.
 *
-*               pmem_blk    Pointer to memory block to get index for.
+*               p_err    Pointer to variable that will receive the return error code from this function :
 *
-*               perr        Pointer to variable that will receive the return error code from this function :
+*                               LIB_MEM_ERR_NONE                Operation was successful.
+*                               LIB_MEM_ERR_NULL_PTR            Argument 'p_pool' passed a NULL pointer.
 *
-*                               LIB_MEM_ERR_NONE                        Memory block successfully freed.
-*                               LIB_MEM_ERR_POOL_FULL                   ALL memory blocks already available in
-*                                                                           memory pool.
+* Return(s)   : Remaining memory pool blocks,   if NO error(s).
 *
-*                               LIB_MEM_ERR_NULL_PTR                    Argument 'pmem_pool'/'pmem_blk' passed
-*                                                                           a NULL pointer.
-*                               LIB_MEM_ERR_INVALID_POOL                Invalid memory pool  type.
-*                               LIB_MEM_ERR_INVALID_BLK_ADDR            Invalid memory block address.
-*                               LIB_MEM_ERR_INVALID_BLK_ADDR_IN_POOL            Memory block address already
-*                                                                            in memory pool.
-*
-* Return(s)   : Index of the memory block.
+*               0,                              otherwise.
 *
 * Caller(s)   : Application.
 *
-* Note(s)     : (1) 'pmem_pool' variables MUST ALWAYS be accessed exclusively in critical sections.
-*
-*               (2) The returned index can be altered when Mem_PoolBlkFree() is called. This index must
-*                   only be used in conjunction with Mem_PoolBlkGetUsedAtIx() if holding a proper
-*                   lock to avoid the index to be modified.
+* Note(s)     : (1) This function is DEPRECATED and will be removed in a future version of this product.
+*                   Mem_DynPoolBlkNbrAvailGet() should be used instead.
 *********************************************************************************************************
 */
-/*$PAGE*/
-#if (LIB_MEM_CFG_ALLOC_EN == DEF_ENABLED)
-MEM_POOL_IX  Mem_PoolBlkIxGet (MEM_POOL  *pmem_pool,
-                               void      *pmem_blk,
-                               LIB_ERR   *perr)
+
+#if (LIB_MEM_CFG_HEAP_SIZE > 0u)
+MEM_POOL_BLK_QTY  Mem_PoolBlkGetNbrAvail (MEM_POOL  *p_pool,
+                                          LIB_ERR   *p_err)
 {
-    void         *p_addr;
-    CPU_BOOLEAN   addr_valid;
-    MEM_POOL_IX   i;
-    MEM_POOL_IX   pool_ix;
-    MEM_POOL_IX   invalid_ix;
+    CPU_SIZE_T  nbr_avail;
     CPU_SR_ALLOC();
 
 
-    invalid_ix = DEF_GET_U_MAX_VAL(MEM_POOL_IX);
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)                     /* ------------- VALIDATE RTN ERR PTR ------------- */
-    if (perr == (LIB_ERR *)0) {
-        CPU_SW_EXCEPTION(invalid_ix);
+#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
+                                                                /* --------------- VALIDATE RTN ERR PTR --------------- */
+    if (p_err == DEF_NULL) {
+        CPU_SW_EXCEPTION(0u);
     }
-#endif
-
-                                                                    /* ------------ VALIDATE MEM POOL FREE ------------ */
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)                     /* Validate mem ptrs.                               */
-    if (pmem_pool == (MEM_POOL *)0) {
-       *perr = LIB_MEM_ERR_NULL_PTR;
-        return (invalid_ix);
-    }
-
-    if (pmem_blk == (void *)0) {
-       *perr = LIB_MEM_ERR_NULL_PTR;
-        return (invalid_ix);
+                                                                /* ---------------- VALIDATE MEM POOL ----------------- */
+    if (p_pool == DEF_NULL) {                                   /* Validate mem ptr.                                    */
+       *p_err =  LIB_MEM_ERR_NULL_PTR;
+        return (0u);
     }
 #endif
 
     CPU_CRITICAL_ENTER();
+    nbr_avail = p_pool->BlkFreeTblIx;
+    CPU_CRITICAL_EXIT();
 
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-    if (pmem_pool->Type != LIB_MEM_TYPE_POOL) {                     /* Validate mem pool type.                          */
-        CPU_CRITICAL_EXIT();
-       *perr = LIB_MEM_ERR_INVALID_POOL;
-        return(invalid_ix);
-    }
+   *p_err = LIB_MEM_ERR_NONE;
 
-    addr_valid = Mem_PoolBlkIsValidAddr(pmem_pool, pmem_blk);       /* Validate mem blk as valid pool blk addr.         */
-    if (addr_valid != DEF_OK) {
-        CPU_CRITICAL_EXIT();
-       *perr = LIB_MEM_ERR_INVALID_BLK_ADDR;
-        return (invalid_ix);
-    }
-
-    for (i = 0u; i < pmem_pool->BlkIx; i++) {                       /* Validate mem blk  NOT already in pool.           */
-        if (pmem_blk == pmem_pool->PoolPtrs[i]) {
-            CPU_CRITICAL_EXIT();
-           *perr = LIB_MEM_ERR_INVALID_BLK_ADDR_IN_POOL;
-            return (invalid_ix);
-        }
-    }
-#endif
-
-    if (pmem_pool->BlkIx >= pmem_pool->BlkNbr) {                    /* Validate mem pool NOT full.                      */
-        CPU_CRITICAL_EXIT();
-       *perr = LIB_MEM_ERR_POOL_FULL;
-        return (invalid_ix);
-    }
-
-    addr_valid = DEF_NO;
-    for (i = pmem_pool->BlkIx; i < pmem_pool->BlkNbr; i++) {        /* Find ix of mem blk.                              */
-        p_addr = pmem_pool->PoolPtrs[i];
-        if (p_addr == pmem_blk) {
-            addr_valid = DEF_YES;
-            break;
-        }
-    }
-                                                                    /* Return ix of mem blk in tbl.                     */
-    if (addr_valid == DEF_YES) {
-        pool_ix = pmem_pool->BlkNbr - 1 - i;
-        CPU_CRITICAL_EXIT();
-       *perr = LIB_MEM_ERR_NONE;
-        return (pool_ix);
-    } else {
-        CPU_CRITICAL_EXIT();
-       *perr = LIB_MEM_ERR_INVALID_POOL;
-        return (invalid_ix);
-    }
-
+    return (nbr_avail);
 }
 #endif
 
 
-/*$PAGE*/
+/*
+*********************************************************************************************************
+*                                          Mem_DynPoolCreate()
+*
+* Description : Creates a dynamic memory pool.
+*
+* Argument(s) : p_name          Pointer to pool name.
+*
+*               p_pool          Pointer to pool data.
+*
+*               p_seg           Pointer to segment from which to allocate memory. Will be allocated from
+*                               general-purpose heap if null.
+*
+*               blk_size        Size of memory block to allocate from pool, in bytes. See Note #1.
+*
+*               blk_align       Required alignment of memory block, in bytes. MUST be a power of 2.
+*
+*               blk_qty_init    Initial number of elements to be allocated in pool.
+*
+*               blk_qty_max     Maximum number of elements that can be allocated from this pool. Set to
+*                               LIB_MEM_BLK_QTY_UNLIMITED if no limit.
+*
+*               p_err           Pointer to variable that will receive the return error code from this function :
+*
+*                                   LIB_MEM_ERR_NONE                Operation was successful.
+*
+*                                   --------------------RETURNED BY Mem_DynPoolCreateInternal()-------------------
+*                                   LIB_MEM_ERR_INVALID_BLK_ALIGN   Invalid requested block alignment.
+*                                   LIB_MEM_ERR_INVALID_BLK_SIZE    Invalid requested block size.
+*                                   LIB_MEM_ERR_INVALID_BLK_NBR     Invalid requested block quantity max.
+*                                   LIB_MEM_ERR_NULL_PTR            Pool data pointer NULL.
+*                                   LIB_MEM_ERR_INVALID_MEM_ALIGN   Invalid memory block alignment requested.
+*                                   LIB_MEM_ERR_INVALID_MEM_SIZE    Invalid memory block size specified.
+*                                   LIB_MEM_ERR_NULL_PTR            Error or segment data pointer NULL.
+*                                   LIB_MEM_ERR_SEG_OVF             Allocation would overflow memory segment.
+*
+* Return(s)   : None.
+*
+* Caller(s)   : Application.
+*
+* Note(s)     : (1) 'blk_size' must be big enough to fit a pointer since the pointer to the next free
+*                   block is stored in the block itself (only when free/unused).
+*********************************************************************************************************
+*/
+
+void  Mem_DynPoolCreate (const  CPU_CHAR      *p_name,
+                                MEM_DYN_POOL  *p_pool,
+                                MEM_SEG       *p_seg,
+                                CPU_SIZE_T     blk_size,
+                                CPU_SIZE_T     blk_align,
+                                CPU_SIZE_T     blk_qty_init,
+                                CPU_SIZE_T     blk_qty_max,
+                                LIB_ERR       *p_err)
+{
+    if (p_seg == DEF_NULL) {                                    /* Alloc from heap if p_seg is null.                    */
+#if (LIB_MEM_CFG_HEAP_SIZE > 0u)
+        p_seg = &Mem_SegHeap;
+#else
+       *p_err = LIB_MEM_ERR_NULL_PTR;
+        return;
+#endif
+    }
+
+    Mem_DynPoolCreateInternal(p_name,
+                              p_pool,
+                              p_seg,
+                              blk_size,
+                              blk_align,
+                              LIB_MEM_PADDING_ALIGN_NONE,
+                              blk_qty_init,
+                              blk_qty_max,
+                              p_err);
+}
+
+
+/*
+*********************************************************************************************************
+*                                        Mem_DynPoolCreateHW()
+*
+* Description : Creates a dynamic memory pool. Memory blocks will be padded according to memory segment's
+*               properties.
+*
+* Argument(s) : p_name          Pointer to pool name.
+*
+*               p_pool          Pointer to pool data.
+*
+*               p_seg           Pointer to segment from which to allocate memory. Will allocate from
+*                               general-purpose heap if null.
+*
+*               blk_size        Size of memory block to allocate from pool, in bytes. See Note #1.
+*
+*               blk_align       Required alignment of memory block, in bytes. MUST be a power of 2.
+*
+*               blk_qty_init    Initial number of elements to be allocated in pool.
+*
+*               blk_qty_max     Maximum number of elements that can be allocated from this pool. Set to
+*                               LIB_MEM_BLK_QTY_UNLIMITED if no limit.
+*
+*               p_err           Pointer to variable that will receive the return error code from this function :
+*
+*                                   LIB_MEM_ERR_NONE                Operation was successful.
+*
+*                                   -------------------RETURNED BY Mem_DynPoolCreateInternal()-------------------
+*                                   LIB_MEM_ERR_INVALID_MEM_ALIGN   Invalid memory block alignment requested.
+*                                   LIB_MEM_ERR_INVALID_MEM_SIZE    Invalid memory block size specified.
+*                                   LIB_MEM_ERR_NULL_PTR            Error or segment data pointer NULL.
+*                                   LIB_MEM_ERR_SEG_OVF             Allocation would overflow memory segment.
+*
+* Return(s)   : None.
+*
+* Caller(s)   : Application.
+*
+* Note(s)     : (1) 'blk_size' must be big enough to fit a pointer since the pointer to the next free
+*                   block is stored in the block itself (only when free/unused).
+*********************************************************************************************************
+*/
+
+void  Mem_DynPoolCreateHW (const  CPU_CHAR      *p_name,
+                                  MEM_DYN_POOL  *p_pool,
+                                  MEM_SEG       *p_seg,
+                                  CPU_SIZE_T     blk_size,
+                                  CPU_SIZE_T     blk_align,
+                                  CPU_SIZE_T     blk_qty_init,
+                                  CPU_SIZE_T     blk_qty_max,
+                                  LIB_ERR       *p_err)
+{
+    if (p_seg == DEF_NULL) {                                    /* Alloc from heap if p_seg is null.                    */
+#if (LIB_MEM_CFG_HEAP_SIZE > 0u)
+        p_seg = &Mem_SegHeap;
+#else
+       *p_err = LIB_MEM_ERR_NULL_PTR;
+        return;
+#endif
+    }
+
+    Mem_DynPoolCreateInternal(p_name,
+                              p_pool,
+                              p_seg,
+                              blk_size,
+                              blk_align,
+                              p_seg->PaddingAlign,
+                              blk_qty_init,
+                              blk_qty_max,
+                              p_err);
+}
+
+
+/*
+*********************************************************************************************************
+*                                          Mem_DynPoolBlkGet()
+*
+* Description : Gets a memory block from specified pool, growing it if needed.
+*
+* Argument(s) : p_pool  Pointer to pool data.
+*
+*               p_err   Pointer to variable that will receive the return error code from this function :
+*
+*                           LIB_MEM_ERR_NONE                    Operation was successful.
+*                           LIB_MEM_ERR_NULL_PTR                Pool data pointer NULL.
+*                           LIB_MEM_ERR_POOL_EMPTY              Pools is empty.
+*
+*                           ----------------------RETURNED BY Mem_SegAllocInternal()-----------------------
+*                           LIB_MEM_ERR_INVALID_MEM_ALIGN       Invalid memory block alignment requested.
+*                           LIB_MEM_ERR_INVALID_MEM_SIZE        Invalid memory block size specified.
+*                           LIB_MEM_ERR_NULL_PTR                Error or segment data pointer NULL.
+*                           LIB_MEM_ERR_SEG_OVF                 Allocation would overflow memory segment.
+*
+* Return(s)   : Pointer to memory block, if successful.
+*
+*               DEF_NULL, otherwise.
+*
+* Caller(s)   : Application.
+*
+* Note(s)     : none.
+*********************************************************************************************************
+*/
+
+void  *Mem_DynPoolBlkGet (MEM_DYN_POOL  *p_pool,
+                          LIB_ERR       *p_err)
+{
+           void      *p_blk;
+    const  CPU_CHAR  *p_pool_name;
+    CPU_SR_ALLOC();
+
+
+#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
+    if (p_err == DEF_NULL) {                                    /* Chk for NULL err ptr.                                */
+        CPU_SW_EXCEPTION(DEF_NULL);
+    }
+
+    if (p_pool == DEF_NULL) {                                   /* Chk for NULL pool data ptr.                          */
+       *p_err = LIB_MEM_ERR_NULL_PTR;
+        return (DEF_NULL);
+    }
+#endif
+
+                                                                /* Ensure pool is not empty if qty is limited.          */
+    if (p_pool->BlkQtyMax != LIB_MEM_BLK_QTY_UNLIMITED) {
+        CPU_CRITICAL_ENTER();
+        if (p_pool->BlkAllocCnt >= p_pool->BlkQtyMax) {
+            CPU_CRITICAL_EXIT();
+
+           *p_err = LIB_MEM_ERR_POOL_EMPTY;
+            return (DEF_NULL);
+        }
+
+        p_pool->BlkAllocCnt++;
+        CPU_CRITICAL_EXIT();
+    }
+
+                                                                /* --------------- ALLOC FROM FREE LIST --------------- */
+    CPU_CRITICAL_ENTER();
+    if (p_pool->BlkFreePtr != DEF_NULL) {
+        p_blk              = p_pool->BlkFreePtr;
+        p_pool->BlkFreePtr = *((void **)p_blk);
+        CPU_CRITICAL_EXIT();
+
+       *p_err = LIB_MEM_ERR_NONE;
+
+        return (p_blk);
+    }
+    CPU_CRITICAL_EXIT();
+
+                                                                /* ------------------ ALLOC NEW BLK ------------------- */
+#if (LIB_MEM_CFG_DBG_INFO_EN == DEF_ENABLED)
+    p_pool_name = p_pool->NamePtr;
+#else
+    p_pool_name = DEF_NULL;
+#endif
+    p_blk = Mem_SegAllocInternal(p_pool_name,
+                                 p_pool->PoolSegPtr,
+                                 p_pool->BlkSize,
+                                 p_pool->BlkAlign,
+                                 p_pool->BlkPaddingAlign,
+                                 DEF_NULL,
+                                 p_err);
+    if (*p_err != LIB_MEM_ERR_NONE) {
+        return (DEF_NULL);
+    }
+
+    return (p_blk);
+}
+
+
+/*
+*********************************************************************************************************
+*                                         Mem_DynPoolBlkFree()
+*
+* Description : Frees memory block, making it available for future use.
+*
+* Argument(s) : p_pool  Pointer to pool data.
+*
+*               p_blk   Pointer to first byte of memory block.
+*
+*               p_err   Pointer to variable that will receive the return error code from this function :
+*
+*                           LIB_MEM_ERR_NONE        Operation was successful.
+*                           LIB_MEM_ERR_NULL_PTR    'p_pool' or 'p_blk' pointer passed is NULL.
+*                           LIB_MEM_ERR_POOL_FULL   Pool is full.
+*
+* Return(s)   : none.
+*
+* Caller(s)   : Application.
+*
+* Note(s)     : none.
+*********************************************************************************************************
+*/
+
+void  Mem_DynPoolBlkFree (MEM_DYN_POOL  *p_pool,
+                          void          *p_blk,
+                          LIB_ERR       *p_err)
+{
+    CPU_SR_ALLOC();
+
+
+#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
+    if (p_err == DEF_NULL) {                                    /* Chk for NULL err ptr.                                */
+        CPU_SW_EXCEPTION(;);
+    }
+
+    if (p_pool == DEF_NULL) {                                   /* Chk for NULL pool data ptr.                          */
+       *p_err = LIB_MEM_ERR_NULL_PTR;
+        return;
+    }
+
+    if (p_blk == DEF_NULL) {
+       *p_err = LIB_MEM_ERR_NULL_PTR;
+        return;
+    }
+#endif
+
+    if (p_pool->BlkQtyMax != LIB_MEM_BLK_QTY_UNLIMITED) {       /* Ensure pool is not full.                             */
+        CPU_CRITICAL_ENTER();
+        if (p_pool->BlkAllocCnt == 0u) {
+            CPU_CRITICAL_EXIT();
+
+           *p_err = LIB_MEM_ERR_POOL_FULL;
+            return;
+        }
+
+        p_pool->BlkAllocCnt--;
+        CPU_CRITICAL_EXIT();
+    }
+
+    CPU_CRITICAL_ENTER();
+   *((void **)p_blk)   = p_pool->BlkFreePtr;
+    p_pool->BlkFreePtr = p_blk;
+    CPU_CRITICAL_EXIT();
+
+   *p_err = LIB_MEM_ERR_NONE;
+}
+
+
+/*
+*********************************************************************************************************
+*                                     Mem_DynPoolBlkNbrAvailGet()
+*
+* Description : Gets number of available blocks in dynamic memory pool. This call will fail with a
+*               dynamic memory pool for which no limit was set at creation.
+*
+* Argument(s) : p_pool  Pointer to pool data.
+*
+*               p_err   Pointer to variable that will receive the return error code from this function :
+*
+*                           LIB_MEM_ERR_NONE                Operation was successful.
+*                           LIB_MEM_ERR_NULL_PTR            'p_pool' pointer passed is NULL.
+*                           LIB_MEM_ERR_POOL_UNLIMITED      Pool has no specified limit.
+*
+* Return(s)   : Number of blocks available in dynamic memory pool, if successful.
+*
+*               0, if pool is empty or if an error occurred.
+*
+* Caller(s)   : Application.
+*
+* Note(s)     : None.
+*********************************************************************************************************
+*/
+
+CPU_SIZE_T  Mem_DynPoolBlkNbrAvailGet (MEM_DYN_POOL  *p_pool,
+                                       LIB_ERR       *p_err)
+{
+    CPU_SIZE_T  blk_nbr_avail;
+    CPU_SR_ALLOC();
+
+
+#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
+    if (p_err == DEF_NULL) {                                    /* Chk for NULL err ptr.                                */
+        CPU_SW_EXCEPTION(0);
+    }
+
+    if (p_pool == DEF_NULL) {                                   /* Chk for NULL pool data ptr.                          */
+       *p_err = LIB_MEM_ERR_NULL_PTR;
+        return (0u);
+    }
+#endif
+
+    if (p_pool->BlkQtyMax != LIB_MEM_BLK_QTY_UNLIMITED) {
+        CPU_CRITICAL_ENTER();
+        blk_nbr_avail = p_pool->BlkQtyMax - p_pool->BlkAllocCnt;
+        CPU_CRITICAL_EXIT();
+
+       *p_err = LIB_MEM_ERR_NONE;
+    } else {
+        blk_nbr_avail = 0u;
+       *p_err         = LIB_MEM_ERR_POOL_UNLIMITED;
+    }
+
+    return (blk_nbr_avail);
+}
+
+
+/*
+*********************************************************************************************************
+*                                           Mem_OutputUsage()
+*
+* Description : Outputs memory usage report through 'out_fnct'.
+*
+* Argument(s) : out_fnct        Pointer to output function.
+*
+*               print_details   DEF_YES, if the size of each allocation should be printed.
+*                               DEF_NO,  otherwise.
+*
+*               p_err           Pointer to variable that will receive the return error code from this function :
+*
+*                                   LIB_MEM_ERR_NONE                Operation was successful.
+*                                   LIB_MEM_ERR_NULL_PTR            'out_fnct' pointer passed is NULL.
+*
+*                                   ---------------------RETURNED BY Mem_SegRemSizeGet()--------------------
+*                                   LIB_MEM_ERR_NULL_PTR            Segment data pointer NULL.
+*                                   LIB_MEM_ERR_INVALID_MEM_ALIGN   Invalid memory alignment.
+*
+* Return(s)   : None.
+*
+* Caller(s)   : Application.
+*
+* Note(s)     : none.
+*********************************************************************************************************
+*/
+
+#if (LIB_MEM_CFG_DBG_INFO_EN == DEF_ENABLED)
+void  Mem_OutputUsage(void     (*out_fnct) (CPU_CHAR *),
+                      LIB_ERR   *p_err)
+{
+    CPU_CHAR   str[DEF_INT_32U_NBR_DIG_MAX];
+    MEM_SEG   *p_seg;
+    CPU_SR_ALLOC();
+
+
+#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
+    if (p_err == DEF_NULL) {                                    /* Chk for NULL err ptr.                                */
+        CPU_SW_EXCEPTION(;);
+    }
+
+    if (out_fnct == DEF_NULL) {                                 /* Chk for NULL out fnct ptr.                           */
+       *p_err = LIB_MEM_ERR_NULL_PTR;
+        return;
+    }
+#endif
+
+    out_fnct((CPU_CHAR *)"---------------- Memory allocation info ----------------\r\n");
+    out_fnct((CPU_CHAR *)"| Type    | Size       | Free size  | Name\r\n");
+    out_fnct((CPU_CHAR *)"|---------|------------|------------|-------------------\r\n");
+
+    CPU_CRITICAL_ENTER();
+    p_seg = Mem_SegHeadPtr;
+    while (p_seg != DEF_NULL) {
+        CPU_SIZE_T       rem_size;
+        MEM_SEG_INFO     seg_info;
+        MEM_ALLOC_INFO  *p_alloc;
+
+
+        rem_size = Mem_SegRemSizeGet(p_seg, 1u, &seg_info, p_err);
+        if (*p_err != LIB_MEM_ERR_NONE) {
+            return;
+        }
+
+        out_fnct((CPU_CHAR *)"| Section | ");
+
+        (void)Str_FmtNbr_Int32U(seg_info.TotalSize,
+                                10u,
+                                DEF_NBR_BASE_DEC,
+                                ' ',
+                                DEF_NO,
+                                DEF_YES,
+                               &str[0u]);
+
+        out_fnct(str);
+        out_fnct((CPU_CHAR *)" | ");
+
+        (void)Str_FmtNbr_Int32U(rem_size,
+                                10u,
+                                DEF_NBR_BASE_DEC,
+                                ' ',
+                                DEF_NO,
+                                DEF_YES,
+                               &str[0u]);
+
+        out_fnct(str);
+        out_fnct((CPU_CHAR *)" | ");
+        out_fnct((p_seg->NamePtr != DEF_NULL) ? (CPU_CHAR *)p_seg->NamePtr : (CPU_CHAR *)"Unknown");
+        out_fnct((CPU_CHAR *)"\r\n");
+
+        p_alloc = p_seg->AllocInfoHeadPtr;
+        while (p_alloc != DEF_NULL) {
+            out_fnct((CPU_CHAR *)"| -> Obj  | ");
+
+            (void)Str_FmtNbr_Int32U(p_alloc->Size,
+                                    10u,
+                                    DEF_NBR_BASE_DEC,
+                                    ' ',
+                                    DEF_NO,
+                                    DEF_YES,
+                                   &str[0u]);
+
+            out_fnct(str);
+            out_fnct((CPU_CHAR *)" |            | ");
+
+            out_fnct((p_alloc->NamePtr != DEF_NULL) ? (CPU_CHAR *)p_alloc->NamePtr : (CPU_CHAR *)"Unknown");
+            out_fnct((CPU_CHAR *)"\r\n");
+
+            p_alloc = p_alloc->NextPtr;
+        }
+
+        p_seg = p_seg->NextPtr;
+    }
+    CPU_CRITICAL_EXIT();
+
+   *p_err = LIB_MEM_ERR_NONE;
+}
+#endif
+
+
 /*
 *********************************************************************************************************
 *********************************************************************************************************
@@ -2104,15 +2302,522 @@ MEM_POOL_IX  Mem_PoolBlkIxGet (MEM_POOL  *pmem_pool,
 
 /*
 *********************************************************************************************************
+*                                       Mem_SegCreateCritical()
+*
+* Description : Creates a new memory segment to be used for runtime memory allocation or dynamic pools.
+*
+* Argument(s) : p_name          Pointer to segment name.
+*
+*               p_seg           Pointer to segment data. Must be allocated by caller.
+*               -----           Argument validated by caller.
+*
+*               seg_base_addr   Segment's first byte address.
+*
+*               padding_align   Padding alignment, in bytes, that will be added to any allocated buffer
+*                               from this memory segment. MUST be a power of 2.
+*                               LIB_MEM_PADDING_ALIGN_NONE means no padding.
+*               -------------   Argument validated by caller.
+*
+*               size            Total size of segment, in bytes.
+*               ----            Argument validated by caller.
+*
+* Return(s)   : Pointer to segment data, if successful.
+*
+*               DEF_NULL, otherwise.
+*
+* Caller(s)   : Mem_PoolCreate(),
+*               Mem_SegCreate().
+*
+* Note(s)     : (1) This function MUST be called within a CRITICAL_SECTION.
+*********************************************************************************************************
+*/
+
+static  void  Mem_SegCreateCritical(const  CPU_CHAR    *p_name,
+                                           MEM_SEG     *p_seg,
+                                           CPU_ADDR     seg_base_addr,
+                                           CPU_SIZE_T   padding_align,
+                                           CPU_SIZE_T   size)
+{
+    p_seg->AddrBase         =  seg_base_addr;
+    p_seg->AddrEnd          = (seg_base_addr + (size - 1u));
+    p_seg->AddrNext         =  seg_base_addr;
+    p_seg->NextPtr          =  Mem_SegHeadPtr;
+    p_seg->PaddingAlign     =  padding_align;
+
+#if (LIB_MEM_CFG_DBG_INFO_EN == DEF_ENABLED)
+    p_seg->NamePtr          = p_name;
+    p_seg->AllocInfoHeadPtr = DEF_NULL;
+#else
+    (void)p_name;
+#endif
+
+    Mem_SegHeadPtr = p_seg;
+}
+
+
+/*
+*********************************************************************************************************
+*                                      Mem_SegOverlapChkCritical()
+*
+* Description : Checks if existing memory segment exists or overlaps with specified memory area.
+*
+* Argument(s) : seg_base_addr   Address of first byte of memory area.
+*
+*               size            Size of memory area, in bytes.
+*
+*               p_err       Pointer to variable that will receive the return error code from this function :
+*
+*                               LIB_MEM_ERR_INVALID_SEG_OVERLAP     Segment overlaps another existing segment.
+*                               LIB_MEM_ERR_INVALID_SEG_EXISTS      Segment already exists.
+*
+* Return(s)   : Pointer to memory segment that overlaps.
+*
+*               DEF_NULL, otherwise.
+*
+* Caller(s)   : Mem_PoolCreate(),
+*               Mem_SegCreate().
+*
+* Note(s)     : (1) This function MUST be called within a CRITICAL_SECTION.
+*********************************************************************************************************
+*/
+
+#if  (LIB_MEM_CFG_HEAP_SIZE      >  0u)
+static  MEM_SEG  *Mem_SegOverlapChkCritical (CPU_ADDR     seg_base_addr,
+                                             CPU_SIZE_T   size,
+                                             LIB_ERR     *p_err)
+{
+    MEM_SEG   *p_seg_chk;
+    CPU_ADDR   seg_new_end;
+    CPU_ADDR   seg_chk_start;
+    CPU_ADDR   seg_chk_end;
+
+
+    seg_new_end = seg_base_addr + (size - 1u);
+    p_seg_chk   = Mem_SegHeadPtr;
+
+    while (p_seg_chk != DEF_NULL) {
+        seg_chk_start = (CPU_ADDR)p_seg_chk->AddrBase;
+        seg_chk_end   = (CPU_ADDR)p_seg_chk->AddrEnd;
+
+        if ((seg_base_addr == seg_chk_start) && (seg_new_end == seg_chk_end)) {
+           *p_err = LIB_MEM_ERR_INVALID_SEG_EXISTS;
+            return (p_seg_chk);
+        } else if (((seg_base_addr >= seg_chk_start) && (seg_base_addr <= seg_chk_end)) ||
+                   ((seg_base_addr <= seg_chk_start) && (seg_new_end   >= seg_chk_start))) {
+           *p_err = LIB_MEM_ERR_INVALID_SEG_OVERLAP;
+            return (p_seg_chk);
+        }
+
+        p_seg_chk = p_seg_chk->NextPtr;
+    }
+
+   *p_err = LIB_MEM_ERR_NONE;
+
+    return (DEF_NULL);
+}
+#endif
+
+
+/*
+*********************************************************************************************************
+*                                       Mem_SegAllocInternal()
+*
+* Description : Allocates memory from specified segment.
+*
+* Argument(s) : p_name  Pointer to allocated object name. Used for allocations tracking. May be DEF_NULL.
+*
+*               p_seg           Pointer to segment from which to allocate memory.
+*               -----           Argument validated by caller.
+*
+*               size            Size of memory block to allocate, in bytes.
+*
+*               align           Required alignment of memory block, in bytes. MUST be a power of 2.
+*
+*               padding_align   Padding alignment, in bytes, that will be added to any allocated buffer from
+*                               this memory segment. MUST be a power of 2. LIB_MEM_PADDING_ALIGN_NONE
+*                               means no padding.
+*
+*               p_bytes_reqd    Pointer to variable that will receive the number of free bytes missing for
+*                               the allocation to succeed. Set to DEF_NULL to skip calculation.
+*
+*               p_err           Pointer to variable that will receive the return error code from this function :
+*
+*                                   LIB_MEM_ERR_INVALID_MEM_ALIGN   Invalid memory block alignment requested.
+*                                   LIB_MEM_ERR_INVALID_MEM_SIZE    Invalid memory block size specified.
+*                                   LIB_MEM_ERR_NULL_PTR            Error or segment data pointer NULL.
+*
+*                                   ------------------RETURNED BY Mem_SegAllocExtCritical()------------------
+*                                   LIB_MEM_ERR_SEG_OVF             Allocation would overflow memory segment.
+*
+* Return(s)   : Pointer to allocated memory block, if successful.
+*
+*               DEF_NULL, otherwise.
+*
+* Caller(s)   : Mem_DynPoolBlkGet(),
+*               Mem_DynPoolCreateInternal(),
+*               Mem_HeapAlloc(),
+*               Mem_PoolCreate(),
+*               Mem_SegAlloc(),
+*               Mem_SegAllocExt(),
+*               Mem_SegAllocHW().
+*
+* Note(s)     : none.
+*********************************************************************************************************
+*/
+
+static  void  *Mem_SegAllocInternal (const  CPU_CHAR    *p_name,
+                                            MEM_SEG     *p_seg,
+                                            CPU_SIZE_T   size,
+                                            CPU_SIZE_T   align,
+                                            CPU_SIZE_T   padding_align,
+                                            CPU_SIZE_T  *p_bytes_reqd,
+                                            LIB_ERR     *p_err)
+{
+    void  *p_blk;
+    CPU_SR_ALLOC();
+
+
+#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
+    if (p_err == DEF_NULL) {                                    /* Chk for null err ptr.                                */
+        CPU_SW_EXCEPTION(DEF_NULL);
+    }
+
+    if (size < 1u) {                                            /* Chk for invalid sized mem req.                       */
+       *p_err = LIB_MEM_ERR_INVALID_MEM_SIZE;
+        return (DEF_NULL);
+    }
+
+    if (MATH_IS_PWR2(align) != DEF_YES) {                       /* Chk that align is a pwr of 2.                        */
+       *p_err = LIB_MEM_ERR_INVALID_MEM_ALIGN;
+        return (DEF_NULL);
+    }
+#endif
+
+    CPU_CRITICAL_ENTER();
+    p_blk = Mem_SegAllocExtCritical(p_seg,
+                                    size,
+                                    align,
+                                    padding_align,
+                                    p_bytes_reqd,
+                                    p_err);
+    if (*p_err != LIB_MEM_ERR_NONE) {
+        CPU_CRITICAL_EXIT();
+        return (DEF_NULL);
+    }
+
+#if (LIB_MEM_CFG_DBG_INFO_EN == DEF_ENABLED)                    /* Track alloc if req'd.                                */
+    Mem_SegAllocTrackCritical(p_name,
+                              p_seg,
+                              size,
+                              p_err);
+    if (*p_err != LIB_MEM_ERR_NONE) {
+        CPU_CRITICAL_EXIT();
+        return (DEF_NULL);
+    }
+#else
+    (void)p_name;
+#endif
+    CPU_CRITICAL_EXIT();
+
+    return (p_blk);
+}
+
+
+/*
+*********************************************************************************************************
+*                                      Mem_SegAllocExtCritical()
+*
+* Description : Allocates memory from specified segment.
+*
+* Argument(s) : p_seg           Pointer to segment from which to allocate memory.
+*
+*               size            Size of memory block to allocate, in bytes.
+*
+*               align           Required alignment of memory block, in bytes. MUST be a power of 2.
+*
+*               padding_align   Padding alignment, in bytes, that will be added to any allocated buffer from
+*                               this memory segment. MUST be a power of 2. LIB_MEM_PADDING_ALIGN_NONE
+*                               means no padding.
+*
+*               p_bytes_reqd    Pointer to variable that will receive the number of free bytes missing for
+*                               the allocation to succeed. Set to DEF_NULL to skip calculation.
+*
+*               p_err           Pointer to variable that will receive the return error code from this function :
+*
+*                                   LIB_MEM_ERR_SEG_OVF     Allocation would overflow memory segment.
+*
+* Return(s)   : Pointer to allocated memory block, if successful.
+*
+*               DEF_NULL, otherwise.
+*
+* Caller(s)   : Mem_PoolCreate(),
+*               Mem_SegAllocInternal(),
+*               Mem_SegAllocTrackCritical().
+*
+* Note(s)     : (1) This function MUST be called within a CRITICAL_SECTION.
+*********************************************************************************************************
+*/
+
+static  void  *Mem_SegAllocExtCritical (MEM_SEG     *p_seg,
+                                        CPU_SIZE_T   size,
+                                        CPU_SIZE_T   align,
+                                        CPU_SIZE_T   padding_align,
+                                        CPU_SIZE_T  *p_bytes_reqd,
+                                        LIB_ERR     *p_err)
+{
+    CPU_ADDR    blk_addr;
+    CPU_ADDR    addr_next;
+    CPU_SIZE_T  size_rem_seg;
+    CPU_SIZE_T  size_tot_blk;
+    CPU_SIZE_T  blk_align = DEF_MAX(align, padding_align);
+
+
+    blk_addr     = MATH_ROUND_INC_UP_PWR2(p_seg->AddrNext,      /* Compute align'ed blk addr.                           */
+                                          blk_align);
+    addr_next    = MATH_ROUND_INC_UP_PWR2(blk_addr + size,      /* Compute addr of next alloc.                          */
+                                          padding_align);
+    size_rem_seg = (p_seg->AddrEnd - p_seg->AddrNext) + 1u;
+    size_tot_blk =  addr_next      - p_seg->AddrNext;           /* Compute tot blk size including align and padding.    */
+    if (size_rem_seg < size_tot_blk) {                          /* If seg doesn't have enough space ...                 */
+        if (p_bytes_reqd != DEF_NULL) {                         /* ... calc nbr of req'd bytes.                         */
+           *p_bytes_reqd = size_tot_blk - size_rem_seg;
+        }
+
+       *p_err = LIB_MEM_ERR_SEG_OVF;
+        return (DEF_NULL);
+    }
+
+    p_seg->AddrNext = addr_next;
+
+   *p_err = LIB_MEM_ERR_NONE;
+
+    return ((void *)blk_addr);
+}
+
+
+/*
+*********************************************************************************************************
+*                                     Mem_SegAllocTrackCritical()
+*
+* Description : Tracks segment allocation, adding the 'size' of the allocation under the 'p_name' entry.
+*
+* Argument(s) : p_name  Pointer to the name of the object. This string is not copied and its memory should
+*                       remain accessible at all times.
+*
+*               p_seg   Pointer to segment data.
+*
+*               size    Allocation size, in bytes.
+*
+*               p_err   Pointer to variable that will receive the return error code from this function :
+*
+*                           LIB_MEM_ERR_HEAP_EMPTY      No more memory available on heap
+*
+*                           --------------RETURNED BY Mem_SegAllocExtCritical()---------------
+*                           LIB_MEM_ERR_SEG_OVF         Allocation would overflow memory segment.
+*
+* Return(s)   : none.
+*
+* Caller(s)   : Mem_PoolCreate(),
+*               Mem_SegAllocInternal().
+*
+* Note(s)     : none.
+*********************************************************************************************************
+*/
+
+#if (LIB_MEM_CFG_DBG_INFO_EN == DEF_ENABLED)
+static  void  Mem_SegAllocTrackCritical (const  CPU_CHAR    *p_name,
+                                                MEM_SEG     *p_seg,
+                                                CPU_SIZE_T   size,
+                                                LIB_ERR     *p_err)
+{
+    MEM_ALLOC_INFO  *p_alloc;
+
+
+                                                                /* ------- UPDATE ALLOC INFO LIST, IF POSSIBLE -------- */
+    p_alloc = p_seg->AllocInfoHeadPtr;
+    while (p_alloc != DEF_NULL) {
+        if (p_alloc->NamePtr == p_name) {
+            p_alloc->Size += size;
+           *p_err = LIB_MEM_ERR_NONE;
+            return;
+        }
+
+        p_alloc = p_alloc->NextPtr;
+    }
+
+                                                                /* --------- ADD NEW ALLOC INFO ENTRY IN LIST --------- */
+    p_alloc = (MEM_ALLOC_INFO *)Mem_SegAllocExtCritical(&Mem_SegHeap,             /* Alloc new alloc info struct on heap.                 */
+                                                         sizeof(MEM_ALLOC_INFO),
+                                                         sizeof(CPU_ALIGN),
+                                                         LIB_MEM_PADDING_ALIGN_NONE,
+                                                         DEF_NULL,
+                                                         p_err);
+    if (*p_err != LIB_MEM_ERR_NONE) {
+        return;
+    }
+
+    p_alloc->NamePtr = p_name;                                  /* Populate alloc info.                                 */
+    p_alloc->Size    = size;
+
+    p_alloc->NextPtr        = p_seg->AllocInfoHeadPtr;          /* Prepend new item in list.                            */
+    p_seg->AllocInfoHeadPtr = p_alloc;
+}
+#endif
+
+
+/*
+*********************************************************************************************************
+*                                     Mem_DynPoolCreateInternal()
+*
+* Description : Creates a dynamic memory pool.
+*
+* Argument(s) : p_name              Pointer to pool name.
+*
+*               p_pool              Pointer to pool data.
+*
+*               p_seg               Pointer to segment from which to allocate memory.
+*
+*               blk_size            Size of memory block to allocate from pool, in bytes. See Note #1.
+*
+*               blk_align           Required alignment of memory block, in bytes. MUST be a power of 2.
+*
+*               blk_padding_align   Block's padding alignment, in bytes, that will be added at the end
+*                                   of block's buffer. MUST be a power of 2. LIB_MEM_PADDING_ALIGN_NONE
+*                                   means no padding.
+*
+*               blk_qty_init        Initial number of elements to be allocated in pool.
+*
+*               blk_qty_max         Maximum number of elements that can be allocated from this pool. Set to
+*                                   LIB_MEM_BLK_QTY_UNLIMITED if no limit.
+*
+*               p_err           Pointer to variable that will receive the return error code from this function :
+*
+*                                   LIB_MEM_ERR_INVALID_BLK_ALIGN   Invalid requested block alignment.
+*                                   LIB_MEM_ERR_INVALID_BLK_SIZE    Invalid requested block size.
+*                                   LIB_MEM_ERR_INVALID_BLK_NBR     Invalid requested block quantity max.
+*                                   LIB_MEM_ERR_NULL_PTR            Pool data pointer NULL.
+*
+*                                   ------------------RETURNED BY Mem_SegAllocInternal()-------------------
+*                                   LIB_MEM_ERR_INVALID_MEM_ALIGN   Invalid memory block alignment requested.
+*                                   LIB_MEM_ERR_INVALID_MEM_SIZE    Invalid memory block size specified.
+*                                   LIB_MEM_ERR_NULL_PTR            Error or segment data pointer NULL.
+*                                   LIB_MEM_ERR_SEG_OVF             Allocation would overflow memory segment.
+*
+* Return(s)   : None.
+*
+* Caller(s)   : Mem_DynPoolCreate(),
+*               Mem_DynPoolCreateHW().
+*
+* Note(s)     : (1) 'blk_size' must be big enough to fit a pointer since the pointer to the next free
+*                   block is stored in the block itself (only when free/unused).
+*********************************************************************************************************
+*/
+
+static  void  Mem_DynPoolCreateInternal (const  CPU_CHAR      *p_name,
+                                                MEM_DYN_POOL  *p_pool,
+                                                MEM_SEG       *p_seg,
+                                                CPU_SIZE_T     blk_size,
+                                                CPU_SIZE_T     blk_align,
+                                                CPU_SIZE_T     blk_padding_align,
+                                                CPU_SIZE_T     blk_qty_init,
+                                                CPU_SIZE_T     blk_qty_max,
+                                                LIB_ERR       *p_err)
+{
+    CPU_INT08U  *p_blks          = DEF_NULL;
+    CPU_SIZE_T   blk_size_align;
+    CPU_SIZE_T   blk_align_worst = DEF_MAX(blk_align, blk_padding_align);
+
+
+#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
+    if (p_err == DEF_NULL) {                                    /* Chk for NULL err ptr.                                */
+        CPU_SW_EXCEPTION(;);
+    }
+
+    if (p_pool == DEF_NULL) {                                   /* Chk for NULL pool data ptr.                          */
+       *p_err = LIB_MEM_ERR_NULL_PTR;
+        return;
+    }
+
+    if (blk_size < 1u) {                                        /* Chk for inv blk size.                                */
+       *p_err = LIB_MEM_ERR_INVALID_BLK_SIZE;
+        return;
+    }
+
+    if ((blk_qty_max  != LIB_MEM_BLK_QTY_UNLIMITED) &&          /* Chk for invalid blk qty.                             */
+        (blk_qty_init >  blk_qty_max)) {
+       *p_err = LIB_MEM_ERR_INVALID_BLK_NBR;
+        return;
+    }
+
+    if (MATH_IS_PWR2(blk_align) != DEF_YES) {                   /* Chk for illegal align spec.                          */
+       *p_err = LIB_MEM_ERR_INVALID_BLK_ALIGN;
+        return;
+    }
+#endif
+
+                                                                /* Calc blk size with align.                            */
+    if (blk_size < sizeof(void *)) {                            /* If size if smaller than ptr ...                      */
+                                                                /* ... inc size to ptr size.                            */
+        blk_size_align = MATH_ROUND_INC_UP_PWR2(sizeof(void *), blk_align_worst);
+    } else {
+        blk_size_align = MATH_ROUND_INC_UP_PWR2(blk_size, blk_align_worst);
+    }
+
+    if (blk_qty_init != 0u) {                                   /* Alloc init blks.                                     */
+        CPU_SIZE_T  i;
+        p_blks = (CPU_INT08U *)Mem_SegAllocInternal(p_name,
+                                                    p_seg,
+                                                    blk_size_align * blk_qty_init,
+                                                    DEF_MAX(blk_align, sizeof(void *)),
+                                                    LIB_MEM_PADDING_ALIGN_NONE,
+                                                    DEF_NULL,
+                                                    p_err);
+        if (*p_err != LIB_MEM_ERR_NONE) {
+            return;
+        }
+
+                                                                /* ----------------- CREATE POOL DATA ----------------- */
+                                                                /* Init free list.                                      */
+        p_pool->BlkFreePtr = (void *)p_blks;
+        for (i = 0u; i < blk_qty_init - 1u; i++) {
+           *((void **)p_blks)  = p_blks + blk_size_align;
+            p_blks            += blk_size_align;
+        }
+       *((void **)p_blks) = DEF_NULL;
+    } else {
+        p_pool->BlkFreePtr = DEF_NULL;
+    }
+
+#if (LIB_MEM_CFG_HEAP_SIZE > 0u)
+    p_pool->PoolSegPtr      = ((p_seg != DEF_NULL) ? p_seg : &Mem_SegHeap);
+#else
+    p_pool->PoolSegPtr      =   p_seg;
+#endif
+    p_pool->BlkSize         =   blk_size;
+    p_pool->BlkAlign        =   blk_align_worst;
+    p_pool->BlkPaddingAlign =   blk_padding_align;
+    p_pool->BlkQtyMax       =   blk_qty_max;
+    p_pool->BlkAllocCnt     =   0u;
+
+#if (LIB_MEM_CFG_DBG_INFO_EN == DEF_ENABLED)
+    p_pool->NamePtr = p_name;
+#endif
+
+   *p_err = LIB_MEM_ERR_NONE;
+}
+
+
+/*
+*********************************************************************************************************
 *                                      Mem_PoolBlkIsValidAddr()
 *
 * Description : Calculates if a given memory block address is valid for the memory pool.
 *
-* Argument(s) : pmem_pool   Pointer to memory pool structure to validate memory block address.
-*               ---------   Argument validated in Mem_PoolBlkFree().
+* Argument(s) : p_pool   Pointer to memory pool structure to validate memory block address.
+*               ------   Argument validated by caller.
 *
-*               pmem_blk    Pointer to memory block address to validate.
-*               --------    Argument validated in Mem_PoolBlkFree().
+*               p_mem    Pointer to memory block address to validate.
+*               -----    Argument validated by caller.
 *
 * Return(s)   : DEF_YES, if valid memory pool block address.
 *
@@ -2120,323 +2825,28 @@ MEM_POOL_IX  Mem_PoolBlkIxGet (MEM_POOL  *pmem_pool,
 *
 * Caller(s)   : Mem_PoolBlkFree().
 *
-* Note(s)     : none.
+* Note(s)     : (1) This function is DEPRECATED and will be removed in a future version of this product.
 *********************************************************************************************************
 */
 
-#if ((LIB_MEM_CFG_ALLOC_EN       == DEF_ENABLED) && \
-     (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED))
-static  CPU_BOOLEAN  Mem_PoolBlkIsValidAddr (MEM_POOL  *pmem_pool,
-                                             void      *pmem_blk)
+#if ((LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED) && \
+     (LIB_MEM_CFG_HEAP_SIZE      >  0u))
+static  CPU_BOOLEAN  Mem_PoolBlkIsValidAddr (MEM_POOL  *p_pool,
+                                             void      *p_mem)
 {
-    CPU_INT08U   *ppool_addr_first;
-    void         *ppool_addr_start;
-    void         *ppool_addr_end;
-    CPU_SIZE_T    align_offset;
-    CPU_SIZE_T    blk_align;
-    CPU_SIZE_T    blk_align_offset;
-    CPU_SIZE_T    blk_size;
-    CPU_SIZE_T    mem_align;
-    CPU_SIZE_T    mem_align_offset;
-    CPU_SIZE_T    mem_diff;
-    CPU_BOOLEAN   addr_valid;
+    CPU_ADDR  pool_offset;
 
 
-    ppool_addr_start = pmem_pool->PoolAddrStart;
-    ppool_addr_end   = pmem_pool->PoolAddrEnd;
-
-    if ((pmem_blk < ppool_addr_start) ||
-        (pmem_blk > ppool_addr_end)) {
-        return (DEF_NO);
+    if ((p_mem < p_pool->PoolAddrStart) ||
+        (p_mem > p_pool->PoolAddrEnd)) {
+        return (DEF_FALSE);
     }
 
-    blk_align      = (CPU_SIZE_T)pmem_pool->BlkAlign;
-    align_offset   = (CPU_SIZE_T)((CPU_ADDR)ppool_addr_start % blk_align);
-    if (align_offset != 0u) {
-        mem_align_offset = blk_align - align_offset;
+    pool_offset = (CPU_ADDR)p_mem - (CPU_ADDR)p_pool->PoolAddrStart;
+    if (pool_offset % p_pool->BlkSize != 0u) {
+        return (DEF_FALSE);
     } else {
-        mem_align_offset = 0u;
+        return (DEF_TRUE);
     }
-
-    blk_size     = pmem_pool->BlkSize;
-    align_offset = blk_size % blk_align;
-    if (align_offset != 0u) {
-        blk_align_offset = blk_align - align_offset;
-    } else {
-        blk_align_offset = 0u;
-    }
-
-    ppool_addr_first = (CPU_INT08U *)((CPU_INT08U *)ppool_addr_start + mem_align_offset);
-    mem_diff         = (CPU_SIZE_T  )((CPU_INT08U *)pmem_blk         - ppool_addr_first);
-    mem_align        = (CPU_SIZE_T  )(              blk_size         + blk_align_offset);
-
-    addr_valid       = ((mem_diff % mem_align) == 0u) ? DEF_YES : DEF_NO;
-
-    return (addr_valid);
 }
 #endif
-
-
-/*$PAGE*/
-/*
-*********************************************************************************************************
-*                                        Mem_SegCalcTotSize()
-*
-* Description : (1) Calculates total memory segment size for number of blocks with specific size & alignment :
-*
-*
-*                       -----                     ======================  ---
-*                         ^       Mem Addr  --->  |  /  /  /  /  /  /  |   ^
-*                         |    (see Note #1a)     | /  /  /  /  /  /  /|   |    Mem Align Offset
-*                         |                       |/  /  /  /  /  /  / |   |  (see Notes #1e & #2a)
-*                         |                       |  /  /  /  /  /  /  |   v
-*                         |                       ======================  ---
-*                         |                       |                    |   ^
-*                         |                       |                    |   |
-*                         |                       |     Mem Blk #1     |   |        Blk Size
-*                         |                       |                    |   |     (see Note #1c)
-*                         |                       |                    |   v
-*                         |                       ----------------------  ---
-*                         |                       |  /  /  /  /  /  /  |   ^
-*                         |                       | /  /  /  /  /  /  /|   |    Blk Align Offset
-*                         |                       |/  /  /  /  /  /  / |   |  (see Notes #1f & #2b)
-*                         |                       |  /  /  /  /  /  /  |   v
-*                         |                       ======================  ---
-*                                                 |         .          |
-*                     Total Size                  |         .          |
-*                   (see Note #2c)                |         .          |
-*                                                 ======================  ---
-*                         |                       |                    |   ^
-*                         |                       |                    |   |
-*                         |                       |   Mem Blk #N - 1   |   |        Blk Size
-*                         |                       |                    |   |     (see Note #1c)
-*                         |                       |                    |   v
-*                         |                       ----------------------  ---
-*                         |                       |  /  /  /  /  /  /  |   ^
-*                         |                       | /  /  /  /  /  /  /|   |    Blk Align Offset
-*                         |                       |/  /  /  /  /  /  / |   |  (see Notes #1f & #2b)
-*                         |                       |  /  /  /  /  /  /  |   v
-*                         |                       ======================  ---
-*                         |                       |                    |   ^
-*                         |                       |                    |   |
-*                         |                       |     Mem Blk #N     |   |        Blk Size
-*                         |                       |                    |   |     (see Note #1c)
-*                         v                       |                    |   v
-*                       -----                     ======================  ---
-*
-*               where
-*
-*                   (a) Mem Addr            Memory address of the beginning of the memory block ('pmem_addr')
-*
-*                   (b) N                   Number of memory blocks to allocate ('blk_nbr')
-*
-*                   (c) Blk Size            Size   of memory block  to allocate ('blk_size')
-*
-*                   (d) Align               Required block memory alignment     ('blk_align')
-*
-*                   (e) Mem Align Offset    Offset required to align first memory block
-*
-*                   (f) Blk Align Offset    Offset required to align every memory block
-*
-*
-*               (2) The total size is calculated based on the following equations :
-*
-*                                            { (1) Align - (Mem Addr % Align) , if memory address is not aligned
-*                   (a) Mem Align Offset  =  {
-*                                            { (2) 0                          , if memory address is     aligned
-*
-*
-*                                            { (1) Align - (Size     % Align) , if memory block   is not aligned
-*                   (b) Blk Align Offset  =  {
-*                                            { (2) 0                          , if memory block   is     aligned
-*
-*
-*                   (c) Total Size        =   Mem Align Offset
-*                                         + ((Blk Size + Blk Align Offset) * (N - 1))
-*                                         +   Blk Size
-*
-*
-* Argument(s) : pmem_addr   Memory address of the beginning of the memory block.
-*
-*               blk_nbr     Number of memory blocks to allocate.
-*               -------     Argument checked in Mem_HeapAlloc(),
-*                                               Mem_PoolCreate().
-*
-*               blk_size    Size   of memory block  to allocate.
-*               --------    Argument checked in Mem_HeapAlloc(),
-*                                               Mem_PoolCreate().
-*
-*               blk_align   Required block word-boundary memory alignment (in octets).
-*               ---------   Argument checked in Mem_HeapAlloc(),
-*                                               Mem_PoolCreate().
-*
-* Return(s)   : Total size of memory segment used to allocate the number of blocks, if NO error(s).
-*
-*               0,                                                                  otherwise.
-*$PAGE*
-* Caller(s)   : Mem_HeapAlloc(),
-*               Mem_PoolCreate().
-*
-* Note(s)     : none.
-*********************************************************************************************************
-*/
-
-#if (LIB_MEM_CFG_ALLOC_EN == DEF_ENABLED)
-static  CPU_SIZE_T  Mem_SegCalcTotSize (void              *pmem_addr,
-                                        MEM_POOL_BLK_QTY   blk_nbr,
-                                        CPU_SIZE_T         blk_size,
-                                        CPU_SIZE_T         blk_align)
-{
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-    CPU_SIZE_T  blk_size_mem_aligned;
-    CPU_SIZE_T  blk_size_aligned;
-    CPU_SIZE_T  blk_size_aligned_nbr;
-    CPU_SIZE_T  blk_size_tot;
-#endif
-    CPU_SIZE_T  align_offset;
-    CPU_SIZE_T  mem_align_offset;
-    CPU_SIZE_T  blk_align_offset;
-    CPU_SIZE_T  size_tot;
-
-                                                                    /* Calc mem align (see Note #2a).                   */
-    align_offset = (CPU_ADDR)pmem_addr % blk_align;
-    if (align_offset != 0u) {
-        mem_align_offset = blk_align - align_offset;
-    } else {
-        mem_align_offset = 0u;
-    }
-                                                                    /* Calc blk align (see Note #2b).                   */
-    align_offset = blk_size % blk_align;
-    if (align_offset != 0u) {
-        blk_align_offset = blk_align - align_offset;
-    } else {
-        blk_align_offset = 0u;
-    }
-                                                                    /* Calc tot size  (see Note #2c).                   */
-    size_tot = mem_align_offset + ((blk_size + blk_align_offset) * ((CPU_SIZE_T)blk_nbr - 1)) + blk_size;
-
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)                     /* Chk ovf of tot size = A + [(B + C) * D] + E      */
-    blk_size_mem_aligned = mem_align_offset + blk_size;             /* Chk ovf of A + E :                               */
-    if ((blk_size_mem_aligned < mem_align_offset) ||
-        (blk_size_mem_aligned < blk_size)) {
-        return (0u);
-    }
-
-    if (blk_nbr > 1) {
-        blk_size_aligned = blk_size + blk_align_offset;
-        if ((blk_size_aligned < blk_align_offset) ||                /* Chk ovf of      (B + C) :                        */
-            (blk_size_aligned < blk_size)) {
-            return (0u);
-        }
-
-        blk_size_aligned_nbr = blk_size_aligned * ((CPU_SIZE_T)blk_nbr - 1);
-        if ((blk_size_aligned_nbr < blk_size_aligned) ||            /* Chk ovf of     [(B + C) * D] :                   */
-            (blk_size_aligned_nbr < blk_align_offset) ||
-            (blk_size_aligned_nbr < blk_size)) {
-            return (0u);
-        }
-
-        blk_size_tot = blk_size_aligned_nbr + blk_size;
-        if ((blk_size_tot < blk_size_aligned_nbr) ||                /* Chk ovf of     [(B + C) * D] + E :               */
-            (blk_size_tot < blk_size)) {
-            return (0u);
-        }
-
-        if ((size_tot < blk_size_mem_aligned) ||                    /* Chk ovf of A + [(B + C) * D] + E :               */
-            (size_tot < blk_size_aligned_nbr) ||
-            (size_tot < blk_size_tot)) {
-            return (0u);
-        }
-    }
-#endif
-
-    return (size_tot);
-}
-#endif
-
-
-/*$PAGE*/
-/*
-*********************************************************************************************************
-*                                           Mem_SegAlloc()
-*
-* Description : Allocates memory from specific segment.
-*
-* Argument(s) : pmem_pool   Pointer to memory pool structure containing segment information.
-*               ---------   Argument validated in Mem_HeapAlloc(),
-*                                                 Mem_PoolCreate().
-*
-*               size        Size of memory to allocate.
-*               ----        Argument validated in Mem_HeapAlloc(),
-*                                                 Mem_PoolCreate().
-*
-*               align       Required starting word-boundary memory alignment (in octets).
-*               -----       Argument validated in Mem_HeapAlloc(),
-*                                                 Mem_PoolCreate().
-*
-* Return(s)   : Pointer to allocated memory, if NO error(s).
-*
-*               Pointer to NULL,             otherwise.
-*
-* Caller(s)   : Mem_HeapAlloc(),
-*               Mem_PoolCreate().
-*
-* Note(s)     : (1) Allocated memory from the specific segment is NEVER freed after allocation.
-*
-*               (2) 'pmem_pool' variables MUST ALWAYS be accessed exclusively in critical sections.
-*
-*                   (a) However, this function is already called within critical sections.
-*********************************************************************************************************
-*/
-
-#if (LIB_MEM_CFG_ALLOC_EN == DEF_ENABLED)
-static  void  *Mem_SegAlloc (MEM_POOL    *pmem_pool,
-                             CPU_SIZE_T   size,
-                             CPU_SIZE_T   align)
-{
-    CPU_INT08U  *pmem_addr;
-    CPU_INT08U  *pmem_addr_next;
-    CPU_SIZE_T   mem_align;
-    CPU_SIZE_T   align_offset;
-    CPU_SIZE_T   size_tot;
-
-
-    pmem_addr = (CPU_INT08U *)pmem_pool->SegAddrNextAvail;
-
-    mem_align = (CPU_SIZE_T)((CPU_ADDR)pmem_addr % align);          /* Calc mem align.                                  */
-
-    if (mem_align != 0u) {
-        align_offset = align - mem_align;
-    } else {
-        align_offset = 0u;
-    }
-
-    size_tot = align_offset + size;
-    if (size_tot > pmem_pool->SegSizeRem) {                         /* If insufficient mem seg size rem, ...            */
-        return ((void *)0);                                         /* ... rtn NULL.                                    */
-    }
-
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-    if ((size_tot < align_offset) ||                                /* If size ovf, ...                                 */
-        (size_tot < size)) {
-        return ((void *)0);                                         /* ... rtn NULL.                                    */
-    }
-#endif
-
-    pmem_addr_next = pmem_addr + size_tot;
-
-#if (LIB_MEM_CFG_ARG_CHK_EXT_EN == DEF_ENABLED)
-    if (pmem_addr_next < pmem_addr) {                               /* If addr ovf, ...                                 */
-        return ((void *)0);                                         /* ... rtn NULL.                                    */
-    }
-#endif
-
-    pmem_addr += align_offset;                                      /* Align mem addr.                                  */
-
-    pmem_pool->SegAddrNextAvail  = (void     *)pmem_addr_next;      /* Adv next avail addr.                             */
-    pmem_pool->SegSizeRem       -= (CPU_SIZE_T)size_tot;            /* Adj rem mem seg size.                            */
-
-    return ((void *)pmem_addr);
-}
-#endif
-

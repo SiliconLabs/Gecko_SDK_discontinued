@@ -22,6 +22,8 @@
 /* EM types */
 #include "em_types.h"
 
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
+
 #define MODE_RLE     (0)
 #define MODE_8BIT    (1)
 
@@ -37,15 +39,16 @@ static uint32_t paletteRead  = 0;
 static uint32_t bytesInImage = 0;
 static uint32_t dataIdx      = 0;
 
+/** RLE Info structure. */
 typedef struct __BMP_RleInfo
 {
-  /* Rle Mode (Can be either MODE_RLE or MODE_8BIT ) */
+  /** Rle Mode (Can be either MODE_RLE or MODE_8BIT ) */
   uint32_t mode;
-  /* Holds whether padding occurs at the end of the unencoded run */
+  /** Holds whether padding occurs at the end of the unencoded run */
   uint32_t isPadding;
-  /* Holds how many pixels remaining */
+  /** Holds how many pixels remaining */
   uint8_t  pixelsRemaining;
-  /* If rleMode == MODE_RLE then this is used if pixelsRemaining > 0 */
+  /** If rleMode == MODE_RLE then this is used if pixelsRemaining > 0 */
   uint8_t  pixelIdx;
 } RleInfo;
 
@@ -53,6 +56,8 @@ RleInfo rleInfo;
 
 /* Local function pointer */
 EMSTATUS (*fpReadData)(uint8_t buffer[], uint32_t bufLength, uint32_t bytesToRead);
+
+/** @endcond */
 
 /* Local function declarations */
 static EMSTATUS BMP_readRawData8bit(BMP_DataType *dataType, uint8_t buffer[], uint32_t bufLength);

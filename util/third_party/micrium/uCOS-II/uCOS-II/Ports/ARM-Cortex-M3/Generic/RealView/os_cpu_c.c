@@ -4,13 +4,13 @@
 *                                         The Real-Time Kernel
 *
 *
-*                                (c) Copyright 2006, Micrium, Weston, FL
+*                             (c) Copyright 2006-2016, Micrium, Weston, FL
 *                                          All Rights Reserved
 *
 *                                           ARM Cortex-M3 Port
 *
 * File      : OS_CPU_C.C
-* Version   : V2.89
+* Version   : V2.92.12.00
 * By        : Jean J. Labrosse
 *             Brian Nagel
 *
@@ -72,7 +72,7 @@ void  OSInitHookBegin (void)
     INT32U   size;
     OS_STK  *pstk;
 
-                                                           /* Clear exception stack for stack checking.*/
+                                                                /* Clear exception stack for stack checking.            */
     pstk = &OS_CPU_ExceptStk[0];
     size = OS_CPU_EXCEPT_STK_SIZE;
     while (size > 0u) {
@@ -80,7 +80,9 @@ void  OSInitHookBegin (void)
        *pstk++ = (OS_STK)0;
     }
 
-    OS_CPU_ExceptStkBase = &OS_CPU_ExceptStk[OS_CPU_EXCEPT_STK_SIZE - 1u];
+                                                                /* Align the ISR stack to 8-bytes                       */
+    OS_CPU_ExceptStkBase = (OS_STK *)&OS_CPU_ExceptStk[OS_CPU_EXCEPT_STK_SIZE];
+    OS_CPU_ExceptStkBase = (OS_STK *)((OS_STK)(OS_CPU_ExceptStkBase) & 0xFFFFFFF8);
 
 #if OS_TMR_EN > 0u
     OSTmrCtr = 0u;
@@ -252,7 +254,8 @@ OS_STK *OSTaskStkInit (void (*task)(void *p_arg), void *p_arg, OS_STK *ptos, INT
 
     (void)opt;                                   /* 'opt' is not used, prevent warning                 */
     stk       = ptos;                            /* Load stack pointer                                 */
-
+                                                 /* Align the stack to 8-bytes.                        */
+    stk       = (OS_STK *)((OS_STK)(stk) & 0xFFFFFFF8u);
                                                  /* Registers stacked as if auto-saved on exception    */
     *(stk)    = (INT32U)0x01000000uL;            /* xPSR                                               */
     *(--stk)  = (INT32U)task;                    /* Entry Point                                        */

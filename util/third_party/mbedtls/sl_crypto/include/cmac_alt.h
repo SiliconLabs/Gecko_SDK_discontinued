@@ -60,18 +60,6 @@
 extern "C" {
 #endif
 
-#if defined( MBEDTLS_INCLUDE_ASYNCH_API )
-/**
- * \brief          CMAC asynchronous context structure
- */
-typedef struct
-{
-    AESDRV_CMAC_AsynchContext_t aesdrv_asynch_ctx; /*!< AESDRV CMAC asynchronous
-                                                     context */
-}
-mbedtls_cmac_asynch_context;
-#endif /* #if defined( MBEDTLS_INCLUDE_ASYNCH_API ) */
-
 /**
  * \brief          CMAC context structure
  */
@@ -102,7 +90,7 @@ void mbedtls_cmac_init( mbedtls_cmac_context *ctx );
  *   new AES/CRYPTO device instance.
  *
  * \param[in] ctx
- *   CMAC device context.
+ *   CMAC context.
  *  
  * \param[in] devno
  *   AES/CRYPTO hardware device instance to use.
@@ -113,38 +101,25 @@ void mbedtls_cmac_init( mbedtls_cmac_context *ctx );
 int mbedtls_cmac_set_device_instance(mbedtls_cmac_context* ctx,
                                      unsigned int          devno);
 
-#if defined( MBEDTLS_INCLUDE_ASYNCH_API )
 /**
- * \brief          Set an CMAC context in asynchronous mode.
+ * \brief
+ *   Set the number of ticks to wait for the decice lock.
  *
- * \details        
- *   This function enables or disables asynchronous (non-blocking) mode of an
- *   CMAC context. In order to enable, the user must set the
- *   @p asynch_ctx parameter to point to an asynchronous cmac context structure
- *   @ref mbedtls_cmac_asynch_context. Subsequent calls to the CMAC API
- *   functions with the specified context will behave asynchronously, i.e.
- *   initiate the hardware to execute the operation and return as soon as
- *   possible. The user may specify a callback function by setting the
- *   @p asynch_callback parameter which will called when the operation has
- *   completed.
- *   In order to disable, the user must set the @p asynch_ctx parameter
- *   to NULL. All subsequent calls to CMAC API functions with the specified
- *   context will block until the corresponding operation has completed, and
- *   then return.
+ * \details
+ *   This function sets the number of ticks that the subsequenct API calls
+ *   will wait for the device to become available.
  *
- * \param ctx              CMAC context
- * \param asynch_ctx       CMAC asynchronous context structure
- * \param asynch_callback  Asynchronous callback
- * \param user_arg         User specific argument which will be
- *                         sent to callback.
- *
- * \return         0 if successful, or error code
- */
-int mbedtls_cmac_set_asynch( mbedtls_cmac_context *ctx,
-                             mbedtls_cmac_asynch_context *asynch_ctx,
-                             mbedtls_asynch_callback asynch_callback,
-                             void* user_arg );
-#endif /* #if defined( MBEDTLS_INCLUDE_ASYNCH_API ) */
+ * \param[in] ctx
+ *   CMAC context.
+ *  
+ * \param[in] ticks
+ *   Ticks to wait for device.
+ *  
+ * \return
+ *   0 if success. Error code if failure, see \ref aes.h.
+ ******************************************************************************/
+int mbedtls_cmac_set_device_lock_wait_ticks(mbedtls_cmac_context *ctx,
+                                            int                   ticks);
 
 /**
  * \brief           CMAC initialization (encryption and decryption)
@@ -173,7 +148,9 @@ void mbedtls_cmac_free( mbedtls_cmac_context *ctx );
  *
  * \param ctx       CMAC context
  * \param data      buffer holding the input data
- * \param data_len  length of the input data in bits
+ * \param data_len  length of the input data in bits.
+ *                  Currently the bit length is restricted to be a multiple
+ *                  of 8 bits (i.e. corresponding to an integer of bytes).
  * \param tag       buffer for holding the tag
  * \param tag_len   length of the tag to generate in bits
  *                  must be less than 128 bits
@@ -197,6 +174,8 @@ int mbedtls_cmac_generate_tag( mbedtls_cmac_context *ctx,
  * \param ctx       CMAC context
  * \param data      buffer holding the input data
  * \param data_len  length of the input data in bits
+ *                  Currently the bit length is restricted to be a multiple
+ *                  of 8 bits (i.e. corresponding to an integer of bytes).
  * \param tag       buffer holding the tag
  * \param tag_len   length of the tag in bits
  *                  must be less than 128 bits
@@ -216,7 +195,7 @@ int mbedtls_cmac_verify_tag( mbedtls_cmac_context *ctx,
  *
  * \return         0 if successful, or 1 if the test failed
  */
-int mbedtls_cmac_self_test( int verbose );
+  int mbedtls_cmac_self_test( int verbose, int device_instance );
 #endif /* MBEDTLS_SELF_TEST && MBEDTLS_CMAC_C */
 
 #ifdef __cplusplus

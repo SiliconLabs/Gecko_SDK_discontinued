@@ -3,7 +3,7 @@
 *                                                uC/CPU
 *                                    CPU CONFIGURATION & PORT LAYER
 *
-*                          (c) Copyright 2004-2013; Micrium, Inc.; Weston, FL
+*                          (c) Copyright 2004-2016; Micrium, Inc.; Weston, FL
 *
 *               All rights reserved.  Protected by international copyright laws.
 *
@@ -15,6 +15,8 @@
 *               Please help us continue to provide the Embedded community with the finest 
 *               software available.  Your honesty is greatly appreciated.
 *
+*               You can find our product's user manual, API reference, release notes and
+*               more information at https://doc.micrium.com.
 *               You can contact us at www.micrium.com.
 *********************************************************************************************************
 */
@@ -30,7 +32,7 @@
 *                                      $$$$ Insert Compiler Name
 *
 * Filename      : cpu.h
-* Version       : V1.29.02.00          $$$$ Insert CPU header port file version number
+* Version       : V1.31.00          $$$$ Insert CPU header port file version number
 * Programmer(s) : ITJ                  $$$$ Insert CPU header port file programmer(s) initials
 *********************************************************************************************************
 * Note(s)       : (1) To provide the required CPU port functionality, insert the appropriate CPU- &/or
@@ -91,6 +93,9 @@
 #include  <cpu_def.h>
 #include  <cpu_cfg.h>                                           /* See Note #3.                                         */
 
+#ifdef __cplusplus
+extern  "C" {
+#endif
 
 /*
 *********************************************************************************************************
@@ -182,7 +187,9 @@ typedef            void      (*CPU_FNCT_PTR )(void *p_obj);     /* See Note #2b.
 */
                                                                 /* $$$$ Configure CPU data types :                      */
                                                                 /* CPU address type based on address bus size.          */
-#if     (CPU_CFG_ADDR_SIZE == CPU_WORD_SIZE_32)
+#if     (CPU_CFG_ADDR_SIZE == CPU_WORD_SIZE_64)
+typedef  CPU_INT64U  CPU_ADDR;
+#elif   (CPU_CFG_ADDR_SIZE == CPU_WORD_SIZE_32)
 typedef  CPU_INT32U  CPU_ADDR;
 #elif   (CPU_CFG_ADDR_SIZE == CPU_WORD_SIZE_16)
 typedef  CPU_INT16U  CPU_ADDR;
@@ -191,7 +198,9 @@ typedef  CPU_INT08U  CPU_ADDR;
 #endif
 
                                                                 /* CPU data    type based on data    bus size.          */
-#if     (CPU_CFG_DATA_SIZE == CPU_WORD_SIZE_32)
+#if     (CPU_CFG_DATA_SIZE == CPU_WORD_SIZE_64)
+typedef  CPU_INT64U  CPU_DATA;
+#elif   (CPU_CFG_DATA_SIZE == CPU_WORD_SIZE_32)
 typedef  CPU_INT32U  CPU_DATA;
 #elif   (CPU_CFG_DATA_SIZE == CPU_WORD_SIZE_16)
 typedef  CPU_INT16U  CPU_DATA;
@@ -348,6 +357,24 @@ typedef  CPU_INT32U                 CPU_SR;                     /* Defines   CPU
 #define  CPU_CRITICAL_EXIT()   do { CPU_INT_EN();  } while (0)          /* Re-enable interrupts.                        */
 
 #endif
+
+
+/*
+*********************************************************************************************************
+*                                    MEMORY BARRIERS CONFIGURATION
+*
+* Note(s) : (1) (a) Configure memory barriers if required by the architecture.
+*
+*                   CPU_MB      Full memory barrier.
+*                   CPU_RMB     Read (Loads) memory barrier.
+*                   CPU_WMB     Write (Stores) memory barrier.
+*
+*********************************************************************************************************
+*/
+
+#define  CPU_MB()
+#define  CPU_RMB()
+#define  CPU_WMB()
 
 
 /*
@@ -524,6 +551,10 @@ void    CPU_SR_Restore(CPU_SR  cpu_sr);                         /* Restore CPU s
 * Note(s) : (1) See 'cpu.h  MODULE'.
 *********************************************************************************************************
 */
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif                                                          /* End of CPU module include.                           */
 

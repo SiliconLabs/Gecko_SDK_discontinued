@@ -1,5 +1,5 @@
  /*************************************************************************//**
- * @file dmd_ssd2119.h
+ * @file dmd_ssd2119_registers.h
  * @brief Register definitions for LCD controller SSD2119
  ******************************************************************************
  * @section License
@@ -15,6 +15,8 @@
 
 #ifndef __DMD_SSD2119_REGISTERS_H_
 #define __DMD_SSD2119_REGISTERS_H_
+
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 
 #define DMD_SSD2119_DEVICE_CODE_READ                        0x00
 #define DMD_SSD2119_OSCILLATION_START                       0x00
@@ -180,5 +182,7 @@
 
 #define DMD_SSD2119_SET_X_ADDRESS_COUNTER                   0x4E
 #define DMD_SSD2119_SET_Y_ADDRESS_COUNTER                   0x4F
+
+/** @endcond */
 
 #endif

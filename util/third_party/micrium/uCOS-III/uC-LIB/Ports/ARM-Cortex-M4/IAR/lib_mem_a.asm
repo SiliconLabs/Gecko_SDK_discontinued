@@ -2,16 +2,16 @@
 ;                                                uC/LIB
 ;                                        CUSTOM LIBRARY MODULES
 ;
-;                          (c) Copyright 2004-2011; Micrium, Inc.; Weston, FL
+;                          (c) Copyright 2004-2015; Micrium, Inc.; Weston, FL
 ;
 ;               All rights reserved.  Protected by international copyright laws.
 ;
-;               uC/LIB is provided in source form to registered licensees ONLY.  It is 
-;               illegal to distribute this source code to any third party unless you receive 
-;               written permission by an authorized Micrium representative.  Knowledge of 
+;               uC/LIB is provided in source form to registered licensees ONLY.  It is
+;               illegal to distribute this source code to any third party unless you receive
+;               written permission by an authorized Micrium representative.  Knowledge of
 ;               the source code may NOT be used to develop a similar product.
 ;
-;               Please help us continue to provide the Embedded community with the finest 
+;               Please help us continue to provide the Embedded community with the finest
 ;               software available.  Your honesty is greatly appreciated.
 ;
 ;               You can contact us at www.micrium.com.
@@ -26,7 +26,7 @@
 ;                                           IAR Compiler
 ;
 ; Filename      : lib_mem_a.asm
-; Version       : V1.36.01.00
+; Version       : V1.38.02.00
 ; Programmer(s) : JDH
 ;                 BAN
 ;********************************************************************************************************
@@ -63,7 +63,6 @@
         RSEG CODE:CODE:NOROOT(2)
 
 
-;$PAGE
 ;********************************************************************************************************
 ;                                             Mem_Copy()
 ;
@@ -87,7 +86,7 @@
 ;                   address boundary.
 ;
 ;               (4) ARM Cortex-M3 processors use a subset of the ARM Thumb-2 instruction set which does
-;                   NOT support 16-bit conditional branch instructions but ONLY supports 8-bit conditional 
+;                   NOT support 16-bit conditional branch instructions but ONLY supports 8-bit conditional
 ;                   branch instructions.
 ;
 ;                   Therefore, branches exceeding 8-bit, signed, relative offsets :
@@ -119,7 +118,6 @@ Mem_Copy_3:
         STMFD       SP!, {R3-R12}           ; save registers on stack
 
 
-;$PAGE
 Chk_Align_32:                               ; check if both dest & src 32-bit aligned
         AND         R3, R0, #0x03
         AND         R4, R1, #0x03
@@ -202,7 +200,6 @@ Copy_32_3:
         SUB         R2, R2, #(04*01*01)
         B           Copy_32_3
 
-;$PAGE
 Copy_16_1:
         CMP         R2, #(02*01*16)         ; Copy chunks of 16 16-bit words (32 bytes per loop)
         BCC         Copy_16_2
@@ -249,7 +246,6 @@ Copy_16_2:
         SUB         R2, R2, #(02*01*01)
         B           Copy_16_2
 
-;$PAGE
 Copy_08_1:
         CMP         R2, #(01*01*16)         ; Copy chunks of 16 8-bit words (16 bytes per loop)
         BCC         Copy_08_2

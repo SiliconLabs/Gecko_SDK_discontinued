@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file uartdrv.h
  * @brief UARTDRV API definition.
- * @version 5.0.0
+ * @version 5.1.2
  *******************************************************************************
  * @section License
  * <b>Copyright 2016 Silicon Laboratories, Inc, http://www.silabs.com</b>
@@ -35,7 +35,7 @@ extern "C" {
  ******************************************************************************/
 
 /***************************************************************************//**
- * @addtogroup UARTDRV 
+ * @addtogroup UARTDRV
  * @{
  ******************************************************************************/
 
@@ -116,9 +116,12 @@ struct UARTDRV_HandleData;
  *   The UARTDRV device handle used to start the transfer.
  *
  * @param[in] transferStatus
- *   Number of bytes actually transferred.
+ *   Completion status of the transfer operation.
  *
- * @param[in] itemsTransferred
+ * @param[in] data
+ *   Pointer to transfer data buffer.
+ *
+ * @param[in] transferCount
  *   Number of bytes transferred.
  ******************************************************************************/
 typedef void (*UARTDRV_Callback_t)(struct UARTDRV_HandleData *handle,

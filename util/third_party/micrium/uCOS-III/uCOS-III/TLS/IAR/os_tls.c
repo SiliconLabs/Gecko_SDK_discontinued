@@ -3,7 +3,7 @@
 *                                                      uC/OS-III
 *                                                 The Real-Time Kernel
 *
-*                                  (c) Copyright 2009-2012; Micrium, Inc.; Weston, FL
+*                                  (c) Copyright 2009-2016; Micrium, Inc.; Weston, FL
 *                           All rights reserved.  Protected by international copyright laws.
 *
 *                                        THREAD LOCAL STORAGE (TLS) MANAGEMENT
@@ -11,7 +11,7 @@
 *
 * File    : OS_TLS.C
 * By      : JJL
-* Version : V3.03.00
+* Version : V3.06.00
 *
 * LICENSING TERMS:
 * ---------------
@@ -27,15 +27,17 @@
 *           Please help us continue to provide the embedded community with the finest software available.
 *           Your honesty is greatly appreciated.
 *
-*           You can contact us at www.micrium.com, or by phone at +1 (954) 217-2036.
+*           You can find our product's user manual, API reference, release notes and
+*           more information at https://doc.micrium.com.
+*           You can contact us at www.micrium.com.
 ************************************************************************************************************************
 */
 
 #define  MICRIUM_SOURCE
-#include <os.h>
+#include "../../Source/os.h"
 #include <yvals.h>
 #include <stdint.h>
-
+#include <stdio.h>
 
 #ifdef VSC_INCLUDE_SOURCE_FILE_NAMES
 const  CPU_CHAR  *os_tls__c = "$Id: $";
@@ -50,7 +52,7 @@ const  CPU_CHAR  *os_tls__c = "$Id: $";
 
 
 #if     (_DLIB_FILE_DESCRIPTOR > 0) && (_FILE_OP_LOCKS > 0)
-#define  OS_TLS_LOCK_MAX              ((_MAX_LOCK) + (_FOPEN_MAX))	      /* _MAX_LOCK and _FOPEN_MAX defined by IAR  */
+#define  OS_TLS_LOCK_MAX              ((_MAX_LOCK) + (FOPEN_MAX))	      /* _MAX_LOCK and _FOPEN_MAX defined by IAR  */
 #else
 #define  OS_TLS_LOCK_MAX               (_MAX_LOCK)
 #endif
@@ -93,7 +95,7 @@ static  void   OS_TLS_LockDel     (void    *p_lock);
 static  void   OS_TLS_LockAcquire (void    *p_lock);
 static  void   OS_TLS_LockRelease (void    *p_lock);
 
-/*$PAGE*/
+
 /*
 ************************************************************************************************************************
 *                                          ALLOCATE THE NEXT AVAILABLE TLS ID
@@ -140,7 +142,7 @@ OS_TLS_ID  OS_TLS_GetID (OS_ERR  *p_err)
     return (id);
 }
 
-/*$PAGE*/
+
 /*
 ************************************************************************************************************************
 *                                        GET THE CURRENT VALUE OF A TLS REGISTER
@@ -215,7 +217,7 @@ OS_TLS  OS_TLS_GetValue (OS_TCB     *p_tcb,
     }
 }
 
-/*$PAGE*/
+
 /*
 ************************************************************************************************************************
 *                                          DEFINE TLS DESTRUCTOR FUNCTION
@@ -256,7 +258,7 @@ void  OS_TLS_SetDestruct (OS_TLS_ID            id,
    *p_err = OS_ERR_NONE;
 }
 
-/*$PAGE*/
+
 /*
 ************************************************************************************************************************
 *                                       SET THE CURRENT VALUE OF A TASK TLS REGISTER
@@ -330,7 +332,7 @@ void  OS_TLS_SetValue (OS_TCB     *p_tcb,
     }
 }
 
-/*$PAGE*/
+
 /*
 ************************************************************************************************************************
 ************************************************************************************************************************
@@ -386,7 +388,7 @@ void  OS_TLS_Init (OS_ERR *p_err)
     CPU_CRITICAL_EXIT();    
 }
 
-/*$PAGE*/
+
 /*
 ************************************************************************************************************************
 *                                                  TASK CREATE HOOK
@@ -418,7 +420,7 @@ void  OS_TLS_TaskCreate (OS_TCB  *p_tcb)
     }
 }
 
-/*$PAGE*/
+
 /*
 ************************************************************************************************************************
 *                                                  TASK DELETE HOOK
@@ -446,7 +448,7 @@ void  OS_TLS_TaskDel (OS_TCB  *p_tcb)
     }
 }
 
-/*$PAGE*/
+
 /*
 ************************************************************************************************************************
 *                                                  TASK SWITCH HOOK
@@ -470,7 +472,7 @@ void  OS_TLS_TaskSw (void)
     }
 }
 
-/*$PAGE*/
+
 /*
 ************************************************************************************************************************
 ************************************************************************************************************************
@@ -650,7 +652,6 @@ static  void  OS_TLS_LockRelease (void  *p_lock)
                 (OS_ERR   *)&err);
 }
 
-/*$PAGE*/
 _STD_BEGIN
 /*
 ************************************************************************************************************************
@@ -731,7 +732,7 @@ void __iar_system_Mtxunlock(__iar_Rmtx  *p_lock)
     OS_TLS_LockRelease((void *)*p_lock);
 }
 
-/*$PAGE*/
+
 /*
 ************************************************************************************************************************
 *                                               FILE LOCK INITIALIZATION
@@ -842,5 +843,3 @@ void  _DLIB_TLS_MEMORY  *__iar_dlib_perthread_access (void  _DLIB_TLS_MEMORY  *s
 
 _STD_END
 #endif
-
-

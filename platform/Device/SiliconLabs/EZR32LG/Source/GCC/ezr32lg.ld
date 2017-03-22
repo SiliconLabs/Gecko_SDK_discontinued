@@ -4,9 +4,9 @@
 /* CMSIS END USER LICENSE AGREEMENT.pdf, governing the use of          */
 /* Example Code.                                                       */
 /*                                                                     */
-/* Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com     */
+/* Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com     */
 /*                                                                     */
-/* Version 5.0.0 */
+/* Version 5.1.2 */
 /*                                                                     */
 
 MEMORY

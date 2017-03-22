@@ -62,14 +62,14 @@ typedef const uint8_t AESDRV_BlockCipherInstrSeq_t[8];
 /*******************************************************************************
  **************************   LOCAL FUNCTIONS   ********************************
  ******************************************************************************/
-static inline Ecode_t aesdrvProcessLoopMCU
+static inline int aesdrvProcessLoopMCU
 (
  AESDRV_Context_t* pAesdrvContext,
  uint32_t          len,
  const uint8_t*    in,
  uint8_t*          out
  );
-static inline Ecode_t aesdrvProcessLoopHW
+static inline int aesdrvProcessLoopHW
 (
  AESDRV_Context_t*  pAesdrvContext
  );
@@ -88,13 +88,7 @@ static void aesdrvBlockCipherHwSetup
  uint32_t          len,
  uint32_t *        inout
  );
-#if defined(MBEDTLS_INCLUDE_ASYNCH_API)
-static void aesdrvAsynchCallback
-(
- void* asynchCallbackArgument
- );
-#endif /* #if defined(MBEDTLS_INCLUDE_ASYNCH_API) */
-static Ecode_t aesdrvBlockCipher
+static int aesdrvBlockCipher
 (
  AESDRV_Context_t*             pAesdrvContext,
  uint8_t*                      out,
@@ -105,7 +99,7 @@ static Ecode_t aesdrvBlockCipher
  CRYPTO_KeyWidth_TypeDef       keyWidth,
  AESDRV_BlockCipherInstrSeq_t* instrCode
  );
-static Ecode_t aesdrvDecryptKey
+static int aesdrvDecryptKey
 (
  AESDRV_Context_t*             pAesdrvContext,
  uint8_t*                      out,
@@ -118,7 +112,7 @@ static Ecode_t aesdrvDecryptKey
  ******************************************************************************/
 
 /** CRYPTO sequencer instruction for CBC encryption.
- * There are 3 variants: MCU,BUFC,DMA. */
+ * There are 2 variants: MCU and DMA. */
 static AESDRV_BlockCipherInstrSeq_t aesdrv_CBC_Encrypt[] = {
   /* MCU */
   {
@@ -128,14 +122,6 @@ static AESDRV_BlockCipherInstrSeq_t aesdrv_CBC_Encrypt[] = {
     CRYPTO_CMD_INSTR_DATA0TODATA2
   },
 
-  /* BUFC */
-  {
-    CRYPTO_CMD_INSTR_BUFTODATA0,
-    CRYPTO_CMD_INSTR_DATA1TODATA0XOR,
-    CRYPTO_CMD_INSTR_AESENC,
-    CRYPTO_CMD_INSTR_DATA0TOBUF,
-    CRYPTO_CMD_INSTR_DATA0TODATA1
-  },
 #if defined( MBEDTLS_INCLUDE_IO_MODE_DMA )
   /* DMA */
   {
@@ -149,7 +135,7 @@ static AESDRV_BlockCipherInstrSeq_t aesdrv_CBC_Encrypt[] = {
 };
 
 /** CRYPTO sequencer instruction for CBC decryption.
- * There are 3 variants: MCU,BUFC,DMA. */
+ * There are 2 variants: MCU and DMA. */
 static AESDRV_BlockCipherInstrSeq_t aesdrv_CBC_Decrypt[] =
 {
   /*MCU*/
@@ -159,16 +145,6 @@ static AESDRV_BlockCipherInstrSeq_t aesdrv_CBC_Decrypt[] =
     CRYPTO_CMD_INSTR_DATA1TODATA0XOR,
     CRYPTO_CMD_INSTR_DATA3TODATA1,
     CRYPTO_CMD_INSTR_DATA0TODATA2
-  },
-  /*BUFC*/
-  {
-    CRYPTO_CMD_INSTR_BUFTODATA0,
-    CRYPTO_CMD_INSTR_DATA0TODATA2,
-    CRYPTO_CMD_INSTR_AESDEC,
-    CRYPTO_CMD_INSTR_DATA1TODATA0XOR,
-    CRYPTO_CMD_INSTR_DATA0TOBUF,
-    CRYPTO_CMD_INSTR_DATA2TODATA0,
-    CRYPTO_CMD_INSTR_DATA0TODATA1
   },
 #if defined( MBEDTLS_INCLUDE_IO_MODE_DMA )
   /*DMA*/
@@ -185,7 +161,7 @@ static AESDRV_BlockCipherInstrSeq_t aesdrv_CBC_Decrypt[] =
 };
 
 /** CRYPTO sequencer instruction for CFB encryption.
- * There are 3 variants: MCU,BUFC,DMA. */
+ * There are 2 variants: MCU and DMA. */
 static AESDRV_BlockCipherInstrSeq_t aesdrv_CFB_Encrypt[] =
 {
   /* MCU */
@@ -195,16 +171,6 @@ static AESDRV_BlockCipherInstrSeq_t aesdrv_CFB_Encrypt[] =
     CRYPTO_CMD_INSTR_AESENC,
     CRYPTO_CMD_INSTR_DATA3TODATA0XOR,
     CRYPTO_CMD_INSTR_DATA0TODATA2,
-    CRYPTO_CMD_INSTR_DATA0TODATA1
-  },
-  /* BUFC */
-  {
-    CRYPTO_CMD_INSTR_BUFTODATA0,
-    CRYPTO_CMD_INSTR_DATA0TODATA3,
-    CRYPTO_CMD_INSTR_DATA1TODATA0,
-    CRYPTO_CMD_INSTR_AESENC,
-    CRYPTO_CMD_INSTR_DATA3TODATA0XOR,
-    CRYPTO_CMD_INSTR_DATA0TOBUF,
     CRYPTO_CMD_INSTR_DATA0TODATA1
   },
 #if defined( MBEDTLS_INCLUDE_IO_MODE_DMA )
@@ -222,7 +188,7 @@ static AESDRV_BlockCipherInstrSeq_t aesdrv_CFB_Encrypt[] =
 };
 
 /** CRYPTO sequencer instruction for CFB decryption.
- * There are 3 variants: MCU,BUFC,DMA. */
+ * There are 2 variants: MCU and DMA. */
 static AESDRV_BlockCipherInstrSeq_t aesdrv_CFB_Decrypt[] =
 {
   /* MCU */
@@ -232,16 +198,6 @@ static AESDRV_BlockCipherInstrSeq_t aesdrv_CFB_Decrypt[] =
     CRYPTO_CMD_INSTR_AESENC,
     CRYPTO_CMD_INSTR_DATA3TODATA0XOR,
     CRYPTO_CMD_INSTR_DATA0TODATA2,
-    CRYPTO_CMD_INSTR_DATA3TODATA1
-  },
-  /* BUFC */
-  {
-    CRYPTO_CMD_INSTR_BUFTODATA0,
-    CRYPTO_CMD_INSTR_DATA0TODATA3,
-    CRYPTO_CMD_INSTR_DATA1TODATA0,
-    CRYPTO_CMD_INSTR_AESENC,
-    CRYPTO_CMD_INSTR_DATA3TODATA0XOR,
-    CRYPTO_CMD_INSTR_DATA0TOBUF,
     CRYPTO_CMD_INSTR_DATA3TODATA1
   },
 #if defined( MBEDTLS_INCLUDE_IO_MODE_DMA )
@@ -259,7 +215,7 @@ static AESDRV_BlockCipherInstrSeq_t aesdrv_CFB_Decrypt[] =
 };
 
 /** CRYPTO sequencer instruction for CTR.
- * There are 3 variants: MCU,BUFC,DMA. */
+ * There are 2 variants: MCU and DMA. */
 static AESDRV_BlockCipherInstrSeq_t aesdrv_CTR[] =
 {
   /*MCU*/
@@ -270,17 +226,6 @@ static AESDRV_BlockCipherInstrSeq_t aesdrv_CTR[] =
     CRYPTO_CMD_INSTR_DATA1INC,
     CRYPTO_CMD_INSTR_DATA3TODATA0XOR,
     CRYPTO_CMD_INSTR_DATA0TODATA2
-  },
-  /*BUFC*/
-  {
-    CRYPTO_CMD_INSTR_BUFTODATA0,
-    CRYPTO_CMD_INSTR_DATA0TODATA3,
-    CRYPTO_CMD_INSTR_DATA1TODATA0,
-    CRYPTO_CMD_INSTR_AESENC,
-    CRYPTO_CMD_INSTR_DATA1INC,
-    CRYPTO_CMD_INSTR_DATA3TODATA0XOR,
-    CRYPTO_CMD_INSTR_DATA0TOBUF,
-    CRYPTO_CMD_INSTR_END
   },
 #if defined( MBEDTLS_INCLUDE_IO_MODE_DMA )
   /*DMA*/
@@ -298,7 +243,7 @@ static AESDRV_BlockCipherInstrSeq_t aesdrv_CTR[] =
 };
 
 /** CRYPTO sequencer instruction for ECB encryption.
- * There are 3 variants: MCU,BUFC,DMA. */
+ * There are 2 variants: MCU and DMA. */
 static AESDRV_BlockCipherInstrSeq_t aesdrv_ECB_Encrypt[] =
 {
   /* MCU */
@@ -306,17 +251,6 @@ static AESDRV_BlockCipherInstrSeq_t aesdrv_ECB_Encrypt[] =
     CRYPTO_CMD_INSTR_AESENC,
     CRYPTO_CMD_INSTR_DATA0TODATA2,
     CRYPTO_CMD_INSTR_END,
-    CRYPTO_CMD_INSTR_END,
-    CRYPTO_CMD_INSTR_END,
-    CRYPTO_CMD_INSTR_END,
-    CRYPTO_CMD_INSTR_END,
-    CRYPTO_CMD_INSTR_END
-  },
-  /* BUFC */
-  {
-    CRYPTO_CMD_INSTR_BUFTODATA0,
-    CRYPTO_CMD_INSTR_AESENC,
-    CRYPTO_CMD_INSTR_DATA0TOBUF,
     CRYPTO_CMD_INSTR_END,
     CRYPTO_CMD_INSTR_END,
     CRYPTO_CMD_INSTR_END,
@@ -339,7 +273,7 @@ static AESDRV_BlockCipherInstrSeq_t aesdrv_ECB_Encrypt[] =
 };
 
 /** CRYPTO sequencer instruction for ECB decryption.
- * There are 3 variants: MCU,BUFC,DMA. */
+ * There are 2 variants: MCU and DMA. */
 static AESDRV_BlockCipherInstrSeq_t aesdrv_ECB_Decrypt[] =
 {
   /* MCU */
@@ -347,17 +281,6 @@ static AESDRV_BlockCipherInstrSeq_t aesdrv_ECB_Decrypt[] =
     CRYPTO_CMD_INSTR_AESDEC,
     CRYPTO_CMD_INSTR_DATA0TODATA2,
     CRYPTO_CMD_INSTR_END,
-    CRYPTO_CMD_INSTR_END,
-    CRYPTO_CMD_INSTR_END,
-    CRYPTO_CMD_INSTR_END,
-    CRYPTO_CMD_INSTR_END,
-    CRYPTO_CMD_INSTR_END
-  },
-  /* BUFC */
-  {
-    CRYPTO_CMD_INSTR_BUFTODATA0,
-    CRYPTO_CMD_INSTR_AESDEC,
-    CRYPTO_CMD_INSTR_DATA0TOBUF,
     CRYPTO_CMD_INSTR_END,
     CRYPTO_CMD_INSTR_END,
     CRYPTO_CMD_INSTR_END,
@@ -380,7 +303,7 @@ static AESDRV_BlockCipherInstrSeq_t aesdrv_ECB_Decrypt[] =
 };
 
 /** CRYPTO sequencer instruction for OFB.
- * There are 3 variants: MCU,BUFC,DMA. */
+ * There are 2 variants: MCU and DMA. */
 static AESDRV_BlockCipherInstrSeq_t aesdrv_OFB[] =
 {
   /* MCU */
@@ -392,17 +315,6 @@ static AESDRV_BlockCipherInstrSeq_t aesdrv_OFB[] =
     CRYPTO_CMD_INSTR_DATA3TODATA0XOR,
     CRYPTO_CMD_INSTR_DATA0TODATA2,
     CRYPTO_CMD_INSTR_END,
-    CRYPTO_CMD_INSTR_END
-  },
-  /* BUFC */
-  {
-    CRYPTO_CMD_INSTR_BUFTODATA0,
-    CRYPTO_CMD_INSTR_DATA0TODATA3,
-    CRYPTO_CMD_INSTR_DATA1TODATA0,
-    CRYPTO_CMD_INSTR_AESENC,
-    CRYPTO_CMD_INSTR_DATA0TODATA1,
-    CRYPTO_CMD_INSTR_DATA3TODATA0XOR,
-    CRYPTO_CMD_INSTR_DATA0TOBUF,
     CRYPTO_CMD_INSTR_END
   },
 #if defined( MBEDTLS_INCLUDE_IO_MODE_DMA )
@@ -428,13 +340,13 @@ static AESDRV_BlockCipherInstrSeq_t aesdrv_OFB[] =
  *   Cipher-block chaining (CBC) cipher mode encryption/decryption, 128 bit key.
  *   Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_CBC128(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      uint8_t*          iv,
-                      bool              encrypt)
+int AESDRV_CBC128(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  uint8_t*          iv,
+                  bool              encrypt)
 {
   AESDRV_IoMode_t ioMode = pAesdrvContext->ioMode;
   AESDRV_BlockCipherInstrSeq_t * instr = encrypt ?
@@ -448,13 +360,13 @@ Ecode_t AESDRV_CBC128(AESDRV_Context_t* pAesdrvContext,
  *   Cipher-block chaining (CBC) cipher mode encryption/decryption, 256 bit key.
  *   Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_CBC256(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      uint8_t*          iv,
-                      bool              encrypt)
+int AESDRV_CBC256(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  uint8_t*          iv,
+                  bool              encrypt)
 {
   AESDRV_IoMode_t ioMode = pAesdrvContext->ioMode;
   AESDRV_BlockCipherInstrSeq_t * instr = encrypt ?
@@ -467,13 +379,13 @@ Ecode_t AESDRV_CBC256(AESDRV_Context_t* pAesdrvContext,
  *   Cipher feedback (CFB) cipher mode encryption/decryption, 128 bit key.
  *   Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_CFB128(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      uint8_t*          iv,
-                      bool              encrypt)
+int AESDRV_CFB128(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  uint8_t*          iv,
+                  bool              encrypt)
 {
   AESDRV_IoMode_t ioMode = pAesdrvContext->ioMode;
   AESDRV_BlockCipherInstrSeq_t * instr = encrypt ?
@@ -486,13 +398,13 @@ Ecode_t AESDRV_CFB128(AESDRV_Context_t* pAesdrvContext,
  *   Cipher feedback (CFB) cipher mode encryption/decryption, 256 bit key.
  *   Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_CFB256(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      uint8_t*          iv,
-                      bool              encrypt)
+int AESDRV_CFB256(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  uint8_t*          iv,
+                  bool              encrypt)
 {
   AESDRV_IoMode_t ioMode = pAesdrvContext->ioMode;
   AESDRV_BlockCipherInstrSeq_t * instr = encrypt ?
@@ -505,13 +417,13 @@ Ecode_t AESDRV_CFB256(AESDRV_Context_t* pAesdrvContext,
  *   Counter (CTR) cipher mode encryption/decryption, 128 bit key.
  *   Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_CTR128(AESDRV_Context_t*    pAesdrvContext,
-                      uint8_t*             out,
-                      const uint8_t*       in,
-                      unsigned int         len,
-                      const uint8_t*       key,
-                      uint8_t*             ctr,
-                      AESDRV_CtrCallback_t ctrCallback)
+int AESDRV_CTR128(AESDRV_Context_t*    pAesdrvContext,
+                  uint8_t*             out,
+                  const uint8_t*       in,
+                  unsigned int         len,
+                  const uint8_t*       key,
+                  uint8_t*             ctr,
+                  AESDRV_CtrCallback_t ctrCallback)
 {
   (void)ctrCallback; /* We do not support user specified counter callback
                         for CRYPTO.*/
@@ -525,13 +437,13 @@ Ecode_t AESDRV_CTR128(AESDRV_Context_t*    pAesdrvContext,
  *   Counter (CTR) cipher mode encryption/decryption, 256 bit key.
  *   Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_CTR256(AESDRV_Context_t*    pAesdrvContext,
-                      uint8_t*             out,
-                      const uint8_t*       in,
-                      unsigned int         len,
-                      const uint8_t*       key,
-                      uint8_t*             ctr,
-                      AESDRV_CtrCallback_t ctrCallback)
+int AESDRV_CTR256(AESDRV_Context_t*    pAesdrvContext,
+                  uint8_t*             out,
+                  const uint8_t*       in,
+                  unsigned int         len,
+                  const uint8_t*       key,
+                  uint8_t*             ctr,
+                  AESDRV_CtrCallback_t ctrCallback)
 {
   (void) ctrCallback;  /* The ctrCallback parameter is not supported for
                           devices with CRYPTO.*/
@@ -545,12 +457,12 @@ Ecode_t AESDRV_CTR256(AESDRV_Context_t*    pAesdrvContext,
  *   Electronic Codebook (ECB) cipher mode encryption/decryption, 128 bit key.
  *   Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_ECB128(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      bool              encrypt)
+int AESDRV_ECB128(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  bool              encrypt)
 {
   AESDRV_IoMode_t ioMode = pAesdrvContext->ioMode;
   AESDRV_BlockCipherInstrSeq_t *instr =
@@ -563,12 +475,12 @@ Ecode_t AESDRV_ECB128(AESDRV_Context_t* pAesdrvContext,
  *   Electronic Codebook (ECB) cipher mode encryption/decryption, 256 bit key.
  *   Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_ECB256(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      bool              encrypt)
+int AESDRV_ECB256(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  bool              encrypt)
 {
   AESDRV_IoMode_t ioMode = pAesdrvContext->ioMode;
   AESDRV_BlockCipherInstrSeq_t *instr =
@@ -581,12 +493,12 @@ Ecode_t AESDRV_ECB256(AESDRV_Context_t* pAesdrvContext,
  *   Output feedback (OFB) cipher mode encryption/decryption, 128 bit key.
  *   Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_OFB128(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      uint8_t*          iv)
+int AESDRV_OFB128(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  uint8_t*          iv)
 {
   AESDRV_IoMode_t ioMode = pAesdrvContext->ioMode;
   AESDRV_BlockCipherInstrSeq_t *instr = &aesdrv_OFB[ioMode];
@@ -598,12 +510,12 @@ Ecode_t AESDRV_OFB128(AESDRV_Context_t* pAesdrvContext,
  *   Output feedback (OFB) cipher mode encryption/decryption, 256 bit key.
  *   Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_OFB256(AESDRV_Context_t* pAesdrvContext,
-                      uint8_t*          out,
-                      const uint8_t*    in,
-                      unsigned int      len,
-                      const uint8_t*    key,
-                      uint8_t*          iv)
+int AESDRV_OFB256(AESDRV_Context_t* pAesdrvContext,
+                  uint8_t*          out,
+                  const uint8_t*    in,
+                  unsigned int      len,
+                  const uint8_t*    key,
+                  uint8_t*          iv)
 {
   AESDRV_IoMode_t ioMode = pAesdrvContext->ioMode;
   AESDRV_BlockCipherInstrSeq_t *instr = &aesdrv_OFB[ioMode];
@@ -616,9 +528,9 @@ Ecode_t AESDRV_OFB256(AESDRV_Context_t* pAesdrvContext,
  *   key is used for some cipher modes when decrypting.
  *   Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_DecryptKey128(AESDRV_Context_t* pAesdrvContext,
-                             uint8_t*                out,
-                             const uint8_t*          in)
+int AESDRV_DecryptKey128(AESDRV_Context_t* pAesdrvContext,
+                         uint8_t*                out,
+                         const uint8_t*          in)
 {
   return aesdrvDecryptKey(pAesdrvContext, out, in, cryptoKey128Bits);
 }
@@ -629,9 +541,9 @@ Ecode_t AESDRV_DecryptKey128(AESDRV_Context_t* pAesdrvContext,
  *   key is used for some cipher modes when decrypting.
  *   Please refer to aesdrv.h for detailed description.
  */
-Ecode_t AESDRV_DecryptKey256(AESDRV_Context_t* pAesdrvContext,
-                             uint8_t*                out,
-                             const uint8_t *         in)
+int AESDRV_DecryptKey256(AESDRV_Context_t* pAesdrvContext,
+                         uint8_t*          out,
+                         const uint8_t *   in)
 {
   return aesdrvDecryptKey(pAesdrvContext, out, in, cryptoKey256Bits);
 }
@@ -658,25 +570,25 @@ Ecode_t AESDRV_DecryptKey256(AESDRV_Context_t* pAesdrvContext,
  * @param[in] keyWidth
  *   Key width - 128 or 256 bits.
  ******************************************************************************/
-static Ecode_t aesdrvDecryptKey(AESDRV_Context_t*       pAesdrvContext,
-                                uint8_t*                out,
-                                const uint8_t*          in,
-                                CRYPTO_KeyWidth_TypeDef keyWidth)
+static int aesdrvDecryptKey(AESDRV_Context_t*       pAesdrvContext,
+                            uint8_t*                out,
+                            const uint8_t*          in,
+                            CRYPTO_KeyWidth_TypeDef keyWidth)
 {
   uint32_t*           _out = (uint32_t *) out;
   const uint32_t*     _in  = (const uint32_t *) in;
-  Ecode_t              status, retval;
+  int              status, retval;
   CRYPTODRV_Context_t* pCryptodrvContext = &pAesdrvContext->cryptodrvContext;
   CRYPTO_TypeDef*      crypto = pAesdrvContext->cryptodrvContext.device->crypto;
   EFM_ASSERT(((uint32_t)_in&0x3)==0);
   EFM_ASSERT(((uint32_t)_out&0x3)==0);
 
   status = CRYPTODRV_Arbitrate(pCryptodrvContext);
-  if (ECODE_OK != status)
+  if (0 != status)
     return status;
 
   status = CRYPTODRV_EnterCriticalRegion(pCryptodrvContext);
-  if (ECODE_OK == status)
+  if (0 == status)
   {
 
     CRYPTO_KeyBufWrite(crypto, (uint32_t *)_in, keyWidth);
@@ -689,75 +601,8 @@ static Ecode_t aesdrvDecryptKey(AESDRV_Context_t*       pAesdrvContext,
   }
   retval = CRYPTODRV_Release(pCryptodrvContext);
 
-  return ECODE_OK == retval ? status : retval;
+  return 0 == retval ? status : retval;
 }
-
-#if defined(MBEDTLS_INCLUDE_ASYNCH_API)
-
-/***************************************************************************//**
- * @brief
- *   Callback function for asynchronous operation.
- *
- * @param[in] asynchCallbackArgument
- *   Callback argument.
- ******************************************************************************/
-static void aesdrvAsynchCallback (void* asynchCallbackArgument)
-{
-  AESDRV_Context_t* pAesdrvContext =
-    (AESDRV_Context_t*) asynchCallbackArgument;
-
-  if (pAesdrvContext)
-  {
-    AESDRV_BlockCipherAsynchContext_t* pAsynchContext =
-      (AESDRV_BlockCipherAsynchContext_t*) pAesdrvContext->pAsynchContext;
-    CRYPTO_TypeDef* crypto = pAesdrvContext->cryptodrvContext.device->crypto;
-
-    if (pAsynchContext->remainingBlocks)
-    {
-      /* Save encrypted/decrypted data */
-      CRYPTODRV_DataReadUnaligned(&crypto->DATA2, (uint8_t*)pAsynchContext->pBlockOut);
-    
-      pAsynchContext->pBlockOut += 4;
-      pAsynchContext->pBlockIn  += 4;
-      pAsynchContext->remainingBlocks--;
-    }
-  
-    if (pAsynchContext->remainingBlocks)
-    {
-      /* Load data and trigger encryption */
-      CRYPTODRV_DataWriteUnaligned(&crypto->DATA0, (uint8_t*)pAsynchContext->pBlockIn);
-      CRYPTO_InstructionSequenceExecute(crypto);
-    }
-    else
-    {
-      Ecode_t  status;
-      uint8_t* pInitialVector = pAsynchContext->pInitialVector;
-      CRYPTODRV_Context_t* pCryptodrvContext = &pAesdrvContext->cryptodrvContext;
-
-      /* Turn off interrupts. */
-      CRYPTODRV_SetAsynchCallback(pCryptodrvContext, 0, 0);
-
-      /* Read the last counter value from DATA1 to user the counter pointer. */
-      if (pInitialVector)
-      {
-        CRYPTODRV_DataReadUnaligned(&crypto->DATA1, pInitialVector);
-      }
-
-      CRYPTODRV_ExitCriticalRegion(pCryptodrvContext);
-      
-      status = CRYPTODRV_Release(pCryptodrvContext);
-    
-      /* Finally call the user callback */
-      if (pAsynchContext->asynchCallback)
-      {
-        pAsynchContext->asynchCallback((int)status,
-                                       pAsynchContext->asynchCallbackArgument);
-      }
-    }
-  }
-}
-
-#endif /* #if defined(MBEDTLS_INCLUDE_ASYNCH_API) */
 
 /***************************************************************************//**
  * @brief
@@ -794,7 +639,7 @@ static void aesdrvAsynchCallback (void* asynchCallbackArgument)
  * @param[in] instrCode
  *   CRYPTO sequencer instructions.
  ******************************************************************************/
-static Ecode_t aesdrvBlockCipher
+static int aesdrvBlockCipher
 (
  AESDRV_Context_t*             pAesdrvContext,
  uint8_t*                      out,
@@ -806,36 +651,20 @@ static Ecode_t aesdrvBlockCipher
  AESDRV_BlockCipherInstrSeq_t* instrCode
  )
 {
-  Ecode_t              status, retval;
+  int              status, retval;
   CRYPTODRV_Context_t* pCryptodrvContext = &pAesdrvContext->cryptodrvContext;
-#if defined(MBEDTLS_INCLUDE_ASYNCH_API)
-  AESDRV_BlockCipherAsynchContext_t* pAsynchContext =
-    (AESDRV_BlockCipherAsynchContext_t*) pAesdrvContext->pAsynchContext;
-#endif /* #if defined(MBEDTLS_INCLUDE_ASYNCH_API) */
   CRYPTO_TypeDef*      crypto = pAesdrvContext->cryptodrvContext.device->crypto;
   AESDRV_IoMode_t      ioMode = pAesdrvContext->ioMode;
 
   EFM_ASSERT(!(len % AES_BLOCKSIZE));
 
   status = CRYPTODRV_Arbitrate(pCryptodrvContext);
-  if (ECODE_OK != status)
+  if (0 != status)
     return status;
   
   CRYPTODRV_EnterCriticalRegion(pCryptodrvContext);
   aesdrvBlockCipherPrepare(pAesdrvContext, key, iv, keyWidth, instrCode, ioMode);
   CRYPTODRV_ExitCriticalRegion(pCryptodrvContext);
-
-#if defined(MBEDTLS_INCLUDE_ASYNCH_API)
-  /* If asynchronous non-blocking mode, register completion callback */
-  if (pAsynchContext)
-  {
-    pAsynchContext->pInitialVector = iv;
-    CRYPTODRV_EnterCriticalRegion(pCryptodrvContext);
-    CRYPTODRV_SetAsynchCallback (pCryptodrvContext,
-                                 aesdrvAsynchCallback, pAesdrvContext);
-    CRYPTODRV_ExitCriticalRegion(pCryptodrvContext);
-  }
-#endif /* #if defined(MBEDTLS_INCLUDE_ASYNCH_API) */
 
   if (ioMode == aesdrvIoModeCore)
   {
@@ -850,24 +679,17 @@ static Ecode_t aesdrvBlockCipher
     retval = aesdrvProcessLoopHW(pAesdrvContext);
   }
 
-  /* Release CRYPTO if blocking mode. */
-#if defined(MBEDTLS_INCLUDE_ASYNCH_API)
-  if (0 == pAsynchContext)
-#endif /* #if defined(MBEDTLS_INCLUDE_ASYNCH_API) */
+  /* If the 'iv' pointer is set, read last iv value. */
+  if (iv)
   {
-    /* If the 'iv' pointer is set, read last iv value. */
-    if (iv)
-    {
-      CRYPTODRV_EnterCriticalRegion(pCryptodrvContext);
-      CRYPTODRV_DataReadUnaligned(&crypto->DATA1, iv);
-      CRYPTODRV_ExitCriticalRegion(pCryptodrvContext);
-    }
-
-    status = CRYPTODRV_Release(pCryptodrvContext);
-    if (ECODE_OK != status)
-      retval = status;
+    CRYPTODRV_EnterCriticalRegion(pCryptodrvContext);
+    CRYPTODRV_DataReadUnaligned(&crypto->DATA1, iv);
+    CRYPTODRV_ExitCriticalRegion(pCryptodrvContext);
   }
   
+  status = CRYPTODRV_Release(pCryptodrvContext);
+  if (0 != status)
+    retval = status;
   return retval;
 }
 
@@ -932,9 +754,7 @@ static void aesdrvBlockCipherPrepare
 
 /***************************************************************************//**
  * @brief
- *   Function setups hw I/O mode (BUFC or DMA) and setup sequence length in
- *   CRYPTO. In case of DMA channels are configured and in case of BUFC buffer
- *   is setup.
+ *   Function setups hw I/O mode (DMA) and setup sequence length in CRYPTO.
  *
  * @param[in] len
  *   Number of bytes to process.
@@ -976,7 +796,7 @@ static void aesdrvBlockCipherHwSetup
  *
  * @return Error code
  ******************************************************************************/
-static inline Ecode_t aesdrvProcessLoopMCU
+static inline int aesdrvProcessLoopMCU
 (
  AESDRV_Context_t* pAesdrvContext,
  uint32_t          len,
@@ -986,48 +806,27 @@ static inline Ecode_t aesdrvProcessLoopMCU
 {
   CRYPTODRV_Context_t* pCryptodrvContext = &pAesdrvContext->cryptodrvContext;
   CRYPTO_TypeDef*      crypto            = pCryptodrvContext->device->crypto;
-#if defined(MBEDTLS_INCLUDE_ASYNCH_API)
-  AESDRV_BlockCipherAsynchContext_t* pAsynchContext =
-    (AESDRV_BlockCipherAsynchContext_t*) pAesdrvContext->pAsynchContext;
   
-  if (pAsynchContext)
+  len /= AES_BLOCKSIZE;
+  while (len--)
   {
-    pAsynchContext->remainingBlocks = len / AES_BLOCKSIZE;
-    pAsynchContext->pBlockIn        = (uint32_t*)in;
-    pAsynchContext->pBlockOut       = (uint32_t*)out;
-
     CRYPTODRV_EnterCriticalRegion(pCryptodrvContext);
-
+    crypto->SEQCTRL = 16 << _CRYPTO_SEQCTRL_LENGTHA_SHIFT;
+    
     /* Load data and trigger encryption */
     CRYPTODRV_DataWriteUnaligned(&crypto->DATA0, in);
-
+    
     CRYPTO_InstructionSequenceExecute(crypto);
+    
+    /* Save encrypted/decrypted data */
+    CRYPTODRV_DataReadUnaligned(&crypto->DATA2, out);
+    
+    CRYPTODRV_ExitCriticalRegion(pCryptodrvContext);
+    
+    out += 16;
+    in  += 16;
   }
-  else
-#endif /* #if defined(MBEDTLS_INCLUDE_ASYNCH_API) */
-  {
-    len /= AES_BLOCKSIZE;
-    while (len--)
-    {
-      CRYPTODRV_EnterCriticalRegion(pCryptodrvContext);
-      crypto->SEQCTRL = 16 << _CRYPTO_SEQCTRL_LENGTHA_SHIFT;
-      
-      /* Load data and trigger encryption */
-      CRYPTODRV_DataWriteUnaligned(&crypto->DATA0, in);
-      
-      CRYPTO_InstructionSequenceExecute(crypto);
-      
-      /* Save encrypted/decrypted data */
-      CRYPTODRV_DataReadUnaligned(&crypto->DATA2, out);
-      
-      CRYPTODRV_ExitCriticalRegion(pCryptodrvContext);
-
-      out += 16;
-      in  += 16;
-    }
-
-  }
-  return ECODE_OK;
+  return 0;
 }
 
 /***************************************************************************//**
@@ -1037,39 +836,28 @@ static inline Ecode_t aesdrvProcessLoopMCU
  * @details
  *   Please refer to general comments on layout and byte ordering of parameters.
  *   Function is processing requested number of blocks. Data transfers are
- *   handled by BUFC or DMA.
+ *   handled by DMA.
  *
  * @return Error code
  ******************************************************************************/
-static inline Ecode_t aesdrvProcessLoopHW
+static inline int aesdrvProcessLoopHW
 (
  AESDRV_Context_t*     pAesdrvContext
  )
 {
-  CRYPTODRV_Context_t* pCryptodrvContext = &pAesdrvContext->cryptodrvContext;
-  CRYPTO_TypeDef*      crypto            = pCryptodrvContext->device->crypto;
-#if defined(MBEDTLS_INCLUDE_ASYNCH_API)
-  AESDRV_BlockCipherAsynchContext_t* pAsynchContext =
-    (AESDRV_BlockCipherAsynchContext_t*) pAesdrvContext->pAsynchContext;
-  
-  if (pAsynchContext)
-  {
-    pAsynchContext->remainingBlocks = 0;
-  }
-#endif /* #if defined(MBEDTLS_INCLUDE_ASYNCH_API) */
+  CRYPTODRV_Context_t* pCryptodrvContext  = &pAesdrvContext->cryptodrvContext;
+  CRYPTO_TypeDef*      crypto             = pCryptodrvContext->device->crypto;
+  int                  ret                = 0;
 
   CRYPTODRV_EnterCriticalRegion(pCryptodrvContext);
   
   CRYPTO_InstructionSequenceExecute(crypto);
 
-#if defined(MBEDTLS_INCLUDE_ASYNCH_API)
-  if (0 == pAsynchContext)
-#endif /* #if defined(MBEDTLS_INCLUDE_ASYNCH_API) */
-  {
-    CRYPTO_InstructionSequenceWait(crypto);
-    CRYPTODRV_ExitCriticalRegion(pCryptodrvContext);
-  }
-  return ECODE_OK;
+  CRYPTO_InstructionSequenceWait(crypto);
+    
+  CRYPTODRV_ExitCriticalRegion(pCryptodrvContext);
+  
+  return ( ret );
 }
 
 #endif /* #if defined(CRYPTO_COUNT) && (CRYPTO_COUNT > 0) */

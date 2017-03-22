@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file rtcdriver.c
  * @brief RTCDRV timer API implementation.
- * @version 5.0.0
+ * @version 5.1.2
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -201,7 +201,7 @@ static RTCC_CCChConf_TypeDef initRTCCCompareChannel =
 #endif
 
 // default to LFXO unless specifically directed to use LFRCO
-#if defined(RTCDRV_USE_LFRCO)
+#if defined(EMDRV_RTCDRV_USE_LFRCO)
   #define RTCDRV_OSC cmuSelect_LFRCO
 #else
   #define RTCDRV_OSC cmuSelect_LFXO
@@ -232,7 +232,7 @@ Ecode_t RTCDRV_AllocateTimer( RTCDRV_TimerID_t *id )
 {
   CORE_DECLARE_IRQ_STATE;
   int i      = 0;
-  int retVal = 0;
+  Ecode_t retVal = 0;
 
   CORE_ENTER_ATOMIC();
   // Iterate through the table of the timers until the first available.
@@ -1154,8 +1154,8 @@ static void rescheduleRtc( uint32_t rtcCnt )
   To configure RTCDRV, provide your own configuration file. Here is a
   sample @ref rtcdrv_config.h file:
   @verbatim
-#ifndef __SILICON_LABS_RTCDRV_CONFIG_H__
-#define __SILICON_LABS_RTCDRV_CONFIG_H__
+#ifndef SILICON_LABS_RTCDRV_CONFIG_H
+#define SILICON_LABS_RTCDRV_CONFIG_H
 
 // Define how many timers RTCDRV provide.
 #define EMDRV_RTCDRV_NUM_TIMERS     (4)
@@ -1165,6 +1165,9 @@ static void rescheduleRtc( uint32_t rtcCnt )
 
 // Uncomment the following line to enable integration with SLEEP driver.
 //#define EMDRV_RTCDRV_SLEEPDRV_INTEGRATION
+
+// Uncomment the following line to let RTCDRV clock on LFRCO, default is LFXO.
+//#define EMDRV_RTCDRV_USE_LFRCO
 
 #endif
   @endverbatim

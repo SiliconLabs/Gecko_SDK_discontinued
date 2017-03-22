@@ -1,0 +1,108 @@
+
+/** @brief Button0 Pressed Short
+ *
+ * This function returns the number of times a button was short pressed.
+ *
+ * @param timePressedMs Time (in ms) button 0 was pressed  Ver.: always
+ */
+void emberAfPluginButtonInterfaceButton0PressedShortCallback(uint16_t timePressedMs)
+{
+
+}
+
+/** @brief Button1 Pressed Short
+ *
+ * This function returns the number of times a button was short pressed.
+ *
+ * @param timePressedMs Time (in ms) button 1 was pressed  Ver.: always
+ */
+void emberAfPluginButtonInterfaceButton1PressedShortCallback(uint16_t timePressedMs)
+{
+
+}
+
+/** @brief Button0 Pressed Long
+ *
+ * This function returns the number of times a button was short pressed.
+ *
+ * @param timePressedMs Amount of time button 0 was pressed.  Ver.: always
+ * @param pressedAtReset Was the button pressed at startup.  Ver.: always
+ */
+void emberAfPluginButtonInterfaceButton0PressedLongCallback(uint16_t timePressedMs,
+                                                            bool pressedAtReset)
+{
+
+}
+
+/** @brief Button1 Pressed Long
+ *
+ * This function returns the number of times a button was short pressed.
+ *
+ * @param timePressedMs Amount of time button 1 was pressed.  Ver.: always
+ * @param pressedAtReset Was the button pressed at startup.  Ver.: always
+ */
+void emberAfPluginButtonInterfaceButton1PressedLongCallback(uint16_t timePressedMs,
+                                                            bool pressedAtReset)
+{
+
+}
+
+/** @brief Button0 Pressing
+ *
+ * This function is periodically called when button 0 is being pressed.
+ *
+ */
+void emberAfPluginButtonInterfaceButton0PressingCallback(void)
+{
+
+}
+
+/** @brief Button1 Pressing
+ *
+ * This function is periodically called when button 1 is being pressed.
+ *
+ */
+void emberAfPluginButtonInterfaceButton1PressingCallback(void)
+{
+
+}
+
+/** @brief Button0 Low
+ *
+ * This function is called when the GPIO tied to button zero goes low
+ *
+ */
+void emberAfPluginButtonInterfaceButton0LowCallback(void)
+{
+
+}
+
+/** @brief Button0 High
+ *
+ * This function is called when the GPIO tied to button zero goes high
+ *
+ */
+void emberAfPluginButtonInterfaceButton0HighCallback(void)
+{
+
+}
+
+/** @brief Button1 Low
+ *
+ * This function is called when the GPIO tied to button one goes low
+ *
+ */
+void emberAfPluginButtonInterfaceButton1LowCallback(void)
+{
+
+}
+
+/** @brief Button1 High
+ *
+ * This function is called when the GPIO tied to button one goes high
+ *
+ */
+void emberAfPluginButtonInterfaceButton1HighCallback(void)
+{
+
+}

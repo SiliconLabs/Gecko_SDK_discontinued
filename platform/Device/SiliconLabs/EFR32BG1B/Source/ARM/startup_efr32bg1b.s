@@ -2,7 +2,7 @@
 ; * @file startup_efr32bg1b.s
 ; * @brief    CMSIS Core Device Startup File for
 ; *           Silicon Labs EFR32BG1B Device Series
-; * @version 5.0.0
+; * @version 5.1.2
 ; * @date     03. February 2012
 ; *
 ; * @note

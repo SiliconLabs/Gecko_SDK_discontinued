@@ -40,4 +40,9 @@
  * the next bit with a probability larger than 1/2 in an output sequence.
  *
  * This module can be used to generate random numbers.
+ *
+ * @section rng_sl_trng Silicon Labs True Random Number Generator Plugin
+ *
+ * This plugin is available on Silicon Labs devices with TRNG hardware. 
+ * See the plugin documentation @ref sl_crypto_trng for more information.
  */

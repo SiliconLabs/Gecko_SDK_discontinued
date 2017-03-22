@@ -1,0 +1,12 @@
+#include PLATFORM_HEADER
+
+/**
+ * @brief The SPI Protocol calls halNcpIsAwakeIsr() once the wakeup
+ * handshaking is complete and the NCP is ready to accept a command.
+ *
+ * @param isAwake  true if the wake handshake completed and the NCP is awake.
+ * false is the wake handshake failed and the NCP is unresponsive.
+ */
+void halNcpIsAwakeIsr(bool isAwake)
+{
+}

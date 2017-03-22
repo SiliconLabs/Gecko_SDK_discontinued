@@ -19,6 +19,8 @@
 #include "dmdif_ssd2119_ebi.h"
 #include "bsp.h"
 
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
+
 /* Local function prototypes */
 static EMSTATUS setNextReg(uint8_t reg);
 
@@ -201,4 +203,4 @@ static EMSTATUS setNextReg(uint8_t reg)
   return DMD_OK;
 }
 
-
+/** @endcond */

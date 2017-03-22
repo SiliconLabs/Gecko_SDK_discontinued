@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="DK3750_ucos2" boardCompatibility="brd3600a" partCompatibility=".*efm32gg990f1024.*" toolchainCompatibility="" contentRoot="../">
+  <module id="com.silabs.sdk.exx32.board">
+    <exclude pattern=".*" />
+  </module>
+  <includePath uri="../../../../util/third_party/micrium/Ports/CMSIS/IAR" />
+  <includePath uri="../../../../util/third_party/micrium/Ports/CMSIS/GCC" />
+  <includePath uri="." />
+  <module id="com.silabs.sdk.exx32.common.CMSIS">
+    <exclude pattern=".*" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.emlib">
+    <include pattern="emlib/em_assert.c" />
+    <include pattern="emlib/em_cmu.c" />
+    <include pattern="emlib/em_core.c" />
+    <include pattern="emlib/em_emu.c" />
+    <include pattern="emlib/em_ebi.c" />
+    <include pattern="emlib/em_gpio.c" />
+    <include pattern="emlib/em_system.c" />
+    <include pattern="emlib/em_usart.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.bsp">
+    <include pattern="BSP/bsp_dk_3201.c" />
+    <include pattern="BSP/bsp_dk_leds.c" />
+    <include pattern="BSP/bsp_trace.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.common.drivers">
+    <include pattern="Drivers/retargettft.c" />
+    <include pattern="Drivers/retargetio.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.part">
+    <include pattern="CMSIS/.*/startup_.*_.*.s" />
+    <include pattern="CMSIS/.*/system_.*.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.glib">
+    <include pattern="Graphics/dmd_ssd2119_16bit.c" />
+    <include pattern="Graphics/dmdif_ssd2119_ebi16.c" />
+  </module>
+  <module id="com.silabs.sdk.exx32.external.uCos2">
+    <include pattern="uC-CPU.*/cpu_core.c" />
+    <include pattern="uC-CPU.*/cpu_c.c" />
+    <include pattern="uC-CPU.*/cpu_a.asm" />
+    <include pattern="uC-CPU.*/cpu_a.s" />
+    <include pattern="uC-LIB.*/lib_mem_a.asm" />
+    <include pattern="uC-LIB.*/lib_mem_a.s" />
+    <include pattern="uCOS-II.*/ucos_ii.c" />
+    <include pattern="uCOS-II.*/os_dbg.c" />
+    <include pattern="uCOS-II.*/os_cpu_c.c" />
+    <include pattern="uCOS-II.*/os_cpu_a.asm" />
+    <include pattern="uCOS-II.*/os_cpu_a.s" />
+  </module>
+  <includePath uri="src/bsp" />
+  <includePath uri="src/app" />
+  <folder name="APP">
+    <file name="app.c" uri="src/app/app.c" />
+    <file name="app_hooks.c" uri="src/app/app_hooks.c" />
+    <file name="app_task_one.c" uri="src/app/app_task_one.c" />
+    <file name="app_task_two.c" uri="src/app/app_task_two.c" />
+    <file name="app_task_three.c" uri="src/app/app_task_three.c" />
+  </folder>
+  <folder name="BSP">
+    <file name="bsp-uart.c" uri="src/bsp/bsp-uart.c" />
+  </folder>
+  <folder name="CMSIS">
+    <file name="cmsis_wrapper.s" uri="../../../../util/third_party/micrium/Ports/CMSIS/GCC/cmsis_wrapper.s" />
+    <file name="cmsis_wrapper.s" uri="../../../../util/third_party/micrium/Ports/CMSIS/IAR/cmsis_wrapper.s" toolchainCompatibility="com.silabs.ss.tool.ide.arm.toolchain.iar" />
+  </folder>
+</project>

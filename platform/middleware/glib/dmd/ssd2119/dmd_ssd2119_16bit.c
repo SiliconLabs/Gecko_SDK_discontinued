@@ -1,5 +1,5 @@
  /*************************************************************************//**
- * @file dmd_ssd2119.c
+ * @file dmd_ssd2119_16bit.c
  * @brief Dot matrix display driver for LCD controller SSD2119
  ******************************************************************************
  * @section License
@@ -12,7 +12,6 @@
  *
  ******************************************************************************/
 
-
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -20,6 +19,8 @@
 #include "dmd_ssd2119.h"
 #include "dmd_ssd2119_registers.h"
 #include "dmdif_ssd2119_ebi.h"
+
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
 
 /** Dimensions of the display */
 DMD_DisplayGeometry dimensions;
@@ -201,10 +202,10 @@ EMSTATUS DMD_init(DMD_InitConfig* initConfig)
 }
 
 /**************************************************************************//**
-*  \brief
+*  @brief
 *  Get the dimensions of the display and of the current clipping area
 *
-*  \return
+*  @return
 *  DMD_Dimensions structure containing the size of the display and the
 *  clipping area
 ******************************************************************************/
@@ -350,8 +351,7 @@ EMSTATUS DMD_writeData(uint16_t x, uint16_t y, const uint8_t data[],
 
   /* Number of pixels from the first pixel (given by x and y) to the end
    * of the clipping area */
-  clipRemaining = (dimensions.clipHeight - y - 1) * dimensions.clipWidth +
-                  dimensions.clipWidth - x;
+  clipRemaining = (dimensions.clipHeight - y) * dimensions.clipWidth - x;
 
   /* Check that the length of data isn't longer than the number of pixels
    * in the rest of the clipping area */
@@ -582,8 +582,8 @@ EMSTATUS DMD_readData(uint16_t x, uint16_t y,
 
   /* Number of pixels from the first pixel (given by x and y) to the end
    * of the clipping area */
-  clipRemaining = (dimensions.clipHeight - y - 1) * dimensions.clipWidth +
-                  dimensions.clipWidth - x;
+  clipRemaining = (dimensions.clipHeight - y) * dimensions.clipWidth - x;
+
   /* Check that the length of data isn't longer than the number of pixels
    * in the rest of the clipping area */
   if (numPixels > clipRemaining)
@@ -650,10 +650,9 @@ EMSTATUS DMD_readData(uint16_t x, uint16_t y,
 *  @return
 *  DMD_OK on success, otherwise error code
 ******************************************************************************/
-EMSTATUS DMD_writeColor(uint16_t x, uint16_t y, uint8_t red,
-                        uint8_t green, uint8_t blue, uint32_t numPixels)
+EMSTATUS DMD_writeColor(uint16_t x, uint16_t y, 
+                        uint8_t red, uint8_t green, uint8_t blue, uint32_t numPixels)
 {
-
    uint32_t clipRemaining;
    uint32_t statusCode;
    uint32_t color;
@@ -670,9 +669,8 @@ EMSTATUS DMD_writeColor(uint16_t x, uint16_t y, uint8_t red,
 
    /* Number of pixels from the first pixel (given by x and y) to the end
     * of the clipping area */
-   clipRemaining = (dimensions.clipHeight - y - 1) * dimensions.clipWidth +
-      dimensions.clipWidth - x;
-
+   clipRemaining = (dimensions.clipHeight - y) * dimensions.clipWidth - x;
+   
    /* Check that the length of data isn't longer than the number of pixels
     * in the rest of the clipping area */
    if (numPixels > clipRemaining){
@@ -825,8 +823,8 @@ static void colorTransform16To24bpp(uint32_t color, uint8_t *red,
 *  @return
 *  Returns DMD_OK is successful, error otherwise.
 ******************************************************************************/
-EMSTATUS DMD_flipDisplay(int horizontal, int vertical){
-
+EMSTATUS DMD_flipDisplay(int horizontal, int vertical)
+{
   uint16_t reg;
 
   reg = rcDriverOutputControl;
@@ -841,5 +839,6 @@ EMSTATUS DMD_flipDisplay(int horizontal, int vertical){
   DMDIF_writeReg(DMD_SSD2119_DRIVER_OUTPUT_CONTROL, rcDriverOutputControl);
 
   return DMD_OK;
-
 }
+
+/** @endcond */

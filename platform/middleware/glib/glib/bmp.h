@@ -25,6 +25,12 @@
 
 #include "bmp_conf.h"
 
+/***************************************************************************//**
+ * @addtogroup glib
+ * @{
+ ******************************************************************************/
+
+/** BMP base error code */
 #define ECODE_BMP_BASE    0x00000000
 
 /* Error codes */
@@ -57,20 +63,23 @@
 /** Bmp palette is not read */
 #define BMP_ERROR_PALETTE_NOT_READ          (ECODE_BMP_BASE | 0x0030)
 
-/* Palette size in bytes */
+/** Palette size in bytes */
 #define BMP_PALETTE_8BIT_SIZE               (256 * 4)
+/** BMP Header Size in bytes */
 #define BMP_HEADER_SIZE                     (54)
+/** BMP Local cache limit */
 #define BMP_LOCAL_CACHE_LIMIT               (3)
 
+/** Use RLE8 compression */
 #define RLE8_COMPRESSION                    (1)
+/** Use no compression */
 #define NO_COMPRESSION                      (0)
 
+/** BMP Local cache size */
 #define BMP_LOCAL_CACHE_SIZE                (BMP_CONFIG_LOCAL_CACHE_SIZE)
 
-/** @struct __BMP_Header
- *  @brief BMP Module header structure. Must be packed to exact 54 bytes.
+/** @brief BMP Module header structure. Must be packed to exact 54 bytes.
  */
-
 #if defined ( __GNUC__ )
 struct __BMP_Header
 #else
@@ -117,8 +126,7 @@ __packed struct __BMP_Header
 
 typedef struct __BMP_Header   BMP_Header;
 
-/** @struct __BMP_Palette
- *  @brief BMP palette structure to hold palette pointer and size
+/** @brief BMP palette structure to hold palette pointer and size
  */
 typedef struct __BMP_Palette
 {
@@ -128,8 +136,7 @@ typedef struct __BMP_Palette
   uint32_t size;
 } BMP_Palette;
 
-/** @struct __BMP_DataType
- *  @brief BMP Data type structure to hold information about the bmp data returned
+/** @brief BMP Data type structure to hold information about the bmp data returned
  */
 typedef struct __BMP_DataType
 {
@@ -158,5 +165,7 @@ int32_t BMP_getCompressionType(void);
 int32_t BMP_getImageDataSize(void);
 int32_t BMP_getDataOffset(void);
 int32_t BMP_getFileSize(void);
+
+/** @} (end addtogroup glib) */
 
 #endif /* __BMP_H_ */

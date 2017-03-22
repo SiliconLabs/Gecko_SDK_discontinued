@@ -1,0 +1,340 @@
+###############################################################################
+#
+# IAR ELF Linker V7.80.2.11947/W32 for ARM                09/Mar/2017  19:54:31
+# Copyright 2007-2016 IAR Systems AB.
+#
+#    Output file  =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\leuart\iar\leuart\Debug\Exe\leuart.out
+#    Map file     =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\leuart\iar\leuart\Debug\List\leuart.map
+#    Command line =  
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\leuart\iar\leuart\Debug\Obj\dmactrl.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\leuart\iar\leuart\Debug\Obj\em_assert.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\leuart\iar\leuart\Debug\Obj\em_cmu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\leuart\iar\leuart\Debug\Obj\em_dma.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\leuart\iar\leuart\Debug\Obj\em_emu.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\leuart\iar\leuart\Debug\Obj\em_gpio.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\leuart\iar\leuart\Debug\Obj\em_leuart.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\leuart\iar\leuart\Debug\Obj\em_system.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\leuart\iar\leuart\Debug\Obj\main.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\leuart\iar\leuart\Debug\Obj\startup_efm32gg.o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\leuart\iar\leuart\Debug\Obj\system_efm32gg.o
+#        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\leuart\iar\leuart\Debug\Exe\leuart.out
+#        --map
+#        D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\leuart\iar\leuart\Debug\List\leuart.map
+#        --config
+#        T:\iar_ew_7802_win32_rel_1\arm\config\linker\SiliconLaboratories\EFM32GG990F1024.icf
+#        --entry __iar_program_start --vfe
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at 0x00000000 { ro section .intvec };
+"P1":  place in [from 0x00000000 to 0x000fffff] { ro };
+"P2":  place in [from 0x20000000 to 0x2001ffff] { rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+ { section .intvec };
+
+  Section            Kind        Address    Size  Object
+  -------            ----        -------    ----  ------
+"A0":                                       0xdc
+  .intvec            ro code  0x00000000    0xdc  startup_efm32gg.o [1]
+                            - 0x000000dc    0xdc
+
+"P1":                                     0x206c
+  .text              ro code  0x000000dc   0xde4  em_cmu.o [1]
+  .text              ro code  0x00000ec0     0x2  em_assert.o [1]
+  .text              ro code  0x00000ec4   0x138  system_efm32gg.o [1]
+  .text              ro code  0x00000ffc   0x4b0  em_dma.o [1]
+  .text              ro code  0x000014ac   0x2b0  em_gpio.o [1]
+  .text              ro code  0x0000175c   0x1d0  em_emu.o [1]
+  .text              ro code  0x0000192c   0x18a  main.o [1]
+  .text              ro code  0x00001ab8    0x60  em_system.o [1]
+  .text              ro code  0x00001b18    0x56  ABImemcpy_unaligned.o [4]
+  .text              ro code  0x00001b70   0x170  em_leuart.o [1]
+  .rodata            const    0x00001ce0    0x84  em_cmu.o [1]
+  .rodata            const    0x00001d64    0x84  em_gpio.o [1]
+  .rodata            const    0x00001de8    0x4c  em_cmu.o [1]
+  .rodata            const    0x00001e34    0x4c  em_dma.o [1]
+  .rodata            const    0x00001e80    0x4c  em_gpio.o [1]
+  .rodata            const    0x00001ecc    0x4c  em_leuart.o [1]
+  .rodata            const    0x00001f18    0x4c  em_system.o [1]
+  .text              ro code  0x00001f64    0x40  zero_init3.o [4]
+  .text              ro code  0x00001fa4    0x2c  copy_init3.o [4]
+  .text              ro code  0x00001fd0    0x28  data_init.o [4]
+  .iar.init_table    const    0x00001ff8    0x24  - Linker created -
+  .text              ro code  0x0000201c    0x1a  cmain.o [4]
+  .text              ro code  0x00002036     0x4  low_level_init.o [3]
+  .text              ro code  0x0000203a     0x4  exit.o [3]
+  .text              ro code  0x00002040     0xa  cexit.o [4]
+  .text              ro code  0x0000204c     0xc  XXexit.o [4]
+  .rodata            const    0x00002058    0x10  main.o [1]
+  .text              ro code  0x00002068    0x10  startup_efm32gg.o [1]
+  .text              ro code  0x00002078     0xc  cstartup_M.o [4]
+  Initializer bytes  const    0x00002084     0x8  <for P2-1>
+  .text              ro code  0x0000208c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002090     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002094     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002098     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000209c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020a0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020a4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020a8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020ac     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020b0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020b4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020b8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020bc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020c0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020c4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020c8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020cc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020d0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020d4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020d8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020dc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020e0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020e4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020e8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020ec     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020f0     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020f4     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020f8     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x000020fc     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002100     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002104     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002108     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000210c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002110     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002114     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002118     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000211c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002120     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002124     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002128     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000212c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002130     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002134     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002138     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x0000213c     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002140     0x4  startup_efm32gg.o [1]
+  .text              ro code  0x00002144     0x4  startup_efm32gg.o [1]
+  .rodata            const    0x00002148     0x0  zero_init3.o [4]
+  .rodata            const    0x00002148     0x0  copy_init3.o [4]
+                            - 0x00002148  0x206c
+
+"P2", part 1 of 3:                           0x8
+  P2-1                        0x20000000     0x8  <Init block>
+    .data            inited   0x20000000     0x4  system_efm32gg.o [1]
+    .data            inited   0x20000004     0x4  system_efm32gg.o [1]
+                            - 0x20000008     0x8
+
+"P2", part 2 of 3:                         0x400
+  CSTACK                      0x20000008   0x400  <Block>
+    CSTACK           uninit   0x20000008   0x400  <Block tail>
+                            - 0x20000408   0x400
+
+"P2", part 3 of 3:                         0x20c
+  .bss               zero     0x20000500   0x200  dmactrl.o [1]
+  .bss               zero     0x20000700     0x4  em_emu.o [1]
+  .bss               zero     0x20000704     0x4  system_efm32gg.o [1]
+  .bss               zero     0x20000708     0x1  em_emu.o [1]
+                            - 0x20000709   0x209
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x209:
+          0x20000500  0x209
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0x8:
+          0x00002084    0x8
+    1 destination range, total size 0x8:
+          0x20000000    0x8
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                 ro code  ro data  rw data
+    ------                 -------  -------  -------
+D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\leuart\iar\leuart\Debug\Obj: [1]
+    dmactrl.o                                    512
+    em_assert.o                  2
+    em_cmu.o                 3 556      208
+    em_dma.o                 1 200       76
+    em_emu.o                   464                 5
+    em_gpio.o                  688      208
+    em_leuart.o                368       76
+    em_system.o                 96       76
+    main.o                     394       16
+    startup_efm32gg.o          424
+    system_efm32gg.o           312        8       12
+    ------------------------------------------------
+    Total:                   7 504      668      529
+
+command line: [2]
+    ------------------------------------------------
+    Total:
+
+dl7M_tln.a: [3]
+    exit.o                       4
+    low_level_init.o             4
+    ------------------------------------------------
+    Total:                       8
+
+rt7M_tl.a: [4]
+    ABImemcpy_unaligned.o       86
+    XXexit.o                    12
+    cexit.o                     10
+    cmain.o                     26
+    copy_init3.o                44
+    cstartup_M.o                12
+    data_init.o                 40
+    zero_init3.o                64
+    ------------------------------------------------
+    Total:                     294
+
+    Gaps                        10
+    Linker created                       36    1 024
+----------------------------------------------------
+    Grand Total:             7 816      704    1 553
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+.iar.init_table$$Base   0x00001ff8          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x0000201c          --   Gb  - Linker created -
+?main                   0x0000201d         Code  Gb  cmain.o [4]
+BUS_RegBitRead          0x000000eb   0x10  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x000000dd    0xe  Code  Lc  em_cmu.o [1]
+BUS_RegBitWrite         0x0000103f    0xe  Code  Lc  em_dma.o [1]
+CHIP_Init               0x00001937   0x30  Code  Lc  main.o [1]
+CMU_ClockDivSet         0x000004b7  0x294  Code  Gb  em_cmu.o [1]
+CMU_ClockEnable         0x0000074b   0xa6  Code  Gb  em_cmu.o [1]
+CMU_ClockFreqGet        0x00000805  0x188  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectGet      0x000009c9  0x134  Code  Gb  em_cmu.o [1]
+CMU_ClockSelectSet      0x00000b21  0x292  Code  Gb  em_cmu.o [1]
+CMU_DivToLog2           0x000000fb   0x28  Code  Lc  em_cmu.o [1]
+CMU_Lock                0x00001765    0xa  Code  Lc  em_emu.o [1]
+CMU_OscillatorEnable    0x00000de9   0x9c  Code  Gb  em_cmu.o [1]
+CMU_Unlock              0x0000176f    0xc  Code  Lc  em_emu.o [1]
+CSTACK$$Base            0x20000008          --   Gb  - Linker created -
+CSTACK$$Limit           0x20000408          --   Gb  - Linker created -
+DMA_ActivateBasic       0x000011eb   0x5e  Code  Gb  em_dma.o [1]
+DMA_CfgChannel          0x00001249   0x88  Code  Gb  em_dma.o [1]
+DMA_CfgDescr            0x000012d1   0x6a  Code  Gb  em_dma.o [1]
+DMA_CfgLoop             0x0000133b   0x54  Code  Gb  em_dma.o [1]
+DMA_IRQHandler          0x0000113d   0xae  Code  Gb  em_dma.o [1]
+DMA_Init                0x0000138f   0x56  Code  Gb  em_dma.o [1]
+DMA_Prepare             0x0000104d   0xf0  Code  Lc  em_dma.o [1]
+DMA_Reset               0x000013e5   0x5e  Code  Gb  em_dma.o [1]
+EMU_EnterEM2            0x00001887   0x6c  Code  Gb  em_emu.o [1]
+GPIO_PinModeSet         0x00001601  0x14e  Code  Gb  em_gpio.o [1]
+GPIO_PinOutClear        0x000014ad   0xaa  Code  Lc  em_gpio.o [1]
+GPIO_PinOutSet          0x00001557   0xaa  Code  Lc  em_gpio.o [1]
+GetProdRev              0x00000ec5    0xa  Code  Lc  system_efm32gg.o [1]
+LEUART_BaudrateSet      0x00001b7f   0x7a  Code  Gb  em_leuart.o [1]
+LEUART_Enable           0x00001bf9   0x38  Code  Gb  em_leuart.o [1]
+LEUART_FreezeEnable     0x00001c31   0x18  Code  Gb  em_leuart.o [1]
+LEUART_Init             0x00001c49   0x5c  Code  Gb  em_leuart.o [1]
+LEUART_RxDmaInEM2Enable
+                        0x00001cb9   0x28  Code  Gb  em_leuart.o [1]
+LEUART_Sync             0x00001b71    0xe  Code  Lc  em_leuart.o [1]
+NVIC_ClearPendingIRQ    0x00001029   0x16  Code  Lc  em_dma.o [1]
+NVIC_DisableIRQ         0x00001013   0x16  Code  Lc  em_dma.o [1]
+NVIC_EnableIRQ          0x00000ffd   0x16  Code  Lc  em_dma.o [1]
+Region$$Table$$Base     0x00001ff8          --   Gb  - Linker created -
+Region$$Table$$Limit    0x0000201c          --   Gb  - Linker created -
+SYSTEM_ChipRevisionGet  0x00001ab9   0x4a  Code  Gb  em_system.o [1]
+SYSTEM_GetFamily        0x0000012f    0xc  Code  Lc  em_cmu.o [1]
+SYSTEM_GetProdRev       0x00000123    0xc  Code  Lc  em_cmu.o [1]
+SYSTEM_GetProdRev       0x0000192d    0xa  Code  Lc  main.o [1]
+SystemCoreClock         0x20000704    0x4  Data  Gb  system_efm32gg.o [1]
+SystemCoreClockGet      0x00000ecf   0x1a  Code  Gb  system_efm32gg.o [1]
+SystemCoreClockUpdate   0x0000175d    0x8  Code  Lc  em_emu.o [1]
+SystemHFClockGet        0x00000eed   0xb2  Code  Gb  system_efm32gg.o [1]
+SystemHFXOClock         0x20000000    0x4  Data  Lc  system_efm32gg.o [1]
+SystemHFXOClockGet      0x00000f9f    0x6  Code  Gb  system_efm32gg.o [1]
+SystemInit              0x00000fa5    0x2  Code  Gb  system_efm32gg.o [1]
+SystemLFRCOClockGet     0x00000fa7    0x6  Code  Gb  system_efm32gg.o [1]
+SystemLFXOClock         0x20000004    0x4  Data  Lc  system_efm32gg.o [1]
+SystemLFXOClockGet      0x00000fb3    0x6  Code  Gb  system_efm32gg.o [1]
+SystemMaxCoreClockGet   0x00000ee9    0x4  Code  Gb  system_efm32gg.o [1]
+SystemULFRCOClockGet    0x00000fad    0x6  Code  Gb  system_efm32gg.o [1]
+__Vectors               0x00000000          --   Gb  startup_efm32gg.o [1]
+__Vectors_End           0x000000dc         Data  Gb  startup_efm32gg.o [1]
+__Vectors_Size {Abs}    0x000000dc          --   Gb  startup_efm32gg.o [1]
+__cmain                 0x0000201d         Code  Gb  cmain.o [4]
+__exit                  0x0000204d         Code  Gb  XXexit.o [4]
+__iar_copy_init3        0x00001fa5   0x2c  Code  Gb  copy_init3.o [4]
+__iar_data_init3        0x00001fd1   0x28  Code  Gb  data_init.o [4]
+__iar_program_start     0x00002079         Code  Gb  cstartup_M.o [4]
+__iar_unaligned___aeabi_memcpy4
+                        0x00001b19         Code  Gb  ABImemcpy_unaligned.o [4]
+__iar_unaligned___aeabi_memcpy8
+                        0x00001b19         Code  Gb  ABImemcpy_unaligned.o [4]
+__iar_zero_init3        0x00001f65   0x40  Code  Gb  zero_init3.o [4]
+__low_level_init        0x00002037    0x4  Code  Gb  low_level_init.o [3]
+__vector_table          0x00000000         Data  Gb  startup_efm32gg.o [1]
+__vector_table_0x1c     0x0000001c         Data  Gb  startup_efm32gg.o [1]
+_call_main              0x00002029         Code  Gb  cmain.o [4]
+_exit                   0x00002041         Code  Gb  cexit.o [4]
+_main                   0x00002033         Code  Gb  cmain.o [4]
+assertEFM               0x00000ec1    0x2  Code  Gb  em_assert.o [1]
+auxClkGet               0x000001f1   0x94  Code  Lc  em_cmu.o [1]
+dbgClkGet               0x00000285   0x3c  Code  Lc  em_cmu.o [1]
+dmaControlBlock         0x20000500  0x200  Data  Gb  dmactrl.o [1]
+emState                 0x0000177b   0xcc  Code  Lc  em_emu.o [1]
+emState::cmuStatus      0x20000700    0x4  Data  Lc  em_emu.o [1]
+emState::hfClock        0x20000708    0x1  Data  Lc  em_emu.o [1]
+exit                    0x0000203b    0x4  Code  Gb  exit.o [3]
+flashWaitStateControl   0x000002c1   0xa2  Code  Lc  em_cmu.o [1]
+flashWaitStateMax       0x00000363    0xc  Code  Lc  em_cmu.o [1]
+getErrataFixEmuE107En   0x00001847   0x40  Code  Lc  em_emu.o [1]
+getHfLeConfig           0x000001c5   0x2c  Code  Lc  em_cmu.o [1]
+lfClkGet                0x0000036f   0xf4  Code  Lc  em_cmu.o [1]
+main                    0x00001aa1   0x16  Code  Gb  main.o [1]
+maxFreqHfle             0x0000013b   0x60  Code  Lc  em_cmu.o [1]
+setHfLeConfig           0x0000019b   0x2a  Code  Lc  em_cmu.o [1]
+setupDma                0x000019e5   0x86  Code  Gb  main.o [1]
+setupLeuart             0x00001967   0x7e  Code  Gb  main.o [1]
+syncReg                 0x00000463   0x16  Code  Lc  em_cmu.o [1]
+usbCClkGet              0x00000479   0x3e  Code  Lc  em_cmu.o [1]
+
+
+[1] = D:\jenkins-slave\workspaces\Executor-0\super\app\mcu_example\EFM32GG_STK3700\leuart\iar\leuart\Debug\Obj
+[2] = command line
+[3] = dl7M_tln.a
+[4] = rt7M_tl.a
+
+  7 816 bytes of readonly  code memory
+    704 bytes of readonly  data memory
+  1 553 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

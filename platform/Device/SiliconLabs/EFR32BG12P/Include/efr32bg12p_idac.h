@@ -1,10 +1,10 @@
 /**************************************************************************//**
  * @file efr32bg12p_idac.h
  * @brief EFR32BG12P_IDAC register and bit field definitions
- * @version 5.0.0
+ * @version 5.1.2
  ******************************************************************************
  * @section License
- * <b>Copyright 2016 Silicon Laboratories, Inc. http://www.silabs.com</b>
+ * <b>Copyright 2017 Silicon Laboratories, Inc. http://www.silabs.com</b>
  ******************************************************************************
  *
  * Permission is granted to anyone to use this software for any purpose,
@@ -43,7 +43,7 @@ typedef struct
   __IOM uint32_t CTRL;          /**< Control Register  */
   __IOM uint32_t CURPROG;       /**< Current Programming Register  */
   uint32_t       RESERVED0[1];  /**< Reserved for future use **/
-  __IOM uint32_t DUTYCONFIG;    /**< Duty Cycle Configauration Register  */
+  __IOM uint32_t DUTYCONFIG;    /**< Duty Cycle Configuration Register  */
 
   uint32_t       RESERVED1[2];  /**< Reserved for future use **/
   __IM uint32_t  STATUS;        /**< Status Register  */

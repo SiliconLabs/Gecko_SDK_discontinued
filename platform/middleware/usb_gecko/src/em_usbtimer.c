@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file em_usbtimer.c
  * @brief USB protocol stack library, timer API.
- * @version 5.0.0
+ * @version 5.1.2
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2014 Silicon Labs, http://www.silabs.com</b>
@@ -99,7 +99,9 @@ void TIMER_IRQHandler( void )
   if ( flags & TIMER_IF_CC0 )
   {
     TIMER_IntClear( TIMER, TIMER_IFC_CC0 );
-    TIMER_CompareSet( TIMER, 0, TIMER_CaptureGet( TIMER, 0 ) + ticksPrMs );
+    TIMER_CompareSet(TIMER, 0,
+                     (TIMER_CaptureGet(TIMER, 0) + ticksPrMs)
+                     & TIMER_MaxCount(TIMER));
     TimerTick();
   }
 }

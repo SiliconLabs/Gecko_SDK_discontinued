@@ -21,6 +21,8 @@
 #include "dmd_ssd2119_registers.h"
 #include "dmdif_ssd2119_ebi.h"
 
+/** @cond DO_NOT_INCLUDE_WITH_DOXYGEN */
+
 /** Dimensions of the display */
 DMD_DisplayGeometry dimensions;
 
@@ -324,8 +326,7 @@ EMSTATUS DMD_writeData(uint16_t x, uint16_t y, const uint8_t data[],
 
   /* Number of pixels from the first pixel (given by x and y) to the end
    * of the clipping area */
-  clipRemaining = (dimensions.clipHeight - y - 1) * dimensions.clipWidth +
-                  dimensions.clipWidth - x;
+  clipRemaining = (dimensions.clipHeight - y) * dimensions.clipWidth - x;
 
   /* Check that the length of data isn't longer than the number of pixels
    * in the rest of the clipping area */
@@ -386,8 +387,8 @@ EMSTATUS DMD_readData(uint16_t x, uint16_t y,
 
   /* Number of pixels from the first pixel (given by x and y) to the end
    * of the clipping area */
-  clipRemaining = (dimensions.clipHeight - y - 1) * dimensions.clipWidth +
-                  dimensions.clipWidth - x;
+  clipRemaining = (dimensions.clipHeight - y) * dimensions.clipWidth - x;
+
   /* Check that the length of data isn't longer than the number of pixels
    * in the rest of the clipping area */
   if (numPixels > clipRemaining)
@@ -476,8 +477,7 @@ EMSTATUS DMD_writeColor(uint16_t x, uint16_t y, uint8_t red,
 
   /* Number of pixels from the first pixel (given by x and y) to the end
    * of the clipping area */
-  clipRemaining = (dimensions.clipHeight - y - 1) * dimensions.clipWidth +
-                  dimensions.clipWidth - x;
+  clipRemaining = (dimensions.clipHeight - y) * dimensions.clipWidth - x;
 
   /* Check that the length of data isn't longer than the number of pixels
    * in the rest of the clipping area */
@@ -677,3 +677,5 @@ EMSTATUS DMD_flipDisplay(int horizontal, int vertical)
 
   return DMD_OK;
 }
+
+/** @endcond */

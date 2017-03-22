@@ -1,7 +1,7 @@
 /***************************************************************************//**
  * @file sleep.h
  * @brief Energy Modes management driver
- * @version 5.0.0
+ * @version 5.1.2
  * @details
  * This is a energy modes management module consisting of sleep.c and sleep.h
  * source files. The main purpose of the module is to ease energy

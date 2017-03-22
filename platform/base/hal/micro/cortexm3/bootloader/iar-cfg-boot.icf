@@ -1,0 +1,73 @@
+// IAR V5 ILINK linker configuration file for bootloaders.
+//
+// Copyright 2009 by Ember Corporation. All rights reserved.                *80*
+
+//=============================================================================
+// Setup.
+
+// Determine the size of the bootloader if not specified
+if( !isdefinedsymbol(BTL_SIZE) ) {
+  define symbol BTL_SIZE = DEFAULT_BTL_SIZE;
+}
+
+//=============================================================================
+// Flash placement.
+
+// Note: The bootloader does not support interrupts, so it does not include any
+// interrupt vector table definitions other than what is included in the BAT.
+
+// Define a region and block for containing the bootloader RO sections
+// The Bootloader image lives at the bottom of the flash.  The BTL_SIZE 
+// definition is passed in from the project definitions.
+define symbol BOOTRO_BOTTOM          = MFB_BOTTOM;
+define symbol BOOTRO_TOP             = MFB_BOTTOM + (BTL_SIZE-1);
+define region BOOTRO_region          = mem:[from BOOTRO_BOTTOM to BOOTRO_TOP];
+define block BOOTRO_block with fixed order { ro section BAT, 
+                                             ro section .textrw_init, 
+                                             ro section .text, 
+                                             ro section .rodata, 
+                                             ro section .data_init };
+"APP ro": place at start of BOOTRO_region { block BOOTRO_block };
+
+define symbol STORAGE_BOTTOM         = BOOTRO_TOP + 1;
+define symbol STORAGE_TOP            = MFB_TOP;
+define region STORAGE_region         = mem:[from STORAGE_BOTTOM to STORAGE_TOP];
+"Internal Storage": place at end of STORAGE_region {zi section INTERNAL_STORAGE};
+
+if ( !isdefinedsymbol(NO_FIB) )
+{
+  // The FAT lives at a fixed address within the FIB
+  "FAT": place at address mem:FIB_BOTTOM { section FAT };
+}
+
+// The AAT will live immediately after the end of the bootloader
+define symbol AAT_BOTTOM              = BOOTRO_TOP + 1;
+"AAT": place at address mem:AAT_BOTTOM { section AAT };
+
+//=============================================================================
+// RAM placement.
+
+// Define the call stack and reset info sections so that they overlay on top
+// of each other.  The reset info is used to store reset/crash information and
+// bootloader parameters across resets.  It is overlaid across the bottom of the
+// call stack to avoid always dedicating RAM for this purpose even though it is
+// only used just before and just after a software reset.
+define overlay CSTACK_overlay { rw section CSTACK };
+define overlay CSTACK_overlay { rw section RESETINFO };
+
+//Do not include the intializer tables or IAR init library code for any RW.
+do not initialize { rw };
+//But, .data and .textrw will be manually initialized so include init tables
+// for them.
+initialize manually { section .data, section .textrw };
+
+// Define a region and block for containing the bootloader RW sections
+define symbol BOOTRW_BOTTOM      = RAM_BOTTOM;
+define symbol BOOTRW_TOP         = RAM_TOP-32; // Stay away from the debug channel
+define region BOOTRW_region      = mem:[from BOOTRW_BOTTOM to BOOTRW_TOP];
+define block BOOTRW_block with fixed order { overlay CSTACK_overlay,
+                                             rw section .textrw,
+                                             rw section .data,
+                                             rw section .bss };
+"BOOT rw": place at start of BOOTRW_region { block BOOTRW_block };
+
