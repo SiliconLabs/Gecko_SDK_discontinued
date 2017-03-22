@@ -923,7 +923,11 @@ void RTCC_IRQHandler(void)
 
   // Acknowledge all RTC interrupts that are enabled which aren't processed
   // below to prevent looping in the IRQ handler if these become enabled
+#if defined( EMDRV_RTCDRV_WALLCLOCK_CONFIG )
   RTC_INTCLEAR(flags & ~(RTC_COMP_INT | RTC_OF_INT));
+#else
+  RTC_INTCLEAR(flags & ~RTC_COMP_INT);
+#endif
 
   if ( flags & RTC_COMP_INT ) {
 
