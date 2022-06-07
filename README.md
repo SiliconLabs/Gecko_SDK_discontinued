@@ -1,7 +1,7 @@
 Gecko SDK
 =========
 
-The Gecko SDK Github repository has been discontinued. Download [Simplicity Studio](http://www.silabs.com/simplicity) and use the **Update Software** button in the **Launcher** view to access the latest and previous SDK versions.
+This Gecko SDK Github repository has been discontinued. Updated versions of the SDK can be found here: https://github.com/SiliconLabs/gecko_sdk. Alternatively, download [Simplicity Studio](http://www.silabs.com/simplicity) and use the **Update Software** button in the **Launcher** view to access the latest and previous SDK versions.
 
 Documentation
 -------------
